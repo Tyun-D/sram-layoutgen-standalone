@@ -1,0 +1,279 @@
+{
+  "version": 2,
+  "description": "Replacement-ready macro contracts. Entries are real FreePDK45/OpenRAM-style GDS macros only; do not register hand-drawn fallback standard cells for signoff.",
+  "macros": [
+    {
+      "name": "gen_col_mux",
+      "role": "replacement_macro",
+      "width": 0.8175,
+      "height": 1.8800000000000001,
+      "gds": "gds_lib/openram_replacements/gen_col_mux.gds",
+      "spice": null,
+      "pins": [
+        {
+          "name": "BL",
+          "layer": "m2",
+          "x": 0.175,
+          "y": 1.73,
+          "use": "SIGNAL"
+        },
+        {
+          "name": "BR",
+          "layer": "m2",
+          "x": 0.6,
+          "y": 1.73,
+          "use": "SIGNAL"
+        },
+        {
+          "name": "OUT",
+          "layer": "m2",
+          "x": 0.175,
+          "y": 0.07,
+          "use": "SIGNAL"
+        },
+        {
+          "name": "OUTB",
+          "layer": "m2",
+          "x": 0.6,
+          "y": 0.07,
+          "use": "SIGNAL"
+        },
+        {
+          "name": "SEL",
+          "layer": "poly",
+          "x": 0.3525,
+          "y": 0.0525,
+          "use": "SIGNAL"
+        },
+        {
+          "name": "gnd",
+          "layer": "m1",
+          "x": 0.705,
+          "y": 0.87,
+          "use": "GROUND"
+        }
+      ],
+      "source": {
+        "kind": "openram_extracted_replacement_gds",
+        "source_gds": "technology/freepdk45/gds_lib/openram_replacements/gen_col_mux.gds"
+      }
+    },
+    {
+      "name": "gen_delay_inv",
+      "role": "replacement_macro",
+      "width": 0.8225,
+      "height": 2.585,
+      "gds": "gds_lib/openram_replacements/gen_delay_inv.gds",
+      "spice": null,
+      "pins": [
+        {
+          "name": "A",
+          "layer": "m1",
+          "x": 0.14,
+          "y": 1.19,
+          "use": "SIGNAL"
+        },
+        {
+          "name": "Z",
+          "layer": "m1",
+          "x": 0.3725,
+          "y": 1.19,
+          "use": "SIGNAL"
+        },
+        {
+          "name": "gnd",
+          "layer": "m1",
+          "x": 0.345,
+          "y": 0.0,
+          "use": "GROUND"
+        },
+        {
+          "name": "vdd",
+          "layer": "m1",
+          "x": 0.345,
+          "y": 2.47,
+          "use": "POWER"
+        }
+      ],
+      "source": {
+        "kind": "openram_extracted_replacement_gds",
+        "source_gds": "technology/freepdk45/gds_lib/openram_replacements/gen_delay_inv.gds"
+      }
+    },
+    {
+      "name": "gen_inv",
+      "role": "replacement_macro",
+      "width": 0.8225,
+      "height": 1.48,
+      "gds": "gds_lib/openram_replacements/gen_inv.gds",
+      "spice": null,
+      "pins": [
+        {
+          "name": "A",
+          "layer": "m1",
+          "x": 0.14,
+          "y": 0.6375,
+          "use": "SIGNAL"
+        },
+        {
+          "name": "Z",
+          "layer": "m1",
+          "x": 0.3725,
+          "y": 0.6375,
+          "use": "SIGNAL"
+        },
+        {
+          "name": "gnd",
+          "layer": "m1",
+          "x": 0.345,
+          "y": 0.0,
+          "use": "GROUND"
+        },
+        {
+          "name": "vdd",
+          "layer": "m1",
+          "x": 0.345,
+          "y": 1.365,
+          "use": "POWER"
+        }
+      ],
+      "source": {
+        "kind": "openram_extracted_replacement_gds",
+        "source_gds": "technology/freepdk45/gds_lib/openram_replacements/gen_inv.gds"
+      }
+    },
+    {
+      "name": "gen_nand2",
+      "role": "replacement_macro",
+      "width": 1.0375,
+      "height": 1.48,
+      "gds": "gds_lib/openram_replacements/gen_nand2.gds",
+      "spice": null,
+      "pins": [
+        {
+          "name": "A",
+          "layer": "m1",
+          "x": 0.2325,
+          "y": 0.4275,
+          "use": "SIGNAL"
+        },
+        {
+          "name": "B",
+          "layer": "m1",
+          "x": 0.4475,
+          "y": 0.7075,
+          "use": "SIGNAL"
+        },
+        {
+          "name": "Z",
+          "layer": "m1",
+          "x": 0.685,
+          "y": 0.94,
+          "use": "SIGNAL"
+        },
+        {
+          "name": "gnd",
+          "layer": "m1",
+          "x": 0.45,
+          "y": 0.0,
+          "use": "GROUND"
+        },
+        {
+          "name": "vdd",
+          "layer": "m1",
+          "x": 0.45,
+          "y": 1.365,
+          "use": "POWER"
+        }
+      ],
+      "source": {
+        "kind": "openram_extracted_replacement_gds",
+        "source_gds": "technology/freepdk45/gds_lib/openram_replacements/gen_nand2.gds"
+      }
+    },
+    {
+      "name": "gen_precharge",
+      "role": "replacement_macro",
+      "width": 0.7849999999999999,
+      "height": 1.4200000000000002,
+      "gds": "gds_lib/openram_replacements/gen_precharge.gds",
+      "spice": null,
+      "pins": [
+        {
+          "name": "BL",
+          "layer": "m2",
+          "x": 0.14,
+          "y": 0.67,
+          "use": "SIGNAL"
+        },
+        {
+          "name": "BR",
+          "layer": "m2",
+          "x": 0.565,
+          "y": 0.67,
+          "use": "SIGNAL"
+        },
+        {
+          "name": "EN",
+          "layer": "m1",
+          "x": 0.3525,
+          "y": -0.0125,
+          "use": "SIGNAL"
+        },
+        {
+          "name": "vdd",
+          "layer": "m1",
+          "x": 0.3725,
+          "y": 1.185,
+          "use": "POWER"
+        }
+      ],
+      "source": {
+        "kind": "openram_extracted_replacement_gds",
+        "source_gds": "technology/freepdk45/gds_lib/openram_replacements/gen_precharge.gds"
+      }
+    },
+    {
+      "name": "gen_wl_driver",
+      "role": "replacement_macro",
+      "width": 3.045,
+      "height": 1.505,
+      "gds": "gds_lib/openram_replacements/gen_wl_driver.gds",
+      "spice": null,
+      "pins": [
+        {
+          "name": "A",
+          "layer": "m1",
+          "x": 0.2325,
+          "y": 0.4275,
+          "use": "SIGNAL"
+        },
+        {
+          "name": "Z",
+          "layer": "m1",
+          "x": 1.855,
+          "y": 0.6225,
+          "use": "SIGNAL"
+        },
+        {
+          "name": "gnd",
+          "layer": "m1",
+          "x": 1.4825,
+          "y": 0.0,
+          "use": "GROUND"
+        },
+        {
+          "name": "vdd",
+          "layer": "m1",
+          "x": 1.4825,
+          "y": 1.365,
+          "use": "POWER"
+        }
+      ],
+      "source": {
+        "kind": "openram_extracted_replacement_gds",
+        "source_gds": "technology/freepdk45/gds_lib/openram_replacements/gen_wl_driver.gds"
+      }
+    }
+  ]
+}
