@@ -13,6 +13,7 @@ from .gds_util import inspect_gds_hierarchy, inspect_gds_layers, inspect_gds_tex
 from .geometry import CellArray, Instance, LayoutDB, Point, Rect, Shape
 from .lef_writer import LEFWriter
 from .netlist_writer import NetlistWriter
+from .occupancy import analyze_floorplan_occupancy, write_occupancy_svg
 from .openram_placement import array_mirror, placed_bbox_from_openram_origin
 from .stdcell import add_generated_cell, generated_cell_pins, generated_instance_pins
 from .tech import Tech
@@ -95,7 +96,8 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     row_logic_keepout = strict_macro_spacing
     control_array_keepout = strict_macro_spacing
     replica_bitline_keepout = strict_macro_spacing
-    margin = 1.2
+    perimeter_pin_w = 0.16
+    perimeter_pin_h = 0.50
     addr_bits = max(1, (spec.num_words - 1).bit_length())
     row_addr_bits = max(1, (rows - 1).bit_length())
     col_addr_bits = max(0, (wpr - 1).bit_length())
@@ -135,6 +137,12 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     def snap_up(value: float) -> float:
         grid = tech.manufacturing_grid
         return math.ceil((value - 1e-12) / grid) * grid
+
+    power_ring_width = 0.20
+    boundary_margin = snap_up(max(
+        strict_macro_spacing,
+        power_ring_width + tech.layer("m4").min_space + tech.manufacturing_grid,
+    ))
 
     def required_pitch_gap(layer_name: str, conservative_well: bool = False) -> float:
         layer = tech.layer(layer_name)
@@ -311,14 +319,8 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     column_hard_w = (spec.word_size - 1) * column_pitch + column_cell_w
     column_array_w = max(array_w, column_hard_w, column_macro_w)
     column_h = sense.height + gap + write_driver.height + gap + tri_gate.height
-    data_cols = min(spec.word_size, max(1, math.floor((column_hard_w + control_dff_pitch_x) / max(control_dff_pitch_x, 0.1))))
-    while data_cols > 1 and (data_cols - 1) * control_dff_pitch_x + dff.width > column_hard_w + 1e-9:
-        data_cols -= 1
-    data_rows = math.ceil(spec.word_size / data_cols)
-    data_w = (data_cols - 1) * control_dff_pitch_x + dff.width
-    data_h = (data_rows - 1) * dff_row_pitch + dff.height
 
-    x_control = margin
+    x_control = boundary_margin
     x_decoder = x_control + control_w + gap
     x_dummy_left = x_decoder + decoder_w + gap
     x_array = x_dummy_left + left_dummy_to_array_delta
@@ -331,7 +333,140 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         x_replica_precharge + tech.cell("gen_precharge").width,
         x_array + column_array_w,
     )
-    y_data = margin
+
+    row_decode_to_driver_delta_x = legal_origin_delta_x(row_decode_cell, "gen_wl_driver") + row_decode_to_driver_gap
+    folded_pair_step_x = (
+        row_decode_to_driver_delta_x
+        + legal_origin_delta_x("gen_wl_driver", row_decode_cell)
+        + strict_macro_spacing
+    )
+
+    def row_logic_plan(
+        candidate_y_array: float,
+        candidate_y_precharge: float,
+        candidate_macro_w: float,
+        enable_folding: bool = True,
+    ) -> dict[str, object]:
+        precharge_clear_y0 = candidate_y_precharge + precharge_h + strict_macro_spacing
+        folded_start: int | None = None
+        if enable_folding:
+            for row in range(rows):
+                mirror = "MX" if row % 2 else "R0"
+                origin_y = candidate_y_array + row * row_logic_pitch
+                driver_y0 = placed_bbox_from_openram_origin(tech.cell("gen_wl_driver"), 0.0, origin_y, mirror).y0
+                if driver_y0 >= precharge_clear_y0 - 1e-9:
+                    folded_start = row
+                    break
+        folded_rows = list(range(folded_start, rows)) if folded_start is not None else []
+        fold_origin_x0 = x_array - tech.cell(row_decode_cell).bbox_x0
+        fold_right_limit = candidate_macro_w - boundary_margin
+        lanes = max(1, int((fold_right_limit - fold_origin_x0) // max(folded_pair_step_x, tech.manufacturing_grid)) + 1)
+        positions: dict[int, dict[str, float | int | bool | str]] = {}
+        top = candidate_y_array
+        right = x_decoder
+        for row in range(rows):
+            mirror = "MX" if row % 2 else "R0"
+            if row in folded_rows:
+                lane = folded_rows.index(row) % lanes
+                band = folded_rows.index(row) // lanes
+                driver_target_y0 = precharge_clear_y0 + band * row_logic_pitch
+                origin_y = origin_y_for_bbox_y0("gen_wl_driver", driver_target_y0, mirror)
+                decoder_x = fold_origin_x0 + lane * folded_pair_step_x
+            else:
+                lane = 0
+                band = 0
+                origin_y = candidate_y_array + row * row_logic_pitch
+                decoder_x = x_decoder
+            driver_x = abutted_origin_x(decoder_x, row_decode_cell, "gen_wl_driver", row_decode_to_driver_gap)
+            decoder_rect = placed_bbox_from_openram_origin(tech.cell(row_decode_cell), decoder_x, origin_y, mirror)
+            driver_rect = placed_bbox_from_openram_origin(tech.cell("gen_wl_driver"), driver_x, origin_y, mirror)
+            top = max(top, decoder_rect.y1, driver_rect.y1)
+            right = max(right, decoder_rect.x1, driver_rect.x1)
+            positions[row] = {
+                "decoder_x": decoder_x,
+                "driver_x": driver_x,
+                "origin_y": origin_y,
+                "folded": row in folded_rows,
+                "lane": lane,
+                "band": band,
+                "mirror": mirror,
+            }
+        return {
+            "strategy": (
+                "fold top row drivers into occupancy gaps above precharge"
+                if enable_folding and folded_rows
+                else "linear row drivers"
+            ),
+            "enabled": enable_folding and bool(folded_rows),
+            "folded_rows": folded_rows,
+            "folded_row_count": len(folded_rows),
+            "lanes": lanes,
+            "top_um": top,
+            "right_um": right,
+            "positions": positions,
+        }
+
+    def data_dff_dimensions(candidate_cols: int) -> tuple[int, float, float]:
+        candidate_cols = max(1, min(spec.word_size, candidate_cols))
+        candidate_rows = math.ceil(spec.word_size / candidate_cols)
+        candidate_w = (candidate_cols - 1) * control_dff_pitch_x + dff.width
+        candidate_h = (candidate_rows - 1) * dff_row_pitch + dff.height
+        return candidate_rows, candidate_w, candidate_h
+
+    def score_data_dff_columns(candidate_cols: int) -> dict[str, object]:
+        candidate_rows, candidate_w, candidate_h = data_dff_dimensions(candidate_cols)
+        candidate_y_data = boundary_margin
+        candidate_y_column = candidate_y_data + candidate_h + gap
+        candidate_y_mux = candidate_y_column + column_h + gap
+        candidate_y_array = candidate_y_mux + mux_h + gap
+        candidate_y_array_top = candidate_y_array + lower_array_h + bank_channel_h + upper_array_h
+        candidate_y_precharge = candidate_y_array_top + gap
+        candidate_w_total = max(x_array + max(array_w, column_array_w, candidate_w), x_right_edge) + boundary_margin
+        variants = []
+        for enable_folding in (False, True):
+            candidate_row_logic_plan = row_logic_plan(candidate_y_array, candidate_y_precharge, candidate_w_total, enable_folding)
+            variant_w_total = max(candidate_w_total, float(candidate_row_logic_plan["right_um"]) + boundary_margin)
+            candidate_y_row_logic_top = float(candidate_row_logic_plan["top_um"])
+            candidate_h_total = max(
+                candidate_y_precharge + precharge_h + boundary_margin,
+                candidate_y_row_logic_top + boundary_margin,
+                candidate_y_data + control_h + module_stack_gap + control_glue_h + module_stack_gap + col_select_h + module_stack_gap + delay_chain_h + boundary_margin,
+            )
+            variants.append({
+                "columns": candidate_cols,
+                "rows": candidate_rows,
+                "data_width_um": round(candidate_w, 6),
+                "data_height_um": round(candidate_h, 6),
+                "macro_width_um": round(variant_w_total, 6),
+                "macro_height_um": round(candidate_h_total, 6),
+                "macro_area_um2": round(variant_w_total * candidate_h_total, 6),
+                "row_logic_folding_enabled": candidate_row_logic_plan["enabled"],
+                "folded_row_count": candidate_row_logic_plan["folded_row_count"],
+            })
+        return min(
+            variants,
+            key=lambda item: (
+                float(item["macro_area_um2"]),
+                float(item["macro_height_um"]),
+                float(item["macro_width_um"]),
+                int(item["columns"]),
+            ),
+        )
+
+    data_packing_candidates = [score_data_dff_columns(cols_) for cols_ in range(1, spec.word_size + 1)]
+    best_data_packing = min(
+        data_packing_candidates,
+        key=lambda item: (
+            float(item["macro_area_um2"]),
+            float(item["macro_height_um"]),
+            float(item["macro_width_um"]),
+            int(item["columns"]),
+        ),
+    )
+    data_cols = int(best_data_packing["columns"])
+    data_rows, data_w, data_h = data_dff_dimensions(data_cols)
+
+    y_data = boundary_margin
     y_column = y_data + data_h + gap
     y_mux = y_column + column_h + gap
     y_array = y_mux + mux_h + gap
@@ -345,18 +480,25 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     # row it drives, and the top-left void is reduced without overlapping the
     # lower control/data periphery.
     y_row_logic = y_array_lower
-    y_row_logic_top = y_row_logic + row_logic_h
     # OpenRAM anchors data-side circuitry to the bitcell array edge. A tall
     # decoder/wordline-driver stack may extend above the array on the left,
     # but it must not force the column-side precharge row upward because the
     # two regions are separated in X.
     y_precharge = y_array_top + gap
 
-    macro_w = max(x_array + max(array_w, column_array_w, data_w), x_right_edge) + margin
+    macro_w = max(x_array + max(array_w, column_array_w, data_w), x_right_edge) + boundary_margin
+    selected_row_logic_plan = row_logic_plan(
+        y_row_logic,
+        y_precharge,
+        macro_w,
+        bool(best_data_packing.get("row_logic_folding_enabled")),
+    )
+    macro_w = max(macro_w, float(selected_row_logic_plan["right_um"]) + boundary_margin)
+    y_row_logic_top = float(selected_row_logic_plan["top_um"])
     macro_h = max(
-        y_precharge + precharge_h + margin,
-        y_row_logic_top + margin,
-        y_data + control_h + module_stack_gap + control_glue_h + module_stack_gap + col_select_h + module_stack_gap + delay_chain_h + margin,
+        y_precharge + precharge_h + boundary_margin,
+        y_row_logic_top + boundary_margin,
+        y_data + control_h + module_stack_gap + control_glue_h + module_stack_gap + col_select_h + module_stack_gap + delay_chain_h + boundary_margin,
     )
 
     db = LayoutDB(name)
@@ -369,6 +511,19 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         "num_rows": rows,
         "num_cols": cols,
         "bank_style": "contiguous-openram-origin-array",
+        "floorplan_compaction_strategy": "occupancy-guided compact perimeter margin",
+        "boundary_margin_um": boundary_margin,
+        "legacy_boundary_margin_um": 1.2,
+        "data_dff_packing_strategy": "global macro area search",
+        "data_dff_packing_candidates": data_packing_candidates,
+        "selected_data_dff_packing": best_data_packing,
+        "row_logic_folding": {
+            "strategy": selected_row_logic_plan["strategy"],
+            "enabled": selected_row_logic_plan["enabled"],
+            "folded_rows": selected_row_logic_plan["folded_rows"],
+            "folded_row_count": selected_row_logic_plan["folded_row_count"],
+            "lanes": selected_row_logic_plan["lanes"],
+        },
         "lower_bank_rows": lower_rows,
         "upper_bank_rows": upper_rows,
         "bank_channel_height_um": bank_channel_h,
@@ -567,7 +722,13 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         return min(entry_x, min(xs) - extension), max(xs) + extension
 
     def row_logic_y(row: int) -> float:
-        return y_row_logic + row * row_logic_pitch
+        return float(selected_row_logic_plan["positions"][row]["origin_y"])  # type: ignore[index]
+
+    def row_decoder_x(row: int) -> float:
+        return float(selected_row_logic_plan["positions"][row]["decoder_x"])  # type: ignore[index]
+
+    def row_driver_x(row: int) -> float:
+        return float(selected_row_logic_plan["positions"][row]["driver_x"])  # type: ignore[index]
 
     row_decoder_rects: list[Rect] = []
     wordline_driver_rects: list[Rect] = []
@@ -576,8 +737,9 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         wl_target_y = storage_wl_y(row)
         wl_target_x, _ = storage_wl_extent(row)
         row_mirror = "MX" if row % 2 else "R0"
-        row_decoder_rects.append(add_openram_generated_cell(f"row_decode_{row}", row_decode_cell, x_decoder, y, "row_decoder", mirror=row_mirror))
-        wl_driver_x = abutted_origin_x(x_decoder, row_decode_cell, "gen_wl_driver", row_decode_to_driver_gap)
+        row_decode_x = row_decoder_x(row)
+        row_decoder_rects.append(add_openram_generated_cell(f"row_decode_{row}", row_decode_cell, row_decode_x, y, "row_decoder", mirror=row_mirror))
+        wl_driver_x = row_driver_x(row)
         wordline_driver_rects.append(add_openram_generated_cell(
             f"wordline_driver_{row}",
             "gen_wl_driver",
@@ -587,7 +749,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
             mirror=row_mirror,
         ))
         wl_y = y + tech.cell("gen_wl_driver").height * 0.5
-        decoder_z_x = x_decoder + tech.cell(row_decode_cell).width - 0.18
+        decoder_z_x = row_decode_x + tech.cell(row_decode_cell).width - 0.18
         driver_a_x = wl_driver_x + tech.cell("gen_wl_driver").width * 0.28
         driver_z_x = wl_driver_x + tech.cell("gen_wl_driver").width - 0.18
         db.add_shape("m1", Rect(decoder_z_x, wl_y - 0.045, driver_a_x, wl_y + 0.045), "route_guide", f"wl_decode[{row}]", f"wl_decode_route_{row}")
@@ -599,7 +761,8 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
                 f"wl[{row}]",
                 f"wl_driver_jog_{row}",
             )
-        db.add_shape("m2", Rect(driver_z_x, wl_target_y - 0.07, wl_target_x, wl_target_y + 0.07), "route_guide", f"wl[{row}]", f"wl_route_{row}")
+        wl_x0, wl_x1 = sorted((driver_z_x, wl_target_x))
+        db.add_shape("m2", Rect(wl_x0, wl_target_y - 0.07, wl_x1, wl_target_y + 0.07), "route_guide", f"wl[{row}]", f"wl_route_{row}")
     db.add_shape("m2", Rect.union(row_decoder_rects), "module", name="DECODER")
     db.add_shape("m2", Rect.union(wordline_driver_rects), "module", name="WL_DRIVER")
 
@@ -724,8 +887,8 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     data_rect = Rect(x_array, y_data, x_array + data_w, y_data + data_h)
     db.add_shape("m2", data_rect, "module", name="data_dff_array")
 
-    pin_w = 0.16
-    pin_h = 0.5
+    pin_w = perimeter_pin_w
+    pin_h = perimeter_pin_h
 
     # Top-level interconnect. These are intentionally visible macro-level straps
     # that bridge the hard macros and generated peripheral cells.
@@ -798,6 +961,15 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     def pin_access(layer: str, x: float, y: float, net: str, name: str, purpose: str = "route_guide") -> None:
         width = max(route_w, tech.layer(layer).min_width)
         db.add_shape(layer, Rect(x - width / 2, y - width / 2, x + width / 2, y + width / 2), purpose, net, name)
+
+    def wordline_escape_lane_x(row: int, driver_x: float, target_x: float) -> float:
+        if bool(selected_row_logic_plan["positions"][row]["folded"]):  # type: ignore[index]
+            return tech.snap(driver_x)
+        pitch = max(route_width("m3") + tech.layer("m3").min_space, 0.21)
+        left = min(driver_x, target_x)
+        right = macro_w - boundary_margin - pitch
+        lanes = max(1, int((right - left) // pitch) + 1)
+        return tech.snap(left + (row % lanes) * pitch)
 
     def route_generated_pin_to_m3(
         pin: dict[str, object],
@@ -895,7 +1067,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
                 net = f"mux_d[{index // max(1, wpr)}]"
             else:
                 net = f"{pin_name.lower()}[{index}]"
-            pin_access(str(pin["layer"]), float(pin["x"]), float(pin["y"]), net, f"{instance.name}_{pin_name.lower()}_access")
+            pin_access(str(pin["layer"]), float(pin["x"]), float(pin["y"]), net, f"{instance.name}_{pin_name.lower()}_access", "route")
 
     for instance in [inst for inst in db.instances if inst.role == "row_decoder"]:
         row_index = int(instance.name.rsplit("_", 1)[-1]) if instance.name.rsplit("_", 1)[-1].isdigit() else -1
@@ -923,11 +1095,16 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
             net = f"wl[{row_index}]"
             wl_target_y = storage_wl_y(row_index)
             wl_rail_x0, wl_rail_x1 = storage_wl_extent(row_index)
-            wl_m2_width = via_w + 2 * via_enclosure
-            pin_access(str(drv_z["layer"]), float(drv_z["x"]), float(drv_z["y"]), net, f"{driver.name}_z_access", "route")
-            via("via1", float(drv_z["x"]), float(drv_z["y"]), net, f"{driver.name}_z_via1", "route")
-            vroute_with_width("m2", float(drv_z["x"]), float(drv_z["y"]), wl_target_y, wl_m2_width, net, f"{driver.name}_z_escape", "route")
-            hroute_with_width("m2", float(drv_z["x"]), wl_rail_x0, wl_target_y, wl_m2_width, net, f"{driver.name}_to_array", "route")
+            drv_z_x = float(drv_z["x"])
+            drv_z_y = float(drv_z["y"])
+            lane_x = wordline_escape_lane_x(row_index, drv_z_x, wl_rail_x0)
+            pin_access(str(drv_z["layer"]), drv_z_x, drv_z_y, net, f"{driver.name}_z_access", "route")
+            via("via1", drv_z_x, drv_z_y, net, f"{driver.name}_z_via1", "route")
+            via("via2", drv_z_x, drv_z_y, net, f"{driver.name}_z_via2", "route")
+            hroute("m3", drv_z_x, lane_x, drv_z_y, net, f"{driver.name}_z_to_escape_lane", "route")
+            vroute("m3", lane_x, drv_z_y, wl_target_y, net, f"{driver.name}_z_escape", "route")
+            via("via2", lane_x, wl_target_y, net, f"{driver.name}_escape_lane_via2", "route")
+            hroute("m2", lane_x, wl_rail_x0, wl_target_y, net, f"{driver.name}_to_array", "route")
             via("via1", wl_rail_x0, wl_target_y, net, f"{driver.name}_array_entry_via1", "route")
             hroute("m1", wl_rail_x0, wl_rail_x1, wl_target_y, net, f"wl_row_rail_{row_index}", "route")
 
@@ -941,7 +1118,9 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         via("via2", decoder_bus_x, y + pin_h * 0.5, net, f"addr_{i}_decoder_via")
     for row in range(rows):
         y = row_y(row) + bitcell.height * 0.35
-        hroute("m3", x_decoder, x_decoder + tech.cell(row_decode_cell).width, y, f"dec_in[{row}]", f"row_decode_input_{row}")
+        decoder = row_decoders.get(f"row_decode_{row}")
+        if decoder is not None:
+            hroute("m3", decoder.rect.x0, decoder.rect.x1, y, f"dec_in[{row}]", f"row_decode_input_{row}")
 
     # Column-select rails drive every column mux group.
     sel_source_y = control_gate_y + control_glue_h + gap + tech.cell("gen_inv").height * 0.5
@@ -1139,6 +1318,7 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
     integration_gds = out_dir / f"{name}.integration.gds"
     architecture_gds = out_dir / f"{name}.architecture.gds"
     architecture_svg = out_dir / f"{name}.architecture.svg"
+    occupancy_svg = out_dir / f"{name}.occupancy.svg"
     route_guide_gds = out_dir / f"{name}.route_guides.gds"
     lef = out_dir / f"{name}.lef"
     layout_json = out_dir / f"{name}.layout.json"
@@ -1169,6 +1349,12 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
     layout.write_json(layout_json)
     drc = Verifier(tech).run(layout)
     bounds = layout.bounds
+    boundary_margin = float(layout.metadata.get("boundary_margin_um", 0.0) or 0.0)
+    legacy_boundary_margin = float(layout.metadata.get("legacy_boundary_margin_um", boundary_margin) or boundary_margin)
+    legacy_margin_delta = max(0.0, legacy_boundary_margin - boundary_margin)
+    estimated_legacy_w = bounds.width + 2 * legacy_margin_delta
+    estimated_legacy_h = bounds.height + 2 * legacy_margin_delta
+    estimated_legacy_area = estimated_legacy_w * estimated_legacy_h
     useful = spec.word_size * spec.num_words * tech.cell("cell_1rw").area
     hardcell_arrays: dict[str, int] = {}
     for array in layout.cell_arrays:
@@ -1250,6 +1436,8 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
     openram_cell_source_audit = _audit_openram_cell_sources(tech, used_gds_cells, generated_instances, abstract_instances)
     architecture_quality = _audit_architecture(layout)
     geometry_audit = _audit_geometry(layout, tech)
+    occupancy_audit = analyze_floorplan_occupancy(layout)
+    write_occupancy_svg(occupancy_svg, occupancy_audit)
     cell_array_mirror_audit = _audit_cell_array_mirroring(layout)
     cell_array_layer_audit = _audit_cell_array_layer_abutment(tech, layout)
     structural_audit = _audit_structural_consistency(tech, layout)
@@ -1304,6 +1492,20 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
         "words_per_row": spec.resolved_words_per_row(),
         "legal_words_per_row": spec.legal_words_per_row(),
         "bank_style": layout.metadata.get("bank_style"),
+        "floorplan_compaction_strategy": layout.metadata.get("floorplan_compaction_strategy"),
+        "boundary_margin_um": boundary_margin,
+        "legacy_boundary_margin_um": legacy_boundary_margin,
+        "data_dff_packing_strategy": layout.metadata.get("data_dff_packing_strategy"),
+        "selected_data_dff_packing": layout.metadata.get("selected_data_dff_packing", {}),
+        "data_dff_packing_candidates": layout.metadata.get("data_dff_packing_candidates", []),
+        "row_logic_folding": layout.metadata.get("row_logic_folding", {}),
+        "estimated_legacy_width_um": estimated_legacy_w,
+        "estimated_legacy_height_um": estimated_legacy_h,
+        "estimated_legacy_macro_area_um2": estimated_legacy_area,
+        "estimated_compaction_area_savings_um2": estimated_legacy_area - bounds.area,
+        "estimated_compaction_area_savings_percent": (
+            (estimated_legacy_area - bounds.area) / estimated_legacy_area if estimated_legacy_area else 0.0
+        ),
         "lower_bank_rows": layout.metadata.get("lower_bank_rows"),
         "upper_bank_rows": layout.metadata.get("upper_bank_rows"),
         "bank_channel_height_um": layout.metadata.get("bank_channel_height_um"),
@@ -1340,6 +1542,7 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
         "architecture_modules": _collect_architecture_modules(layout),
         "architecture_quality": architecture_quality,
         "geometry_audit": geometry_audit,
+        "floorplan_occupancy": occupancy_audit,
         "cell_array_mirror_audit": cell_array_mirror_audit,
         "cell_array_layer_audit": cell_array_layer_audit,
         "structural_audit": structural_audit,
@@ -1365,6 +1568,7 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
         "integration_gds": str(integration_gds),
         "architecture_gds": str(architecture_gds),
         "architecture_svg": str(architecture_svg),
+        "occupancy_svg": str(occupancy_svg),
         "route_guide_gds": str(route_guide_gds),
         "lef": str(lef),
         "spice": str(spice),
@@ -1990,16 +2194,22 @@ def _audit_geometry(layout: LayoutDB, tech: Tech) -> dict[str, object]:
 
     modules = {shape.name: shape.rect for shape in layout.shapes if shape.purpose == "module" and shape.name}
     data_overhangs: list[dict[str, object]] = []
+    allowed_data_overhangs: list[dict[str, object]] = []
     data_dff = modules.get("data_dff_array")
     data_path = modules.get("SA_SWITCH_LATCH_MUX")
     if data_dff is not None and data_path is not None and data_dff.x1 > data_path.x1 + 1e-9:
-        data_overhangs.append({
+        item = {
             "module": "data_dff_array",
             "reference": "SA_SWITCH_LATCH_MUX",
             "overhang_um": round(data_dff.x1 - data_path.x1, 6),
             "module_rect": data_dff.to_dict(),
             "reference_rect": data_path.to_dict(),
-        })
+        }
+        if layout.metadata.get("data_dff_packing_strategy") == "global macro area search" and contains(pr_boundary, data_dff):
+            item["reason"] = "occupancy_guided_global_data_dff_packing"
+            allowed_data_overhangs.append(item)
+        else:
+            data_overhangs.append(item)
 
     return {
         "pr_boundary": pr_boundary.to_dict(),
@@ -2007,6 +2217,8 @@ def _audit_geometry(layout: LayoutDB, tech: Tech) -> dict[str, object]:
         "objects_outside_pr_boundary_count": len(outside),
         "data_periphery_overhangs": data_overhangs,
         "data_periphery_overhang_count": len(data_overhangs),
+        "allowed_data_periphery_overhangs": allowed_data_overhangs,
+        "allowed_data_periphery_overhang_count": len(allowed_data_overhangs),
         "cell_array_pitch_violations": cell_array_pitch_violations,
         "cell_array_pitch_violation_count": len(cell_array_pitch_violations),
         "allowed_cell_array_pitch_shortfalls": allowed_cell_array_pitch_shortfalls,
@@ -2824,6 +3036,7 @@ def _format_report_md(metrics: dict) -> str:
         f"- Integration DRC GDS: `{metrics.get('integration_gds', 'none')}`",
         f"- Architecture-view GDS: `{metrics.get('architecture_gds', 'none')}`",
         f"- Architecture SVG: `{metrics.get('architecture_svg', 'none')}`",
+        f"- Occupancy SVG: `{metrics.get('occupancy_svg', 'none')}`",
         f"- Route-guide debug GDS: `{metrics.get('route_guide_gds', 'none')}`",
         "",
         "## Hardcell usage",
@@ -2900,6 +3113,34 @@ def _format_report_md(metrics: dict) -> str:
     lines.append(f"- top-level route guides: `{completeness.get('route_guide_count', 0)}`")
     lines.extend(["", "## Banked architecture", ""])
     lines.append(f"- bank_style: `{metrics.get('bank_style', 'unknown')}`")
+    if metrics.get("floorplan_compaction_strategy"):
+        lines.append(f"- compaction strategy: `{metrics.get('floorplan_compaction_strategy')}`")
+        lines.append(
+            f"- boundary margin: `{metrics.get('boundary_margin_um')}`um "
+            f"(legacy `{metrics.get('legacy_boundary_margin_um')}`um)"
+        )
+        lines.append(
+            f"- estimated legacy size: `{float(metrics.get('estimated_legacy_width_um', 0.0)):.4f}um x "
+            f"{float(metrics.get('estimated_legacy_height_um', 0.0)):.4f}um`, "
+            f"area savings `{float(metrics.get('estimated_compaction_area_savings_um2', 0.0)):.4f}um^2` "
+            f"({float(metrics.get('estimated_compaction_area_savings_percent', 0.0)):.2%})"
+        )
+    selected_data_packing = metrics.get("selected_data_dff_packing", {})
+    if selected_data_packing:
+        lines.append(f"- data DFF packing strategy: `{metrics.get('data_dff_packing_strategy')}`")
+        lines.append(
+            f"- selected data DFF grid: `{selected_data_packing.get('columns')}` columns x "
+            f"`{selected_data_packing.get('rows')}` rows, "
+            f"estimated macro area `{float(selected_data_packing.get('macro_area_um2', 0.0)):.4f}um^2`"
+        )
+    row_folding = metrics.get("row_logic_folding", {})
+    if row_folding:
+        folded_rows = row_folding.get("folded_rows", [])
+        lines.append(f"- row-logic folding strategy: `{row_folding.get('strategy')}`")
+        lines.append(
+            f"- folded row drivers: `{', '.join(str(row) for row in folded_rows) if folded_rows else 'none'}` "
+            f"using `{row_folding.get('lanes')}` horizontal lanes"
+        )
     lines.append(f"- lower_bank_rows: `{metrics.get('lower_bank_rows', 'unknown')}`")
     lines.append(f"- upper_bank_rows: `{metrics.get('upper_bank_rows', 'unknown')}`")
     lines.append(f"- bank_channel_height_um: `{metrics.get('bank_channel_height_um', 'unknown')}`")
@@ -2915,6 +3156,7 @@ def _format_report_md(metrics: dict) -> str:
         lines.append(f"- clean: `{geometry.get('clean')}`")
         lines.append(f"- objects outside prBoundary: `{geometry.get('objects_outside_pr_boundary_count', 0)}`")
         lines.append(f"- data periphery overhangs: `{geometry.get('data_periphery_overhang_count', 0)}`")
+        lines.append(f"- allowed data periphery overhangs: `{geometry.get('allowed_data_periphery_overhang_count', 0)}`")
         lines.append(f"- cell-array pitch violations: `{geometry.get('cell_array_pitch_violation_count', 0)}`")
         lines.append(f"- placed cell bbox overlaps: `{geometry.get('placed_cell_overlap_count', 0)}`")
         lines.append(f"- generated/hardcell overlaps: `{geometry.get('generated_hardcell_overlap_count', 0)}`")
@@ -2927,6 +3169,11 @@ def _format_report_md(metrics: dict) -> str:
             lines.append(
                 f"- overhang `{item.get('module')}` beyond `{item.get('reference')}`: "
                 f"{float(item.get('overhang_um', 0.0)):.4f}um"
+            )
+        for item in geometry.get("allowed_data_periphery_overhangs", [])[:5]:
+            lines.append(
+                f"- allowed overhang `{item.get('module')}` beyond `{item.get('reference')}`: "
+                f"{float(item.get('overhang_um', 0.0)):.4f}um ({item.get('reason')})"
             )
         for item in geometry.get("cell_array_pitch_violations", [])[:5]:
             lines.append(
@@ -2945,6 +3192,45 @@ def _format_report_md(metrics: dict) -> str:
                 f"- close spacing `{item.get('generated_instance')}` to `{item.get('hardcell')}`: "
                 f"{float(item.get('spacing_um', 0.0)):.4f}um"
             )
+    occupancy = metrics.get("floorplan_occupancy", {})
+    if occupancy:
+        lines.extend(["", "## Global occupancy map", ""])
+        lines.append(f"- method: {occupancy.get('method')}")
+        lines.append(f"- occupied area: `{float(occupancy.get('occupied_area_um2', 0.0)):.4f}um^2`")
+        lines.append(f"- empty area: `{float(occupancy.get('empty_area_um2', 0.0)):.4f}um^2`")
+        lines.append(f"- occupancy ratio: `{float(occupancy.get('occupancy_ratio', 0.0)):.2%}`")
+        lines.append(f"- largest empty region: `{float(occupancy.get('largest_empty_area_um2', 0.0)):.4f}um^2`")
+        lines.append(f"- occupancy SVG: `{metrics.get('occupancy_svg', 'none')}`")
+        role_areas = occupancy.get("role_primary_area_um2", {})
+        if role_areas:
+            ranked_roles = sorted(role_areas.items(), key=lambda item: float(item[1]), reverse=True)[:10]
+            lines.append(
+                "- largest filled roles: "
+                + ", ".join(f"`{role}`={float(area):.4f}um^2" for role, area in ranked_roles)
+            )
+        for index, item in enumerate(occupancy.get("optimization_targets", [])[:6], start=1):
+            rect = item.get("rect", {})
+            nearest = item.get("nearest_filled_regions", [])
+            nearest_text = ", ".join(
+                f"`{entry.get('name')}`/{entry.get('role')}@{float(entry.get('spacing_um', 0.0)):.3f}um"
+                for entry in nearest[:3]
+            )
+            lines.append(
+                f"- empty target {index}: area={float(item.get('area_um2', 0.0)):.4f}um^2, "
+                f"rect=({float(rect.get('x0', 0.0)):.3f}, {float(rect.get('y0', 0.0)):.3f}) to "
+                f"({float(rect.get('x1', 0.0)):.3f}, {float(rect.get('y1', 0.0)):.3f}), "
+                f"nearest={nearest_text or 'none'}"
+            )
+        coarse = occupancy.get("coarse_map", {})
+        rows_text = coarse.get("rows_text", [])
+        legend = coarse.get("legend", {})
+        if rows_text:
+            lines.append("- coarse map (`.` means empty):")
+            lines.append("```text")
+            lines.extend(rows_text[:18])
+            lines.append("```")
+            legend_text = ", ".join(f"{symbol}={name}" for symbol, name in legend.items())
+            lines.append(f"- map legend: {legend_text}")
     mirror_audit = metrics.get("cell_array_mirror_audit", {})
     if mirror_audit:
         lines.extend(["", "## OpenRAM-style array mirror audit", ""])
