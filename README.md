@@ -37,8 +37,25 @@ Each run writes a set of GDS views:
 - `*.presentation.gds`: cleaner visual view without debug overlays.
 - `*.debug.gds`: richest debug view with module overlays and labels.
 - `*.route_guides.gds`: route-guide focused debug view.
+- `*.occupancy.svg`: global floorplan occupancy view. Colored rectangles show
+  semantic module regions; red dashed rectangles show the largest empty regions
+  that the compaction algorithm can treat as optimization targets.
 - `*.report.json`: machine-readable audit and signoff report.
 - `*.report.md`: readable summary.
+
+The standalone floorplan now uses the occupancy report to guide safe perimeter
+compaction: the old fixed `1.2um` boundary margin is replaced by a margin
+derived from power-ring spacing, so top/bottom/side dead space is trimmed while
+the geometry and structural audits still check for boundary containment.
+The data-DFF bank is also packed with a global macro-area search, allowing it
+to use otherwise empty right-side space when that reduces total macro height.
+For wider macros, the row decoder/wordline-driver stack can fold its top rows
+into the occupancy gaps above the precharge row; the generator compares folded
+and linear row-driver plans and keeps the smaller global macro area.
+Wordline-driver Z routes use lane-aware m3 escapes and m2 array-entry jogs so
+the compacted row-driver stack keeps DRC-lite-clean detailed wordline routes.
+Replacement macro signal pins now receive drawn route pin-access shapes, so
+the report can distinguish real route coverage from visual guide coverage.
 
 For the maintained 32x16 comparison, generate a fresh run with:
 

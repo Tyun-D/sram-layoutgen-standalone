@@ -100,6 +100,16 @@ class Verifier:
     def _same_connectivity(a: Shape, b: Shape) -> bool:
         return bool(a.net and b.net and a.net == b.net)
 
+    @staticmethod
+    def _legal_openram_physical_overlap(role_a: str, role_b: str) -> bool:
+        storage_stitch_roles = {"bitcell_array", "dummy_bitcell", "replica_bitline"}
+        replacement_stitch_roles = {"precharge", "replica_precharge", "column_mux"}
+        if role_a in storage_stitch_roles and role_b in storage_stitch_roles:
+            return True
+        if role_a in replacement_stitch_roles and role_b in replacement_stitch_roles:
+            return role_a == role_b or {role_a, role_b} == {"precharge", "replica_precharge"}
+        return False
+
     def _check_cell_overlaps(self, layout: LayoutDB, result: DRCResult) -> None:
         tolerance_area = 1e-6
         objects = []
@@ -115,6 +125,8 @@ class Verifier:
                     continue
                 overlap_area = overlap_w * overlap_h
                 if overlap_area <= tolerance_area:
+                    continue
+                if self._legal_openram_physical_overlap(role_a, role_b):
                     continue
                 result.violations.append(
                     DRCViolation(
