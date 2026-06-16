@@ -1,0 +1,5186 @@
+{
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "scan_paths": [
+    "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits",
+    "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\testbenches"
+  ],
+  "module_count": 53,
+  "contracts": [
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "SRAM_6T_CELL",
+      "canonical_module_name": "bitcell",
+      "role": "bitcell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "BL",
+          "canonical_name": "bl",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ]
+        },
+        {
+          "original_name": "BLB",
+          "canonical_name": "br",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ]
+        },
+        {
+          "original_name": "WL",
+          "canonical_name": "wl",
+          "role": "wordline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [
+        "bitcell",
+        "cell_1rw"
+      ],
+      "gds_macro_candidates": [
+        "cell_1rw",
+        "cell_6t"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [],
+      "class_name": "Sram6TCell",
+      "source_file": "sram_compiler/subcircuits/sram_6t_core.py",
+      "mos_call_count": 6,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "SRAM_10T_CELL",
+      "canonical_module_name": "bitcell_10t",
+      "role": "bitcell_10t",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "BL",
+          "canonical_name": "bl",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ]
+        },
+        {
+          "original_name": "BLB",
+          "canonical_name": "br",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ]
+        },
+        {
+          "original_name": "WL",
+          "canonical_name": "wl",
+          "role": "wordline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "Sram10TCell",
+      "source_file": "sram_compiler/subcircuits/sram_10t_core.py",
+      "mos_call_count": 10,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "SRAM_6T_CORE_*",
+      "canonical_module_name": "sram_6t_core",
+      "role": "bitcell_array",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "BL{i}",
+          "canonical_name": "bl",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ]
+        },
+        {
+          "original_name": "BLB{i}",
+          "canonical_name": "br",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ]
+        },
+        {
+          "original_name": "WL{i}",
+          "canonical_name": "wl",
+          "role": "wordline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [
+        "bitcell_array"
+      ],
+      "gds_macro_candidates": [
+        "cell_1rw_array",
+        "bitcell_array"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [
+        "This contract is hierarchical and should not map to one single flat GDS macro.",
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement."
+      ],
+      "warnings": [],
+      "class_name": "Sram6TCore",
+      "source_file": "sram_compiler/subcircuits/sram_6t_core.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 1,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "SRAM_10T_CORE_*",
+      "canonical_module_name": "sram_10t_core",
+      "role": "bitcell_array_10t",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "BL{i}",
+          "canonical_name": "bl",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ]
+        },
+        {
+          "original_name": "BLB{i}",
+          "canonical_name": "br",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ]
+        },
+        {
+          "original_name": "WL{i}",
+          "canonical_name": "wl",
+          "role": "wordline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement."
+      ],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "Sram10TCore",
+      "source_file": "sram_compiler/subcircuits/sram_10t_core.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 1,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "COLUMNMUX*",
+      "canonical_module_name": "column_mux",
+      "role": "column_mux",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "SA_IN",
+          "canonical_name": "sa_in",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "SA_IN"
+          ]
+        },
+        {
+          "original_name": "SA_INB",
+          "canonical_name": "sa_inb",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "SA_INB"
+          ]
+        },
+        {
+          "original_name": "SEL{i}",
+          "canonical_name": "sel{i}",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "SEL{i}"
+          ]
+        },
+        {
+          "original_name": "BL{i}",
+          "canonical_name": "bl",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ]
+        },
+        {
+          "original_name": "BLB{i}",
+          "canonical_name": "br",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [
+        "column_mux"
+      ],
+      "gds_macro_candidates": [
+        "gen_col_mux",
+        "column_mux"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement."
+      ],
+      "warnings": [
+        "ColumnMux: NODES are dynamic; used heuristic pin pattern ('VDD', 'VSS', 'SA_IN', 'SA_INB', 'SEL{i}', 'BL{i}', 'BLB{i}')."
+      ],
+      "class_name": "ColumnMux",
+      "source_file": "sram_compiler/subcircuits/mux_and_sa.py",
+      "mos_call_count": 6,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "ColumnMuxFactory",
+      "canonical_module_name": "column_mux",
+      "role": "column_mux",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [
+        "column_mux"
+      ],
+      "gds_macro_candidates": [
+        "gen_col_mux",
+        "column_mux"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "ColumnMuxFactory: no NAME assignment found; using class name as module name.",
+        "ColumnMuxFactory: no static or heuristic NODES found."
+      ],
+      "class_name": "ColumnMuxFactory",
+      "source_file": "sram_compiler/testbenches/parameter_factor.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "ADDR_DFF",
+      "canonical_module_name": "control_dff",
+      "role": "control_timing",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "CLK",
+          "canonical_name": "clk",
+          "role": "clock",
+          "direction": "INPUT",
+          "polarity": null,
+          "aliases": [
+            "CLK",
+            "clk0",
+            "clk"
+          ]
+        },
+        {
+          "original_name": "A{i}",
+          "canonical_name": "addr",
+          "role": "address",
+          "direction": "INPUT",
+          "polarity": null,
+          "aliases": [
+            "A{i}",
+            "A0",
+            "addr0[*]",
+            "addr"
+          ]
+        },
+        {
+          "original_name": "A_dff{i}",
+          "canonical_name": "addr_q",
+          "role": "address",
+          "direction": "OUTPUT",
+          "polarity": null,
+          "aliases": [
+            "A_dff{i}",
+            "addr_q[*]"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [
+        "control_logic",
+        "delay_chain",
+        "dff_array"
+      ],
+      "gds_macro_candidates": [
+        "dff"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [
+        "This contract is hierarchical and should not map to one single flat GDS macro.",
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement."
+      ],
+      "warnings": [
+        "ADDR_DFF: NODES are dynamic; used heuristic pin pattern ('VDD', 'VSS', 'CLK', 'A{i}', 'A_dff{i}')."
+      ],
+      "class_name": "ADDR_DFF",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 1,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "DATA_DFF",
+      "canonical_module_name": "data_dff",
+      "role": "control_timing",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "CLK",
+          "canonical_name": "clk",
+          "role": "clock",
+          "direction": "INPUT",
+          "polarity": null,
+          "aliases": [
+            "CLK",
+            "clk0",
+            "clk"
+          ]
+        },
+        {
+          "original_name": "DIN{i}",
+          "canonical_name": "din",
+          "role": "data_in",
+          "direction": "INPUT",
+          "polarity": null,
+          "aliases": [
+            "DIN",
+            "DIN{i}",
+            "din0[*]",
+            "din"
+          ]
+        },
+        {
+          "original_name": "DIN_dff{i}",
+          "canonical_name": "din_q",
+          "role": "data_in",
+          "direction": "OUTPUT",
+          "polarity": null,
+          "aliases": [
+            "DIN_dff{i}",
+            "din_q[*]"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [
+        "control_logic",
+        "delay_chain",
+        "dff_array"
+      ],
+      "gds_macro_candidates": [
+        "dff"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [
+        "This contract is hierarchical and should not map to one single flat GDS macro.",
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement."
+      ],
+      "warnings": [
+        "DATA_DFF: NODES are dynamic; used heuristic pin pattern ('VDD', 'VSS', 'CLK', 'DIN{i}', 'DIN_dff{i}')."
+      ],
+      "class_name": "DATA_DFF",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 1,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "DFF",
+      "canonical_module_name": "dff",
+      "role": "control_timing",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "D",
+          "canonical_name": "d",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "D"
+          ]
+        },
+        {
+          "original_name": "Q",
+          "canonical_name": "dout",
+          "role": "data_out",
+          "direction": "OUTPUT",
+          "polarity": null,
+          "aliases": [
+            "Q",
+            "OUT",
+            "dout0[*]",
+            "dout"
+          ]
+        },
+        {
+          "original_name": "CLK",
+          "canonical_name": "clk",
+          "role": "clock",
+          "direction": "INPUT",
+          "polarity": null,
+          "aliases": [
+            "CLK",
+            "clk0",
+            "clk"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [
+        "control_logic",
+        "delay_chain",
+        "dff_array"
+      ],
+      "gds_macro_candidates": [
+        "dff"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [
+        "This contract is hierarchical and should not map to one single flat GDS macro."
+      ],
+      "warnings": [],
+      "class_name": "dff",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 11,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "TIME",
+      "canonical_module_name": "control_logic",
+      "role": "control_timing",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "clk",
+          "canonical_name": "clk",
+          "role": "clock",
+          "direction": "INPUT",
+          "polarity": null,
+          "aliases": [
+            "CLK",
+            "clk0",
+            "clk"
+          ]
+        },
+        {
+          "original_name": "csb",
+          "canonical_name": "csb",
+          "role": "control",
+          "direction": "INPUT",
+          "polarity": "active_low",
+          "aliases": [
+            "csb0",
+            "csb"
+          ]
+        },
+        {
+          "original_name": "web",
+          "canonical_name": "web",
+          "role": "control",
+          "direction": "INPUT",
+          "polarity": "active_low",
+          "aliases": [
+            "web0",
+            "web"
+          ]
+        },
+        {
+          "original_name": "clk_buf",
+          "canonical_name": "clk_buf",
+          "role": "clock",
+          "direction": "OUTPUT",
+          "polarity": null,
+          "aliases": [
+            "clk_buf"
+          ]
+        },
+        {
+          "original_name": "clk_bar",
+          "canonical_name": "clk_bar",
+          "role": "clock",
+          "direction": "OUTPUT",
+          "polarity": "active_low",
+          "aliases": [
+            "clk_bar"
+          ]
+        },
+        {
+          "original_name": "cs_bar",
+          "canonical_name": "cs_bar",
+          "role": "signal",
+          "direction": null,
+          "polarity": "active_low",
+          "aliases": [
+            "cs_bar"
+          ]
+        },
+        {
+          "original_name": "cs",
+          "canonical_name": "cs",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "cs"
+          ]
+        },
+        {
+          "original_name": "we_bar",
+          "canonical_name": "we_bar",
+          "role": "signal",
+          "direction": null,
+          "polarity": "active_low",
+          "aliases": [
+            "we_bar"
+          ]
+        },
+        {
+          "original_name": "we",
+          "canonical_name": "we",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "we"
+          ]
+        },
+        {
+          "original_name": "gated_clk_bar",
+          "canonical_name": "gated_clk_bar",
+          "role": "signal",
+          "direction": null,
+          "polarity": "active_low",
+          "aliases": [
+            "gated_clk_bar"
+          ]
+        },
+        {
+          "original_name": "gated_clk_buf",
+          "canonical_name": "gated_clk_buf",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "gated_clk_buf"
+          ]
+        },
+        {
+          "original_name": "wl_en",
+          "canonical_name": "wordline_enable",
+          "role": "control",
+          "direction": "OUTPUT",
+          "polarity": "active_high",
+          "aliases": [
+            "wl_en"
+          ]
+        },
+        {
+          "original_name": "A{i}",
+          "canonical_name": "addr",
+          "role": "address",
+          "direction": "INPUT",
+          "polarity": null,
+          "aliases": [
+            "A{i}",
+            "A0",
+            "addr0[*]",
+            "addr"
+          ]
+        },
+        {
+          "original_name": "A_dff{i}",
+          "canonical_name": "addr_q",
+          "role": "address",
+          "direction": "OUTPUT",
+          "polarity": null,
+          "aliases": [
+            "A_dff{i}",
+            "addr_q[*]"
+          ]
+        },
+        {
+          "original_name": "DIN{i}",
+          "canonical_name": "din",
+          "role": "data_in",
+          "direction": "INPUT",
+          "polarity": null,
+          "aliases": [
+            "DIN",
+            "DIN{i}",
+            "din0[*]",
+            "din"
+          ]
+        },
+        {
+          "original_name": "DIN_dff{i}",
+          "canonical_name": "din_q",
+          "role": "data_in",
+          "direction": "OUTPUT",
+          "polarity": null,
+          "aliases": [
+            "DIN_dff{i}",
+            "din_q[*]"
+          ]
+        },
+        {
+          "original_name": "rbl",
+          "canonical_name": "rbl",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "rbl"
+          ]
+        },
+        {
+          "original_name": "rbl_delay",
+          "canonical_name": "rbl_delay",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "rbl_delay"
+          ]
+        },
+        {
+          "original_name": "rbl_delay_bar",
+          "canonical_name": "rbl_delay_bar",
+          "role": "signal",
+          "direction": null,
+          "polarity": "active_low",
+          "aliases": [
+            "rbl_delay_bar"
+          ]
+        },
+        {
+          "original_name": "s_en",
+          "canonical_name": "sense_enable",
+          "role": "control",
+          "direction": "OUTPUT",
+          "polarity": "active_high",
+          "aliases": [
+            "s_en",
+            "sense_en"
+          ]
+        },
+        {
+          "original_name": "w_en",
+          "canonical_name": "write_enable",
+          "role": "control",
+          "direction": "OUTPUT",
+          "polarity": "active_high",
+          "aliases": [
+            "w_en",
+            "write_en"
+          ]
+        },
+        {
+          "original_name": "PRE",
+          "canonical_name": "precharge_enb",
+          "role": "control",
+          "direction": "OUTPUT",
+          "polarity": "active_low",
+          "aliases": [
+            "ENB",
+            "PRE",
+            "pre",
+            "p_en_bar"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [
+        "control_logic",
+        "delay_chain",
+        "dff_array"
+      ],
+      "gds_macro_candidates": [
+        "control_glue",
+        "gen_inv",
+        "gen_nand2",
+        "gen_nor2",
+        "dff",
+        "gen_delay_inv"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [
+        "Composite control/timing module; should become architecture/control contract before placement.",
+        "This contract is hierarchical and should not map to one single flat GDS macro.",
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement."
+      ],
+      "warnings": [
+        "TIME: NODES are dynamic; used heuristic pin pattern ('VDD', 'VSS', 'clk', 'csb', 'web', 'clk_buf', 'clk_bar', 'cs_bar', 'cs', 'we_bar', 'we', 'gated_clk_bar', 'gated_clk_buf', 'wl_en', 'A{i}', 'A_dff{i}', 'DIN{i}', 'DIN_dff{i}', 'rbl', 'rbl_delay', 'rbl_delay_bar', 's_en', 'w_en', 'PRE')."
+      ],
+      "class_name": "TIME",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 17,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "delay_chain",
+      "canonical_module_name": "delay_chain",
+      "role": "control_timing",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "in",
+          "canonical_name": "in",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "in"
+          ]
+        },
+        {
+          "original_name": "out",
+          "canonical_name": "dout",
+          "role": "data_out",
+          "direction": "OUTPUT",
+          "polarity": null,
+          "aliases": [
+            "out",
+            "Q",
+            "OUT",
+            "dout0[*]",
+            "dout"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [
+        "control_logic",
+        "delay_chain",
+        "dff_array"
+      ],
+      "gds_macro_candidates": [
+        "gen_delay_inv",
+        "delay_chain"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [
+        "This contract is hierarchical and should not map to one single flat GDS macro."
+      ],
+      "warnings": [],
+      "class_name": "DelayChain",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 6,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "wen_delay_chain",
+      "canonical_module_name": "wen_delay_chain",
+      "role": "control_timing",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "in",
+          "canonical_name": "in",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "in"
+          ]
+        },
+        {
+          "original_name": "out",
+          "canonical_name": "dout",
+          "role": "data_out",
+          "direction": "OUTPUT",
+          "polarity": null,
+          "aliases": [
+            "out",
+            "Q",
+            "OUT",
+            "dout0[*]",
+            "dout"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [
+        "control_logic",
+        "delay_chain",
+        "dff_array"
+      ],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [
+        "This contract is hierarchical and should not map to one single flat GDS macro."
+      ],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "WenDelayChain",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 2,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "DECODER3_8",
+      "canonical_module_name": "decoder",
+      "role": "decoder",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "EN",
+          "canonical_name": "en",
+          "role": "control",
+          "direction": "INPUT",
+          "polarity": "active_high",
+          "aliases": [
+            "EN"
+          ]
+        },
+        {
+          "original_name": "A0",
+          "canonical_name": "addr",
+          "role": "address",
+          "direction": "INPUT",
+          "polarity": null,
+          "aliases": [
+            "A{i}",
+            "A0",
+            "addr0[*]",
+            "addr"
+          ]
+        },
+        {
+          "original_name": "A1",
+          "canonical_name": "addr",
+          "role": "address",
+          "direction": "INPUT",
+          "polarity": null,
+          "aliases": [
+            "A1",
+            "A{i}",
+            "A0",
+            "addr0[*]",
+            "addr"
+          ]
+        },
+        {
+          "original_name": "A2",
+          "canonical_name": "addr",
+          "role": "address",
+          "direction": "INPUT",
+          "polarity": null,
+          "aliases": [
+            "A2",
+            "A{i}",
+            "A0",
+            "addr0[*]",
+            "addr"
+          ]
+        },
+        {
+          "original_name": "WL0",
+          "canonical_name": "wl",
+          "role": "wordline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ]
+        },
+        {
+          "original_name": "WL1",
+          "canonical_name": "wl",
+          "role": "wordline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "WL1",
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ]
+        },
+        {
+          "original_name": "WL2",
+          "canonical_name": "wl",
+          "role": "wordline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "WL2",
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ]
+        },
+        {
+          "original_name": "WL3",
+          "canonical_name": "wl",
+          "role": "wordline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "WL3",
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ]
+        },
+        {
+          "original_name": "WL4",
+          "canonical_name": "wl",
+          "role": "wordline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "WL4",
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ]
+        },
+        {
+          "original_name": "WL5",
+          "canonical_name": "wl",
+          "role": "wordline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "WL5",
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ]
+        },
+        {
+          "original_name": "WL6",
+          "canonical_name": "wl",
+          "role": "wordline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "WL6",
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ]
+        },
+        {
+          "original_name": "WL7",
+          "canonical_name": "wl",
+          "role": "wordline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "WL7",
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [
+        "row_decoder",
+        "predecoder"
+      ],
+      "gds_macro_candidates": [
+        "gen_nand2",
+        "gen_nand4",
+        "row_decoder"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [],
+      "class_name": "DECODER3_8",
+      "source_file": "sram_compiler/subcircuits/decoder.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 5,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "DECODER_CASCADE",
+      "canonical_module_name": "decoder",
+      "role": "decoder",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "A{i}",
+          "canonical_name": "addr",
+          "role": "address",
+          "direction": "INPUT",
+          "polarity": null,
+          "aliases": [
+            "A{i}",
+            "A0",
+            "addr0[*]",
+            "addr"
+          ]
+        },
+        {
+          "original_name": "WL{i}",
+          "canonical_name": "wl",
+          "role": "wordline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [
+        "row_decoder",
+        "predecoder"
+      ],
+      "gds_macro_candidates": [
+        "gen_nand2",
+        "gen_nand4",
+        "row_decoder"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement."
+      ],
+      "warnings": [
+        "DECODER_CASCADE: NODES are dynamic; used heuristic pin pattern ('VDD', 'VSS', 'A{i}', 'WL{i}')."
+      ],
+      "class_name": "DECODER_CASCADE",
+      "source_file": "sram_compiler/subcircuits/decoder.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 1,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "DecoderCascadeFactory",
+      "canonical_module_name": "decoder",
+      "role": "decoder",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [
+        "row_decoder",
+        "predecoder"
+      ],
+      "gds_macro_candidates": [
+        "gen_nand2",
+        "gen_nand4",
+        "row_decoder"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "DecoderCascadeFactory: no NAME assignment found; using class name as module name.",
+        "DecoderCascadeFactory: no static or heuristic NODES found."
+      ],
+      "class_name": "DecoderCascadeFactory",
+      "source_file": "sram_compiler/testbenches/parameter_factor.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "DummyColumnFactory",
+      "canonical_module_name": "dummy",
+      "role": "dummy",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [
+        "dummy_cell",
+        "dummy_array"
+      ],
+      "gds_macro_candidates": [
+        "dummy_cell_1rw",
+        "dummy_cell_array"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "DummyColumnFactory: no NAME assignment found; using class name as module name.",
+        "DummyColumnFactory: no static or heuristic NODES found."
+      ],
+      "class_name": "DummyColumnFactory",
+      "source_file": "sram_compiler/testbenches/parameter_factor.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "DummyRowFactory",
+      "canonical_module_name": "dummy",
+      "role": "dummy",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [
+        "dummy_cell",
+        "dummy_array"
+      ],
+      "gds_macro_candidates": [
+        "dummy_cell_1rw",
+        "dummy_cell_array"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "DummyRowFactory: no NAME assignment found; using class name as module name.",
+        "DummyRowFactory: no static or heuristic NODES found."
+      ],
+      "class_name": "DummyRowFactory",
+      "source_file": "sram_compiler/testbenches/parameter_factor.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "Dummy_CELL",
+      "canonical_module_name": "dummy_cell",
+      "role": "dummy",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "BL",
+          "canonical_name": "bl",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ]
+        },
+        {
+          "original_name": "BLB",
+          "canonical_name": "br",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ]
+        },
+        {
+          "original_name": "WL",
+          "canonical_name": "wl",
+          "role": "wordline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [
+        "dummy_cell",
+        "dummy_array"
+      ],
+      "gds_macro_candidates": [
+        "dummy_cell_1rw",
+        "dummy_cell_array"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [],
+      "class_name": "Dummy_Cell",
+      "source_file": "sram_compiler/subcircuits/dummy_row_or_column.py",
+      "mos_call_count": 6,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "Dummy_Column",
+      "canonical_module_name": "dummy",
+      "role": "dummy",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "BL",
+          "canonical_name": "bl",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ]
+        },
+        {
+          "original_name": "BLB",
+          "canonical_name": "br",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ]
+        },
+        {
+          "original_name": "WL{i}",
+          "canonical_name": "wl",
+          "role": "wordline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [
+        "dummy_cell",
+        "dummy_array"
+      ],
+      "gds_macro_candidates": [
+        "dummy_cell_1rw",
+        "dummy_cell_array"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement."
+      ],
+      "warnings": [],
+      "class_name": "Dummy_Column",
+      "source_file": "sram_compiler/subcircuits/dummy_row_or_column.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 1,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "Dummy_Row",
+      "canonical_module_name": "dummy",
+      "role": "dummy",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "BL{i}",
+          "canonical_name": "bl",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ]
+        },
+        {
+          "original_name": "BLB{i}",
+          "canonical_name": "br",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ]
+        },
+        {
+          "original_name": "WL",
+          "canonical_name": "wl",
+          "role": "wordline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [
+        "dummy_cell",
+        "dummy_array"
+      ],
+      "gds_macro_candidates": [
+        "dummy_cell_1rw",
+        "dummy_cell_array"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement."
+      ],
+      "warnings": [],
+      "class_name": "Dummy_Row",
+      "source_file": "sram_compiler/subcircuits/dummy_row_or_column.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 1,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "PRECHARGE",
+      "canonical_module_name": "precharge",
+      "role": "precharge",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "ENB",
+          "canonical_name": "enb",
+          "role": "control",
+          "direction": "INPUT",
+          "polarity": "active_low",
+          "aliases": [
+            "ENB"
+          ]
+        },
+        {
+          "original_name": "BL",
+          "canonical_name": "bl",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ]
+        },
+        {
+          "original_name": "BLB",
+          "canonical_name": "br",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd"
+      },
+      "equivalent_openram_roles": [
+        "precharge",
+        "precharge_array"
+      ],
+      "gds_macro_candidates": [
+        "gen_precharge",
+        "precharge_array"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [
+        "OpenYield PRECHARGE uses ENB; map to active-low precharge enable."
+      ],
+      "warnings": [],
+      "class_name": "Precharge",
+      "source_file": "sram_compiler/subcircuits/precharge_and_write_driver.py",
+      "mos_call_count": 3,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "PrechargeFactory",
+      "canonical_module_name": "precharge",
+      "role": "precharge",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [
+        "precharge",
+        "precharge_array"
+      ],
+      "gds_macro_candidates": [
+        "gen_precharge",
+        "precharge_array"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "PrechargeFactory: no NAME assignment found; using class name as module name.",
+        "PrechargeFactory: no static or heuristic NODES found."
+      ],
+      "class_name": "PrechargeFactory",
+      "source_file": "sram_compiler/testbenches/parameter_factor.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "ReplicaColumnFactory",
+      "canonical_module_name": "replica",
+      "role": "replica",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [
+        "replica_cell",
+        "replica_column"
+      ],
+      "gds_macro_candidates": [
+        "replica_cell_1rw",
+        "replica_column"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "ReplicaColumnFactory: no NAME assignment found; using class name as module name.",
+        "ReplicaColumnFactory: no static or heuristic NODES found."
+      ],
+      "class_name": "ReplicaColumnFactory",
+      "source_file": "sram_compiler/testbenches/parameter_factor.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "Replica_CELL",
+      "canonical_module_name": "replica_cell",
+      "role": "replica",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "RBL",
+          "canonical_name": "rbl",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "RBL"
+          ]
+        },
+        {
+          "original_name": "RBLB",
+          "canonical_name": "rblb",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "RBLB"
+          ]
+        },
+        {
+          "original_name": "WL",
+          "canonical_name": "wl",
+          "role": "wordline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [
+        "replica_cell",
+        "replica_column"
+      ],
+      "gds_macro_candidates": [
+        "replica_cell_1rw",
+        "replica_column"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [],
+      "class_name": "Replica_Cell",
+      "source_file": "sram_compiler/subcircuits/replica_column.py",
+      "mos_call_count": 16,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "Replica_Column",
+      "canonical_module_name": "replica",
+      "role": "replica",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "RBL",
+          "canonical_name": "rbl",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "RBL"
+          ]
+        },
+        {
+          "original_name": "RBLB",
+          "canonical_name": "rblb",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "RBLB"
+          ]
+        },
+        {
+          "original_name": "WL{i}",
+          "canonical_name": "wl",
+          "role": "wordline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [
+        "replica_cell",
+        "replica_column"
+      ],
+      "gds_macro_candidates": [
+        "replica_cell_1rw",
+        "replica_column"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement."
+      ],
+      "warnings": [],
+      "class_name": "Replica_Column",
+      "source_file": "sram_compiler/subcircuits/replica_column.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 1,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "SENSEAMP",
+      "canonical_module_name": "sense_amp",
+      "role": "sense_amp",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "EN",
+          "canonical_name": "en",
+          "role": "control",
+          "direction": "INPUT",
+          "polarity": "active_high",
+          "aliases": [
+            "EN"
+          ]
+        },
+        {
+          "original_name": "IN",
+          "canonical_name": "in",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "IN"
+          ]
+        },
+        {
+          "original_name": "INB",
+          "canonical_name": "inb",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "INB"
+          ]
+        },
+        {
+          "original_name": "Q",
+          "canonical_name": "dout",
+          "role": "data_out",
+          "direction": "OUTPUT",
+          "polarity": null,
+          "aliases": [
+            "Q",
+            "OUT",
+            "dout0[*]",
+            "dout"
+          ]
+        },
+        {
+          "original_name": "QB",
+          "canonical_name": "dout_b",
+          "role": "data_out",
+          "direction": "OUTPUT",
+          "polarity": "active_low",
+          "aliases": [
+            "QB",
+            "OUTB"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [
+        "sense_amp",
+        "sense_amp_array"
+      ],
+      "gds_macro_candidates": [
+        "sense_amp",
+        "sense_amp_array"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [
+        "Map IN/INB to selected BL/BR and Q/QB to dout/dout_b or tri-state stage."
+      ],
+      "warnings": [],
+      "class_name": "SenseAmp",
+      "source_file": "sram_compiler/subcircuits/mux_and_sa.py",
+      "mos_call_count": 7,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "SenseAmpFactory",
+      "canonical_module_name": "sense_amp",
+      "role": "sense_amp",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [
+        "sense_amp",
+        "sense_amp_array"
+      ],
+      "gds_macro_candidates": [
+        "sense_amp",
+        "sense_amp_array"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "SenseAmpFactory: no NAME assignment found; using class name as module name.",
+        "SenseAmpFactory: no static or heuristic NODES found."
+      ],
+      "class_name": "SenseAmpFactory",
+      "source_file": "sram_compiler/testbenches/parameter_factor.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "AND2",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "A",
+          "canonical_name": "a",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "A"
+          ]
+        },
+        {
+          "original_name": "B",
+          "canonical_name": "b",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "B"
+          ]
+        },
+        {
+          "original_name": "Z",
+          "canonical_name": "z",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "Z"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "AND2",
+      "source_file": "sram_compiler/subcircuits/standard_cell.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 2,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "AND3",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "A",
+          "canonical_name": "a",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "A"
+          ]
+        },
+        {
+          "original_name": "B",
+          "canonical_name": "b",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "B"
+          ]
+        },
+        {
+          "original_name": "C",
+          "canonical_name": "c",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "C"
+          ]
+        },
+        {
+          "original_name": "Z",
+          "canonical_name": "z",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "Z"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "AND3",
+      "source_file": "sram_compiler/subcircuits/standard_cell.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 2,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "DFF_BUF",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "D",
+          "canonical_name": "d",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "D"
+          ]
+        },
+        {
+          "original_name": "Q",
+          "canonical_name": "dout",
+          "role": "data_out",
+          "direction": "OUTPUT",
+          "polarity": null,
+          "aliases": [
+            "Q",
+            "OUT",
+            "dout0[*]",
+            "dout"
+          ]
+        },
+        {
+          "original_name": "QB",
+          "canonical_name": "dout_b",
+          "role": "data_out",
+          "direction": "OUTPUT",
+          "polarity": "active_low",
+          "aliases": [
+            "QB",
+            "OUTB"
+          ]
+        },
+        {
+          "original_name": "CLK",
+          "canonical_name": "clk",
+          "role": "clock",
+          "direction": "INPUT",
+          "polarity": null,
+          "aliases": [
+            "CLK",
+            "clk0",
+            "clk"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "DFF_BUF",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 3,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "D_LATCH",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "D",
+          "canonical_name": "d",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "D"
+          ]
+        },
+        {
+          "original_name": "EN",
+          "canonical_name": "en",
+          "role": "control",
+          "direction": "INPUT",
+          "polarity": "active_high",
+          "aliases": [
+            "EN"
+          ]
+        },
+        {
+          "original_name": "Q",
+          "canonical_name": "dout",
+          "role": "data_out",
+          "direction": "OUTPUT",
+          "polarity": null,
+          "aliases": [
+            "Q",
+            "OUT",
+            "dout0[*]",
+            "dout"
+          ]
+        },
+        {
+          "original_name": "QB",
+          "canonical_name": "dout_b",
+          "role": "data_out",
+          "direction": "OUTPUT",
+          "polarity": "active_low",
+          "aliases": [
+            "QB",
+            "OUTB"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "D_latch",
+      "source_file": "sram_compiler/subcircuits/standard_cell.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 5,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "PBUFF",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "A",
+          "canonical_name": "a",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "A"
+          ]
+        },
+        {
+          "original_name": "Z",
+          "canonical_name": "z",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "Z"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "Pbuff",
+      "source_file": "sram_compiler/subcircuits/standard_cell.py",
+      "mos_call_count": 4,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "PNAND2",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "A",
+          "canonical_name": "a",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "A"
+          ]
+        },
+        {
+          "original_name": "B",
+          "canonical_name": "b",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "B"
+          ]
+        },
+        {
+          "original_name": "Z",
+          "canonical_name": "z",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "Z"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "PNAND2",
+      "source_file": "sram_compiler/subcircuits/standard_cell.py",
+      "mos_call_count": 4,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "PNAND3",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "A",
+          "canonical_name": "a",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "A"
+          ]
+        },
+        {
+          "original_name": "B",
+          "canonical_name": "b",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "B"
+          ]
+        },
+        {
+          "original_name": "C",
+          "canonical_name": "c",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "C"
+          ]
+        },
+        {
+          "original_name": "Z",
+          "canonical_name": "z",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "Z"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "PNAND3",
+      "source_file": "sram_compiler/subcircuits/standard_cell.py",
+      "mos_call_count": 6,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "TRANSMISSION_GATE",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "IN",
+          "canonical_name": "in",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "IN"
+          ]
+        },
+        {
+          "original_name": "OUT",
+          "canonical_name": "dout",
+          "role": "data_out",
+          "direction": "OUTPUT",
+          "polarity": null,
+          "aliases": [
+            "Q",
+            "OUT",
+            "dout0[*]",
+            "dout"
+          ]
+        },
+        {
+          "original_name": "CTR_P",
+          "canonical_name": "ctr_p",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "CTR_P"
+          ]
+        },
+        {
+          "original_name": "CTR_N",
+          "canonical_name": "ctr_n",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "CTR_N"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "TransmissionGate",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "mos_call_count": 2,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "f'PINV{num}'",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "A",
+          "canonical_name": "a",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "A"
+          ]
+        },
+        {
+          "original_name": "Z",
+          "canonical_name": "z",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "Z"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "Pinv",
+      "source_file": "sram_compiler/subcircuits/standard_cell.py",
+      "mos_call_count": 2,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "pdrive",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "A",
+          "canonical_name": "a",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "A"
+          ]
+        },
+        {
+          "original_name": "Z",
+          "canonical_name": "z",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "Z"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "pdrive",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 4,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "pdrive2_for_pre",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "A",
+          "canonical_name": "a",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "A"
+          ]
+        },
+        {
+          "original_name": "Z",
+          "canonical_name": "z",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "Z"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "pdrive2_for_pre",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 2,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "wl_pdrive",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "A",
+          "canonical_name": "a",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "A"
+          ]
+        },
+        {
+          "original_name": "Z",
+          "canonical_name": "z",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "Z"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "wl_pdrive",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 2,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "BASE_SUBCKT",
+      "canonical_module_name": "base_subckt",
+      "role": "unknown",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": false,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "BaseSubcircuit",
+      "source_file": "sram_compiler/subcircuits/base_subcircuit.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "BaseTestbench",
+      "canonical_module_name": "basetestbench",
+      "role": "unknown",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": false,
+      "notes": [],
+      "warnings": [
+        "BaseTestbench: no NAME assignment found; using class name as module name.",
+        "BaseTestbench: no static or heuristic NODES found.",
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "BaseTestbench",
+      "source_file": "sram_compiler/testbenches/base_testbench.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "SRAMCellParasiticTester",
+      "canonical_module_name": "sramcellparasitictester",
+      "role": "unknown",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": false,
+      "notes": [],
+      "warnings": [
+        "SRAMCellParasiticTester: no NAME assignment found; using class name as module name.",
+        "SRAMCellParasiticTester: no static or heuristic NODES found.",
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "SRAMCellParasiticTester",
+      "source_file": "sram_compiler/subcircuits/sram_cell_add_equivalent.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "Sram10TCellFactory",
+      "canonical_module_name": "sram10tcellfactory",
+      "role": "unknown",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": false,
+      "notes": [],
+      "warnings": [
+        "Sram10TCellFactory: no NAME assignment found; using class name as module name.",
+        "Sram10TCellFactory: no static or heuristic NODES found.",
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "Sram10TCellFactory",
+      "source_file": "sram_compiler/testbenches/parameter_factor.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "Sram10TCoreFactory",
+      "canonical_module_name": "sram10tcorefactory",
+      "role": "unknown",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": false,
+      "notes": [],
+      "warnings": [
+        "Sram10TCoreFactory: no NAME assignment found; using class name as module name.",
+        "Sram10TCoreFactory: no static or heuristic NODES found.",
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "Sram10TCoreFactory",
+      "source_file": "sram_compiler/testbenches/parameter_factor.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "Sram6TCellFactory",
+      "canonical_module_name": "sram6tcellfactory",
+      "role": "unknown",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": false,
+      "notes": [],
+      "warnings": [
+        "Sram6TCellFactory: no NAME assignment found; using class name as module name.",
+        "Sram6TCellFactory: no static or heuristic NODES found.",
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "Sram6TCellFactory",
+      "source_file": "sram_compiler/testbenches/parameter_factor.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "Sram6TCoreFactory",
+      "canonical_module_name": "sram6tcorefactory",
+      "role": "unknown",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": false,
+      "notes": [],
+      "warnings": [
+        "Sram6TCoreFactory: no NAME assignment found; using class name as module name.",
+        "Sram6TCoreFactory: no static or heuristic NODES found.",
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "Sram6TCoreFactory",
+      "source_file": "sram_compiler/testbenches/parameter_factor.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "Sram6TCoreMcTestbench",
+      "canonical_module_name": "sram6tcoremctestbench",
+      "role": "unknown",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": false,
+      "notes": [],
+      "warnings": [
+        "Sram6TCoreMcTestbench: no NAME assignment found; using class name as module name.",
+        "Sram6TCoreMcTestbench: no static or heuristic NODES found.",
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "Sram6TCoreMcTestbench",
+      "source_file": "sram_compiler/testbenches/sram_6t_core_MC_testbench.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "Sram6TCoreTestbench",
+      "canonical_module_name": "sram6tcoretestbench",
+      "role": "unknown",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": false,
+      "notes": [],
+      "warnings": [
+        "Sram6TCoreTestbench: no NAME assignment found; using class name as module name.",
+        "Sram6TCoreTestbench: no static or heuristic NODES found.",
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "Sram6TCoreTestbench",
+      "source_file": "sram_compiler/testbenches/sram_6t_core_testbench.py",
+      "mos_call_count": 2,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 20
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "TIMEFactory",
+      "canonical_module_name": "timefactory",
+      "role": "unknown",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": false,
+      "notes": [],
+      "warnings": [
+        "TIMEFactory: no NAME assignment found; using class name as module name.",
+        "TIMEFactory: no static or heuristic NODES found.",
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "TIMEFactory",
+      "source_file": "sram_compiler/testbenches/parameter_factor.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "WORDLINEDRIVER",
+      "canonical_module_name": "wl_driver",
+      "role": "wordline_driver",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "A",
+          "canonical_name": "a",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "A"
+          ]
+        },
+        {
+          "original_name": "B",
+          "canonical_name": "b",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "B"
+          ]
+        },
+        {
+          "original_name": "Z",
+          "canonical_name": "z",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "Z"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [
+        "wordline_driver",
+        "wordline_driver_array"
+      ],
+      "gds_macro_candidates": [
+        "gen_wl_driver",
+        "wordline_driver"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [
+        "A/B are decoder/control inputs; Z is the wordline output."
+      ],
+      "warnings": [],
+      "class_name": "WordlineDriver",
+      "source_file": "sram_compiler/subcircuits/wordline_driver.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 2,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "WordlineDriverFactory",
+      "canonical_module_name": "wordline_driver",
+      "role": "wordline_driver",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [
+        "wordline_driver",
+        "wordline_driver_array"
+      ],
+      "gds_macro_candidates": [
+        "gen_wl_driver",
+        "wordline_driver"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "WordlineDriverFactory: no NAME assignment found; using class name as module name.",
+        "WordlineDriverFactory: no static or heuristic NODES found."
+      ],
+      "class_name": "WordlineDriverFactory",
+      "source_file": "sram_compiler/testbenches/parameter_factor.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "WRITEDRIVER",
+      "canonical_module_name": "write_driver",
+      "role": "write_driver",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "EN",
+          "canonical_name": "en",
+          "role": "control",
+          "direction": "INPUT",
+          "polarity": "active_high",
+          "aliases": [
+            "EN"
+          ]
+        },
+        {
+          "original_name": "DIN",
+          "canonical_name": "din",
+          "role": "data_in",
+          "direction": "INPUT",
+          "polarity": null,
+          "aliases": [
+            "DIN",
+            "DIN{i}",
+            "din0[*]",
+            "din"
+          ]
+        },
+        {
+          "original_name": "BL",
+          "canonical_name": "bl",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ]
+        },
+        {
+          "original_name": "BLB",
+          "canonical_name": "br",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [
+        "write_driver",
+        "write_driver_array"
+      ],
+      "gds_macro_candidates": [
+        "write_driver",
+        "write_driver_array"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [
+        "OpenYield WRITEDRIVER has internal DINB/ENB generation; only DIN/EN are external pins."
+      ],
+      "warnings": [],
+      "class_name": "WriteDriver",
+      "source_file": "sram_compiler/subcircuits/precharge_and_write_driver.py",
+      "mos_call_count": 12,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "WriteDriverFactory",
+      "canonical_module_name": "write_driver",
+      "role": "write_driver",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [
+        "write_driver",
+        "write_driver_array"
+      ],
+      "gds_macro_candidates": [
+        "write_driver",
+        "write_driver_array"
+      ],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "WriteDriverFactory: no NAME assignment found; using class name as module name.",
+        "WriteDriverFactory: no static or heuristic NODES found."
+      ],
+      "class_name": "WriteDriverFactory",
+      "source_file": "sram_compiler/testbenches/parameter_factor.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    }
+  ],
+  "warnings": [],
+  "missing_required_modules": [],
+  "unknown_role_modules": [
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "BASE_SUBCKT",
+      "canonical_module_name": "base_subckt",
+      "role": "unknown",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": false,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "BaseSubcircuit",
+      "source_file": "sram_compiler/subcircuits/base_subcircuit.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "BaseTestbench",
+      "canonical_module_name": "basetestbench",
+      "role": "unknown",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": false,
+      "notes": [],
+      "warnings": [
+        "BaseTestbench: no NAME assignment found; using class name as module name.",
+        "BaseTestbench: no static or heuristic NODES found.",
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "BaseTestbench",
+      "source_file": "sram_compiler/testbenches/base_testbench.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "SRAMCellParasiticTester",
+      "canonical_module_name": "sramcellparasitictester",
+      "role": "unknown",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": false,
+      "notes": [],
+      "warnings": [
+        "SRAMCellParasiticTester: no NAME assignment found; using class name as module name.",
+        "SRAMCellParasiticTester: no static or heuristic NODES found.",
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "SRAMCellParasiticTester",
+      "source_file": "sram_compiler/subcircuits/sram_cell_add_equivalent.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "Sram10TCellFactory",
+      "canonical_module_name": "sram10tcellfactory",
+      "role": "unknown",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": false,
+      "notes": [],
+      "warnings": [
+        "Sram10TCellFactory: no NAME assignment found; using class name as module name.",
+        "Sram10TCellFactory: no static or heuristic NODES found.",
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "Sram10TCellFactory",
+      "source_file": "sram_compiler/testbenches/parameter_factor.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "Sram10TCoreFactory",
+      "canonical_module_name": "sram10tcorefactory",
+      "role": "unknown",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": false,
+      "notes": [],
+      "warnings": [
+        "Sram10TCoreFactory: no NAME assignment found; using class name as module name.",
+        "Sram10TCoreFactory: no static or heuristic NODES found.",
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "Sram10TCoreFactory",
+      "source_file": "sram_compiler/testbenches/parameter_factor.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "Sram6TCellFactory",
+      "canonical_module_name": "sram6tcellfactory",
+      "role": "unknown",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": false,
+      "notes": [],
+      "warnings": [
+        "Sram6TCellFactory: no NAME assignment found; using class name as module name.",
+        "Sram6TCellFactory: no static or heuristic NODES found.",
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "Sram6TCellFactory",
+      "source_file": "sram_compiler/testbenches/parameter_factor.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "Sram6TCoreFactory",
+      "canonical_module_name": "sram6tcorefactory",
+      "role": "unknown",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": false,
+      "notes": [],
+      "warnings": [
+        "Sram6TCoreFactory: no NAME assignment found; using class name as module name.",
+        "Sram6TCoreFactory: no static or heuristic NODES found.",
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "Sram6TCoreFactory",
+      "source_file": "sram_compiler/testbenches/parameter_factor.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "Sram6TCoreMcTestbench",
+      "canonical_module_name": "sram6tcoremctestbench",
+      "role": "unknown",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": false,
+      "notes": [],
+      "warnings": [
+        "Sram6TCoreMcTestbench: no NAME assignment found; using class name as module name.",
+        "Sram6TCoreMcTestbench: no static or heuristic NODES found.",
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "Sram6TCoreMcTestbench",
+      "source_file": "sram_compiler/testbenches/sram_6t_core_MC_testbench.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "Sram6TCoreTestbench",
+      "canonical_module_name": "sram6tcoretestbench",
+      "role": "unknown",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": false,
+      "notes": [],
+      "warnings": [
+        "Sram6TCoreTestbench: no NAME assignment found; using class name as module name.",
+        "Sram6TCoreTestbench: no static or heuristic NODES found.",
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "Sram6TCoreTestbench",
+      "source_file": "sram_compiler/testbenches/sram_6t_core_testbench.py",
+      "mos_call_count": 2,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 20
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "TIMEFactory",
+      "canonical_module_name": "timefactory",
+      "role": "unknown",
+      "pins": [],
+      "power_pins": {},
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": false,
+      "notes": [],
+      "warnings": [
+        "TIMEFactory: no NAME assignment found; using class name as module name.",
+        "TIMEFactory: no static or heuristic NODES found.",
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "TIMEFactory",
+      "source_file": "sram_compiler/testbenches/parameter_factor.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    }
+  ],
+  "modules_without_physical_candidate": [
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "SRAM_10T_CELL",
+      "canonical_module_name": "bitcell_10t",
+      "role": "bitcell_10t",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "BL",
+          "canonical_name": "bl",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ]
+        },
+        {
+          "original_name": "BLB",
+          "canonical_name": "br",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ]
+        },
+        {
+          "original_name": "WL",
+          "canonical_name": "wl",
+          "role": "wordline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "Sram10TCell",
+      "source_file": "sram_compiler/subcircuits/sram_10t_core.py",
+      "mos_call_count": 10,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "SRAM_10T_CORE_*",
+      "canonical_module_name": "sram_10t_core",
+      "role": "bitcell_array_10t",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "BL{i}",
+          "canonical_name": "bl",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ]
+        },
+        {
+          "original_name": "BLB{i}",
+          "canonical_name": "br",
+          "role": "bitline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ]
+        },
+        {
+          "original_name": "WL{i}",
+          "canonical_name": "wl",
+          "role": "wordline",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement."
+      ],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "Sram10TCore",
+      "source_file": "sram_compiler/subcircuits/sram_10t_core.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 1,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "wen_delay_chain",
+      "canonical_module_name": "wen_delay_chain",
+      "role": "control_timing",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "in",
+          "canonical_name": "in",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "in"
+          ]
+        },
+        {
+          "original_name": "out",
+          "canonical_name": "dout",
+          "role": "data_out",
+          "direction": "OUTPUT",
+          "polarity": null,
+          "aliases": [
+            "out",
+            "Q",
+            "OUT",
+            "dout0[*]",
+            "dout"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [
+        "control_logic",
+        "delay_chain",
+        "dff_array"
+      ],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [
+        "This contract is hierarchical and should not map to one single flat GDS macro."
+      ],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "WenDelayChain",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 2,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "AND2",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "A",
+          "canonical_name": "a",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "A"
+          ]
+        },
+        {
+          "original_name": "B",
+          "canonical_name": "b",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "B"
+          ]
+        },
+        {
+          "original_name": "Z",
+          "canonical_name": "z",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "Z"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "AND2",
+      "source_file": "sram_compiler/subcircuits/standard_cell.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 2,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "AND3",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "A",
+          "canonical_name": "a",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "A"
+          ]
+        },
+        {
+          "original_name": "B",
+          "canonical_name": "b",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "B"
+          ]
+        },
+        {
+          "original_name": "C",
+          "canonical_name": "c",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "C"
+          ]
+        },
+        {
+          "original_name": "Z",
+          "canonical_name": "z",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "Z"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "AND3",
+      "source_file": "sram_compiler/subcircuits/standard_cell.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 2,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "DFF_BUF",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "D",
+          "canonical_name": "d",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "D"
+          ]
+        },
+        {
+          "original_name": "Q",
+          "canonical_name": "dout",
+          "role": "data_out",
+          "direction": "OUTPUT",
+          "polarity": null,
+          "aliases": [
+            "Q",
+            "OUT",
+            "dout0[*]",
+            "dout"
+          ]
+        },
+        {
+          "original_name": "QB",
+          "canonical_name": "dout_b",
+          "role": "data_out",
+          "direction": "OUTPUT",
+          "polarity": "active_low",
+          "aliases": [
+            "QB",
+            "OUTB"
+          ]
+        },
+        {
+          "original_name": "CLK",
+          "canonical_name": "clk",
+          "role": "clock",
+          "direction": "INPUT",
+          "polarity": null,
+          "aliases": [
+            "CLK",
+            "clk0",
+            "clk"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "DFF_BUF",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 3,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "D_LATCH",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "D",
+          "canonical_name": "d",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "D"
+          ]
+        },
+        {
+          "original_name": "EN",
+          "canonical_name": "en",
+          "role": "control",
+          "direction": "INPUT",
+          "polarity": "active_high",
+          "aliases": [
+            "EN"
+          ]
+        },
+        {
+          "original_name": "Q",
+          "canonical_name": "dout",
+          "role": "data_out",
+          "direction": "OUTPUT",
+          "polarity": null,
+          "aliases": [
+            "Q",
+            "OUT",
+            "dout0[*]",
+            "dout"
+          ]
+        },
+        {
+          "original_name": "QB",
+          "canonical_name": "dout_b",
+          "role": "data_out",
+          "direction": "OUTPUT",
+          "polarity": "active_low",
+          "aliases": [
+            "QB",
+            "OUTB"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "D_latch",
+      "source_file": "sram_compiler/subcircuits/standard_cell.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 5,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "PBUFF",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "A",
+          "canonical_name": "a",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "A"
+          ]
+        },
+        {
+          "original_name": "Z",
+          "canonical_name": "z",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "Z"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "Pbuff",
+      "source_file": "sram_compiler/subcircuits/standard_cell.py",
+      "mos_call_count": 4,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "PNAND2",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "A",
+          "canonical_name": "a",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "A"
+          ]
+        },
+        {
+          "original_name": "B",
+          "canonical_name": "b",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "B"
+          ]
+        },
+        {
+          "original_name": "Z",
+          "canonical_name": "z",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "Z"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "PNAND2",
+      "source_file": "sram_compiler/subcircuits/standard_cell.py",
+      "mos_call_count": 4,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "PNAND3",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "A",
+          "canonical_name": "a",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "A"
+          ]
+        },
+        {
+          "original_name": "B",
+          "canonical_name": "b",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "B"
+          ]
+        },
+        {
+          "original_name": "C",
+          "canonical_name": "c",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "C"
+          ]
+        },
+        {
+          "original_name": "Z",
+          "canonical_name": "z",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "Z"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "PNAND3",
+      "source_file": "sram_compiler/subcircuits/standard_cell.py",
+      "mos_call_count": 6,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "TRANSMISSION_GATE",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "IN",
+          "canonical_name": "in",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "IN"
+          ]
+        },
+        {
+          "original_name": "OUT",
+          "canonical_name": "dout",
+          "role": "data_out",
+          "direction": "OUTPUT",
+          "polarity": null,
+          "aliases": [
+            "Q",
+            "OUT",
+            "dout0[*]",
+            "dout"
+          ]
+        },
+        {
+          "original_name": "CTR_P",
+          "canonical_name": "ctr_p",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "CTR_P"
+          ]
+        },
+        {
+          "original_name": "CTR_N",
+          "canonical_name": "ctr_n",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "CTR_N"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "TransmissionGate",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "mos_call_count": 2,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "f'PINV{num}'",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "A",
+          "canonical_name": "a",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "A"
+          ]
+        },
+        {
+          "original_name": "Z",
+          "canonical_name": "z",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "Z"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "Pinv",
+      "source_file": "sram_compiler/subcircuits/standard_cell.py",
+      "mos_call_count": 2,
+      "self_instance_call_count": 0,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "pdrive",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "A",
+          "canonical_name": "a",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "A"
+          ]
+        },
+        {
+          "original_name": "Z",
+          "canonical_name": "z",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "Z"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "pdrive",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 4,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "pdrive2_for_pre",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "A",
+          "canonical_name": "a",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "A"
+          ]
+        },
+        {
+          "original_name": "Z",
+          "canonical_name": "z",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "Z"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "pdrive2_for_pre",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 2,
+      "circuit_instance_call_count": 0
+    },
+    {
+      "source": "openyield_pyspice_static",
+      "original_module_name": "wl_pdrive",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "pins": [
+        {
+          "original_name": "VDD",
+          "canonical_name": "vdd",
+          "role": "power",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VDD",
+            "vdd"
+          ]
+        },
+        {
+          "original_name": "VSS",
+          "canonical_name": "gnd",
+          "role": "ground",
+          "direction": "INOUT",
+          "polarity": null,
+          "aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ]
+        },
+        {
+          "original_name": "A",
+          "canonical_name": "a",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "A"
+          ]
+        },
+        {
+          "original_name": "Z",
+          "canonical_name": "z",
+          "role": "signal",
+          "direction": null,
+          "polarity": null,
+          "aliases": [
+            "Z"
+          ]
+        }
+      ],
+      "power_pins": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "equivalent_openram_roles": [],
+      "gds_macro_candidates": [],
+      "requires_physical_implementation": true,
+      "notes": [],
+      "warnings": [
+        "No current layoutgen GDS macro candidate is known for this OpenYield module."
+      ],
+      "class_name": "wl_pdrive",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "mos_call_count": 0,
+      "self_instance_call_count": 2,
+      "circuit_instance_call_count": 0
+    }
+  ]
+}
