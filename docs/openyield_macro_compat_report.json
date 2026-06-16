@@ -1,6 +1,11 @@
 {
   "contracts_source": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
   "replacement_macro_count": 6,
+  "alias_count": 10,
+  "library_gds_count": 19,
+  "library_spice_count": 10,
+  "catalog_macro_count": 19,
+  "alias_file_present": true,
   "contract_count": 53,
   "compatibilities": [
     {
@@ -11,8 +16,10 @@
         "cell_1rw",
         "cell_6t"
       ],
-      "existing_macros": [],
-      "selected_macro": null,
+      "existing_macros": [
+        "cell_1rw"
+      ],
+      "selected_macro": "cell_1rw",
       "pin_checks": [
         {
           "canonical_pin": "vdd",
@@ -20,11 +27,9 @@
             "VDD",
             "vdd"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "gnd",
@@ -33,11 +38,9 @@
             "GND",
             "gnd"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "bl",
@@ -47,11 +50,9 @@
             "BL{i}",
             "bl"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "bl",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "br",
@@ -62,11 +63,9 @@
             "BLB0",
             "BLB{i}"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "br",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "wl",
@@ -76,17 +75,97 @@
             "WL{i}",
             "wl"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "wl",
+          "status": "matched",
+          "notes": []
         }
       ],
-      "power_status": "no_macro",
-      "aggregation_status": "unknown_need_gds_pin_audit",
+      "power_status": "vdd_gnd_alias_ok",
+      "aggregation_status": "abutment_ready",
       "implementation_status": "macro_candidate",
-      "footprint": null,
+      "footprint": {
+        "macro_name": "cell_1rw",
+        "role": "bitcell",
+        "width": 0.0,
+        "height": 0.0,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [],
+        "bottom_rails": [],
+        "abutment_rules": [
+          {
+            "side": "left",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "right",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "top",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          },
+          {
+            "side": "bottom",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          }
+        ],
+        "pin_access_sides": {
+          "bl": [
+            "internal"
+          ],
+          "br": [
+            "internal"
+          ],
+          "gnd": [
+            "internal"
+          ],
+          "vdd": [
+            "internal"
+          ],
+          "wl": [
+            "internal"
+          ]
+        },
+        "status": "abutment_ready",
+        "notes": []
+      },
       "notes": []
     },
     {
@@ -441,8 +520,10 @@
       "candidate_macros": [
         "dff"
       ],
-      "existing_macros": [],
-      "selected_macro": null,
+      "existing_macros": [
+        "dff"
+      ],
+      "selected_macro": "dff",
       "pin_checks": [
         {
           "canonical_pin": "vdd",
@@ -450,11 +531,9 @@
             "VDD",
             "vdd"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "gnd",
@@ -463,22 +542,18 @@
             "GND",
             "gnd"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "d",
           "expected_aliases": [
             "D"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "D",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "dout",
@@ -488,11 +563,9 @@
             "dout0[*]",
             "dout"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "Q",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "clk",
@@ -501,17 +574,46 @@
             "clk0",
             "clk"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "clk",
+          "status": "matched",
+          "notes": []
         }
       ],
-      "power_status": "no_macro",
-      "aggregation_status": "needs_stdcell_or_generated_layout",
+      "power_status": "vdd_gnd_alias_ok",
+      "aggregation_status": "unknown_need_gds_pin_audit",
       "implementation_status": "macro_candidate",
-      "footprint": null,
+      "footprint": {
+        "macro_name": "dff",
+        "role": "control_timing",
+        "width": 0.0,
+        "height": 0.0,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [],
+        "bottom_rails": [],
+        "abutment_rules": [],
+        "pin_access_sides": {
+          "D": [
+            "internal"
+          ],
+          "Q": [
+            "internal"
+          ],
+          "clk": [
+            "internal"
+          ],
+          "gnd": [
+            "internal"
+          ],
+          "vdd": [
+            "internal"
+          ]
+        },
+        "status": "unknown_need_gds_pin_audit",
+        "notes": [
+          "Replacement macro JSON has bbox/pin centers, but full GDS pin shapes are still needed before enabling physical abutment."
+        ]
+      },
       "notes": [
         "This contract is hierarchical and should not map to one single flat GDS macro."
       ]
@@ -580,7 +682,8 @@
         "row_decoder"
       ],
       "existing_macros": [
-        "gen_nand2"
+        "gen_nand2",
+        "gen_nand4"
       ],
       "selected_macro": "gen_nand2",
       "pin_checks": [
@@ -771,8 +874,10 @@
         "dummy_cell_1rw",
         "dummy_cell_array"
       ],
-      "existing_macros": [],
-      "selected_macro": null,
+      "existing_macros": [
+        "dummy_cell_1rw"
+      ],
+      "selected_macro": "dummy_cell_1rw",
       "pin_checks": [
         {
           "canonical_pin": "vdd",
@@ -780,11 +885,9 @@
             "VDD",
             "vdd"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "gnd",
@@ -793,11 +896,9 @@
             "GND",
             "gnd"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "bl",
@@ -807,11 +908,9 @@
             "BL{i}",
             "bl"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "bl",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "br",
@@ -822,11 +921,9 @@
             "BLB0",
             "BLB{i}"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "br",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "wl",
@@ -836,17 +933,97 @@
             "WL{i}",
             "wl"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "wl",
+          "status": "matched",
+          "notes": []
         }
       ],
-      "power_status": "no_macro",
-      "aggregation_status": "unknown_need_gds_pin_audit",
+      "power_status": "vdd_gnd_alias_ok",
+      "aggregation_status": "abutment_ready",
       "implementation_status": "macro_candidate",
-      "footprint": null,
+      "footprint": {
+        "macro_name": "dummy_cell_1rw",
+        "role": "dummy",
+        "width": 0.0,
+        "height": 0.0,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [],
+        "bottom_rails": [],
+        "abutment_rules": [
+          {
+            "side": "left",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "right",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "top",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          },
+          {
+            "side": "bottom",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          }
+        ],
+        "pin_access_sides": {
+          "bl": [
+            "internal"
+          ],
+          "br": [
+            "internal"
+          ],
+          "gnd": [
+            "internal"
+          ],
+          "vdd": [
+            "internal"
+          ],
+          "wl": [
+            "internal"
+          ]
+        },
+        "status": "abutment_ready",
+        "notes": []
+      },
       "notes": []
     },
     {
@@ -857,8 +1034,10 @@
         "dummy_cell_1rw",
         "dummy_cell_array"
       ],
-      "existing_macros": [],
-      "selected_macro": null,
+      "existing_macros": [
+        "dummy_cell_1rw"
+      ],
+      "selected_macro": "dummy_cell_1rw",
       "pin_checks": [
         {
           "canonical_pin": "vdd",
@@ -866,11 +1045,9 @@
             "VDD",
             "vdd"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "gnd",
@@ -879,11 +1056,9 @@
             "GND",
             "gnd"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "bl",
@@ -893,11 +1068,9 @@
             "BL{i}",
             "bl"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "bl",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "br",
@@ -908,11 +1081,9 @@
             "BLB0",
             "BLB{i}"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "br",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "wl",
@@ -922,17 +1093,97 @@
             "WL{i}",
             "wl"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "wl",
+          "status": "matched",
+          "notes": []
         }
       ],
-      "power_status": "no_macro",
-      "aggregation_status": "unknown_need_gds_pin_audit",
+      "power_status": "vdd_gnd_alias_ok",
+      "aggregation_status": "abutment_ready",
       "implementation_status": "macro_candidate",
-      "footprint": null,
+      "footprint": {
+        "macro_name": "dummy_cell_1rw",
+        "role": "dummy",
+        "width": 0.0,
+        "height": 0.0,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [],
+        "bottom_rails": [],
+        "abutment_rules": [
+          {
+            "side": "left",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "right",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "top",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          },
+          {
+            "side": "bottom",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          }
+        ],
+        "pin_access_sides": {
+          "bl": [
+            "internal"
+          ],
+          "br": [
+            "internal"
+          ],
+          "gnd": [
+            "internal"
+          ],
+          "vdd": [
+            "internal"
+          ],
+          "wl": [
+            "internal"
+          ]
+        },
+        "status": "abutment_ready",
+        "notes": []
+      },
       "notes": [
         "Pins contain dynamic bus patterns; expand with SRAM size before placement."
       ]
@@ -945,8 +1196,10 @@
         "dummy_cell_1rw",
         "dummy_cell_array"
       ],
-      "existing_macros": [],
-      "selected_macro": null,
+      "existing_macros": [
+        "dummy_cell_1rw"
+      ],
+      "selected_macro": "dummy_cell_1rw",
       "pin_checks": [
         {
           "canonical_pin": "vdd",
@@ -954,11 +1207,9 @@
             "VDD",
             "vdd"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "gnd",
@@ -967,11 +1218,9 @@
             "GND",
             "gnd"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "bl",
@@ -981,11 +1230,9 @@
             "BL{i}",
             "bl"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "bl",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "br",
@@ -996,11 +1243,9 @@
             "BLB0",
             "BLB{i}"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "br",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "wl",
@@ -1010,17 +1255,97 @@
             "WL{i}",
             "wl"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "wl",
+          "status": "matched",
+          "notes": []
         }
       ],
-      "power_status": "no_macro",
-      "aggregation_status": "unknown_need_gds_pin_audit",
+      "power_status": "vdd_gnd_alias_ok",
+      "aggregation_status": "abutment_ready",
       "implementation_status": "macro_candidate",
-      "footprint": null,
+      "footprint": {
+        "macro_name": "dummy_cell_1rw",
+        "role": "dummy",
+        "width": 0.0,
+        "height": 0.0,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [],
+        "bottom_rails": [],
+        "abutment_rules": [
+          {
+            "side": "left",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "right",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "top",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          },
+          {
+            "side": "bottom",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          }
+        ],
+        "pin_access_sides": {
+          "bl": [
+            "internal"
+          ],
+          "br": [
+            "internal"
+          ],
+          "gnd": [
+            "internal"
+          ],
+          "vdd": [
+            "internal"
+          ],
+          "wl": [
+            "internal"
+          ]
+        },
+        "status": "abutment_ready",
+        "notes": []
+      },
       "notes": [
         "Pins contain dynamic bus patterns; expand with SRAM size before placement."
       ]
@@ -1182,8 +1507,10 @@
         "replica_cell_1rw",
         "replica_column"
       ],
-      "existing_macros": [],
-      "selected_macro": null,
+      "existing_macros": [
+        "replica_cell_1rw"
+      ],
+      "selected_macro": "replica_cell_1rw",
       "pin_checks": [
         {
           "canonical_pin": "vdd",
@@ -1191,11 +1518,9 @@
             "VDD",
             "vdd"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "gnd",
@@ -1204,33 +1529,27 @@
             "GND",
             "gnd"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "rbl",
           "expected_aliases": [
             "RBL"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "bl",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "rblb",
           "expected_aliases": [
             "RBLB"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "br",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "wl",
@@ -1240,17 +1559,97 @@
             "WL{i}",
             "wl"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "wl",
+          "status": "matched",
+          "notes": []
         }
       ],
-      "power_status": "no_macro",
-      "aggregation_status": "unknown_need_gds_pin_audit",
+      "power_status": "vdd_gnd_alias_ok",
+      "aggregation_status": "abutment_ready",
       "implementation_status": "macro_candidate",
-      "footprint": null,
+      "footprint": {
+        "macro_name": "replica_cell_1rw",
+        "role": "replica",
+        "width": 0.0,
+        "height": 0.0,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [],
+        "bottom_rails": [],
+        "abutment_rules": [
+          {
+            "side": "left",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "right",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "top",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          },
+          {
+            "side": "bottom",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          }
+        ],
+        "pin_access_sides": {
+          "bl": [
+            "internal"
+          ],
+          "br": [
+            "internal"
+          ],
+          "gnd": [
+            "internal"
+          ],
+          "vdd": [
+            "internal"
+          ],
+          "wl": [
+            "internal"
+          ]
+        },
+        "status": "abutment_ready",
+        "notes": []
+      },
       "notes": []
     },
     {
@@ -1261,8 +1660,10 @@
         "replica_cell_1rw",
         "replica_column"
       ],
-      "existing_macros": [],
-      "selected_macro": null,
+      "existing_macros": [
+        "replica_cell_1rw"
+      ],
+      "selected_macro": "replica_cell_1rw",
       "pin_checks": [
         {
           "canonical_pin": "vdd",
@@ -1270,11 +1671,9 @@
             "VDD",
             "vdd"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "gnd",
@@ -1283,33 +1682,27 @@
             "GND",
             "gnd"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "rbl",
           "expected_aliases": [
             "RBL"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "bl",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "rblb",
           "expected_aliases": [
             "RBLB"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "br",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "wl",
@@ -1319,17 +1712,97 @@
             "WL{i}",
             "wl"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "wl",
+          "status": "matched",
+          "notes": []
         }
       ],
-      "power_status": "no_macro",
-      "aggregation_status": "unknown_need_gds_pin_audit",
+      "power_status": "vdd_gnd_alias_ok",
+      "aggregation_status": "abutment_ready",
       "implementation_status": "macro_candidate",
-      "footprint": null,
+      "footprint": {
+        "macro_name": "replica_cell_1rw",
+        "role": "replica",
+        "width": 0.0,
+        "height": 0.0,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [],
+        "bottom_rails": [],
+        "abutment_rules": [
+          {
+            "side": "left",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "right",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "top",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          },
+          {
+            "side": "bottom",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          }
+        ],
+        "pin_access_sides": {
+          "bl": [
+            "internal"
+          ],
+          "br": [
+            "internal"
+          ],
+          "gnd": [
+            "internal"
+          ],
+          "vdd": [
+            "internal"
+          ],
+          "wl": [
+            "internal"
+          ]
+        },
+        "status": "abutment_ready",
+        "notes": []
+      },
       "notes": [
         "Pins contain dynamic bus patterns; expand with SRAM size before placement."
       ]
@@ -1342,8 +1815,10 @@
         "sense_amp",
         "sense_amp_array"
       ],
-      "existing_macros": [],
-      "selected_macro": null,
+      "existing_macros": [
+        "sense_amp"
+      ],
+      "selected_macro": "sense_amp",
       "pin_checks": [
         {
           "canonical_pin": "vdd",
@@ -1351,11 +1826,9 @@
             "VDD",
             "vdd"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "gnd",
@@ -1364,11 +1837,9 @@
             "GND",
             "gnd"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "sense_enable",
@@ -1377,11 +1848,9 @@
             "s_en",
             "sense_en"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "en",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "bl",
@@ -1392,11 +1861,9 @@
             "BL{i}",
             "bl"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "bl",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "br",
@@ -1408,11 +1875,9 @@
             "BLB0",
             "BLB{i}"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "br",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "dout",
@@ -1422,11 +1887,9 @@
             "dout0[*]",
             "dout"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "dout",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "dout_b",
@@ -1435,18 +1898,77 @@
             "OUTB"
           ],
           "matched_macro_pin": null,
-          "status": "missing_macro",
+          "status": "missing_pin",
           "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
+            "No replacement macro pin maps to canonical `dout_b`."
           ]
         }
       ],
-      "power_status": "no_macro",
-      "aggregation_status": "not_abutment_ready",
+      "power_status": "vdd_gnd_alias_ok",
+      "aggregation_status": "unknown_need_gds_pin_audit",
       "implementation_status": "macro_candidate",
-      "footprint": null,
+      "footprint": {
+        "macro_name": "sense_amp",
+        "role": "sense_amp",
+        "width": 0.0,
+        "height": 0.0,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [],
+        "bottom_rails": [],
+        "abutment_rules": [
+          {
+            "side": "left",
+            "compatible_roles": [
+              "sense_amp"
+            ],
+            "share_power_rails": false,
+            "min_gap": 0.0,
+            "notes": [
+              "Requires GDS pin/DRC audit before enabling no-gap abutment."
+            ]
+          },
+          {
+            "side": "right",
+            "compatible_roles": [
+              "sense_amp"
+            ],
+            "share_power_rails": false,
+            "min_gap": 0.0,
+            "notes": [
+              "Requires GDS pin/DRC audit before enabling no-gap abutment."
+            ]
+          }
+        ],
+        "pin_access_sides": {
+          "bl": [
+            "internal"
+          ],
+          "br": [
+            "internal"
+          ],
+          "dout": [
+            "internal"
+          ],
+          "en": [
+            "internal"
+          ],
+          "gnd": [
+            "internal"
+          ],
+          "vdd": [
+            "internal"
+          ]
+        },
+        "status": "unknown_need_gds_pin_audit",
+        "notes": [
+          "Replacement macro JSON has bbox/pin centers, but full GDS pin shapes are still needed before enabling physical abutment.",
+          "Column-side circuits need bitline pitch and power rail continuity checks before sharing rails."
+        ]
+      },
       "notes": [
-        "Map IN/INB to selected BL/BR and Q/QB to dout/dout_b or tri-state stage."
+        "Map IN/INB to selected BL/BR and Q/QB to dout/dout_b or tri-state stage.",
+        "Replacement macro exists, but one or more canonical pins do not match current metadata."
       ]
     },
     {
@@ -1944,8 +2466,10 @@
         "write_driver",
         "write_driver_array"
       ],
-      "existing_macros": [],
-      "selected_macro": null,
+      "existing_macros": [
+        "write_driver"
+      ],
+      "selected_macro": "write_driver",
       "pin_checks": [
         {
           "canonical_pin": "vdd",
@@ -1953,11 +2477,9 @@
             "VDD",
             "vdd"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "gnd",
@@ -1966,11 +2488,9 @@
             "GND",
             "gnd"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "write_enable",
@@ -1979,11 +2499,9 @@
             "w_en",
             "write_en"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "en",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "din",
@@ -1993,11 +2511,9 @@
             "din0[*]",
             "din"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "din",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "bl",
@@ -2007,11 +2523,9 @@
             "BL{i}",
             "bl"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "bl",
+          "status": "matched",
+          "notes": []
         },
         {
           "canonical_pin": "br",
@@ -2022,17 +2536,73 @@
             "BLB0",
             "BLB{i}"
           ],
-          "matched_macro_pin": null,
-          "status": "missing_macro",
-          "notes": [
-            "Candidate macro names are not present in replacement_macros.json."
-          ]
+          "matched_macro_pin": "br",
+          "status": "matched",
+          "notes": []
         }
       ],
-      "power_status": "no_macro",
-      "aggregation_status": "not_abutment_ready",
+      "power_status": "vdd_gnd_alias_ok",
+      "aggregation_status": "unknown_need_gds_pin_audit",
       "implementation_status": "macro_candidate",
-      "footprint": null,
+      "footprint": {
+        "macro_name": "write_driver",
+        "role": "write_driver",
+        "width": 0.0,
+        "height": 0.0,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [],
+        "bottom_rails": [],
+        "abutment_rules": [
+          {
+            "side": "left",
+            "compatible_roles": [
+              "write_driver"
+            ],
+            "share_power_rails": false,
+            "min_gap": 0.0,
+            "notes": [
+              "Requires GDS pin/DRC audit before enabling no-gap abutment."
+            ]
+          },
+          {
+            "side": "right",
+            "compatible_roles": [
+              "write_driver"
+            ],
+            "share_power_rails": false,
+            "min_gap": 0.0,
+            "notes": [
+              "Requires GDS pin/DRC audit before enabling no-gap abutment."
+            ]
+          }
+        ],
+        "pin_access_sides": {
+          "bl": [
+            "internal"
+          ],
+          "br": [
+            "internal"
+          ],
+          "din": [
+            "internal"
+          ],
+          "en": [
+            "internal"
+          ],
+          "gnd": [
+            "internal"
+          ],
+          "vdd": [
+            "internal"
+          ]
+        },
+        "status": "unknown_need_gds_pin_audit",
+        "notes": [
+          "Replacement macro JSON has bbox/pin centers, but full GDS pin shapes are still needed before enabling physical abutment.",
+          "Column-side circuits need bitline pitch and power rail continuity checks before sharing rails."
+        ]
+      },
       "notes": [
         "OpenYield WRITEDRIVER has internal DINB/ENB generation; only DIN/EN are external pins."
       ]
@@ -2054,22 +2624,21 @@
   ],
   "summary": {
     "matched_existing_macro": [
-      "PRECHARGE"
-    ],
-    "candidate_macro_missing": [
       "SRAM_6T_CELL",
       "DFF",
       "Dummy_CELL",
       "Dummy_Column",
       "Dummy_Row",
+      "PRECHARGE",
       "Replica_CELL",
       "Replica_Column",
-      "SENSEAMP",
       "WRITEDRIVER"
     ],
+    "candidate_macro_missing": [],
     "macro_exists_pin_mismatch": [
       "COLUMNMUX*",
       "DECODER3_8",
+      "SENSEAMP",
       "WORDLINEDRIVER"
     ],
     "no_physical_implementation": [
@@ -2121,11 +2690,11 @@
       "WriteDriverFactory"
     ],
     "aggregation_status_counts": {
+      "abutment_ready": 6,
       "composite_required": 7,
-      "needs_stdcell_or_generated_layout": 13,
+      "needs_stdcell_or_generated_layout": 12,
       "non_layout_source": 19,
-      "not_abutment_ready": 2,
-      "unknown_need_gds_pin_audit": 10,
+      "unknown_need_gds_pin_audit": 7,
       "unsupported_architecture": 2
     },
     "implementation_status_counts": {
@@ -2138,14 +2707,17 @@
     "power_status_counts": {
       "missing_vdd": 1,
       "no_gnd_required": 1,
-      "no_macro": 49,
-      "vdd_gnd_alias_ok": 2
+      "no_macro": 40,
+      "vdd_gnd_alias_ok": 11
     },
     "vdd_gnd_shared_rail_risks": [
       "COLUMNMUX*",
+      "DFF",
       "DECODER3_8",
       "PRECHARGE",
-      "WORDLINEDRIVER"
+      "SENSEAMP",
+      "WORDLINEDRIVER",
+      "WRITEDRIVER"
     ]
   },
   "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_standalone\\docs\\openyield_module_contracts.json",

@@ -61,12 +61,76 @@ def load_replacement_macros(tech_dir: str | Path) -> dict[str, dict[str, Any]]:
     return {str(item.get("name")): item for item in payload.get("macros", [])}
 
 
+def load_macro_aliases(tech_dir: str | Path) -> dict[str, dict[str, Any]]:
+    path = Path(tech_dir) / "openyield_macro_aliases.json"
+    if not path.exists():
+        return {}
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    return {str(item.get("openyield_module")): item for item in payload.get("aliases", [])}
+
+
+def discover_library_macros(tech_dir: str | Path) -> dict[str, dict[str, Any]]:
+    root = Path(tech_dir)
+    discovered: dict[str, dict[str, Any]] = {}
+    for gds in sorted((root / "gds_lib").glob("**/*.gds")):
+        name = gds.stem
+        discovered.setdefault(name, {"name": name})
+        discovered[name]["gds"] = gds.relative_to(root).as_posix()
+    for spice in sorted((root / "sp_lib").glob("*.sp")):
+        name, pins = _parse_spice_subckt(spice)
+        if not name:
+            continue
+        discovered.setdefault(name, {"name": name})
+        discovered[name]["spice"] = spice.relative_to(root).as_posix()
+        discovered[name]["spice_subckt"] = name
+        discovered[name]["pins"] = [
+            {"name": pin, "layer": "unknown", "x": None, "y": None, "use": _pin_use(pin)}
+            for pin in pins
+        ]
+    return discovered
+
+
+def build_macro_catalog(tech_dir: str | Path) -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
+    replacements = load_replacement_macros(tech_dir)
+    aliases = load_macro_aliases(tech_dir)
+    discovered = discover_library_macros(tech_dir)
+    catalog = {name: dict(item, source_kind="replacement_macro") for name, item in replacements.items()}
+    for name, item in discovered.items():
+        catalog.setdefault(name, dict(item, source_kind="library_discovered"))
+    for openyield_module, alias in aliases.items():
+        macro_name = str(alias.get("macro_name") or "")
+        if not macro_name:
+            continue
+        base = dict(catalog.get(macro_name) or {"name": macro_name})
+        base.update({k: v for k, v in alias.items() if k not in {"openyield_module", "pin_aliases", "power_aliases", "notes"}})
+        if "pins" not in base or not base["pins"]:
+            spice_path = Path(tech_dir) / str(alias.get("spice") or "")
+            _subckt, pins = _parse_spice_subckt(spice_path)
+            base["pins"] = [
+                {"name": pin, "layer": "unknown", "x": None, "y": None, "use": _pin_use(pin)}
+                for pin in pins
+            ]
+        base.setdefault("openyield_aliases", {})
+        base["openyield_aliases"][openyield_module] = alias
+        base["source_kind"] = "alias_augmented"
+        catalog[macro_name] = base
+    stats = {
+        "replacement_macro_count": len(replacements),
+        "alias_count": len(aliases),
+        "library_gds_count": sum(1 for item in discovered.values() if item.get("gds")),
+        "library_spice_count": sum(1 for item in discovered.values() if item.get("spice")),
+        "catalog_macro_count": len(catalog),
+        "alias_file_present": bool(aliases),
+    }
+    return catalog, stats
+
+
 def check_contract_payload(contracts_payload: dict[str, Any], tech_dir: str | Path) -> dict[str, Any]:
-    macros = load_replacement_macros(tech_dir)
+    macros, macro_stats = build_macro_catalog(tech_dir)
     checks = [check_contract(contract, macros) for contract in contracts_payload.get("contracts", [])]
     return {
         "contracts_source": contracts_payload.get("openyield_root"),
-        "replacement_macro_count": len(macros),
+        **macro_stats,
         "contract_count": len(checks),
         "compatibilities": [check.to_dict() for check in checks],
         "summary": summarize_compatibilities(checks),
@@ -198,9 +262,29 @@ def _pin_check(contract: dict[str, Any], macro: dict[str, Any], pin: dict[str, A
 def _canonical_macro_pin(name: str, macro: dict[str, Any], contract: dict[str, Any]) -> str:
     original = str(contract.get("original_module_name") or "")
     macro_name = str(macro.get("name") or "")
+    alias = (macro.get("openyield_aliases") or {}).get(original) or {}
+    pin_aliases = alias.get("pin_aliases") or {}
+    if name in pin_aliases:
+        return str(pin_aliases[name])
     overrides = {
         "PRECHARGE": {
             "EN": "precharge_enb",
+        },
+        "WRITEDRIVER": {
+            "en": "write_enable",
+            "EN": "write_enable",
+        },
+        "SENSEAMP": {
+            "en": "sense_enable",
+            "EN": "sense_enable",
+            "IN": "bl",
+            "INB": "br",
+            "Q": "dout",
+            "QB": "dout_b",
+        },
+        "Replica_CELL": {
+            "bl": "rbl",
+            "br": "rblb",
         },
         "WORDLINEDRIVER": {
             "A": "decoder_input",
@@ -236,6 +320,27 @@ def _canonical_macro_pin(name: str, macro: dict[str, Any], contract: dict[str, A
     if name in {"QB", "OUTB"}:
         return "dout_b"
     return low
+
+
+def _parse_spice_subckt(path: Path) -> tuple[str, tuple[str, ...]]:
+    if not path.exists():
+        return "", ()
+    for line in path.read_text(encoding="utf-8", errors="ignore").splitlines():
+        stripped = line.strip()
+        if stripped.lower().startswith(".subckt"):
+            parts = stripped.split()
+            if len(parts) >= 2:
+                return parts[1], tuple(parts[2:])
+    return "", ()
+
+
+def _pin_use(pin: str) -> str:
+    low = pin.lower()
+    if low == "vdd":
+        return "POWER"
+    if low in {"gnd", "vss"}:
+        return "GROUND"
+    return "SIGNAL"
 
 
 def _power_status(contract: dict[str, Any], macro: dict[str, Any] | None, pin_checks: tuple[MacroPinCheck, ...]) -> str:

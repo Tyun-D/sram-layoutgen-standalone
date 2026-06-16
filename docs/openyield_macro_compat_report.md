@@ -8,6 +8,8 @@ This report statically compares OpenYield ModuleContract data against `technolog
 - tech dir: `E:\njust\keyan\SRAM Compiler_V2\OpenRAM-stable\deliverables\sram_layoutgen_standalone\technology\freepdk45`
 - contract count: `53`
 - replacement macro count: `6`
+- alias count: `10`
+- catalog macro count: `19`
 - missing focus modules: `none`
 
 ## Summary
@@ -15,22 +17,21 @@ This report statically compares OpenYield ModuleContract data against `technolog
 ```json
 {
   "matched_existing_macro": [
-    "PRECHARGE"
-  ],
-  "candidate_macro_missing": [
     "SRAM_6T_CELL",
     "DFF",
     "Dummy_CELL",
     "Dummy_Column",
     "Dummy_Row",
+    "PRECHARGE",
     "Replica_CELL",
     "Replica_Column",
-    "SENSEAMP",
     "WRITEDRIVER"
   ],
+  "candidate_macro_missing": [],
   "macro_exists_pin_mismatch": [
     "COLUMNMUX*",
     "DECODER3_8",
+    "SENSEAMP",
     "WORDLINEDRIVER"
   ],
   "no_physical_implementation": [
@@ -82,11 +83,11 @@ This report statically compares OpenYield ModuleContract data against `technolog
     "WriteDriverFactory"
   ],
   "aggregation_status_counts": {
+    "abutment_ready": 6,
     "composite_required": 7,
-    "needs_stdcell_or_generated_layout": 13,
+    "needs_stdcell_or_generated_layout": 12,
     "non_layout_source": 19,
-    "not_abutment_ready": 2,
-    "unknown_need_gds_pin_audit": 10,
+    "unknown_need_gds_pin_audit": 7,
     "unsupported_architecture": 2
   },
   "implementation_status_counts": {
@@ -99,14 +100,17 @@ This report statically compares OpenYield ModuleContract data against `technolog
   "power_status_counts": {
     "missing_vdd": 1,
     "no_gnd_required": 1,
-    "no_macro": 49,
-    "vdd_gnd_alias_ok": 2
+    "no_macro": 40,
+    "vdd_gnd_alias_ok": 11
   },
   "vdd_gnd_shared_rail_risks": [
     "COLUMNMUX*",
+    "DFF",
     "DECODER3_8",
     "PRECHARGE",
-    "WORDLINEDRIVER"
+    "SENSEAMP",
+    "WORDLINEDRIVER",
+    "WRITEDRIVER"
   ]
 }
 ```
@@ -115,7 +119,7 @@ This report statically compares OpenYield ModuleContract data against `technolog
 
 | module | role | implementation | candidate macros | existing macros | selected macro | pin checks | power | aggregation | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| SRAM_6T_CELL | bitcell | macro_candidate | cell_1rw, cell_6t | - | - | missing_macro:5 | no_macro | unknown_need_gds_pin_audit | - |
+| SRAM_6T_CELL | bitcell | macro_candidate | cell_1rw, cell_6t | cell_1rw | cell_1rw | matched:5 | vdd_gnd_alias_ok | abutment_ready | - |
 | SRAM_10T_CELL | bitcell_10t | unsupported_architecture | - | - | - | - | no_macro | unsupported_architecture | Current layout generator/replacement macro library is 6T-focused; this OpenYield architecture is unsupported. |
 | SRAM_6T_CORE_* | bitcell_array | composite_required | cell_1rw_array, bitcell_array | - | - | missing_macro:5 | no_macro | composite_required | This contract is hierarchical and should not map to one single flat GDS macro.; Pins contain dynamic bus patterns; expand with SRAM size before placement.; Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts. |
 | SRAM_10T_CORE_* | bitcell_array_10t | unsupported_architecture | - | - | - | - | no_macro | unsupported_architecture | Pins contain dynamic bus patterns; expand with SRAM size before placement.; Current layout generator/replacement macro library is 6T-focused; this OpenYield architecture is unsupported. |
@@ -123,24 +127,24 @@ This report statically compares OpenYield ModuleContract data against `technolog
 | ColumnMuxFactory | column_mux | non_layout_source | - | - | - | - | no_macro | non_layout_source | - |
 | ADDR_DFF | control_timing | composite_required | - | - | - | - | no_macro | composite_required | This contract is hierarchical and should not map to one single flat GDS macro.; Pins contain dynamic bus patterns; expand with SRAM size before placement.; Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts. |
 | DATA_DFF | control_timing | composite_required | - | - | - | - | no_macro | composite_required | This contract is hierarchical and should not map to one single flat GDS macro.; Pins contain dynamic bus patterns; expand with SRAM size before placement.; Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts. |
-| DFF | control_timing | macro_candidate | dff | - | - | missing_macro:5 | no_macro | needs_stdcell_or_generated_layout | This contract is hierarchical and should not map to one single flat GDS macro. |
+| DFF | control_timing | macro_candidate | dff | dff | dff | matched:5 | vdd_gnd_alias_ok | unknown_need_gds_pin_audit | This contract is hierarchical and should not map to one single flat GDS macro. |
 | TIME | control_timing | composite_required | - | - | - | - | no_macro | composite_required | Composite control/timing module; should become architecture/control contract before placement.; Composed from ADDR_DFF, DATA_DFF, DFF, delay_chain, wen_delay_chain, pdrive, pdrive2_for_pre, wl_pdrive, and logic gates.; This contract is hierarchical and should not map to one single flat GDS macro.; Pins contain dynamic bus patterns; expand with SRAM size before placement.; Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts. |
 | delay_chain | control_timing | composite_required | - | - | - | - | no_macro | composite_required | This contract is hierarchical and should not map to one single flat GDS macro.; Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts. |
 | wen_delay_chain | control_timing | composite_required | - | - | - | - | no_macro | composite_required | This contract is hierarchical and should not map to one single flat GDS macro.; Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts. |
-| DECODER3_8 | decoder | macro_candidate | gen_nand2, gen_nand4, row_decoder | gen_nand2 | gen_nand2 | matched:2, missing_pin:3 | vdd_gnd_alias_ok | unknown_need_gds_pin_audit | Replacement macro exists, but one or more canonical pins do not match current metadata. |
+| DECODER3_8 | decoder | macro_candidate | gen_nand2, gen_nand4, row_decoder | gen_nand2, gen_nand4 | gen_nand2 | matched:2, missing_pin:3 | vdd_gnd_alias_ok | unknown_need_gds_pin_audit | Replacement macro exists, but one or more canonical pins do not match current metadata. |
 | DECODER_CASCADE | decoder | composite_required | - | - | - | - | no_macro | composite_required | Pins contain dynamic bus patterns; expand with SRAM size before placement.; Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts. |
 | DecoderCascadeFactory | decoder | non_layout_source | - | - | - | - | no_macro | non_layout_source | - |
 | DummyColumnFactory | dummy | non_layout_source | - | - | - | - | no_macro | non_layout_source | - |
 | DummyRowFactory | dummy | non_layout_source | - | - | - | - | no_macro | non_layout_source | - |
-| Dummy_CELL | dummy | macro_candidate | dummy_cell_1rw, dummy_cell_array | - | - | missing_macro:5 | no_macro | unknown_need_gds_pin_audit | - |
-| Dummy_Column | dummy | macro_candidate | dummy_cell_1rw, dummy_cell_array | - | - | missing_macro:5 | no_macro | unknown_need_gds_pin_audit | Pins contain dynamic bus patterns; expand with SRAM size before placement. |
-| Dummy_Row | dummy | macro_candidate | dummy_cell_1rw, dummy_cell_array | - | - | missing_macro:5 | no_macro | unknown_need_gds_pin_audit | Pins contain dynamic bus patterns; expand with SRAM size before placement. |
+| Dummy_CELL | dummy | macro_candidate | dummy_cell_1rw, dummy_cell_array | dummy_cell_1rw | dummy_cell_1rw | matched:5 | vdd_gnd_alias_ok | abutment_ready | - |
+| Dummy_Column | dummy | macro_candidate | dummy_cell_1rw, dummy_cell_array | dummy_cell_1rw | dummy_cell_1rw | matched:5 | vdd_gnd_alias_ok | abutment_ready | Pins contain dynamic bus patterns; expand with SRAM size before placement. |
+| Dummy_Row | dummy | macro_candidate | dummy_cell_1rw, dummy_cell_array | dummy_cell_1rw | dummy_cell_1rw | matched:5 | vdd_gnd_alias_ok | abutment_ready | Pins contain dynamic bus patterns; expand with SRAM size before placement. |
 | PRECHARGE | precharge | macro_candidate | gen_precharge, precharge_array | gen_precharge | gen_precharge | matched:4 | no_gnd_required | unknown_need_gds_pin_audit | OpenYield PRECHARGE uses ENB; map to active-low precharge enable. |
 | PrechargeFactory | precharge | non_layout_source | - | - | - | - | no_macro | non_layout_source | - |
 | ReplicaColumnFactory | replica | non_layout_source | - | - | - | - | no_macro | non_layout_source | - |
-| Replica_CELL | replica | macro_candidate | replica_cell_1rw, replica_column | - | - | missing_macro:5 | no_macro | unknown_need_gds_pin_audit | - |
-| Replica_Column | replica | macro_candidate | replica_cell_1rw, replica_column | - | - | missing_macro:5 | no_macro | unknown_need_gds_pin_audit | Pins contain dynamic bus patterns; expand with SRAM size before placement. |
-| SENSEAMP | sense_amp | macro_candidate | sense_amp, sense_amp_array | - | - | missing_macro:7 | no_macro | not_abutment_ready | Map IN/INB to selected BL/BR and Q/QB to dout/dout_b or tri-state stage. |
+| Replica_CELL | replica | macro_candidate | replica_cell_1rw, replica_column | replica_cell_1rw | replica_cell_1rw | matched:5 | vdd_gnd_alias_ok | abutment_ready | - |
+| Replica_Column | replica | macro_candidate | replica_cell_1rw, replica_column | replica_cell_1rw | replica_cell_1rw | matched:5 | vdd_gnd_alias_ok | abutment_ready | Pins contain dynamic bus patterns; expand with SRAM size before placement. |
+| SENSEAMP | sense_amp | macro_candidate | sense_amp, sense_amp_array | sense_amp | sense_amp | matched:6, missing_pin:1 | vdd_gnd_alias_ok | unknown_need_gds_pin_audit | Map IN/INB to selected BL/BR and Q/QB to dout/dout_b or tri-state stage.; Replacement macro exists, but one or more canonical pins do not match current metadata. |
 | SenseAmpFactory | sense_amp | non_layout_source | - | - | - | - | no_macro | non_layout_source | - |
 | AND2 | support_cell | needs_stdcell_or_generated_layout | - | - | - | - | no_macro | needs_stdcell_or_generated_layout | - |
 | AND3 | support_cell | needs_stdcell_or_generated_layout | - | - | - | - | no_macro | needs_stdcell_or_generated_layout | - |
@@ -166,29 +170,30 @@ This report statically compares OpenYield ModuleContract data against `technolog
 | TIMEFactory | unknown | non_layout_source | - | - | - | - | no_macro | non_layout_source | - |
 | WORDLINEDRIVER | wordline_driver | macro_candidate | gen_wl_driver, wordline_driver | gen_wl_driver | gen_wl_driver | matched:4, missing_pin:1 | vdd_gnd_alias_ok | unknown_need_gds_pin_audit | A is treated as decoder_input, B as wordline_enable, and Z as wl; confirm polarity against OpenYield timing before physical hookup.; needs_semantic_confirmation; Replacement macro exists, but one or more canonical pins do not match current metadata. |
 | WordlineDriverFactory | wordline_driver | non_layout_source | - | - | - | - | no_macro | non_layout_source | - |
-| WRITEDRIVER | write_driver | macro_candidate | write_driver, write_driver_array | - | - | missing_macro:6 | no_macro | not_abutment_ready | OpenYield WRITEDRIVER has internal DINB/ENB generation; only DIN/EN are external pins. |
+| WRITEDRIVER | write_driver | macro_candidate | write_driver, write_driver_array | write_driver | write_driver | matched:6 | vdd_gnd_alias_ok | unknown_need_gds_pin_audit | OpenYield WRITEDRIVER has internal DINB/ENB generation; only DIN/EN are external pins. |
 | WriteDriverFactory | write_driver | non_layout_source | - | - | - | - | no_macro | non_layout_source | - |
 
 ## Existing Macro Matches
-
-- `PRECHARGE`
-
-## Candidate Macro Missing
 
 - `SRAM_6T_CELL`
 - `DFF`
 - `Dummy_CELL`
 - `Dummy_Column`
 - `Dummy_Row`
+- `PRECHARGE`
 - `Replica_CELL`
 - `Replica_Column`
-- `SENSEAMP`
 - `WRITEDRIVER`
+
+## Candidate Macro Missing
+
+none
 
 ## Macro Exists But Pin Mismatch
 
 - `COLUMNMUX*`
 - `DECODER3_8`
+- `SENSEAMP`
 - `WORDLINEDRIVER`
 
 ## Composite Modules
@@ -231,9 +236,12 @@ This report statically compares OpenYield ModuleContract data against `technolog
 ## VDD/GND Shared Rail Risks
 
 - `COLUMNMUX*`
+- `DFF`
 - `DECODER3_8`
 - `PRECHARGE`
+- `SENSEAMP`
 - `WORDLINEDRIVER`
+- `WRITEDRIVER`
 
 ## Next Missing Alias Or Macro Work
 

@@ -162,6 +162,8 @@ def format_markdown(report: dict[str, Any]) -> str:
             f"- tech dir: `{report['tech_dir']}`",
             f"- contract count: `{report['contract_count']}`",
             f"- replacement macro count: `{report['replacement_macro_count']}`",
+            f"- alias count: `{report.get('alias_count', 0)}`",
+            f"- catalog macro count: `{report.get('catalog_macro_count', report['replacement_macro_count'])}`",
             f"- missing focus modules: `{', '.join(report['missing_focus_modules']) or 'none'}`",
             "",
             "## Summary",

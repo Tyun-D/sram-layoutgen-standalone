@@ -1,0 +1,1538 @@
+{
+  "replacement_macro_count": 6,
+  "alias_count": 10,
+  "library_gds_count": 19,
+  "library_spice_count": 10,
+  "catalog_macro_count": 19,
+  "alias_file_present": true,
+  "replacement_macro_names": [
+    "gen_col_mux",
+    "gen_delay_inv",
+    "gen_inv",
+    "gen_nand2",
+    "gen_precharge",
+    "gen_wl_driver"
+  ],
+  "local_library_macros": [
+    "cell_1rw",
+    "cell_2rw",
+    "dff",
+    "dummy_cell_1rw",
+    "dummy_cell_2rw",
+    "gen_col_mux",
+    "gen_delay_inv",
+    "gen_inv",
+    "gen_nand2",
+    "gen_nand4",
+    "gen_nor2",
+    "gen_precharge",
+    "gen_well_tap",
+    "gen_wl_driver",
+    "replica_cell_1rw",
+    "replica_cell_2rw",
+    "sense_amp",
+    "tri_gate",
+    "write_driver"
+  ],
+  "unregistered_local_gds_or_spice_macros": [
+    "cell_1rw",
+    "cell_2rw",
+    "dff",
+    "dummy_cell_1rw",
+    "dummy_cell_2rw",
+    "gen_nand4",
+    "gen_nor2",
+    "gen_well_tap",
+    "replica_cell_1rw",
+    "replica_cell_2rw",
+    "sense_amp",
+    "tri_gate",
+    "write_driver"
+  ],
+  "focus_macro_audit": [
+    {
+      "name": "cell_1rw",
+      "has_gds": true,
+      "has_spice": true,
+      "registered_replacement": false,
+      "alias_targets": [
+        "SRAM_6T_CELL"
+      ],
+      "pins": [
+        "bl",
+        "br",
+        "wl",
+        "vdd",
+        "gnd"
+      ]
+    },
+    {
+      "name": "cell_2rw",
+      "has_gds": true,
+      "has_spice": true,
+      "registered_replacement": false,
+      "alias_targets": [],
+      "pins": [
+        "bl0",
+        "br0",
+        "bl1",
+        "br1",
+        "wl0",
+        "wl1",
+        "vdd",
+        "gnd"
+      ]
+    },
+    {
+      "name": "cell_6t",
+      "has_gds": false,
+      "has_spice": false,
+      "registered_replacement": false,
+      "alias_targets": [],
+      "pins": []
+    },
+    {
+      "name": "dummy_cell_1rw",
+      "has_gds": true,
+      "has_spice": true,
+      "registered_replacement": false,
+      "alias_targets": [
+        "Dummy_CELL",
+        "Dummy_Column",
+        "Dummy_Row"
+      ],
+      "pins": [
+        "bl",
+        "br",
+        "wl",
+        "vdd",
+        "gnd"
+      ]
+    },
+    {
+      "name": "dummy_cell_2rw",
+      "has_gds": true,
+      "has_spice": true,
+      "registered_replacement": false,
+      "alias_targets": [],
+      "pins": [
+        "bl0",
+        "br0",
+        "bl1",
+        "br1",
+        "wl0",
+        "wl1",
+        "vdd",
+        "gnd"
+      ]
+    },
+    {
+      "name": "replica_cell_1rw",
+      "has_gds": true,
+      "has_spice": true,
+      "registered_replacement": false,
+      "alias_targets": [
+        "Replica_CELL",
+        "Replica_Column"
+      ],
+      "pins": [
+        "bl",
+        "br",
+        "wl",
+        "vdd",
+        "gnd"
+      ]
+    },
+    {
+      "name": "replica_cell_2rw",
+      "has_gds": true,
+      "has_spice": true,
+      "registered_replacement": false,
+      "alias_targets": [],
+      "pins": [
+        "bl0",
+        "br0",
+        "bl1",
+        "br1",
+        "wl0",
+        "wl1",
+        "vdd",
+        "gnd"
+      ]
+    },
+    {
+      "name": "sense_amp",
+      "has_gds": true,
+      "has_spice": true,
+      "registered_replacement": false,
+      "alias_targets": [
+        "SENSEAMP"
+      ],
+      "pins": [
+        "bl",
+        "br",
+        "dout",
+        "en",
+        "vdd",
+        "gnd"
+      ]
+    },
+    {
+      "name": "write_driver",
+      "has_gds": true,
+      "has_spice": true,
+      "registered_replacement": false,
+      "alias_targets": [
+        "WRITEDRIVER"
+      ],
+      "pins": [
+        "din",
+        "bl",
+        "br",
+        "en",
+        "vdd",
+        "gnd"
+      ]
+    },
+    {
+      "name": "tri_gate",
+      "has_gds": true,
+      "has_spice": true,
+      "registered_replacement": false,
+      "alias_targets": [
+        "tri_gate"
+      ],
+      "pins": [
+        "in",
+        "out",
+        "en",
+        "en_bar",
+        "vdd",
+        "gnd"
+      ]
+    },
+    {
+      "name": "dff",
+      "has_gds": true,
+      "has_spice": true,
+      "registered_replacement": false,
+      "alias_targets": [
+        "DFF"
+      ],
+      "pins": [
+        "D",
+        "Q",
+        "clk",
+        "vdd",
+        "gnd"
+      ]
+    },
+    {
+      "name": "precharge",
+      "has_gds": false,
+      "has_spice": false,
+      "registered_replacement": false,
+      "alias_targets": [],
+      "pins": []
+    },
+    {
+      "name": "gen_precharge",
+      "has_gds": true,
+      "has_spice": false,
+      "registered_replacement": true,
+      "alias_targets": [],
+      "pins": []
+    },
+    {
+      "name": "gen_col_mux",
+      "has_gds": true,
+      "has_spice": false,
+      "registered_replacement": true,
+      "alias_targets": [],
+      "pins": []
+    },
+    {
+      "name": "gen_wl_driver",
+      "has_gds": true,
+      "has_spice": false,
+      "registered_replacement": true,
+      "alias_targets": [],
+      "pins": []
+    },
+    {
+      "name": "gen_nand2",
+      "has_gds": true,
+      "has_spice": false,
+      "registered_replacement": true,
+      "alias_targets": [],
+      "pins": []
+    },
+    {
+      "name": "gen_nand4",
+      "has_gds": true,
+      "has_spice": false,
+      "registered_replacement": false,
+      "alias_targets": [],
+      "pins": []
+    },
+    {
+      "name": "row_decoder",
+      "has_gds": false,
+      "has_spice": false,
+      "registered_replacement": false,
+      "alias_targets": [],
+      "pins": []
+    },
+    {
+      "name": "wordline_driver",
+      "has_gds": false,
+      "has_spice": false,
+      "registered_replacement": false,
+      "alias_targets": [],
+      "pins": []
+    }
+  ],
+  "suggested_macro_aliases": [
+    {
+      "openyield_module": "DFF",
+      "macro_name": "dff",
+      "role": "control_timing",
+      "gds": "gds_lib/dff.gds",
+      "spice": "sp_lib/dff.sp",
+      "spice_subckt": "dff",
+      "pin_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd",
+        "D": "d",
+        "Q": "dout",
+        "CLK": "clk",
+        "clk": "clk",
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "power_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "aggregation_hint": "unknown_need_gds_pin_audit",
+      "notes": [
+        "OpenYield DFF Q is accepted as canonical dout for current contract compatibility."
+      ]
+    },
+    {
+      "openyield_module": "Dummy_CELL",
+      "macro_name": "dummy_cell_1rw",
+      "role": "dummy",
+      "gds": "gds_lib/dummy_cell_1rw.gds",
+      "spice": "sp_lib/dummy_cell_1rw.sp",
+      "spice_subckt": "dummy_cell_1rw",
+      "pin_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd",
+        "BL": "bl",
+        "BLB": "br",
+        "WL": "wl"
+      },
+      "power_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "aggregation_hint": "abutment_ready",
+      "notes": [
+        "Dummy bitcells should align with bitcell rails; confirm exact edge pins in GDS before no-gap abutment."
+      ]
+    },
+    {
+      "openyield_module": "Dummy_Column",
+      "macro_name": "dummy_cell_1rw",
+      "role": "dummy",
+      "gds": "gds_lib/dummy_cell_1rw.gds",
+      "spice": "sp_lib/dummy_cell_1rw.sp",
+      "spice_subckt": "dummy_cell_1rw",
+      "pin_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd",
+        "BL": "bl",
+        "BLB": "br",
+        "WL": "wl"
+      },
+      "power_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "aggregation_hint": "abutment_ready",
+      "notes": [
+        "OpenYield Dummy_Column is an array composition of dummy_cell_1rw."
+      ]
+    },
+    {
+      "openyield_module": "Dummy_Row",
+      "macro_name": "dummy_cell_1rw",
+      "role": "dummy",
+      "gds": "gds_lib/dummy_cell_1rw.gds",
+      "spice": "sp_lib/dummy_cell_1rw.sp",
+      "spice_subckt": "dummy_cell_1rw",
+      "pin_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd",
+        "BL": "bl",
+        "BLB": "br",
+        "WL": "wl"
+      },
+      "power_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "aggregation_hint": "abutment_ready",
+      "notes": [
+        "OpenYield Dummy_Row is an array composition of dummy_cell_1rw."
+      ]
+    },
+    {
+      "openyield_module": "Replica_CELL",
+      "macro_name": "replica_cell_1rw",
+      "role": "replica",
+      "gds": "gds_lib/replica_cell_1rw.gds",
+      "spice": "sp_lib/replica_cell_1rw.sp",
+      "spice_subckt": "replica_cell_1rw",
+      "pin_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd",
+        "RBL": "rbl",
+        "RBLB": "rblb",
+        "WL": "wl",
+        "bl": "rbl",
+        "br": "rblb"
+      },
+      "power_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "aggregation_hint": "abutment_ready",
+      "notes": [
+        "Local replica_cell_1rw SPICE names bitlines bl/br; OpenYield contract names them RBL/RBLB."
+      ]
+    },
+    {
+      "openyield_module": "Replica_Column",
+      "macro_name": "replica_cell_1rw",
+      "role": "replica",
+      "gds": "gds_lib/replica_cell_1rw.gds",
+      "spice": "sp_lib/replica_cell_1rw.sp",
+      "spice_subckt": "replica_cell_1rw",
+      "pin_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd",
+        "RBL": "rbl",
+        "RBLB": "rblb",
+        "WL": "wl",
+        "bl": "rbl",
+        "br": "rblb"
+      },
+      "power_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "aggregation_hint": "abutment_ready",
+      "notes": [
+        "OpenYield Replica_Column is a column composition of replica_cell_1rw."
+      ]
+    },
+    {
+      "openyield_module": "SENSEAMP",
+      "macro_name": "sense_amp",
+      "role": "sense_amp",
+      "gds": "gds_lib/sense_amp.gds",
+      "spice": "sp_lib/sense_amp.sp",
+      "spice_subckt": "sense_amp",
+      "pin_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd",
+        "EN": "sense_enable",
+        "IN": "bl",
+        "INB": "br",
+        "Q": "dout",
+        "QB": "dout_b",
+        "bl": "bl",
+        "br": "br",
+        "dout": "dout",
+        "en": "sense_enable"
+      },
+      "power_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "aggregation_hint": "unknown_need_gds_pin_audit",
+      "notes": [
+        "Local sense_amp SPICE has a single dout pin; OpenYield SENSEAMP contract has Q and QB. Treat QB/dout_b as unresolved until the GDS/SPICE semantics are confirmed."
+      ]
+    },
+    {
+      "openyield_module": "SRAM_6T_CELL",
+      "macro_name": "cell_1rw",
+      "role": "bitcell",
+      "gds": "gds_lib/cell_1rw.gds",
+      "spice": "sp_lib/cell_1rw.sp",
+      "spice_subckt": "cell_1rw",
+      "pin_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd",
+        "BL": "bl",
+        "BLB": "br",
+        "WL": "wl"
+      },
+      "power_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "aggregation_hint": "abutment_ready",
+      "notes": [
+        "SRAM bitcells are expected to abut in arrays, but final enablement still requires GDS pin-shape and rail-continuity audit."
+      ]
+    },
+    {
+      "openyield_module": "WRITEDRIVER",
+      "macro_name": "write_driver",
+      "role": "write_driver",
+      "gds": "gds_lib/write_driver.gds",
+      "spice": "sp_lib/write_driver.sp",
+      "spice_subckt": "write_driver",
+      "pin_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd",
+        "EN": "write_enable",
+        "DIN": "din",
+        "BL": "bl",
+        "BLB": "br",
+        "din": "din",
+        "en": "write_enable",
+        "bl": "bl",
+        "br": "br"
+      },
+      "power_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "aggregation_hint": "unknown_need_gds_pin_audit",
+      "notes": [
+        "Local write_driver has matching functional pins by SPICE name; abutment requires GDS rail/pin-shape audit."
+      ]
+    },
+    {
+      "openyield_module": "tri_gate",
+      "macro_name": "tri_gate",
+      "role": "tri_gate",
+      "gds": "gds_lib/tri_gate.gds",
+      "spice": "sp_lib/tri_gate.sp",
+      "spice_subckt": "tri_gate",
+      "pin_aliases": {
+        "in": "din",
+        "out": "dout",
+        "en": "en",
+        "en_bar": "enb",
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "power_aliases": {
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "aggregation_hint": "unknown_need_gds_pin_audit",
+      "notes": [
+        "Included for future output path compatibility; not a direct OpenYield top-level contract in the current parser output."
+      ]
+    }
+  ],
+  "missing_macros_before_alias": [
+    "DFF",
+    "Dummy_CELL",
+    "Dummy_Column",
+    "Dummy_Row",
+    "Replica_CELL",
+    "Replica_Column",
+    "SENSEAMP",
+    "SRAM_6T_CELL",
+    "WRITEDRIVER"
+  ],
+  "missing_macros_after_alias": [],
+  "missing_macros_resolved_by_alias": [
+    "DFF",
+    "Dummy_CELL",
+    "Dummy_Column",
+    "Dummy_Row",
+    "Replica_CELL",
+    "Replica_Column",
+    "SENSEAMP",
+    "SRAM_6T_CELL",
+    "WRITEDRIVER"
+  ],
+  "still_no_physical_implementation": [
+    "AND2",
+    "AND3",
+    "DFF_BUF",
+    "D_LATCH",
+    "PBUFF",
+    "PNAND2",
+    "PNAND3",
+    "TRANSMISSION_GATE",
+    "f'PINV{num}'",
+    "pdrive",
+    "pdrive2_for_pre",
+    "wl_pdrive"
+  ],
+  "macro_exists_pin_mismatch_after_alias": [
+    "COLUMNMUX*",
+    "DECODER3_8",
+    "SENSEAMP",
+    "WORDLINEDRIVER"
+  ],
+  "vdd_gnd_shared_rail_risks_after_alias": [
+    "COLUMNMUX*",
+    "DFF",
+    "DECODER3_8",
+    "PRECHARGE",
+    "SENSEAMP",
+    "WORDLINEDRIVER",
+    "WRITEDRIVER"
+  ],
+  "compat_summary_after_alias": {
+    "matched_existing_macro": [
+      "SRAM_6T_CELL",
+      "DFF",
+      "Dummy_CELL",
+      "Dummy_Column",
+      "Dummy_Row",
+      "PRECHARGE",
+      "Replica_CELL",
+      "Replica_Column",
+      "WRITEDRIVER"
+    ],
+    "candidate_macro_missing": [],
+    "macro_exists_pin_mismatch": [
+      "COLUMNMUX*",
+      "DECODER3_8",
+      "SENSEAMP",
+      "WORDLINEDRIVER"
+    ],
+    "no_physical_implementation": [
+      "AND2",
+      "AND3",
+      "DFF_BUF",
+      "D_LATCH",
+      "PBUFF",
+      "PNAND2",
+      "PNAND3",
+      "TRANSMISSION_GATE",
+      "f'PINV{num}'",
+      "pdrive",
+      "pdrive2_for_pre",
+      "wl_pdrive"
+    ],
+    "composite_required": [
+      "SRAM_6T_CORE_*",
+      "ADDR_DFF",
+      "DATA_DFF",
+      "TIME",
+      "delay_chain",
+      "wen_delay_chain",
+      "DECODER_CASCADE"
+    ],
+    "unsupported_architecture": [
+      "SRAM_10T_CELL",
+      "SRAM_10T_CORE_*"
+    ],
+    "non_layout_source": [
+      "ColumnMuxFactory",
+      "DecoderCascadeFactory",
+      "DummyColumnFactory",
+      "DummyRowFactory",
+      "PrechargeFactory",
+      "ReplicaColumnFactory",
+      "SenseAmpFactory",
+      "BASE_SUBCKT",
+      "BaseTestbench",
+      "SRAMCellParasiticTester",
+      "Sram10TCellFactory",
+      "Sram10TCoreFactory",
+      "Sram6TCellFactory",
+      "Sram6TCoreFactory",
+      "Sram6TCoreMcTestbench",
+      "Sram6TCoreTestbench",
+      "TIMEFactory",
+      "WordlineDriverFactory",
+      "WriteDriverFactory"
+    ],
+    "aggregation_status_counts": {
+      "abutment_ready": 6,
+      "composite_required": 7,
+      "needs_stdcell_or_generated_layout": 12,
+      "non_layout_source": 19,
+      "unknown_need_gds_pin_audit": 7,
+      "unsupported_architecture": 2
+    },
+    "implementation_status_counts": {
+      "composite_required": 7,
+      "macro_candidate": 13,
+      "needs_stdcell_or_generated_layout": 12,
+      "non_layout_source": 19,
+      "unsupported_architecture": 2
+    },
+    "power_status_counts": {
+      "missing_vdd": 1,
+      "no_gnd_required": 1,
+      "no_macro": 40,
+      "vdd_gnd_alias_ok": 11
+    },
+    "vdd_gnd_shared_rail_risks": [
+      "COLUMNMUX*",
+      "DFF",
+      "DECODER3_8",
+      "PRECHARGE",
+      "SENSEAMP",
+      "WORDLINEDRIVER",
+      "WRITEDRIVER"
+    ]
+  },
+  "module_metadata_audit": [
+    {
+      "module": "ADDR_DFF",
+      "role": "control_timing",
+      "implementation_status": "composite_required",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "composite_required",
+      "needs_gds_pin_shape_audit": false,
+      "notes": [
+        "This contract is hierarchical and should not map to one single flat GDS macro.",
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement.",
+        "Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts."
+      ]
+    },
+    {
+      "module": "AND2",
+      "role": "support_cell",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "needs_stdcell_or_generated_layout",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "AND3",
+      "role": "support_cell",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "needs_stdcell_or_generated_layout",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "BASE_SUBCKT",
+      "role": "unknown",
+      "implementation_status": "non_layout_source",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "non_layout_source",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "BaseTestbench",
+      "role": "unknown",
+      "implementation_status": "non_layout_source",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "non_layout_source",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "COLUMNMUX*",
+      "role": "column_mux",
+      "implementation_status": "macro_candidate",
+      "selected_macro": "gen_col_mux",
+      "resolved_by_alias": false,
+      "has_local_gds": true,
+      "has_local_spice": false,
+      "pin_status": {
+        "missing_pin": 1,
+        "matched": 6
+      },
+      "power_status": "missing_vdd",
+      "abutment_status": "unknown_need_gds_pin_audit",
+      "needs_gds_pin_shape_audit": false,
+      "notes": [
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement.",
+        "Replacement macro exists, but one or more canonical pins do not match current metadata."
+      ]
+    },
+    {
+      "module": "ColumnMuxFactory",
+      "role": "column_mux",
+      "implementation_status": "non_layout_source",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "non_layout_source",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "DATA_DFF",
+      "role": "control_timing",
+      "implementation_status": "composite_required",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "composite_required",
+      "needs_gds_pin_shape_audit": false,
+      "notes": [
+        "This contract is hierarchical and should not map to one single flat GDS macro.",
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement.",
+        "Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts."
+      ]
+    },
+    {
+      "module": "DECODER3_8",
+      "role": "decoder",
+      "implementation_status": "macro_candidate",
+      "selected_macro": "gen_nand2",
+      "resolved_by_alias": false,
+      "has_local_gds": true,
+      "has_local_spice": false,
+      "pin_status": {
+        "matched": 2,
+        "missing_pin": 3
+      },
+      "power_status": "vdd_gnd_alias_ok",
+      "abutment_status": "unknown_need_gds_pin_audit",
+      "needs_gds_pin_shape_audit": false,
+      "notes": [
+        "Replacement macro exists, but one or more canonical pins do not match current metadata."
+      ]
+    },
+    {
+      "module": "DECODER_CASCADE",
+      "role": "decoder",
+      "implementation_status": "composite_required",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "composite_required",
+      "needs_gds_pin_shape_audit": false,
+      "notes": [
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement.",
+        "Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts."
+      ]
+    },
+    {
+      "module": "DFF",
+      "role": "control_timing",
+      "implementation_status": "macro_candidate",
+      "selected_macro": "dff",
+      "resolved_by_alias": true,
+      "has_local_gds": true,
+      "has_local_spice": true,
+      "pin_status": {
+        "matched": 5
+      },
+      "power_status": "vdd_gnd_alias_ok",
+      "abutment_status": "unknown_need_gds_pin_audit",
+      "needs_gds_pin_shape_audit": true,
+      "notes": [
+        "This contract is hierarchical and should not map to one single flat GDS macro."
+      ]
+    },
+    {
+      "module": "DFF_BUF",
+      "role": "support_cell",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "needs_stdcell_or_generated_layout",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "D_LATCH",
+      "role": "support_cell",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "needs_stdcell_or_generated_layout",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "DecoderCascadeFactory",
+      "role": "decoder",
+      "implementation_status": "non_layout_source",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "non_layout_source",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "DummyColumnFactory",
+      "role": "dummy",
+      "implementation_status": "non_layout_source",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "non_layout_source",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "DummyRowFactory",
+      "role": "dummy",
+      "implementation_status": "non_layout_source",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "non_layout_source",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "Dummy_CELL",
+      "role": "dummy",
+      "implementation_status": "macro_candidate",
+      "selected_macro": "dummy_cell_1rw",
+      "resolved_by_alias": true,
+      "has_local_gds": true,
+      "has_local_spice": true,
+      "pin_status": {
+        "matched": 5
+      },
+      "power_status": "vdd_gnd_alias_ok",
+      "abutment_status": "abutment_ready",
+      "needs_gds_pin_shape_audit": true,
+      "notes": []
+    },
+    {
+      "module": "Dummy_Column",
+      "role": "dummy",
+      "implementation_status": "macro_candidate",
+      "selected_macro": "dummy_cell_1rw",
+      "resolved_by_alias": true,
+      "has_local_gds": true,
+      "has_local_spice": true,
+      "pin_status": {
+        "matched": 5
+      },
+      "power_status": "vdd_gnd_alias_ok",
+      "abutment_status": "abutment_ready",
+      "needs_gds_pin_shape_audit": true,
+      "notes": [
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement."
+      ]
+    },
+    {
+      "module": "Dummy_Row",
+      "role": "dummy",
+      "implementation_status": "macro_candidate",
+      "selected_macro": "dummy_cell_1rw",
+      "resolved_by_alias": true,
+      "has_local_gds": true,
+      "has_local_spice": true,
+      "pin_status": {
+        "matched": 5
+      },
+      "power_status": "vdd_gnd_alias_ok",
+      "abutment_status": "abutment_ready",
+      "needs_gds_pin_shape_audit": true,
+      "notes": [
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement."
+      ]
+    },
+    {
+      "module": "PBUFF",
+      "role": "support_cell",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "needs_stdcell_or_generated_layout",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "PNAND2",
+      "role": "support_cell",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "needs_stdcell_or_generated_layout",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "PNAND3",
+      "role": "support_cell",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "needs_stdcell_or_generated_layout",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "PRECHARGE",
+      "role": "precharge",
+      "implementation_status": "macro_candidate",
+      "selected_macro": "gen_precharge",
+      "resolved_by_alias": false,
+      "has_local_gds": true,
+      "has_local_spice": false,
+      "pin_status": {
+        "matched": 4
+      },
+      "power_status": "no_gnd_required",
+      "abutment_status": "unknown_need_gds_pin_audit",
+      "needs_gds_pin_shape_audit": false,
+      "notes": [
+        "OpenYield PRECHARGE uses ENB; map to active-low precharge enable."
+      ]
+    },
+    {
+      "module": "PrechargeFactory",
+      "role": "precharge",
+      "implementation_status": "non_layout_source",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "non_layout_source",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "ReplicaColumnFactory",
+      "role": "replica",
+      "implementation_status": "non_layout_source",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "non_layout_source",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "Replica_CELL",
+      "role": "replica",
+      "implementation_status": "macro_candidate",
+      "selected_macro": "replica_cell_1rw",
+      "resolved_by_alias": true,
+      "has_local_gds": true,
+      "has_local_spice": true,
+      "pin_status": {
+        "matched": 5
+      },
+      "power_status": "vdd_gnd_alias_ok",
+      "abutment_status": "abutment_ready",
+      "needs_gds_pin_shape_audit": true,
+      "notes": []
+    },
+    {
+      "module": "Replica_Column",
+      "role": "replica",
+      "implementation_status": "macro_candidate",
+      "selected_macro": "replica_cell_1rw",
+      "resolved_by_alias": true,
+      "has_local_gds": true,
+      "has_local_spice": true,
+      "pin_status": {
+        "matched": 5
+      },
+      "power_status": "vdd_gnd_alias_ok",
+      "abutment_status": "abutment_ready",
+      "needs_gds_pin_shape_audit": true,
+      "notes": [
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement."
+      ]
+    },
+    {
+      "module": "SENSEAMP",
+      "role": "sense_amp",
+      "implementation_status": "macro_candidate",
+      "selected_macro": "sense_amp",
+      "resolved_by_alias": true,
+      "has_local_gds": true,
+      "has_local_spice": true,
+      "pin_status": {
+        "matched": 6,
+        "missing_pin": 1
+      },
+      "power_status": "vdd_gnd_alias_ok",
+      "abutment_status": "unknown_need_gds_pin_audit",
+      "needs_gds_pin_shape_audit": true,
+      "notes": [
+        "Map IN/INB to selected BL/BR and Q/QB to dout/dout_b or tri-state stage.",
+        "Replacement macro exists, but one or more canonical pins do not match current metadata."
+      ]
+    },
+    {
+      "module": "SRAMCellParasiticTester",
+      "role": "unknown",
+      "implementation_status": "non_layout_source",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "non_layout_source",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "SRAM_10T_CELL",
+      "role": "bitcell_10t",
+      "implementation_status": "unsupported_architecture",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "unsupported_architecture",
+      "needs_gds_pin_shape_audit": false,
+      "notes": [
+        "Current layout generator/replacement macro library is 6T-focused; this OpenYield architecture is unsupported."
+      ]
+    },
+    {
+      "module": "SRAM_10T_CORE_*",
+      "role": "bitcell_array_10t",
+      "implementation_status": "unsupported_architecture",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "unsupported_architecture",
+      "needs_gds_pin_shape_audit": false,
+      "notes": [
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement.",
+        "Current layout generator/replacement macro library is 6T-focused; this OpenYield architecture is unsupported."
+      ]
+    },
+    {
+      "module": "SRAM_6T_CELL",
+      "role": "bitcell",
+      "implementation_status": "macro_candidate",
+      "selected_macro": "cell_1rw",
+      "resolved_by_alias": true,
+      "has_local_gds": true,
+      "has_local_spice": true,
+      "pin_status": {
+        "matched": 5
+      },
+      "power_status": "vdd_gnd_alias_ok",
+      "abutment_status": "abutment_ready",
+      "needs_gds_pin_shape_audit": true,
+      "notes": []
+    },
+    {
+      "module": "SRAM_6T_CORE_*",
+      "role": "bitcell_array",
+      "implementation_status": "composite_required",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {
+        "missing_macro": 5
+      },
+      "power_status": "no_macro",
+      "abutment_status": "composite_required",
+      "needs_gds_pin_shape_audit": false,
+      "notes": [
+        "This contract is hierarchical and should not map to one single flat GDS macro.",
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement.",
+        "Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts."
+      ]
+    },
+    {
+      "module": "SenseAmpFactory",
+      "role": "sense_amp",
+      "implementation_status": "non_layout_source",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "non_layout_source",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "Sram10TCellFactory",
+      "role": "unknown",
+      "implementation_status": "non_layout_source",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "non_layout_source",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "Sram10TCoreFactory",
+      "role": "unknown",
+      "implementation_status": "non_layout_source",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "non_layout_source",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "Sram6TCellFactory",
+      "role": "unknown",
+      "implementation_status": "non_layout_source",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "non_layout_source",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "Sram6TCoreFactory",
+      "role": "unknown",
+      "implementation_status": "non_layout_source",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "non_layout_source",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "Sram6TCoreMcTestbench",
+      "role": "unknown",
+      "implementation_status": "non_layout_source",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "non_layout_source",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "Sram6TCoreTestbench",
+      "role": "unknown",
+      "implementation_status": "non_layout_source",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "non_layout_source",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "TIME",
+      "role": "control_timing",
+      "implementation_status": "composite_required",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "composite_required",
+      "needs_gds_pin_shape_audit": false,
+      "notes": [
+        "Composite control/timing module; should become architecture/control contract before placement.",
+        "Composed from ADDR_DFF, DATA_DFF, DFF, delay_chain, wen_delay_chain, pdrive, pdrive2_for_pre, wl_pdrive, and logic gates.",
+        "This contract is hierarchical and should not map to one single flat GDS macro.",
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement.",
+        "Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts."
+      ]
+    },
+    {
+      "module": "TIMEFactory",
+      "role": "unknown",
+      "implementation_status": "non_layout_source",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "non_layout_source",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "TRANSMISSION_GATE",
+      "role": "support_cell",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "needs_stdcell_or_generated_layout",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "WORDLINEDRIVER",
+      "role": "wordline_driver",
+      "implementation_status": "macro_candidate",
+      "selected_macro": "gen_wl_driver",
+      "resolved_by_alias": false,
+      "has_local_gds": true,
+      "has_local_spice": false,
+      "pin_status": {
+        "matched": 4,
+        "missing_pin": 1
+      },
+      "power_status": "vdd_gnd_alias_ok",
+      "abutment_status": "unknown_need_gds_pin_audit",
+      "needs_gds_pin_shape_audit": false,
+      "notes": [
+        "A is treated as decoder_input, B as wordline_enable, and Z as wl; confirm polarity against OpenYield timing before physical hookup.",
+        "needs_semantic_confirmation",
+        "Replacement macro exists, but one or more canonical pins do not match current metadata."
+      ]
+    },
+    {
+      "module": "WRITEDRIVER",
+      "role": "write_driver",
+      "implementation_status": "macro_candidate",
+      "selected_macro": "write_driver",
+      "resolved_by_alias": true,
+      "has_local_gds": true,
+      "has_local_spice": true,
+      "pin_status": {
+        "matched": 6
+      },
+      "power_status": "vdd_gnd_alias_ok",
+      "abutment_status": "unknown_need_gds_pin_audit",
+      "needs_gds_pin_shape_audit": true,
+      "notes": [
+        "OpenYield WRITEDRIVER has internal DINB/ENB generation; only DIN/EN are external pins."
+      ]
+    },
+    {
+      "module": "WordlineDriverFactory",
+      "role": "wordline_driver",
+      "implementation_status": "non_layout_source",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "non_layout_source",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "WriteDriverFactory",
+      "role": "write_driver",
+      "implementation_status": "non_layout_source",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "non_layout_source",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "delay_chain",
+      "role": "control_timing",
+      "implementation_status": "composite_required",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "composite_required",
+      "needs_gds_pin_shape_audit": false,
+      "notes": [
+        "This contract is hierarchical and should not map to one single flat GDS macro.",
+        "Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts."
+      ]
+    },
+    {
+      "module": "f'PINV{num}'",
+      "role": "support_cell",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "needs_stdcell_or_generated_layout",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "pdrive",
+      "role": "support_cell",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "needs_stdcell_or_generated_layout",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "pdrive2_for_pre",
+      "role": "support_cell",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "needs_stdcell_or_generated_layout",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    },
+    {
+      "module": "wen_delay_chain",
+      "role": "control_timing",
+      "implementation_status": "composite_required",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "composite_required",
+      "needs_gds_pin_shape_audit": false,
+      "notes": [
+        "This contract is hierarchical and should not map to one single flat GDS macro.",
+        "Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts."
+      ]
+    },
+    {
+      "module": "wl_pdrive",
+      "role": "support_cell",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "selected_macro": null,
+      "resolved_by_alias": false,
+      "has_local_gds": false,
+      "has_local_spice": false,
+      "pin_status": {},
+      "power_status": "no_macro",
+      "abutment_status": "needs_stdcell_or_generated_layout",
+      "needs_gds_pin_shape_audit": false,
+      "notes": []
+    }
+  ],
+  "can_enter_placement_aggregation": false,
+  "blocking_metadata_before_placement": [
+    "Run a real GDS pin-shape audit for alias-augmented hardcells; current aliases use SPICE pins and file presence.",
+    "Resolve SENSEAMP dout_b/QB semantic mismatch because local sense_amp SPICE has a single dout pin.",
+    "Resolve COLUMNMUX* missing vdd metadata before shared power rails.",
+    "Confirm WORDLINEDRIVER A/B polarity and missing B pin in gen_wl_driver before routing wordline_enable."
+  ],
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_standalone\\docs\\openyield_module_contracts.json",
+  "compat_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_standalone\\docs\\openyield_macro_compat_report.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_standalone\\technology\\freepdk45"
+}
