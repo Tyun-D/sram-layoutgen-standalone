@@ -1,0 +1,91 @@
+{
+  "scope": "storage_only_row_orientation_compare_smoke_not_main_flow",
+  "rows": 2,
+  "cols": 4,
+  "pitch": {
+    "x": 0.895,
+    "y": 1.565
+  },
+  "constraints": {
+    "storage_only": true,
+    "same_horizontal_power_stitch": true,
+    "side_power_trunk": false,
+    "routing_changed": false,
+    "main_gds_flow_changed": false,
+    "shared_rail_merge_changed": false,
+    "peripheral_macros_included": false
+  },
+  "all_r0": {
+    "rows": 2,
+    "cols": 4,
+    "pitch_x": 0.895,
+    "pitch_y": 1.565,
+    "orientation": "R0",
+    "row_orientation_policy": "all_r0",
+    "instance_total": 14,
+    "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_2x4_all_r0.gds",
+    "svg_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_2x4_all_r0.svg",
+    "cross_row_power_short_risk": true,
+    "total_markers": 84,
+    "metal1_2_count": 38,
+    "metal2_2_count": 34,
+    "row_boundary_metal2_count": 34,
+    "power_stitch_related_marker_count": 18,
+    "location_class_stats": {
+      "array_outer_edge": 6,
+      "horizontal_cell_boundary": 12,
+      "power_stitch_nearby": 38,
+      "vertical_row_boundary": 28
+    }
+  },
+  "alternating_mx": {
+    "rows": 2,
+    "cols": 4,
+    "pitch_x": 0.895,
+    "pitch_y": 1.565,
+    "orientation": "R0/MX by row",
+    "row_orientation_policy": "alternating_mx",
+    "instance_total": 14,
+    "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_mx\\storage_only_2x4_alternating_mx.gds",
+    "svg_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_mx\\storage_only_2x4_alternating_mx.svg",
+    "cross_row_power_short_risk": false,
+    "total_markers": 44,
+    "metal1_2_count": 32,
+    "metal2_2_count": 0,
+    "row_boundary_metal2_count": 0,
+    "power_stitch_related_marker_count": 12,
+    "location_class_stats": {
+      "array_outer_edge": 6,
+      "horizontal_cell_boundary": 12,
+      "power_stitch_nearby": 26
+    }
+  },
+  "compare": {
+    "delta_total_markers": -40,
+    "delta_metal1_2": -6,
+    "delta_metal2_2": -34,
+    "delta_row_boundary_metal2": -34,
+    "delta_power_stitch_related_markers": -6,
+    "seam_marker_reduction": 34,
+    "all_r0_cross_row_power_short_risk": true,
+    "alternating_mx_cross_row_power_short_risk": false
+  },
+  "decision": {
+    "recommend_storage_row_policy": "alternating_mx",
+    "recommend_modify_array_aggregation_py": true,
+    "recommend_modify_standalone_py": false,
+    "storage_aggregation_can_continue": true,
+    "reason": [
+      "METAL2.2 seam markers: 34 -> 0",
+      "total DRC markers: 84 -> 44",
+      "cross-row power short risk: True -> False",
+      "power-stitch-related markers: 18 -> 12",
+      "Alternating MX reduced row-seam METAL2 pressure without introducing a new power-stitch hazard in this smoke."
+    ]
+  },
+  "next_step_recommendations": [
+    "Keep this as a storage-only policy result first; do not wire it into standalone until a follow-up storage-array-only integration step is approved.",
+    "If adopted later, update array aggregation placement only; do not change routing, GDS writer, or peripheral placement in the same step.",
+    "Re-run the stitched storage-only DRC smoke after any future integration change to confirm the seam result holds."
+  ]
+}

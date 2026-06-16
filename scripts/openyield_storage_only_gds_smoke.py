@@ -16,7 +16,7 @@ if str(STANDALONE_ROOT) not in sys.path:
 from sram_layoutgen.gds_util import inspect_gds_hierarchy, inspect_gds_text_records, measure_gds_bbox  # noqa: E402
 from sram_layoutgen.gds_writer import GDSWriter  # noqa: E402
 from sram_layoutgen.geometry import CellArray, LayoutDB, Point, Rect  # noqa: E402
-from sram_layoutgen.openram_placement import placed_bbox_from_openram_origin  # noqa: E402
+from sram_layoutgen.openram_placement import placed_bbox_from_openram_origin, place_local_rect  # noqa: E402
 from sram_layoutgen.standalone import load_bundled_freepdk45  # noqa: E402
 
 
@@ -34,6 +34,7 @@ PERIPHERAL_MACROS = {
     "dff",
     "tri_gate",
 }
+ROW_ORIENTATION_POLICIES = {"all_r0", "alternating_mx"}
 
 
 def main() -> int:
@@ -44,13 +45,20 @@ def main() -> int:
     parser.add_argument("--out-json", default="docs/openyield_storage_only_gds_smoke_report.json")
     parser.add_argument("--out-md", default="docs/openyield_storage_only_gds_smoke_report.md")
     parser.add_argument("--stitch-power-rails", action="store_true")
+    parser.add_argument("--row-orientation-policy", choices=sorted(ROW_ORIENTATION_POLICIES), default="all_r0")
     args = parser.parse_args()
 
     if args.rows <= 0 or args.cols <= 0:
         raise ValueError("rows and cols must be positive")
 
     tech = load_bundled_freepdk45()
-    layout = build_storage_only_layout(args.rows, args.cols, tech, stitch_power_rails=args.stitch_power_rails)
+    layout = build_storage_only_layout(
+        args.rows,
+        args.cols,
+        tech,
+        stitch_power_rails=args.stitch_power_rails,
+        row_orientation_policy=args.row_orientation_policy,
+    )
     out_gds = resolve_output(args.out_gds)
     out_json = resolve_output(args.out_json)
     out_md = resolve_output(args.out_md)
@@ -78,13 +86,45 @@ def main() -> int:
     return 0
 
 
-def build_storage_only_layout(rows: int, cols: int, tech: Any, *, stitch_power_rails: bool = False) -> LayoutDB:
+def build_storage_only_layout(
+    rows: int,
+    cols: int,
+    tech: Any,
+    *,
+    stitch_power_rails: bool = False,
+    row_orientation_policy: str = "all_r0",
+) -> LayoutDB:
+    if row_orientation_policy not in ROW_ORIENTATION_POLICIES:
+        raise ValueError(f"unsupported row orientation policy: {row_orientation_policy}")
     db = LayoutDB(f"openyield_storage_only_{rows}x{cols}")
+    mirror_rows = row_orientation_policy == "alternating_mx"
     arrays = [
-        add_array(db, tech, "dummy_left", "dummy_cell_1rw", 0.0, 0.0, 1, rows, "dummy_left"),
-        add_array(db, tech, "bitcell_array", "cell_1rw", PITCH_X, 0.0, cols, rows, "bitcell_array"),
-        add_array(db, tech, "dummy_right", "dummy_cell_1rw", (cols + 1) * PITCH_X, 0.0, 1, rows, "dummy_right"),
-        add_array(db, tech, "replica_column", "replica_cell_1rw", (cols + 2) * PITCH_X, 0.0, 1, rows, "replica_column"),
+        add_array(db, tech, "dummy_left", "dummy_cell_1rw", 0.0, 0.0, 1, rows, "dummy_left", mirror_x=mirror_rows),
+        add_array(db, tech, "bitcell_array", "cell_1rw", PITCH_X, 0.0, cols, rows, "bitcell_array", mirror_x=mirror_rows),
+        add_array(
+            db,
+            tech,
+            "dummy_right",
+            "dummy_cell_1rw",
+            (cols + 1) * PITCH_X,
+            0.0,
+            1,
+            rows,
+            "dummy_right",
+            mirror_x=mirror_rows,
+        ),
+        add_array(
+            db,
+            tech,
+            "replica_column",
+            "replica_cell_1rw",
+            (cols + 2) * PITCH_X,
+            0.0,
+            1,
+            rows,
+            "replica_column",
+            mirror_x=mirror_rows,
+        ),
     ]
     storage_bbox = Rect.union(array.rect for array in arrays)
     db.add_shape("boundary", storage_bbox, "boundary", name="prBoundary")
@@ -92,14 +132,15 @@ def build_storage_only_layout(rows: int, cols: int, tech: Any, *, stitch_power_r
         db.add_shape("m1", array.rect, "module", name=array.name)
     stitch_records: list[dict[str, Any]] = []
     if stitch_power_rails:
-        stitch_records = add_power_rail_stitches(db, tech, rows, cols)
+        stitch_records = add_power_rail_stitches(db, tech, rows, cols, row_orientation_policy=row_orientation_policy)
     db.metadata.update(
         {
             "rows": rows,
             "cols": cols,
             "pitch_x": PITCH_X,
             "pitch_y": PITCH_Y,
-            "orientation": "R0",
+            "orientation": "R0" if row_orientation_policy == "all_r0" else "R0/MX by row",
+            "row_orientation_policy": row_orientation_policy,
             "allowed_macros": sorted(ALLOWED_MACROS),
             "stitch_power_rails": stitch_power_rails,
             "power_stitch_records": stitch_records,
@@ -110,12 +151,20 @@ def build_storage_only_layout(rows: int, cols: int, tech: Any, *, stitch_power_r
             "routing_changed": False,
             "main_gds_flow_changed": False,
             "smoke_gds_not_final_signoff": True,
+            "cross_row_power_short_risk": cross_row_power_short_risk(tech, rows, cols, row_orientation_policy),
         }
     )
     return db
 
 
-def add_power_rail_stitches(db: LayoutDB, tech: Any, rows: int, cols: int) -> list[dict[str, Any]]:
+def add_power_rail_stitches(
+    db: LayoutDB,
+    tech: Any,
+    rows: int,
+    cols: int,
+    *,
+    row_orientation_policy: str,
+) -> list[dict[str, Any]]:
     records: list[dict[str, Any]] = []
     pin_cache: dict[tuple[str, str], dict[str, Any]] = {}
 
@@ -126,15 +175,15 @@ def add_power_rail_stitches(db: LayoutDB, tech: Any, rows: int, cols: int) -> li
         return pin_cache[key]
 
     for row in range(rows):
-        instances = row_instances(row, cols)
+        instances = row_instances(row, cols, row_orientation_policy=row_orientation_policy)
         for left, right in zip(instances, instances[1:]):
             for net in ("vdd", "gnd"):
                 left_pin = pin(left["cell"], net)
                 right_pin = pin(right["cell"], net)
                 if left_pin["layer"] != right_pin["layer"]:
                     continue
-                left_rect = shift_rect(left_pin["bbox_rect"], float(left["x"]), float(left["y"]))
-                right_rect = shift_rect(right_pin["bbox_rect"], float(right["x"]), float(right["y"]))
+                left_rect = absolute_pin_rect(tech, left, left_pin["bbox_rect"])
+                right_rect = absolute_pin_rect(tech, right, right_pin["bbox_rect"])
                 y0 = max(left_rect.y0, right_rect.y0)
                 y1 = min(left_rect.y1, right_rect.y1)
                 x0 = left_rect.x1
@@ -153,6 +202,7 @@ def add_power_rail_stitches(db: LayoutDB, tech: Any, rows: int, cols: int) -> li
                         "net": net,
                         "layer": left_pin["layer"],
                         "row": row,
+                        "row_mirror": left["mirror"],
                         "left_instance": left["name"],
                         "right_instance": right["name"],
                         "gap": rounded(gap),
@@ -164,22 +214,41 @@ def add_power_rail_stitches(db: LayoutDB, tech: Any, rows: int, cols: int) -> li
     return records
 
 
-def row_instances(row: int, cols: int) -> list[dict[str, Any]]:
+def row_instances(row: int, cols: int, *, row_orientation_policy: str = "all_r0") -> list[dict[str, Any]]:
     y = row * PITCH_Y
+    mirror = row_mirror(row, row_orientation_policy)
     items: list[dict[str, Any]] = [
-        {"name": f"dummy_left_r{row}", "cell": "dummy_cell_1rw", "x": 0.0, "y": y},
+        {"name": f"dummy_left_r{row}", "cell": "dummy_cell_1rw", "x": 0.0, "y": y, "mirror": mirror},
     ]
     items.extend(
-        {"name": f"bit_r{row}_c{col}", "cell": "cell_1rw", "x": PITCH_X + col * PITCH_X, "y": y}
+        {"name": f"bit_r{row}_c{col}", "cell": "cell_1rw", "x": PITCH_X + col * PITCH_X, "y": y, "mirror": mirror}
         for col in range(cols)
     )
     items.extend(
         [
-            {"name": f"dummy_right_r{row}", "cell": "dummy_cell_1rw", "x": (cols + 1) * PITCH_X, "y": y},
-            {"name": f"replica_r{row}", "cell": "replica_cell_1rw", "x": (cols + 2) * PITCH_X, "y": y},
+            {
+                "name": f"dummy_right_r{row}",
+                "cell": "dummy_cell_1rw",
+                "x": (cols + 1) * PITCH_X,
+                "y": y,
+                "mirror": mirror,
+            },
+            {
+                "name": f"replica_r{row}",
+                "cell": "replica_cell_1rw",
+                "x": (cols + 2) * PITCH_X,
+                "y": y,
+                "mirror": mirror,
+            },
         ]
     )
     return items
+
+
+def row_mirror(row: int, row_orientation_policy: str) -> str:
+    if row_orientation_policy == "alternating_mx" and row % 2 == 1:
+        return "MX"
+    return "R0"
 
 
 def local_pin_bbox(tech: Any, cell_name: str, label: str) -> dict[str, Any]:
@@ -279,10 +348,16 @@ def add_array(
     cols: int,
     rows: int,
     role: str,
+    mirror_x: bool = False,
 ) -> CellArray:
     cell = tech.cell(cell_name)
     rects = [
-        placed_bbox_from_openram_origin(cell, x + col * PITCH_X, y + row * PITCH_Y, "R0")
+        placed_bbox_from_openram_origin(
+            cell,
+            x + col * PITCH_X,
+            y + row * PITCH_Y,
+            row_mirror(row, "alternating_mx") if mirror_x else "R0",
+        )
         for row in range(rows)
         for col in range(cols)
     ]
@@ -296,7 +371,7 @@ def add_array(
         pitch_y=PITCH_Y,
         rect=Rect.union(rects),
         role=role,
-        mirror_x=False,
+        mirror_x=mirror_x,
         mirror_y=False,
     )
     db.add_cell_array(array)
@@ -305,6 +380,7 @@ def add_array(
 
 def build_report(layout: LayoutDB, out_gds: Path, out_svg: Path, out_json: Path, out_md: Path, rows: int, cols: int) -> dict[str, Any]:
     arrays = layout.cell_arrays
+    row_orientation_policy = str(layout.metadata.get("row_orientation_policy", "all_r0"))
     macro_counts: dict[str, int] = {}
     for array in arrays:
         macro_counts[array.cell] = macro_counts.get(array.cell, 0) + array.rows * array.columns
@@ -337,7 +413,7 @@ def build_report(layout: LayoutDB, out_gds: Path, out_svg: Path, out_json: Path,
         and actual["replica"] == expected["replica"],
         "pitch_correct": all(abs(array.pitch_x - PITCH_X) <= 1e-9 and abs(array.pitch_y - PITCH_Y) <= 1e-9 for array in arrays),
         "legacy_pitch_not_used": all(abs(array.pitch_x - LEGACY_PITCH_X) > 1e-9 and abs(array.pitch_y - LEGACY_PITCH_Y) > 1e-9 for array in arrays),
-        "no_mirror_or_flip": all(not array.mirror_x and not array.mirror_y for array in arrays),
+        "row_orientation_policy_valid": row_orientation_checks(row_orientation_policy, arrays),
         "shared_rail_merge_not_run": layout.metadata["shared_rail_merge"] is False,
         "routing_not_changed": layout.metadata["routing_changed"] is False,
         "main_gds_flow_not_changed": layout.metadata["main_gds_flow_changed"] is False,
@@ -355,7 +431,8 @@ def build_report(layout: LayoutDB, out_gds: Path, out_svg: Path, out_json: Path,
         "macros": sorted(observed_macros),
         "macro_counts": macro_counts,
         "pitch": {"x": PITCH_X, "y": PITCH_Y},
-        "orientation": "R0",
+        "orientation": str(layout.metadata.get("orientation", "R0")),
+        "row_orientation_policy": row_orientation_policy,
         "instance_count": {"expected": expected, "actual": actual, "total": actual["total"]},
         "gds_output": {
             "input_gds": None,
@@ -388,6 +465,7 @@ def build_report(layout: LayoutDB, out_gds: Path, out_svg: Path, out_json: Path,
             "same_net_power_only": checks["stitch_shapes_power_only"] and checks["no_vdd_gnd_cross_stitch"],
             "crosses_bl_br_wl": False,
         },
+        "cross_row_power_short_risk": bool(layout.metadata.get("cross_row_power_short_risk", False)),
         "side_power_trunk_added": bool(layout.metadata.get("side_power_trunk_added", False)),
         "shared_rail_merge": False,
         "routing_changed": False,
@@ -415,6 +493,7 @@ def format_markdown(report: dict[str, Any]) -> str:
             f"- cols: `{report['cols']}`",
             f"- pitch: `{report['pitch']['x']} x {report['pitch']['y']}`",
             f"- orientation: `{report['orientation']}`",
+            f"- row orientation policy: `{report['row_orientation_policy']}`",
             f"- instance count: `{report['instance_count']['total']}`",
             f"- GDS: `{report['gds_output']['path']}`",
             f"- input GDS: `{report['gds_output']['input_gds']}` ({report['gds_output']['input_source']})",
@@ -429,6 +508,7 @@ def format_markdown(report: dict[str, Any]) -> str:
             f"- side power trunk added: `{report['side_power_trunk_added']}`",
             f"- same-net power only: `{report['power_stitches']['same_net_power_only']}`",
             f"- crosses BL/BR/WL: `{report['power_stitches']['crosses_bl_br_wl']}`",
+            f"- cross-row power short risk: `{report['cross_row_power_short_risk']}`",
             f"- shared rail merge: `{report['shared_rail_merge']}`",
             f"- routing changed: `{report['routing_changed']}`",
             f"- main GDS flow changed: `{report['main_gds_flow_changed']}`",
@@ -522,6 +602,32 @@ def rect_with_size(rect: dict[str, float]) -> dict[str, float]:
 
 def shift_rect(rect: Rect, dx: float, dy: float) -> Rect:
     return Rect(rect.x0 + dx, rect.y0 + dy, rect.x1 + dx, rect.y1 + dy)
+
+
+def absolute_pin_rect(tech: Any, instance: dict[str, Any], local_rect: Rect) -> Rect:
+    cell = tech.cell(str(instance["cell"]))
+    placed = placed_bbox_from_openram_origin(cell, float(instance["x"]), float(instance["y"]), str(instance["mirror"]))
+    return place_local_rect(local_rect, placed, str(instance["mirror"]))
+
+
+def row_orientation_checks(policy: str, arrays: list[CellArray]) -> bool:
+    if policy == "alternating_mx":
+        return all(array.mirror_x and not array.mirror_y for array in arrays)
+    return all(not array.mirror_x and not array.mirror_y for array in arrays)
+
+
+def cross_row_power_short_risk(tech: Any, rows: int, cols: int, row_orientation_policy: str) -> bool:
+    if rows < 2:
+        return False
+    lower = row_instances(0, cols, row_orientation_policy=row_orientation_policy)[1]
+    upper = row_instances(1, cols, row_orientation_policy=row_orientation_policy)[1]
+    lower_vdd = absolute_pin_rect(tech, lower, local_pin_bbox(tech, str(lower["cell"]), "vdd")["bbox_rect"])
+    lower_gnd = absolute_pin_rect(tech, lower, local_pin_bbox(tech, str(lower["cell"]), "gnd")["bbox_rect"])
+    upper_vdd = absolute_pin_rect(tech, upper, local_pin_bbox(tech, str(upper["cell"]), "vdd")["bbox_rect"])
+    upper_gnd = absolute_pin_rect(tech, upper, local_pin_bbox(tech, str(upper["cell"]), "gnd")["bbox_rect"])
+    lower_seam_net = "vdd" if lower_vdd.y1 >= lower_gnd.y1 else "gnd"
+    upper_seam_net = "vdd" if upper_vdd.y0 <= upper_gnd.y0 else "gnd"
+    return lower_seam_net != upper_seam_net
 
 
 def contains_point(rect: Rect, x: float, y: float, eps: float = 1e-9) -> bool:
