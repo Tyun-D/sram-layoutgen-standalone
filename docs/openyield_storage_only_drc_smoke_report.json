@@ -1,0 +1,125 @@
+{
+  "scope": "storage_only_tiny_drc_smoke_not_full_sram_signoff",
+  "input_gds": {
+    "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_2x4_stitched.gds",
+    "exists": true,
+    "size_bytes": 57170,
+    "topcell": "openyield_storage_only_2x4",
+    "hierarchy": {
+      "structure_count": 4,
+      "structures": [
+        "cell_1rw",
+        "dummy_cell_1rw",
+        "replica_cell_1rw",
+        "openyield_storage_only_2x4"
+      ],
+      "reference_counts": {
+        "cell_1rw": 8,
+        "dummy_cell_1rw": 4,
+        "replica_cell_1rw": 2
+      },
+      "text_count": 17,
+      "labels": {
+        "Q": 1,
+        "Q_bar": 1,
+        "bl": 3,
+        "br": 3,
+        "gnd": 3,
+        "vdd": 3,
+        "wl": 3
+      }
+    }
+  },
+  "drc_deck": {
+    "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\tech\\freepdk45.lydrc",
+    "available": true
+  },
+  "klayout": {
+    "path": "C:\\Users\\33568\\AppData\\Roaming\\KLayout\\klayout_app.exe",
+    "available": true
+  },
+  "drc": {
+    "ran": true,
+    "clean": false,
+    "violation_count": 40,
+    "lyrdb": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_2x4_stitched_drc.lyrdb",
+    "log": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_2x4_stitched_drc.log",
+    "returncode": 0,
+    "command": [
+      "C:\\Users\\33568\\AppData\\Roaming\\KLayout\\klayout_app.exe",
+      "-b",
+      "-r",
+      "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\tech\\freepdk45.lydrc",
+      "-rd",
+      "input=E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_2x4_stitched.gds",
+      "-rd",
+      "topcell=openyield_storage_only_2x4",
+      "-rd",
+      "output=E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_2x4_stitched_drc.lyrdb"
+    ],
+    "stdout_tail": "    Elapsed: 0.001s  Memory: 353.00M\n\"antenna_check\" in: freepdk45.lydrc:399\n    Elapsed: 0.007s  Memory: 353.00M\n\"antenna_check\" in: freepdk45.lydrc:399\n    Polygons (raw): 0 (flat)  0 (hierarchical)\n    Elapsed: 0.001s  Memory: 353.00M\n\"output\" in: freepdk45.lydrc:399\n    Polygons (raw): 0 (flat)  0 (hierarchical)\n    Elapsed: 0.000s  Memory: 353.00M\n\"antenna_check\" in: freepdk45.lydrc:405\n    Elapsed: 0.007s  Memory: 353.00M\n\"antenna_check\" in: freepdk45.lydrc:405\n    Polygons (raw): 0 (flat)  0 (hierarchical)\n    Elapsed: 0.000s  Memory: 353.00M\n\"output\" in: freepdk45.lydrc:405\n    Polygons (raw): 0 (flat)  0 (hierarchical)\n    Elapsed: 0.000s  Memory: 353.00M\nWriting report database: E:/njust/keyan/SRAM Compiler_V2/OpenRAM-stable/deliverables/sram_layoutgen_step45_clean/build/openyield_storage_only_smoke_2x4_stitched/storage_only_2x4_stitched_drc.lyrdb ..\nTotal elapsed: 0.610s  Memory: 353.00M\nDRC finished at : 22:44:40  -  DRC duration =  0 hrs. 0 min. 0 sec.",
+    "stderr_tail": ""
+  },
+  "violation_type_stats": {
+    "METAL1.2: METAL1.2 : Minimum spacing of metal1 : 65nm": 6,
+    "METAL2.2: METAL2.2 : Minimum spacing of intermediate metal2 : 70nm": 34
+  },
+  "spacing_notch_min_width_stats": {
+    "METAL1.2: METAL1.2 : Minimum spacing of metal1 : 65nm": 6,
+    "METAL2.2: METAL2.2 : Minimum spacing of intermediate metal2 : 70nm": 34
+  },
+  "red_layer_gap_related_stats": {
+    "METAL1.2: METAL1.2 : Minimum spacing of metal1 : 65nm": 6
+  },
+  "power_stitch_analysis": {
+    "stitch_power_rails": true,
+    "power_rail_layer": "m1",
+    "vdd_stitch_count": 12,
+    "gnd_stitch_count": 12,
+    "total_stitch_count": 24,
+    "same_net_power_only": true,
+    "crosses_bl_br_wl": false,
+    "side_power_trunk_added": false,
+    "power_stitch_related_violation_count": 0,
+    "power_stitch_related_markers": [],
+    "marker_bbox_parse_count": 40
+  },
+  "connectivity_smoke": {
+    "vdd_gnd_short_risk": "not_detected_by_stitch_geometry; KLayout DRC is not LVS",
+    "bl_br_wl_misconnect": false,
+    "source": "storage power stitch report geometry checks plus KLayout DRC marker overlap"
+  },
+  "findings": {
+    "drc_deck_available": true,
+    "drc_ran": true,
+    "violation_count": 40,
+    "power_stitch_related_violation": false,
+    "red_layer_gap_related_violation": true,
+    "vdd_gnd_short_observed": false,
+    "bl_br_wl_bridge_observed": false,
+    "recommend_keep_current_power_stitch": true,
+    "can_enter_next_step": false,
+    "next_step_blocker": "tiny DRC has spacing markers outside the power stitch bridges; inspect M1/M2 cell-internal or abutment gaps before expanding aggregation"
+  },
+  "manual_klayout_checklist": [
+    "Open E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_2x4_stitched.gds in KLayout.",
+    "Zoom into boundaries between dummy/bitcell/replica cells.",
+    "Open the DRC marker browser and load the generated .lyrdb if available.",
+    "Check whether power stitch rectangles have spacing, min-width, or notch markers.",
+    "Check whether the small red-layer gaps have any same-layer spacing/notch markers.",
+    "Confirm no bridge connects VDD to GND.",
+    "Confirm no bridge touches BL, BR, RBL, RBLB, or WL pins.",
+    "If automatic DRC ran, inspect E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_2x4_stitched_drc.lyrdb marker categories and marker locations."
+  ],
+  "outputs": {
+    "json": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_storage_only_drc_smoke_report.json",
+    "md": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_storage_only_drc_smoke_report.md",
+    "lyrdb": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_2x4_stitched_drc.lyrdb",
+    "log": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_2x4_stitched_drc.log"
+  },
+  "notes": [
+    "This is a tiny storage-only DRC smoke; it is not full SRAM signoff.",
+    "KLayout DRC reports geometric rule markers, not full net-aware LVS connectivity.",
+    "Power-stitch connectivity conclusions are limited to same-net bridge construction and marker overlap."
+  ]
+}
