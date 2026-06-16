@@ -15,6 +15,7 @@ from typing import Any
 
 
 ALLOWED_AGGREGATION_MACROS = ("cell_1rw", "dummy_cell_1rw", "replica_cell_1rw")
+ROW_ORIENTATION_POLICIES = ("all_r0", "alternating_mx")
 EXCLUDED_PERIPHERAL_MACROS = {
     "sense_amp": "architecture_adapter_required: OpenYield has Q/QB, local sense_amp has single-ended dout.",
     "write_driver": "rail_needs_manual_review: keep legacy/peripheral placement until rail sharing is proven.",
@@ -57,6 +58,7 @@ class AggregatedArrayPlan:
     width: float
     height: float
     power_rail_policy: str
+    row_orientation_policy: str = "all_r0"
     notes: tuple[str, ...] = ()
 
     def to_dict(self) -> dict[str, Any]:
@@ -72,6 +74,7 @@ class LimitedArrayAggregationResult:
     cols: int
     plans: tuple[AggregatedArrayPlan, ...] = ()
     allowed_macros: tuple[str, ...] = ALLOWED_AGGREGATION_MACROS
+    row_orientation_policy: str = "all_r0"
     excluded_macros: dict[str, str] = field(default_factory=lambda: dict(EXCLUDED_PERIPHERAL_MACROS))
     changed_gds_flow: bool = False
     notes: tuple[str, ...] = ()
@@ -96,6 +99,7 @@ class StandaloneStorageArrayPlan:
     width: float
     height: float
     orientation: str = "R0"
+    row_orientation_policy: str = "all_r0"
     power_rail_policy: str = "tb_shared_hint_only"
     notes: tuple[str, ...] = ()
 
@@ -110,8 +114,10 @@ class StandaloneStorageArrayAggregationResult:
     cols: int
     plans: tuple[StandaloneStorageArrayPlan, ...] = ()
     allowed_macros: tuple[str, ...] = ALLOWED_AGGREGATION_MACROS
+    row_orientation_policy: str = "all_r0"
     excluded_macros: dict[str, str] = field(default_factory=lambda: dict(EXCLUDED_PERIPHERAL_MACROS))
     power_rail_policy: str = "tb_shared_hint_only"
+    cross_row_power_short_risk: bool | None = None
     changed_gds_flow: bool = False
     routing_changed: bool = False
     shared_rail_merge: bool = False
@@ -128,6 +134,7 @@ def build_limited_array_aggregation(
     cols: int,
     *,
     enable_openyield_array_aggregation: bool = False,
+    row_orientation_policy: str = "all_r0",
     gds_pin_audit_path: str | Path = "docs/openyield_gds_pin_audit_report.json",
     array_origin_x: float = 0.0,
     array_origin_y: float = 0.0,
@@ -140,11 +147,13 @@ def build_limited_array_aggregation(
 
     if rows <= 0 or cols <= 0:
         raise ValueError("rows and cols must be positive")
+    validate_row_orientation_policy(row_orientation_policy)
     if not enable_openyield_array_aggregation:
         return LimitedArrayAggregationResult(
             enabled=False,
             rows=rows,
             cols=cols,
+            row_orientation_policy=row_orientation_policy,
             notes=("enable_openyield_array_aggregation is False; no aggregation plan was generated.",),
         )
 
@@ -153,19 +162,39 @@ def build_limited_array_aggregation(
     if missing:
         raise ValueError(f"required abutment-ready macros are missing from GDS audit: {', '.join(missing)}")
 
-    bitcell = _build_bitcell_plan(rows, cols, macro_specs["cell_1rw"], array_origin_x, array_origin_y)
-    dummy_row = _build_dummy_row_plan(cols, macro_specs["dummy_cell_1rw"], array_origin_x, array_origin_y - macro_specs["dummy_cell_1rw"]["height"])
-    dummy_col = _build_dummy_column_plan(rows, macro_specs["dummy_cell_1rw"], array_origin_x - macro_specs["dummy_cell_1rw"]["width"], array_origin_y)
-    replica_col = _build_replica_column_plan(rows, macro_specs["replica_cell_1rw"], array_origin_x + cols * macro_specs["cell_1rw"]["width"], array_origin_y)
+    bitcell = _build_bitcell_plan(rows, cols, macro_specs["cell_1rw"], array_origin_x, array_origin_y, row_orientation_policy=row_orientation_policy)
+    dummy_row = _build_dummy_row_plan(
+        cols,
+        macro_specs["dummy_cell_1rw"],
+        array_origin_x,
+        array_origin_y - macro_specs["dummy_cell_1rw"]["height"],
+        row_orientation_policy=row_orientation_policy,
+    )
+    dummy_col = _build_dummy_column_plan(
+        rows,
+        macro_specs["dummy_cell_1rw"],
+        array_origin_x - macro_specs["dummy_cell_1rw"]["width"],
+        array_origin_y,
+        row_orientation_policy=row_orientation_policy,
+    )
+    replica_col = _build_replica_column_plan(
+        rows,
+        macro_specs["replica_cell_1rw"],
+        array_origin_x + cols * macro_specs["cell_1rw"]["width"],
+        array_origin_y,
+        row_orientation_policy=row_orientation_policy,
+    )
     return LimitedArrayAggregationResult(
         enabled=True,
         rows=rows,
         cols=cols,
         plans=(bitcell, dummy_row, dummy_col, replica_col),
+        row_orientation_policy=row_orientation_policy,
         notes=(
             "Limited aggregation is metadata/plan-only; it does not write GDS or merge power shapes.",
             "Only cell_1rw, dummy_cell_1rw, and replica_cell_1rw are included.",
             "power_rail_policy is tb_shared_hint_only; LR shared rail remains disabled.",
+            f"row_orientation_policy={row_orientation_policy}",
         ),
     )
 
@@ -175,6 +204,7 @@ def build_standalone_storage_array_aggregation(
     cols: int,
     *,
     enable_openyield_array_aggregation: bool = False,
+    row_orientation_policy: str = "all_r0",
     gds_pin_audit_path: str | Path = "docs/openyield_gds_pin_audit_report.json",
     origins: dict[str, tuple[float, float]] | None = None,
 ) -> StandaloneStorageArrayAggregationResult:
@@ -187,11 +217,13 @@ def build_standalone_storage_array_aggregation(
 
     if rows <= 0 or cols <= 0:
         raise ValueError("rows and cols must be positive")
+    validate_row_orientation_policy(row_orientation_policy)
     if not enable_openyield_array_aggregation:
         return StandaloneStorageArrayAggregationResult(
             enabled=False,
             rows=rows,
             cols=cols,
+            row_orientation_policy=row_orientation_policy,
             notes=("enable_openyield_array_aggregation is False; standalone storage placement stays on the legacy path.",),
         )
     origins = origins or {
@@ -231,7 +263,12 @@ def build_standalone_storage_array_aggregation(
                 pitch_y=spec["height"],
                 width=plan_cols * spec["width"],
                 height=plan_rows * spec["height"],
-                notes=("x=origin_x+col*cell_width, y=origin_y+row*cell_height, orientation=R0.",),
+                orientation=orientation_summary(row_orientation_policy),
+                row_orientation_policy=row_orientation_policy,
+                notes=(
+                    "x=origin_x+col*cell_width, y=origin_y+row*cell_height.",
+                    f"row_orientation_policy={row_orientation_policy}",
+                ),
             )
         )
     return StandaloneStorageArrayAggregationResult(
@@ -239,14 +276,25 @@ def build_standalone_storage_array_aggregation(
         rows=rows,
         cols=cols,
         plans=tuple(plans),
+        row_orientation_policy=row_orientation_policy,
+        cross_row_power_short_risk=True if row_orientation_policy == "all_r0" and rows >= 2 else False if row_orientation_policy == "alternating_mx" and rows >= 2 else None,
         notes=(
             "Standalone integration replaces only bitcell/dummy/replica CellArray placement.",
             "Peripheral placement, routing, GDS writer behavior, and rail-shape merging remain unchanged.",
+            f"row_orientation_policy={row_orientation_policy}",
         ),
     )
 
 
-def _build_bitcell_plan(rows: int, cols: int, spec: dict[str, float], x0: float, y0: float) -> AggregatedArrayPlan:
+def _build_bitcell_plan(
+    rows: int,
+    cols: int,
+    spec: dict[str, float],
+    x0: float,
+    y0: float,
+    *,
+    row_orientation_policy: str,
+) -> AggregatedArrayPlan:
     width = spec["width"]
     height = spec["height"]
     placements = [
@@ -259,7 +307,7 @@ def _build_bitcell_plan(rows: int, cols: int, spec: dict[str, float], x0: float,
             y=y0 + row * height,
             width=width,
             height=height,
-            orientation="R0",
+            orientation=orientation_for_row(row, row_orientation_policy),
             role="bitcell",
             nets={"vdd": "vdd", "gnd": "gnd", "bl": f"bl[{col}]", "br": f"br[{col}]", "wl": f"wl[{row}]"},
             shared_power_hint=True,
@@ -275,12 +323,23 @@ def _build_bitcell_plan(rows: int, cols: int, spec: dict[str, float], x0: float,
         placements=placements,
         width=cols * width,
         height=rows * height,
+        row_orientation_policy=row_orientation_policy,
         power_rail_policy="tb_shared_hint_only",
-        notes=("x=origin_x+col*cell_width, y=origin_y+row*cell_height, orientation=R0.",),
+        notes=(
+            "x=origin_x+col*cell_width, y=origin_y+row*cell_height.",
+            f"row_orientation_policy={row_orientation_policy}",
+        ),
     )
 
 
-def _build_dummy_row_plan(cols: int, spec: dict[str, float], x0: float, y0: float) -> AggregatedArrayPlan:
+def _build_dummy_row_plan(
+    cols: int,
+    spec: dict[str, float],
+    x0: float,
+    y0: float,
+    *,
+    row_orientation_policy: str,
+) -> AggregatedArrayPlan:
     width = spec["width"]
     height = spec["height"]
     placements = [
@@ -293,7 +352,7 @@ def _build_dummy_row_plan(cols: int, spec: dict[str, float], x0: float, y0: floa
             y=y0,
             width=width,
             height=height,
-            orientation="R0",
+            orientation=orientation_for_row(0, row_orientation_policy),
             role="dummy_row",
             nets={"vdd": "vdd", "gnd": "gnd", "bl": f"dummy_bl[{col}]", "br": f"dummy_br[{col}]", "wl": "dummy_wl"},
             shared_power_hint=True,
@@ -308,12 +367,20 @@ def _build_dummy_row_plan(cols: int, spec: dict[str, float], x0: float, y0: floa
         placements=placements,
         width=cols * width,
         height=height,
+        row_orientation_policy=row_orientation_policy,
         power_rail_policy="tb_shared_hint_only",
-        notes=("dummy_connectivity_needs_confirmation",),
+        notes=("dummy_connectivity_needs_confirmation", f"row_orientation_policy={row_orientation_policy}"),
     )
 
 
-def _build_dummy_column_plan(rows: int, spec: dict[str, float], x0: float, y0: float) -> AggregatedArrayPlan:
+def _build_dummy_column_plan(
+    rows: int,
+    spec: dict[str, float],
+    x0: float,
+    y0: float,
+    *,
+    row_orientation_policy: str,
+) -> AggregatedArrayPlan:
     width = spec["width"]
     height = spec["height"]
     placements = [
@@ -326,7 +393,7 @@ def _build_dummy_column_plan(rows: int, spec: dict[str, float], x0: float, y0: f
             y=y0 + row * height,
             width=width,
             height=height,
-            orientation="R0",
+            orientation=orientation_for_row(row, row_orientation_policy),
             role="dummy_column",
             nets={"vdd": "vdd", "gnd": "gnd", "bl": "dummy_bl_col", "br": "dummy_br_col", "wl": f"dummy_wl[{row}]"},
             shared_power_hint=True,
@@ -341,12 +408,20 @@ def _build_dummy_column_plan(rows: int, spec: dict[str, float], x0: float, y0: f
         placements=placements,
         width=width,
         height=rows * height,
+        row_orientation_policy=row_orientation_policy,
         power_rail_policy="tb_shared_hint_only",
-        notes=("dummy_connectivity_needs_confirmation",),
+        notes=("dummy_connectivity_needs_confirmation", f"row_orientation_policy={row_orientation_policy}"),
     )
 
 
-def _build_replica_column_plan(rows: int, spec: dict[str, float], x0: float, y0: float) -> AggregatedArrayPlan:
+def _build_replica_column_plan(
+    rows: int,
+    spec: dict[str, float],
+    x0: float,
+    y0: float,
+    *,
+    row_orientation_policy: str,
+) -> AggregatedArrayPlan:
     width = spec["width"]
     height = spec["height"]
     placements = [
@@ -359,7 +434,7 @@ def _build_replica_column_plan(rows: int, spec: dict[str, float], x0: float, y0:
             y=y0 + row * height,
             width=width,
             height=height,
-            orientation="R0",
+            orientation=orientation_for_row(row, row_orientation_policy),
             role="replica_column",
             nets={"vdd": "vdd", "gnd": "gnd", "rbl": "rbl", "rblb": "rblb", "wl": f"replica_wl[{row}]"},
             shared_power_hint=True,
@@ -374,8 +449,9 @@ def _build_replica_column_plan(rows: int, spec: dict[str, float], x0: float, y0:
         placements=placements,
         width=width,
         height=rows * height,
+        row_orientation_policy=row_orientation_policy,
         power_rail_policy="tb_shared_hint_only",
-        notes=("replica_wl_semantics_need_confirmation",),
+        notes=("replica_wl_semantics_need_confirmation", f"row_orientation_policy={row_orientation_policy}"),
     )
 
 
@@ -394,3 +470,20 @@ def load_ready_storage_macro_specs(path: str | Path) -> dict[str, dict[str, floa
 
 def _load_ready_macro_specs(path: str | Path) -> dict[str, dict[str, float]]:
     return load_ready_storage_macro_specs(path)
+
+
+def validate_row_orientation_policy(policy: str) -> str:
+    if policy not in ROW_ORIENTATION_POLICIES:
+        raise ValueError(f"unsupported row orientation policy: {policy}")
+    return policy
+
+
+def orientation_for_row(row: int, policy: str) -> str:
+    validate_row_orientation_policy(policy)
+    if policy == "alternating_mx":
+        return "R0" if row % 2 == 0 else "MX"
+    return "R0"
+
+
+def orientation_summary(policy: str) -> str:
+    return "R0/MX by row" if policy == "alternating_mx" else "R0"

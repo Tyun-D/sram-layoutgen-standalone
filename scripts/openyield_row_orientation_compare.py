@@ -16,6 +16,8 @@ PITCH_X = 0.895
 PITCH_Y = 1.565
 DEFAULT_OUT_JSON = Path("docs/openyield_row_orientation_compare_report.json")
 DEFAULT_OUT_MD = Path("docs/openyield_row_orientation_compare_report.md")
+DEFAULT_POLICY_OUT_JSON = Path("docs/openyield_array_aggregation_row_policy_report.json")
+DEFAULT_POLICY_OUT_MD = Path("docs/openyield_array_aggregation_row_policy_report.md")
 DRC_DECK = Path("technology/freepdk45/tech/freepdk45.lydrc")
 
 
@@ -25,22 +27,33 @@ def main() -> int:
     parser.add_argument("--cols", type=int, default=4)
     parser.add_argument("--out-json", type=Path, default=DEFAULT_OUT_JSON)
     parser.add_argument("--out-md", type=Path, default=DEFAULT_OUT_MD)
+    parser.add_argument("--policy-out-json", type=Path, default=DEFAULT_POLICY_OUT_JSON)
+    parser.add_argument("--policy-out-md", type=Path, default=DEFAULT_POLICY_OUT_MD)
     args = parser.parse_args()
 
     out_json = resolve(args.out_json)
     out_md = resolve(args.out_md)
+    policy_out_json = resolve(args.policy_out_json)
+    policy_out_md = resolve(args.policy_out_md)
     out_json.parent.mkdir(parents=True, exist_ok=True)
     out_md.parent.mkdir(parents=True, exist_ok=True)
+    policy_out_json.parent.mkdir(parents=True, exist_ok=True)
+    policy_out_md.parent.mkdir(parents=True, exist_ok=True)
 
     baseline = run_case("all_r0", args.rows, args.cols)
     candidate = run_case("alternating_mx", args.rows, args.cols)
     report = build_compare_report(args.rows, args.cols, baseline, candidate)
+    policy_report = build_policy_report(report)
 
     out_json.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     out_md.write_text(format_markdown(report), encoding="utf-8")
+    policy_out_json.write_text(json.dumps(policy_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    policy_out_md.write_text(format_policy_markdown(policy_report), encoding="utf-8")
 
     print(f"Wrote {out_json}")
     print(f"Wrote {out_md}")
+    print(f"Wrote {policy_out_json}")
+    print(f"Wrote {policy_out_md}")
     print(
         f"all_r0_markers={baseline['drc']['violation_count']} "
         f"alternating_mx_markers={candidate['drc']['violation_count']} "
@@ -215,6 +228,44 @@ def build_compare_report(rows: int, cols: int, baseline: dict[str, Any], candida
     }
 
 
+def build_policy_report(compare_report: dict[str, Any]) -> dict[str, Any]:
+    decision = compare_report["decision"]
+    all_r0 = compare_report["all_r0"]
+    alt = compare_report["alternating_mx"]
+    return {
+        "scope": "array_aggregation_row_orientation_policy_integration",
+        "supported_row_orientation_policies": ["all_r0", "alternating_mx"],
+        "default_row_orientation_policy": "all_r0",
+        "alternating_mx_supported_in_array_aggregation": True,
+        "standalone_modified": False,
+        "routing_modified": False,
+        "gds_writer_modified": False,
+        "power_stitch_policy_modified": False,
+        "array_aggregation_source_used_by_smoke": True,
+        "all_r0_vs_alternating_mx": {
+            "all_r0_total_markers": all_r0["total_markers"],
+            "alternating_mx_total_markers": alt["total_markers"],
+            "all_r0_metal2_2": all_r0["metal2_2_count"],
+            "alternating_mx_metal2_2": alt["metal2_2_count"],
+            "all_r0_row_boundary_metal2": all_r0["row_boundary_metal2_count"],
+            "alternating_mx_row_boundary_metal2": alt["row_boundary_metal2_count"],
+            "all_r0_cross_row_power_short_risk": all_r0["cross_row_power_short_risk"],
+            "alternating_mx_cross_row_power_short_risk": alt["cross_row_power_short_risk"],
+            "all_r0_power_stitch_related_markers": all_r0["power_stitch_related_marker_count"],
+            "alternating_mx_power_stitch_related_markers": alt["power_stitch_related_marker_count"],
+        },
+        "metal2_seam_marker_cleared_with_alternating_mx": alt["row_boundary_metal2_count"] == 0,
+        "power_stitch_still_safe_relative_to_baseline": alt["power_stitch_related_marker_count"] <= all_r0["power_stitch_related_marker_count"],
+        "recommend_storage_row_policy": decision["recommend_storage_row_policy"],
+        "recommend_future_standalone_integration": decision["recommend_storage_row_policy"] == "alternating_mx",
+        "next_step_recommendations": [
+            "Keep standalone.py unchanged in this step.",
+            "If promoted later, wire alternating_mx into standalone storage placement behind an explicit opt-in flag only.",
+            "Re-run the same storage-only compare smoke after any future adapter-to-standalone integration.",
+        ],
+    }
+
+
 def decision_reason(before: dict[str, Any], after: dict[str, Any], recommendation: str) -> list[str]:
     reasons = [
         f"METAL2.2 seam markers: {before['row_boundary_metal2_count']} -> {after['row_boundary_metal2_count']}",
@@ -300,6 +351,49 @@ def format_markdown(report: dict[str, Any]) -> str:
         "## Decision Notes",
         "",
         *[f"- {item}" for item in decision["reason"]],
+        "",
+        "## Next Steps",
+        "",
+        *[f"- {item}" for item in report["next_step_recommendations"]],
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def format_policy_markdown(report: dict[str, Any]) -> str:
+    comp = report["all_r0_vs_alternating_mx"]
+    lines = [
+        "# OpenYield Array Aggregation Row Policy Report",
+        "",
+        "This report records row-orientation-policy support added to `array_aggregation.py`. It does not modify standalone.py, routing, or the main GDS writer.",
+        "",
+        "## Summary",
+        "",
+        f"- supported row orientation policies: `{report['supported_row_orientation_policies']}`",
+        f"- default row orientation policy: `{report['default_row_orientation_policy']}`",
+        f"- alternating_mx supported in array_aggregation: `{report['alternating_mx_supported_in_array_aggregation']}`",
+        f"- standalone.py modified: `{report['standalone_modified']}`",
+        f"- routing modified: `{report['routing_modified']}`",
+        f"- GDS writer modified: `{report['gds_writer_modified']}`",
+        f"- power stitch policy modified: `{report['power_stitch_policy_modified']}`",
+        f"- smoke uses array_aggregation source: `{report['array_aggregation_source_used_by_smoke']}`",
+        f"- METAL2 seam marker cleared with alternating_mx: `{report['metal2_seam_marker_cleared_with_alternating_mx']}`",
+        f"- power stitch still safe relative to baseline: `{report['power_stitch_still_safe_relative_to_baseline']}`",
+        f"- recommend storage row policy: `{report['recommend_storage_row_policy']}`",
+        f"- recommend future standalone integration: `{report['recommend_future_standalone_integration']}`",
+        "",
+        "## DRC Compare",
+        "",
+        table(
+            ["metric", "all_r0", "alternating_mx"],
+            [
+                ["total_markers", comp["all_r0_total_markers"], comp["alternating_mx_total_markers"]],
+                ["METAL2.2", comp["all_r0_metal2_2"], comp["alternating_mx_metal2_2"]],
+                ["row_boundary_METAL2", comp["all_r0_row_boundary_metal2"], comp["alternating_mx_row_boundary_metal2"]],
+                ["power_stitch_related", comp["all_r0_power_stitch_related_markers"], comp["alternating_mx_power_stitch_related_markers"]],
+                ["cross_row_power_short_risk", comp["all_r0_cross_row_power_short_risk"], comp["alternating_mx_cross_row_power_short_risk"]],
+            ],
+        ),
         "",
         "## Next Steps",
         "",

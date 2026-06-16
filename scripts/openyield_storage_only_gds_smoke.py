@@ -16,6 +16,14 @@ if str(STANDALONE_ROOT) not in sys.path:
 from sram_layoutgen.gds_util import inspect_gds_hierarchy, inspect_gds_text_records, measure_gds_bbox  # noqa: E402
 from sram_layoutgen.gds_writer import GDSWriter  # noqa: E402
 from sram_layoutgen.geometry import CellArray, LayoutDB, Point, Rect  # noqa: E402
+from sram_layoutgen.openyield_adapter.array_aggregation import (  # noqa: E402
+    ALLOWED_AGGREGATION_MACROS,
+    ROW_ORIENTATION_POLICIES,
+    StandaloneStorageArrayAggregationResult,
+    StandaloneStorageArrayPlan,
+    build_standalone_storage_array_aggregation,
+    orientation_for_row,
+)
 from sram_layoutgen.openram_placement import placed_bbox_from_openram_origin, place_local_rect  # noqa: E402
 from sram_layoutgen.standalone import load_bundled_freepdk45  # noqa: E402
 
@@ -24,7 +32,7 @@ PITCH_X = 0.895
 PITCH_Y = 1.565
 LEGACY_PITCH_X = 0.705
 LEGACY_PITCH_Y = 1.365
-ALLOWED_MACROS = {"cell_1rw", "dummy_cell_1rw", "replica_cell_1rw"}
+ALLOWED_MACROS = set(ALLOWED_AGGREGATION_MACROS)
 PERIPHERAL_MACROS = {
     "sense_amp",
     "write_driver",
@@ -34,7 +42,7 @@ PERIPHERAL_MACROS = {
     "dff",
     "tri_gate",
 }
-ROW_ORIENTATION_POLICIES = {"all_r0", "alternating_mx"}
+ROW_ORIENTATION_POLICIES = set(ROW_ORIENTATION_POLICIES)
 
 
 def main() -> int:
@@ -97,34 +105,10 @@ def build_storage_only_layout(
     if row_orientation_policy not in ROW_ORIENTATION_POLICIES:
         raise ValueError(f"unsupported row orientation policy: {row_orientation_policy}")
     db = LayoutDB(f"openyield_storage_only_{rows}x{cols}")
-    mirror_rows = row_orientation_policy == "alternating_mx"
+    aggregation = build_storage_aggregation(rows, cols, row_orientation_policy=row_orientation_policy)
     arrays = [
-        add_array(db, tech, "dummy_left", "dummy_cell_1rw", 0.0, 0.0, 1, rows, "dummy_left", mirror_x=mirror_rows),
-        add_array(db, tech, "bitcell_array", "cell_1rw", PITCH_X, 0.0, cols, rows, "bitcell_array", mirror_x=mirror_rows),
-        add_array(
-            db,
-            tech,
-            "dummy_right",
-            "dummy_cell_1rw",
-            (cols + 1) * PITCH_X,
-            0.0,
-            1,
-            rows,
-            "dummy_right",
-            mirror_x=mirror_rows,
-        ),
-        add_array(
-            db,
-            tech,
-            "replica_column",
-            "replica_cell_1rw",
-            (cols + 2) * PITCH_X,
-            0.0,
-            1,
-            rows,
-            "replica_column",
-            mirror_x=mirror_rows,
-        ),
+        add_array_from_plan(db, tech, plan)
+        for plan in ordered_storage_plans(aggregation)
     ]
     storage_bbox = Rect.union(array.rect for array in arrays)
     db.add_shape("boundary", storage_bbox, "boundary", name="prBoundary")
@@ -132,15 +116,15 @@ def build_storage_only_layout(
         db.add_shape("m1", array.rect, "module", name=array.name)
     stitch_records: list[dict[str, Any]] = []
     if stitch_power_rails:
-        stitch_records = add_power_rail_stitches(db, tech, rows, cols, row_orientation_policy=row_orientation_policy)
+        stitch_records = add_power_rail_stitches(db, tech, aggregation)
     db.metadata.update(
         {
             "rows": rows,
             "cols": cols,
             "pitch_x": PITCH_X,
             "pitch_y": PITCH_Y,
-            "orientation": "R0" if row_orientation_policy == "all_r0" else "R0/MX by row",
-            "row_orientation_policy": row_orientation_policy,
+            "orientation": aggregation.plans[0].orientation if aggregation.plans else ("R0" if row_orientation_policy == "all_r0" else "R0/MX by row"),
+            "row_orientation_policy": aggregation.row_orientation_policy,
             "allowed_macros": sorted(ALLOWED_MACROS),
             "stitch_power_rails": stitch_power_rails,
             "power_stitch_records": stitch_records,
@@ -151,7 +135,9 @@ def build_storage_only_layout(
             "routing_changed": False,
             "main_gds_flow_changed": False,
             "smoke_gds_not_final_signoff": True,
-            "cross_row_power_short_risk": cross_row_power_short_risk(tech, rows, cols, row_orientation_policy),
+            "array_aggregation_enabled": aggregation.enabled,
+            "array_aggregation_source": "openyield_adapter.array_aggregation",
+            "cross_row_power_short_risk": cross_row_power_short_risk(tech, aggregation),
         }
     )
     return db
@@ -160,10 +146,7 @@ def build_storage_only_layout(
 def add_power_rail_stitches(
     db: LayoutDB,
     tech: Any,
-    rows: int,
-    cols: int,
-    *,
-    row_orientation_policy: str,
+    aggregation: StandaloneStorageArrayAggregationResult,
 ) -> list[dict[str, Any]]:
     records: list[dict[str, Any]] = []
     pin_cache: dict[tuple[str, str], dict[str, Any]] = {}
@@ -174,8 +157,10 @@ def add_power_rail_stitches(
             pin_cache[key] = local_pin_bbox(tech, cell_name, label)
         return pin_cache[key]
 
+    rows = int(aggregation.rows)
+    cols = int(aggregation.cols)
     for row in range(rows):
-        instances = row_instances(row, cols, row_orientation_policy=row_orientation_policy)
+        instances = row_instances(row, cols, aggregation=aggregation)
         for left, right in zip(instances, instances[1:]):
             for net in ("vdd", "gnd"):
                 left_pin = pin(left["cell"], net)
@@ -214,29 +199,40 @@ def add_power_rail_stitches(
     return records
 
 
-def row_instances(row: int, cols: int, *, row_orientation_policy: str = "all_r0") -> list[dict[str, Any]]:
-    y = row * PITCH_Y
-    mirror = row_mirror(row, row_orientation_policy)
+def row_instances(row: int, cols: int, *, aggregation: StandaloneStorageArrayAggregationResult) -> list[dict[str, Any]]:
+    plan_map = {plan.array_name: plan for plan in aggregation.plans}
+    bitcell_plan = plan_map["bitcell_array"]
+    dummy_left_plan = plan_map["dummy_left_array"]
+    dummy_right_plan = plan_map["dummy_right_array"]
+    replica_plan = plan_map["replica_bitline_array"]
+    y = float(bitcell_plan.origin_y) + row * float(bitcell_plan.pitch_y)
+    mirror = row_mirror(row, aggregation.row_orientation_policy)
     items: list[dict[str, Any]] = [
-        {"name": f"dummy_left_r{row}", "cell": "dummy_cell_1rw", "x": 0.0, "y": y, "mirror": mirror},
+        {"name": f"dummy_left_r{row}", "cell": dummy_left_plan.cell_macro, "x": float(dummy_left_plan.origin_x), "y": y, "mirror": mirror},
     ]
     items.extend(
-        {"name": f"bit_r{row}_c{col}", "cell": "cell_1rw", "x": PITCH_X + col * PITCH_X, "y": y, "mirror": mirror}
+        {
+            "name": f"bit_r{row}_c{col}",
+            "cell": bitcell_plan.cell_macro,
+            "x": float(bitcell_plan.origin_x) + col * float(bitcell_plan.pitch_x),
+            "y": y,
+            "mirror": mirror,
+        }
         for col in range(cols)
     )
     items.extend(
         [
             {
                 "name": f"dummy_right_r{row}",
-                "cell": "dummy_cell_1rw",
-                "x": (cols + 1) * PITCH_X,
+                "cell": dummy_right_plan.cell_macro,
+                "x": float(dummy_right_plan.origin_x),
                 "y": y,
                 "mirror": mirror,
             },
             {
                 "name": f"replica_r{row}",
-                "cell": "replica_cell_1rw",
-                "x": (cols + 2) * PITCH_X,
+                "cell": replica_plan.cell_macro,
+                "x": float(replica_plan.origin_x),
                 "y": y,
                 "mirror": mirror,
             },
@@ -246,9 +242,7 @@ def row_instances(row: int, cols: int, *, row_orientation_policy: str = "all_r0"
 
 
 def row_mirror(row: int, row_orientation_policy: str) -> str:
-    if row_orientation_policy == "alternating_mx" and row % 2 == 1:
-        return "MX"
-    return "R0"
+    return orientation_for_row(row, row_orientation_policy)
 
 
 def local_pin_bbox(tech: Any, cell_name: str, label: str) -> dict[str, Any]:
@@ -338,40 +332,33 @@ def layer_name_for_lpp(tech: Any, lpp: str) -> str:
     return lpp
 
 
-def add_array(
+def add_array_from_plan(
     db: LayoutDB,
     tech: Any,
-    name: str,
-    cell_name: str,
-    x: float,
-    y: float,
-    cols: int,
-    rows: int,
-    role: str,
-    mirror_x: bool = False,
+    plan: StandaloneStorageArrayPlan,
 ) -> CellArray:
-    cell = tech.cell(cell_name)
+    cell = tech.cell(plan.cell_macro)
     rects = [
         placed_bbox_from_openram_origin(
             cell,
-            x + col * PITCH_X,
-            y + row * PITCH_Y,
-            row_mirror(row, "alternating_mx") if mirror_x else "R0",
+            float(plan.origin_x) + col * float(plan.pitch_x),
+            float(plan.origin_y) + row * float(plan.pitch_y),
+            row_mirror(row, plan.row_orientation_policy),
         )
-        for row in range(rows)
-        for col in range(cols)
+        for row in range(plan.rows)
+        for col in range(plan.cols)
     ]
     array = CellArray(
-        name=name,
-        cell=cell_name,
-        origin=Point(x, y),
-        columns=cols,
-        rows=rows,
-        pitch_x=PITCH_X,
-        pitch_y=PITCH_Y,
+        name=plan.array_name,
+        cell=plan.cell_macro,
+        origin=Point(float(plan.origin_x), float(plan.origin_y)),
+        columns=plan.cols,
+        rows=plan.rows,
+        pitch_x=float(plan.pitch_x),
+        pitch_y=float(plan.pitch_y),
         rect=Rect.union(rects),
-        role=role,
-        mirror_x=mirror_x,
+        role=plan.role,
+        mirror_x=plan.row_orientation_policy == "alternating_mx",
         mirror_y=False,
     )
     db.add_cell_array(array)
@@ -616,11 +603,11 @@ def row_orientation_checks(policy: str, arrays: list[CellArray]) -> bool:
     return all(not array.mirror_x and not array.mirror_y for array in arrays)
 
 
-def cross_row_power_short_risk(tech: Any, rows: int, cols: int, row_orientation_policy: str) -> bool:
-    if rows < 2:
+def cross_row_power_short_risk(tech: Any, aggregation: StandaloneStorageArrayAggregationResult) -> bool:
+    if aggregation.rows < 2:
         return False
-    lower = row_instances(0, cols, row_orientation_policy=row_orientation_policy)[1]
-    upper = row_instances(1, cols, row_orientation_policy=row_orientation_policy)[1]
+    lower = row_instances(0, int(aggregation.cols), aggregation=aggregation)[1]
+    upper = row_instances(1, int(aggregation.cols), aggregation=aggregation)[1]
     lower_vdd = absolute_pin_rect(tech, lower, local_pin_bbox(tech, str(lower["cell"]), "vdd")["bbox_rect"])
     lower_gnd = absolute_pin_rect(tech, lower, local_pin_bbox(tech, str(lower["cell"]), "gnd")["bbox_rect"])
     upper_vdd = absolute_pin_rect(tech, upper, local_pin_bbox(tech, str(upper["cell"]), "vdd")["bbox_rect"])
@@ -628,6 +615,28 @@ def cross_row_power_short_risk(tech: Any, rows: int, cols: int, row_orientation_
     lower_seam_net = "vdd" if lower_vdd.y1 >= lower_gnd.y1 else "gnd"
     upper_seam_net = "vdd" if upper_vdd.y0 <= upper_gnd.y0 else "gnd"
     return lower_seam_net != upper_seam_net
+
+
+def build_storage_aggregation(rows: int, cols: int, *, row_orientation_policy: str) -> StandaloneStorageArrayAggregationResult:
+    origins = {
+        "bitcell_array": (PITCH_X, 0.0),
+        "dummy_left_array": (0.0, 0.0),
+        "dummy_right_array": ((cols + 1) * PITCH_X, 0.0),
+        "replica_bitline_array": ((cols + 2) * PITCH_X, 0.0),
+    }
+    return build_standalone_storage_array_aggregation(
+        rows,
+        cols,
+        enable_openyield_array_aggregation=True,
+        row_orientation_policy=row_orientation_policy,
+        origins=origins,
+    )
+
+
+def ordered_storage_plans(aggregation: StandaloneStorageArrayAggregationResult) -> list[StandaloneStorageArrayPlan]:
+    order = ["dummy_left_array", "bitcell_array", "dummy_right_array", "replica_bitline_array"]
+    plan_map = {plan.array_name: plan for plan in aggregation.plans}
+    return [plan_map[name] for name in order]
 
 
 def contains_point(rect: Rect, x: float, y: float, eps: float = 1e-9) -> bool:

@@ -1,0 +1,35 @@
+{
+  "scope": "array_aggregation_row_orientation_policy_integration",
+  "supported_row_orientation_policies": [
+    "all_r0",
+    "alternating_mx"
+  ],
+  "default_row_orientation_policy": "all_r0",
+  "alternating_mx_supported_in_array_aggregation": true,
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "power_stitch_policy_modified": false,
+  "array_aggregation_source_used_by_smoke": true,
+  "all_r0_vs_alternating_mx": {
+    "all_r0_total_markers": 84,
+    "alternating_mx_total_markers": 44,
+    "all_r0_metal2_2": 34,
+    "alternating_mx_metal2_2": 0,
+    "all_r0_row_boundary_metal2": 34,
+    "alternating_mx_row_boundary_metal2": 0,
+    "all_r0_cross_row_power_short_risk": true,
+    "alternating_mx_cross_row_power_short_risk": false,
+    "all_r0_power_stitch_related_markers": 18,
+    "alternating_mx_power_stitch_related_markers": 12
+  },
+  "metal2_seam_marker_cleared_with_alternating_mx": true,
+  "power_stitch_still_safe_relative_to_baseline": true,
+  "recommend_storage_row_policy": "alternating_mx",
+  "recommend_future_standalone_integration": true,
+  "next_step_recommendations": [
+    "Keep standalone.py unchanged in this step.",
+    "If promoted later, wire alternating_mx into standalone storage placement behind an explicit opt-in flag only.",
+    "Re-run the same storage-only compare smoke after any future adapter-to-standalone integration."
+  ]
+}
