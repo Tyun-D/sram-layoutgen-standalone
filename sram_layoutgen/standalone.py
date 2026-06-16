@@ -20,6 +20,7 @@ from .openyield_adapter.array_aggregation import (
     EXCLUDED_PERIPHERAL_MACROS,
     build_standalone_storage_array_aggregation,
     load_ready_storage_macro_specs,
+    orientation_for_row,
 )
 from .stdcell import add_generated_cell, generated_cell_pins, generated_instance_pins
 from .tech import Tech
@@ -34,6 +35,7 @@ class StandaloneSpec:
     name: str | None = None
     perimeter_pins: bool = True
     enable_openyield_array_aggregation: bool = False
+    openyield_storage_row_orientation_policy: str = "all_r0"
 
     def __post_init__(self) -> None:
         if self.word_size <= 0:
@@ -44,6 +46,10 @@ class StandaloneSpec:
             raise ValueError("words_per_row must be positive when specified")
         if self.words_per_row is not None:
             self._validate_words_per_row(self.words_per_row)
+        if self.openyield_storage_row_orientation_policy not in {"all_r0", "alternating_mx"}:
+            raise ValueError(
+                "openyield_storage_row_orientation_policy must be one of: all_r0, alternating_mx"
+            )
 
     def legal_words_per_row(self) -> list[int]:
         return [wpr for wpr in (1, 2, 4, 8, 16) if self.num_words % wpr == 0 and self.num_words // wpr >= 16]
@@ -652,6 +658,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
             rows,
             cols,
             enable_openyield_array_aggregation=True,
+            row_orientation_policy=spec.openyield_storage_row_orientation_policy,
             gds_pin_audit_path=openyield_gds_pin_audit_path,
             origins={
                 "bitcell_array": (x_array, y_array_lower),
@@ -686,7 +693,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
                 plan.pitch_x,
                 plan.pitch_y,
                 plan.role,
-                mirror_x=False,
+                mirror_x=plan.row_orientation_policy == "alternating_mx",
                 mirror_y=False,
             )
 
@@ -699,6 +706,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
             rows,
             cols,
             enable_openyield_array_aggregation=False,
+            row_orientation_policy=spec.openyield_storage_row_orientation_policy,
         )
         array_rect = add_hard_array("bitcell_array", "cell_1rw", x_array, y_array_lower, cols, rows, bitcell_pitch_x, bitcell_pitch_y, "bitcell_array", mirror_x=True)
         dummy_left_rect = add_hard_array("dummy_left_array", "dummy_cell_1rw", x_dummy_left, y_array_lower, 1, rows, bitcell_pitch_x, bitcell_pitch_y, "dummy_bitcell", mirror_x=True)
@@ -709,14 +717,17 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         storage_macro_counts[plan.cell_macro] = storage_macro_counts.get(plan.cell_macro, 0) + plan.rows * plan.cols
     db.metadata["openyield_array_aggregation_integration"] = {
         "enabled": openyield_storage_aggregation.enabled,
+        "row_orientation_policy": openyield_storage_aggregation.row_orientation_policy,
         "allowed_macros": list(ALLOWED_AGGREGATION_MACROS),
         "excluded_peripheral_macros": dict(EXCLUDED_PERIPHERAL_MACROS),
         "storage_only": True,
         "peripherals_old_path": True,
         "changed_gds_flow": openyield_storage_aggregation.changed_gds_flow,
         "routing_changed": openyield_storage_aggregation.routing_changed,
+        "gds_writer_changed": False,
         "shared_rail_merge": openyield_storage_aggregation.shared_rail_merge,
         "generated_gds": False,
+        "cross_row_power_short_risk": openyield_storage_aggregation.cross_row_power_short_risk,
         "storage_plan": openyield_storage_aggregation.to_dict(),
         "storage_arrays": {
             "bitcell_array": array_rect.to_dict(),
@@ -805,6 +816,8 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         return y_array_lower + row * bitcell_pitch_y
 
     def storage_row_mirror(row: int) -> str:
+        if spec.enable_openyield_array_aggregation:
+            return orientation_for_row(row, openyield_storage_aggregation.row_orientation_policy)
         return array_mirror(row, 0, mirror_x=True)
 
     def storage_pin_y(row: int, cell, local_y: float) -> float:
@@ -1601,6 +1614,8 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
         "num_words": spec.num_words,
         "words_per_row": spec.resolved_words_per_row(),
         "legal_words_per_row": spec.legal_words_per_row(),
+        "enable_openyield_array_aggregation": spec.enable_openyield_array_aggregation,
+        "openyield_storage_row_orientation_policy": spec.openyield_storage_row_orientation_policy,
         "bank_style": layout.metadata.get("bank_style"),
         "floorplan_compaction_strategy": layout.metadata.get("floorplan_compaction_strategy"),
         "boundary_margin_um": boundary_margin,
@@ -1649,6 +1664,7 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
         },
         "routing_track_selection": layout.metadata.get("routing_track_selection", {}),
         "route_guide_promotion": route_guide_promotion,
+        "openyield_array_aggregation_integration": layout.metadata.get("openyield_array_aggregation_integration", {}),
         "architecture_modules": _collect_architecture_modules(layout),
         "architecture_quality": architecture_quality,
         "geometry_audit": geometry_audit,
@@ -2420,7 +2436,9 @@ def _audit_cell_bboxes(tech: Tech, used_gds_cells: list[str]) -> dict[str, objec
 def _audit_cell_array_mirroring(layout: LayoutDB) -> dict[str, object]:
     expected_mirror_x_roles = {"bitcell_array", "dummy_bitcell", "replica_bitline"}
     openyield_aggregation = layout.metadata.get("openyield_array_aggregation_integration", {})
-    openyield_storage_r0 = bool(openyield_aggregation.get("enabled"))
+    openyield_storage_enabled = bool(openyield_aggregation.get("enabled"))
+    openyield_storage_policy = str(openyield_aggregation.get("row_orientation_policy", "all_r0"))
+    openyield_storage_r0 = openyield_storage_enabled and openyield_storage_policy == "all_r0"
     openyield_storage_names = {"bitcell_array", "dummy_left_array", "dummy_right_array", "replica_bitline_array"}
     arrays: list[dict[str, object]] = []
     missing: list[dict[str, object]] = []
@@ -2440,6 +2458,7 @@ def _audit_cell_array_mirroring(layout: LayoutDB) -> dict[str, object]:
             "column_offset": array.column_offset,
             "expected_openram_row_mirror": expected_openram_row_mirror,
             "openyield_storage_r0_exception": openyield_storage_r0 and array.name in openyield_storage_names,
+            "openyield_storage_policy": openyield_storage_policy if openyield_storage_enabled and array.name in openyield_storage_names else None,
         }
         arrays.append(info)
         if info["expected_openram_row_mirror"] and array.rows > 1 and not array.mirror_x:
@@ -2448,8 +2467,9 @@ def _audit_cell_array_mirroring(layout: LayoutDB) -> dict[str, object]:
         "method": (
             "OpenRAM FreePDK45 bitcell placement mirror.x=True, mirror.y=False: "
             "alternate rows use MX while columns remain R0. When limited OpenYield "
-            "storage aggregation is explicitly enabled, storage cells use audited "
-            "R0-only bbox pitch instead."
+            "storage aggregation is explicitly enabled, storage cells follow the "
+            "configured row_orientation_policy while keeping peripheral arrays on "
+            "the legacy path."
         ),
         "clean": not missing,
         "missing_required_row_mirror_count": len(missing),
