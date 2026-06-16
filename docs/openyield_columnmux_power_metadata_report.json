@@ -1,0 +1,371 @@
+{
+  "scope": "step5_5_columnmux_power_metadata_proof",
+  "inputs": {
+    "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+    "replacement_macros": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\replacement_macros.json",
+    "openyield_macro_aliases": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\openyield_macro_aliases.json",
+    "replacement_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_col_mux.gds",
+    "aux_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_col_mux.gds",
+    "sp_lib_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib",
+    "local_netlist_writer": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\sram_layoutgen\\netlist_writer.py",
+    "openyield_source_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+    "openyield_mux_source": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\mux_and_sa.py"
+  },
+  "replacement_macro_binding": {
+    "macro_name": "gen_col_mux",
+    "gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_col_mux.gds",
+    "pins": [
+      {
+        "name": "BL",
+        "layer": "m2",
+        "x": 0.175,
+        "y": 1.73,
+        "use": "SIGNAL"
+      },
+      {
+        "name": "BR",
+        "layer": "m2",
+        "x": 0.6,
+        "y": 1.73,
+        "use": "SIGNAL"
+      },
+      {
+        "name": "OUT",
+        "layer": "m2",
+        "x": 0.175,
+        "y": 0.07,
+        "use": "SIGNAL"
+      },
+      {
+        "name": "OUTB",
+        "layer": "m2",
+        "x": 0.6,
+        "y": 0.07,
+        "use": "SIGNAL"
+      },
+      {
+        "name": "SEL",
+        "layer": "poly",
+        "x": 0.3525,
+        "y": 0.0525,
+        "use": "SIGNAL"
+      },
+      {
+        "name": "gnd",
+        "layer": "m1",
+        "x": 0.705,
+        "y": 0.87,
+        "use": "GROUND"
+      }
+    ],
+    "has_vdd_pin_in_replacement_metadata": false,
+    "has_gnd_pin_in_replacement_metadata": true
+  },
+  "alias_metadata": {
+    "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\openyield_macro_aliases.json",
+    "matching_alias_entries": [],
+    "has_gen_col_mux_alias_entry": false
+  },
+  "replacement_gds_audit": {
+    "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_col_mux.gds",
+    "bbox": {
+      "x0": -0.08,
+      "y0": -0.08,
+      "x1": 0.7375,
+      "y1": 1.8
+    },
+    "labels": [
+      {
+        "name": "sel",
+        "layer": "9/texttype0",
+        "x": 0.3525,
+        "y": 0.0525
+      },
+      {
+        "name": "bl",
+        "layer": "13/texttype0",
+        "x": 0.17500000000000002,
+        "y": 1.73
+      },
+      {
+        "name": "br",
+        "layer": "13/texttype0",
+        "x": 0.6,
+        "y": 1.73
+      },
+      {
+        "name": "bl_out",
+        "layer": "13/texttype0",
+        "x": 0.17500000000000002,
+        "y": 0.07
+      },
+      {
+        "name": "br_out",
+        "layer": "13/texttype0",
+        "x": 0.6,
+        "y": 0.07
+      },
+      {
+        "name": "gnd",
+        "layer": "11/texttype0",
+        "x": 0.705,
+        "y": 0.87
+      },
+      {
+        "name": "G",
+        "layer": "9/texttype0",
+        "x": 0.1525,
+        "y": 0.36
+      },
+      {
+        "name": "S",
+        "layer": "11/texttype0",
+        "x": 0.045,
+        "y": 0.36
+      },
+      {
+        "name": "D",
+        "layer": "11/texttype0",
+        "x": 0.26,
+        "y": 0.36
+      }
+    ],
+    "label_names": [
+      "sel",
+      "bl",
+      "br",
+      "bl_out",
+      "br_out",
+      "gnd",
+      "G",
+      "S",
+      "D"
+    ],
+    "matched_label_shapes": [
+      {
+        "label": "sel",
+        "layer": 9,
+        "x": 0.3525,
+        "y": 0.0525,
+        "matched_shape_bbox": {
+          "x0": 0.3275,
+          "y0": 0.025,
+          "x1": 0.3775,
+          "y1": 0.08
+        }
+      },
+      {
+        "label": "bl",
+        "layer": 13,
+        "x": 0.17500000000000002,
+        "y": 1.73,
+        "matched_shape_bbox": {
+          "x0": 0.14,
+          "y0": 1.6600000000000001,
+          "x1": 0.21,
+          "y1": 1.8
+        }
+      },
+      {
+        "label": "br",
+        "layer": 13,
+        "x": 0.6,
+        "y": 1.73,
+        "matched_shape_bbox": {
+          "x0": 0.5650000000000001,
+          "y0": 1.6600000000000001,
+          "x1": 0.635,
+          "y1": 1.8
+        }
+      },
+      {
+        "label": "bl_out",
+        "layer": 13,
+        "x": 0.17500000000000002,
+        "y": 0.07,
+        "matched_shape_bbox": {
+          "x0": 0.14,
+          "y0": 0.0,
+          "x1": 0.21,
+          "y1": 0.14
+        }
+      },
+      {
+        "label": "br_out",
+        "layer": 13,
+        "x": 0.6,
+        "y": 0.07,
+        "matched_shape_bbox": {
+          "x0": 0.5650000000000001,
+          "y0": 0.0,
+          "x1": 0.635,
+          "y1": 0.14
+        }
+      },
+      {
+        "label": "gnd",
+        "layer": 11,
+        "x": 0.705,
+        "y": 0.87,
+        "matched_shape_bbox": {
+          "x0": 0.6725,
+          "y0": 0.8375,
+          "x1": 0.7375,
+          "y1": 0.9025
+        }
+      },
+      {
+        "label": "G",
+        "layer": 9,
+        "x": 0.1525,
+        "y": 0.36,
+        "matched_shape_bbox": {
+          "x0": 0.1275,
+          "y0": -0.055,
+          "x1": 0.1775,
+          "y1": 0.775
+        }
+      },
+      {
+        "label": "S",
+        "layer": 11,
+        "x": 0.045,
+        "y": 0.36,
+        "matched_shape_bbox": {
+          "x0": 0.0125,
+          "y0": 0.2925,
+          "x1": 0.0775,
+          "y1": 0.4275
+        }
+      },
+      {
+        "label": "D",
+        "layer": 11,
+        "x": 0.26,
+        "y": 0.36,
+        "matched_shape_bbox": {
+          "x0": 0.2125,
+          "y0": 0.14,
+          "x1": 0.2775,
+          "y1": 0.44
+        }
+      }
+    ],
+    "vdd_label_present": false,
+    "gnd_label_present": true,
+    "suspected_vdd_shapes": [
+      {
+        "layer": 11,
+        "datatype": 0,
+        "bbox": {
+          "x0": 0.14,
+          "y0": 1.6275,
+          "x1": 0.46,
+          "y1": 1.6925000000000001
+        },
+        "width": 0.32,
+        "height": 0.06500000000000017,
+        "reason": "unlabeled_m1_shape_near_top_boundary"
+      },
+      {
+        "layer": 11,
+        "datatype": 0,
+        "bbox": {
+          "x0": 0.4275,
+          "y0": 1.3,
+          "x1": 0.4925,
+          "y1": 1.6600000000000001
+        },
+        "width": 0.065,
+        "height": 0.3600000000000001,
+        "reason": "unlabeled_m1_shape_near_top_boundary"
+      }
+    ],
+    "shape_count": 50
+  },
+  "aux_gds_audit": {
+    "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_col_mux.gds",
+    "bbox": {
+      "x0": 0.0,
+      "y0": 0.0,
+      "x1": 0.8949999999999998,
+      "y1": 1.5649999999999997
+    },
+    "labels": [],
+    "label_names": [],
+    "matched_label_shapes": [],
+    "vdd_label_present": false,
+    "gnd_label_present": false,
+    "suspected_vdd_shapes": [
+      {
+        "layer": 11,
+        "datatype": 0,
+        "bbox": {
+          "x0": 0.0,
+          "y0": 1.3749999999999998,
+          "x1": 0.8949999999999998,
+          "y1": 1.5149999999999997
+        },
+        "width": 0.8949999999999998,
+        "height": 0.1399999999999999,
+        "reason": "unlabeled_m1_shape_near_top_boundary"
+      }
+    ],
+    "shape_count": 28
+  },
+  "spice_audit": {
+    "spice_search_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib",
+    "subckt_found": false,
+    "subckt_file": null,
+    "subckt_name": null,
+    "subckt_ports": [],
+    "subckt_vdd_present": false,
+    "subckt_gnd_present": false,
+    "status": "spice_subckt_missing"
+  },
+  "local_fallback_subckt_audit": {
+    "fallback_subckt_found": true,
+    "fallback_subckt_ports": [
+      "BL",
+      "BR",
+      "OUT",
+      "SEL",
+      "vdd",
+      "gnd"
+    ],
+    "fallback_vdd_port_present": true,
+    "fallback_gnd_port_present": true,
+    "fallback_device_lines": [
+      "Mn_bl OUT SEL BL gnd NMOS_VTG W=270n L=50n",
+      "Mn_br OUT SEL BR gnd NMOS_VTG W=270n L=50n"
+    ],
+    "fallback_uses_vdd_in_devices": false
+  },
+  "openyield_source_audit": {
+    "source_file_found": true,
+    "source_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\mux_and_sa.py",
+    "nodes_include_vdd": true,
+    "nodes_include_vss": true,
+    "pmos_uses_vdd": true,
+    "nmos_uses_vss": true,
+    "has_internal_inverter": true,
+    "uses_transmission_gate_pair": true,
+    "sel_drives_transmission_gate": true,
+    "g_s_d_debug_labels_explanation": "The replacement GDS carries local transistor terminal labels G/S/D; they are debug/device terminal labels, not exported power pins."
+  },
+  "vdd_label_present": false,
+  "vdd_shape_candidate_present": true,
+  "spice_vdd_present": false,
+  "generator_expects_vdd": true,
+  "power_status": "vdd_shape_unlabeled",
+  "safe_for_physical_mapping": true,
+  "safe_for_shared_rail": false,
+  "can_enter_columnmux_placement": "limited_or_metadata_only",
+  "requires_metadata_fix": true,
+  "recommended_fix": "add_gds_label_required",
+  "notes": [
+    "The active replacement macro is technology/freepdk45/gds_lib/openram_replacements/gen_col_mux.gds, not the separate unlabeled technology/freepdk45/gds_lib/gen_col_mux.gds.",
+    "Signal semantics from Step 5.4 remain usable: OUT->mux_out and OUTB->mux_out_b are established.",
+    "This report does not modify standalone placement, routing, GDS writer, or hardcell GDS."
+  ]
+}
