@@ -22,6 +22,11 @@ from .openyield_adapter.array_aggregation import (
     load_ready_storage_macro_specs,
     orientation_for_row,
 )
+from .openyield_adapter.architecture_adapter import build_senseamp_architecture_adapter
+from .openyield_adapter.senseamp_placement import (
+    build_senseamp_placement_plan,
+    inspect_local_senseamp_macro,
+)
 from .stdcell import add_generated_cell, generated_cell_pins, generated_instance_pins
 from .tech import Tech
 from .verifier import Verifier
@@ -35,6 +40,7 @@ class StandaloneSpec:
     name: str | None = None
     perimeter_pins: bool = True
     enable_openyield_array_aggregation: bool = False
+    enable_openyield_senseamp_adapter: bool = False
     openyield_storage_row_orientation_policy: str = "all_r0"
 
     def __post_init__(self) -> None:
@@ -545,6 +551,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         "num_words": spec.num_words,
         "words_per_row": wpr,
         "legal_words_per_row": spec.legal_words_per_row(),
+        "enable_openyield_senseamp_adapter": spec.enable_openyield_senseamp_adapter,
         "num_rows": rows,
         "num_cols": cols,
         "bank_style": "contiguous-openram-origin-array",
@@ -604,6 +611,27 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         "row_logic_origin_y_um": y_row_logic,
         "formal_gds_keeps_guides_separate": False,
     })
+    db.metadata["openyield_senseamp_adapter"] = {
+        "enabled": False,
+        "adapter_strategy": "single_ended_q_to_dout",
+        "q_to_dout": True,
+        "qb_to_dout_b": False,
+        "dropped_pins": {"QB": "dropped_complementary_output"},
+        "requires_netlist_rewrite": True,
+        "requires_layout_pin": False,
+        "generated_fake_dout_b": False,
+        "routing_changed": False,
+        "gds_writer_changed": False,
+        "write_driver_changed": False,
+        "column_mux_changed": False,
+        "wordline_driver_changed": False,
+        "placement_count": 0,
+        "local_macro": "sense_amp",
+        "local_pins": ["bl", "br", "dout", "en", "vdd", "gnd"],
+        "plan": {},
+        "example_placements": [],
+        "adapter_applied_to_placement": False,
+    }
 
     db.add_shape("boundary", Rect(0, 0, macro_w, macro_h), "boundary", name="prBoundary")
 
@@ -962,7 +990,51 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     timing_control_rect = Rect.union([control_rect, Rect.union(control_glue_rects), Rect.union(column_select_rects), Rect.union(delay_rects)])
     db.add_shape("m3", timing_control_rect, "module", name="TIMING_CONTROL")
 
-    sense_rect = add_hard_array("sense_amp_array", "sense_amp", x_array, y_column + write_driver.height + tri_gate.height + 2 * gap, spec.word_size, 1, column_pitch, sense.height, "sense_amp")
+    sense_origin_x = x_array
+    sense_origin_y = y_column + write_driver.height + tri_gate.height + 2 * gap
+    if spec.enable_openyield_senseamp_adapter:
+        senseamp_adapter = build_senseamp_architecture_adapter(qb_required_downstream=False)
+        senseamp_local_macro = inspect_local_senseamp_macro(default_pdk_root())
+        senseamp_plan = build_senseamp_placement_plan(
+            cols=cols,
+            mux_ratio=wpr,
+            origin_x=sense_origin_x,
+            origin_y=sense_origin_y,
+            pitch_x=column_pitch,
+            adapter=senseamp_adapter,
+            local_macro=senseamp_local_macro,
+        )
+        if len(senseamp_plan.placements) != spec.word_size:
+            raise ValueError(
+                f"sense_amp adapter placement count mismatch: expected {spec.word_size}, "
+                f"got {len(senseamp_plan.placements)}"
+            )
+        db.metadata["openyield_senseamp_adapter"] = {
+            "enabled": True,
+            "adapter_strategy": senseamp_plan.adapter_strategy,
+            "q_to_dout": senseamp_local_macro.q_to_dout_established,
+            "qb_to_dout_b": senseamp_local_macro.qb_to_dout_b_established,
+            "dropped_pins": {"QB": "dropped_complementary_output"},
+            "requires_netlist_rewrite": senseamp_plan.requires_netlist_rewrite,
+            "requires_layout_pin": senseamp_plan.requires_layout_pin,
+            "generated_fake_dout_b": False,
+            "routing_changed": False,
+            "gds_writer_changed": False,
+            "write_driver_changed": False,
+            "column_mux_changed": False,
+            "wordline_driver_changed": False,
+            "placement_count": len(senseamp_plan.placements),
+            "local_macro": senseamp_local_macro.macro_name,
+            "local_pins": list(senseamp_local_macro.spice_pins),
+            "plan": senseamp_plan.to_dict(),
+            "example_placements": [item.to_dict() for item in senseamp_plan.placements[: min(4, len(senseamp_plan.placements))]],
+            "adapter_applied_to_placement": True,
+            "sense_rect_origin": {"x": sense_origin_x, "y": sense_origin_y},
+            "column_pitch_um": column_pitch,
+            "mux_ratio": wpr,
+            "storage_aggregation_enabled": spec.enable_openyield_array_aggregation,
+        }
+    sense_rect = add_hard_array("sense_amp_array", "sense_amp", sense_origin_x, sense_origin_y, spec.word_size, 1, column_pitch, sense.height, "sense_amp")
     write_rect = add_hard_array("write_driver_array", "write_driver", x_array, y_column + tri_gate.height + gap, spec.word_size, 1, column_pitch, write_driver.height, "write_driver")
     tri_rect = add_hard_array("tri_gate_array", "tri_gate", x_array, y_column, spec.word_size, 1, column_pitch, tri_gate.height, "tri_gate")
     periph_rect = Rect(x_array, y_column, max(sense_rect.x1, write_rect.x1, tri_rect.x1), sense_rect.y1)
@@ -1615,6 +1687,7 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
         "words_per_row": spec.resolved_words_per_row(),
         "legal_words_per_row": spec.legal_words_per_row(),
         "enable_openyield_array_aggregation": spec.enable_openyield_array_aggregation,
+        "enable_openyield_senseamp_adapter": spec.enable_openyield_senseamp_adapter,
         "openyield_storage_row_orientation_policy": spec.openyield_storage_row_orientation_policy,
         "bank_style": layout.metadata.get("bank_style"),
         "floorplan_compaction_strategy": layout.metadata.get("floorplan_compaction_strategy"),
@@ -1665,6 +1738,7 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
         "routing_track_selection": layout.metadata.get("routing_track_selection", {}),
         "route_guide_promotion": route_guide_promotion,
         "openyield_array_aggregation_integration": layout.metadata.get("openyield_array_aggregation_integration", {}),
+        "openyield_senseamp_adapter": layout.metadata.get("openyield_senseamp_adapter", {}),
         "architecture_modules": _collect_architecture_modules(layout),
         "architecture_quality": architecture_quality,
         "geometry_audit": geometry_audit,
