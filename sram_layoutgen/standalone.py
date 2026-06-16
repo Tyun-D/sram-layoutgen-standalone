@@ -15,6 +15,12 @@ from .lef_writer import LEFWriter
 from .netlist_writer import NetlistWriter
 from .occupancy import analyze_floorplan_occupancy, write_occupancy_svg
 from .openram_placement import array_mirror, placed_bbox_from_openram_origin
+from .openyield_adapter.array_aggregation import (
+    ALLOWED_AGGREGATION_MACROS,
+    EXCLUDED_PERIPHERAL_MACROS,
+    build_standalone_storage_array_aggregation,
+    load_ready_storage_macro_specs,
+)
 from .stdcell import add_generated_cell, generated_cell_pins, generated_instance_pins
 from .tech import Tech
 from .verifier import Verifier
@@ -27,6 +33,7 @@ class StandaloneSpec:
     words_per_row: int | None = None
     name: str | None = None
     perimeter_pins: bool = True
+    enable_openyield_array_aggregation: bool = False
 
     def __post_init__(self) -> None:
         if self.word_size <= 0:
@@ -230,15 +237,39 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
             return target_y0 - cell.height + cell.bbox_y1
         return target_y0 - cell.bbox_y0
 
+    openyield_storage_specs: dict[str, dict[str, float]] = {}
+    openyield_gds_pin_audit_path = package_root() / "docs" / "openyield_gds_pin_audit_report.json"
+    if spec.enable_openyield_array_aggregation:
+        openyield_storage_specs = load_ready_storage_macro_specs(openyield_gds_pin_audit_path)
+        missing_openyield_storage = [
+            name for name in ALLOWED_AGGREGATION_MACROS if name not in openyield_storage_specs
+        ]
+        if missing_openyield_storage:
+            raise ValueError(
+                "OpenYield array aggregation requires audited storage macros: "
+                + ", ".join(missing_openyield_storage)
+            )
     storage_cell_spacing = 0.0
     # OpenRAM tiles bitcells by their abstract module pitch, not by inserting
     # generic same-layer DRC spacing between hard cells. The bitcell GDS
     # intentionally overhangs its abstract boundary so adjacent cells can
     # stitch wells, implants, rails, and bitlines into a compact array.
-    bitcell_pitch_x = bitcell.width + storage_cell_spacing
-    bitcell_pitch_y = bitcell.height + storage_cell_spacing
-    array_w = (cols - 1) * bitcell_pitch_x + bitcell.width
-    array_h = (rows - 1) * bitcell_pitch_y + bitcell.height
+    if spec.enable_openyield_array_aggregation:
+        bitcell_pitch_x = openyield_storage_specs["cell_1rw"]["width"]
+        bitcell_pitch_y = openyield_storage_specs["cell_1rw"]["height"]
+        storage_cell_w = bitcell_pitch_x
+        storage_cell_h = bitcell_pitch_y
+        dummy_cell_pitch_x = openyield_storage_specs["dummy_cell_1rw"]["width"]
+        replica_cell_pitch_x = openyield_storage_specs["replica_cell_1rw"]["width"]
+    else:
+        bitcell_pitch_x = bitcell.width + storage_cell_spacing
+        bitcell_pitch_y = bitcell.height + storage_cell_spacing
+        storage_cell_w = bitcell.width
+        storage_cell_h = bitcell.height
+        dummy_cell_pitch_x = dummy_cell.width
+        replica_cell_pitch_x = replica_cell.width
+    array_w = (cols - 1) * bitcell_pitch_x + storage_cell_w
+    array_h = (rows - 1) * bitcell_pitch_y + storage_cell_h
     lower_rows = rows
     upper_rows = 0
     lower_array_h = array_h
@@ -291,9 +322,9 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     # Dummy, bitcell, and replica cells belong to one storage-array family.
     # Use the same native bitcell pitch across the whole family so the visual
     # array is a stitched OpenRAM-style fabric instead of separated islands.
-    left_dummy_to_array_delta = dummy_cell.width
-    array_to_replica_delta = bitcell.width
-    replica_to_right_dummy_delta = replica_cell.width
+    left_dummy_to_array_delta = dummy_cell_pitch_x
+    array_to_replica_delta = storage_cell_w
+    replica_to_right_dummy_delta = replica_cell_pitch_x
     array_edge_gap = max(left_dummy_to_array_delta - dummy_cell.width, tech.manufacturing_grid)
     bitcell_bl_x = local_text_pin_x("cell_1rw", {"bl"})
     bitcell_br_x = local_text_pin_x("cell_1rw", {"br"})
@@ -616,11 +647,90 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         )
         return rect
 
-    array_rect = add_hard_array("bitcell_array", "cell_1rw", x_array, y_array_lower, cols, rows, bitcell_pitch_x, bitcell_pitch_y, "bitcell_array", mirror_x=True)
+    if spec.enable_openyield_array_aggregation:
+        openyield_storage_aggregation = build_standalone_storage_array_aggregation(
+            rows,
+            cols,
+            enable_openyield_array_aggregation=True,
+            gds_pin_audit_path=openyield_gds_pin_audit_path,
+            origins={
+                "bitcell_array": (x_array, y_array_lower),
+                "dummy_left_array": (x_dummy_left, y_array_lower),
+                "dummy_right_array": (x_dummy_right, y_array_lower),
+                "replica_bitline_array": (x_replica, y_array_lower),
+            },
+        )
+        plan_by_name = {plan.array_name: plan for plan in openyield_storage_aggregation.plans}
+        disallowed_storage_macros = sorted(
+            {
+                plan.cell_macro
+                for plan in openyield_storage_aggregation.plans
+                if plan.cell_macro not in ALLOWED_AGGREGATION_MACROS
+            }
+        )
+        if disallowed_storage_macros:
+            raise ValueError(
+                "OpenYield array aggregation produced disallowed storage macros: "
+                + ", ".join(disallowed_storage_macros)
+            )
+
+        def add_openyield_storage_array(array_name: str) -> Rect:
+            plan = plan_by_name[array_name]
+            return add_hard_array(
+                plan.array_name,
+                plan.cell_macro,
+                plan.origin_x,
+                plan.origin_y,
+                plan.cols,
+                plan.rows,
+                plan.pitch_x,
+                plan.pitch_y,
+                plan.role,
+                mirror_x=False,
+                mirror_y=False,
+            )
+
+        array_rect = add_openyield_storage_array("bitcell_array")
+        dummy_left_rect = add_openyield_storage_array("dummy_left_array")
+        dummy_right_rect = add_openyield_storage_array("dummy_right_array")
+        replica_rect = add_openyield_storage_array("replica_bitline_array")
+    else:
+        openyield_storage_aggregation = build_standalone_storage_array_aggregation(
+            rows,
+            cols,
+            enable_openyield_array_aggregation=False,
+        )
+        array_rect = add_hard_array("bitcell_array", "cell_1rw", x_array, y_array_lower, cols, rows, bitcell_pitch_x, bitcell_pitch_y, "bitcell_array", mirror_x=True)
+        dummy_left_rect = add_hard_array("dummy_left_array", "dummy_cell_1rw", x_dummy_left, y_array_lower, 1, rows, bitcell_pitch_x, bitcell_pitch_y, "dummy_bitcell", mirror_x=True)
+        dummy_right_rect = add_hard_array("dummy_right_array", "dummy_cell_1rw", x_dummy_right, y_array_lower, 1, rows, bitcell_pitch_x, bitcell_pitch_y, "dummy_bitcell", mirror_x=True)
+        replica_rect = add_hard_array("replica_bitline_array", "replica_cell_1rw", x_replica, y_array_lower, 1, rows, bitcell_pitch_x, bitcell_pitch_y, "replica_bitline", mirror_x=True)
+    storage_macro_counts: dict[str, int] = {}
+    for plan in openyield_storage_aggregation.plans:
+        storage_macro_counts[plan.cell_macro] = storage_macro_counts.get(plan.cell_macro, 0) + plan.rows * plan.cols
+    db.metadata["openyield_array_aggregation_integration"] = {
+        "enabled": openyield_storage_aggregation.enabled,
+        "allowed_macros": list(ALLOWED_AGGREGATION_MACROS),
+        "excluded_peripheral_macros": dict(EXCLUDED_PERIPHERAL_MACROS),
+        "storage_only": True,
+        "peripherals_old_path": True,
+        "changed_gds_flow": openyield_storage_aggregation.changed_gds_flow,
+        "routing_changed": openyield_storage_aggregation.routing_changed,
+        "shared_rail_merge": openyield_storage_aggregation.shared_rail_merge,
+        "generated_gds": False,
+        "storage_plan": openyield_storage_aggregation.to_dict(),
+        "storage_arrays": {
+            "bitcell_array": array_rect.to_dict(),
+            "dummy_left_array": dummy_left_rect.to_dict(),
+            "dummy_right_array": dummy_right_rect.to_dict(),
+            "replica_bitline_array": replica_rect.to_dict(),
+        },
+        "macro_counts": storage_macro_counts,
+        "instance_count": sum(storage_macro_counts.values()),
+        "pitch": {"x": bitcell_pitch_x, "y": bitcell_pitch_y},
+        "origin": {"x": x_array, "y": y_array_lower},
+        "power_rail_policy": openyield_storage_aggregation.power_rail_policy,
+    }
     db.add_shape("m1", array_rect, "module", name="ARRAY")
-    dummy_left_rect = add_hard_array("dummy_left_array", "dummy_cell_1rw", x_dummy_left, y_array_lower, 1, rows, bitcell_pitch_x, bitcell_pitch_y, "dummy_bitcell", mirror_x=True)
-    dummy_right_rect = add_hard_array("dummy_right_array", "dummy_cell_1rw", x_dummy_right, y_array_lower, 1, rows, bitcell_pitch_x, bitcell_pitch_y, "dummy_bitcell", mirror_x=True)
-    replica_rect = add_hard_array("replica_bitline_array", "replica_cell_1rw", x_replica, y_array_lower, 1, rows, bitcell_pitch_x, bitcell_pitch_y, "replica_bitline", mirror_x=True)
     db.add_shape("m1", dummy_left_rect, "module", name="dummy_left_bbox")
     db.add_shape("m1", dummy_right_rect, "module", name="dummy_right_bbox")
     db.add_shape("m1", replica_rect, "module", name="RBL")
@@ -2309,9 +2419,15 @@ def _audit_cell_bboxes(tech: Tech, used_gds_cells: list[str]) -> dict[str, objec
 
 def _audit_cell_array_mirroring(layout: LayoutDB) -> dict[str, object]:
     expected_mirror_x_roles = {"bitcell_array", "dummy_bitcell", "replica_bitline"}
+    openyield_aggregation = layout.metadata.get("openyield_array_aggregation_integration", {})
+    openyield_storage_r0 = bool(openyield_aggregation.get("enabled"))
+    openyield_storage_names = {"bitcell_array", "dummy_left_array", "dummy_right_array", "replica_bitline_array"}
     arrays: list[dict[str, object]] = []
     missing: list[dict[str, object]] = []
     for array in layout.cell_arrays:
+        expected_openram_row_mirror = array.role in expected_mirror_x_roles and not (
+            openyield_storage_r0 and array.name in openyield_storage_names
+        )
         info = {
             "array": array.name,
             "cell": array.cell,
@@ -2322,7 +2438,8 @@ def _audit_cell_array_mirroring(layout: LayoutDB) -> dict[str, object]:
             "mirror_y": array.mirror_y,
             "row_offset": array.row_offset,
             "column_offset": array.column_offset,
-            "expected_openram_row_mirror": array.role in expected_mirror_x_roles,
+            "expected_openram_row_mirror": expected_openram_row_mirror,
+            "openyield_storage_r0_exception": openyield_storage_r0 and array.name in openyield_storage_names,
         }
         arrays.append(info)
         if info["expected_openram_row_mirror"] and array.rows > 1 and not array.mirror_x:
@@ -2330,7 +2447,9 @@ def _audit_cell_array_mirroring(layout: LayoutDB) -> dict[str, object]:
     return {
         "method": (
             "OpenRAM FreePDK45 bitcell placement mirror.x=True, mirror.y=False: "
-            "alternate rows use MX while columns remain R0"
+            "alternate rows use MX while columns remain R0. When limited OpenYield "
+            "storage aggregation is explicitly enabled, storage cells use audited "
+            "R0-only bbox pitch instead."
         ),
         "clean": not missing,
         "missing_required_row_mirror_count": len(missing),

@@ -82,6 +82,47 @@ class LimitedArrayAggregationResult:
         return data
 
 
+@dataclass(frozen=True)
+class StandaloneStorageArrayPlan:
+    array_name: str
+    role: str
+    rows: int
+    cols: int
+    cell_macro: str
+    origin_x: float
+    origin_y: float
+    pitch_x: float
+    pitch_y: float
+    width: float
+    height: float
+    orientation: str = "R0"
+    power_rail_policy: str = "tb_shared_hint_only"
+    notes: tuple[str, ...] = ()
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass(frozen=True)
+class StandaloneStorageArrayAggregationResult:
+    enabled: bool
+    rows: int
+    cols: int
+    plans: tuple[StandaloneStorageArrayPlan, ...] = ()
+    allowed_macros: tuple[str, ...] = ALLOWED_AGGREGATION_MACROS
+    excluded_macros: dict[str, str] = field(default_factory=lambda: dict(EXCLUDED_PERIPHERAL_MACROS))
+    power_rail_policy: str = "tb_shared_hint_only"
+    changed_gds_flow: bool = False
+    routing_changed: bool = False
+    shared_rail_merge: bool = False
+    notes: tuple[str, ...] = ()
+
+    def to_dict(self) -> dict[str, Any]:
+        data = asdict(self)
+        data["plans"] = [plan.to_dict() for plan in self.plans]
+        return data
+
+
 def build_limited_array_aggregation(
     rows: int,
     cols: int,
@@ -107,7 +148,7 @@ def build_limited_array_aggregation(
             notes=("enable_openyield_array_aggregation is False; no aggregation plan was generated.",),
         )
 
-    macro_specs = _load_ready_macro_specs(gds_pin_audit_path)
+    macro_specs = load_ready_storage_macro_specs(gds_pin_audit_path)
     missing = [name for name in ALLOWED_AGGREGATION_MACROS if name not in macro_specs]
     if missing:
         raise ValueError(f"required abutment-ready macros are missing from GDS audit: {', '.join(missing)}")
@@ -125,6 +166,82 @@ def build_limited_array_aggregation(
             "Limited aggregation is metadata/plan-only; it does not write GDS or merge power shapes.",
             "Only cell_1rw, dummy_cell_1rw, and replica_cell_1rw are included.",
             "power_rail_policy is tb_shared_hint_only; LR shared rail remains disabled.",
+        ),
+    )
+
+
+def build_standalone_storage_array_aggregation(
+    rows: int,
+    cols: int,
+    *,
+    enable_openyield_array_aggregation: bool = False,
+    gds_pin_audit_path: str | Path = "docs/openyield_gds_pin_audit_report.json",
+    origins: dict[str, tuple[float, float]] | None = None,
+) -> StandaloneStorageArrayAggregationResult:
+    """Build the storage-only aggregation shape used by ``standalone``.
+
+    This preserves the existing generator topology: one bitcell array, left and
+    right dummy columns, and one replica column.  It intentionally excludes
+    dummy rows and all peripheral cells.
+    """
+
+    if rows <= 0 or cols <= 0:
+        raise ValueError("rows and cols must be positive")
+    if not enable_openyield_array_aggregation:
+        return StandaloneStorageArrayAggregationResult(
+            enabled=False,
+            rows=rows,
+            cols=cols,
+            notes=("enable_openyield_array_aggregation is False; standalone storage placement stays on the legacy path.",),
+        )
+    origins = origins or {
+        "bitcell_array": (0.0, 0.0),
+        "dummy_left_array": (-1.0, 0.0),
+        "dummy_right_array": (cols * 1.0, 0.0),
+        "replica_bitline_array": ((cols + 1) * 1.0, 0.0),
+    }
+    macro_specs = load_ready_storage_macro_specs(gds_pin_audit_path)
+    missing = [name for name in ALLOWED_AGGREGATION_MACROS if name not in macro_specs]
+    if missing:
+        raise ValueError(f"required abutment-ready macros are missing from GDS audit: {', '.join(missing)}")
+    plan_specs = (
+        ("bitcell_array", "bitcell_array", "cell_1rw", rows, cols),
+        ("dummy_left_array", "dummy_bitcell", "dummy_cell_1rw", rows, 1),
+        ("dummy_right_array", "dummy_bitcell", "dummy_cell_1rw", rows, 1),
+        ("replica_bitline_array", "replica_bitline", "replica_cell_1rw", rows, 1),
+    )
+    plans: list[StandaloneStorageArrayPlan] = []
+    for array_name, role, cell_macro, plan_rows, plan_cols in plan_specs:
+        if cell_macro not in ALLOWED_AGGREGATION_MACROS:
+            raise ValueError(f"disallowed macro in standalone aggregation plan: {cell_macro}")
+        if array_name not in origins:
+            raise ValueError(f"missing origin for standalone aggregation array: {array_name}")
+        spec = macro_specs[cell_macro]
+        origin_x, origin_y = origins[array_name]
+        plans.append(
+            StandaloneStorageArrayPlan(
+                array_name=array_name,
+                role=role,
+                rows=plan_rows,
+                cols=plan_cols,
+                cell_macro=cell_macro,
+                origin_x=float(origin_x),
+                origin_y=float(origin_y),
+                pitch_x=spec["width"],
+                pitch_y=spec["height"],
+                width=plan_cols * spec["width"],
+                height=plan_rows * spec["height"],
+                notes=("x=origin_x+col*cell_width, y=origin_y+row*cell_height, orientation=R0.",),
+            )
+        )
+    return StandaloneStorageArrayAggregationResult(
+        enabled=True,
+        rows=rows,
+        cols=cols,
+        plans=tuple(plans),
+        notes=(
+            "Standalone integration replaces only bitcell/dummy/replica CellArray placement.",
+            "Peripheral placement, routing, GDS writer behavior, and rail-shape merging remain unchanged.",
         ),
     )
 
@@ -262,7 +379,7 @@ def _build_replica_column_plan(rows: int, spec: dict[str, float], x0: float, y0:
     )
 
 
-def _load_ready_macro_specs(path: str | Path) -> dict[str, dict[str, float]]:
+def load_ready_storage_macro_specs(path: str | Path) -> dict[str, dict[str, float]]:
     payload = json.loads(Path(path).read_text(encoding="utf-8"))
     specs: dict[str, dict[str, float]] = {}
     for item in payload.get("audited_macros", []):
@@ -273,3 +390,7 @@ def _load_ready_macro_specs(path: str | Path) -> dict[str, dict[str, float]]:
             continue
         specs[name] = {"width": float(item["width"]), "height": float(item["height"])}
     return specs
+
+
+def _load_ready_macro_specs(path: str | Path) -> dict[str, dict[str, float]]:
+    return load_ready_storage_macro_specs(path)
