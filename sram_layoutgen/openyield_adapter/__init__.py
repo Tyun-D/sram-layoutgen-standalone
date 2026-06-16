@@ -7,6 +7,7 @@ Xyce, or their conda environment are absent.
 
 from .config_export import OpenYieldExportConfig, export_config_from_report
 from .contracts import ModuleContract, ParsedPySpiceModule, PinContract
+from .macro_compat import MacroCompatibility, MacroPinCheck, check_contract_payload
 from .module_mapper import build_module_contracts, module_to_contract
 from .netlist_export import OpenYieldNetlistExport, export_netlist_for_openyield
 from .pyspice_source_parser import parse_openyield_pyspice_sources, parse_pyspice_source_file
@@ -15,12 +16,15 @@ from .testbench_adapter import OpenYieldEnvironment, check_openyield_environment
 
 __all__ = [
     "ModuleContract",
+    "MacroCompatibility",
+    "MacroPinCheck",
     "OpenYieldEnvironment",
     "OpenYieldExportConfig",
     "OpenYieldNetlistExport",
     "ParsedPySpiceModule",
     "PinContract",
     "build_module_contracts",
+    "check_contract_payload",
     "check_openyield_environment",
     "export_config_from_report",
     "export_netlist_for_openyield",

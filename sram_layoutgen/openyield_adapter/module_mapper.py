@@ -19,7 +19,7 @@ def module_to_contract(module: ParsedPySpiceModule) -> ModuleContract:
     original = module.original_module_name
     role = _contract_role(original, module)
     canonical_module = canonical_module_name(original, role)
-    pins = tuple(_pin_contract(pin) for pin in module.nodes)
+    pins = tuple(_pin_contract(pin, original, role) for pin in module.nodes)
     power = {
         pin.original_name: pin.canonical_name
         for pin in pins
@@ -43,6 +43,7 @@ def module_to_contract(module: ParsedPySpiceModule) -> ModuleContract:
         equivalent_openram_roles=openram_roles,
         gds_macro_candidates=candidates,
         requires_physical_implementation=_requires_physical(role),
+        implementation_status=_implementation_status(original, role),
         notes=tuple(notes),
         warnings=tuple(warnings),
         class_name=module.class_name,
@@ -53,24 +54,55 @@ def module_to_contract(module: ParsedPySpiceModule) -> ModuleContract:
     )
 
 
-def _pin_contract(name: str) -> PinContract:
-    canonical = canonical_pin_name(name)
+def _pin_contract(name: str, original_module: str, role: str) -> PinContract:
+    canonical = _canonical_pin_for_module(name, original_module, role)
     return PinContract(
         original_name=name,
         canonical_name=canonical,
         role=pin_role(name, canonical),
-        direction=_pin_direction(canonical),
+        direction=_pin_direction(canonical, original_module),
         polarity=pin_polarity(name, canonical),
         aliases=_aliases_for_pin(name, canonical),
     )
 
 
-def _pin_direction(canonical: str) -> str | None:
+def _canonical_pin_for_module(name: str, original_module: str, role: str) -> str:
+    overrides = {
+        "PRECHARGE": {
+            "ENB": "precharge_enb",
+        },
+        "WRITEDRIVER": {
+            "EN": "write_enable",
+        },
+        "SENSEAMP": {
+            "EN": "sense_enable",
+            "IN": "bl",
+            "INB": "br",
+        },
+        "WORDLINEDRIVER": {
+            "A": "decoder_input",
+            "B": "wordline_enable",
+            "Z": "wl",
+        },
+        "COLUMNMUX*": {
+            "SA_IN": "mux_out",
+            "SA_INB": "mux_out_b",
+            "SEL{i}": "column_select",
+        },
+    }
+    if name in overrides.get(original_module, {}):
+        return overrides[original_module][name]
+    return canonical_pin_name(name)
+
+
+def _pin_direction(canonical: str, original_module: str = "") -> str | None:
     if canonical in {"vdd", "gnd", "bl", "br", "wl"}:
         return "INOUT"
-    if canonical in {"dout", "dout_b", "addr_q", "din_q", "clk_buf", "clk_bar", "sense_enable", "write_enable", "wordline_enable", "precharge_enb"}:
+    if canonical in {"dout", "dout_b", "addr_q", "din_q", "clk_buf", "clk_bar", "mux_out", "mux_out_b"}:
         return "OUTPUT"
-    if canonical in {"din", "addr", "clk", "en", "enb", "web", "csb"}:
+    if canonical in {"sense_enable", "write_enable", "wordline_enable", "precharge_enb"}:
+        return "OUTPUT" if original_module == "TIME" else "INPUT"
+    if canonical in {"din", "addr", "clk", "en", "enb", "web", "csb", "decoder_input", "column_select"}:
         return "INPUT"
     return None
 
@@ -87,8 +119,12 @@ def _aliases_for_pin(original: str, canonical: str) -> tuple[str, ...]:
         "csb": ("csb0", "csb"),
         "precharge_enb": ("ENB", "PRE", "pre", "p_en_bar"),
         "sense_enable": ("s_en", "sense_en"),
-        "write_enable": ("w_en", "write_en"),
-        "wordline_enable": ("wl_en",),
+        "write_enable": ("EN", "w_en", "write_en"),
+        "wordline_enable": ("B", "wl_en",),
+        "decoder_input": ("A", "decoder_input"),
+        "mux_out": ("SA_IN", "OUT", "mux_out"),
+        "mux_out_b": ("SA_INB", "OUTB", "mux_out_b"),
+        "column_select": ("SEL{i}", "SEL", "column_select"),
         "din": ("DIN", "DIN{i}", "din0[*]", "din"),
         "dout": ("Q", "OUT", "dout0[*]", "dout"),
         "dout_b": ("QB", "OUTB"),
@@ -111,6 +147,10 @@ def _contract_role(original: str, module: ParsedPySpiceModule) -> str:
 
 
 def _gds_candidates(original: str, role: str) -> tuple[str, ...]:
+    if "Factory" in original or "Testbench" in original:
+        return ()
+    if original == "DECODER_CASCADE":
+        return ()
     if original == "SRAM_6T_CELL" or role == "bitcell":
         return ("cell_1rw", "cell_6t")
     if original == "SRAM_6T_CORE_*" or role == "bitcell_array":
@@ -131,12 +171,14 @@ def _gds_candidates(original: str, role: str) -> tuple[str, ...]:
         return ("dummy_cell_1rw", "dummy_cell_array")
     if role == "replica":
         return ("replica_cell_1rw", "replica_column")
-    if original in {"DFF", "ADDR_DFF", "DATA_DFF"}:
+    if original == "DFF":
         return ("dff",)
-    if original == "delay_chain":
-        return ("gen_delay_inv", "delay_chain")
+    if original in {"ADDR_DFF", "DATA_DFF", "delay_chain", "wen_delay_chain"}:
+        return ()
     if original == "TIME":
-        return ("control_glue", "gen_inv", "gen_nand2", "gen_nor2", "dff", "gen_delay_inv")
+        return ()
+    if original in {"ADDR_DFF", "DATA_DFF", "wen_delay_chain"}:
+        return ()
     return ()
 
 
@@ -161,6 +203,29 @@ def _requires_physical(role: str) -> bool:
     return role not in {"testbench", "unknown"}
 
 
+def _implementation_status(original: str, role: str) -> str:
+    if "Factory" in original or "Testbench" in original:
+        return "non_layout_source"
+    if original.startswith("SRAM_10T_CORE") or original == "SRAM_10T_CELL" or role == "bitcell_10t":
+        return "unsupported_architecture"
+    if original in {
+        "TIME",
+        "ADDR_DFF",
+        "DATA_DFF",
+        "delay_chain",
+        "wen_delay_chain",
+        "DECODER_CASCADE",
+        "SRAM_6T_CORE_*",
+        "SRAM_10T_CORE_*",
+    }:
+        return "composite_required"
+    if role in {"unknown", "testbench"}:
+        return "non_layout_source"
+    if role == "support_cell":
+        return "needs_stdcell_or_generated_layout"
+    return "macro_candidate"
+
+
 def _notes_for_module(original: str, role: str) -> tuple[str, ...]:
     notes: list[str] = []
     if original == "PRECHARGE":
@@ -170,9 +235,11 @@ def _notes_for_module(original: str, role: str) -> tuple[str, ...]:
     if original == "SENSEAMP":
         notes.append("Map IN/INB to selected BL/BR and Q/QB to dout/dout_b or tri-state stage.")
     if original == "WORDLINEDRIVER":
-        notes.append("A/B are decoder/control inputs; Z is the wordline output.")
+        notes.append("A is treated as decoder_input, B as wordline_enable, and Z as wl; confirm polarity against OpenYield timing before physical hookup.")
+        notes.append("needs_semantic_confirmation")
     if original == "TIME":
         notes.append("Composite control/timing module; should become architecture/control contract before placement.")
+        notes.append("Composed from ADDR_DFF, DATA_DFF, DFF, delay_chain, wen_delay_chain, pdrive, pdrive2_for_pre, wl_pdrive, and logic gates.")
     if role in {"bitcell_array", "control_timing"}:
         notes.append("This contract is hierarchical and should not map to one single flat GDS macro.")
     return tuple(notes)

@@ -35,6 +35,7 @@ class ModuleContract:
     equivalent_openram_roles: tuple[str, ...] = ()
     gds_macro_candidates: tuple[str, ...] = ()
     requires_physical_implementation: bool = True
+    implementation_status: str = "macro_candidate"
     notes: tuple[str, ...] = ()
     warnings: tuple[str, ...] = ()
     class_name: str | None = None
