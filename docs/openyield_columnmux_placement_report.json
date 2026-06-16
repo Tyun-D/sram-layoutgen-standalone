@@ -1,0 +1,594 @@
+{
+  "scope": "step5_7_columnmux_limited_placement_smoke",
+  "inputs": {
+    "alias_candidate_json": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_repaired_macro_aliases_candidate.json",
+    "alias_candidate_report_json": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_colmux_repaired_alias_report.json",
+    "alias_source_report": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_colmux_vdd_pinproof_report.json",
+    "columnmux_report": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_columnmux_adapter_report.json",
+    "senseamp_report": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_senseamp_adapter_report.json",
+    "use_repaired_vdd_label": true
+  },
+  "repaired_alias_candidate": {
+    "openyield_module": "COLUMNMUX",
+    "local_macro": "gen_col_mux_vdd_labeled",
+    "source_macro": "gen_col_mux",
+    "source_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_col_mux.gds",
+    "candidate_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_colmux_repair\\gen_col_mux_vdd_labeled.gds",
+    "repair_type": "add_vdd_text_label_only",
+    "polygon_changed": false,
+    "safe_for_physical_mapping": true,
+    "safe_for_shared_rail": false,
+    "power_status": "vdd_label_present",
+    "notes": [
+      "Proof candidate only; do not overwrite original replacement GDS.",
+      "Shared rail remains disabled.",
+      "Candidate GDS is the proof-only file produced in Step 5.6."
+    ]
+  },
+  "source_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_col_mux.gds",
+  "candidate_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_colmux_repair\\gen_col_mux_vdd_labeled.gds",
+  "labels_before": [
+    {
+      "text": "sel",
+      "layer": 9,
+      "texttype": 0,
+      "x": 0.3525,
+      "y": 0.0525
+    },
+    {
+      "text": "bl",
+      "layer": 13,
+      "texttype": 0,
+      "x": 0.17500000000000002,
+      "y": 1.73
+    },
+    {
+      "text": "br",
+      "layer": 13,
+      "texttype": 0,
+      "x": 0.6,
+      "y": 1.73
+    },
+    {
+      "text": "bl_out",
+      "layer": 13,
+      "texttype": 0,
+      "x": 0.17500000000000002,
+      "y": 0.07
+    },
+    {
+      "text": "br_out",
+      "layer": 13,
+      "texttype": 0,
+      "x": 0.6,
+      "y": 0.07
+    },
+    {
+      "text": "gnd",
+      "layer": 11,
+      "texttype": 0,
+      "x": 0.705,
+      "y": 0.87
+    },
+    {
+      "text": "G",
+      "layer": 9,
+      "texttype": 0,
+      "x": 0.1525,
+      "y": 0.36
+    },
+    {
+      "text": "S",
+      "layer": 11,
+      "texttype": 0,
+      "x": 0.045,
+      "y": 0.36
+    },
+    {
+      "text": "D",
+      "layer": 11,
+      "texttype": 0,
+      "x": 0.26,
+      "y": 0.36
+    }
+  ],
+  "labels_after": [
+    {
+      "text": "sel",
+      "layer": 9,
+      "texttype": 0,
+      "x": 0.3525,
+      "y": 0.0525
+    },
+    {
+      "text": "bl",
+      "layer": 13,
+      "texttype": 0,
+      "x": 0.17500000000000002,
+      "y": 1.73
+    },
+    {
+      "text": "br",
+      "layer": 13,
+      "texttype": 0,
+      "x": 0.6,
+      "y": 1.73
+    },
+    {
+      "text": "bl_out",
+      "layer": 13,
+      "texttype": 0,
+      "x": 0.17500000000000002,
+      "y": 0.07
+    },
+    {
+      "text": "br_out",
+      "layer": 13,
+      "texttype": 0,
+      "x": 0.6,
+      "y": 0.07
+    },
+    {
+      "text": "gnd",
+      "layer": 11,
+      "texttype": 0,
+      "x": 0.705,
+      "y": 0.87
+    },
+    {
+      "text": "vdd",
+      "layer": 11,
+      "texttype": 0,
+      "x": 0.3,
+      "y": 1.6600000000000001
+    },
+    {
+      "text": "G",
+      "layer": 9,
+      "texttype": 0,
+      "x": 0.1525,
+      "y": 0.36
+    },
+    {
+      "text": "S",
+      "layer": 11,
+      "texttype": 0,
+      "x": 0.045,
+      "y": 0.36
+    },
+    {
+      "text": "D",
+      "layer": 11,
+      "texttype": 0,
+      "x": 0.26,
+      "y": 0.36
+    }
+  ],
+  "power_status_before": "vdd_shape_unlabeled",
+  "power_status_after": "vdd_label_present",
+  "safe_for_physical_mapping": true,
+  "safe_for_shared_rail": false,
+  "can_enter_columnmux_limited_placement": true,
+  "placement_count": 8,
+  "mux_ratio": 2,
+  "macro_name": "gen_col_mux_vdd_labeled",
+  "placement_plan": {
+    "cols": 16,
+    "mux_ratio": 2,
+    "placements": [
+      {
+        "instance_name": "Xcmux_g0",
+        "macro_name": "gen_col_mux_vdd_labeled",
+        "group": 0,
+        "cols": [
+          0,
+          1
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "sel": "col_sel[0]",
+          "bl": "bl[0]",
+          "br": "br[0]",
+          "out": "mux_out[0]",
+          "outb": "mux_out_b[0]"
+        },
+        "power_status": "vdd_label_present",
+        "safe_for_shared_rail": false,
+        "notes": [
+          "Limited placement plan only; standalone is not modified.",
+          "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+          "Grouped semantic plan for columns 0..1.",
+          "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+          "Uses repaired proof candidate with label-backed VDD metadata."
+        ]
+      },
+      {
+        "instance_name": "Xcmux_g1",
+        "macro_name": "gen_col_mux_vdd_labeled",
+        "group": 1,
+        "cols": [
+          2,
+          3
+        ],
+        "x": 1.79,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "sel": "col_sel[1]",
+          "bl": "bl[2]",
+          "br": "br[2]",
+          "out": "mux_out[1]",
+          "outb": "mux_out_b[1]"
+        },
+        "power_status": "vdd_label_present",
+        "safe_for_shared_rail": false,
+        "notes": [
+          "Limited placement plan only; standalone is not modified.",
+          "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+          "Grouped semantic plan for columns 2..3.",
+          "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+          "Uses repaired proof candidate with label-backed VDD metadata."
+        ]
+      },
+      {
+        "instance_name": "Xcmux_g2",
+        "macro_name": "gen_col_mux_vdd_labeled",
+        "group": 2,
+        "cols": [
+          4,
+          5
+        ],
+        "x": 3.58,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "sel": "col_sel[2]",
+          "bl": "bl[4]",
+          "br": "br[4]",
+          "out": "mux_out[2]",
+          "outb": "mux_out_b[2]"
+        },
+        "power_status": "vdd_label_present",
+        "safe_for_shared_rail": false,
+        "notes": [
+          "Limited placement plan only; standalone is not modified.",
+          "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+          "Grouped semantic plan for columns 4..5.",
+          "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+          "Uses repaired proof candidate with label-backed VDD metadata."
+        ]
+      },
+      {
+        "instance_name": "Xcmux_g3",
+        "macro_name": "gen_col_mux_vdd_labeled",
+        "group": 3,
+        "cols": [
+          6,
+          7
+        ],
+        "x": 5.37,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "sel": "col_sel[3]",
+          "bl": "bl[6]",
+          "br": "br[6]",
+          "out": "mux_out[3]",
+          "outb": "mux_out_b[3]"
+        },
+        "power_status": "vdd_label_present",
+        "safe_for_shared_rail": false,
+        "notes": [
+          "Limited placement plan only; standalone is not modified.",
+          "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+          "Grouped semantic plan for columns 6..7.",
+          "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+          "Uses repaired proof candidate with label-backed VDD metadata."
+        ]
+      },
+      {
+        "instance_name": "Xcmux_g4",
+        "macro_name": "gen_col_mux_vdd_labeled",
+        "group": 4,
+        "cols": [
+          8,
+          9
+        ],
+        "x": 7.16,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "sel": "col_sel[4]",
+          "bl": "bl[8]",
+          "br": "br[8]",
+          "out": "mux_out[4]",
+          "outb": "mux_out_b[4]"
+        },
+        "power_status": "vdd_label_present",
+        "safe_for_shared_rail": false,
+        "notes": [
+          "Limited placement plan only; standalone is not modified.",
+          "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+          "Grouped semantic plan for columns 8..9.",
+          "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+          "Uses repaired proof candidate with label-backed VDD metadata."
+        ]
+      },
+      {
+        "instance_name": "Xcmux_g5",
+        "macro_name": "gen_col_mux_vdd_labeled",
+        "group": 5,
+        "cols": [
+          10,
+          11
+        ],
+        "x": 8.95,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "sel": "col_sel[5]",
+          "bl": "bl[10]",
+          "br": "br[10]",
+          "out": "mux_out[5]",
+          "outb": "mux_out_b[5]"
+        },
+        "power_status": "vdd_label_present",
+        "safe_for_shared_rail": false,
+        "notes": [
+          "Limited placement plan only; standalone is not modified.",
+          "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+          "Grouped semantic plan for columns 10..11.",
+          "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+          "Uses repaired proof candidate with label-backed VDD metadata."
+        ]
+      },
+      {
+        "instance_name": "Xcmux_g6",
+        "macro_name": "gen_col_mux_vdd_labeled",
+        "group": 6,
+        "cols": [
+          12,
+          13
+        ],
+        "x": 10.74,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "sel": "col_sel[6]",
+          "bl": "bl[12]",
+          "br": "br[12]",
+          "out": "mux_out[6]",
+          "outb": "mux_out_b[6]"
+        },
+        "power_status": "vdd_label_present",
+        "safe_for_shared_rail": false,
+        "notes": [
+          "Limited placement plan only; standalone is not modified.",
+          "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+          "Grouped semantic plan for columns 12..13.",
+          "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+          "Uses repaired proof candidate with label-backed VDD metadata."
+        ]
+      },
+      {
+        "instance_name": "Xcmux_g7",
+        "macro_name": "gen_col_mux_vdd_labeled",
+        "group": 7,
+        "cols": [
+          14,
+          15
+        ],
+        "x": 12.530000000000001,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "sel": "col_sel[7]",
+          "bl": "bl[14]",
+          "br": "br[14]",
+          "out": "mux_out[7]",
+          "outb": "mux_out_b[7]"
+        },
+        "power_status": "vdd_label_present",
+        "safe_for_shared_rail": false,
+        "notes": [
+          "Limited placement plan only; standalone is not modified.",
+          "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+          "Grouped semantic plan for columns 14..15.",
+          "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+          "Uses repaired proof candidate with label-backed VDD metadata."
+        ]
+      }
+    ],
+    "macro_name": "gen_col_mux_vdd_labeled",
+    "power_status": "vdd_label_present",
+    "safe_for_physical_mapping": true,
+    "safe_for_shared_rail": false,
+    "notes": [
+      "This plan is generated from repaired alias metadata and existing sense_amp adapter semantics.",
+      "No routing, GDS writer, or standalone placement code is changed.",
+      "Mux ratio greater than one is handled as a grouped semantic plan only.",
+      "Candidate alias uses gen_col_mux_vdd_labeled from the proof GDS.",
+      "Shared rail remains disabled until a separate rail continuity proof exists."
+    ]
+  },
+  "example_placements": [
+    {
+      "instance_name": "Xcmux_g0",
+      "macro_name": "gen_col_mux_vdd_labeled",
+      "group": 0,
+      "cols": [
+        0,
+        1
+      ],
+      "x": 0.0,
+      "y": 0.0,
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "sel": "col_sel[0]",
+        "bl": "bl[0]",
+        "br": "br[0]",
+        "out": "mux_out[0]",
+        "outb": "mux_out_b[0]"
+      },
+      "power_status": "vdd_label_present",
+      "safe_for_shared_rail": false,
+      "notes": [
+        "Limited placement plan only; standalone is not modified.",
+        "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+        "Grouped semantic plan for columns 0..1.",
+        "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+        "Uses repaired proof candidate with label-backed VDD metadata."
+      ]
+    },
+    {
+      "instance_name": "Xcmux_g1",
+      "macro_name": "gen_col_mux_vdd_labeled",
+      "group": 1,
+      "cols": [
+        2,
+        3
+      ],
+      "x": 1.79,
+      "y": 0.0,
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "sel": "col_sel[1]",
+        "bl": "bl[2]",
+        "br": "br[2]",
+        "out": "mux_out[1]",
+        "outb": "mux_out_b[1]"
+      },
+      "power_status": "vdd_label_present",
+      "safe_for_shared_rail": false,
+      "notes": [
+        "Limited placement plan only; standalone is not modified.",
+        "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+        "Grouped semantic plan for columns 2..3.",
+        "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+        "Uses repaired proof candidate with label-backed VDD metadata."
+      ]
+    },
+    {
+      "instance_name": "Xcmux_g2",
+      "macro_name": "gen_col_mux_vdd_labeled",
+      "group": 2,
+      "cols": [
+        4,
+        5
+      ],
+      "x": 3.58,
+      "y": 0.0,
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "sel": "col_sel[2]",
+        "bl": "bl[4]",
+        "br": "br[4]",
+        "out": "mux_out[2]",
+        "outb": "mux_out_b[2]"
+      },
+      "power_status": "vdd_label_present",
+      "safe_for_shared_rail": false,
+      "notes": [
+        "Limited placement plan only; standalone is not modified.",
+        "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+        "Grouped semantic plan for columns 4..5.",
+        "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+        "Uses repaired proof candidate with label-backed VDD metadata."
+      ]
+    }
+  ],
+  "net_mapping_table": [
+    {
+      "openyield_pin": "VDD",
+      "local_pin": "vdd",
+      "canonical_signal": "vdd",
+      "required": true
+    },
+    {
+      "openyield_pin": "VSS",
+      "local_pin": "gnd",
+      "canonical_signal": "gnd",
+      "required": true
+    },
+    {
+      "openyield_pin": "SEL",
+      "local_pin": "col_sel[group]",
+      "canonical_signal": "column_select",
+      "required": true
+    },
+    {
+      "openyield_pin": "BL",
+      "local_pin": "bl[col0]",
+      "canonical_signal": "bl",
+      "required": true
+    },
+    {
+      "openyield_pin": "BR",
+      "local_pin": "br[col0]",
+      "canonical_signal": "br",
+      "required": true
+    },
+    {
+      "openyield_pin": "OUT",
+      "local_pin": "mux_out[group]",
+      "canonical_signal": "mux_out",
+      "required": true
+    },
+    {
+      "openyield_pin": "OUTB",
+      "local_pin": "mux_out_b[group]",
+      "canonical_signal": "mux_out_b",
+      "required": true
+    }
+  ],
+  "senseamp_pairing": {
+    "can_pair": true,
+    "senseamp_input_map": {
+      "IN": "mux_out[group]",
+      "INB": "mux_out_b[group]",
+      "Q": "dout[group]",
+      "QB": "dropped_complementary_output"
+    },
+    "senseamp_adapter_safe": true,
+    "senseamp_q_to_dout": true,
+    "senseamp_qb_to_dout_b": false
+  },
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "shared_rail_merge": false,
+  "notes": [
+    "This plan is generated from repaired alias metadata and existing sense_amp adapter semantics.",
+    "No routing, GDS writer, or standalone placement code is changed.",
+    "Mux ratio greater than one is handled as a grouped semantic plan only.",
+    "Candidate alias uses gen_col_mux_vdd_labeled from the proof GDS.",
+    "Shared rail remains disabled until a separate rail continuity proof exists.",
+    "The placement plan is grouped semantic only when mux_ratio > 1.",
+    "Physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+    "No standalone or routing code paths are changed."
+  ]
+}
