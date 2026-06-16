@@ -1,0 +1,942 @@
+{
+  "scope": "step5_1_senseamp_architecture_adapter_read_only",
+  "inputs": {
+    "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+    "contracts": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+    "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+    "local_spice": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+    "local_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\sense_amp.gds"
+  },
+  "openyield_senseamp_pin_list": [
+    "VDD",
+    "VSS",
+    "EN",
+    "IN",
+    "INB",
+    "Q",
+    "QB"
+  ],
+  "openyield_senseamp_canonical_pins": [
+    {
+      "original": "VDD",
+      "canonical": "vdd",
+      "direction": "INOUT",
+      "role": "power"
+    },
+    {
+      "original": "VSS",
+      "canonical": "gnd",
+      "direction": "INOUT",
+      "role": "ground"
+    },
+    {
+      "original": "EN",
+      "canonical": "sense_enable",
+      "direction": "INPUT",
+      "role": "control"
+    },
+    {
+      "original": "IN",
+      "canonical": "bl",
+      "direction": "INOUT",
+      "role": "bitline"
+    },
+    {
+      "original": "INB",
+      "canonical": "br",
+      "direction": "INOUT",
+      "role": "bitline"
+    },
+    {
+      "original": "Q",
+      "canonical": "dout",
+      "direction": "OUTPUT",
+      "role": "data_out"
+    },
+    {
+      "original": "QB",
+      "canonical": "dout_b",
+      "direction": "OUTPUT",
+      "role": "data_out"
+    }
+  ],
+  "local_senseamp_spice_pin_list": [
+    "bl",
+    "br",
+    "dout",
+    "en",
+    "vdd",
+    "gnd"
+  ],
+  "local_senseamp_spice_subckt": "sense_amp",
+  "local_senseamp_gds_pin_list": [
+    {
+      "pin": "VDD",
+      "canonical": "vdd",
+      "layer": "13/texttype0",
+      "side": "left",
+      "shape_source": "label_plus_shape",
+      "shape_bbox": {
+        "x0": 0.31749999999999806,
+        "y0": 3.7349999999999772,
+        "x1": 0.3874999999999977,
+        "y1": 3.8699999999999766
+      }
+    },
+    {
+      "pin": "VSS",
+      "canonical": "gnd",
+      "layer": "13/texttype0",
+      "side": "right",
+      "shape_source": "label_plus_shape",
+      "shape_bbox": {
+        "x0": 0.6274999999999962,
+        "y0": 0.10249999999999938,
+        "x1": 0.7024999999999958,
+        "y1": 0.17749999999999894
+      }
+    },
+    {
+      "pin": "EN",
+      "canonical": "sense_enable",
+      "layer": "11/texttype0",
+      "side": "top",
+      "shape_source": "label_plus_shape",
+      "shape_bbox": {
+        "x0": 0.2299999999999986,
+        "y0": 5.827499999999965,
+        "x1": 0.2949999999999982,
+        "y1": 5.8924999999999645
+      }
+    },
+    {
+      "pin": "IN",
+      "canonical": "bl",
+      "layer": "13/texttype0",
+      "side": "bottom",
+      "shape_source": "label_plus_shape",
+      "shape_bbox": {
+        "x0": 0.14999999999999908,
+        "y0": 0.0,
+        "x1": 0.21999999999999867,
+        "y1": 6.009999999999963
+      }
+    },
+    {
+      "pin": "INB",
+      "canonical": "br",
+      "layer": "13/texttype0",
+      "side": "bottom",
+      "shape_source": "label_plus_shape",
+      "shape_bbox": {
+        "x0": 0.48499999999999704,
+        "y0": 0.0,
+        "x1": 0.5549999999999966,
+        "y1": 6.009999999999963
+      }
+    },
+    {
+      "pin": "Q",
+      "canonical": "dout",
+      "layer": "13/texttype0",
+      "side": "left",
+      "shape_source": "label_plus_shape",
+      "shape_bbox": {
+        "x0": -0.007499999999999955,
+        "y0": 0.6699999999999959,
+        "x1": 0.06749999999999959,
+        "y1": 0.7449999999999954
+      }
+    },
+    {
+      "pin": "QB",
+      "canonical": "dout_b",
+      "layer": "unknown",
+      "side": "unknown",
+      "shape_source": "missing",
+      "shape_bbox": null
+    }
+  ],
+  "local_senseamp_semantic_flags": [
+    "senseamp_in_to_bl_confirmed",
+    "senseamp_inb_to_br_confirmed",
+    "senseamp_q_to_dout_confirmed",
+    "architecture_adapter_required",
+    "senseamp_qb_dout_b_missing"
+  ],
+  "pin_adaptation_table": [
+    {
+      "openyield_pin": "VDD",
+      "local_pin": "vdd",
+      "canonical_signal": "vdd",
+      "adaptation_type": "direct_physical_pin",
+      "required": true,
+      "notes": []
+    },
+    {
+      "openyield_pin": "VSS",
+      "local_pin": "gnd",
+      "canonical_signal": "gnd",
+      "adaptation_type": "direct_physical_pin",
+      "required": true,
+      "notes": []
+    },
+    {
+      "openyield_pin": "EN",
+      "local_pin": "en",
+      "canonical_signal": "sense_enable",
+      "adaptation_type": "direct_physical_pin",
+      "required": true,
+      "notes": []
+    },
+    {
+      "openyield_pin": "IN",
+      "local_pin": "bl",
+      "canonical_signal": "bl",
+      "adaptation_type": "direct_physical_pin",
+      "required": true,
+      "notes": []
+    },
+    {
+      "openyield_pin": "INB",
+      "local_pin": "br",
+      "canonical_signal": "br",
+      "adaptation_type": "direct_physical_pin",
+      "required": true,
+      "notes": []
+    },
+    {
+      "openyield_pin": "Q",
+      "local_pin": "dout",
+      "canonical_signal": "dout",
+      "adaptation_type": "direct_physical_pin",
+      "required": true,
+      "notes": []
+    },
+    {
+      "openyield_pin": "QB",
+      "local_pin": null,
+      "canonical_signal": "dout_b",
+      "adaptation_type": "dropped_complementary_output",
+      "required": false,
+      "notes": [
+        "Local sense_amp has no proven dout_b/QB physical pin.",
+        "Do not add a fake layout pin.",
+        "QB is treated as observation-only for the current physical readout path."
+      ]
+    }
+  ],
+  "q_to_dout_established": true,
+  "qb_to_dout_b_established": false,
+  "openyield_qb_usage": {
+    "qb_hit_count": 70,
+    "senseamp_qb_instance_output_count": 2,
+    "qb_observation_or_testbench_count": 6,
+    "qb_downstream_logic_count": 0,
+    "qb_required_by_downstream_logic": false,
+    "q_only_output_path_count": 1,
+    "q_only_output_path_examples": [
+      {
+        "file": "sram_compiler/testbenches/sram_6t_core_testbench.py",
+        "line": 441,
+        "text": "'VDD', 'VSS', f'SA_Q{target_col}', 'S_EN', 'OUT', 'OUT_B'",
+        "category": "output_path_candidate"
+      }
+    ],
+    "qb_instance_output_examples": [
+      {
+        "file": "sram_compiler/testbenches/sram_6t_core_testbench.py",
+        "line": 576,
+        "text": "f'SA_Q{col}', f'SA_QB{col}',  # Outputs",
+        "category": "senseamp_qb_instance_net"
+      },
+      {
+        "file": "sram_compiler/testbenches/sram_6t_core_testbench.py",
+        "line": 588,
+        "text": "f'SA_Q{col}', f'SA_QB{col}',  # Outputs",
+        "category": "senseamp_qb_instance_net"
+      }
+    ],
+    "qb_observation_examples": [
+      {
+        "file": "sram_compiler/testbenches/sram_6t_core_MC_testbench.py",
+        "line": 132,
+        "text": "init_cond[f'SA_QB{col}'] = self.vdd @ u_V",
+        "category": "testbench_initial_condition"
+      },
+      {
+        "file": "sram_compiler/testbenches/sram_6t_core_MC_testbench.py",
+        "line": 235,
+        "text": "f'V(SA_QB{self.target_col // self.mux_in})' + \\",
+        "category": "testbench_measurement_or_observation"
+      },
+      {
+        "file": "sram_compiler/testbenches/sram_6t_core_MC_testbench.py",
+        "line": 329,
+        "text": "init_cond[f'SA_QB{col}'] = self.vdd @ u_V",
+        "category": "testbench_initial_condition"
+      },
+      {
+        "file": "sram_compiler/testbenches/sram_6t_core_MC_testbench.py",
+        "line": 365,
+        "text": "f'V(SA_QB{self.target_col // self.mux_in})\\n'",
+        "category": "testbench_measurement_or_observation"
+      },
+      {
+        "file": "sram_compiler/testbenches/sram_6t_core_MC_testbench.py",
+        "line": 774,
+        "text": "f'V(SA_QB{target_col})',",
+        "category": "testbench_measurement_or_observation"
+      },
+      {
+        "file": "sram_compiler/testbenches/sram_6t_core_MC_testbench.py",
+        "line": 802,
+        "text": "# f'V(SA_QB{target_col})',",
+        "category": "testbench_measurement_or_observation"
+      }
+    ],
+    "qb_downstream_examples": [],
+    "interpretation": "OpenYield names SENSEAMP.QB nets, but the scanned physical output path feeds OUT from SA_Q. SA_QB appears as a senseamp output net and in testbench observation/initialization, not as a required local GDS output pin."
+  },
+  "adapter_strategy": "single_ended_q_to_dout",
+  "adapter": {
+    "openyield_module": "SENSEAMP",
+    "local_macro": "sense_amp",
+    "role": "sense_amp",
+    "pin_adaptations": [
+      {
+        "openyield_pin": "VDD",
+        "local_pin": "vdd",
+        "canonical_signal": "vdd",
+        "adaptation_type": "direct_physical_pin",
+        "required": true,
+        "notes": []
+      },
+      {
+        "openyield_pin": "VSS",
+        "local_pin": "gnd",
+        "canonical_signal": "gnd",
+        "adaptation_type": "direct_physical_pin",
+        "required": true,
+        "notes": []
+      },
+      {
+        "openyield_pin": "EN",
+        "local_pin": "en",
+        "canonical_signal": "sense_enable",
+        "adaptation_type": "direct_physical_pin",
+        "required": true,
+        "notes": []
+      },
+      {
+        "openyield_pin": "IN",
+        "local_pin": "bl",
+        "canonical_signal": "bl",
+        "adaptation_type": "direct_physical_pin",
+        "required": true,
+        "notes": []
+      },
+      {
+        "openyield_pin": "INB",
+        "local_pin": "br",
+        "canonical_signal": "br",
+        "adaptation_type": "direct_physical_pin",
+        "required": true,
+        "notes": []
+      },
+      {
+        "openyield_pin": "Q",
+        "local_pin": "dout",
+        "canonical_signal": "dout",
+        "adaptation_type": "direct_physical_pin",
+        "required": true,
+        "notes": []
+      },
+      {
+        "openyield_pin": "QB",
+        "local_pin": null,
+        "canonical_signal": "dout_b",
+        "adaptation_type": "dropped_complementary_output",
+        "required": false,
+        "notes": [
+          "Local sense_amp has no proven dout_b/QB physical pin.",
+          "Do not add a fake layout pin.",
+          "QB is treated as observation-only for the current physical readout path."
+        ]
+      }
+    ],
+    "unsupported_pins": [
+      "QB"
+    ],
+    "generated_nets": {
+      "QB": "dropped_observation_only_complement"
+    },
+    "requires_netlist_rewrite": true,
+    "requires_layout_pin": false,
+    "safe_for_physical_mapping": true,
+    "notes": [
+      "Local sense_amp is a single-ended output hardcell.",
+      "OpenYield QB must not be forced onto a non-existent local GDS pin.",
+      "The current adapter supports the single-ended Q -> dout readout path.",
+      "If later logic consumes QB, add an inverter/differential-output adapter or a dual-output hardcell."
+    ]
+  },
+  "requires_netlist_rewrite": true,
+  "requires_layout_pin": false,
+  "requires_layout_change": false,
+  "can_enter_senseamp_placement": true,
+  "placement_entry_conditions": [
+    "Use architecture adapter to drop/ignore OpenYield QB only when it is observation-only.",
+    "Do not add a fake dout_b GDS pin.",
+    "Map OpenYield Q to local dout and then to the existing single-ended output path.",
+    "Keep peripheral placement/routing unchanged until the next explicit integration step."
+  ],
+  "source_scan_hit_count": 102,
+  "source_scan_hits_by_file": {
+    "sram_compiler/subcircuits/dummy_row_or_column.py": [
+      {
+        "line": 59,
+        "text": "qb_node = self.add_rc_networks_to_node('QB', 1)",
+        "category": "source_reference"
+      },
+      {
+        "line": 62,
+        "text": "q_node, qb_node = 'Q', 'QB'",
+        "category": "source_reference"
+      },
+      {
+        "line": 67,
+        "text": "data_qb = 'QBD'",
+        "category": "source_reference"
+      }
+    ],
+    "sram_compiler/subcircuits/mux_and_sa.py": [
+      {
+        "line": 88,
+        "text": "NAME = 'SENSEAMP'",
+        "category": "source_reference"
+      },
+      {
+        "line": 90,
+        "text": "# Output: OUT, OUTB,",
+        "category": "output_path_candidate"
+      },
+      {
+        "line": 91,
+        "text": "NODES = ('VDD', 'VSS', 'EN', 'IN', 'INB', 'Q', 'QB')",
+        "category": "module_pin_contract"
+      },
+      {
+        "line": 134,
+        "text": "qb_node = self.add_rc_networks_to_node('QB', num_segs=2)",
+        "category": "source_reference"
+      },
+      {
+        "line": 141,
+        "text": "qb_node = 'QB'",
+        "category": "source_reference"
+      },
+      {
+        "line": 149,
+        "text": "self.M(3, 'QB', q_node, 'net1', 'VSS', model=self.nmos_model,",
+        "category": "senseamp_internal_transistor"
+      },
+      {
+        "line": 151,
+        "text": "self.M(4, 'QB', q_node, 'VDD', 'VDD', model=self.pmos_model,",
+        "category": "senseamp_internal_transistor"
+      },
+      {
+        "line": 157,
+        "text": "self.M(6, 'QB', en_node, inb_node, 'VDD', model=self.pmos_model,",
+        "category": "senseamp_internal_transistor"
+      }
+    ],
+    "sram_compiler/subcircuits/replica_column.py": [
+      {
+        "line": 61,
+        "text": "qb_node = 'QB'",
+        "category": "source_reference"
+      },
+      {
+        "line": 68,
+        "text": "self.add_rc_networks_to_node('QB', 1)",
+        "category": "source_reference"
+      },
+      {
+        "line": 69,
+        "text": "if self.sram_cell_type == 'SRAM_10T_CELL' else 'QB'",
+        "category": "source_reference"
+      },
+      {
+        "line": 97,
+        "text": "data_qb = 'QBD' if self.disconnect else qb_node",
+        "category": "source_reference"
+      },
+      {
+        "line": 99,
+        "text": "# \u56fa\u5b9a\u5b58\u50a8\u6001: Q=0, QB=1",
+        "category": "source_reference"
+      }
+    ],
+    "sram_compiler/subcircuits/sram_10t_core.py": [
+      {
+        "line": 79,
+        "text": "qb_node = self.add_rc_networks_to_node('QB', 1)",
+        "category": "source_reference"
+      },
+      {
+        "line": 83,
+        "text": "q_node, qb_node = 'Q', 'QB'",
+        "category": "source_reference"
+      },
+      {
+        "line": 86,
+        "text": "data_q, data_qb = 'QD', 'QBD'",
+        "category": "source_reference"
+      },
+      {
+        "line": 119,
+        "text": "self.M('PL', data_q, 'QB', 'VDD', 'VDD', model=pul_model, w=self.pu_width, l=self.length)",
+        "category": "senseamp_internal_transistor"
+      },
+      {
+        "line": 132,
+        "text": "self.M('NL1', data_q, 'QB', 'VNL', 'VSS', model=pdl1_model, w=self.pd_width, l=self.length)",
+        "category": "senseamp_internal_transistor"
+      },
+      {
+        "line": 145,
+        "text": "self.M('NL2', 'VNL', 'QB', 'VSS', 'VSS', model=pdl2_model, w=self.pd_width, l=self.length)",
+        "category": "senseamp_internal_transistor"
+      }
+    ],
+    "sram_compiler/subcircuits/sram_6t_core.py": [
+      {
+        "line": 78,
+        "text": "qb_node = self.add_rc_networks_to_node('QB', 1)",
+        "category": "source_reference"
+      },
+      {
+        "line": 81,
+        "text": "q_node, qb_node = 'Q', 'QB'",
+        "category": "source_reference"
+      },
+      {
+        "line": 84,
+        "text": "data_q, data_qb = 'QD', 'QBD'",
+        "category": "source_reference"
+      },
+      {
+        "line": 117,
+        "text": "self.M('PDL', data_q, 'QB', self.NODES[1], self.NODES[1], model=pdl_model, w=self.pd_width, l=self.length)",
+        "category": "module_pin_contract"
+      },
+      {
+        "line": 130,
+        "text": "self.M('PUL', data_q, 'QB', self.NODES[0], self.NODES[0], model=pul_model, w=self.pu_width, l=self.length)",
+        "category": "module_pin_contract"
+      }
+    ],
+    "sram_compiler/subcircuits/sram_cell_add_equivalent.py": [
+      {
+        "line": 215,
+        "text": "simulator.initial_condition(**{f\"XSRAM1:Q\": vq, f\"XSRAM1:QB\": vqb})",
+        "category": "source_reference"
+      },
+      {
+        "line": 431,
+        "text": "simulator.initial_condition(**{f\"XSRAM1:Q\": vq, f\"XSRAM1:QB\": vqb})",
+        "category": "source_reference"
+      },
+      {
+        "line": 432,
+        "text": "simulator.circuit.raw_spice += \".PRINT TRAN FORMAT=NOINDEX V(XSRAM1:Q) V(XSRAM1:QB)\\n\"",
+        "category": "testbench_observation"
+      },
+      {
+        "line": 439,
+        "text": "for port in [\"BL\", \"BLB\", \"WL\", \"Q\", \"QB\", \"XSRAM1:Q\", \"XSRAM1:QB\"]:",
+        "category": "source_reference"
+      },
+      {
+        "line": 476,
+        "text": "simulator.initial_condition(**{f\"XSRAM1:Q\": vq, f\"XSRAM1:QB\": vqb})",
+        "category": "source_reference"
+      },
+      {
+        "line": 622,
+        "text": "labels = [\"VDD \u7535\u6d41 (\u00b5A)\", \"Q \u7535\u538b (V)\", \"QB \u7535\u538b (V)\"]",
+        "category": "source_reference"
+      },
+      {
+        "line": 629,
+        "text": "qb_voltage = result[\"voltages\"].get(\"QB\") or result[\"voltages\"].get(\"XSRAM1:QB\")",
+        "category": "source_reference"
+      },
+      {
+        "line": 678,
+        "text": "\"SENSEAMP\":      os.path.join(_PROJECT_ROOT, \"sram_compiler/config_yaml/sa.yaml\"),",
+        "category": "source_reference"
+      }
+    ],
+    "sram_compiler/subcircuits/standard_cell.py": [
+      {
+        "line": 297,
+        "text": "NAME = \"D_LATCH\"",
+        "category": "output_path_candidate"
+      },
+      {
+        "line": 298,
+        "text": "NODES = ('VDD', 'VSS', 'D', 'EN', 'Q', 'QB')",
+        "category": "module_pin_contract"
+      },
+      {
+        "line": 349,
+        "text": "qb_node = 'QB'",
+        "category": "source_reference"
+      }
+    ],
+    "sram_compiler/subcircuits/time_generate.py": [
+      {
+        "line": 12,
+        "text": "NODES = ('VDD', 'VSS', 'IN', 'OUT', 'CTR_P', 'CTR_N')",
+        "category": "output_path_candidate"
+      },
+      {
+        "line": 35,
+        "text": "self.M('transpmos', 'OUT', 'CTR_P', 'IN', 'VDD',",
+        "category": "output_path_candidate"
+      },
+      {
+        "line": 38,
+        "text": "self.M('transnmos', 'IN', 'CTR_N', 'OUT', 'VSS',",
+        "category": "output_path_candidate"
+      },
+      {
+        "line": 251,
+        "text": "'VDD', 'VSS', 'Q', 'QB')",
+        "category": "source_reference"
+      },
+      {
+        "line": 255,
+        "text": "'VDD', 'VSS', 'QB', 'z5', 'CLK', 'CLKB')",
+        "category": "source_reference"
+      },
+      {
+        "line": 260,
+        "text": "NODES = ('VDD', 'VSS', 'D', 'Q', 'QB', 'CLK')",
+        "category": "module_pin_contract"
+      },
+      {
+        "line": 291,
+        "text": "# \u7b2c\u4e00\u4e2a\u53cd\u76f8\u5668\uff08\u5c3a\u5bf82\uff09- \u4ea7\u751fQB",
+        "category": "source_reference"
+      },
+      {
+        "line": 293,
+        "text": "'VDD', 'VSS', 'qint', 'QB')",
+        "category": "source_reference"
+      },
+      {
+        "line": 297,
+        "text": "'VDD', 'VSS', 'QB', 'Q')",
+        "category": "source_reference"
+      },
+      {
+        "line": 408,
+        "text": "#NODES = ('VDD', 'VSS', 'D', 'Q', 'QB', 'CLK')",
+        "category": "module_pin_contract"
+      },
+      {
+        "line": 443,
+        "text": "class DATA_DFF(BaseSubcircuit):",
+        "category": "source_reference"
+      },
+      {
+        "line": 445,
+        "text": "NAME = \"DATA_DFF\"",
+        "category": "source_reference"
+      },
+      {
+        "line": 541,
+        "text": "dff_buf_data=DATA_DFF(nmos_model=\"NMOS_VTG\",",
+        "category": "source_reference"
+      }
+    ],
+    "sram_compiler/testbenches/base_testbench.py": [
+      {
+        "line": 81,
+        "text": "# Initialize all internal data nodes (Q and QB) in all cells to 0V",
+        "category": "source_reference"
+      },
+      {
+        "line": 82,
+        "text": "initial_conditions = {}     #\u521d\u59cb\u5316\u6240\u6709\u5185\u90e8\u6570\u636e\u8282\u70b9\uff08Q \u548c QB\uff09\u4e3a 0V",
+        "category": "source_reference"
+      }
+    ],
+    "sram_compiler/testbenches/snm.py": [
+      {
+        "line": 98,
+        "text": "EV1 = U + sqrt(2)*V(QBD)",
+        "category": "source_reference"
+      }
+    ],
+    "sram_compiler/testbenches/sram_6t_core_MC_testbench.py": [
+      {
+        "line": 109,
+        "text": "target_node_qb = self.cell_inst_prefix + f'_{self.target_row}_{self.target_col}{self.heir_delimiter}QB'",
+        "category": "source_reference"
+      },
+      {
+        "line": 110,
+        "text": "#\u83b7\u53d6\u76ee\u6807\u5355\u5143\u7684\u5185\u90e8\u8282\u70b9\u540d\u79f0\uff08Q \u548c QB\uff09",
+        "category": "source_reference"
+      },
+      {
+        "line": 128,
+        "text": "init_cond[f'OUT'] = 0 @ u_V",
+        "category": "output_path_candidate"
+      },
+      {
+        "line": 131,
+        "text": "init_cond[f'SA_Q{col}'] = 0 @ u_V",
+        "category": "source_reference"
+      },
+      {
+        "line": 132,
+        "text": "init_cond[f'SA_QB{col}'] = self.vdd @ u_V",
+        "category": "testbench_initial_condition"
+      },
+      {
+        "line": 183,
+        "text": "f'TARG V(SA_Q{self.target_col // self.mux_in})={float(self.vdd) * 0.01} FALL=1')",
+        "category": "source_reference"
+      },
+      {
+        "line": 194,
+        "text": "f'TARG V(SA_Q{self.target_col // self.mux_in})={float(self.vdd) * 0.01} FALL=1')",
+        "category": "source_reference"
+      },
+      {
+        "line": 234,
+        "text": "f'.PRINT TRAN V(SA_Q{self.target_col // self.mux_in}) ' + \\",
+        "category": "source_reference"
+      },
+      {
+        "line": 235,
+        "text": "f'V(SA_QB{self.target_col // self.mux_in})' + \\",
+        "category": "testbench_measurement_or_observation"
+      },
+      {
+        "line": 236,
+        "text": "f' V(OUT)\\n'",
+        "category": "output_path_candidate"
+      },
+      {
+        "line": 243,
+        "text": "init_cond[f'OUT'] = 0 @ u_V",
+        "category": "output_path_candidate"
+      },
+      {
+        "line": 278,
+        "text": "# Measurements for write delay (TWRITE_Q/QB),",
+        "category": "source_reference"
+      },
+      {
+        "line": 285,
+        "text": "'TRAN', 'TWRITE_QB',",
+        "category": "source_reference"
+      },
+      {
+        "line": 327,
+        "text": "init_cond[f'OUT'] = 0 @ u_V",
+        "category": "output_path_candidate"
+      },
+      {
+        "line": 328,
+        "text": "init_cond[f'SA_Q{col}'] = 0 @ u_V",
+        "category": "source_reference"
+      },
+      {
+        "line": 329,
+        "text": "init_cond[f'SA_QB{col}'] = self.vdd @ u_V",
+        "category": "testbench_initial_condition"
+      },
+      {
+        "line": 364,
+        "text": "f'.PRINT TRAN V(SA_Q{self.target_col // self.mux_in}) ' + \\",
+        "category": "source_reference"
+      },
+      {
+        "line": 365,
+        "text": "f'V(SA_QB{self.target_col // self.mux_in})\\n'",
+        "category": "testbench_measurement_or_observation"
+      },
+      {
+        "line": 370,
+        "text": "f'V(DIN0) V(DIN_dff0) V(OUT)\\n'",
+        "category": "output_path_candidate"
+      },
+      {
+        "line": 373,
+        "text": "'TRAN', 'TVOUT_PERIOD',",
+        "category": "output_path_candidate"
+      },
+      {
+        "line": 374,
+        "text": "f'TRIG V(OUT)={self.half_vdd} RISE=1 ' +",
+        "category": "output_path_candidate"
+      },
+      {
+        "line": 375,
+        "text": "f'TARG V(OUT)={self.half_vdd} RISE=2')",
+        "category": "output_path_candidate"
+      },
+      {
+        "line": 402,
+        "text": "f'.OPTIONS OUTPUT INITIAL_INTERVAL={float(self.t_step):.4e}\\n'",
+        "category": "output_path_candidate"
+      },
+      {
+        "line": 422,
+        "text": "f'.STEP data=SENSEAMP\\n'",
+        "category": "source_reference"
+      },
+      {
+        "line": 772,
+        "text": "f'V(XSRAM_6T_CORE_{self.num_rows}X{self.num_cols}:XSRAM_6T_CELL_{target_row}_{target_col}:QB)'if self.sram_cell_type == 'SRAM_6T_CELL' else f'V(XSRAM_10T_CORE_{self.num_rows}X{self.num_cols}:XSRAM_10T_CELL_{target_row}_{",
+        "category": "source_reference"
+      },
+      {
+        "line": 773,
+        "text": "f'V(SA_Q{target_col})',",
+        "category": "source_reference"
+      },
+      {
+        "line": 774,
+        "text": "f'V(SA_QB{target_col})',",
+        "category": "testbench_measurement_or_observation"
+      },
+      {
+        "line": 783,
+        "text": "f'V(XSRAM_6T_CORE_{self.num_rows}X{self.num_cols}:XSRAM_6T_CELL_{target_row}_{target_col}:QB)'if self.sram_cell_type == 'SRAM_6T_CELL' else f'V(XSRAM_10T_CORE_{self.num_rows}X{self.num_cols}:XSRAM_10T_CELL_{target_row}_{",
+        "category": "source_reference"
+      },
+      {
+        "line": 794,
+        "text": "f'V(OUT)',",
+        "category": "output_path_candidate"
+      },
+      {
+        "line": 800,
+        "text": "# f'V(XSRAM_6T_CORE_{self.num_rows}X{self.num_cols}:XSRAM_6T_CELL_{target_row}_{target_col}:QB)'if self.sram_cell_type == 'SRAM_6T_CELL' else f'V(XSRAM_10T_CORE_{self.num_rows}X{self.num_cols}:XSRAM_10T_CELL_{target_row}",
+        "category": "source_reference"
+      },
+      {
+        "line": 801,
+        "text": "# f'V(SA_Q{target_col})',",
+        "category": "source_reference"
+      },
+      {
+        "line": 802,
+        "text": "# f'V(SA_QB{target_col})',",
+        "category": "testbench_measurement_or_observation"
+      }
+    ],
+    "sram_compiler/testbenches/sram_6t_core_testbench.py": [
+      {
+        "line": 440,
+        "text": "'D_LATCH', d_latch.NAME,",
+        "category": "output_path_candidate"
+      },
+      {
+        "line": 441,
+        "text": "'VDD', 'VSS', f'SA_Q{target_col}', 'S_EN', 'OUT', 'OUT_B'",
+        "category": "output_path_candidate"
+      },
+      {
+        "line": 576,
+        "text": "f'SA_Q{col}', f'SA_QB{col}',  # Outputs",
+        "category": "senseamp_qb_instance_net"
+      },
+      {
+        "line": 588,
+        "text": "f'SA_Q{col}', f'SA_QB{col}',  # Outputs",
+        "category": "senseamp_qb_instance_net"
+      },
+      {
+        "line": 775,
+        "text": "# For hold_snm measurement, keep WL low and add DC sources to Q/QB",
+        "category": "testbench_measurement_or_observation"
+      },
+      {
+        "line": 776,
+        "text": "#\u5bf9\u4e8ehold_snm\u6d4b\u91cf\uff0c\u4fdd\u6301\u4f4eWL\u5e76\u5728Q/QB\u4e2d\u6dfb\u52a0\u76f4\u6d41\u6e90",
+        "category": "source_reference"
+      },
+      {
+        "line": 780,
+        "text": "# For read_snm operation, keep WL high and add DC sources to Q/QB",
+        "category": "source_reference"
+      },
+      {
+        "line": 781,
+        "text": "#\u5bf9\u4e8eread_snm\u64cd\u4f5c\uff0c\u4fdd\u6301WL\u9ad8\uff0c\u5e76\u5728Q/QB\u4e2d\u6dfb\u52a0DC\u6e90",
+        "category": "source_reference"
+      },
+      {
+        "line": 786,
+        "text": "# For write_snm operation, keep WL high and add DC sources to Q/QB",
+        "category": "source_reference"
+      },
+      {
+        "line": 787,
+        "text": "#\u5bf9\u4e8ewrite_snm\u64cd\u4f5c\uff0c\u4fdd\u6301WL\u9ad8\uff0c\u5e76\u5728Q/QB\u4e2d\u6dfb\u52a0DC\u6e90",
+        "category": "source_reference"
+      },
+      {
+        "line": 796,
+        "text": "# e.g., EV1 V1 0 VOL='U+sqrt(2)*V(XSRAM_6T_CELL.QBD)",
+        "category": "source_reference"
+      },
+      {
+        "line": 799,
+        "text": "**{'raw_spice': f\"VOL='U+sqrt(2)*V({self.cell_inst_prefix}{self.heir_delimiter}QBD)'\"}",
+        "category": "source_reference"
+      },
+      {
+        "line": 810,
+        "text": "'QB', f'{self.cell_inst_prefix}{self.heir_delimiter}QB', '', self.gnd_node, '',",
+        "category": "source_reference"
+      },
+      {
+        "line": 831,
+        "text": "qb_name = self.cell_inst_prefix + f'_{row}_{col}{self.heir_delimiter}QB'",
+        "category": "source_reference"
+      },
+      {
+        "line": 835,
+        "text": "if row == self.target_row and col == self.target_col:   #\u76ee\u6807\u5355\u5143Q\u521d\u59cb\u4e3a0\uff0cQB\u4e3a1\uff0c\u5373\u5b580",
+        "category": "source_reference"
+      }
+    ],
+    "sram_compiler/testbenches/yaml_change.py": [
+      {
+        "line": 98,
+        "text": "delay = (df['TVOUT_PERIOD'])",
+        "category": "output_path_candidate"
+      }
+    ]
+  },
+  "conclusions": [
+    "OpenYield SENSEAMP uses pins VDD, VSS, EN, IN, INB, Q, QB.",
+    "Local sense_amp SPICE/GDS exposes bl, br, dout, en, vdd, gnd and has no proven dout_b/QB pin.",
+    "Q -> dout is established by local GDS label plus shape audit.",
+    "QB -> dout_b is not established and must not be forced.",
+    "QB appears observation/testbench-oriented for the current readout path; the single-ended Q -> dout adapter is acceptable.",
+    "Recommended adapter strategy: single_ended_q_to_dout.",
+    "Can enter sense_amp placement with this adapter: True."
+  ]
+}
