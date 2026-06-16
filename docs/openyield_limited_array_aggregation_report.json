@@ -1,0 +1,1208 @@
+{
+  "enable_openyield_array_aggregation_requested": true,
+  "default_disabled_check": {
+    "enabled": false,
+    "rows": 2,
+    "cols": 16,
+    "plans": [],
+    "allowed_macros": [
+      "cell_1rw",
+      "dummy_cell_1rw",
+      "replica_cell_1rw"
+    ],
+    "excluded_macros": {
+      "sense_amp": "architecture_adapter_required: OpenYield has Q/QB, local sense_amp has single-ended dout.",
+      "write_driver": "rail_needs_manual_review: keep legacy/peripheral placement until rail sharing is proven.",
+      "dff": "standard_cell_row_required: do not aggregate with storage-array cells.",
+      "tri_gate": "standard_cell_row_required: do not aggregate with storage-array cells.",
+      "gen_col_mux": "missing_power_metadata: vdd is not proven, shared rail is forbidden.",
+      "gen_wl_driver": "needs_semantic_confirmation: B/wordline_enable semantics still need confirmation.",
+      "gen_nand2": "logic_gate: not part of limited storage-array aggregation.",
+      "gen_nand4": "logic_gate: not part of limited storage-array aggregation.",
+      "gen_precharge": "peripheral_macro: not part of limited storage-array aggregation."
+    },
+    "changed_gds_flow": false,
+    "notes": [
+      "enable_openyield_array_aggregation is False; no aggregation plan was generated."
+    ]
+  },
+  "enabled_plan": {
+    "enabled": true,
+    "rows": 2,
+    "cols": 16,
+    "plans": [
+      {
+        "role": "bitcell_array",
+        "rows": 2,
+        "cols": 16,
+        "cell_macro": "cell_1rw",
+        "placements": [
+          {
+            "instance_name": "Xbit_r0_c0",
+            "macro_name": "cell_1rw",
+            "row": 0,
+            "col": 0,
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[0]",
+              "br": "br[0]",
+              "wl": "wl[0]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r0_c1",
+            "macro_name": "cell_1rw",
+            "row": 0,
+            "col": 1,
+            "x": 0.895,
+            "y": 0.0,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[1]",
+              "br": "br[1]",
+              "wl": "wl[0]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r0_c2",
+            "macro_name": "cell_1rw",
+            "row": 0,
+            "col": 2,
+            "x": 1.79,
+            "y": 0.0,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[2]",
+              "br": "br[2]",
+              "wl": "wl[0]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r0_c3",
+            "macro_name": "cell_1rw",
+            "row": 0,
+            "col": 3,
+            "x": 2.685,
+            "y": 0.0,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[3]",
+              "br": "br[3]",
+              "wl": "wl[0]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r0_c4",
+            "macro_name": "cell_1rw",
+            "row": 0,
+            "col": 4,
+            "x": 3.58,
+            "y": 0.0,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[4]",
+              "br": "br[4]",
+              "wl": "wl[0]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r0_c5",
+            "macro_name": "cell_1rw",
+            "row": 0,
+            "col": 5,
+            "x": 4.475,
+            "y": 0.0,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[5]",
+              "br": "br[5]",
+              "wl": "wl[0]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r0_c6",
+            "macro_name": "cell_1rw",
+            "row": 0,
+            "col": 6,
+            "x": 5.37,
+            "y": 0.0,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[6]",
+              "br": "br[6]",
+              "wl": "wl[0]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r0_c7",
+            "macro_name": "cell_1rw",
+            "row": 0,
+            "col": 7,
+            "x": 6.265000000000001,
+            "y": 0.0,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[7]",
+              "br": "br[7]",
+              "wl": "wl[0]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r0_c8",
+            "macro_name": "cell_1rw",
+            "row": 0,
+            "col": 8,
+            "x": 7.16,
+            "y": 0.0,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[8]",
+              "br": "br[8]",
+              "wl": "wl[0]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r0_c9",
+            "macro_name": "cell_1rw",
+            "row": 0,
+            "col": 9,
+            "x": 8.055,
+            "y": 0.0,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[9]",
+              "br": "br[9]",
+              "wl": "wl[0]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r0_c10",
+            "macro_name": "cell_1rw",
+            "row": 0,
+            "col": 10,
+            "x": 8.95,
+            "y": 0.0,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[10]",
+              "br": "br[10]",
+              "wl": "wl[0]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r0_c11",
+            "macro_name": "cell_1rw",
+            "row": 0,
+            "col": 11,
+            "x": 9.845,
+            "y": 0.0,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[11]",
+              "br": "br[11]",
+              "wl": "wl[0]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r0_c12",
+            "macro_name": "cell_1rw",
+            "row": 0,
+            "col": 12,
+            "x": 10.74,
+            "y": 0.0,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[12]",
+              "br": "br[12]",
+              "wl": "wl[0]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r0_c13",
+            "macro_name": "cell_1rw",
+            "row": 0,
+            "col": 13,
+            "x": 11.635,
+            "y": 0.0,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[13]",
+              "br": "br[13]",
+              "wl": "wl[0]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r0_c14",
+            "macro_name": "cell_1rw",
+            "row": 0,
+            "col": 14,
+            "x": 12.530000000000001,
+            "y": 0.0,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[14]",
+              "br": "br[14]",
+              "wl": "wl[0]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r0_c15",
+            "macro_name": "cell_1rw",
+            "row": 0,
+            "col": 15,
+            "x": 13.425,
+            "y": 0.0,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[15]",
+              "br": "br[15]",
+              "wl": "wl[0]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r1_c0",
+            "macro_name": "cell_1rw",
+            "row": 1,
+            "col": 0,
+            "x": 0.0,
+            "y": 1.5650000000000002,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[0]",
+              "br": "br[0]",
+              "wl": "wl[1]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r1_c1",
+            "macro_name": "cell_1rw",
+            "row": 1,
+            "col": 1,
+            "x": 0.895,
+            "y": 1.5650000000000002,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[1]",
+              "br": "br[1]",
+              "wl": "wl[1]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r1_c2",
+            "macro_name": "cell_1rw",
+            "row": 1,
+            "col": 2,
+            "x": 1.79,
+            "y": 1.5650000000000002,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[2]",
+              "br": "br[2]",
+              "wl": "wl[1]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r1_c3",
+            "macro_name": "cell_1rw",
+            "row": 1,
+            "col": 3,
+            "x": 2.685,
+            "y": 1.5650000000000002,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[3]",
+              "br": "br[3]",
+              "wl": "wl[1]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r1_c4",
+            "macro_name": "cell_1rw",
+            "row": 1,
+            "col": 4,
+            "x": 3.58,
+            "y": 1.5650000000000002,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[4]",
+              "br": "br[4]",
+              "wl": "wl[1]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r1_c5",
+            "macro_name": "cell_1rw",
+            "row": 1,
+            "col": 5,
+            "x": 4.475,
+            "y": 1.5650000000000002,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[5]",
+              "br": "br[5]",
+              "wl": "wl[1]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r1_c6",
+            "macro_name": "cell_1rw",
+            "row": 1,
+            "col": 6,
+            "x": 5.37,
+            "y": 1.5650000000000002,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[6]",
+              "br": "br[6]",
+              "wl": "wl[1]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r1_c7",
+            "macro_name": "cell_1rw",
+            "row": 1,
+            "col": 7,
+            "x": 6.265000000000001,
+            "y": 1.5650000000000002,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[7]",
+              "br": "br[7]",
+              "wl": "wl[1]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r1_c8",
+            "macro_name": "cell_1rw",
+            "row": 1,
+            "col": 8,
+            "x": 7.16,
+            "y": 1.5650000000000002,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[8]",
+              "br": "br[8]",
+              "wl": "wl[1]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r1_c9",
+            "macro_name": "cell_1rw",
+            "row": 1,
+            "col": 9,
+            "x": 8.055,
+            "y": 1.5650000000000002,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[9]",
+              "br": "br[9]",
+              "wl": "wl[1]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r1_c10",
+            "macro_name": "cell_1rw",
+            "row": 1,
+            "col": 10,
+            "x": 8.95,
+            "y": 1.5650000000000002,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[10]",
+              "br": "br[10]",
+              "wl": "wl[1]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r1_c11",
+            "macro_name": "cell_1rw",
+            "row": 1,
+            "col": 11,
+            "x": 9.845,
+            "y": 1.5650000000000002,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[11]",
+              "br": "br[11]",
+              "wl": "wl[1]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r1_c12",
+            "macro_name": "cell_1rw",
+            "row": 1,
+            "col": 12,
+            "x": 10.74,
+            "y": 1.5650000000000002,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[12]",
+              "br": "br[12]",
+              "wl": "wl[1]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r1_c13",
+            "macro_name": "cell_1rw",
+            "row": 1,
+            "col": 13,
+            "x": 11.635,
+            "y": 1.5650000000000002,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[13]",
+              "br": "br[13]",
+              "wl": "wl[1]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r1_c14",
+            "macro_name": "cell_1rw",
+            "row": 1,
+            "col": 14,
+            "x": 12.530000000000001,
+            "y": 1.5650000000000002,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[14]",
+              "br": "br[14]",
+              "wl": "wl[1]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xbit_r1_c15",
+            "macro_name": "cell_1rw",
+            "row": 1,
+            "col": 15,
+            "x": 13.425,
+            "y": 1.5650000000000002,
+            "width": 0.895,
+            "height": 1.5650000000000002,
+            "orientation": "R0",
+            "role": "bitcell",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "bl[15]",
+              "br": "br[15]",
+              "wl": "wl[1]"
+            },
+            "shared_power_hint": true
+          }
+        ],
+        "width": 14.32,
+        "height": 3.1300000000000003,
+        "power_rail_policy": "tb_shared_hint_only",
+        "notes": [
+          "x=origin_x+col*cell_width, y=origin_y+row*cell_height, orientation=R0."
+        ]
+      },
+      {
+        "role": "dummy_row",
+        "rows": 1,
+        "cols": 16,
+        "cell_macro": "dummy_cell_1rw",
+        "placements": [
+          {
+            "instance_name": "Xdumrow_c0",
+            "macro_name": "dummy_cell_1rw",
+            "row": 0,
+            "col": 0,
+            "x": 0.0,
+            "y": -1.564999999999979,
+            "width": 0.894999999999988,
+            "height": 1.564999999999979,
+            "orientation": "R0",
+            "role": "dummy_row",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "dummy_bl[0]",
+              "br": "dummy_br[0]",
+              "wl": "dummy_wl"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xdumrow_c1",
+            "macro_name": "dummy_cell_1rw",
+            "row": 0,
+            "col": 1,
+            "x": 0.894999999999988,
+            "y": -1.564999999999979,
+            "width": 0.894999999999988,
+            "height": 1.564999999999979,
+            "orientation": "R0",
+            "role": "dummy_row",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "dummy_bl[1]",
+              "br": "dummy_br[1]",
+              "wl": "dummy_wl"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xdumrow_c2",
+            "macro_name": "dummy_cell_1rw",
+            "row": 0,
+            "col": 2,
+            "x": 1.789999999999976,
+            "y": -1.564999999999979,
+            "width": 0.894999999999988,
+            "height": 1.564999999999979,
+            "orientation": "R0",
+            "role": "dummy_row",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "dummy_bl[2]",
+              "br": "dummy_br[2]",
+              "wl": "dummy_wl"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xdumrow_c3",
+            "macro_name": "dummy_cell_1rw",
+            "row": 0,
+            "col": 3,
+            "x": 2.684999999999964,
+            "y": -1.564999999999979,
+            "width": 0.894999999999988,
+            "height": 1.564999999999979,
+            "orientation": "R0",
+            "role": "dummy_row",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "dummy_bl[3]",
+              "br": "dummy_br[3]",
+              "wl": "dummy_wl"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xdumrow_c4",
+            "macro_name": "dummy_cell_1rw",
+            "row": 0,
+            "col": 4,
+            "x": 3.579999999999952,
+            "y": -1.564999999999979,
+            "width": 0.894999999999988,
+            "height": 1.564999999999979,
+            "orientation": "R0",
+            "role": "dummy_row",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "dummy_bl[4]",
+              "br": "dummy_br[4]",
+              "wl": "dummy_wl"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xdumrow_c5",
+            "macro_name": "dummy_cell_1rw",
+            "row": 0,
+            "col": 5,
+            "x": 4.47499999999994,
+            "y": -1.564999999999979,
+            "width": 0.894999999999988,
+            "height": 1.564999999999979,
+            "orientation": "R0",
+            "role": "dummy_row",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "dummy_bl[5]",
+              "br": "dummy_br[5]",
+              "wl": "dummy_wl"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xdumrow_c6",
+            "macro_name": "dummy_cell_1rw",
+            "row": 0,
+            "col": 6,
+            "x": 5.369999999999928,
+            "y": -1.564999999999979,
+            "width": 0.894999999999988,
+            "height": 1.564999999999979,
+            "orientation": "R0",
+            "role": "dummy_row",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "dummy_bl[6]",
+              "br": "dummy_br[6]",
+              "wl": "dummy_wl"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xdumrow_c7",
+            "macro_name": "dummy_cell_1rw",
+            "row": 0,
+            "col": 7,
+            "x": 6.264999999999916,
+            "y": -1.564999999999979,
+            "width": 0.894999999999988,
+            "height": 1.564999999999979,
+            "orientation": "R0",
+            "role": "dummy_row",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "dummy_bl[7]",
+              "br": "dummy_br[7]",
+              "wl": "dummy_wl"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xdumrow_c8",
+            "macro_name": "dummy_cell_1rw",
+            "row": 0,
+            "col": 8,
+            "x": 7.159999999999904,
+            "y": -1.564999999999979,
+            "width": 0.894999999999988,
+            "height": 1.564999999999979,
+            "orientation": "R0",
+            "role": "dummy_row",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "dummy_bl[8]",
+              "br": "dummy_br[8]",
+              "wl": "dummy_wl"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xdumrow_c9",
+            "macro_name": "dummy_cell_1rw",
+            "row": 0,
+            "col": 9,
+            "x": 8.054999999999893,
+            "y": -1.564999999999979,
+            "width": 0.894999999999988,
+            "height": 1.564999999999979,
+            "orientation": "R0",
+            "role": "dummy_row",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "dummy_bl[9]",
+              "br": "dummy_br[9]",
+              "wl": "dummy_wl"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xdumrow_c10",
+            "macro_name": "dummy_cell_1rw",
+            "row": 0,
+            "col": 10,
+            "x": 8.94999999999988,
+            "y": -1.564999999999979,
+            "width": 0.894999999999988,
+            "height": 1.564999999999979,
+            "orientation": "R0",
+            "role": "dummy_row",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "dummy_bl[10]",
+              "br": "dummy_br[10]",
+              "wl": "dummy_wl"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xdumrow_c11",
+            "macro_name": "dummy_cell_1rw",
+            "row": 0,
+            "col": 11,
+            "x": 9.844999999999867,
+            "y": -1.564999999999979,
+            "width": 0.894999999999988,
+            "height": 1.564999999999979,
+            "orientation": "R0",
+            "role": "dummy_row",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "dummy_bl[11]",
+              "br": "dummy_br[11]",
+              "wl": "dummy_wl"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xdumrow_c12",
+            "macro_name": "dummy_cell_1rw",
+            "row": 0,
+            "col": 12,
+            "x": 10.739999999999856,
+            "y": -1.564999999999979,
+            "width": 0.894999999999988,
+            "height": 1.564999999999979,
+            "orientation": "R0",
+            "role": "dummy_row",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "dummy_bl[12]",
+              "br": "dummy_br[12]",
+              "wl": "dummy_wl"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xdumrow_c13",
+            "macro_name": "dummy_cell_1rw",
+            "row": 0,
+            "col": 13,
+            "x": 11.634999999999845,
+            "y": -1.564999999999979,
+            "width": 0.894999999999988,
+            "height": 1.564999999999979,
+            "orientation": "R0",
+            "role": "dummy_row",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "dummy_bl[13]",
+              "br": "dummy_br[13]",
+              "wl": "dummy_wl"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xdumrow_c14",
+            "macro_name": "dummy_cell_1rw",
+            "row": 0,
+            "col": 14,
+            "x": 12.529999999999832,
+            "y": -1.564999999999979,
+            "width": 0.894999999999988,
+            "height": 1.564999999999979,
+            "orientation": "R0",
+            "role": "dummy_row",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "dummy_bl[14]",
+              "br": "dummy_br[14]",
+              "wl": "dummy_wl"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xdumrow_c15",
+            "macro_name": "dummy_cell_1rw",
+            "row": 0,
+            "col": 15,
+            "x": 13.42499999999982,
+            "y": -1.564999999999979,
+            "width": 0.894999999999988,
+            "height": 1.564999999999979,
+            "orientation": "R0",
+            "role": "dummy_row",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "dummy_bl[15]",
+              "br": "dummy_br[15]",
+              "wl": "dummy_wl"
+            },
+            "shared_power_hint": true
+          }
+        ],
+        "width": 14.319999999999808,
+        "height": 1.564999999999979,
+        "power_rail_policy": "tb_shared_hint_only",
+        "notes": [
+          "dummy_connectivity_needs_confirmation"
+        ]
+      },
+      {
+        "role": "dummy_column",
+        "rows": 2,
+        "cols": 1,
+        "cell_macro": "dummy_cell_1rw",
+        "placements": [
+          {
+            "instance_name": "Xdumcol_r0",
+            "macro_name": "dummy_cell_1rw",
+            "row": 0,
+            "col": 0,
+            "x": -0.894999999999988,
+            "y": 0.0,
+            "width": 0.894999999999988,
+            "height": 1.564999999999979,
+            "orientation": "R0",
+            "role": "dummy_column",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "dummy_bl_col",
+              "br": "dummy_br_col",
+              "wl": "dummy_wl[0]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xdumcol_r1",
+            "macro_name": "dummy_cell_1rw",
+            "row": 1,
+            "col": 0,
+            "x": -0.894999999999988,
+            "y": 1.564999999999979,
+            "width": 0.894999999999988,
+            "height": 1.564999999999979,
+            "orientation": "R0",
+            "role": "dummy_column",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "bl": "dummy_bl_col",
+              "br": "dummy_br_col",
+              "wl": "dummy_wl[1]"
+            },
+            "shared_power_hint": true
+          }
+        ],
+        "width": 0.894999999999988,
+        "height": 3.129999999999958,
+        "power_rail_policy": "tb_shared_hint_only",
+        "notes": [
+          "dummy_connectivity_needs_confirmation"
+        ]
+      },
+      {
+        "role": "replica_column",
+        "rows": 2,
+        "cols": 1,
+        "cell_macro": "replica_cell_1rw",
+        "placements": [
+          {
+            "instance_name": "Xreplica_r0",
+            "macro_name": "replica_cell_1rw",
+            "row": 0,
+            "col": 0,
+            "x": 14.32,
+            "y": 0.0,
+            "width": 0.894999999999988,
+            "height": 1.564999999999979,
+            "orientation": "R0",
+            "role": "replica_column",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "rbl": "rbl",
+              "rblb": "rblb",
+              "wl": "replica_wl[0]"
+            },
+            "shared_power_hint": true
+          },
+          {
+            "instance_name": "Xreplica_r1",
+            "macro_name": "replica_cell_1rw",
+            "row": 1,
+            "col": 0,
+            "x": 14.32,
+            "y": 1.564999999999979,
+            "width": 0.894999999999988,
+            "height": 1.564999999999979,
+            "orientation": "R0",
+            "role": "replica_column",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "rbl": "rbl",
+              "rblb": "rblb",
+              "wl": "replica_wl[1]"
+            },
+            "shared_power_hint": true
+          }
+        ],
+        "width": 0.894999999999988,
+        "height": 3.129999999999958,
+        "power_rail_policy": "tb_shared_hint_only",
+        "notes": [
+          "replica_wl_semantics_need_confirmation"
+        ]
+      }
+    ],
+    "allowed_macros": [
+      "cell_1rw",
+      "dummy_cell_1rw",
+      "replica_cell_1rw"
+    ],
+    "excluded_macros": {
+      "sense_amp": "architecture_adapter_required: OpenYield has Q/QB, local sense_amp has single-ended dout.",
+      "write_driver": "rail_needs_manual_review: keep legacy/peripheral placement until rail sharing is proven.",
+      "dff": "standard_cell_row_required: do not aggregate with storage-array cells.",
+      "tri_gate": "standard_cell_row_required: do not aggregate with storage-array cells.",
+      "gen_col_mux": "missing_power_metadata: vdd is not proven, shared rail is forbidden.",
+      "gen_wl_driver": "needs_semantic_confirmation: B/wordline_enable semantics still need confirmation.",
+      "gen_nand2": "logic_gate: not part of limited storage-array aggregation.",
+      "gen_nand4": "logic_gate: not part of limited storage-array aggregation.",
+      "gen_precharge": "peripheral_macro: not part of limited storage-array aggregation."
+    },
+    "changed_gds_flow": false,
+    "notes": [
+      "Limited aggregation is metadata/plan-only; it does not write GDS or merge power shapes.",
+      "Only cell_1rw, dummy_cell_1rw, and replica_cell_1rw are included.",
+      "power_rail_policy is tb_shared_hint_only; LR shared rail remains disabled."
+    ]
+  },
+  "rows": 2,
+  "cols": 16,
+  "allowed_macros": [
+    "cell_1rw",
+    "dummy_cell_1rw",
+    "replica_cell_1rw"
+  ],
+  "excluded_peripheral_macros": {
+    "sense_amp": "architecture_adapter_required: OpenYield has Q/QB, local sense_amp has single-ended dout.",
+    "write_driver": "rail_needs_manual_review: keep legacy/peripheral placement until rail sharing is proven.",
+    "dff": "standard_cell_row_required: do not aggregate with storage-array cells.",
+    "tri_gate": "standard_cell_row_required: do not aggregate with storage-array cells.",
+    "gen_col_mux": "missing_power_metadata: vdd is not proven, shared rail is forbidden.",
+    "gen_wl_driver": "needs_semantic_confirmation: B/wordline_enable semantics still need confirmation.",
+    "gen_nand2": "logic_gate: not part of limited storage-array aggregation.",
+    "gen_nand4": "logic_gate: not part of limited storage-array aggregation.",
+    "gen_precharge": "peripheral_macro: not part of limited storage-array aggregation."
+  },
+  "changed_gds_flow": false,
+  "generated_gds": false,
+  "smoke_checks": [
+    {
+      "name": "default_disabled_keeps_empty_plan",
+      "passed": true
+    },
+    {
+      "name": "explicit_switch_controls_enabled_plan",
+      "passed": true
+    },
+    {
+      "name": "only_allowed_macros_present",
+      "passed": true,
+      "observed_macros": [
+        "cell_1rw",
+        "dummy_cell_1rw",
+        "replica_cell_1rw"
+      ]
+    },
+    {
+      "name": "peripheral_macros_excluded",
+      "passed": true,
+      "disallowed_observed": []
+    },
+    {
+      "name": "placement_count_matches_expected",
+      "passed": true,
+      "expected": 52,
+      "actual": 52
+    },
+    {
+      "name": "gds_flow_unchanged",
+      "passed": true
+    }
+  ]
+}
