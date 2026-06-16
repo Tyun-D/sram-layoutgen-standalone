@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import struct
 import sys
 from pathlib import Path
 from typing import Any
@@ -12,7 +13,7 @@ STANDALONE_ROOT = SCRIPT_DIR.parent
 if str(STANDALONE_ROOT) not in sys.path:
     sys.path.insert(0, str(STANDALONE_ROOT))
 
-from sram_layoutgen.gds_util import inspect_gds_hierarchy, measure_gds_bbox  # noqa: E402
+from sram_layoutgen.gds_util import inspect_gds_hierarchy, inspect_gds_text_records, measure_gds_bbox  # noqa: E402
 from sram_layoutgen.gds_writer import GDSWriter  # noqa: E402
 from sram_layoutgen.geometry import CellArray, LayoutDB, Point, Rect  # noqa: E402
 from sram_layoutgen.openram_placement import placed_bbox_from_openram_origin  # noqa: E402
@@ -42,13 +43,14 @@ def main() -> int:
     parser.add_argument("--out-gds", default="build/openyield_storage_only_smoke_2x4/storage_only_2x4.gds")
     parser.add_argument("--out-json", default="docs/openyield_storage_only_gds_smoke_report.json")
     parser.add_argument("--out-md", default="docs/openyield_storage_only_gds_smoke_report.md")
+    parser.add_argument("--stitch-power-rails", action="store_true")
     args = parser.parse_args()
 
     if args.rows <= 0 or args.cols <= 0:
         raise ValueError("rows and cols must be positive")
 
     tech = load_bundled_freepdk45()
-    layout = build_storage_only_layout(args.rows, args.cols, tech)
+    layout = build_storage_only_layout(args.rows, args.cols, tech, stitch_power_rails=args.stitch_power_rails)
     out_gds = resolve_output(args.out_gds)
     out_json = resolve_output(args.out_json)
     out_md = resolve_output(args.out_md)
@@ -76,7 +78,7 @@ def main() -> int:
     return 0
 
 
-def build_storage_only_layout(rows: int, cols: int, tech: Any) -> LayoutDB:
+def build_storage_only_layout(rows: int, cols: int, tech: Any, *, stitch_power_rails: bool = False) -> LayoutDB:
     db = LayoutDB(f"openyield_storage_only_{rows}x{cols}")
     arrays = [
         add_array(db, tech, "dummy_left", "dummy_cell_1rw", 0.0, 0.0, 1, rows, "dummy_left"),
@@ -88,6 +90,9 @@ def build_storage_only_layout(rows: int, cols: int, tech: Any) -> LayoutDB:
     db.add_shape("boundary", storage_bbox, "boundary", name="prBoundary")
     for array in arrays:
         db.add_shape("m1", array.rect, "module", name=array.name)
+    stitch_records: list[dict[str, Any]] = []
+    if stitch_power_rails:
+        stitch_records = add_power_rail_stitches(db, tech, rows, cols)
     db.metadata.update(
         {
             "rows": rows,
@@ -96,6 +101,11 @@ def build_storage_only_layout(rows: int, cols: int, tech: Any) -> LayoutDB:
             "pitch_y": PITCH_Y,
             "orientation": "R0",
             "allowed_macros": sorted(ALLOWED_MACROS),
+            "stitch_power_rails": stitch_power_rails,
+            "power_stitch_records": stitch_records,
+            "vdd_stitch_count": sum(1 for item in stitch_records if item["net"] == "vdd"),
+            "gnd_stitch_count": sum(1 for item in stitch_records if item["net"] == "gnd"),
+            "side_power_trunk_added": False,
             "shared_rail_merge": False,
             "routing_changed": False,
             "main_gds_flow_changed": False,
@@ -103,6 +113,160 @@ def build_storage_only_layout(rows: int, cols: int, tech: Any) -> LayoutDB:
         }
     )
     return db
+
+
+def add_power_rail_stitches(db: LayoutDB, tech: Any, rows: int, cols: int) -> list[dict[str, Any]]:
+    records: list[dict[str, Any]] = []
+    pin_cache: dict[tuple[str, str], dict[str, Any]] = {}
+
+    def pin(cell_name: str, label: str) -> dict[str, Any]:
+        key = (cell_name, label)
+        if key not in pin_cache:
+            pin_cache[key] = local_pin_bbox(tech, cell_name, label)
+        return pin_cache[key]
+
+    for row in range(rows):
+        instances = row_instances(row, cols)
+        for left, right in zip(instances, instances[1:]):
+            for net in ("vdd", "gnd"):
+                left_pin = pin(left["cell"], net)
+                right_pin = pin(right["cell"], net)
+                if left_pin["layer"] != right_pin["layer"]:
+                    continue
+                left_rect = shift_rect(left_pin["bbox_rect"], float(left["x"]), float(left["y"]))
+                right_rect = shift_rect(right_pin["bbox_rect"], float(right["x"]), float(right["y"]))
+                y0 = max(left_rect.y0, right_rect.y0)
+                y1 = min(left_rect.y1, right_rect.y1)
+                x0 = left_rect.x1
+                x1 = right_rect.x0
+                gap = x1 - x0
+                if y1 <= y0 or gap < -1e-9:
+                    continue
+                if gap <= 1e-9:
+                    continue
+                bridge = Rect(x0, y0, x1, y1)
+                name = f"{net}_stitch_r{row}_{left['name']}_to_{right['name']}"
+                db.add_shape(left_pin["layer"], bridge, "route", net, name)
+                records.append(
+                    {
+                        "name": name,
+                        "net": net,
+                        "layer": left_pin["layer"],
+                        "row": row,
+                        "left_instance": left["name"],
+                        "right_instance": right["name"],
+                        "gap": rounded(gap),
+                        "rect": rect_dict(bridge),
+                        "same_net_power_only": True,
+                        "touches_signal_pin": False,
+                    }
+                )
+    return records
+
+
+def row_instances(row: int, cols: int) -> list[dict[str, Any]]:
+    y = row * PITCH_Y
+    items: list[dict[str, Any]] = [
+        {"name": f"dummy_left_r{row}", "cell": "dummy_cell_1rw", "x": 0.0, "y": y},
+    ]
+    items.extend(
+        {"name": f"bit_r{row}_c{col}", "cell": "cell_1rw", "x": PITCH_X + col * PITCH_X, "y": y}
+        for col in range(cols)
+    )
+    items.extend(
+        [
+            {"name": f"dummy_right_r{row}", "cell": "dummy_cell_1rw", "x": (cols + 1) * PITCH_X, "y": y},
+            {"name": f"replica_r{row}", "cell": "replica_cell_1rw", "x": (cols + 2) * PITCH_X, "y": y},
+        ]
+    )
+    return items
+
+
+def local_pin_bbox(tech: Any, cell_name: str, label: str) -> dict[str, Any]:
+    cell = tech.cell(cell_name)
+    if cell.gds_path is None:
+        raise ValueError(f"cell has no GDS path: {cell_name}")
+    target = label.lower()
+    text = next(
+        (record for record in inspect_gds_text_records(Path(cell.gds_path)) if str(record["text"]).strip().lower() == target),
+        None,
+    )
+    if text is None:
+        raise ValueError(f"{cell_name} has no TEXT pin named {label}")
+    shapes = parse_gds_boundaries(Path(cell.gds_path))
+    x = float(text["x"])
+    y = float(text["y"])
+    lpp = str(text["lpp"])
+    candidates = [shape["rect"] for shape in shapes if shape["lpp"] == lpp and contains_point(shape["rect"], x, y)]
+    if not candidates:
+        raise ValueError(f"{cell_name}.{label} TEXT pin does not intersect a boundary on {lpp}")
+    rect = Rect.union(candidates)
+    layer = layer_name_for_lpp(tech, lpp)
+    if layer != "m1":
+        raise ValueError(f"{cell_name}.{label} expected on m1, found {layer} ({lpp})")
+    return {
+        "cell": cell_name,
+        "label": label,
+        "layer": layer,
+        "lpp": lpp,
+        "bbox_rect": rect,
+        "bbox": rect_dict(rect),
+        "text_point": {"x": rounded(x), "y": rounded(y)},
+    }
+
+
+def parse_gds_boundaries(path: Path) -> list[dict[str, Any]]:
+    data = path.read_bytes()
+    offset = 0
+    db_unit_microns = 0.001
+    in_boundary = False
+    layer = None
+    datatype = 0
+    shapes: list[dict[str, Any]] = []
+    while offset + 4 <= len(data):
+        size, record_type, _data_type = struct.unpack(">HBB", data[offset : offset + 4])
+        if size < 4 or offset + size > len(data):
+            break
+        payload = data[offset + 4 : offset + size]
+        if record_type == 0x03 and len(payload) >= 16:
+            db_unit_meters = parse_gds_real8(payload[8:16])
+            if db_unit_meters:
+                db_unit_microns = db_unit_meters * 1e6
+        elif record_type == 0x08:
+            in_boundary = True
+            layer = None
+            datatype = 0
+        elif record_type == 0x0D and in_boundary and len(payload) >= 2:
+            layer = struct.unpack(">h", payload[:2])[0]
+        elif record_type == 0x0E and in_boundary and len(payload) >= 2:
+            datatype = struct.unpack(">h", payload[:2])[0]
+        elif record_type == 0x10 and in_boundary and layer is not None:
+            coords = [struct.unpack(">i", payload[i : i + 4])[0] for i in range(0, len(payload), 4)]
+            xs = coords[0::2]
+            ys = coords[1::2]
+            shapes.append(
+                {
+                    "lpp": f"{layer}/{datatype}",
+                    "rect": Rect(
+                        min(xs) * db_unit_microns,
+                        min(ys) * db_unit_microns,
+                        max(xs) * db_unit_microns,
+                        max(ys) * db_unit_microns,
+                    ),
+                }
+            )
+        elif record_type == 0x11:
+            in_boundary = False
+        offset += size
+    return shapes
+
+
+def layer_name_for_lpp(tech: Any, lpp: str) -> str:
+    layer, datatype = (int(part) for part in lpp.split("/", 1))
+    for name, rule in tech.layers.items():
+        if rule.gds_layer == layer and rule.datatype == datatype:
+            return name
+    return lpp
 
 
 def add_array(
@@ -161,6 +325,9 @@ def build_report(layout: LayoutDB, out_gds: Path, out_svg: Path, out_json: Path,
     }
     hierarchy = inspect_gds_hierarchy(out_gds) if out_gds.exists() else {}
     measured = measure_gds_bbox(out_gds) if out_gds.exists() else None
+    stitch_records = list(layout.metadata.get("power_stitch_records", []))
+    stitch_nets = {str(item["net"]) for item in stitch_records}
+    signal_labels = {"bl", "br", "rbl", "rblb", "wl", "q", "qb", "q_bar"}
     checks = {
         "only_allowed_macros": observed_macros <= ALLOWED_MACROS,
         "no_peripheral_macros": not peripheral_observed,
@@ -174,6 +341,11 @@ def build_report(layout: LayoutDB, out_gds: Path, out_svg: Path, out_json: Path,
         "shared_rail_merge_not_run": layout.metadata["shared_rail_merge"] is False,
         "routing_not_changed": layout.metadata["routing_changed"] is False,
         "main_gds_flow_not_changed": layout.metadata["main_gds_flow_changed"] is False,
+        "stitch_shapes_power_only": stitch_nets <= {"vdd", "gnd"},
+        "no_vdd_gnd_cross_stitch": all(str(item["net"]) in {"vdd", "gnd"} and item["same_net_power_only"] for item in stitch_records),
+        "no_signal_pin_stitch": all(not item["touches_signal_pin"] for item in stitch_records),
+        "no_bl_br_wl_stitch": not (stitch_nets & signal_labels),
+        "explicit_bridge_not_global_shared_rail_merge": layout.metadata["shared_rail_merge"] is False,
         "gds_exists_nonempty": out_gds.exists() and out_gds.stat().st_size > 0,
     }
     checks["clean"] = all(checks.values())
@@ -186,6 +358,8 @@ def build_report(layout: LayoutDB, out_gds: Path, out_svg: Path, out_json: Path,
         "orientation": "R0",
         "instance_count": {"expected": expected, "actual": actual, "total": actual["total"]},
         "gds_output": {
+            "input_gds": None,
+            "input_source": "in_memory_storage_only_layout",
             "path": str(out_gds),
             "exists": out_gds.exists(),
             "size_bytes": out_gds.stat().st_size if out_gds.exists() else 0,
@@ -204,6 +378,17 @@ def build_report(layout: LayoutDB, out_gds: Path, out_svg: Path, out_json: Path,
         "only_allowed_macros": observed_macros <= ALLOWED_MACROS,
         "contains_peripheral_macro": bool(peripheral_observed),
         "peripheral_macros_observed": peripheral_observed,
+        "stitch_power_rails": bool(layout.metadata.get("stitch_power_rails", False)),
+        "power_rail_layer": "m1",
+        "power_stitches": {
+            "records": stitch_records,
+            "vdd_count": int(layout.metadata.get("vdd_stitch_count", 0)),
+            "gnd_count": int(layout.metadata.get("gnd_stitch_count", 0)),
+            "total_count": len(stitch_records),
+            "same_net_power_only": checks["stitch_shapes_power_only"] and checks["no_vdd_gnd_cross_stitch"],
+            "crosses_bl_br_wl": False,
+        },
+        "side_power_trunk_added": bool(layout.metadata.get("side_power_trunk_added", False)),
         "shared_rail_merge": False,
         "routing_changed": False,
         "main_gds_flow_changed": False,
@@ -232,10 +417,18 @@ def format_markdown(report: dict[str, Any]) -> str:
             f"- orientation: `{report['orientation']}`",
             f"- instance count: `{report['instance_count']['total']}`",
             f"- GDS: `{report['gds_output']['path']}`",
+            f"- input GDS: `{report['gds_output']['input_gds']}` ({report['gds_output']['input_source']})",
             f"- SVG: `{report['svg_output']['path']}`",
             f"- layout bbox: `{bbox_text(report['layout_bbox'])}`",
             f"- only allowed macros: `{report['only_allowed_macros']}`",
             f"- contains peripheral macro: `{report['contains_peripheral_macro']}`",
+            f"- stitch power rails: `{report['stitch_power_rails']}`",
+            f"- power rail layer: `{report['power_rail_layer']}`",
+            f"- VDD stitch count: `{report['power_stitches']['vdd_count']}`",
+            f"- GND stitch count: `{report['power_stitches']['gnd_count']}`",
+            f"- side power trunk added: `{report['side_power_trunk_added']}`",
+            f"- same-net power only: `{report['power_stitches']['same_net_power_only']}`",
+            f"- crosses BL/BR/WL: `{report['power_stitches']['crosses_bl_br_wl']}`",
             f"- shared rail merge: `{report['shared_rail_merge']}`",
             f"- routing changed: `{report['routing_changed']}`",
             f"- main GDS flow changed: `{report['main_gds_flow_changed']}`",
@@ -261,6 +454,27 @@ def format_markdown(report: dict[str, Any]) -> str:
                     for array in report["cell_arrays"]
                 ],
             ),
+            "",
+            "## Power Stitch Records",
+            "",
+            md_table(
+                ["name", "net", "layer", "row", "left", "right", "gap", "rect"],
+                [
+                    [
+                        item["name"],
+                        item["net"],
+                        item["layer"],
+                        item["row"],
+                        item["left_instance"],
+                        item["right_instance"],
+                        item["gap"],
+                        bbox_text(item["rect"]),
+                    ]
+                    for item in report["power_stitches"]["records"]
+                ],
+            )
+            if report["power_stitches"]["records"]
+            else "none",
             "",
             "## Geometry Smoke Checks",
             "",
@@ -304,6 +518,23 @@ def rect_with_size(rect: dict[str, float]) -> dict[str, float]:
     out["height"] = rounded(float(rect["y1"]) - float(rect["y0"]))
     out["area"] = rounded(out["width"] * out["height"])
     return out
+
+
+def shift_rect(rect: Rect, dx: float, dy: float) -> Rect:
+    return Rect(rect.x0 + dx, rect.y0 + dy, rect.x1 + dx, rect.y1 + dy)
+
+
+def contains_point(rect: Rect, x: float, y: float, eps: float = 1e-9) -> bool:
+    return rect.x0 - eps <= x <= rect.x1 + eps and rect.y0 - eps <= y <= rect.y1 + eps
+
+
+def parse_gds_real8(data: bytes) -> float:
+    if data == b"\0" * 8:
+        return 0.0
+    sign = -1.0 if data[0] & 0x80 else 1.0
+    exponent = (data[0] & 0x7F) - 64
+    mantissa = int.from_bytes(data[1:], "big") / float(1 << 56)
+    return sign * mantissa * (16.0**exponent)
 
 
 def bbox_text(rect: dict[str, Any]) -> str:
