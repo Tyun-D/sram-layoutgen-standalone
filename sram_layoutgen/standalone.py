@@ -25,6 +25,13 @@ from .openyield_adapter.array_aggregation import (
 )
 from .openyield_adapter.architecture_adapter import build_senseamp_architecture_adapter
 from .openyield_adapter.columnmux_placement import build_columnmux_limited_placement_plan
+from .openyield_adapter.writedriver_adapter import (
+    build_writedriver_adapter,
+    build_writedriver_contract_summary,
+    classify_writedriver_power_status,
+    inspect_local_writedriver_macro,
+)
+from .openyield_adapter.writedriver_placement import build_writedriver_limited_placement_plan
 from .openyield_adapter.senseamp_placement import (
     build_senseamp_placement_plan,
     inspect_local_senseamp_macro,
@@ -44,6 +51,7 @@ class StandaloneSpec:
     enable_openyield_array_aggregation: bool = False
     enable_openyield_senseamp_adapter: bool = False
     enable_openyield_columnmux_adapter: bool = False
+    enable_openyield_writedriver_adapter: bool = False
     openyield_storage_row_orientation_policy: str = "all_r0"
 
     def __post_init__(self) -> None:
@@ -123,6 +131,22 @@ def load_repaired_columnmux_alias(tech: Tech) -> dict[str, object]:
         "alias_cell": alias_cell,
         "source_cell": source_macro,
     }
+
+
+def writedriver_contracts_path() -> Path:
+    return package_root() / "docs" / "openyield_module_contracts.json"
+
+
+def load_writedriver_contract() -> dict[str, object]:
+    contracts_path = writedriver_contracts_path()
+    payload = json.loads(contracts_path.read_text(encoding="utf-8"))
+    contracts = payload if isinstance(payload, list) else payload.get("contracts", [])
+    for contract in contracts:
+        if contract.get("original_module_name") == "WRITEDRIVER":
+            contract_copy = dict(contract)
+            contract_copy["source_path"] = str(contracts_path.resolve())
+            return contract_copy
+    raise ValueError(f"Missing WRITEDRIVER contract in {contracts_path}")
 
 
 def load_bundled_freepdk45() -> Tech:
@@ -583,6 +607,25 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
             safe_for_shared_rail=bool(columnmux_alias_info["alias"].get("safe_for_shared_rail", False)),
         )
 
+    writedriver_contract_info: dict[str, object] | None = None
+    writedriver_local_macro: dict[str, object] | None = None
+    writedriver_adapter_info: object | None = None
+    writedriver_limited_plan: object | None = None
+    if spec.enable_openyield_writedriver_adapter:
+        writedriver_contract_info = load_writedriver_contract()
+        writedriver_local_macro = inspect_local_writedriver_macro(default_pdk_root())
+        writedriver_adapter_info = build_writedriver_adapter(writedriver_local_macro, writedriver_contract_info)
+        writedriver_limited_plan = build_writedriver_limited_placement_plan(
+            cols=spec.word_size,
+            mux_ratio=1,
+            origin_x=x_array,
+            origin_y=y_column + tri_gate.height + gap,
+            pitch_x=column_pitch,
+            power_status=writedriver_adapter_info.power_status,
+            safe_for_physical_mapping=writedriver_adapter_info.safe_for_physical_mapping,
+            safe_for_shared_rail=writedriver_adapter_info.safe_for_shared_rail,
+        )
+
     macro_w = max(x_array + max(array_w, column_array_w, data_w), x_right_edge) + boundary_margin
     selected_row_logic_plan = row_logic_plan(
         y_row_logic,
@@ -689,6 +732,55 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         },
         "limited_placement_plan": columnmux_limited_plan.to_dict() if columnmux_limited_plan is not None else {},
     }
+    if spec.enable_openyield_writedriver_adapter and writedriver_adapter_info is not None and writedriver_contract_info is not None and writedriver_local_macro is not None:
+        db.metadata["openyield_writedriver_adapter"] = {
+            "enabled": True,
+            "contract_summary": build_writedriver_contract_summary(writedriver_contract_info),
+            "contract_path": writedriver_contract_info.get("source_path"),
+            "local_macro": writedriver_local_macro["macro_name"],
+            "gds_path": writedriver_local_macro["gds_path"],
+            "spice_path": writedriver_local_macro["spice_path"],
+            "power_status": writedriver_adapter_info.power_status,
+            "safe_for_physical_mapping": writedriver_adapter_info.safe_for_physical_mapping,
+            "safe_for_shared_rail": writedriver_adapter_info.safe_for_shared_rail,
+            "requires_netlist_rewrite": writedriver_adapter_info.requires_netlist_rewrite,
+            "pin_adaptations": [pin.to_dict() for pin in writedriver_adapter_info.pin_adaptations],
+            "notes": list(writedriver_adapter_info.notes),
+            "placement_plan": writedriver_limited_plan.to_dict() if writedriver_limited_plan is not None else {},
+            "placement_count": len(writedriver_limited_plan.placements) if writedriver_limited_plan is not None else 0,
+            "adapter_applied_to_placement": False,
+            "routing_changed": False,
+            "gds_writer_changed": False,
+            "shared_rail_enabled": False,
+            "write_driver_changed": False,
+            "column_mux_changed": spec.enable_openyield_columnmux_adapter,
+            "senseamp_changed": spec.enable_openyield_senseamp_adapter,
+            "storage_aggregation_enabled": spec.enable_openyield_array_aggregation,
+        }
+    else:
+        db.metadata["openyield_writedriver_adapter"] = {
+            "enabled": False,
+            "local_macro": "write_driver",
+            "power_status": "legacy_metadata_only",
+            "safe_for_physical_mapping": False,
+            "safe_for_shared_rail": False,
+            "requires_netlist_rewrite": False,
+            "pin_adaptations": [],
+            "notes": [
+                "Write driver adapter is opt-in only.",
+                "Legacy standalone write_driver placement remains unchanged until explicitly enabled.",
+            ],
+            "placement_plan": {},
+            "placement_count": 0,
+            "adapter_applied_to_placement": False,
+            "routing_changed": False,
+            "gds_writer_changed": False,
+            "shared_rail_enabled": False,
+            "write_driver_changed": False,
+            "column_mux_changed": spec.enable_openyield_columnmux_adapter,
+            "senseamp_changed": spec.enable_openyield_senseamp_adapter,
+            "storage_aggregation_enabled": spec.enable_openyield_array_aggregation,
+        }
     db.metadata["openyield_senseamp_adapter"] = {
         "enabled": False,
         "adapter_strategy": "single_ended_q_to_dout",
@@ -1767,6 +1859,7 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
         "enable_openyield_array_aggregation": spec.enable_openyield_array_aggregation,
         "enable_openyield_senseamp_adapter": spec.enable_openyield_senseamp_adapter,
         "enable_openyield_columnmux_adapter": spec.enable_openyield_columnmux_adapter,
+        "enable_openyield_writedriver_adapter": spec.enable_openyield_writedriver_adapter,
         "openyield_storage_row_orientation_policy": spec.openyield_storage_row_orientation_policy,
         "bank_style": layout.metadata.get("bank_style"),
         "floorplan_compaction_strategy": layout.metadata.get("floorplan_compaction_strategy"),
@@ -1819,6 +1912,7 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
         "openyield_columnmux_adapter": layout.metadata.get("openyield_columnmux_adapter", {}),
         "openyield_array_aggregation_integration": layout.metadata.get("openyield_array_aggregation_integration", {}),
         "openyield_senseamp_adapter": layout.metadata.get("openyield_senseamp_adapter", {}),
+        "openyield_writedriver_adapter": layout.metadata.get("openyield_writedriver_adapter", {}),
         "architecture_modules": _collect_architecture_modules(layout),
         "architecture_quality": architecture_quality,
         "geometry_audit": geometry_audit,
@@ -3387,6 +3481,25 @@ def _format_report_md(metrics: dict) -> str:
         lines.append(f"- write_driver changed: `{columnmux_adapter.get('write_driver_changed')}`")
         lines.append(f"- wordline_driver changed: `{columnmux_adapter.get('wordline_driver_changed')}`")
         lines.append(f"- limited placement plan count: `{len((columnmux_adapter.get('limited_placement_plan') or {}).get('placements', []))}`")
+    writedriver_adapter = metrics.get("openyield_writedriver_adapter", {})
+    if writedriver_adapter:
+        lines.extend(["", "## OpenYield write driver adapter", ""])
+        lines.append(f"- enabled: `{writedriver_adapter.get('enabled')}`")
+        lines.append(f"- local macro: `{writedriver_adapter.get('local_macro', 'write_driver')}`")
+        lines.append(f"- contract path: `{writedriver_adapter.get('contract_path')}`")
+        lines.append(f"- power status: `{writedriver_adapter.get('power_status')}`")
+        lines.append(f"- safe_for_physical_mapping: `{writedriver_adapter.get('safe_for_physical_mapping')}`")
+        lines.append(f"- safe_for_shared_rail: `{writedriver_adapter.get('safe_for_shared_rail')}`")
+        lines.append(f"- requires_netlist_rewrite: `{writedriver_adapter.get('requires_netlist_rewrite')}`")
+        lines.append(f"- placement count: `{writedriver_adapter.get('placement_count', 0)}`")
+        lines.append(f"- adapter applied to placement: `{writedriver_adapter.get('adapter_applied_to_placement')}`")
+        lines.append(f"- routing changed: `{writedriver_adapter.get('routing_changed')}`")
+        lines.append(f"- gds writer changed: `{writedriver_adapter.get('gds_writer_changed')}`")
+        lines.append(f"- shared rail enabled: `{writedriver_adapter.get('shared_rail_enabled')}`")
+        lines.append(f"- write_driver changed: `{writedriver_adapter.get('write_driver_changed')}`")
+        lines.append(f"- column mux changed: `{writedriver_adapter.get('column_mux_changed')}`")
+        lines.append(f"- senseamp changed: `{writedriver_adapter.get('senseamp_changed')}`")
+        lines.append(f"- storage aggregation enabled: `{writedriver_adapter.get('storage_aggregation_enabled')}`")
     lines.extend(["", "## Remaining abstract blocks", ""])
     if metrics["abstract_instances"]:
         for cell, count in metrics["abstract_instances"].items():
