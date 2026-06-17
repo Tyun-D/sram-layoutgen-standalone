@@ -1,0 +1,3251 @@
+{
+  "scope": "step5_12_read_write_path_semantic_review",
+  "standalone_modified": false,
+  "new_script": "scripts/openyield_read_write_path_semantic_review.py",
+  "new_parameters": {},
+  "test_case": {
+    "word_size": 4,
+    "num_words": 32,
+    "words_per_row": 2
+  },
+  "cases": {
+    "legacy_default": {
+      "mode": "legacy_default",
+      "spec": {
+        "word_size": 4,
+        "num_words": 32,
+        "words_per_row": 2,
+        "enable_openyield_array_aggregation": false,
+        "enable_openyield_senseamp_adapter": false,
+        "enable_openyield_columnmux_adapter": false,
+        "enable_openyield_writedriver_adapter": false,
+        "openyield_storage_row_orientation_policy": "all_r0"
+      },
+      "outputs": {
+        "out_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_legacy_default",
+        "gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_legacy_default\\sram_4x32_wpr2_fd45.gds",
+        "report_md": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_legacy_default\\sram_4x32_wpr2_fd45.report.md",
+        "generated_gds": true
+      },
+      "metrics": {
+        "width_um": 19.392499999999995,
+        "height_um": 50.705,
+        "macro_area_um2": 983.2967124999997,
+        "column_mux_count": 8,
+        "sense_amp_count": 4,
+        "write_driver_count": 4,
+        "storage_instance_count": 0,
+        "peripheral_instance_count": 54
+      },
+      "read_path": {
+        "columnmux_out_to_mux_out": false,
+        "columnmux_outb_to_mux_out_b": false,
+        "senseamp_in_to_mux_out_group": false,
+        "senseamp_inb_to_mux_out_b_group": false,
+        "senseamp_q_to_dout_group": false,
+        "qb_dropped": true,
+        "fake_dout_b_generated": false,
+        "read_path_semantics_ok": false,
+        "mapping_table": [
+          {
+            "openyield_pin": "OUT",
+            "local_pin": "mux_out[group]",
+            "canonical_signal": "mux_out"
+          },
+          {
+            "openyield_pin": "OUTB",
+            "local_pin": "mux_out_b[group]",
+            "canonical_signal": "mux_out_b"
+          },
+          {
+            "openyield_pin": "IN",
+            "local_pin": "mux_out[group]",
+            "canonical_signal": "mux_out"
+          },
+          {
+            "openyield_pin": "INB",
+            "local_pin": "mux_out_b[group]",
+            "canonical_signal": "mux_out_b"
+          },
+          {
+            "openyield_pin": "Q",
+            "local_pin": "dout[group]",
+            "canonical_signal": "dout"
+          },
+          {
+            "openyield_pin": "QB",
+            "local_pin": "-",
+            "canonical_signal": "dropped_complementary_output"
+          }
+        ]
+      },
+      "write_path": {
+        "din_to_din": false,
+        "en_to_write_enable": false,
+        "bl_to_bl": false,
+        "blb_to_br": false,
+        "uses_columnmux_nets": false,
+        "write_path_semantics_ok": false,
+        "grouped_mapping_needs_confirmation": false,
+        "mapping_table": [
+          {
+            "openyield_pin": "DIN",
+            "local_pin": "din",
+            "canonical_signal": "din"
+          },
+          {
+            "openyield_pin": "EN",
+            "local_pin": "write_enable",
+            "canonical_signal": "write_enable"
+          },
+          {
+            "openyield_pin": "BL",
+            "local_pin": "bl",
+            "canonical_signal": "bl"
+          },
+          {
+            "openyield_pin": "BLB",
+            "local_pin": "br",
+            "canonical_signal": "br"
+          }
+        ]
+      },
+      "senseamp_adapter": {
+        "enabled": false,
+        "adapter_strategy": "single_ended_q_to_dout",
+        "q_to_dout": true,
+        "qb_to_dout_b": false,
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "requires_netlist_rewrite": true,
+        "requires_layout_pin": false,
+        "generated_fake_dout_b": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "write_driver_changed": false,
+        "column_mux_changed": false,
+        "wordline_driver_changed": false,
+        "placement_count": 0,
+        "local_macro": "sense_amp",
+        "local_pins": [
+          "bl",
+          "br",
+          "dout",
+          "en",
+          "vdd",
+          "gnd"
+        ],
+        "plan": {},
+        "example_placements": [],
+        "adapter_applied_to_placement": false
+      },
+      "columnmux_adapter": {
+        "enabled": false,
+        "local_macro": "gen_col_mux",
+        "source_macro": "gen_col_mux",
+        "repaired_alias_metadata": null,
+        "power_status": "legacy_metadata_only",
+        "safe_for_physical_mapping": false,
+        "safe_for_shared_rail": false,
+        "uses_repaired_alias": false,
+        "replacement_macros_modified": false,
+        "shared_rail_enabled": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "write_driver_changed": false,
+        "wordline_driver_changed": false,
+        "senseamp_pairing": {
+          "IN": "mux_out[group]",
+          "INB": "mux_out_b[group]",
+          "Q": "dout[group]",
+          "QB": "dropped_complementary_output"
+        },
+        "limited_placement_plan": {}
+      },
+      "writedriver_adapter": {
+        "enabled": false,
+        "local_macro": "write_driver",
+        "power_status": "legacy_metadata_only",
+        "safe_for_physical_mapping": false,
+        "safe_for_shared_rail": false,
+        "requires_netlist_rewrite": false,
+        "pin_adaptations": [],
+        "notes": [
+          "Write driver adapter is opt-in only.",
+          "Legacy standalone write_driver placement remains unchanged until explicitly enabled."
+        ],
+        "placement_plan": {},
+        "placement_count": 0,
+        "adapter_applied_to_placement": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "shared_rail_enabled": false,
+        "write_driver_changed": false,
+        "column_mux_changed": false,
+        "senseamp_changed": false,
+        "storage_aggregation_enabled": false
+      },
+      "storage_aggregation": {
+        "enabled": false,
+        "row_orientation_policy": "all_r0",
+        "allowed_macros": [
+          "cell_1rw",
+          "dummy_cell_1rw",
+          "replica_cell_1rw"
+        ],
+        "excluded_peripheral_macros": {
+          "sense_amp": "architecture_adapter_required: OpenYield has Q/QB, local sense_amp has single-ended dout.",
+          "write_driver": "rail_needs_manual_review: keep legacy/peripheral placement until rail sharing is proven.",
+          "dff": "standard_cell_row_required: do not aggregate with storage-array cells.",
+          "tri_gate": "standard_cell_row_required: do not aggregate with storage-array cells.",
+          "gen_col_mux": "missing_power_metadata: vdd is not proven, shared rail is forbidden.",
+          "gen_wl_driver": "needs_semantic_confirmation: B/wordline_enable semantics still need confirmation.",
+          "gen_nand2": "logic_gate: not part of limited storage-array aggregation.",
+          "gen_nand4": "logic_gate: not part of limited storage-array aggregation.",
+          "gen_precharge": "peripheral_macro: not part of limited storage-array aggregation."
+        },
+        "storage_only": true,
+        "peripherals_old_path": true,
+        "changed_gds_flow": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "shared_rail_merge": false,
+        "generated_gds": false,
+        "cross_row_power_short_risk": null,
+        "storage_plan": {
+          "enabled": false,
+          "rows": 16,
+          "cols": 8,
+          "plans": [],
+          "allowed_macros": [
+            "cell_1rw",
+            "dummy_cell_1rw",
+            "replica_cell_1rw"
+          ],
+          "row_orientation_policy": "all_r0",
+          "excluded_macros": {
+            "sense_amp": "architecture_adapter_required: OpenYield has Q/QB, local sense_amp has single-ended dout.",
+            "write_driver": "rail_needs_manual_review: keep legacy/peripheral placement until rail sharing is proven.",
+            "dff": "standard_cell_row_required: do not aggregate with storage-array cells.",
+            "tri_gate": "standard_cell_row_required: do not aggregate with storage-array cells.",
+            "gen_col_mux": "missing_power_metadata: vdd is not proven, shared rail is forbidden.",
+            "gen_wl_driver": "needs_semantic_confirmation: B/wordline_enable semantics still need confirmation.",
+            "gen_nand2": "logic_gate: not part of limited storage-array aggregation.",
+            "gen_nand4": "logic_gate: not part of limited storage-array aggregation.",
+            "gen_precharge": "peripheral_macro: not part of limited storage-array aggregation."
+          },
+          "power_rail_policy": "tb_shared_hint_only",
+          "cross_row_power_short_risk": null,
+          "changed_gds_flow": false,
+          "routing_changed": false,
+          "shared_rail_merge": false,
+          "notes": [
+            "enable_openyield_array_aggregation is False; standalone storage placement stays on the legacy path."
+          ]
+        },
+        "storage_arrays": {
+          "bitcell_array": {
+            "x0": 11.905,
+            "y0": 22.9175,
+            "x1": 17.735,
+            "y1": 44.95750000000001
+          },
+          "dummy_left_array": {
+            "x0": 11.2,
+            "y0": 22.9175,
+            "x1": 12.095,
+            "y1": 44.95750000000001
+          },
+          "dummy_right_array": {
+            "x0": 18.249999999999996,
+            "y0": 22.9175,
+            "x1": 19.144999999999996,
+            "y1": 44.95750000000001
+          },
+          "replica_bitline_array": {
+            "x0": 17.544999999999998,
+            "y0": 22.9175,
+            "x1": 18.439999999999998,
+            "y1": 44.95750000000001
+          }
+        },
+        "macro_counts": {},
+        "instance_count": 0,
+        "pitch": {
+          "x": 0.705,
+          "y": 1.365
+        },
+        "origin": {
+          "x": 12.0,
+          "y": 23.017500000000002
+        },
+        "power_rail_policy": "tb_shared_hint_only"
+      },
+      "routing_changed": false,
+      "gds_writer_changed": false,
+      "shared_rail_enabled": false
+    },
+    "read_path_only": {
+      "mode": "read_path_only",
+      "spec": {
+        "word_size": 4,
+        "num_words": 32,
+        "words_per_row": 2,
+        "enable_openyield_array_aggregation": false,
+        "enable_openyield_senseamp_adapter": true,
+        "enable_openyield_columnmux_adapter": true,
+        "enable_openyield_writedriver_adapter": false,
+        "openyield_storage_row_orientation_policy": "all_r0"
+      },
+      "outputs": {
+        "out_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_path_only",
+        "gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_path_only\\sram_4x32_wpr2_fd45.gds",
+        "report_md": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_path_only\\sram_4x32_wpr2_fd45.report.md",
+        "generated_gds": true
+      },
+      "metrics": {
+        "width_um": 19.392499999999995,
+        "height_um": 50.705,
+        "macro_area_um2": 983.2967124999997,
+        "column_mux_count": 8,
+        "sense_amp_count": 4,
+        "write_driver_count": 4,
+        "storage_instance_count": 0,
+        "peripheral_instance_count": 54
+      },
+      "read_path": {
+        "columnmux_out_to_mux_out": true,
+        "columnmux_outb_to_mux_out_b": true,
+        "senseamp_in_to_mux_out_group": true,
+        "senseamp_inb_to_mux_out_b_group": true,
+        "senseamp_q_to_dout_group": true,
+        "qb_dropped": true,
+        "fake_dout_b_generated": false,
+        "read_path_semantics_ok": true,
+        "mapping_table": [
+          {
+            "openyield_pin": "OUT",
+            "local_pin": "mux_out[group]",
+            "canonical_signal": "mux_out"
+          },
+          {
+            "openyield_pin": "OUTB",
+            "local_pin": "mux_out_b[group]",
+            "canonical_signal": "mux_out_b"
+          },
+          {
+            "openyield_pin": "IN",
+            "local_pin": "mux_out[group]",
+            "canonical_signal": "mux_out"
+          },
+          {
+            "openyield_pin": "INB",
+            "local_pin": "mux_out_b[group]",
+            "canonical_signal": "mux_out_b"
+          },
+          {
+            "openyield_pin": "Q",
+            "local_pin": "dout[group]",
+            "canonical_signal": "dout"
+          },
+          {
+            "openyield_pin": "QB",
+            "local_pin": "-",
+            "canonical_signal": "dropped_complementary_output"
+          }
+        ]
+      },
+      "write_path": {
+        "din_to_din": false,
+        "en_to_write_enable": false,
+        "bl_to_bl": false,
+        "blb_to_br": false,
+        "uses_columnmux_nets": false,
+        "write_path_semantics_ok": false,
+        "grouped_mapping_needs_confirmation": false,
+        "mapping_table": [
+          {
+            "openyield_pin": "DIN",
+            "local_pin": "din",
+            "canonical_signal": "din"
+          },
+          {
+            "openyield_pin": "EN",
+            "local_pin": "write_enable",
+            "canonical_signal": "write_enable"
+          },
+          {
+            "openyield_pin": "BL",
+            "local_pin": "bl",
+            "canonical_signal": "bl"
+          },
+          {
+            "openyield_pin": "BLB",
+            "local_pin": "br",
+            "canonical_signal": "br"
+          }
+        ]
+      },
+      "senseamp_adapter": {
+        "enabled": true,
+        "adapter_strategy": "single_ended_q_to_dout",
+        "q_to_dout": true,
+        "qb_to_dout_b": false,
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "requires_netlist_rewrite": true,
+        "requires_layout_pin": false,
+        "generated_fake_dout_b": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "write_driver_changed": false,
+        "column_mux_changed": true,
+        "wordline_driver_changed": false,
+        "placement_count": 4,
+        "local_macro": "sense_amp",
+        "local_pins": [
+          "bl",
+          "br",
+          "dout",
+          "en",
+          "vdd",
+          "gnd"
+        ],
+        "plan": {
+          "cols": 8,
+          "mux_ratio": 2,
+          "placements": [
+            {
+              "instance_name": "Xsa_g0",
+              "macro_name": "sense_amp",
+              "col": 0,
+              "x": 12.0,
+              "y": 14.257499999999999,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "sense_enable",
+                "bl": "mux_out[0]",
+                "br": "mux_out_b[0]",
+                "dout": "dout[0]"
+              },
+              "dropped_pins": {
+                "QB": "dropped_complementary_output"
+              },
+              "adapter_strategy": "single_ended_q_to_dout",
+              "safe_for_physical_mapping": true,
+              "notes": [
+                "Mux-grouped sense amp placement plan."
+              ]
+            },
+            {
+              "instance_name": "Xsa_g1",
+              "macro_name": "sense_amp",
+              "col": 1,
+              "x": 13.41,
+              "y": 14.257499999999999,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "sense_enable",
+                "bl": "mux_out[1]",
+                "br": "mux_out_b[1]",
+                "dout": "dout[1]"
+              },
+              "dropped_pins": {
+                "QB": "dropped_complementary_output"
+              },
+              "adapter_strategy": "single_ended_q_to_dout",
+              "safe_for_physical_mapping": true,
+              "notes": [
+                "Mux-grouped sense amp placement plan."
+              ]
+            },
+            {
+              "instance_name": "Xsa_g2",
+              "macro_name": "sense_amp",
+              "col": 2,
+              "x": 14.82,
+              "y": 14.257499999999999,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "sense_enable",
+                "bl": "mux_out[2]",
+                "br": "mux_out_b[2]",
+                "dout": "dout[2]"
+              },
+              "dropped_pins": {
+                "QB": "dropped_complementary_output"
+              },
+              "adapter_strategy": "single_ended_q_to_dout",
+              "safe_for_physical_mapping": true,
+              "notes": [
+                "Mux-grouped sense amp placement plan."
+              ]
+            },
+            {
+              "instance_name": "Xsa_g3",
+              "macro_name": "sense_amp",
+              "col": 3,
+              "x": 16.23,
+              "y": 14.257499999999999,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "sense_enable",
+                "bl": "mux_out[3]",
+                "br": "mux_out_b[3]",
+                "dout": "dout[3]"
+              },
+              "dropped_pins": {
+                "QB": "dropped_complementary_output"
+              },
+              "adapter_strategy": "single_ended_q_to_dout",
+              "safe_for_physical_mapping": true,
+              "notes": [
+                "Mux-grouped sense amp placement plan."
+              ]
+            }
+          ],
+          "macro_name": "sense_amp",
+          "adapter_strategy": "single_ended_q_to_dout",
+          "requires_netlist_rewrite": true,
+          "requires_layout_pin": false,
+          "notes": [
+            "One sense_amp is planned per mux output group.",
+            "This plan does not place column mux macros; it only records grouped sense_amp targets.",
+            "The plan is adapter-only and does not modify standalone placement."
+          ]
+        },
+        "example_placements": [
+          {
+            "instance_name": "Xsa_g0",
+            "macro_name": "sense_amp",
+            "col": 0,
+            "x": 12.0,
+            "y": 14.257499999999999,
+            "orientation": "R0",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "en": "sense_enable",
+              "bl": "mux_out[0]",
+              "br": "mux_out_b[0]",
+              "dout": "dout[0]"
+            },
+            "dropped_pins": {
+              "QB": "dropped_complementary_output"
+            },
+            "adapter_strategy": "single_ended_q_to_dout",
+            "safe_for_physical_mapping": true,
+            "notes": [
+              "Mux-grouped sense amp placement plan."
+            ]
+          },
+          {
+            "instance_name": "Xsa_g1",
+            "macro_name": "sense_amp",
+            "col": 1,
+            "x": 13.41,
+            "y": 14.257499999999999,
+            "orientation": "R0",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "en": "sense_enable",
+              "bl": "mux_out[1]",
+              "br": "mux_out_b[1]",
+              "dout": "dout[1]"
+            },
+            "dropped_pins": {
+              "QB": "dropped_complementary_output"
+            },
+            "adapter_strategy": "single_ended_q_to_dout",
+            "safe_for_physical_mapping": true,
+            "notes": [
+              "Mux-grouped sense amp placement plan."
+            ]
+          },
+          {
+            "instance_name": "Xsa_g2",
+            "macro_name": "sense_amp",
+            "col": 2,
+            "x": 14.82,
+            "y": 14.257499999999999,
+            "orientation": "R0",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "en": "sense_enable",
+              "bl": "mux_out[2]",
+              "br": "mux_out_b[2]",
+              "dout": "dout[2]"
+            },
+            "dropped_pins": {
+              "QB": "dropped_complementary_output"
+            },
+            "adapter_strategy": "single_ended_q_to_dout",
+            "safe_for_physical_mapping": true,
+            "notes": [
+              "Mux-grouped sense amp placement plan."
+            ]
+          },
+          {
+            "instance_name": "Xsa_g3",
+            "macro_name": "sense_amp",
+            "col": 3,
+            "x": 16.23,
+            "y": 14.257499999999999,
+            "orientation": "R0",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "en": "sense_enable",
+              "bl": "mux_out[3]",
+              "br": "mux_out_b[3]",
+              "dout": "dout[3]"
+            },
+            "dropped_pins": {
+              "QB": "dropped_complementary_output"
+            },
+            "adapter_strategy": "single_ended_q_to_dout",
+            "safe_for_physical_mapping": true,
+            "notes": [
+              "Mux-grouped sense amp placement plan."
+            ]
+          }
+        ],
+        "adapter_applied_to_placement": true,
+        "sense_rect_origin": {
+          "x": 12.0,
+          "y": 14.257499999999999
+        },
+        "column_pitch_um": 1.41,
+        "mux_ratio": 2,
+        "storage_aggregation_enabled": false
+      },
+      "columnmux_adapter": {
+        "enabled": true,
+        "local_macro": "gen_col_mux_vdd_labeled",
+        "source_macro": "gen_col_mux",
+        "repaired_alias_metadata": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\openyield_repaired_macro_aliases.json",
+        "power_status": "vdd_label_present",
+        "safe_for_physical_mapping": true,
+        "safe_for_shared_rail": false,
+        "uses_repaired_alias": true,
+        "replacement_macros_modified": false,
+        "shared_rail_enabled": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "write_driver_changed": false,
+        "wordline_driver_changed": false,
+        "senseamp_pairing": {
+          "IN": "mux_out[group]",
+          "INB": "mux_out_b[group]",
+          "Q": "dout[group]",
+          "QB": "dropped_complementary_output"
+        },
+        "limited_placement_plan": {
+          "cols": 8,
+          "mux_ratio": 2,
+          "placements": [
+            {
+              "instance_name": "Xcmux_g0",
+              "macro_name": "gen_col_mux_vdd_labeled",
+              "group": 0,
+              "cols": [
+                0,
+                1
+              ],
+              "x": 12.0,
+              "y": 20.7425,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "sel": "col_sel[0]",
+                "bl": "bl[0]",
+                "br": "br[0]",
+                "out": "mux_out[0]",
+                "outb": "mux_out_b[0]"
+              },
+              "power_status": "vdd_label_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Limited placement plan only; standalone is not modified.",
+                "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+                "Grouped semantic plan for columns 0..1.",
+                "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+                "Uses repaired proof candidate with label-backed VDD metadata."
+              ]
+            },
+            {
+              "instance_name": "Xcmux_g1",
+              "macro_name": "gen_col_mux_vdd_labeled",
+              "group": 1,
+              "cols": [
+                2,
+                3
+              ],
+              "x": 12.705,
+              "y": 20.7425,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "sel": "col_sel[1]",
+                "bl": "bl[2]",
+                "br": "br[2]",
+                "out": "mux_out[1]",
+                "outb": "mux_out_b[1]"
+              },
+              "power_status": "vdd_label_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Limited placement plan only; standalone is not modified.",
+                "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+                "Grouped semantic plan for columns 2..3.",
+                "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+                "Uses repaired proof candidate with label-backed VDD metadata."
+              ]
+            },
+            {
+              "instance_name": "Xcmux_g2",
+              "macro_name": "gen_col_mux_vdd_labeled",
+              "group": 2,
+              "cols": [
+                4,
+                5
+              ],
+              "x": 13.41,
+              "y": 20.7425,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "sel": "col_sel[2]",
+                "bl": "bl[4]",
+                "br": "br[4]",
+                "out": "mux_out[2]",
+                "outb": "mux_out_b[2]"
+              },
+              "power_status": "vdd_label_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Limited placement plan only; standalone is not modified.",
+                "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+                "Grouped semantic plan for columns 4..5.",
+                "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+                "Uses repaired proof candidate with label-backed VDD metadata."
+              ]
+            },
+            {
+              "instance_name": "Xcmux_g3",
+              "macro_name": "gen_col_mux_vdd_labeled",
+              "group": 3,
+              "cols": [
+                6,
+                7
+              ],
+              "x": 14.115,
+              "y": 20.7425,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "sel": "col_sel[3]",
+                "bl": "bl[6]",
+                "br": "br[6]",
+                "out": "mux_out[3]",
+                "outb": "mux_out_b[3]"
+              },
+              "power_status": "vdd_label_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Limited placement plan only; standalone is not modified.",
+                "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+                "Grouped semantic plan for columns 6..7.",
+                "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+                "Uses repaired proof candidate with label-backed VDD metadata."
+              ]
+            }
+          ],
+          "macro_name": "gen_col_mux_vdd_labeled",
+          "power_status": "vdd_label_present",
+          "safe_for_physical_mapping": true,
+          "safe_for_shared_rail": false,
+          "notes": [
+            "This plan is generated from repaired alias metadata and existing sense_amp adapter semantics.",
+            "No routing, GDS writer, or standalone placement code is changed.",
+            "Mux ratio greater than one is handled as a grouped semantic plan only.",
+            "Candidate alias uses gen_col_mux_vdd_labeled from the proof GDS.",
+            "Shared rail remains disabled until a separate rail continuity proof exists."
+          ]
+        }
+      },
+      "writedriver_adapter": {
+        "enabled": false,
+        "local_macro": "write_driver",
+        "power_status": "legacy_metadata_only",
+        "safe_for_physical_mapping": false,
+        "safe_for_shared_rail": false,
+        "requires_netlist_rewrite": false,
+        "pin_adaptations": [],
+        "notes": [
+          "Write driver adapter is opt-in only.",
+          "Legacy standalone write_driver placement remains unchanged until explicitly enabled."
+        ],
+        "placement_plan": {},
+        "placement_count": 0,
+        "adapter_applied_to_placement": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "shared_rail_enabled": false,
+        "write_driver_changed": false,
+        "column_mux_changed": true,
+        "senseamp_changed": true,
+        "storage_aggregation_enabled": false
+      },
+      "storage_aggregation": {
+        "enabled": false,
+        "row_orientation_policy": "all_r0",
+        "allowed_macros": [
+          "cell_1rw",
+          "dummy_cell_1rw",
+          "replica_cell_1rw"
+        ],
+        "excluded_peripheral_macros": {
+          "sense_amp": "architecture_adapter_required: OpenYield has Q/QB, local sense_amp has single-ended dout.",
+          "write_driver": "rail_needs_manual_review: keep legacy/peripheral placement until rail sharing is proven.",
+          "dff": "standard_cell_row_required: do not aggregate with storage-array cells.",
+          "tri_gate": "standard_cell_row_required: do not aggregate with storage-array cells.",
+          "gen_col_mux": "missing_power_metadata: vdd is not proven, shared rail is forbidden.",
+          "gen_wl_driver": "needs_semantic_confirmation: B/wordline_enable semantics still need confirmation.",
+          "gen_nand2": "logic_gate: not part of limited storage-array aggregation.",
+          "gen_nand4": "logic_gate: not part of limited storage-array aggregation.",
+          "gen_precharge": "peripheral_macro: not part of limited storage-array aggregation."
+        },
+        "storage_only": true,
+        "peripherals_old_path": true,
+        "changed_gds_flow": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "shared_rail_merge": false,
+        "generated_gds": false,
+        "cross_row_power_short_risk": null,
+        "storage_plan": {
+          "enabled": false,
+          "rows": 16,
+          "cols": 8,
+          "plans": [],
+          "allowed_macros": [
+            "cell_1rw",
+            "dummy_cell_1rw",
+            "replica_cell_1rw"
+          ],
+          "row_orientation_policy": "all_r0",
+          "excluded_macros": {
+            "sense_amp": "architecture_adapter_required: OpenYield has Q/QB, local sense_amp has single-ended dout.",
+            "write_driver": "rail_needs_manual_review: keep legacy/peripheral placement until rail sharing is proven.",
+            "dff": "standard_cell_row_required: do not aggregate with storage-array cells.",
+            "tri_gate": "standard_cell_row_required: do not aggregate with storage-array cells.",
+            "gen_col_mux": "missing_power_metadata: vdd is not proven, shared rail is forbidden.",
+            "gen_wl_driver": "needs_semantic_confirmation: B/wordline_enable semantics still need confirmation.",
+            "gen_nand2": "logic_gate: not part of limited storage-array aggregation.",
+            "gen_nand4": "logic_gate: not part of limited storage-array aggregation.",
+            "gen_precharge": "peripheral_macro: not part of limited storage-array aggregation."
+          },
+          "power_rail_policy": "tb_shared_hint_only",
+          "cross_row_power_short_risk": null,
+          "changed_gds_flow": false,
+          "routing_changed": false,
+          "shared_rail_merge": false,
+          "notes": [
+            "enable_openyield_array_aggregation is False; standalone storage placement stays on the legacy path."
+          ]
+        },
+        "storage_arrays": {
+          "bitcell_array": {
+            "x0": 11.905,
+            "y0": 22.9175,
+            "x1": 17.735,
+            "y1": 44.95750000000001
+          },
+          "dummy_left_array": {
+            "x0": 11.2,
+            "y0": 22.9175,
+            "x1": 12.095,
+            "y1": 44.95750000000001
+          },
+          "dummy_right_array": {
+            "x0": 18.249999999999996,
+            "y0": 22.9175,
+            "x1": 19.144999999999996,
+            "y1": 44.95750000000001
+          },
+          "replica_bitline_array": {
+            "x0": 17.544999999999998,
+            "y0": 22.9175,
+            "x1": 18.439999999999998,
+            "y1": 44.95750000000001
+          }
+        },
+        "macro_counts": {},
+        "instance_count": 0,
+        "pitch": {
+          "x": 0.705,
+          "y": 1.365
+        },
+        "origin": {
+          "x": 12.0,
+          "y": 23.017500000000002
+        },
+        "power_rail_policy": "tb_shared_hint_only"
+      },
+      "routing_changed": false,
+      "gds_writer_changed": false,
+      "shared_rail_enabled": false
+    },
+    "write_path_only": {
+      "mode": "write_path_only",
+      "spec": {
+        "word_size": 4,
+        "num_words": 32,
+        "words_per_row": 2,
+        "enable_openyield_array_aggregation": false,
+        "enable_openyield_senseamp_adapter": false,
+        "enable_openyield_columnmux_adapter": false,
+        "enable_openyield_writedriver_adapter": true,
+        "openyield_storage_row_orientation_policy": "all_r0"
+      },
+      "outputs": {
+        "out_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_write_path_only",
+        "gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_write_path_only\\sram_4x32_wpr2_fd45.gds",
+        "report_md": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_write_path_only\\sram_4x32_wpr2_fd45.report.md",
+        "generated_gds": true
+      },
+      "metrics": {
+        "width_um": 19.392499999999995,
+        "height_um": 50.705,
+        "macro_area_um2": 983.2967124999997,
+        "column_mux_count": 8,
+        "sense_amp_count": 4,
+        "write_driver_count": 4,
+        "storage_instance_count": 0,
+        "peripheral_instance_count": 54
+      },
+      "read_path": {
+        "columnmux_out_to_mux_out": false,
+        "columnmux_outb_to_mux_out_b": false,
+        "senseamp_in_to_mux_out_group": false,
+        "senseamp_inb_to_mux_out_b_group": false,
+        "senseamp_q_to_dout_group": false,
+        "qb_dropped": true,
+        "fake_dout_b_generated": false,
+        "read_path_semantics_ok": false,
+        "mapping_table": [
+          {
+            "openyield_pin": "OUT",
+            "local_pin": "mux_out[group]",
+            "canonical_signal": "mux_out"
+          },
+          {
+            "openyield_pin": "OUTB",
+            "local_pin": "mux_out_b[group]",
+            "canonical_signal": "mux_out_b"
+          },
+          {
+            "openyield_pin": "IN",
+            "local_pin": "mux_out[group]",
+            "canonical_signal": "mux_out"
+          },
+          {
+            "openyield_pin": "INB",
+            "local_pin": "mux_out_b[group]",
+            "canonical_signal": "mux_out_b"
+          },
+          {
+            "openyield_pin": "Q",
+            "local_pin": "dout[group]",
+            "canonical_signal": "dout"
+          },
+          {
+            "openyield_pin": "QB",
+            "local_pin": "-",
+            "canonical_signal": "dropped_complementary_output"
+          }
+        ]
+      },
+      "write_path": {
+        "din_to_din": true,
+        "en_to_write_enable": true,
+        "bl_to_bl": true,
+        "blb_to_br": true,
+        "uses_columnmux_nets": false,
+        "write_path_semantics_ok": true,
+        "grouped_mapping_needs_confirmation": true,
+        "mapping_table": [
+          {
+            "openyield_pin": "DIN",
+            "local_pin": "din",
+            "canonical_signal": "din"
+          },
+          {
+            "openyield_pin": "EN",
+            "local_pin": "write_enable",
+            "canonical_signal": "write_enable"
+          },
+          {
+            "openyield_pin": "BL",
+            "local_pin": "bl",
+            "canonical_signal": "bl"
+          },
+          {
+            "openyield_pin": "BLB",
+            "local_pin": "br",
+            "canonical_signal": "br"
+          }
+        ]
+      },
+      "senseamp_adapter": {
+        "enabled": false,
+        "adapter_strategy": "single_ended_q_to_dout",
+        "q_to_dout": true,
+        "qb_to_dout_b": false,
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "requires_netlist_rewrite": true,
+        "requires_layout_pin": false,
+        "generated_fake_dout_b": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "write_driver_changed": false,
+        "column_mux_changed": false,
+        "wordline_driver_changed": false,
+        "placement_count": 0,
+        "local_macro": "sense_amp",
+        "local_pins": [
+          "bl",
+          "br",
+          "dout",
+          "en",
+          "vdd",
+          "gnd"
+        ],
+        "plan": {},
+        "example_placements": [],
+        "adapter_applied_to_placement": false
+      },
+      "columnmux_adapter": {
+        "enabled": false,
+        "local_macro": "gen_col_mux",
+        "source_macro": "gen_col_mux",
+        "repaired_alias_metadata": null,
+        "power_status": "legacy_metadata_only",
+        "safe_for_physical_mapping": false,
+        "safe_for_shared_rail": false,
+        "uses_repaired_alias": false,
+        "replacement_macros_modified": false,
+        "shared_rail_enabled": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "write_driver_changed": false,
+        "wordline_driver_changed": false,
+        "senseamp_pairing": {
+          "IN": "mux_out[group]",
+          "INB": "mux_out_b[group]",
+          "Q": "dout[group]",
+          "QB": "dropped_complementary_output"
+        },
+        "limited_placement_plan": {}
+      },
+      "writedriver_adapter": {
+        "enabled": true,
+        "contract_summary": {
+          "original_module_name": "WRITEDRIVER",
+          "canonical_module_name": "write_driver",
+          "role": "write_driver",
+          "pin_list": [
+            "VDD",
+            "VSS",
+            "EN",
+            "DIN",
+            "BL",
+            "BLB"
+          ],
+          "canonical_pins": [
+            "vdd",
+            "gnd",
+            "write_enable",
+            "din",
+            "bl",
+            "br"
+          ],
+          "power_pins": {
+            "VDD": "vdd",
+            "VSS": "gnd"
+          },
+          "notes": [
+            "OpenYield WRITEDRIVER has internal DINB/ENB generation; only DIN/EN are external pins."
+          ],
+          "warnings": []
+        },
+        "contract_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+        "local_macro": "write_driver",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\write_driver.gds",
+        "spice_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "power_status": "vdd_gnd_metadata_present",
+        "safe_for_physical_mapping": true,
+        "safe_for_shared_rail": false,
+        "requires_netlist_rewrite": false,
+        "pin_adaptations": [
+          {
+            "openyield_pin": "VDD",
+            "local_pin": "vdd",
+            "canonical_signal": "vdd",
+            "adaptation_type": "direct_physical_pin",
+            "required": true,
+            "notes": [
+              "Power pin is present in GDS and SPICE."
+            ]
+          },
+          {
+            "openyield_pin": "VSS",
+            "local_pin": "gnd",
+            "canonical_signal": "gnd",
+            "adaptation_type": "direct_physical_pin",
+            "required": true,
+            "notes": [
+              "Ground pin is present in GDS and SPICE."
+            ]
+          },
+          {
+            "openyield_pin": "EN",
+            "local_pin": "write_enable",
+            "canonical_signal": "write_enable",
+            "adaptation_type": "semantic_alias",
+            "required": true,
+            "notes": [
+              "Local pin name is `en`; canonical signal is `write_enable`."
+            ]
+          },
+          {
+            "openyield_pin": "DIN",
+            "local_pin": "din",
+            "canonical_signal": "din",
+            "adaptation_type": "direct_physical_pin",
+            "required": true,
+            "notes": [
+              "Local pin name matches the canonical data-in signal."
+            ]
+          },
+          {
+            "openyield_pin": "BL",
+            "local_pin": "bl",
+            "canonical_signal": "bl",
+            "adaptation_type": "direct_physical_pin",
+            "required": true,
+            "notes": [
+              "Left bitline pin is label-backed."
+            ]
+          },
+          {
+            "openyield_pin": "BLB",
+            "local_pin": "br",
+            "canonical_signal": "br",
+            "adaptation_type": "semantic_alias",
+            "required": true,
+            "notes": [
+              "OpenYield BLB maps to local `br` on this hardcell."
+            ]
+          }
+        ],
+        "notes": [
+          "OpenYield WRITEDRIVER exposes only DIN and EN externally; internal DINB/ENB generation stays inside the SPICE macro.",
+          "BL/BLB map to the local bl/br pins without a routing rewrite.",
+          "Shared rail remains disabled until a separate rail continuity proof exists."
+        ],
+        "placement_plan": {
+          "cols": 4,
+          "mux_ratio": 1,
+          "placements": [
+            {
+              "instance_name": "Xwd_c0",
+              "macro_name": "write_driver",
+              "col": 0,
+              "group": 0,
+              "cols": [
+                0
+              ],
+              "x": 12.0,
+              "y": 9.6075,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "write_enable",
+                "din": "din[0]",
+                "bl": "bl[0]",
+                "br": "br[0]"
+              },
+              "power_status": "vdd_gnd_metadata_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Direct per-column write driver placement plan."
+              ]
+            },
+            {
+              "instance_name": "Xwd_c1",
+              "macro_name": "write_driver",
+              "col": 1,
+              "group": 1,
+              "cols": [
+                1
+              ],
+              "x": 13.41,
+              "y": 9.6075,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "write_enable",
+                "din": "din[1]",
+                "bl": "bl[1]",
+                "br": "br[1]"
+              },
+              "power_status": "vdd_gnd_metadata_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Direct per-column write driver placement plan."
+              ]
+            },
+            {
+              "instance_name": "Xwd_c2",
+              "macro_name": "write_driver",
+              "col": 2,
+              "group": 2,
+              "cols": [
+                2
+              ],
+              "x": 14.82,
+              "y": 9.6075,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "write_enable",
+                "din": "din[2]",
+                "bl": "bl[2]",
+                "br": "br[2]"
+              },
+              "power_status": "vdd_gnd_metadata_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Direct per-column write driver placement plan."
+              ]
+            },
+            {
+              "instance_name": "Xwd_c3",
+              "macro_name": "write_driver",
+              "col": 3,
+              "group": 3,
+              "cols": [
+                3
+              ],
+              "x": 16.23,
+              "y": 9.6075,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "write_enable",
+                "din": "din[3]",
+                "bl": "bl[3]",
+                "br": "br[3]"
+              },
+              "power_status": "vdd_gnd_metadata_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Direct per-column write driver placement plan."
+              ]
+            }
+          ],
+          "macro_name": "write_driver",
+          "power_status": "vdd_gnd_metadata_present",
+          "safe_for_physical_mapping": true,
+          "safe_for_shared_rail": false,
+          "notes": [
+            "Limited placement plan only; standalone is not modified.",
+            "Write driver placement stays adapter-only and does not change routing or GDS writer code.",
+            "One write_driver is planned per storage/data column."
+          ]
+        },
+        "placement_count": 4,
+        "adapter_applied_to_placement": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "shared_rail_enabled": false,
+        "write_driver_changed": false,
+        "column_mux_changed": false,
+        "senseamp_changed": false,
+        "storage_aggregation_enabled": false
+      },
+      "storage_aggregation": {
+        "enabled": false,
+        "row_orientation_policy": "all_r0",
+        "allowed_macros": [
+          "cell_1rw",
+          "dummy_cell_1rw",
+          "replica_cell_1rw"
+        ],
+        "excluded_peripheral_macros": {
+          "sense_amp": "architecture_adapter_required: OpenYield has Q/QB, local sense_amp has single-ended dout.",
+          "write_driver": "rail_needs_manual_review: keep legacy/peripheral placement until rail sharing is proven.",
+          "dff": "standard_cell_row_required: do not aggregate with storage-array cells.",
+          "tri_gate": "standard_cell_row_required: do not aggregate with storage-array cells.",
+          "gen_col_mux": "missing_power_metadata: vdd is not proven, shared rail is forbidden.",
+          "gen_wl_driver": "needs_semantic_confirmation: B/wordline_enable semantics still need confirmation.",
+          "gen_nand2": "logic_gate: not part of limited storage-array aggregation.",
+          "gen_nand4": "logic_gate: not part of limited storage-array aggregation.",
+          "gen_precharge": "peripheral_macro: not part of limited storage-array aggregation."
+        },
+        "storage_only": true,
+        "peripherals_old_path": true,
+        "changed_gds_flow": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "shared_rail_merge": false,
+        "generated_gds": false,
+        "cross_row_power_short_risk": null,
+        "storage_plan": {
+          "enabled": false,
+          "rows": 16,
+          "cols": 8,
+          "plans": [],
+          "allowed_macros": [
+            "cell_1rw",
+            "dummy_cell_1rw",
+            "replica_cell_1rw"
+          ],
+          "row_orientation_policy": "all_r0",
+          "excluded_macros": {
+            "sense_amp": "architecture_adapter_required: OpenYield has Q/QB, local sense_amp has single-ended dout.",
+            "write_driver": "rail_needs_manual_review: keep legacy/peripheral placement until rail sharing is proven.",
+            "dff": "standard_cell_row_required: do not aggregate with storage-array cells.",
+            "tri_gate": "standard_cell_row_required: do not aggregate with storage-array cells.",
+            "gen_col_mux": "missing_power_metadata: vdd is not proven, shared rail is forbidden.",
+            "gen_wl_driver": "needs_semantic_confirmation: B/wordline_enable semantics still need confirmation.",
+            "gen_nand2": "logic_gate: not part of limited storage-array aggregation.",
+            "gen_nand4": "logic_gate: not part of limited storage-array aggregation.",
+            "gen_precharge": "peripheral_macro: not part of limited storage-array aggregation."
+          },
+          "power_rail_policy": "tb_shared_hint_only",
+          "cross_row_power_short_risk": null,
+          "changed_gds_flow": false,
+          "routing_changed": false,
+          "shared_rail_merge": false,
+          "notes": [
+            "enable_openyield_array_aggregation is False; standalone storage placement stays on the legacy path."
+          ]
+        },
+        "storage_arrays": {
+          "bitcell_array": {
+            "x0": 11.905,
+            "y0": 22.9175,
+            "x1": 17.735,
+            "y1": 44.95750000000001
+          },
+          "dummy_left_array": {
+            "x0": 11.2,
+            "y0": 22.9175,
+            "x1": 12.095,
+            "y1": 44.95750000000001
+          },
+          "dummy_right_array": {
+            "x0": 18.249999999999996,
+            "y0": 22.9175,
+            "x1": 19.144999999999996,
+            "y1": 44.95750000000001
+          },
+          "replica_bitline_array": {
+            "x0": 17.544999999999998,
+            "y0": 22.9175,
+            "x1": 18.439999999999998,
+            "y1": 44.95750000000001
+          }
+        },
+        "macro_counts": {},
+        "instance_count": 0,
+        "pitch": {
+          "x": 0.705,
+          "y": 1.365
+        },
+        "origin": {
+          "x": 12.0,
+          "y": 23.017500000000002
+        },
+        "power_rail_policy": "tb_shared_hint_only"
+      },
+      "routing_changed": false,
+      "gds_writer_changed": false,
+      "shared_rail_enabled": false
+    },
+    "read_write_path": {
+      "mode": "read_write_path",
+      "spec": {
+        "word_size": 4,
+        "num_words": 32,
+        "words_per_row": 2,
+        "enable_openyield_array_aggregation": false,
+        "enable_openyield_senseamp_adapter": true,
+        "enable_openyield_columnmux_adapter": true,
+        "enable_openyield_writedriver_adapter": true,
+        "openyield_storage_row_orientation_policy": "all_r0"
+      },
+      "outputs": {
+        "out_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_write_path",
+        "gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_write_path\\sram_4x32_wpr2_fd45.gds",
+        "report_md": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_write_path\\sram_4x32_wpr2_fd45.report.md",
+        "generated_gds": true
+      },
+      "metrics": {
+        "width_um": 19.392499999999995,
+        "height_um": 50.705,
+        "macro_area_um2": 983.2967124999997,
+        "column_mux_count": 8,
+        "sense_amp_count": 4,
+        "write_driver_count": 4,
+        "storage_instance_count": 0,
+        "peripheral_instance_count": 54
+      },
+      "read_path": {
+        "columnmux_out_to_mux_out": true,
+        "columnmux_outb_to_mux_out_b": true,
+        "senseamp_in_to_mux_out_group": true,
+        "senseamp_inb_to_mux_out_b_group": true,
+        "senseamp_q_to_dout_group": true,
+        "qb_dropped": true,
+        "fake_dout_b_generated": false,
+        "read_path_semantics_ok": true,
+        "mapping_table": [
+          {
+            "openyield_pin": "OUT",
+            "local_pin": "mux_out[group]",
+            "canonical_signal": "mux_out"
+          },
+          {
+            "openyield_pin": "OUTB",
+            "local_pin": "mux_out_b[group]",
+            "canonical_signal": "mux_out_b"
+          },
+          {
+            "openyield_pin": "IN",
+            "local_pin": "mux_out[group]",
+            "canonical_signal": "mux_out"
+          },
+          {
+            "openyield_pin": "INB",
+            "local_pin": "mux_out_b[group]",
+            "canonical_signal": "mux_out_b"
+          },
+          {
+            "openyield_pin": "Q",
+            "local_pin": "dout[group]",
+            "canonical_signal": "dout"
+          },
+          {
+            "openyield_pin": "QB",
+            "local_pin": "-",
+            "canonical_signal": "dropped_complementary_output"
+          }
+        ]
+      },
+      "write_path": {
+        "din_to_din": true,
+        "en_to_write_enable": true,
+        "bl_to_bl": true,
+        "blb_to_br": true,
+        "uses_columnmux_nets": false,
+        "write_path_semantics_ok": true,
+        "grouped_mapping_needs_confirmation": true,
+        "mapping_table": [
+          {
+            "openyield_pin": "DIN",
+            "local_pin": "din",
+            "canonical_signal": "din"
+          },
+          {
+            "openyield_pin": "EN",
+            "local_pin": "write_enable",
+            "canonical_signal": "write_enable"
+          },
+          {
+            "openyield_pin": "BL",
+            "local_pin": "bl",
+            "canonical_signal": "bl"
+          },
+          {
+            "openyield_pin": "BLB",
+            "local_pin": "br",
+            "canonical_signal": "br"
+          }
+        ]
+      },
+      "senseamp_adapter": {
+        "enabled": true,
+        "adapter_strategy": "single_ended_q_to_dout",
+        "q_to_dout": true,
+        "qb_to_dout_b": false,
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "requires_netlist_rewrite": true,
+        "requires_layout_pin": false,
+        "generated_fake_dout_b": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "write_driver_changed": false,
+        "column_mux_changed": true,
+        "wordline_driver_changed": false,
+        "placement_count": 4,
+        "local_macro": "sense_amp",
+        "local_pins": [
+          "bl",
+          "br",
+          "dout",
+          "en",
+          "vdd",
+          "gnd"
+        ],
+        "plan": {
+          "cols": 8,
+          "mux_ratio": 2,
+          "placements": [
+            {
+              "instance_name": "Xsa_g0",
+              "macro_name": "sense_amp",
+              "col": 0,
+              "x": 12.0,
+              "y": 14.257499999999999,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "sense_enable",
+                "bl": "mux_out[0]",
+                "br": "mux_out_b[0]",
+                "dout": "dout[0]"
+              },
+              "dropped_pins": {
+                "QB": "dropped_complementary_output"
+              },
+              "adapter_strategy": "single_ended_q_to_dout",
+              "safe_for_physical_mapping": true,
+              "notes": [
+                "Mux-grouped sense amp placement plan."
+              ]
+            },
+            {
+              "instance_name": "Xsa_g1",
+              "macro_name": "sense_amp",
+              "col": 1,
+              "x": 13.41,
+              "y": 14.257499999999999,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "sense_enable",
+                "bl": "mux_out[1]",
+                "br": "mux_out_b[1]",
+                "dout": "dout[1]"
+              },
+              "dropped_pins": {
+                "QB": "dropped_complementary_output"
+              },
+              "adapter_strategy": "single_ended_q_to_dout",
+              "safe_for_physical_mapping": true,
+              "notes": [
+                "Mux-grouped sense amp placement plan."
+              ]
+            },
+            {
+              "instance_name": "Xsa_g2",
+              "macro_name": "sense_amp",
+              "col": 2,
+              "x": 14.82,
+              "y": 14.257499999999999,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "sense_enable",
+                "bl": "mux_out[2]",
+                "br": "mux_out_b[2]",
+                "dout": "dout[2]"
+              },
+              "dropped_pins": {
+                "QB": "dropped_complementary_output"
+              },
+              "adapter_strategy": "single_ended_q_to_dout",
+              "safe_for_physical_mapping": true,
+              "notes": [
+                "Mux-grouped sense amp placement plan."
+              ]
+            },
+            {
+              "instance_name": "Xsa_g3",
+              "macro_name": "sense_amp",
+              "col": 3,
+              "x": 16.23,
+              "y": 14.257499999999999,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "sense_enable",
+                "bl": "mux_out[3]",
+                "br": "mux_out_b[3]",
+                "dout": "dout[3]"
+              },
+              "dropped_pins": {
+                "QB": "dropped_complementary_output"
+              },
+              "adapter_strategy": "single_ended_q_to_dout",
+              "safe_for_physical_mapping": true,
+              "notes": [
+                "Mux-grouped sense amp placement plan."
+              ]
+            }
+          ],
+          "macro_name": "sense_amp",
+          "adapter_strategy": "single_ended_q_to_dout",
+          "requires_netlist_rewrite": true,
+          "requires_layout_pin": false,
+          "notes": [
+            "One sense_amp is planned per mux output group.",
+            "This plan does not place column mux macros; it only records grouped sense_amp targets.",
+            "The plan is adapter-only and does not modify standalone placement."
+          ]
+        },
+        "example_placements": [
+          {
+            "instance_name": "Xsa_g0",
+            "macro_name": "sense_amp",
+            "col": 0,
+            "x": 12.0,
+            "y": 14.257499999999999,
+            "orientation": "R0",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "en": "sense_enable",
+              "bl": "mux_out[0]",
+              "br": "mux_out_b[0]",
+              "dout": "dout[0]"
+            },
+            "dropped_pins": {
+              "QB": "dropped_complementary_output"
+            },
+            "adapter_strategy": "single_ended_q_to_dout",
+            "safe_for_physical_mapping": true,
+            "notes": [
+              "Mux-grouped sense amp placement plan."
+            ]
+          },
+          {
+            "instance_name": "Xsa_g1",
+            "macro_name": "sense_amp",
+            "col": 1,
+            "x": 13.41,
+            "y": 14.257499999999999,
+            "orientation": "R0",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "en": "sense_enable",
+              "bl": "mux_out[1]",
+              "br": "mux_out_b[1]",
+              "dout": "dout[1]"
+            },
+            "dropped_pins": {
+              "QB": "dropped_complementary_output"
+            },
+            "adapter_strategy": "single_ended_q_to_dout",
+            "safe_for_physical_mapping": true,
+            "notes": [
+              "Mux-grouped sense amp placement plan."
+            ]
+          },
+          {
+            "instance_name": "Xsa_g2",
+            "macro_name": "sense_amp",
+            "col": 2,
+            "x": 14.82,
+            "y": 14.257499999999999,
+            "orientation": "R0",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "en": "sense_enable",
+              "bl": "mux_out[2]",
+              "br": "mux_out_b[2]",
+              "dout": "dout[2]"
+            },
+            "dropped_pins": {
+              "QB": "dropped_complementary_output"
+            },
+            "adapter_strategy": "single_ended_q_to_dout",
+            "safe_for_physical_mapping": true,
+            "notes": [
+              "Mux-grouped sense amp placement plan."
+            ]
+          },
+          {
+            "instance_name": "Xsa_g3",
+            "macro_name": "sense_amp",
+            "col": 3,
+            "x": 16.23,
+            "y": 14.257499999999999,
+            "orientation": "R0",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "en": "sense_enable",
+              "bl": "mux_out[3]",
+              "br": "mux_out_b[3]",
+              "dout": "dout[3]"
+            },
+            "dropped_pins": {
+              "QB": "dropped_complementary_output"
+            },
+            "adapter_strategy": "single_ended_q_to_dout",
+            "safe_for_physical_mapping": true,
+            "notes": [
+              "Mux-grouped sense amp placement plan."
+            ]
+          }
+        ],
+        "adapter_applied_to_placement": true,
+        "sense_rect_origin": {
+          "x": 12.0,
+          "y": 14.257499999999999
+        },
+        "column_pitch_um": 1.41,
+        "mux_ratio": 2,
+        "storage_aggregation_enabled": false
+      },
+      "columnmux_adapter": {
+        "enabled": true,
+        "local_macro": "gen_col_mux_vdd_labeled",
+        "source_macro": "gen_col_mux",
+        "repaired_alias_metadata": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\openyield_repaired_macro_aliases.json",
+        "power_status": "vdd_label_present",
+        "safe_for_physical_mapping": true,
+        "safe_for_shared_rail": false,
+        "uses_repaired_alias": true,
+        "replacement_macros_modified": false,
+        "shared_rail_enabled": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "write_driver_changed": false,
+        "wordline_driver_changed": false,
+        "senseamp_pairing": {
+          "IN": "mux_out[group]",
+          "INB": "mux_out_b[group]",
+          "Q": "dout[group]",
+          "QB": "dropped_complementary_output"
+        },
+        "limited_placement_plan": {
+          "cols": 8,
+          "mux_ratio": 2,
+          "placements": [
+            {
+              "instance_name": "Xcmux_g0",
+              "macro_name": "gen_col_mux_vdd_labeled",
+              "group": 0,
+              "cols": [
+                0,
+                1
+              ],
+              "x": 12.0,
+              "y": 20.7425,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "sel": "col_sel[0]",
+                "bl": "bl[0]",
+                "br": "br[0]",
+                "out": "mux_out[0]",
+                "outb": "mux_out_b[0]"
+              },
+              "power_status": "vdd_label_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Limited placement plan only; standalone is not modified.",
+                "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+                "Grouped semantic plan for columns 0..1.",
+                "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+                "Uses repaired proof candidate with label-backed VDD metadata."
+              ]
+            },
+            {
+              "instance_name": "Xcmux_g1",
+              "macro_name": "gen_col_mux_vdd_labeled",
+              "group": 1,
+              "cols": [
+                2,
+                3
+              ],
+              "x": 12.705,
+              "y": 20.7425,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "sel": "col_sel[1]",
+                "bl": "bl[2]",
+                "br": "br[2]",
+                "out": "mux_out[1]",
+                "outb": "mux_out_b[1]"
+              },
+              "power_status": "vdd_label_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Limited placement plan only; standalone is not modified.",
+                "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+                "Grouped semantic plan for columns 2..3.",
+                "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+                "Uses repaired proof candidate with label-backed VDD metadata."
+              ]
+            },
+            {
+              "instance_name": "Xcmux_g2",
+              "macro_name": "gen_col_mux_vdd_labeled",
+              "group": 2,
+              "cols": [
+                4,
+                5
+              ],
+              "x": 13.41,
+              "y": 20.7425,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "sel": "col_sel[2]",
+                "bl": "bl[4]",
+                "br": "br[4]",
+                "out": "mux_out[2]",
+                "outb": "mux_out_b[2]"
+              },
+              "power_status": "vdd_label_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Limited placement plan only; standalone is not modified.",
+                "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+                "Grouped semantic plan for columns 4..5.",
+                "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+                "Uses repaired proof candidate with label-backed VDD metadata."
+              ]
+            },
+            {
+              "instance_name": "Xcmux_g3",
+              "macro_name": "gen_col_mux_vdd_labeled",
+              "group": 3,
+              "cols": [
+                6,
+                7
+              ],
+              "x": 14.115,
+              "y": 20.7425,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "sel": "col_sel[3]",
+                "bl": "bl[6]",
+                "br": "br[6]",
+                "out": "mux_out[3]",
+                "outb": "mux_out_b[3]"
+              },
+              "power_status": "vdd_label_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Limited placement plan only; standalone is not modified.",
+                "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+                "Grouped semantic plan for columns 6..7.",
+                "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+                "Uses repaired proof candidate with label-backed VDD metadata."
+              ]
+            }
+          ],
+          "macro_name": "gen_col_mux_vdd_labeled",
+          "power_status": "vdd_label_present",
+          "safe_for_physical_mapping": true,
+          "safe_for_shared_rail": false,
+          "notes": [
+            "This plan is generated from repaired alias metadata and existing sense_amp adapter semantics.",
+            "No routing, GDS writer, or standalone placement code is changed.",
+            "Mux ratio greater than one is handled as a grouped semantic plan only.",
+            "Candidate alias uses gen_col_mux_vdd_labeled from the proof GDS.",
+            "Shared rail remains disabled until a separate rail continuity proof exists."
+          ]
+        }
+      },
+      "writedriver_adapter": {
+        "enabled": true,
+        "contract_summary": {
+          "original_module_name": "WRITEDRIVER",
+          "canonical_module_name": "write_driver",
+          "role": "write_driver",
+          "pin_list": [
+            "VDD",
+            "VSS",
+            "EN",
+            "DIN",
+            "BL",
+            "BLB"
+          ],
+          "canonical_pins": [
+            "vdd",
+            "gnd",
+            "write_enable",
+            "din",
+            "bl",
+            "br"
+          ],
+          "power_pins": {
+            "VDD": "vdd",
+            "VSS": "gnd"
+          },
+          "notes": [
+            "OpenYield WRITEDRIVER has internal DINB/ENB generation; only DIN/EN are external pins."
+          ],
+          "warnings": []
+        },
+        "contract_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+        "local_macro": "write_driver",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\write_driver.gds",
+        "spice_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "power_status": "vdd_gnd_metadata_present",
+        "safe_for_physical_mapping": true,
+        "safe_for_shared_rail": false,
+        "requires_netlist_rewrite": false,
+        "pin_adaptations": [
+          {
+            "openyield_pin": "VDD",
+            "local_pin": "vdd",
+            "canonical_signal": "vdd",
+            "adaptation_type": "direct_physical_pin",
+            "required": true,
+            "notes": [
+              "Power pin is present in GDS and SPICE."
+            ]
+          },
+          {
+            "openyield_pin": "VSS",
+            "local_pin": "gnd",
+            "canonical_signal": "gnd",
+            "adaptation_type": "direct_physical_pin",
+            "required": true,
+            "notes": [
+              "Ground pin is present in GDS and SPICE."
+            ]
+          },
+          {
+            "openyield_pin": "EN",
+            "local_pin": "write_enable",
+            "canonical_signal": "write_enable",
+            "adaptation_type": "semantic_alias",
+            "required": true,
+            "notes": [
+              "Local pin name is `en`; canonical signal is `write_enable`."
+            ]
+          },
+          {
+            "openyield_pin": "DIN",
+            "local_pin": "din",
+            "canonical_signal": "din",
+            "adaptation_type": "direct_physical_pin",
+            "required": true,
+            "notes": [
+              "Local pin name matches the canonical data-in signal."
+            ]
+          },
+          {
+            "openyield_pin": "BL",
+            "local_pin": "bl",
+            "canonical_signal": "bl",
+            "adaptation_type": "direct_physical_pin",
+            "required": true,
+            "notes": [
+              "Left bitline pin is label-backed."
+            ]
+          },
+          {
+            "openyield_pin": "BLB",
+            "local_pin": "br",
+            "canonical_signal": "br",
+            "adaptation_type": "semantic_alias",
+            "required": true,
+            "notes": [
+              "OpenYield BLB maps to local `br` on this hardcell."
+            ]
+          }
+        ],
+        "notes": [
+          "OpenYield WRITEDRIVER exposes only DIN and EN externally; internal DINB/ENB generation stays inside the SPICE macro.",
+          "BL/BLB map to the local bl/br pins without a routing rewrite.",
+          "Shared rail remains disabled until a separate rail continuity proof exists."
+        ],
+        "placement_plan": {
+          "cols": 4,
+          "mux_ratio": 1,
+          "placements": [
+            {
+              "instance_name": "Xwd_c0",
+              "macro_name": "write_driver",
+              "col": 0,
+              "group": 0,
+              "cols": [
+                0
+              ],
+              "x": 12.0,
+              "y": 9.6075,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "write_enable",
+                "din": "din[0]",
+                "bl": "bl[0]",
+                "br": "br[0]"
+              },
+              "power_status": "vdd_gnd_metadata_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Direct per-column write driver placement plan."
+              ]
+            },
+            {
+              "instance_name": "Xwd_c1",
+              "macro_name": "write_driver",
+              "col": 1,
+              "group": 1,
+              "cols": [
+                1
+              ],
+              "x": 13.41,
+              "y": 9.6075,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "write_enable",
+                "din": "din[1]",
+                "bl": "bl[1]",
+                "br": "br[1]"
+              },
+              "power_status": "vdd_gnd_metadata_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Direct per-column write driver placement plan."
+              ]
+            },
+            {
+              "instance_name": "Xwd_c2",
+              "macro_name": "write_driver",
+              "col": 2,
+              "group": 2,
+              "cols": [
+                2
+              ],
+              "x": 14.82,
+              "y": 9.6075,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "write_enable",
+                "din": "din[2]",
+                "bl": "bl[2]",
+                "br": "br[2]"
+              },
+              "power_status": "vdd_gnd_metadata_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Direct per-column write driver placement plan."
+              ]
+            },
+            {
+              "instance_name": "Xwd_c3",
+              "macro_name": "write_driver",
+              "col": 3,
+              "group": 3,
+              "cols": [
+                3
+              ],
+              "x": 16.23,
+              "y": 9.6075,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "write_enable",
+                "din": "din[3]",
+                "bl": "bl[3]",
+                "br": "br[3]"
+              },
+              "power_status": "vdd_gnd_metadata_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Direct per-column write driver placement plan."
+              ]
+            }
+          ],
+          "macro_name": "write_driver",
+          "power_status": "vdd_gnd_metadata_present",
+          "safe_for_physical_mapping": true,
+          "safe_for_shared_rail": false,
+          "notes": [
+            "Limited placement plan only; standalone is not modified.",
+            "Write driver placement stays adapter-only and does not change routing or GDS writer code.",
+            "One write_driver is planned per storage/data column."
+          ]
+        },
+        "placement_count": 4,
+        "adapter_applied_to_placement": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "shared_rail_enabled": false,
+        "write_driver_changed": false,
+        "column_mux_changed": true,
+        "senseamp_changed": true,
+        "storage_aggregation_enabled": false
+      },
+      "storage_aggregation": {
+        "enabled": false,
+        "row_orientation_policy": "all_r0",
+        "allowed_macros": [
+          "cell_1rw",
+          "dummy_cell_1rw",
+          "replica_cell_1rw"
+        ],
+        "excluded_peripheral_macros": {
+          "sense_amp": "architecture_adapter_required: OpenYield has Q/QB, local sense_amp has single-ended dout.",
+          "write_driver": "rail_needs_manual_review: keep legacy/peripheral placement until rail sharing is proven.",
+          "dff": "standard_cell_row_required: do not aggregate with storage-array cells.",
+          "tri_gate": "standard_cell_row_required: do not aggregate with storage-array cells.",
+          "gen_col_mux": "missing_power_metadata: vdd is not proven, shared rail is forbidden.",
+          "gen_wl_driver": "needs_semantic_confirmation: B/wordline_enable semantics still need confirmation.",
+          "gen_nand2": "logic_gate: not part of limited storage-array aggregation.",
+          "gen_nand4": "logic_gate: not part of limited storage-array aggregation.",
+          "gen_precharge": "peripheral_macro: not part of limited storage-array aggregation."
+        },
+        "storage_only": true,
+        "peripherals_old_path": true,
+        "changed_gds_flow": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "shared_rail_merge": false,
+        "generated_gds": false,
+        "cross_row_power_short_risk": null,
+        "storage_plan": {
+          "enabled": false,
+          "rows": 16,
+          "cols": 8,
+          "plans": [],
+          "allowed_macros": [
+            "cell_1rw",
+            "dummy_cell_1rw",
+            "replica_cell_1rw"
+          ],
+          "row_orientation_policy": "all_r0",
+          "excluded_macros": {
+            "sense_amp": "architecture_adapter_required: OpenYield has Q/QB, local sense_amp has single-ended dout.",
+            "write_driver": "rail_needs_manual_review: keep legacy/peripheral placement until rail sharing is proven.",
+            "dff": "standard_cell_row_required: do not aggregate with storage-array cells.",
+            "tri_gate": "standard_cell_row_required: do not aggregate with storage-array cells.",
+            "gen_col_mux": "missing_power_metadata: vdd is not proven, shared rail is forbidden.",
+            "gen_wl_driver": "needs_semantic_confirmation: B/wordline_enable semantics still need confirmation.",
+            "gen_nand2": "logic_gate: not part of limited storage-array aggregation.",
+            "gen_nand4": "logic_gate: not part of limited storage-array aggregation.",
+            "gen_precharge": "peripheral_macro: not part of limited storage-array aggregation."
+          },
+          "power_rail_policy": "tb_shared_hint_only",
+          "cross_row_power_short_risk": null,
+          "changed_gds_flow": false,
+          "routing_changed": false,
+          "shared_rail_merge": false,
+          "notes": [
+            "enable_openyield_array_aggregation is False; standalone storage placement stays on the legacy path."
+          ]
+        },
+        "storage_arrays": {
+          "bitcell_array": {
+            "x0": 11.905,
+            "y0": 22.9175,
+            "x1": 17.735,
+            "y1": 44.95750000000001
+          },
+          "dummy_left_array": {
+            "x0": 11.2,
+            "y0": 22.9175,
+            "x1": 12.095,
+            "y1": 44.95750000000001
+          },
+          "dummy_right_array": {
+            "x0": 18.249999999999996,
+            "y0": 22.9175,
+            "x1": 19.144999999999996,
+            "y1": 44.95750000000001
+          },
+          "replica_bitline_array": {
+            "x0": 17.544999999999998,
+            "y0": 22.9175,
+            "x1": 18.439999999999998,
+            "y1": 44.95750000000001
+          }
+        },
+        "macro_counts": {},
+        "instance_count": 0,
+        "pitch": {
+          "x": 0.705,
+          "y": 1.365
+        },
+        "origin": {
+          "x": 12.0,
+          "y": 23.017500000000002
+        },
+        "power_rail_policy": "tb_shared_hint_only"
+      },
+      "routing_changed": false,
+      "gds_writer_changed": false,
+      "shared_rail_enabled": false
+    },
+    "storage_plus_read_write_path": {
+      "mode": "storage_plus_read_write_path",
+      "spec": {
+        "word_size": 4,
+        "num_words": 32,
+        "words_per_row": 2,
+        "enable_openyield_array_aggregation": true,
+        "enable_openyield_senseamp_adapter": true,
+        "enable_openyield_columnmux_adapter": true,
+        "enable_openyield_writedriver_adapter": true,
+        "openyield_storage_row_orientation_policy": "alternating_mx"
+      },
+      "outputs": {
+        "out_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_storage_plus_read_write_path",
+        "gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_storage_plus_read_write_path\\sram_4x32_wpr2_fd45.gds",
+        "report_md": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_storage_plus_read_write_path\\sram_4x32_wpr2_fd45.report.md",
+        "generated_gds": true
+      },
+      "metrics": {
+        "width_um": 21.292499999999976,
+        "height_um": 50.705,
+        "macro_area_um2": 1079.6362124999987,
+        "column_mux_count": 8,
+        "sense_amp_count": 4,
+        "write_driver_count": 4,
+        "storage_instance_count": 176,
+        "peripheral_instance_count": 54
+      },
+      "read_path": {
+        "columnmux_out_to_mux_out": true,
+        "columnmux_outb_to_mux_out_b": true,
+        "senseamp_in_to_mux_out_group": true,
+        "senseamp_inb_to_mux_out_b_group": true,
+        "senseamp_q_to_dout_group": true,
+        "qb_dropped": true,
+        "fake_dout_b_generated": false,
+        "read_path_semantics_ok": true,
+        "mapping_table": [
+          {
+            "openyield_pin": "OUT",
+            "local_pin": "mux_out[group]",
+            "canonical_signal": "mux_out"
+          },
+          {
+            "openyield_pin": "OUTB",
+            "local_pin": "mux_out_b[group]",
+            "canonical_signal": "mux_out_b"
+          },
+          {
+            "openyield_pin": "IN",
+            "local_pin": "mux_out[group]",
+            "canonical_signal": "mux_out"
+          },
+          {
+            "openyield_pin": "INB",
+            "local_pin": "mux_out_b[group]",
+            "canonical_signal": "mux_out_b"
+          },
+          {
+            "openyield_pin": "Q",
+            "local_pin": "dout[group]",
+            "canonical_signal": "dout"
+          },
+          {
+            "openyield_pin": "QB",
+            "local_pin": "-",
+            "canonical_signal": "dropped_complementary_output"
+          }
+        ]
+      },
+      "write_path": {
+        "din_to_din": true,
+        "en_to_write_enable": true,
+        "bl_to_bl": true,
+        "blb_to_br": true,
+        "uses_columnmux_nets": false,
+        "write_path_semantics_ok": true,
+        "grouped_mapping_needs_confirmation": true,
+        "mapping_table": [
+          {
+            "openyield_pin": "DIN",
+            "local_pin": "din",
+            "canonical_signal": "din"
+          },
+          {
+            "openyield_pin": "EN",
+            "local_pin": "write_enable",
+            "canonical_signal": "write_enable"
+          },
+          {
+            "openyield_pin": "BL",
+            "local_pin": "bl",
+            "canonical_signal": "bl"
+          },
+          {
+            "openyield_pin": "BLB",
+            "local_pin": "br",
+            "canonical_signal": "br"
+          }
+        ]
+      },
+      "senseamp_adapter": {
+        "enabled": true,
+        "adapter_strategy": "single_ended_q_to_dout",
+        "q_to_dout": true,
+        "qb_to_dout_b": false,
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "requires_netlist_rewrite": true,
+        "requires_layout_pin": false,
+        "generated_fake_dout_b": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "write_driver_changed": false,
+        "column_mux_changed": true,
+        "wordline_driver_changed": false,
+        "placement_count": 4,
+        "local_macro": "sense_amp",
+        "local_pins": [
+          "bl",
+          "br",
+          "dout",
+          "en",
+          "vdd",
+          "gnd"
+        ],
+        "plan": {
+          "cols": 8,
+          "mux_ratio": 2,
+          "placements": [
+            {
+              "instance_name": "Xsa_g0",
+              "macro_name": "sense_amp",
+              "col": 0,
+              "x": 12.189999999999987,
+              "y": 14.257499999999999,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "sense_enable",
+                "bl": "mux_out[0]",
+                "br": "mux_out_b[0]",
+                "dout": "dout[0]"
+              },
+              "dropped_pins": {
+                "QB": "dropped_complementary_output"
+              },
+              "adapter_strategy": "single_ended_q_to_dout",
+              "safe_for_physical_mapping": true,
+              "notes": [
+                "Mux-grouped sense amp placement plan."
+              ]
+            },
+            {
+              "instance_name": "Xsa_g1",
+              "macro_name": "sense_amp",
+              "col": 1,
+              "x": 13.979999999999986,
+              "y": 14.257499999999999,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "sense_enable",
+                "bl": "mux_out[1]",
+                "br": "mux_out_b[1]",
+                "dout": "dout[1]"
+              },
+              "dropped_pins": {
+                "QB": "dropped_complementary_output"
+              },
+              "adapter_strategy": "single_ended_q_to_dout",
+              "safe_for_physical_mapping": true,
+              "notes": [
+                "Mux-grouped sense amp placement plan."
+              ]
+            },
+            {
+              "instance_name": "Xsa_g2",
+              "macro_name": "sense_amp",
+              "col": 2,
+              "x": 15.769999999999987,
+              "y": 14.257499999999999,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "sense_enable",
+                "bl": "mux_out[2]",
+                "br": "mux_out_b[2]",
+                "dout": "dout[2]"
+              },
+              "dropped_pins": {
+                "QB": "dropped_complementary_output"
+              },
+              "adapter_strategy": "single_ended_q_to_dout",
+              "safe_for_physical_mapping": true,
+              "notes": [
+                "Mux-grouped sense amp placement plan."
+              ]
+            },
+            {
+              "instance_name": "Xsa_g3",
+              "macro_name": "sense_amp",
+              "col": 3,
+              "x": 17.559999999999988,
+              "y": 14.257499999999999,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "sense_enable",
+                "bl": "mux_out[3]",
+                "br": "mux_out_b[3]",
+                "dout": "dout[3]"
+              },
+              "dropped_pins": {
+                "QB": "dropped_complementary_output"
+              },
+              "adapter_strategy": "single_ended_q_to_dout",
+              "safe_for_physical_mapping": true,
+              "notes": [
+                "Mux-grouped sense amp placement plan."
+              ]
+            }
+          ],
+          "macro_name": "sense_amp",
+          "adapter_strategy": "single_ended_q_to_dout",
+          "requires_netlist_rewrite": true,
+          "requires_layout_pin": false,
+          "notes": [
+            "One sense_amp is planned per mux output group.",
+            "This plan does not place column mux macros; it only records grouped sense_amp targets.",
+            "The plan is adapter-only and does not modify standalone placement."
+          ]
+        },
+        "example_placements": [
+          {
+            "instance_name": "Xsa_g0",
+            "macro_name": "sense_amp",
+            "col": 0,
+            "x": 12.189999999999987,
+            "y": 14.257499999999999,
+            "orientation": "R0",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "en": "sense_enable",
+              "bl": "mux_out[0]",
+              "br": "mux_out_b[0]",
+              "dout": "dout[0]"
+            },
+            "dropped_pins": {
+              "QB": "dropped_complementary_output"
+            },
+            "adapter_strategy": "single_ended_q_to_dout",
+            "safe_for_physical_mapping": true,
+            "notes": [
+              "Mux-grouped sense amp placement plan."
+            ]
+          },
+          {
+            "instance_name": "Xsa_g1",
+            "macro_name": "sense_amp",
+            "col": 1,
+            "x": 13.979999999999986,
+            "y": 14.257499999999999,
+            "orientation": "R0",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "en": "sense_enable",
+              "bl": "mux_out[1]",
+              "br": "mux_out_b[1]",
+              "dout": "dout[1]"
+            },
+            "dropped_pins": {
+              "QB": "dropped_complementary_output"
+            },
+            "adapter_strategy": "single_ended_q_to_dout",
+            "safe_for_physical_mapping": true,
+            "notes": [
+              "Mux-grouped sense amp placement plan."
+            ]
+          },
+          {
+            "instance_name": "Xsa_g2",
+            "macro_name": "sense_amp",
+            "col": 2,
+            "x": 15.769999999999987,
+            "y": 14.257499999999999,
+            "orientation": "R0",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "en": "sense_enable",
+              "bl": "mux_out[2]",
+              "br": "mux_out_b[2]",
+              "dout": "dout[2]"
+            },
+            "dropped_pins": {
+              "QB": "dropped_complementary_output"
+            },
+            "adapter_strategy": "single_ended_q_to_dout",
+            "safe_for_physical_mapping": true,
+            "notes": [
+              "Mux-grouped sense amp placement plan."
+            ]
+          },
+          {
+            "instance_name": "Xsa_g3",
+            "macro_name": "sense_amp",
+            "col": 3,
+            "x": 17.559999999999988,
+            "y": 14.257499999999999,
+            "orientation": "R0",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "en": "sense_enable",
+              "bl": "mux_out[3]",
+              "br": "mux_out_b[3]",
+              "dout": "dout[3]"
+            },
+            "dropped_pins": {
+              "QB": "dropped_complementary_output"
+            },
+            "adapter_strategy": "single_ended_q_to_dout",
+            "safe_for_physical_mapping": true,
+            "notes": [
+              "Mux-grouped sense amp placement plan."
+            ]
+          }
+        ],
+        "adapter_applied_to_placement": true,
+        "sense_rect_origin": {
+          "x": 12.189999999999987,
+          "y": 14.257499999999999
+        },
+        "column_pitch_um": 1.79,
+        "mux_ratio": 2,
+        "storage_aggregation_enabled": true
+      },
+      "columnmux_adapter": {
+        "enabled": true,
+        "local_macro": "gen_col_mux_vdd_labeled",
+        "source_macro": "gen_col_mux",
+        "repaired_alias_metadata": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\openyield_repaired_macro_aliases.json",
+        "power_status": "vdd_label_present",
+        "safe_for_physical_mapping": true,
+        "safe_for_shared_rail": false,
+        "uses_repaired_alias": true,
+        "replacement_macros_modified": false,
+        "shared_rail_enabled": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "write_driver_changed": false,
+        "wordline_driver_changed": false,
+        "senseamp_pairing": {
+          "IN": "mux_out[group]",
+          "INB": "mux_out_b[group]",
+          "Q": "dout[group]",
+          "QB": "dropped_complementary_output"
+        },
+        "limited_placement_plan": {
+          "cols": 8,
+          "mux_ratio": 2,
+          "placements": [
+            {
+              "instance_name": "Xcmux_g0",
+              "macro_name": "gen_col_mux_vdd_labeled",
+              "group": 0,
+              "cols": [
+                0,
+                1
+              ],
+              "x": 12.189999999999987,
+              "y": 20.7425,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "sel": "col_sel[0]",
+                "bl": "bl[0]",
+                "br": "br[0]",
+                "out": "mux_out[0]",
+                "outb": "mux_out_b[0]"
+              },
+              "power_status": "vdd_label_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Limited placement plan only; standalone is not modified.",
+                "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+                "Grouped semantic plan for columns 0..1.",
+                "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+                "Uses repaired proof candidate with label-backed VDD metadata."
+              ]
+            },
+            {
+              "instance_name": "Xcmux_g1",
+              "macro_name": "gen_col_mux_vdd_labeled",
+              "group": 1,
+              "cols": [
+                2,
+                3
+              ],
+              "x": 13.084999999999987,
+              "y": 20.7425,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "sel": "col_sel[1]",
+                "bl": "bl[2]",
+                "br": "br[2]",
+                "out": "mux_out[1]",
+                "outb": "mux_out_b[1]"
+              },
+              "power_status": "vdd_label_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Limited placement plan only; standalone is not modified.",
+                "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+                "Grouped semantic plan for columns 2..3.",
+                "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+                "Uses repaired proof candidate with label-backed VDD metadata."
+              ]
+            },
+            {
+              "instance_name": "Xcmux_g2",
+              "macro_name": "gen_col_mux_vdd_labeled",
+              "group": 2,
+              "cols": [
+                4,
+                5
+              ],
+              "x": 13.979999999999986,
+              "y": 20.7425,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "sel": "col_sel[2]",
+                "bl": "bl[4]",
+                "br": "br[4]",
+                "out": "mux_out[2]",
+                "outb": "mux_out_b[2]"
+              },
+              "power_status": "vdd_label_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Limited placement plan only; standalone is not modified.",
+                "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+                "Grouped semantic plan for columns 4..5.",
+                "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+                "Uses repaired proof candidate with label-backed VDD metadata."
+              ]
+            },
+            {
+              "instance_name": "Xcmux_g3",
+              "macro_name": "gen_col_mux_vdd_labeled",
+              "group": 3,
+              "cols": [
+                6,
+                7
+              ],
+              "x": 14.874999999999988,
+              "y": 20.7425,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "sel": "col_sel[3]",
+                "bl": "bl[6]",
+                "br": "br[6]",
+                "out": "mux_out[3]",
+                "outb": "mux_out_b[3]"
+              },
+              "power_status": "vdd_label_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Limited placement plan only; standalone is not modified.",
+                "SenseAmp pairing stays semantic: mux_out/mux_out_b feed sense_amp IN/INB.",
+                "Grouped semantic plan for columns 6..7.",
+                "The physical BL/BLB fan-in is intentionally not expanded in this smoke.",
+                "Uses repaired proof candidate with label-backed VDD metadata."
+              ]
+            }
+          ],
+          "macro_name": "gen_col_mux_vdd_labeled",
+          "power_status": "vdd_label_present",
+          "safe_for_physical_mapping": true,
+          "safe_for_shared_rail": false,
+          "notes": [
+            "This plan is generated from repaired alias metadata and existing sense_amp adapter semantics.",
+            "No routing, GDS writer, or standalone placement code is changed.",
+            "Mux ratio greater than one is handled as a grouped semantic plan only.",
+            "Candidate alias uses gen_col_mux_vdd_labeled from the proof GDS.",
+            "Shared rail remains disabled until a separate rail continuity proof exists."
+          ]
+        }
+      },
+      "writedriver_adapter": {
+        "enabled": true,
+        "contract_summary": {
+          "original_module_name": "WRITEDRIVER",
+          "canonical_module_name": "write_driver",
+          "role": "write_driver",
+          "pin_list": [
+            "VDD",
+            "VSS",
+            "EN",
+            "DIN",
+            "BL",
+            "BLB"
+          ],
+          "canonical_pins": [
+            "vdd",
+            "gnd",
+            "write_enable",
+            "din",
+            "bl",
+            "br"
+          ],
+          "power_pins": {
+            "VDD": "vdd",
+            "VSS": "gnd"
+          },
+          "notes": [
+            "OpenYield WRITEDRIVER has internal DINB/ENB generation; only DIN/EN are external pins."
+          ],
+          "warnings": []
+        },
+        "contract_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+        "local_macro": "write_driver",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\write_driver.gds",
+        "spice_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "power_status": "vdd_gnd_metadata_present",
+        "safe_for_physical_mapping": true,
+        "safe_for_shared_rail": false,
+        "requires_netlist_rewrite": false,
+        "pin_adaptations": [
+          {
+            "openyield_pin": "VDD",
+            "local_pin": "vdd",
+            "canonical_signal": "vdd",
+            "adaptation_type": "direct_physical_pin",
+            "required": true,
+            "notes": [
+              "Power pin is present in GDS and SPICE."
+            ]
+          },
+          {
+            "openyield_pin": "VSS",
+            "local_pin": "gnd",
+            "canonical_signal": "gnd",
+            "adaptation_type": "direct_physical_pin",
+            "required": true,
+            "notes": [
+              "Ground pin is present in GDS and SPICE."
+            ]
+          },
+          {
+            "openyield_pin": "EN",
+            "local_pin": "write_enable",
+            "canonical_signal": "write_enable",
+            "adaptation_type": "semantic_alias",
+            "required": true,
+            "notes": [
+              "Local pin name is `en`; canonical signal is `write_enable`."
+            ]
+          },
+          {
+            "openyield_pin": "DIN",
+            "local_pin": "din",
+            "canonical_signal": "din",
+            "adaptation_type": "direct_physical_pin",
+            "required": true,
+            "notes": [
+              "Local pin name matches the canonical data-in signal."
+            ]
+          },
+          {
+            "openyield_pin": "BL",
+            "local_pin": "bl",
+            "canonical_signal": "bl",
+            "adaptation_type": "direct_physical_pin",
+            "required": true,
+            "notes": [
+              "Left bitline pin is label-backed."
+            ]
+          },
+          {
+            "openyield_pin": "BLB",
+            "local_pin": "br",
+            "canonical_signal": "br",
+            "adaptation_type": "semantic_alias",
+            "required": true,
+            "notes": [
+              "OpenYield BLB maps to local `br` on this hardcell."
+            ]
+          }
+        ],
+        "notes": [
+          "OpenYield WRITEDRIVER exposes only DIN and EN externally; internal DINB/ENB generation stays inside the SPICE macro.",
+          "BL/BLB map to the local bl/br pins without a routing rewrite.",
+          "Shared rail remains disabled until a separate rail continuity proof exists."
+        ],
+        "placement_plan": {
+          "cols": 4,
+          "mux_ratio": 1,
+          "placements": [
+            {
+              "instance_name": "Xwd_c0",
+              "macro_name": "write_driver",
+              "col": 0,
+              "group": 0,
+              "cols": [
+                0
+              ],
+              "x": 12.189999999999987,
+              "y": 9.6075,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "write_enable",
+                "din": "din[0]",
+                "bl": "bl[0]",
+                "br": "br[0]"
+              },
+              "power_status": "vdd_gnd_metadata_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Direct per-column write driver placement plan."
+              ]
+            },
+            {
+              "instance_name": "Xwd_c1",
+              "macro_name": "write_driver",
+              "col": 1,
+              "group": 1,
+              "cols": [
+                1
+              ],
+              "x": 13.979999999999986,
+              "y": 9.6075,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "write_enable",
+                "din": "din[1]",
+                "bl": "bl[1]",
+                "br": "br[1]"
+              },
+              "power_status": "vdd_gnd_metadata_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Direct per-column write driver placement plan."
+              ]
+            },
+            {
+              "instance_name": "Xwd_c2",
+              "macro_name": "write_driver",
+              "col": 2,
+              "group": 2,
+              "cols": [
+                2
+              ],
+              "x": 15.769999999999987,
+              "y": 9.6075,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "write_enable",
+                "din": "din[2]",
+                "bl": "bl[2]",
+                "br": "br[2]"
+              },
+              "power_status": "vdd_gnd_metadata_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Direct per-column write driver placement plan."
+              ]
+            },
+            {
+              "instance_name": "Xwd_c3",
+              "macro_name": "write_driver",
+              "col": 3,
+              "group": 3,
+              "cols": [
+                3
+              ],
+              "x": 17.559999999999988,
+              "y": 9.6075,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "write_enable",
+                "din": "din[3]",
+                "bl": "bl[3]",
+                "br": "br[3]"
+              },
+              "power_status": "vdd_gnd_metadata_present",
+              "safe_for_shared_rail": false,
+              "notes": [
+                "Direct per-column write driver placement plan."
+              ]
+            }
+          ],
+          "macro_name": "write_driver",
+          "power_status": "vdd_gnd_metadata_present",
+          "safe_for_physical_mapping": true,
+          "safe_for_shared_rail": false,
+          "notes": [
+            "Limited placement plan only; standalone is not modified.",
+            "Write driver placement stays adapter-only and does not change routing or GDS writer code.",
+            "One write_driver is planned per storage/data column."
+          ]
+        },
+        "placement_count": 4,
+        "adapter_applied_to_placement": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "shared_rail_enabled": false,
+        "write_driver_changed": false,
+        "column_mux_changed": true,
+        "senseamp_changed": true,
+        "storage_aggregation_enabled": true
+      },
+      "storage_aggregation": {
+        "enabled": true,
+        "row_orientation_policy": "alternating_mx",
+        "allowed_macros": [
+          "cell_1rw",
+          "dummy_cell_1rw",
+          "replica_cell_1rw"
+        ],
+        "excluded_peripheral_macros": {
+          "sense_amp": "architecture_adapter_required: OpenYield has Q/QB, local sense_amp has single-ended dout.",
+          "write_driver": "rail_needs_manual_review: keep legacy/peripheral placement until rail sharing is proven.",
+          "dff": "standard_cell_row_required: do not aggregate with storage-array cells.",
+          "tri_gate": "standard_cell_row_required: do not aggregate with storage-array cells.",
+          "gen_col_mux": "missing_power_metadata: vdd is not proven, shared rail is forbidden.",
+          "gen_wl_driver": "needs_semantic_confirmation: B/wordline_enable semantics still need confirmation.",
+          "gen_nand2": "logic_gate: not part of limited storage-array aggregation.",
+          "gen_nand4": "logic_gate: not part of limited storage-array aggregation.",
+          "gen_precharge": "peripheral_macro: not part of limited storage-array aggregation."
+        },
+        "storage_only": true,
+        "peripherals_old_path": true,
+        "changed_gds_flow": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "shared_rail_merge": false,
+        "generated_gds": false,
+        "cross_row_power_short_risk": false,
+        "storage_plan": {
+          "enabled": true,
+          "rows": 16,
+          "cols": 8,
+          "plans": [
+            {
+              "array_name": "bitcell_array",
+              "role": "bitcell_array",
+              "rows": 16,
+              "cols": 8,
+              "cell_macro": "cell_1rw",
+              "origin_x": 12.189999999999987,
+              "origin_y": 23.017500000000002,
+              "pitch_x": 0.895,
+              "pitch_y": 1.5650000000000002,
+              "width": 7.16,
+              "height": 25.040000000000003,
+              "orientation": "R0/MX by row",
+              "row_orientation_policy": "alternating_mx",
+              "power_rail_policy": "tb_shared_hint_only",
+              "notes": [
+                "x=origin_x+col*cell_width, y=origin_y+row*cell_height.",
+                "row_orientation_policy=alternating_mx"
+              ]
+            },
+            {
+              "array_name": "dummy_left_array",
+              "role": "dummy_bitcell",
+              "rows": 16,
+              "cols": 1,
+              "cell_macro": "dummy_cell_1rw",
+              "origin_x": 11.295,
+              "origin_y": 23.017500000000002,
+              "pitch_x": 0.894999999999988,
+              "pitch_y": 1.564999999999979,
+              "width": 0.894999999999988,
+              "height": 25.039999999999665,
+              "orientation": "R0/MX by row",
+              "row_orientation_policy": "alternating_mx",
+              "power_rail_policy": "tb_shared_hint_only",
+              "notes": [
+                "x=origin_x+col*cell_width, y=origin_y+row*cell_height.",
+                "row_orientation_policy=alternating_mx"
+              ]
+            },
+            {
+              "array_name": "dummy_right_array",
+              "role": "dummy_bitcell",
+              "rows": 16,
+              "cols": 1,
+              "cell_macro": "dummy_cell_1rw",
+              "origin_x": 20.244999999999976,
+              "origin_y": 23.017500000000002,
+              "pitch_x": 0.894999999999988,
+              "pitch_y": 1.564999999999979,
+              "width": 0.894999999999988,
+              "height": 25.039999999999665,
+              "orientation": "R0/MX by row",
+              "row_orientation_policy": "alternating_mx",
+              "power_rail_policy": "tb_shared_hint_only",
+              "notes": [
+                "x=origin_x+col*cell_width, y=origin_y+row*cell_height.",
+                "row_orientation_policy=alternating_mx"
+              ]
+            },
+            {
+              "array_name": "replica_bitline_array",
+              "role": "replica_bitline",
+              "rows": 16,
+              "cols": 1,
+              "cell_macro": "replica_cell_1rw",
+              "origin_x": 19.349999999999987,
+              "origin_y": 23.017500000000002,
+              "pitch_x": 0.894999999999988,
+              "pitch_y": 1.564999999999979,
+              "width": 0.894999999999988,
+              "height": 25.039999999999665,
+              "orientation": "R0/MX by row",
+              "row_orientation_policy": "alternating_mx",
+              "power_rail_policy": "tb_shared_hint_only",
+              "notes": [
+                "x=origin_x+col*cell_width, y=origin_y+row*cell_height.",
+                "row_orientation_policy=alternating_mx"
+              ]
+            }
+          ],
+          "allowed_macros": [
+            "cell_1rw",
+            "dummy_cell_1rw",
+            "replica_cell_1rw"
+          ],
+          "row_orientation_policy": "alternating_mx",
+          "excluded_macros": {
+            "sense_amp": "architecture_adapter_required: OpenYield has Q/QB, local sense_amp has single-ended dout.",
+            "write_driver": "rail_needs_manual_review: keep legacy/peripheral placement until rail sharing is proven.",
+            "dff": "standard_cell_row_required: do not aggregate with storage-array cells.",
+            "tri_gate": "standard_cell_row_required: do not aggregate with storage-array cells.",
+            "gen_col_mux": "missing_power_metadata: vdd is not proven, shared rail is forbidden.",
+            "gen_wl_driver": "needs_semantic_confirmation: B/wordline_enable semantics still need confirmation.",
+            "gen_nand2": "logic_gate: not part of limited storage-array aggregation.",
+            "gen_nand4": "logic_gate: not part of limited storage-array aggregation.",
+            "gen_precharge": "peripheral_macro: not part of limited storage-array aggregation."
+          },
+          "power_rail_policy": "tb_shared_hint_only",
+          "cross_row_power_short_risk": false,
+          "changed_gds_flow": false,
+          "routing_changed": false,
+          "shared_rail_merge": false,
+          "notes": [
+            "Standalone integration replaces only bitcell/dummy/replica CellArray placement.",
+            "Peripheral placement, routing, GDS writer behavior, and rail-shape merging remain unchanged.",
+            "row_orientation_policy=alternating_mx"
+          ]
+        },
+        "storage_arrays": {
+          "bitcell_array": {
+            "x0": 12.094999999999986,
+            "y0": 22.9175,
+            "x1": 19.25499999999999,
+            "y1": 47.95750000000001
+          },
+          "dummy_left_array": {
+            "x0": 11.2,
+            "y0": 22.9175,
+            "x1": 12.095,
+            "y1": 47.95749999999969
+          },
+          "dummy_right_array": {
+            "x0": 20.149999999999977,
+            "y0": 22.9175,
+            "x1": 21.044999999999977,
+            "y1": 47.95749999999969
+          },
+          "replica_bitline_array": {
+            "x0": 19.25499999999999,
+            "y0": 22.9175,
+            "x1": 20.149999999999988,
+            "y1": 47.95749999999969
+          }
+        },
+        "macro_counts": {
+          "cell_1rw": 128,
+          "dummy_cell_1rw": 32,
+          "replica_cell_1rw": 16
+        },
+        "instance_count": 176,
+        "pitch": {
+          "x": 0.895,
+          "y": 1.5650000000000002
+        },
+        "origin": {
+          "x": 12.189999999999987,
+          "y": 23.017500000000002
+        },
+        "power_rail_policy": "tb_shared_hint_only"
+      },
+      "routing_changed": false,
+      "gds_writer_changed": false,
+      "shared_rail_enabled": false
+    }
+  },
+  "checks": {
+    "legacy_default_preserved": true,
+    "read_path_semantics_ok": true,
+    "write_path_semantics_ok": true,
+    "read_write_conflict_found": false,
+    "grouped_mapping_needs_confirmation": true,
+    "can_continue_to_wordline_driver": true
+  },
+  "summary": {
+    "generated_fake_dout_b": false,
+    "routing_changed": false,
+    "gds_writer_changed": false,
+    "shared_rail_enabled": false,
+    "read_path_enabled_modes": [
+      "read_path_only",
+      "read_write_path",
+      "storage_plus_read_write_path"
+    ],
+    "write_path_enabled_modes": [
+      "write_path_only",
+      "read_write_path",
+      "storage_plus_read_write_path"
+    ],
+    "storage_enabled_modes": [
+      "storage_plus_read_write_path"
+    ]
+  },
+  "read_path_mapping_table": [
+    {
+      "openyield_pin": "OUT",
+      "local_pin": "mux_out[group]",
+      "canonical_signal": "mux_out"
+    },
+    {
+      "openyield_pin": "OUTB",
+      "local_pin": "mux_out_b[group]",
+      "canonical_signal": "mux_out_b"
+    },
+    {
+      "openyield_pin": "IN",
+      "local_pin": "mux_out[group]",
+      "canonical_signal": "mux_out"
+    },
+    {
+      "openyield_pin": "INB",
+      "local_pin": "mux_out_b[group]",
+      "canonical_signal": "mux_out_b"
+    },
+    {
+      "openyield_pin": "Q",
+      "local_pin": "dout[group]",
+      "canonical_signal": "dout"
+    },
+    {
+      "openyield_pin": "QB",
+      "local_pin": "-",
+      "canonical_signal": "dropped_complementary_output"
+    }
+  ],
+  "write_path_mapping_table": [
+    {
+      "openyield_pin": "DIN",
+      "local_pin": "din",
+      "canonical_signal": "din"
+    },
+    {
+      "openyield_pin": "EN",
+      "local_pin": "write_enable",
+      "canonical_signal": "write_enable"
+    },
+    {
+      "openyield_pin": "BL",
+      "local_pin": "bl",
+      "canonical_signal": "bl"
+    },
+    {
+      "openyield_pin": "BLB",
+      "local_pin": "br",
+      "canonical_signal": "br"
+    }
+  ],
+  "read_path_semantics_ok": true,
+  "write_path_semantics_ok": true,
+  "read_write_conflict_found": false,
+  "grouped_mapping_needs_confirmation": true,
+  "can_continue_to_wordline_driver": true,
+  "next_step_recommendation": "proceed_to_wordline_driver_only_if_no_conflicts_remain",
+  "next_step_notes": [
+    "QB remains observation-only; do not force dout_b into the local sense_amp path.",
+    "Write driver semantics stay on bl/br and should not be cross-wired to mux_out/mux_out_b.",
+    "Grouped mapping is still metadata-level until layout-level fanout is explicitly proven."
+  ]
+}
