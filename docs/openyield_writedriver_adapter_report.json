@@ -1,0 +1,451 @@
+{
+  "scope": "step5_10_writedriver_adapter_audit",
+  "inputs": {
+    "contracts": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+    "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45"
+  },
+  "openyield_contract": {
+    "original_module_name": "WRITEDRIVER",
+    "canonical_module_name": "write_driver",
+    "role": "write_driver",
+    "pin_list": [
+      "VDD",
+      "VSS",
+      "EN",
+      "DIN",
+      "BL",
+      "BLB"
+    ],
+    "canonical_pins": [
+      "vdd",
+      "gnd",
+      "write_enable",
+      "din",
+      "bl",
+      "br"
+    ],
+    "power_pins": {
+      "VDD": "vdd",
+      "VSS": "gnd"
+    },
+    "notes": [
+      "OpenYield WRITEDRIVER has internal DINB/ENB generation; only DIN/EN are external pins."
+    ],
+    "warnings": []
+  },
+  "local_macro": {
+    "macro_name": "write_driver",
+    "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\write_driver.gds",
+    "spice_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+    "gds_bbox": {
+      "x0": -0.0999999999999994,
+      "y0": 0.0,
+      "x1": 0.7399999999999956,
+      "y1": 4.174999999999975
+    },
+    "raw_gds_labels": [
+      "en",
+      "din",
+      "vdd",
+      "br",
+      "bl",
+      "gnd"
+    ],
+    "spice_subckt_pins": [
+      "din",
+      "bl",
+      "br",
+      "en",
+      "vdd",
+      "gnd"
+    ],
+    "audit": {
+      "macro_name": "write_driver",
+      "gds_path": "technology\\freepdk45\\gds_lib\\write_driver.gds",
+      "spice_path": "technology\\freepdk45\\sp_lib\\write_driver.sp",
+      "bbox": {
+        "x0": -0.0999999999999994,
+        "y0": 0.0,
+        "x1": 0.7399999999999956,
+        "y1": 4.174999999999975
+      },
+      "width": 0.839999999999995,
+      "height": 4.174999999999975,
+      "labels": [
+        {
+          "text": "en",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.33249999999999796,
+          "y": 0.29999999999999816
+        },
+        {
+          "text": "din",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.31999999999999806,
+          "y": 0.03499999999999979
+        },
+        {
+          "text": "vdd",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.17249999999999896,
+          "y": 0.4324999999999974
+        },
+        {
+          "text": "br",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.5199999999999969,
+          "y": 4.149999999999975
+        },
+        {
+          "text": "bl",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.18999999999999884,
+          "y": 4.137999999999975
+        },
+        {
+          "text": "gnd",
+          "layer": 13,
+          "texttype": 0,
+          "x": -0.00499999999999997,
+          "y": 1.5699999999999905
+        }
+      ],
+      "pins": [
+        {
+          "pin_name": "VDD",
+          "canonical_pin": "vdd",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.17249999999999896,
+            "y": 0.4324999999999974
+          },
+          "pin_shape_bbox": {
+            "x0": 0.10499999999999937,
+            "y0": 0.39499999999999763,
+            "x1": 0.23999999999999855,
+            "y1": 0.4649999999999972
+          },
+          "pin_side": "left",
+          "distance_to_boundary": 0.27249999999999835,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "VSS",
+          "canonical_pin": "gnd",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": -0.00499999999999997,
+            "y": 1.5699999999999905
+          },
+          "pin_shape_bbox": {
+            "x0": -0.03499999999999979,
+            "y0": 1.162499999999993,
+            "x1": 0.03499999999999979,
+            "y1": 3.7974999999999772
+          },
+          "pin_side": "left",
+          "distance_to_boundary": 0.09499999999999942,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "EN",
+          "canonical_pin": "write_enable",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.33249999999999796,
+            "y": 0.29999999999999816
+          },
+          "pin_shape_bbox": {
+            "x0": 0.04499999999999973,
+            "y0": 0.2674999999999984,
+            "x1": 0.6349999999999961,
+            "y1": 0.33249999999999796
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.29999999999999816,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "DIN",
+          "canonical_pin": "din",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.31999999999999806,
+            "y": 0.03499999999999979
+          },
+          "pin_shape_bbox": {
+            "x0": 0.2799999999999983,
+            "y0": 0.0,
+            "x1": 0.34999999999999787,
+            "y1": 0.13999999999999915
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.03499999999999979,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "BL",
+          "canonical_pin": "bl",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.18999999999999884,
+            "y": 4.137999999999975
+          },
+          "pin_shape_bbox": {
+            "x0": 0.14999999999999908,
+            "y0": 3.8749999999999765,
+            "x1": 0.21999999999999867,
+            "y1": 4.174999999999975
+          },
+          "pin_side": "top",
+          "distance_to_boundary": 0.03699999999999992,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "BLB",
+          "canonical_pin": "br",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.5199999999999969,
+            "y": 4.149999999999975
+          },
+          "pin_shape_bbox": {
+            "x0": 0.48499999999999704,
+            "y0": 1.7349999999999894,
+            "x1": 0.5549999999999966,
+            "y1": 4.174999999999975
+          },
+          "pin_side": "top",
+          "distance_to_boundary": 0.025000000000000355,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        }
+      ],
+      "power_rail_audit": {
+        "has_vdd": true,
+        "has_gnd": true,
+        "vdd_side": "left",
+        "gnd_side": "left",
+        "vdd_boundary_touch": false,
+        "gnd_boundary_touch": false,
+        "vdd_orientation": "horizontal",
+        "gnd_orientation": "vertical",
+        "can_share_left_right": false,
+        "can_share_top_bottom": false,
+        "rail_continuity_status": "rail_needs_manual_review",
+        "notes": []
+      },
+      "abutment_readiness": "unknown_need_gds_pin_audit",
+      "semantic_flags": [],
+      "gds_reader_status": "ok",
+      "notes": [
+        "Local write_driver has matching functional pins by SPICE name; abutment requires GDS rail/pin-shape audit."
+      ]
+    }
+  },
+  "power_status": "vdd_gnd_metadata_present",
+  "adapter": {
+    "openyield_module": "WRITEDRIVER",
+    "local_macro": "write_driver",
+    "pin_adaptations": [
+      {
+        "openyield_pin": "VDD",
+        "local_pin": "vdd",
+        "canonical_signal": "vdd",
+        "adaptation_type": "direct_physical_pin",
+        "required": true,
+        "notes": [
+          "Power pin is present in GDS and SPICE."
+        ]
+      },
+      {
+        "openyield_pin": "VSS",
+        "local_pin": "gnd",
+        "canonical_signal": "gnd",
+        "adaptation_type": "direct_physical_pin",
+        "required": true,
+        "notes": [
+          "Ground pin is present in GDS and SPICE."
+        ]
+      },
+      {
+        "openyield_pin": "EN",
+        "local_pin": "write_enable",
+        "canonical_signal": "write_enable",
+        "adaptation_type": "semantic_alias",
+        "required": true,
+        "notes": [
+          "Local pin name is `en`; canonical signal is `write_enable`."
+        ]
+      },
+      {
+        "openyield_pin": "DIN",
+        "local_pin": "din",
+        "canonical_signal": "din",
+        "adaptation_type": "direct_physical_pin",
+        "required": true,
+        "notes": [
+          "Local pin name matches the canonical data-in signal."
+        ]
+      },
+      {
+        "openyield_pin": "BL",
+        "local_pin": "bl",
+        "canonical_signal": "bl",
+        "adaptation_type": "direct_physical_pin",
+        "required": true,
+        "notes": [
+          "Left bitline pin is label-backed."
+        ]
+      },
+      {
+        "openyield_pin": "BLB",
+        "local_pin": "br",
+        "canonical_signal": "br",
+        "adaptation_type": "semantic_alias",
+        "required": true,
+        "notes": [
+          "OpenYield BLB maps to local `br` on this hardcell."
+        ]
+      }
+    ],
+    "power_status": "vdd_gnd_metadata_present",
+    "safe_for_physical_mapping": true,
+    "safe_for_shared_rail": false,
+    "requires_netlist_rewrite": false,
+    "notes": [
+      "OpenYield WRITEDRIVER exposes only DIN and EN externally; internal DINB/ENB generation stays inside the SPICE macro.",
+      "BL/BLB map to the local bl/br pins without a routing rewrite.",
+      "Shared rail remains disabled until a separate rail continuity proof exists."
+    ]
+  },
+  "semantics": {
+    "en_to_write_enable": true,
+    "din_to_din": true,
+    "bl_to_bl": true,
+    "blb_to_br": true,
+    "vdd_present": true,
+    "gnd_present": true
+  },
+  "pin_mapping_table": [
+    {
+      "openyield_pin": "VDD",
+      "local_pin": "vdd",
+      "canonical_signal": "vdd",
+      "required": true,
+      "adaptation_type": "direct_physical_pin",
+      "local_pin_shape_source": "label_plus_shape",
+      "local_pin_layer": "13/texttype0",
+      "contract_pin_present": true,
+      "notes": [
+        "Power pin is present in GDS and SPICE."
+      ]
+    },
+    {
+      "openyield_pin": "VSS",
+      "local_pin": "gnd",
+      "canonical_signal": "gnd",
+      "required": true,
+      "adaptation_type": "direct_physical_pin",
+      "local_pin_shape_source": "label_plus_shape",
+      "local_pin_layer": "13/texttype0",
+      "contract_pin_present": true,
+      "notes": [
+        "Ground pin is present in GDS and SPICE."
+      ]
+    },
+    {
+      "openyield_pin": "EN",
+      "local_pin": "write_enable",
+      "canonical_signal": "write_enable",
+      "required": true,
+      "adaptation_type": "semantic_alias",
+      "local_pin_shape_source": "label_plus_shape",
+      "local_pin_layer": "11/texttype0",
+      "contract_pin_present": true,
+      "notes": [
+        "Local pin name is `en`; canonical signal is `write_enable`."
+      ]
+    },
+    {
+      "openyield_pin": "DIN",
+      "local_pin": "din",
+      "canonical_signal": "din",
+      "required": true,
+      "adaptation_type": "direct_physical_pin",
+      "local_pin_shape_source": "label_plus_shape",
+      "local_pin_layer": "13/texttype0",
+      "contract_pin_present": true,
+      "notes": [
+        "Local pin name matches the canonical data-in signal."
+      ]
+    },
+    {
+      "openyield_pin": "BL",
+      "local_pin": "bl",
+      "canonical_signal": "bl",
+      "required": true,
+      "adaptation_type": "direct_physical_pin",
+      "local_pin_shape_source": "label_plus_shape",
+      "local_pin_layer": "13/texttype0",
+      "contract_pin_present": true,
+      "notes": [
+        "Left bitline pin is label-backed."
+      ]
+    },
+    {
+      "openyield_pin": "BLB",
+      "local_pin": "br",
+      "canonical_signal": "br",
+      "required": true,
+      "adaptation_type": "semantic_alias",
+      "local_pin_shape_source": "label_plus_shape",
+      "local_pin_layer": "13/texttype0",
+      "contract_pin_present": true,
+      "notes": [
+        "OpenYield BLB maps to local `br` on this hardcell."
+      ]
+    }
+  ],
+  "safe_for_physical_mapping": true,
+  "safe_for_shared_rail": false,
+  "can_enter_writedriver_limited_placement": true,
+  "semantic_coexistence": {
+    "with_columnmux": true,
+    "with_senseamp": true,
+    "with_storage_array": true,
+    "reason": "adapter-only metadata and placement planning do not change routing or shared rails."
+  },
+  "standalone_modified": false,
+  "routing_changed": false,
+  "gds_writer_changed": false,
+  "write_driver_changed": false,
+  "notes": [
+    "OpenYield WRITEDRIVER exposes only DIN and EN externally; internal DINB/ENB generation stays inside the SPICE macro.",
+    "BL/BLB map to the local bl/br pins without a routing rewrite.",
+    "Shared rail remains disabled until a separate rail continuity proof exists.",
+    "This audit is read-only and does not modify standalone, routing, or GDS writer code."
+  ]
+}
