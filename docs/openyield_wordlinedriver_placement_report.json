@@ -1,0 +1,203 @@
+{
+  "scope": "step5_13_wordlinedriver_placement_smoke",
+  "inputs": {
+    "contracts": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+    "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+    "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+    "rows": 4,
+    "origin_x": 0.0,
+    "origin_y": 0.0,
+    "pitch_y": 1.565
+  },
+  "power_status": "vdd_gnd_metadata_present",
+  "adapter": {
+    "openyield_module": "WORDLINEDRIVER",
+    "local_macro": "gen_wl_driver",
+    "pin_adaptations": [
+      {
+        "openyield_pin": "VDD",
+        "local_pin": "vdd",
+        "canonical_signal": "vdd",
+        "adaptation_type": "direct_physical_pin",
+        "required": true,
+        "semantic_status": "confirmed",
+        "notes": [
+          "Power pin is present in GDS, SPICE, and contract metadata."
+        ]
+      },
+      {
+        "openyield_pin": "VSS",
+        "local_pin": "gnd",
+        "canonical_signal": "gnd",
+        "adaptation_type": "direct_physical_pin",
+        "required": true,
+        "semantic_status": "confirmed",
+        "notes": [
+          "Ground pin is present in GDS, SPICE, and contract metadata."
+        ]
+      },
+      {
+        "openyield_pin": "A",
+        "local_pin": "decoder_input",
+        "canonical_signal": "decoder_input",
+        "adaptation_type": "semantic_alias",
+        "required": true,
+        "semantic_status": "confirmed",
+        "notes": [
+          "OpenYield A drives the decoder input into the NAND stage."
+        ]
+      },
+      {
+        "openyield_pin": "B",
+        "local_pin": "wordline_enable",
+        "canonical_signal": "wordline_enable",
+        "adaptation_type": "semantic_alias",
+        "required": true,
+        "semantic_status": "confirmed_active_high",
+        "notes": [
+          "OpenYield B feeds the NAND enable input.",
+          "B is active-high in the NAND2+INV chain."
+        ]
+      },
+      {
+        "openyield_pin": "Z",
+        "local_pin": "wl",
+        "canonical_signal": "wl",
+        "adaptation_type": "direct_physical_pin",
+        "required": true,
+        "semantic_status": "confirmed",
+        "notes": [
+          "OpenYield Z is the final wordline output after inversion."
+        ]
+      }
+    ],
+    "power_status": "vdd_gnd_metadata_present",
+    "output_status": "wl_output_confirmed",
+    "enable_semantics_status": "confirmed_active_high",
+    "safe_for_physical_mapping": true,
+    "safe_for_shared_rail": false,
+    "can_enter_limited_placement": true,
+    "notes": [
+      "OpenYield WORDLINEDRIVER is a NAND2 followed by an inverter.",
+      "A maps to decoder_input, B maps to wordline_enable, and Z is the final wl output.",
+      "The enable is active-high because the NAND stage requires both A and B to be asserted before the output inverter drives WL high.",
+      "Shared rail remains disabled until a separate rail continuity proof exists."
+    ]
+  },
+  "placement_plan": {
+    "rows": 4,
+    "origin_x": 0.0,
+    "origin_y": 0.0,
+    "pitch_y": 1.565,
+    "placements": [
+      {
+        "instance_name": "Xwld_r0",
+        "macro_name": "gen_wl_driver",
+        "row": 0,
+        "x": 0.0,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "a": "decoder_input[0]",
+          "b": "wordline_enable",
+          "z": "wl[0]"
+        },
+        "power_status": "vdd_gnd_metadata_present",
+        "safe_for_shared_rail": false,
+        "notes": [
+          "Limited placement plan only; standalone is not modified.",
+          "A maps to decoder_input, B maps to wordline_enable, and Z maps to wl."
+        ]
+      },
+      {
+        "instance_name": "Xwld_r1",
+        "macro_name": "gen_wl_driver",
+        "row": 1,
+        "x": 0.0,
+        "y": 1.565,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "a": "decoder_input[1]",
+          "b": "wordline_enable",
+          "z": "wl[1]"
+        },
+        "power_status": "vdd_gnd_metadata_present",
+        "safe_for_shared_rail": false,
+        "notes": [
+          "Limited placement plan only; standalone is not modified.",
+          "A maps to decoder_input, B maps to wordline_enable, and Z maps to wl."
+        ]
+      },
+      {
+        "instance_name": "Xwld_r2",
+        "macro_name": "gen_wl_driver",
+        "row": 2,
+        "x": 0.0,
+        "y": 3.13,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "a": "decoder_input[2]",
+          "b": "wordline_enable",
+          "z": "wl[2]"
+        },
+        "power_status": "vdd_gnd_metadata_present",
+        "safe_for_shared_rail": false,
+        "notes": [
+          "Limited placement plan only; standalone is not modified.",
+          "A maps to decoder_input, B maps to wordline_enable, and Z maps to wl."
+        ]
+      },
+      {
+        "instance_name": "Xwld_r3",
+        "macro_name": "gen_wl_driver",
+        "row": 3,
+        "x": 0.0,
+        "y": 4.695,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "a": "decoder_input[3]",
+          "b": "wordline_enable",
+          "z": "wl[3]"
+        },
+        "power_status": "vdd_gnd_metadata_present",
+        "safe_for_shared_rail": false,
+        "notes": [
+          "Limited placement plan only; standalone is not modified.",
+          "A maps to decoder_input, B maps to wordline_enable, and Z maps to wl."
+        ]
+      }
+    ],
+    "macro_name": "gen_wl_driver",
+    "row_orientation_policy": "all_r0",
+    "power_status": "vdd_gnd_metadata_present",
+    "safe_for_physical_mapping": true,
+    "safe_for_shared_rail": false,
+    "notes": [
+      "Adapter-only placement metadata; this does not emit GDS or modify the main flow.",
+      "One wordline driver is planned per row.",
+      "B is treated as active-high based on the NAND2+INV OpenYield source chain.",
+      "Shared rail is intentionally left disabled in this step."
+    ]
+  },
+  "can_enter_wordlinedriver_limited_placement": true,
+  "standalone_modified": false,
+  "routing_changed": false,
+  "gds_writer_changed": false,
+  "wordline_driver_changed": false,
+  "notes": [
+    "Adapter-only placement metadata; this does not emit GDS or modify the main flow.",
+    "One wordline driver is planned per row.",
+    "B is treated as active-high based on the NAND2+INV OpenYield source chain.",
+    "Shared rail is intentionally left disabled in this step.",
+    "This smoke is metadata-only and does not emit GDS.",
+    "The physical wordline-driver flow is intentionally left untouched."
+  ]
+}

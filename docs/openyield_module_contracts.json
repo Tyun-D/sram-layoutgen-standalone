@@ -3627,8 +3627,8 @@
       "requires_physical_implementation": true,
       "implementation_status": "macro_candidate",
       "notes": [
-        "A is treated as decoder_input, B as wordline_enable, and Z as wl; confirm polarity against OpenYield timing before physical hookup.",
-        "needs_semantic_confirmation"
+        "A is decoder_input, B is active-high wordline_enable, and Z is wl; OpenYield source and testbench wiring confirm the polarity.",
+        "semantic_confirmation_complete"
       ],
       "warnings": [],
       "class_name": "WordlineDriver",

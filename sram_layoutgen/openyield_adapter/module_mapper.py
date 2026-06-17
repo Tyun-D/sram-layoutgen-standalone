@@ -235,8 +235,8 @@ def _notes_for_module(original: str, role: str) -> tuple[str, ...]:
     if original == "SENSEAMP":
         notes.append("Map IN/INB to selected BL/BR and Q/QB to dout/dout_b or tri-state stage.")
     if original == "WORDLINEDRIVER":
-        notes.append("A is treated as decoder_input, B as wordline_enable, and Z as wl; confirm polarity against OpenYield timing before physical hookup.")
-        notes.append("needs_semantic_confirmation")
+        notes.append("A is decoder_input, B is active-high wordline_enable, and Z is wl; OpenYield source and testbench wiring confirm the polarity.")
+        notes.append("semantic_confirmation_complete")
     if original == "TIME":
         notes.append("Composite control/timing module; should become architecture/control contract before placement.")
         notes.append("Composed from ADDR_DFF, DATA_DFF, DFF, delay_chain, wen_delay_chain, pdrive, pdrive2_for_pre, wl_pdrive, and logic gates.")
