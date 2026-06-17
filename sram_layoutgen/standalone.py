@@ -6,6 +6,7 @@ import json
 import math
 from html import escape
 from dataclasses import dataclass
+from dataclasses import replace
 from pathlib import Path
 
 from .gds_writer import GDSWriter
@@ -23,6 +24,7 @@ from .openyield_adapter.array_aggregation import (
     orientation_for_row,
 )
 from .openyield_adapter.architecture_adapter import build_senseamp_architecture_adapter
+from .openyield_adapter.columnmux_placement import build_columnmux_limited_placement_plan
 from .openyield_adapter.senseamp_placement import (
     build_senseamp_placement_plan,
     inspect_local_senseamp_macro,
@@ -41,6 +43,7 @@ class StandaloneSpec:
     perimeter_pins: bool = True
     enable_openyield_array_aggregation: bool = False
     enable_openyield_senseamp_adapter: bool = False
+    enable_openyield_columnmux_adapter: bool = False
     openyield_storage_row_orientation_policy: str = "all_r0"
 
     def __post_init__(self) -> None:
@@ -87,6 +90,39 @@ def package_root() -> Path:
 
 def default_pdk_root() -> Path:
     return package_root() / "technology" / "freepdk45"
+
+
+def columnmux_repaired_alias_path() -> Path:
+    return default_pdk_root() / "openyield_repaired_macro_aliases.json"
+
+
+def load_repaired_columnmux_alias(tech: Tech) -> dict[str, object]:
+    alias_path = columnmux_repaired_alias_path()
+    if not alias_path.exists():
+        raise ValueError(f"Missing repaired column mux alias metadata: {alias_path}")
+    payload = json.loads(alias_path.read_text(encoding="utf-8"))
+    aliases = payload.get("aliases", [])
+    alias = next((item for item in aliases if item.get("local_macro") == "gen_col_mux_vdd_labeled"), None)
+    if not isinstance(alias, dict):
+        raise ValueError(f"Repaired column mux alias not found in metadata: {alias_path}")
+    source_macro = tech.cell(str(alias.get("source_macro") or "gen_col_mux"))
+    candidate_gds = Path(str(alias.get("candidate_gds") or "")).expanduser()
+    if not candidate_gds.is_absolute():
+        candidate_gds = package_root() / candidate_gds
+    if not candidate_gds.exists():
+        raise ValueError(f"Repaired column mux candidate GDS not found: {candidate_gds}")
+    alias_cell = replace(
+        source_macro,
+        name=str(alias["local_macro"]),
+        gds_path=str(candidate_gds.resolve()),
+    )
+    tech.cells[alias_cell.name] = alias_cell
+    return {
+        "metadata_path": str(alias_path.resolve()),
+        "alias": alias,
+        "alias_cell": alias_cell,
+        "source_cell": source_macro,
+    }
 
 
 def load_bundled_freepdk45() -> Tech:
@@ -529,6 +565,24 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     # two regions are separated in X.
     y_precharge = y_array_top + gap
 
+    columnmux_alias_info: dict[str, object] | None = None
+    columnmux_limited_plan: object | None = None
+    columnmux_macro_name = "gen_col_mux"
+    if spec.enable_openyield_columnmux_adapter:
+        columnmux_alias_info = load_repaired_columnmux_alias(tech)
+        columnmux_macro_name = str(columnmux_alias_info["alias"]["local_macro"])
+        columnmux_limited_plan = build_columnmux_limited_placement_plan(
+            cols=cols,
+            mux_ratio=wpr,
+            origin_x=x_array,
+            origin_y=y_mux,
+            pitch_x=bitcell_pitch_x,
+            use_repaired_vdd_label=True,
+            power_status=str(columnmux_alias_info["alias"].get("power_status", "vdd_label_present")),
+            safe_for_physical_mapping=bool(columnmux_alias_info["alias"].get("safe_for_physical_mapping", True)),
+            safe_for_shared_rail=bool(columnmux_alias_info["alias"].get("safe_for_shared_rail", False)),
+        )
+
     macro_w = max(x_array + max(array_w, column_array_w, data_w), x_right_edge) + boundary_margin
     selected_row_logic_plan = row_logic_plan(
         y_row_logic,
@@ -552,6 +606,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         "words_per_row": wpr,
         "legal_words_per_row": spec.legal_words_per_row(),
         "enable_openyield_senseamp_adapter": spec.enable_openyield_senseamp_adapter,
+        "enable_openyield_columnmux_adapter": spec.enable_openyield_columnmux_adapter,
         "num_rows": rows,
         "num_cols": cols,
         "bank_style": "contiguous-openram-origin-array",
@@ -611,6 +666,29 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         "row_logic_origin_y_um": y_row_logic,
         "formal_gds_keeps_guides_separate": False,
     })
+    db.metadata["openyield_columnmux_adapter"] = {
+        "enabled": spec.enable_openyield_columnmux_adapter,
+        "local_macro": columnmux_macro_name,
+        "source_macro": "gen_col_mux",
+        "repaired_alias_metadata": columnmux_alias_info["metadata_path"] if columnmux_alias_info else None,
+        "power_status": columnmux_alias_info["alias"].get("power_status", "vdd_label_present") if columnmux_alias_info else "legacy_metadata_only",
+        "safe_for_physical_mapping": bool(columnmux_alias_info["alias"].get("safe_for_physical_mapping", True)) if columnmux_alias_info else False,
+        "safe_for_shared_rail": bool(columnmux_alias_info["alias"].get("safe_for_shared_rail", False)) if columnmux_alias_info else False,
+        "uses_repaired_alias": bool(spec.enable_openyield_columnmux_adapter),
+        "replacement_macros_modified": False,
+        "shared_rail_enabled": False,
+        "routing_changed": False,
+        "gds_writer_changed": False,
+        "write_driver_changed": False,
+        "wordline_driver_changed": False,
+        "senseamp_pairing": {
+            "IN": "mux_out[group]",
+            "INB": "mux_out_b[group]",
+            "Q": "dout[group]",
+            "QB": "dropped_complementary_output",
+        },
+        "limited_placement_plan": columnmux_limited_plan.to_dict() if columnmux_limited_plan is not None else {},
+    }
     db.metadata["openyield_senseamp_adapter"] = {
         "enabled": False,
         "adapter_strategy": "single_ended_q_to_dout",
@@ -623,7 +701,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         "routing_changed": False,
         "gds_writer_changed": False,
         "write_driver_changed": False,
-        "column_mux_changed": False,
+        "column_mux_changed": spec.enable_openyield_columnmux_adapter,
         "wordline_driver_changed": False,
         "placement_count": 0,
         "local_macro": "sense_amp",
@@ -803,7 +881,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         precharge_name = f"precharge_{col}"
         mux_name = f"column_mux_{col}"
         precharge_rects.append(add_openram_generated_cell(precharge_name, "gen_precharge", cell_x + precharge_x_offset, y_precharge, "precharge", mirror="MX"))
-        column_mux_rects.append(add_openram_generated_cell(mux_name, "gen_col_mux", cell_x + col_mux_x_offset, y_mux, "column_mux", mirror="MX"))
+        column_mux_rects.append(add_openram_generated_cell(mux_name, columnmux_macro_name, cell_x + col_mux_x_offset, y_mux, "column_mux", mirror="MX"))
         precharge_inst = next(inst for inst in db.instances if inst.name == precharge_name)
         mux_inst = next(inst for inst in db.instances if inst.name == mux_name)
         precharge_pins = {str(pin["name"]): pin for pin in generated_instance_pins(tech, precharge_inst)}
@@ -1021,7 +1099,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
             "routing_changed": False,
             "gds_writer_changed": False,
             "write_driver_changed": False,
-            "column_mux_changed": False,
+            "column_mux_changed": spec.enable_openyield_columnmux_adapter,
             "wordline_driver_changed": False,
             "placement_count": len(senseamp_plan.placements),
             "local_macro": senseamp_local_macro.macro_name,
@@ -1688,6 +1766,7 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
         "legal_words_per_row": spec.legal_words_per_row(),
         "enable_openyield_array_aggregation": spec.enable_openyield_array_aggregation,
         "enable_openyield_senseamp_adapter": spec.enable_openyield_senseamp_adapter,
+        "enable_openyield_columnmux_adapter": spec.enable_openyield_columnmux_adapter,
         "openyield_storage_row_orientation_policy": spec.openyield_storage_row_orientation_policy,
         "bank_style": layout.metadata.get("bank_style"),
         "floorplan_compaction_strategy": layout.metadata.get("floorplan_compaction_strategy"),
@@ -1737,6 +1816,7 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
         },
         "routing_track_selection": layout.metadata.get("routing_track_selection", {}),
         "route_guide_promotion": route_guide_promotion,
+        "openyield_columnmux_adapter": layout.metadata.get("openyield_columnmux_adapter", {}),
         "openyield_array_aggregation_integration": layout.metadata.get("openyield_array_aggregation_integration", {}),
         "openyield_senseamp_adapter": layout.metadata.get("openyield_senseamp_adapter", {}),
         "architecture_modules": _collect_architecture_modules(layout),
@@ -3290,6 +3370,23 @@ def _format_report_md(metrics: dict) -> str:
             lines.append(f"- `{cell}`: {count}")
     else:
         lines.append("- none; non-OpenRAM generated stdcell geometry is not emitted in formal GDS")
+    columnmux_adapter = metrics.get("openyield_columnmux_adapter", {})
+    if columnmux_adapter:
+        lines.extend(["", "## OpenYield column mux adapter", ""])
+        lines.append(f"- enabled: `{columnmux_adapter.get('enabled')}`")
+        lines.append(f"- local macro: `{columnmux_adapter.get('local_macro', 'gen_col_mux')}`")
+        lines.append(f"- source macro: `{columnmux_adapter.get('source_macro', 'gen_col_mux')}`")
+        lines.append(f"- repaired alias metadata: `{columnmux_adapter.get('repaired_alias_metadata')}`")
+        lines.append(f"- power status: `{columnmux_adapter.get('power_status')}`")
+        lines.append(f"- safe_for_physical_mapping: `{columnmux_adapter.get('safe_for_physical_mapping')}`")
+        lines.append(f"- safe_for_shared_rail: `{columnmux_adapter.get('safe_for_shared_rail')}`")
+        lines.append(f"- uses repaired alias: `{columnmux_adapter.get('uses_repaired_alias')}`")
+        lines.append(f"- shared rail enabled: `{columnmux_adapter.get('shared_rail_enabled')}`")
+        lines.append(f"- routing changed: `{columnmux_adapter.get('routing_changed')}`")
+        lines.append(f"- gds writer changed: `{columnmux_adapter.get('gds_writer_changed')}`")
+        lines.append(f"- write_driver changed: `{columnmux_adapter.get('write_driver_changed')}`")
+        lines.append(f"- wordline_driver changed: `{columnmux_adapter.get('wordline_driver_changed')}`")
+        lines.append(f"- limited placement plan count: `{len((columnmux_adapter.get('limited_placement_plan') or {}).get('placements', []))}`")
     lines.extend(["", "## Remaining abstract blocks", ""])
     if metrics["abstract_instances"]:
         for cell, count in metrics["abstract_instances"].items():
