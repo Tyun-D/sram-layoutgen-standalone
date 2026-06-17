@@ -32,6 +32,15 @@ from .openyield_adapter.writedriver_adapter import (
     inspect_local_writedriver_macro,
 )
 from .openyield_adapter.writedriver_placement import build_writedriver_limited_placement_plan
+from .openyield_adapter.wordlinedriver_adapter import (
+    build_wordlinedriver_adapter,
+    build_wordlinedriver_contract_summary,
+    classify_wordlinedriver_power_status,
+    inspect_local_wordlinedriver_macro,
+    inspect_openyield_wordlinedriver_source,
+    wordlinedriver_semantics,
+)
+from .openyield_adapter.wordlinedriver_placement import build_wordlinedriver_limited_placement_plan
 from .openyield_adapter.senseamp_placement import (
     build_senseamp_placement_plan,
     inspect_local_senseamp_macro,
@@ -52,6 +61,7 @@ class StandaloneSpec:
     enable_openyield_senseamp_adapter: bool = False
     enable_openyield_columnmux_adapter: bool = False
     enable_openyield_writedriver_adapter: bool = False
+    enable_openyield_wordlinedriver_adapter: bool = False
     openyield_storage_row_orientation_policy: str = "all_r0"
 
     def __post_init__(self) -> None:
@@ -94,6 +104,10 @@ class StandaloneSpec:
 
 def package_root() -> Path:
     return Path(__file__).resolve().parents[1]
+
+
+def repo_root() -> Path:
+    return package_root().parents[1]
 
 
 def default_pdk_root() -> Path:
@@ -147,6 +161,18 @@ def load_writedriver_contract() -> dict[str, object]:
             contract_copy["source_path"] = str(contracts_path.resolve())
             return contract_copy
     raise ValueError(f"Missing WRITEDRIVER contract in {contracts_path}")
+
+
+def load_wordlinedriver_contract() -> dict[str, object]:
+    contracts_path = writedriver_contracts_path()
+    payload = json.loads(contracts_path.read_text(encoding="utf-8"))
+    contracts = payload if isinstance(payload, list) else payload.get("contracts", [])
+    for contract in contracts:
+        if contract.get("original_module_name") == "WORDLINEDRIVER":
+            contract_copy = dict(contract)
+            contract_copy["source_path"] = str(contracts_path.resolve())
+            return contract_copy
+    raise ValueError(f"Missing WORDLINEDRIVER contract in {contracts_path}")
 
 
 def load_bundled_freepdk45() -> Tech:
@@ -626,6 +652,30 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
             safe_for_shared_rail=writedriver_adapter_info.safe_for_shared_rail,
         )
 
+    wordlinedriver_contract_info: dict[str, object] | None = None
+    wordlinedriver_local_macro: dict[str, object] | None = None
+    wordlinedriver_source_audit: object | None = None
+    wordlinedriver_adapter_info: object | None = None
+    wordlinedriver_limited_plan: object | None = None
+    if spec.enable_openyield_wordlinedriver_adapter:
+        wordlinedriver_contract_info = load_wordlinedriver_contract()
+        wordlinedriver_local_macro = inspect_local_wordlinedriver_macro(default_pdk_root())
+        wordlinedriver_source_audit = inspect_openyield_wordlinedriver_source(repo_root() / "third_party" / "OpenYield")
+        wordlinedriver_adapter_info = build_wordlinedriver_adapter(
+            wordlinedriver_local_macro,
+            wordlinedriver_contract_info,
+            wordlinedriver_source_audit,
+        )
+        wordlinedriver_limited_plan = build_wordlinedriver_limited_placement_plan(
+            rows=rows,
+            origin_x=x_decoder + row_decode_to_driver_delta_x,
+            origin_y=y_row_logic,
+            pitch_y=row_logic_pitch,
+            power_status=wordlinedriver_adapter_info.power_status,
+            safe_for_physical_mapping=wordlinedriver_adapter_info.safe_for_physical_mapping,
+            safe_for_shared_rail=wordlinedriver_adapter_info.safe_for_shared_rail,
+        )
+
     macro_w = max(x_array + max(array_w, column_array_w, data_w), x_right_edge) + boundary_margin
     selected_row_logic_plan = row_logic_plan(
         y_row_logic,
@@ -650,6 +700,8 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         "legal_words_per_row": spec.legal_words_per_row(),
         "enable_openyield_senseamp_adapter": spec.enable_openyield_senseamp_adapter,
         "enable_openyield_columnmux_adapter": spec.enable_openyield_columnmux_adapter,
+        "enable_openyield_writedriver_adapter": spec.enable_openyield_writedriver_adapter,
+        "enable_openyield_wordlinedriver_adapter": spec.enable_openyield_wordlinedriver_adapter,
         "num_rows": rows,
         "num_cols": cols,
         "bank_style": "contiguous-openram-origin-array",
@@ -781,6 +833,63 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
             "senseamp_changed": spec.enable_openyield_senseamp_adapter,
             "storage_aggregation_enabled": spec.enable_openyield_array_aggregation,
         }
+    if spec.enable_openyield_wordlinedriver_adapter and wordlinedriver_adapter_info is not None and wordlinedriver_contract_info is not None and wordlinedriver_local_macro is not None and wordlinedriver_source_audit is not None:
+        db.metadata["openyield_wordlinedriver_adapter"] = {
+            "enabled": True,
+            "contract_summary": build_wordlinedriver_contract_summary(wordlinedriver_contract_info),
+            "contract_path": wordlinedriver_contract_info.get("source_path"),
+            "local_macro": wordlinedriver_local_macro["macro_name"],
+            "gds_path": wordlinedriver_local_macro["gds_path"],
+            "spice_path": wordlinedriver_local_macro["spice_path"],
+            "power_status": wordlinedriver_adapter_info.power_status,
+            "safe_for_physical_mapping": wordlinedriver_adapter_info.safe_for_physical_mapping,
+            "safe_for_shared_rail": wordlinedriver_adapter_info.safe_for_shared_rail,
+            "can_enter_limited_placement": wordlinedriver_adapter_info.can_enter_limited_placement,
+            "pin_adaptations": [pin.to_dict() for pin in wordlinedriver_adapter_info.pin_adaptations],
+            "notes": list(wordlinedriver_adapter_info.notes) + list(wordlinedriver_source_audit.evidence),
+            "placement_plan": wordlinedriver_limited_plan.to_dict() if wordlinedriver_limited_plan is not None else {},
+            "placement_count": len(wordlinedriver_limited_plan.placements) if wordlinedriver_limited_plan is not None else 0,
+            "adapter_applied_to_placement": True,
+            "routing_changed": False,
+            "gds_writer_changed": False,
+            "shared_rail_enabled": False,
+            "write_driver_changed": False,
+            "column_mux_changed": spec.enable_openyield_columnmux_adapter,
+            "senseamp_changed": spec.enable_openyield_senseamp_adapter,
+            "storage_aggregation_enabled": spec.enable_openyield_array_aggregation,
+            "b_polarity": wordlinedriver_source_audit.b_polarity,
+            "semantic_confirmation": "confirmed_active_high",
+            "wordline_driver_changed": False,
+            "decoder_changed": False,
+            "time_control_changed": False,
+        }
+    else:
+        db.metadata["openyield_wordlinedriver_adapter"] = {
+            "enabled": False,
+            "local_macro": "gen_wl_driver",
+            "power_status": "legacy_metadata_only",
+            "safe_for_physical_mapping": False,
+            "safe_for_shared_rail": False,
+            "can_enter_limited_placement": False,
+            "pin_adaptations": [],
+            "notes": [
+                "Wordline driver adapter is opt-in only.",
+                "Legacy standalone wordline driver placement remains unchanged until explicitly enabled.",
+            ],
+            "placement_plan": {},
+            "placement_count": 0,
+            "adapter_applied_to_placement": False,
+            "routing_changed": False,
+            "gds_writer_changed": False,
+            "shared_rail_enabled": False,
+            "write_driver_changed": False,
+            "column_mux_changed": spec.enable_openyield_columnmux_adapter,
+            "senseamp_changed": spec.enable_openyield_senseamp_adapter,
+            "storage_aggregation_enabled": spec.enable_openyield_array_aggregation,
+            "wordline_driver_changed": False,
+            "decoder_changed": False,
+            "time_control_changed": False,
+        }
     db.metadata["openyield_senseamp_adapter"] = {
         "enabled": False,
         "adapter_strategy": "single_ended_q_to_dout",
@@ -794,7 +903,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         "gds_writer_changed": False,
         "write_driver_changed": False,
         "column_mux_changed": spec.enable_openyield_columnmux_adapter,
-        "wordline_driver_changed": False,
+        "wordline_driver_changed": spec.enable_openyield_wordlinedriver_adapter,
         "placement_count": 0,
         "local_macro": "sense_amp",
         "local_pins": ["bl", "br", "dout", "en", "vdd", "gnd"],
@@ -1860,6 +1969,7 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
         "enable_openyield_senseamp_adapter": spec.enable_openyield_senseamp_adapter,
         "enable_openyield_columnmux_adapter": spec.enable_openyield_columnmux_adapter,
         "enable_openyield_writedriver_adapter": spec.enable_openyield_writedriver_adapter,
+        "enable_openyield_wordlinedriver_adapter": spec.enable_openyield_wordlinedriver_adapter,
         "openyield_storage_row_orientation_policy": spec.openyield_storage_row_orientation_policy,
         "bank_style": layout.metadata.get("bank_style"),
         "floorplan_compaction_strategy": layout.metadata.get("floorplan_compaction_strategy"),
@@ -1913,6 +2023,7 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
         "openyield_array_aggregation_integration": layout.metadata.get("openyield_array_aggregation_integration", {}),
         "openyield_senseamp_adapter": layout.metadata.get("openyield_senseamp_adapter", {}),
         "openyield_writedriver_adapter": layout.metadata.get("openyield_writedriver_adapter", {}),
+        "openyield_wordlinedriver_adapter": layout.metadata.get("openyield_wordlinedriver_adapter", {}),
         "architecture_modules": _collect_architecture_modules(layout),
         "architecture_quality": architecture_quality,
         "geometry_audit": geometry_audit,
@@ -3500,6 +3611,29 @@ def _format_report_md(metrics: dict) -> str:
         lines.append(f"- column mux changed: `{writedriver_adapter.get('column_mux_changed')}`")
         lines.append(f"- senseamp changed: `{writedriver_adapter.get('senseamp_changed')}`")
         lines.append(f"- storage aggregation enabled: `{writedriver_adapter.get('storage_aggregation_enabled')}`")
+    wordlinedriver_adapter = metrics.get("openyield_wordlinedriver_adapter", {})
+    if wordlinedriver_adapter:
+        lines.extend(["", "## OpenYield wordline driver adapter", ""])
+        lines.append(f"- enabled: `{wordlinedriver_adapter.get('enabled')}`")
+        lines.append(f"- local macro: `{wordlinedriver_adapter.get('local_macro', 'gen_wl_driver')}`")
+        lines.append(f"- contract path: `{wordlinedriver_adapter.get('contract_path')}`")
+        lines.append(f"- power status: `{wordlinedriver_adapter.get('power_status')}`")
+        lines.append(f"- safe_for_physical_mapping: `{wordlinedriver_adapter.get('safe_for_physical_mapping')}`")
+        lines.append(f"- safe_for_shared_rail: `{wordlinedriver_adapter.get('safe_for_shared_rail')}`")
+        lines.append(f"- can enter limited placement: `{wordlinedriver_adapter.get('can_enter_limited_placement')}`")
+        lines.append(f"- b polarity: `{wordlinedriver_adapter.get('b_polarity')}`")
+        lines.append(f"- semantic confirmation: `{wordlinedriver_adapter.get('semantic_confirmation')}`")
+        lines.append(f"- placement count: `{wordlinedriver_adapter.get('placement_count', 0)}`")
+        lines.append(f"- adapter applied to placement: `{wordlinedriver_adapter.get('adapter_applied_to_placement')}`")
+        lines.append(f"- routing changed: `{wordlinedriver_adapter.get('routing_changed')}`")
+        lines.append(f"- gds writer changed: `{wordlinedriver_adapter.get('gds_writer_changed')}`")
+        lines.append(f"- shared rail enabled: `{wordlinedriver_adapter.get('shared_rail_enabled')}`")
+        lines.append(f"- write_driver changed: `{wordlinedriver_adapter.get('write_driver_changed')}`")
+        lines.append(f"- column mux changed: `{wordlinedriver_adapter.get('column_mux_changed')}`")
+        lines.append(f"- senseamp changed: `{wordlinedriver_adapter.get('senseamp_changed')}`")
+        lines.append(f"- storage aggregation enabled: `{wordlinedriver_adapter.get('storage_aggregation_enabled')}`")
+        lines.append(f"- decoder changed: `{wordlinedriver_adapter.get('decoder_changed')}`")
+        lines.append(f"- time control changed: `{wordlinedriver_adapter.get('time_control_changed')}`")
     lines.extend(["", "## Remaining abstract blocks", ""])
     if metrics["abstract_instances"]:
         for cell, count in metrics["abstract_instances"].items():

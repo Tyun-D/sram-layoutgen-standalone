@@ -77,6 +77,7 @@ def inspect_local_wordlinedriver_macro(tech_dir: str | Path) -> dict[str, Any]:
     labels, _shapes, bbox = read_gds_labels_and_shapes(gds_path)
     gds_audit = audit_macros(tech, tech / "openyield_macro_aliases.json", focus=("gen_wl_driver",))
     macro_audit = next(item for item in gds_audit["audited_macros"] if item["macro_name"] == "gen_wl_driver")
+    audit_labels = [label.get("text") for label in macro_audit.get("labels", [])]
     spice_pins = _parse_spice_subckt_pins(spice_path) if spice_path.exists() else ()
     return {
         "macro_name": "gen_wl_driver",
@@ -84,6 +85,10 @@ def inspect_local_wordlinedriver_macro(tech_dir: str | Path) -> dict[str, Any]:
         "spice_path": str(spice_path.resolve()) if spice_path.exists() else None,
         "gds_bbox": bbox.to_dict() if bbox else None,
         "raw_gds_labels": [label.text for label in labels],
+        "primary_gds_label_count": len(labels),
+        "pin_audit_gds_path": macro_audit.get("gds_path"),
+        "pin_audit_labels": audit_labels,
+        "pin_audit_label_count": len(audit_labels),
         "audit": macro_audit,
         "spice_subckt_pins": list(spice_pins),
         "spice_available": spice_path.exists(),

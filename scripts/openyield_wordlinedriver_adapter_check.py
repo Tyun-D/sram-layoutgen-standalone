@@ -61,6 +61,10 @@ def main() -> int:
             "spice_path": local_macro["spice_path"],
             "gds_bbox": local_macro["gds_bbox"],
             "raw_gds_labels": local_macro["raw_gds_labels"],
+            "primary_gds_label_count": local_macro["primary_gds_label_count"],
+            "pin_audit_gds_path": local_macro["pin_audit_gds_path"],
+            "pin_audit_labels": local_macro["pin_audit_labels"],
+            "pin_audit_label_count": local_macro["pin_audit_label_count"],
             "spice_subckt_pins": local_macro["spice_subckt_pins"],
             "audit": local_macro["audit"],
         },
@@ -71,6 +75,7 @@ def main() -> int:
         "safe_for_physical_mapping": adapter.safe_for_physical_mapping,
         "safe_for_shared_rail": adapter.safe_for_shared_rail,
         "can_enter_wordlinedriver_limited_placement": adapter.can_enter_limited_placement,
+        "can_enter_limited_placement": adapter.can_enter_limited_placement,
         "limited_placement_plan": build_limited_placement_plan(adapter),
         "semantic_confirmation": {
             "A_decoder_input": bool(semantics["A_decoder_input_present"]),
@@ -85,6 +90,16 @@ def main() -> int:
             "with_senseamp": True,
             "reason": "The audit is read-only and only confirms the wordline-driver contract plus a limited placement plan.",
         },
+        "wordline_driver_pin_labels_verified": bool(
+            local_macro["pin_audit_label_count"] > 0
+            and all(item["local_pin_shape_source"] == "label_plus_shape" for item in build_pin_mapping_table(adapter, local_macro, contract))
+        ),
+        "wordline_driver_pin_report_consistent": bool(
+            adapter.safe_for_physical_mapping
+            and adapter.can_enter_limited_placement
+            and local_macro["pin_audit_label_count"] > 0
+            and all(item["local_pin_shape_source"] == "label_plus_shape" for item in build_pin_mapping_table(adapter, local_macro, contract))
+        ),
         "standalone_modified": False,
         "routing_changed": False,
         "gds_writer_changed": False,
@@ -170,6 +185,8 @@ def render_markdown(report: dict[str, Any]) -> str:
         f"- safe_for_physical_mapping: `{report['safe_for_physical_mapping']}`",
         f"- safe_for_shared_rail: `{report['safe_for_shared_rail']}`",
         f"- can enter limited placement: `{report['can_enter_wordlinedriver_limited_placement']}`",
+        f"- wordline_driver_pin_labels_verified: `{report['wordline_driver_pin_labels_verified']}`",
+        f"- wordline_driver_pin_report_consistent: `{report['wordline_driver_pin_report_consistent']}`",
         f"- semantic confirmation: `{report['semantic_confirmation']['conclusion']}`",
         f"- standalone modified: `{report['standalone_modified']}`",
         f"- routing changed: `{report['routing_changed']}`",
@@ -198,7 +215,11 @@ def render_markdown(report: dict[str, Any]) -> str:
         f"- GDS: `{report['local_macro']['gds_path']}`",
         f"- SPICE: `{report['local_macro']['spice_path']}`",
         f"- GDS bbox: `{report['local_macro']['gds_bbox']}`",
-        f"- GDS labels: `{', '.join(report['local_macro']['raw_gds_labels'])}`",
+        f"- primary GDS labels: `{', '.join(report['local_macro']['raw_gds_labels']) or 'none'}`",
+        f"- primary GDS label count: `{report['local_macro']['primary_gds_label_count']}`",
+        f"- pin audit GDS: `{report['local_macro']['pin_audit_gds_path']}`",
+        f"- pin audit labels: `{', '.join(report['local_macro']['pin_audit_labels']) or 'none'}`",
+        f"- pin audit label count: `{report['local_macro']['pin_audit_label_count']}`",
         f"- SPICE pins: `{', '.join(report['local_macro']['spice_subckt_pins'])}`",
         "",
         "## Pin Mapping",
@@ -221,6 +242,8 @@ def render_markdown(report: dict[str, Any]) -> str:
             f"- pitch_y: `{report['limited_placement_plan']['pitch_y']}`",
             f"- row orientation policy: `{report['limited_placement_plan']['row_orientation_policy']}`",
             f"- can enter limited placement: `{report['limited_placement_plan']['can_enter_limited_placement']}`",
+            f"- wordline_driver_pin_labels_verified: `{report['wordline_driver_pin_labels_verified']}`",
+            f"- wordline_driver_pin_report_consistent: `{report['wordline_driver_pin_report_consistent']}`",
             "",
             "## Notes",
             "",

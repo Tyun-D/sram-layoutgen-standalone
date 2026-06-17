@@ -10,6 +10,8 @@ This is a read-only semantic audit plus a limited placement plan. It does not mo
 - safe_for_physical_mapping: `True`
 - safe_for_shared_rail: `False`
 - can enter limited placement: `True`
+- wordline_driver_pin_labels_verified: `True`
+- wordline_driver_pin_report_consistent: `True`
 - semantic confirmation: `confirmed_active_high`
 - standalone modified: `False`
 - routing changed: `False`
@@ -38,7 +40,11 @@ This is a read-only semantic audit plus a limited placement plan. It does not mo
 - GDS: `E:\njust\keyan\SRAM Compiler_V2\OpenRAM-stable\deliverables\sram_layoutgen_step45_clean\technology\freepdk45\gds_lib\gen_wl_driver.gds`
 - SPICE: `None`
 - GDS bbox: `{'x0': 0.0, 'y0': 0.0, 'x1': 1.5499999999999996, 'y1': 1.5649999999999997}`
-- GDS labels: ``
+- primary GDS labels: `none`
+- primary GDS label count: `0`
+- pin audit GDS: `technology\freepdk45\gds_lib\openram_replacements\gen_wl_driver.gds`
+- pin audit labels: `Z, A, B, gnd, vdd, G, S, D, G, S, D, G, S, S, S, S, D, A, Z, gnd, vdd, G, S, D, G, S, S, S, S, D, Z, gnd, vdd, A, B`
+- pin audit label count: `35`
 - SPICE pins: ``
 
 ## Pin Mapping
@@ -58,6 +64,8 @@ This is a read-only semantic audit plus a limited placement plan. It does not mo
 - pitch_y: `1.565`
 - row orientation policy: `all_r0`
 - can enter limited placement: `True`
+- wordline_driver_pin_labels_verified: `True`
+- wordline_driver_pin_report_consistent: `True`
 
 ## Notes
 
