@@ -1,0 +1,351 @@
+{
+  "scope": "step6_2_dff_array_metadata_placement_plan",
+  "input_args": {
+    "addr_width": 5,
+    "data_width": 4,
+    "origin_x": 0.0,
+    "origin_y": 0.0,
+    "pitch_x": 1.0,
+    "row_gap": 1.0
+  },
+  "adapter_safe_for_metadata_plan": true,
+  "safe_for_physical_mapping": true,
+  "safe_for_shared_rail": false,
+  "row_placement_ready": "metadata_only",
+  "dff_array_can_enter_metadata_placement": true,
+  "dff_array_can_enter_standalone_placement": false,
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "address_dff_count": 5,
+  "data_dff_count": 4,
+  "placement_count": 9,
+  "local_dff_gds_path": "technology\\freepdk45\\gds_lib\\dff.gds",
+  "local_dff_spice_path": "technology\\freepdk45\\sp_lib\\dff.sp",
+  "local_dff_gds_bbox": {
+    "x0": 0.0,
+    "y0": -0.0999999999999994,
+    "x1": 2.8599999999999826,
+    "y1": 2.5699999999999843
+  },
+  "placements": [
+    {
+      "instance_name": "Xaddr_dff_b0",
+      "array_type": "ADDR_DFF",
+      "bit_index": 0,
+      "macro_name": "dff",
+      "x": 0.0,
+      "y": 0.0,
+      "orientation": "R0",
+      "nets": {
+        "d": "addr[0]",
+        "clk": "clk_buf",
+        "q": "addr_q[0]",
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "semantic_role": "address_latch",
+      "downstream_consumer": "DECODER_CASCADE.A[0]",
+      "safe_for_physical_mapping": true,
+      "safe_for_shared_rail": false
+    },
+    {
+      "instance_name": "Xaddr_dff_b1",
+      "array_type": "ADDR_DFF",
+      "bit_index": 1,
+      "macro_name": "dff",
+      "x": 1.0,
+      "y": 0.0,
+      "orientation": "R0",
+      "nets": {
+        "d": "addr[1]",
+        "clk": "clk_buf",
+        "q": "addr_q[1]",
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "semantic_role": "address_latch",
+      "downstream_consumer": "DECODER_CASCADE.A[1]",
+      "safe_for_physical_mapping": true,
+      "safe_for_shared_rail": false
+    },
+    {
+      "instance_name": "Xaddr_dff_b2",
+      "array_type": "ADDR_DFF",
+      "bit_index": 2,
+      "macro_name": "dff",
+      "x": 2.0,
+      "y": 0.0,
+      "orientation": "R0",
+      "nets": {
+        "d": "addr[2]",
+        "clk": "clk_buf",
+        "q": "addr_q[2]",
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "semantic_role": "address_latch",
+      "downstream_consumer": "DECODER_CASCADE.A[2]",
+      "safe_for_physical_mapping": true,
+      "safe_for_shared_rail": false
+    },
+    {
+      "instance_name": "Xaddr_dff_b3",
+      "array_type": "ADDR_DFF",
+      "bit_index": 3,
+      "macro_name": "dff",
+      "x": 3.0,
+      "y": 0.0,
+      "orientation": "R0",
+      "nets": {
+        "d": "addr[3]",
+        "clk": "clk_buf",
+        "q": "addr_q[3]",
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "semantic_role": "address_latch",
+      "downstream_consumer": "DECODER_CASCADE.A[3]",
+      "safe_for_physical_mapping": true,
+      "safe_for_shared_rail": false
+    },
+    {
+      "instance_name": "Xaddr_dff_b4",
+      "array_type": "ADDR_DFF",
+      "bit_index": 4,
+      "macro_name": "dff",
+      "x": 4.0,
+      "y": 0.0,
+      "orientation": "R0",
+      "nets": {
+        "d": "addr[4]",
+        "clk": "clk_buf",
+        "q": "addr_q[4]",
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "semantic_role": "address_latch",
+      "downstream_consumer": "DECODER_CASCADE.A[4]",
+      "safe_for_physical_mapping": true,
+      "safe_for_shared_rail": false
+    },
+    {
+      "instance_name": "Xdata_dff_b0",
+      "array_type": "DATA_DFF",
+      "bit_index": 0,
+      "macro_name": "dff",
+      "x": 0.0,
+      "y": 3.6699999999999835,
+      "orientation": "R0",
+      "nets": {
+        "d": "din[0]",
+        "clk": "clk_buf",
+        "q": "din_q[0]",
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "semantic_role": "data_latch",
+      "downstream_consumer": "WRITEDRIVER.DIN[0]",
+      "safe_for_physical_mapping": true,
+      "safe_for_shared_rail": false
+    },
+    {
+      "instance_name": "Xdata_dff_b1",
+      "array_type": "DATA_DFF",
+      "bit_index": 1,
+      "macro_name": "dff",
+      "x": 1.0,
+      "y": 3.6699999999999835,
+      "orientation": "R0",
+      "nets": {
+        "d": "din[1]",
+        "clk": "clk_buf",
+        "q": "din_q[1]",
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "semantic_role": "data_latch",
+      "downstream_consumer": "WRITEDRIVER.DIN[1]",
+      "safe_for_physical_mapping": true,
+      "safe_for_shared_rail": false
+    },
+    {
+      "instance_name": "Xdata_dff_b2",
+      "array_type": "DATA_DFF",
+      "bit_index": 2,
+      "macro_name": "dff",
+      "x": 2.0,
+      "y": 3.6699999999999835,
+      "orientation": "R0",
+      "nets": {
+        "d": "din[2]",
+        "clk": "clk_buf",
+        "q": "din_q[2]",
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "semantic_role": "data_latch",
+      "downstream_consumer": "WRITEDRIVER.DIN[2]",
+      "safe_for_physical_mapping": true,
+      "safe_for_shared_rail": false
+    },
+    {
+      "instance_name": "Xdata_dff_b3",
+      "array_type": "DATA_DFF",
+      "bit_index": 3,
+      "macro_name": "dff",
+      "x": 3.0,
+      "y": 3.6699999999999835,
+      "orientation": "R0",
+      "nets": {
+        "d": "din[3]",
+        "clk": "clk_buf",
+        "q": "din_q[3]",
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "semantic_role": "data_latch",
+      "downstream_consumer": "WRITEDRIVER.DIN[3]",
+      "safe_for_physical_mapping": true,
+      "safe_for_shared_rail": false
+    }
+  ],
+  "bbox_estimate": {
+    "x0": 0.0,
+    "y0": 0.0,
+    "x1": 6.859999999999983,
+    "y1": 6.339999999999967,
+    "width": 6.859999999999983,
+    "height": 6.339999999999967
+  },
+  "pitch_x_legal_for_bbox": false,
+  "overlap_risk_if_physically_placed": true,
+  "example_placements": [
+    {
+      "instance_name": "Xaddr_dff_b0",
+      "array_type": "ADDR_DFF",
+      "bit_index": 0,
+      "macro_name": "dff",
+      "x": 0.0,
+      "y": 0.0,
+      "orientation": "R0",
+      "nets": {
+        "d": "addr[0]",
+        "clk": "clk_buf",
+        "q": "addr_q[0]",
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "semantic_role": "address_latch",
+      "downstream_consumer": "DECODER_CASCADE.A[0]",
+      "safe_for_physical_mapping": true,
+      "safe_for_shared_rail": false
+    },
+    {
+      "instance_name": "Xaddr_dff_b1",
+      "array_type": "ADDR_DFF",
+      "bit_index": 1,
+      "macro_name": "dff",
+      "x": 1.0,
+      "y": 0.0,
+      "orientation": "R0",
+      "nets": {
+        "d": "addr[1]",
+        "clk": "clk_buf",
+        "q": "addr_q[1]",
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "semantic_role": "address_latch",
+      "downstream_consumer": "DECODER_CASCADE.A[1]",
+      "safe_for_physical_mapping": true,
+      "safe_for_shared_rail": false
+    },
+    {
+      "instance_name": "Xaddr_dff_b2",
+      "array_type": "ADDR_DFF",
+      "bit_index": 2,
+      "macro_name": "dff",
+      "x": 2.0,
+      "y": 0.0,
+      "orientation": "R0",
+      "nets": {
+        "d": "addr[2]",
+        "clk": "clk_buf",
+        "q": "addr_q[2]",
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "semantic_role": "address_latch",
+      "downstream_consumer": "DECODER_CASCADE.A[2]",
+      "safe_for_physical_mapping": true,
+      "safe_for_shared_rail": false
+    },
+    {
+      "instance_name": "Xaddr_dff_b3",
+      "array_type": "ADDR_DFF",
+      "bit_index": 3,
+      "macro_name": "dff",
+      "x": 3.0,
+      "y": 0.0,
+      "orientation": "R0",
+      "nets": {
+        "d": "addr[3]",
+        "clk": "clk_buf",
+        "q": "addr_q[3]",
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "semantic_role": "address_latch",
+      "downstream_consumer": "DECODER_CASCADE.A[3]",
+      "safe_for_physical_mapping": true,
+      "safe_for_shared_rail": false
+    },
+    {
+      "instance_name": "Xaddr_dff_b4",
+      "array_type": "ADDR_DFF",
+      "bit_index": 4,
+      "macro_name": "dff",
+      "x": 4.0,
+      "y": 0.0,
+      "orientation": "R0",
+      "nets": {
+        "d": "addr[4]",
+        "clk": "clk_buf",
+        "q": "addr_q[4]",
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "semantic_role": "address_latch",
+      "downstream_consumer": "DECODER_CASCADE.A[4]",
+      "safe_for_physical_mapping": true,
+      "safe_for_shared_rail": false
+    },
+    {
+      "instance_name": "Xdata_dff_b0",
+      "array_type": "DATA_DFF",
+      "bit_index": 0,
+      "macro_name": "dff",
+      "x": 0.0,
+      "y": 3.6699999999999835,
+      "orientation": "R0",
+      "nets": {
+        "d": "din[0]",
+        "clk": "clk_buf",
+        "q": "din_q[0]",
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "semantic_role": "data_latch",
+      "downstream_consumer": "WRITEDRIVER.DIN[0]",
+      "safe_for_physical_mapping": true,
+      "safe_for_shared_rail": false
+    }
+  ],
+  "notes": [
+    "This report is metadata-only and does not connect the plan to standalone placement.",
+    "No routing, clock tree, shared rail, or row abutment proof is performed here.",
+    "A supplied pitch_x smaller than the DFF bbox width is still reported, but flagged as a physical overlap risk."
+  ],
+  "step_6_3_recommendation": "Proceed to control-row floorplan metadata and clock-domain planning without enabling standalone placement."
+}

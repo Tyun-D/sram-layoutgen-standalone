@@ -1,0 +1,165 @@
+{
+  "scope": "step6_2_dff_array_adapter_audit",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "openyield_dff_pin_list": [
+    "VDD",
+    "VSS",
+    "D",
+    "Q",
+    "CLK"
+  ],
+  "local_dff_gds_path": "technology\\freepdk45\\gds_lib\\dff.gds",
+  "local_dff_spice_path": "technology\\freepdk45\\sp_lib\\dff.sp",
+  "local_dff_gds_bbox": {
+    "x0": 0.0,
+    "y0": -0.0999999999999994,
+    "x1": 2.8599999999999826,
+    "y1": 2.5699999999999843
+  },
+  "local_dff_gds_labels": [
+    "clk",
+    "D",
+    "Q",
+    "gnd",
+    "vdd"
+  ],
+  "local_dff_spice_pins": [
+    "D",
+    "Q",
+    "clk",
+    "vdd",
+    "gnd"
+  ],
+  "local_dff_has_qb": false,
+  "local_dff_has_reset_enable_scan": false,
+  "vdd_gnd_metadata_complete": true,
+  "safe_for_physical_mapping": true,
+  "safe_for_shared_rail": false,
+  "row_placement_ready": "metadata_only",
+  "dff_adapter_safe_for_metadata_plan": true,
+  "dff_array_can_enter_metadata_placement": true,
+  "dff_array_can_enter_standalone_placement": false,
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "pin_mapping_table": [
+    {
+      "openyield_pin": "VDD",
+      "openyield_role": "power",
+      "local_target_pin": "vdd",
+      "local_gds_label_present": true,
+      "local_spice_pin_present": true,
+      "mapping_status": "matched",
+      "notes": []
+    },
+    {
+      "openyield_pin": "VSS",
+      "openyield_role": "ground",
+      "local_target_pin": "gnd",
+      "local_gds_label_present": true,
+      "local_spice_pin_present": true,
+      "mapping_status": "matched",
+      "notes": []
+    },
+    {
+      "openyield_pin": "D",
+      "openyield_role": "data_input",
+      "local_target_pin": "d",
+      "local_gds_label_present": true,
+      "local_spice_pin_present": true,
+      "mapping_status": "matched",
+      "notes": []
+    },
+    {
+      "openyield_pin": "Q",
+      "openyield_role": "data_output",
+      "local_target_pin": "q",
+      "local_gds_label_present": true,
+      "local_spice_pin_present": true,
+      "mapping_status": "matched",
+      "notes": []
+    },
+    {
+      "openyield_pin": "CLK",
+      "openyield_role": "clock",
+      "local_target_pin": "clk",
+      "local_gds_label_present": true,
+      "local_spice_pin_present": true,
+      "mapping_status": "matched",
+      "notes": [
+        "OpenYield DFF uses CLK; local physical pin is clk, and array-level semantic clock domain may be driven by clk_buf."
+      ]
+    },
+    {
+      "openyield_pin": "QB",
+      "openyield_role": "complementary_output",
+      "local_target_pin": null,
+      "local_gds_label_present": false,
+      "local_spice_pin_present": false,
+      "mapping_status": "unused_complementary_output",
+      "notes": [
+        "OpenYield ADDR_DFF/DATA_DFF do not use QB, and the local hardcell does not expose QB."
+      ]
+    }
+  ],
+  "addr_dff_semantics": {
+    "array_type": "ADDR_DFF",
+    "input_pins": [
+      "CLK",
+      "A[i]"
+    ],
+    "output_pins": [
+      "A_dff[i]"
+    ],
+    "input_semantics": [
+      "CLK -> clk_buf / TIME clock domain",
+      "A[i] -> addr[i]"
+    ],
+    "output_semantics": [
+      "A_dff[i] -> addr_q[i] / addr_latched[i]"
+    ],
+    "feeds_domain": "decoder_input_domain",
+    "downstream_consumer": "DECODER_CASCADE.A[i]",
+    "mapping_status": "dff_array_mappable",
+    "notes": [
+      "ADDR_DFF is a repeated address-flop array only."
+    ]
+  },
+  "data_dff_semantics": {
+    "array_type": "DATA_DFF",
+    "input_pins": [
+      "CLK",
+      "DIN[i]"
+    ],
+    "output_pins": [
+      "DIN_dff[i]"
+    ],
+    "input_semantics": [
+      "CLK -> clk_buf / TIME clock domain",
+      "DIN[i] -> din[i]"
+    ],
+    "output_semantics": [
+      "DIN_dff[i] -> din_q[i] / data_latched[i]"
+    ],
+    "feeds_domain": "write_driver_input_domain",
+    "downstream_consumer": "WRITEDRIVER.DIN[i]",
+    "mapping_status": "dff_array_mappable",
+    "notes": [
+      "DATA_DFF is a repeated data-flop array only."
+    ]
+  },
+  "address_dff_count_template": 1,
+  "data_dff_count_template": 1,
+  "notes": [
+    "OpenYield DFF pin list is VDD, VSS, D, Q, CLK.",
+    "Local dff GDS exposes clk, D, Q, gnd, vdd and does not expose QB.",
+    "Local dff SPICE subckt order is D Q clk vdd gnd, so the adapter must be name-based rather than order-based.",
+    "ADDR_DFF feeds DECODER_CASCADE, while DATA_DFF feeds WRITEDRIVER.",
+    "Shared rail remains disabled because DFF row-level rail continuity and abutment are not proven by this audit.",
+    "The DFF leaf is safe for metadata-only planning."
+  ],
+  "can_enter_step_6_3": true,
+  "step_6_3_recommendation": "Proceed to metadata-level control-row floorplan planning, but keep standalone placement disabled until row pitch, clock distribution, and rail strategy are proven."
+}
