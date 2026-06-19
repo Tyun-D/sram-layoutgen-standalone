@@ -1,0 +1,285 @@
+{
+  "scope": "step6_18_openyield_decoder_preplacement_feasibility_audit",
+  "model_name": "DECODER_CASCADE_PREPLACEMENT_FEASIBILITY_MODEL",
+  "source_plan": "DECODER_CASCADE_GENERATED_BLOCK_PLAN",
+  "addr_width": 5,
+  "num_rows": 32,
+  "n_levels": 2,
+  "level_groups": [
+    1,
+    4
+  ],
+  "metadata_only": true,
+  "physical_layout_generated": false,
+  "physical_routing_proven": false,
+  "source_plan_summary": {
+    "metadata_chain_complete": true,
+    "wordline_handoff_budget_is_tight": true,
+    "bbox_proxy_is_metadata_only": true
+  },
+  "stage_row_prototypes": [
+    {
+      "row_name": "DECODER_PREPLACE_ROW_DEC_0_0",
+      "source_stage": "DEC_0_0",
+      "level": 0,
+      "role": "intermediate_enable_bus",
+      "template": "DECODER_LEVEL0_STAGE_TEMPLATE",
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 44.7275,
+        "y1": 1.565,
+        "width": 44.7275,
+        "height": 1.565
+      },
+      "x0": 0.0,
+      "y0": 0.0,
+      "x1": 44.7275,
+      "y1": 1.565,
+      "width": 44.7275,
+      "height": 1.565,
+      "metadata_only": true,
+      "not_legal_physical_placement": true,
+      "physical_routing_proven": false
+    },
+    {
+      "row_name": "DECODER_PREPLACE_ROW_DEC_1_0",
+      "source_stage": "DEC_1_0",
+      "level": 1,
+      "role": "wordline_outputs",
+      "template": "DECODER_LEVEL1_STAGE_TEMPLATE",
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 5.13,
+        "x1": 44.7275,
+        "y1": 6.695,
+        "width": 44.7275,
+        "height": 1.565
+      },
+      "x0": 0.0,
+      "y0": 5.13,
+      "x1": 44.7275,
+      "y1": 6.695,
+      "width": 44.7275,
+      "height": 1.565,
+      "metadata_only": true,
+      "not_legal_physical_placement": true,
+      "physical_routing_proven": false
+    },
+    {
+      "row_name": "DECODER_PREPLACE_ROW_DEC_1_1",
+      "source_stage": "DEC_1_1",
+      "level": 1,
+      "role": "wordline_outputs",
+      "template": "DECODER_LEVEL1_STAGE_TEMPLATE",
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 8.26,
+        "x1": 44.7275,
+        "y1": 9.825,
+        "width": 44.7275,
+        "height": 1.565
+      },
+      "x0": 0.0,
+      "y0": 8.26,
+      "x1": 44.7275,
+      "y1": 9.825,
+      "width": 44.7275,
+      "height": 1.565,
+      "metadata_only": true,
+      "not_legal_physical_placement": true,
+      "physical_routing_proven": false
+    },
+    {
+      "row_name": "DECODER_PREPLACE_ROW_DEC_1_2",
+      "source_stage": "DEC_1_2",
+      "level": 1,
+      "role": "wordline_outputs",
+      "template": "DECODER_LEVEL1_STAGE_TEMPLATE",
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 11.39,
+        "x1": 44.7275,
+        "y1": 12.955,
+        "width": 44.7275,
+        "height": 1.565
+      },
+      "x0": 0.0,
+      "y0": 11.39,
+      "x1": 44.7275,
+      "y1": 12.955,
+      "width": 44.7275,
+      "height": 1.565,
+      "metadata_only": true,
+      "not_legal_physical_placement": true,
+      "physical_routing_proven": false
+    },
+    {
+      "row_name": "DECODER_PREPLACE_ROW_DEC_1_3",
+      "source_stage": "DEC_1_3",
+      "level": 1,
+      "role": "wordline_outputs",
+      "template": "DECODER_LEVEL1_STAGE_TEMPLATE",
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 14.52,
+        "x1": 44.7275,
+        "y1": 16.085,
+        "width": 44.7275,
+        "height": 1.565
+      },
+      "x0": 0.0,
+      "y0": 14.52,
+      "x1": 44.7275,
+      "y1": 16.085,
+      "width": 44.7275,
+      "height": 1.565,
+      "metadata_only": true,
+      "not_legal_physical_placement": true,
+      "physical_routing_proven": false
+    }
+  ],
+  "stage_row_spacing": [
+    {
+      "from_row": "DECODER_PREPLACE_ROW_DEC_0_0",
+      "to_row": "DECODER_PREPLACE_ROW_DEC_1_0",
+      "actual_gap": 3.565,
+      "required_gap": 3.565,
+      "gap_satisfied": true
+    },
+    {
+      "from_row": "DECODER_PREPLACE_ROW_DEC_1_0",
+      "to_row": "DECODER_PREPLACE_ROW_DEC_1_1",
+      "actual_gap": 1.565,
+      "required_gap": 1.565,
+      "gap_satisfied": true
+    },
+    {
+      "from_row": "DECODER_PREPLACE_ROW_DEC_1_1",
+      "to_row": "DECODER_PREPLACE_ROW_DEC_1_2",
+      "actual_gap": 1.565,
+      "required_gap": 1.565,
+      "gap_satisfied": true
+    },
+    {
+      "from_row": "DECODER_PREPLACE_ROW_DEC_1_2",
+      "to_row": "DECODER_PREPLACE_ROW_DEC_1_3",
+      "actual_gap": 1.565,
+      "required_gap": 1.565,
+      "gap_satisfied": true
+    }
+  ],
+  "handoff_channel_prototypes": [
+    {
+      "window_name": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_0",
+      "width": 2.0,
+      "height": 12.52,
+      "available_width": 2.0,
+      "metadata_only": true,
+      "physical_routing_proven": false
+    },
+    {
+      "window_name": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_1",
+      "width": 2.0,
+      "height": 12.52,
+      "available_width": 2.0,
+      "metadata_only": true,
+      "physical_routing_proven": false
+    },
+    {
+      "window_name": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_2",
+      "width": 2.0,
+      "height": 12.52,
+      "available_width": 2.0,
+      "metadata_only": true,
+      "physical_routing_proven": false
+    },
+    {
+      "window_name": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_3",
+      "width": 2.0,
+      "height": 12.52,
+      "available_width": 2.0,
+      "metadata_only": true,
+      "physical_routing_proven": false
+    }
+  ],
+  "enable_bus_channel_prototype": {
+    "window_name": "ENABLE_BUS_HANDOFF_WINDOW",
+    "width": 2.0,
+    "height": 1.48,
+    "available_width": 2.0,
+    "metadata_only": true,
+    "physical_routing_proven": false
+  },
+  "bbox_proxy_overlap_checks": {
+    "stage_row_overlap_found": false,
+    "stage_row_gap_satisfied": true,
+    "bbox_proxy_conflict_found": false,
+    "overlap_pairs": [],
+    "metadata_only": true
+  },
+  "handoff_window_overlap_checks": {
+    "handoff_window_overlap_found": false,
+    "enable_bus_window_overlap_found": false,
+    "metadata_only": true
+  },
+  "budget_margin_checks": {
+    "wordline_handoff_group_count": 4,
+    "wordline_outputs": 32,
+    "wordline_group_required_width": 2.0,
+    "wordline_group_available_width": 2.0,
+    "wordline_handoff_budget_pass": true,
+    "wordline_handoff_budget_is_tight": true,
+    "wordline_handoff_margin": 0.0,
+    "wordline_handoff_risk": "high_or_tight",
+    "consumed_enable_outputs": 4,
+    "unused_enable_outputs": 4,
+    "enable_required_width": 1.2,
+    "enable_available_width": 2.0,
+    "enable_handoff_budget_pass": true,
+    "enable_handoff_margin": 0.8,
+    "unused_enable_outputs_not_routed": true,
+    "physical_routing_proven": false
+  },
+  "power_policy_feasibility": {
+    "decoder_power_policy": "local_horizontal_vdd_gnd_only_no_shared_rail",
+    "leaf_power_metadata_complete": true,
+    "stage_power_policy_available": true,
+    "rail_continuity_proven": false,
+    "safe_for_shared_rail": false,
+    "composite_rail_continuity_proven": false,
+    "power_feasibility_metadata_pass": true,
+    "power_physical_proven": false,
+    "shared_rail_enabled": false
+  },
+  "risk_flags": {
+    "tight_wordline_budget": true,
+    "zero_wordline_budget_margin": true,
+    "stage_bbox_is_proxy": true,
+    "handoff_windows_are_proxy": true,
+    "internal_routing_unproven": true,
+    "rail_continuity_unproven": true,
+    "level1_enable_target_pin_side_unproven": true,
+    "physical_decoder_placement_blocked": true
+  },
+  "decoder_preplacement_feasibility_available": true,
+  "bounded_preplacement_model_available": true,
+  "metadata_stage_packing_consistent": true,
+  "handoff_budget_metadata_pass": true,
+  "can_enter_decoder_preplacement_feasibility": true,
+  "can_enter_decoder_physical_prototype": false,
+  "can_enter_physical_decoder_placement": false,
+  "can_enter_very_limited_control_row_smoke": false,
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "blockers": [
+    "Pre-placement rows are bbox proxies only and are not legal physical placement.",
+    "Wordline handoff budget has zero margin and must be treated as high-risk/tight.",
+    "Composite internal routing remains unproven inside decoder stages.",
+    "Rail continuity and shared-rail safety remain unproven.",
+    "Enable-bus and wordline handoff windows are metadata channels, not routed geometry.",
+    "Level1 enable target physical pin-side proof is still missing."
+  ],
+  "step_6_19_recommendation": "Next, audit whether the tight wordline handoff can be relieved at the metadata level by alternative channel budgeting or stage/output ordering before any decoder physical prototype is attempted."
+}
