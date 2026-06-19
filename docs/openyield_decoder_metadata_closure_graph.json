@@ -1,0 +1,161 @@
+{
+  "scope": "step6_22_openyield_decoder_metadata_closure",
+  "nodes": [
+    {
+      "id": "DECODER_METADATA_CLOSURE_STEP6",
+      "kind": "closure"
+    },
+    {
+      "id": "step6_9_openyield_decoder_stage_candidate_audit",
+      "kind": "source_report"
+    },
+    {
+      "id": "step6_10_openyield_decoder_row_rule_audit",
+      "kind": "source_report"
+    },
+    {
+      "id": "step6_11_openyield_decoder_logic_repair_audit",
+      "kind": "source_report"
+    },
+    {
+      "id": "step6_12_openyield_decoder_composite_leaf_convention_audit",
+      "kind": "source_report"
+    },
+    {
+      "id": "step6_13_openyield_decoder_stage_template_audit",
+      "kind": "source_report"
+    },
+    {
+      "id": "step6_14_openyield_decoder_truth_table_binding_audit",
+      "kind": "source_report"
+    },
+    {
+      "id": "step6_15_openyield_decoder_output_contract_audit",
+      "kind": "source_report"
+    },
+    {
+      "id": "step6_16_openyield_decoder_output_handoff_budget_audit",
+      "kind": "source_report"
+    },
+    {
+      "id": "step6_17_openyield_decoder_generated_block_plan_summary",
+      "kind": "source_report"
+    },
+    {
+      "id": "step6_18_openyield_decoder_preplacement_feasibility_audit",
+      "kind": "source_report"
+    },
+    {
+      "id": "step6_19_openyield_decoder_handoff_relief_audit",
+      "kind": "source_report"
+    },
+    {
+      "id": "step6_20_openyield_decoder_channel_requirement_audit",
+      "kind": "source_report"
+    },
+    {
+      "id": "step6_21_openyield_control_parent_reservation_audit",
+      "kind": "source_report"
+    },
+    {
+      "id": "TIME_remaining_control_subblocks",
+      "kind": "next_phase"
+    }
+  ],
+  "edges": [
+    {
+      "source": "DECODER_METADATA_CLOSURE_STEP6",
+      "target": "step6_9_openyield_decoder_stage_candidate_audit",
+      "relation": "summarizes"
+    },
+    {
+      "source": "DECODER_METADATA_CLOSURE_STEP6",
+      "target": "step6_10_openyield_decoder_row_rule_audit",
+      "relation": "summarizes"
+    },
+    {
+      "source": "DECODER_METADATA_CLOSURE_STEP6",
+      "target": "step6_11_openyield_decoder_logic_repair_audit",
+      "relation": "summarizes"
+    },
+    {
+      "source": "DECODER_METADATA_CLOSURE_STEP6",
+      "target": "step6_12_openyield_decoder_composite_leaf_convention_audit",
+      "relation": "summarizes"
+    },
+    {
+      "source": "DECODER_METADATA_CLOSURE_STEP6",
+      "target": "step6_13_openyield_decoder_stage_template_audit",
+      "relation": "summarizes"
+    },
+    {
+      "source": "DECODER_METADATA_CLOSURE_STEP6",
+      "target": "step6_14_openyield_decoder_truth_table_binding_audit",
+      "relation": "summarizes"
+    },
+    {
+      "source": "DECODER_METADATA_CLOSURE_STEP6",
+      "target": "step6_15_openyield_decoder_output_contract_audit",
+      "relation": "summarizes"
+    },
+    {
+      "source": "DECODER_METADATA_CLOSURE_STEP6",
+      "target": "step6_16_openyield_decoder_output_handoff_budget_audit",
+      "relation": "summarizes"
+    },
+    {
+      "source": "DECODER_METADATA_CLOSURE_STEP6",
+      "target": "step6_17_openyield_decoder_generated_block_plan_summary",
+      "relation": "summarizes"
+    },
+    {
+      "source": "DECODER_METADATA_CLOSURE_STEP6",
+      "target": "step6_18_openyield_decoder_preplacement_feasibility_audit",
+      "relation": "summarizes"
+    },
+    {
+      "source": "DECODER_METADATA_CLOSURE_STEP6",
+      "target": "step6_19_openyield_decoder_handoff_relief_audit",
+      "relation": "summarizes"
+    },
+    {
+      "source": "DECODER_METADATA_CLOSURE_STEP6",
+      "target": "step6_20_openyield_decoder_channel_requirement_audit",
+      "relation": "summarizes"
+    },
+    {
+      "source": "DECODER_METADATA_CLOSURE_STEP6",
+      "target": "step6_21_openyield_control_parent_reservation_audit",
+      "relation": "summarizes"
+    },
+    {
+      "source": "DECODER_METADATA_CLOSURE_STEP6",
+      "target": "TIME_remaining_control_subblocks",
+      "relation": "pivots_to"
+    }
+  ],
+  "decision_summary": {
+    "decoder_metadata_line_status": "closed_for_now",
+    "decoder_physical_push_status": "stop",
+    "recommended_next_phase": "TIME_remaining_control_subblock_audit",
+    "reason": [
+      "decoder metadata is sufficient as future planning reference",
+      "decoder physical prototype remains blocked",
+      "further local decoder metadata micro-tuning is not the best next investment",
+      "remaining TIME/control subblocks now dominate control-signal generation uncertainty"
+    ]
+  },
+  "open_blockers": [
+    "stage bbox proxies are metadata-only",
+    "stage packing is not legalized",
+    "composite internal routing is not proven",
+    "rail continuity is not proven",
+    "shared rail is disabled",
+    "wordline handoff windows are metadata proxies",
+    "wordline margin is still low even after 2.2um requirement",
+    "parent floorplan space for extra 0.2um is not physically proven",
+    "level1 enable target physical pin-side proof is still missing",
+    "full channel legality is not proven",
+    "no DRC/LVS proof exists"
+  ]
+}
