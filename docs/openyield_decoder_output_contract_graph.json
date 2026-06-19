@@ -1,0 +1,136 @@
+{
+  "scope": "step6_15_openyield_decoder_output_contract_audit",
+  "nodes": [
+    {
+      "id": "DECODER3_8_OUTPUT_CONTRACT_WL0",
+      "kind": "output_contract"
+    },
+    {
+      "id": "DECODER3_8_OUTPUT_CONTRACT_WL1",
+      "kind": "output_contract"
+    },
+    {
+      "id": "DECODER3_8_OUTPUT_CONTRACT_WL2",
+      "kind": "output_contract"
+    },
+    {
+      "id": "DECODER3_8_OUTPUT_CONTRACT_WL3",
+      "kind": "output_contract"
+    },
+    {
+      "id": "DECODER3_8_OUTPUT_CONTRACT_WL4",
+      "kind": "output_contract"
+    },
+    {
+      "id": "DECODER3_8_OUTPUT_CONTRACT_WL5",
+      "kind": "output_contract"
+    },
+    {
+      "id": "DECODER3_8_OUTPUT_CONTRACT_WL6",
+      "kind": "output_contract"
+    },
+    {
+      "id": "DECODER3_8_OUTPUT_CONTRACT_WL7",
+      "kind": "output_contract"
+    }
+  ],
+  "edges": [
+    {
+      "source": "Xdec_and3_wl0",
+      "target": "DECODER3_8_OUTPUT_CONTRACT_WL0",
+      "relation": "binds_logic"
+    },
+    {
+      "source": "Xdec_and3_wl1",
+      "target": "DECODER3_8_OUTPUT_CONTRACT_WL1",
+      "relation": "binds_logic"
+    },
+    {
+      "source": "Xdec_and3_wl2",
+      "target": "DECODER3_8_OUTPUT_CONTRACT_WL2",
+      "relation": "binds_logic"
+    },
+    {
+      "source": "Xdec_and3_wl3",
+      "target": "DECODER3_8_OUTPUT_CONTRACT_WL3",
+      "relation": "binds_logic"
+    },
+    {
+      "source": "Xdec_and3_wl4",
+      "target": "DECODER3_8_OUTPUT_CONTRACT_WL4",
+      "relation": "binds_logic"
+    },
+    {
+      "source": "Xdec_and3_wl5",
+      "target": "DECODER3_8_OUTPUT_CONTRACT_WL5",
+      "relation": "binds_logic"
+    },
+    {
+      "source": "Xdec_and3_wl6",
+      "target": "DECODER3_8_OUTPUT_CONTRACT_WL6",
+      "relation": "binds_logic"
+    },
+    {
+      "source": "Xdec_and3_wl7",
+      "target": "DECODER3_8_OUTPUT_CONTRACT_WL7",
+      "relation": "binds_logic"
+    },
+    {
+      "source": "Xdec_and2_wl0",
+      "target": "DECODER3_8_OUTPUT_CONTRACT_WL0",
+      "relation": "binds_enable_gate"
+    },
+    {
+      "source": "Xdec_and2_wl1",
+      "target": "DECODER3_8_OUTPUT_CONTRACT_WL1",
+      "relation": "binds_enable_gate"
+    },
+    {
+      "source": "Xdec_and2_wl2",
+      "target": "DECODER3_8_OUTPUT_CONTRACT_WL2",
+      "relation": "binds_enable_gate"
+    },
+    {
+      "source": "Xdec_and2_wl3",
+      "target": "DECODER3_8_OUTPUT_CONTRACT_WL3",
+      "relation": "binds_enable_gate"
+    },
+    {
+      "source": "Xdec_and2_wl4",
+      "target": "DECODER3_8_OUTPUT_CONTRACT_WL4",
+      "relation": "binds_enable_gate"
+    },
+    {
+      "source": "Xdec_and2_wl5",
+      "target": "DECODER3_8_OUTPUT_CONTRACT_WL5",
+      "relation": "binds_enable_gate"
+    },
+    {
+      "source": "Xdec_and2_wl6",
+      "target": "DECODER3_8_OUTPUT_CONTRACT_WL6",
+      "relation": "binds_enable_gate"
+    },
+    {
+      "source": "Xdec_and2_wl7",
+      "target": "DECODER3_8_OUTPUT_CONTRACT_WL7",
+      "relation": "binds_enable_gate"
+    }
+  ],
+  "consistency_checks": {
+    "truth_table_binding_complete": true,
+    "output_contracts_available": true,
+    "all_local_outputs_have_contract": true,
+    "all_level0_outputs_have_expansion": true,
+    "all_level1_outputs_have_expansion": true,
+    "enable_bus_handoff_consistent": true,
+    "wordline_output_handoff_consistent": true,
+    "slot_binding_consistent": true,
+    "reservation_subzones_available": true,
+    "physical_routing_proven": false
+  },
+  "blockers": [
+    "Output-specific contracts are metadata-only and do not prove route completion.",
+    "Reservation subzones are planning partitions, not legal physical layout regions.",
+    "Physical decoder placement and control-row smoke remain blocked."
+  ]
+}
