@@ -1,0 +1,139 @@
+{
+  "scope": "step6_27_openyield_time_control_fast_metadata_closure_bundle",
+  "nodes": [
+    {
+      "id": "PRECHARGE_ENB_CONSUMER_CLOSURE",
+      "kind": "bundle_component"
+    },
+    {
+      "id": "WORDLINE_SECONDARY_CONSUMER_CLOSURE",
+      "kind": "bundle_component"
+    },
+    {
+      "id": "CONTROL_FANOUT_BUDGET",
+      "kind": "bundle_component"
+    },
+    {
+      "id": "TIME_CONTROL_ABSTRACT_ENVELOPE",
+      "kind": "bundle_component"
+    },
+    {
+      "id": "WRITE_ENABLE_CONSUMER_CONTRACT",
+      "kind": "consumer_contract"
+    },
+    {
+      "id": "SENSE_ENABLE_CONSUMER_CONTRACT",
+      "kind": "consumer_contract"
+    },
+    {
+      "id": "PRECHARGE_ENB_CONSUMER_CONTRACT",
+      "kind": "consumer_contract"
+    },
+    {
+      "id": "WORDLINE_ENABLE_CONSUMER_CONTRACT",
+      "kind": "consumer_contract"
+    },
+    {
+      "id": "write_enable",
+      "kind": "fanout_signal"
+    },
+    {
+      "id": "sense_enable",
+      "kind": "fanout_signal"
+    },
+    {
+      "id": "precharge_enb",
+      "kind": "fanout_signal"
+    },
+    {
+      "id": "wordline_enable",
+      "kind": "fanout_signal"
+    },
+    {
+      "id": "wl_en_bar",
+      "kind": "fanout_signal"
+    }
+  ],
+  "edges": [
+    {
+      "source": "PRECHARGE_ENB_CONSUMER_CLOSURE",
+      "target": "PRECHARGE_ENB_CONSUMER_CONTRACT",
+      "relation": "refines"
+    },
+    {
+      "source": "WORDLINE_SECONDARY_CONSUMER_CLOSURE",
+      "target": "WORDLINE_ENABLE_CONSUMER_CONTRACT",
+      "relation": "extends"
+    },
+    {
+      "source": "CONTROL_FANOUT_BUDGET",
+      "target": "write_enable",
+      "relation": "budgets"
+    },
+    {
+      "source": "CONTROL_FANOUT_BUDGET",
+      "target": "sense_enable",
+      "relation": "budgets"
+    },
+    {
+      "source": "CONTROL_FANOUT_BUDGET",
+      "target": "precharge_enb",
+      "relation": "budgets"
+    },
+    {
+      "source": "CONTROL_FANOUT_BUDGET",
+      "target": "wordline_enable",
+      "relation": "budgets"
+    },
+    {
+      "source": "CONTROL_FANOUT_BUDGET",
+      "target": "wl_en_bar",
+      "relation": "budgets"
+    },
+    {
+      "source": "TIME_CONTROL_ABSTRACT_ENVELOPE",
+      "target": "delay_chain_region",
+      "relation": "contains_region"
+    },
+    {
+      "source": "TIME_CONTROL_ABSTRACT_ENVELOPE",
+      "target": "pdrive_region",
+      "relation": "contains_region"
+    },
+    {
+      "source": "TIME_CONTROL_ABSTRACT_ENVELOPE",
+      "target": "generated_logic_region",
+      "relation": "contains_region"
+    },
+    {
+      "source": "TIME_CONTROL_ABSTRACT_ENVELOPE",
+      "target": "consumer_handoff_region",
+      "relation": "contains_region"
+    },
+    {
+      "source": "TIME_CONTROL_ABSTRACT_ENVELOPE",
+      "target": "precharge_control_region",
+      "relation": "contains_region"
+    },
+    {
+      "source": "TIME_CONTROL_ABSTRACT_ENVELOPE",
+      "target": "wordline_enable_control_region",
+      "relation": "contains_region"
+    },
+    {
+      "source": "TIME_CONTROL_ABSTRACT_ENVELOPE",
+      "target": "sense_write_enable_region",
+      "relation": "contains_region"
+    }
+  ],
+  "summary": {
+    "time_control_fast_bundle_available": true,
+    "precharge_metadata_closure_status": "partial",
+    "wordline_secondary_consumer_metadata_available": true,
+    "fanout_budget_metadata_pass": true,
+    "control_abstract_envelope_available": true,
+    "can_enter_time_control_abstract_envelope_planning": true,
+    "can_enter_time_control_physical_placement": false,
+    "can_enter_standalone_control_placement": false
+  }
+}
