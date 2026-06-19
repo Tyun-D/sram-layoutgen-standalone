@@ -1,0 +1,203 @@
+{
+  "scope": "step6_28_openyield_time_precharge_control_row_constraints_bundle",
+  "nodes": [
+    {
+      "id": "PRECHARGE_ADAPTER_METADATA_CLOSURE",
+      "kind": "metadata_closure"
+    },
+    {
+      "id": "WRITE_ENABLE_TO_WRITEDRIVER_EN",
+      "kind": "handoff_constraint"
+    },
+    {
+      "id": "SENSE_ENABLE_TO_SENSEAMP_EN",
+      "kind": "handoff_constraint"
+    },
+    {
+      "id": "PRECHARGE_ENB_TO_PRECHARGE_ENB",
+      "kind": "handoff_constraint"
+    },
+    {
+      "id": "WORDLINE_ENABLE_TO_WORDLINEDRIVER_B",
+      "kind": "handoff_constraint"
+    },
+    {
+      "id": "WL_EN_BAR_TO_PRECHARGE_PNAND3_C",
+      "kind": "handoff_constraint"
+    },
+    {
+      "id": "CONTROL_ROW_WRITE_ENABLE_CHANNEL",
+      "kind": "reservation_rule"
+    },
+    {
+      "id": "CONTROL_ROW_SENSE_ENABLE_CHANNEL",
+      "kind": "reservation_rule"
+    },
+    {
+      "id": "CONTROL_ROW_PRECHARGE_ENB_CHANNEL",
+      "kind": "reservation_rule"
+    },
+    {
+      "id": "CONTROL_ROW_WORDLINE_ENABLE_CHANNEL",
+      "kind": "reservation_rule"
+    },
+    {
+      "id": "CONTROL_ROW_WL_EN_BAR_SECONDARY_CHANNEL",
+      "kind": "reservation_rule"
+    },
+    {
+      "id": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+      "kind": "grouped_interface"
+    },
+    {
+      "id": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+      "kind": "grouped_interface"
+    },
+    {
+      "id": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "kind": "grouped_interface"
+    },
+    {
+      "id": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+      "kind": "grouped_interface"
+    },
+    {
+      "id": "write_enable",
+      "kind": "control_signal"
+    },
+    {
+      "id": "sense_enable",
+      "kind": "control_signal"
+    },
+    {
+      "id": "precharge_enb",
+      "kind": "control_signal"
+    },
+    {
+      "id": "wordline_enable",
+      "kind": "control_signal"
+    },
+    {
+      "id": "wl_en_bar",
+      "kind": "control_signal"
+    }
+  ],
+  "edges": [
+    {
+      "source": "PRECHARGE_ADAPTER_METADATA_CLOSURE",
+      "target": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "relation": "supports_metadata"
+    },
+    {
+      "source": "write_enable",
+      "target": "WRITE_ENABLE_TO_WRITEDRIVER_EN",
+      "relation": "drives_constraint"
+    },
+    {
+      "source": "sense_enable",
+      "target": "SENSE_ENABLE_TO_SENSEAMP_EN",
+      "relation": "drives_constraint"
+    },
+    {
+      "source": "precharge_enb",
+      "target": "PRECHARGE_ENB_TO_PRECHARGE_ENB",
+      "relation": "drives_constraint"
+    },
+    {
+      "source": "wordline_enable",
+      "target": "WORDLINE_ENABLE_TO_WORDLINEDRIVER_B",
+      "relation": "drives_constraint"
+    },
+    {
+      "source": "wl_en_bar",
+      "target": "WL_EN_BAR_TO_PRECHARGE_PNAND3_C",
+      "relation": "drives_constraint"
+    },
+    {
+      "source": "WRITE_ENABLE_TO_WRITEDRIVER_EN",
+      "target": "CONTROL_ROW_WRITE_ENABLE_CHANNEL",
+      "relation": "budgeted_by"
+    },
+    {
+      "source": "SENSE_ENABLE_TO_SENSEAMP_EN",
+      "target": "CONTROL_ROW_SENSE_ENABLE_CHANNEL",
+      "relation": "budgeted_by"
+    },
+    {
+      "source": "PRECHARGE_ENB_TO_PRECHARGE_ENB",
+      "target": "CONTROL_ROW_PRECHARGE_ENB_CHANNEL",
+      "relation": "budgeted_by"
+    },
+    {
+      "source": "WORDLINE_ENABLE_TO_WORDLINEDRIVER_B",
+      "target": "CONTROL_ROW_WORDLINE_ENABLE_CHANNEL",
+      "relation": "budgeted_by"
+    },
+    {
+      "source": "WL_EN_BAR_TO_PRECHARGE_PNAND3_C",
+      "target": "CONTROL_ROW_WL_EN_BAR_SECONDARY_CHANNEL",
+      "relation": "budgeted_by"
+    },
+    {
+      "source": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+      "target": "WRITE_ENABLE_TO_WRITEDRIVER_EN",
+      "relation": "contains_constraint"
+    },
+    {
+      "source": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+      "target": "SENSE_ENABLE_TO_SENSEAMP_EN",
+      "relation": "contains_constraint"
+    },
+    {
+      "source": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "target": "PRECHARGE_ENB_TO_PRECHARGE_ENB",
+      "relation": "contains_constraint"
+    },
+    {
+      "source": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "target": "WL_EN_BAR_TO_PRECHARGE_PNAND3_C",
+      "relation": "contains_constraint"
+    },
+    {
+      "source": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+      "target": "WORDLINE_ENABLE_TO_WORDLINEDRIVER_B",
+      "relation": "contains_constraint"
+    },
+    {
+      "source": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+      "target": "CONTROL_ROW_WRITE_ENABLE_CHANNEL",
+      "relation": "reserves_channel"
+    },
+    {
+      "source": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+      "target": "CONTROL_ROW_SENSE_ENABLE_CHANNEL",
+      "relation": "reserves_channel"
+    },
+    {
+      "source": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "target": "CONTROL_ROW_PRECHARGE_ENB_CHANNEL",
+      "relation": "reserves_channel"
+    },
+    {
+      "source": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "target": "CONTROL_ROW_WL_EN_BAR_SECONDARY_CHANNEL",
+      "relation": "reserves_channel"
+    },
+    {
+      "source": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+      "target": "CONTROL_ROW_WORDLINE_ENABLE_CHANNEL",
+      "relation": "reserves_channel"
+    }
+  ],
+  "summary": {
+    "time_control_precharge_constraints_bundle_available": true,
+    "precharge_adapter_metadata_closure_status": "partial",
+    "control_handoff_constraints_available": true,
+    "control_channel_reservation_rules_available": true,
+    "grouped_planning_interfaces_available": true,
+    "all_control_channel_budgets_pass": true,
+    "can_enter_time_control_constraint_planning": true,
+    "can_enter_time_control_physical_placement": false,
+    "can_enter_standalone_control_placement": false
+  }
+}
