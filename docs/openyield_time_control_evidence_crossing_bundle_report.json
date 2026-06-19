@@ -1,0 +1,575 @@
+{
+  "scope": "step6_30_openyield_time_evidence_crossing_bundle",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "bundle_mode": "fast_metadata_bundle",
+  "source_reports": {
+    "time_control_region_refinement": "step6_29_openyield_time_control_region_refinement_bundle",
+    "time_control_signal_binding": "step6_24_openyield_time_control_signal_binding_audit"
+  },
+  "precharge_gnd_evidence_search": [
+    {
+      "evidence_source": "openyield_module_contract.power_pins",
+      "alias_checked": "VDD",
+      "found": true,
+      "pin_or_label_name": "VDD",
+      "layer_if_known": null,
+      "bbox_if_known": null,
+      "side_if_known": null,
+      "confidence": "high",
+      "notes": "OpenYield PRECHARGE source contract explicitly declares VDD -> vdd."
+    },
+    {
+      "evidence_source": "openyield_module_contract.power_pins",
+      "alias_checked": "VSS",
+      "found": false,
+      "pin_or_label_name": null,
+      "layer_if_known": null,
+      "bbox_if_known": null,
+      "side_if_known": null,
+      "confidence": "high_negative",
+      "notes": "OpenYield PRECHARGE source contract does not declare VSS in current parsed metadata."
+    },
+    {
+      "evidence_source": "gds_pin_audit.pins",
+      "alias_checked": "EN/ENB/PRE/precharge_enb",
+      "found": true,
+      "pin_or_label_name": "EN",
+      "layer_if_known": "11/texttype0",
+      "bbox_if_known": {
+        "x0": 0.0,
+        "y0": -0.045,
+        "x1": 0.705,
+        "y1": 0.02
+      },
+      "side_if_known": "bottom",
+      "confidence": "high",
+      "notes": "Local gen_precharge GDS exposes EN as the physical alias of active-low precharge enable."
+    },
+    {
+      "evidence_source": "gds_pin_audit.power_rail_audit",
+      "alias_checked": "gnd",
+      "found": false,
+      "pin_or_label_name": null,
+      "layer_if_known": null,
+      "bbox_if_known": null,
+      "side_if_known": "missing",
+      "confidence": "high_negative",
+      "notes": "Current local gen_precharge GDS pin audit reports has_gnd=false."
+    },
+    {
+      "evidence_source": "gds_pin_audit.labels",
+      "alias_checked": "gnd",
+      "found": false,
+      "pin_or_label_name": null,
+      "layer_if_known": null,
+      "bbox_if_known": null,
+      "side_if_known": null,
+      "confidence": "high_negative",
+      "notes": "No gnd text label was found among gen_precharge labels in the current audit report."
+    },
+    {
+      "evidence_source": "macro_metadata_audit.module_metadata",
+      "alias_checked": "VSS/gnd",
+      "found": false,
+      "pin_or_label_name": null,
+      "layer_if_known": null,
+      "bbox_if_known": null,
+      "side_if_known": null,
+      "confidence": "medium_negative",
+      "notes": "Macro metadata audit classifies PRECHARGE power_status as no_gnd_required, which does not prove a local GND pin."
+    },
+    {
+      "evidence_source": "openyield_module_contract.pins",
+      "alias_checked": "BL/BR/BLB",
+      "found": true,
+      "pin_or_label_name": "BL, BLB",
+      "layer_if_known": null,
+      "bbox_if_known": null,
+      "side_if_known": null,
+      "confidence": "high",
+      "notes": "Source contract confirms precharge bitline pins only; it does not add GND evidence."
+    },
+    {
+      "evidence_source": "local_hardmacro_metadata",
+      "alias_checked": "VSS!/GND!/VGND/ground/0",
+      "found": false,
+      "pin_or_label_name": null,
+      "layer_if_known": null,
+      "bbox_if_known": null,
+      "side_if_known": null,
+      "confidence": "high_negative",
+      "notes": "No alternate ground alias evidence was found in current local metadata reports for gen_precharge."
+    },
+    {
+      "evidence_source": "local_spice_or_cdl_metadata",
+      "alias_checked": "gnd",
+      "found": false,
+      "pin_or_label_name": null,
+      "layer_if_known": null,
+      "bbox_if_known": null,
+      "side_if_known": null,
+      "confidence": "high_negative",
+      "notes": "No local SPICE/CDL macro file is registered for gen_precharge in current metadata."
+    }
+  ],
+  "precharge_closure_decision": {
+    "precharge_gnd_evidence_search_available": true,
+    "precharge_gnd_pin_known": false,
+    "precharge_gnd_evidence_found": false,
+    "precharge_power_metadata_complete": false,
+    "precharge_rail_continuity_proven": false,
+    "precharge_closure_status": "partial_missing_gnd",
+    "precharge_safe_for_metadata_planning": "partial",
+    "precharge_safe_for_physical_placement": false,
+    "can_enter_time_control_metadata_closure": true
+  },
+  "control_region_crossing_signal_proof": [
+    {
+      "edge_name": "CLK_TO_CLK_BUF",
+      "source_signals": [
+        "clk"
+      ],
+      "target_signal": "clk_buf",
+      "producer_region": "pdrive_region",
+      "consumer_region": "pdrive_region",
+      "crossing_required": false,
+      "matched_adjacency": null,
+      "matched_handoff_constraint": null,
+      "matched_reservation_rule": "PDRIVE_REGION_REGION_BUDGET_PROXY",
+      "estimated_tracks": 1,
+      "required_width": 0.4,
+      "reserved_width": 2.0,
+      "budget_margin": 1.6,
+      "risk_level": "pass_moderate_margin",
+      "metadata_covered": true,
+      "physical_routing_proven": false
+    },
+    {
+      "edge_name": "CLK_BUF_TO_CLK_BAR",
+      "source_signals": [
+        "clk_buf"
+      ],
+      "target_signal": "clk_bar",
+      "producer_region": "pdrive_region",
+      "consumer_region": "generated_logic_region",
+      "crossing_required": true,
+      "matched_adjacency": "PDRIVE_TO_GENERATED_LOGIC",
+      "matched_handoff_constraint": null,
+      "matched_reservation_rule": "GENERATED_LOGIC_REGION_REGION_BUDGET_PROXY",
+      "estimated_tracks": 3,
+      "required_width": 0.8,
+      "reserved_width": 2.0,
+      "budget_margin": 1.2,
+      "risk_level": "pass_moderate_margin",
+      "metadata_covered": true,
+      "physical_routing_proven": false
+    },
+    {
+      "edge_name": "CLK_BUF_CS_TO_GATED_CLK_BUF",
+      "source_signals": [
+        "clk_buf",
+        "cs"
+      ],
+      "target_signal": "gated_clk_buf",
+      "producer_region": "generated_logic_region",
+      "consumer_region": "generated_logic_region",
+      "crossing_required": false,
+      "matched_adjacency": null,
+      "matched_handoff_constraint": null,
+      "matched_reservation_rule": "GENERATED_LOGIC_REGION_REGION_BUDGET_PROXY",
+      "estimated_tracks": 2,
+      "required_width": 0.6,
+      "reserved_width": 2.0,
+      "budget_margin": 1.4,
+      "risk_level": "pass_moderate_margin",
+      "metadata_covered": true,
+      "physical_routing_proven": false
+    },
+    {
+      "edge_name": "CLK_BAR_CS_TO_GATED_CLK_BAR",
+      "source_signals": [
+        "clk_bar",
+        "cs"
+      ],
+      "target_signal": "gated_clk_bar",
+      "producer_region": "generated_logic_region",
+      "consumer_region": "generated_logic_region",
+      "crossing_required": false,
+      "matched_adjacency": null,
+      "matched_handoff_constraint": null,
+      "matched_reservation_rule": "GENERATED_LOGIC_REGION_REGION_BUDGET_PROXY",
+      "estimated_tracks": 2,
+      "required_width": 0.6,
+      "reserved_width": 2.0,
+      "budget_margin": 1.4,
+      "risk_level": "pass_moderate_margin",
+      "metadata_covered": true,
+      "physical_routing_proven": false
+    },
+    {
+      "edge_name": "GATED_CLK_BAR_TO_WL_EN",
+      "source_signals": [
+        "gated_clk_bar"
+      ],
+      "target_signal": "wl_en",
+      "producer_region": "generated_logic_region",
+      "consumer_region": "wordline_enable_control_region",
+      "crossing_required": true,
+      "matched_adjacency": null,
+      "matched_handoff_constraint": "WORDLINE_ENABLE_TO_WORDLINEDRIVER_B",
+      "matched_reservation_rule": "CONTROL_ROW_WORDLINE_ENABLE_CHANNEL",
+      "estimated_tracks": 1,
+      "required_width": 0.4,
+      "reserved_width": 2.0,
+      "budget_margin": 1.6,
+      "risk_level": "pass_moderate_margin",
+      "metadata_covered": false,
+      "physical_routing_proven": false
+    },
+    {
+      "edge_name": "WL_EN_TO_WL_EN_BAR",
+      "source_signals": [
+        "wl_en"
+      ],
+      "target_signal": "wl_en_bar",
+      "producer_region": "wordline_enable_control_region",
+      "consumer_region": "wordline_enable_control_region",
+      "crossing_required": false,
+      "matched_adjacency": null,
+      "matched_handoff_constraint": "WL_EN_BAR_TO_PRECHARGE_PNAND3_C",
+      "matched_reservation_rule": "CONTROL_ROW_WL_EN_BAR_SECONDARY_CHANNEL",
+      "estimated_tracks": 1,
+      "required_width": 0.4,
+      "reserved_width": 2.0,
+      "budget_margin": 1.6,
+      "risk_level": "pass_moderate_margin",
+      "metadata_covered": true,
+      "physical_routing_proven": false
+    },
+    {
+      "edge_name": "RBL_TO_RBL_DELAY",
+      "source_signals": [
+        "rbl"
+      ],
+      "target_signal": "rbl_delay",
+      "producer_region": "delay_chain_region",
+      "consumer_region": "delay_chain_region",
+      "crossing_required": false,
+      "matched_adjacency": null,
+      "matched_handoff_constraint": null,
+      "matched_reservation_rule": "DELAY_CHAIN_REGION_REGION_BUDGET_PROXY",
+      "estimated_tracks": 1,
+      "required_width": 0.4,
+      "reserved_width": 2.0,
+      "budget_margin": 1.6,
+      "risk_level": "pass_moderate_margin",
+      "metadata_covered": true,
+      "physical_routing_proven": false
+    },
+    {
+      "edge_name": "RBL_DELAY_TO_RBL_DELAY_BAR",
+      "source_signals": [
+        "rbl_delay"
+      ],
+      "target_signal": "rbl_delay_bar",
+      "producer_region": "delay_chain_region",
+      "consumer_region": "generated_logic_region",
+      "crossing_required": true,
+      "matched_adjacency": "DELAY_CHAIN_TO_GENERATED_LOGIC",
+      "matched_handoff_constraint": null,
+      "matched_reservation_rule": "GENERATED_LOGIC_REGION_REGION_BUDGET_PROXY",
+      "estimated_tracks": 2,
+      "required_width": 0.6,
+      "reserved_width": 2.0,
+      "budget_margin": 1.4,
+      "risk_level": "pass_moderate_margin",
+      "metadata_covered": true,
+      "physical_routing_proven": false
+    },
+    {
+      "edge_name": "RBL_DELAY_BAR_GATED_CLK_BAR_WE_TO_W_EN",
+      "source_signals": [
+        "rbl_delay_bar",
+        "gated_clk_bar",
+        "we"
+      ],
+      "target_signal": "w_en",
+      "producer_region": "sense_write_enable_region",
+      "consumer_region": "sense_write_enable_region",
+      "crossing_required": false,
+      "matched_adjacency": null,
+      "matched_handoff_constraint": "WRITE_ENABLE_TO_WRITEDRIVER_EN",
+      "matched_reservation_rule": "CONTROL_ROW_WRITE_ENABLE_CHANNEL",
+      "estimated_tracks": 3,
+      "required_width": 0.8,
+      "reserved_width": 2.0,
+      "budget_margin": 1.2,
+      "risk_level": "pass_moderate_margin",
+      "metadata_covered": true,
+      "physical_routing_proven": false
+    },
+    {
+      "edge_name": "RBL_DELAY_GATED_CLK_BAR_WE_BAR_TO_S_EN",
+      "source_signals": [
+        "rbl_delay",
+        "gated_clk_bar",
+        "we_bar"
+      ],
+      "target_signal": "s_en",
+      "producer_region": "sense_write_enable_region",
+      "consumer_region": "sense_write_enable_region",
+      "crossing_required": false,
+      "matched_adjacency": null,
+      "matched_handoff_constraint": "SENSE_ENABLE_TO_SENSEAMP_EN",
+      "matched_reservation_rule": "CONTROL_ROW_SENSE_ENABLE_CHANNEL",
+      "estimated_tracks": 3,
+      "required_width": 0.8,
+      "reserved_width": 2.0,
+      "budget_margin": 1.2,
+      "risk_level": "pass_moderate_margin",
+      "metadata_covered": true,
+      "physical_routing_proven": false
+    },
+    {
+      "edge_name": "GATED_CLK_BUF_RBL_DELAY_WL_EN_BAR_TO_PRE_UNBUF",
+      "source_signals": [
+        "gated_clk_buf",
+        "rbl_delay",
+        "wl_en_bar"
+      ],
+      "target_signal": "PRE_UNBUF",
+      "producer_region": "precharge_control_region",
+      "consumer_region": "precharge_control_region",
+      "crossing_required": false,
+      "matched_adjacency": null,
+      "matched_handoff_constraint": null,
+      "matched_reservation_rule": "PRECHARGE_CONTROL_REGION_REGION_BUDGET_PROXY",
+      "estimated_tracks": 3,
+      "required_width": 0.8,
+      "reserved_width": 2.0,
+      "budget_margin": 1.2,
+      "risk_level": "pass_moderate_margin",
+      "metadata_covered": true,
+      "physical_routing_proven": false
+    },
+    {
+      "edge_name": "PRE_UNBUF_TO_PRE",
+      "source_signals": [
+        "PRE_UNBUF"
+      ],
+      "target_signal": "PRE",
+      "producer_region": "precharge_control_region",
+      "consumer_region": "precharge_control_region",
+      "crossing_required": false,
+      "matched_adjacency": null,
+      "matched_handoff_constraint": "PRECHARGE_ENB_TO_PRECHARGE_ENB",
+      "matched_reservation_rule": "CONTROL_ROW_PRECHARGE_ENB_CHANNEL",
+      "estimated_tracks": 1,
+      "required_width": 0.4,
+      "reserved_width": 2.0,
+      "budget_margin": 1.6,
+      "risk_level": "pass_moderate_margin",
+      "metadata_covered": true,
+      "physical_routing_proven": false
+    }
+  ],
+  "crossing_coverage_summary": {
+    "control_region_crossing_proof_available": true,
+    "all_core_dependency_edges_have_region_assignment": true,
+    "all_required_crossings_have_adjacency": false,
+    "all_required_crossings_have_handoff_or_reservation": true,
+    "all_crossing_budgets_pass": true,
+    "missing_region_assignments": [],
+    "missing_adjacencies": [
+      "GATED_CLK_BAR_TO_WL_EN"
+    ],
+    "missing_handoff_constraints": [],
+    "missing_reservation_rules": [],
+    "physical_routing_proven": false
+  },
+  "grouped_interface_crossing_proof": [
+    {
+      "interface_name": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+      "control_signals": [
+        "write_enable"
+      ],
+      "source_regions": [
+        "sense_write_enable_region"
+      ],
+      "target_macro": "WRITEDRIVER",
+      "target_pins": [
+        "EN"
+      ],
+      "matched_handoff_constraints": [
+        "WRITE_ENABLE_TO_WRITEDRIVER_EN"
+      ],
+      "matched_reservation_rules": [
+        "CONTROL_ROW_WRITE_ENABLE_CHANNEL"
+      ],
+      "crossing_coverage_complete": true,
+      "metadata_ready": true,
+      "physical_ready": false,
+      "blocked_by": [
+        "handoff constraints are metadata-only",
+        "channel reservation rules are not legal routing",
+        "control routing proof is missing",
+        "delay timing proof is missing"
+      ]
+    },
+    {
+      "interface_name": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+      "control_signals": [
+        "sense_enable"
+      ],
+      "source_regions": [
+        "sense_write_enable_region"
+      ],
+      "target_macro": "SENSEAMP",
+      "target_pins": [
+        "EN"
+      ],
+      "matched_handoff_constraints": [
+        "SENSE_ENABLE_TO_SENSEAMP_EN"
+      ],
+      "matched_reservation_rules": [
+        "CONTROL_ROW_SENSE_ENABLE_CHANNEL"
+      ],
+      "crossing_coverage_complete": true,
+      "metadata_ready": true,
+      "physical_ready": false,
+      "blocked_by": [
+        "handoff constraints are metadata-only",
+        "channel reservation rules are not legal routing",
+        "control routing proof is missing",
+        "delay timing proof is missing"
+      ]
+    },
+    {
+      "interface_name": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "control_signals": [
+        "precharge_enb",
+        "wl_en_bar"
+      ],
+      "source_regions": [
+        "precharge_control_region",
+        "wordline_enable_control_region"
+      ],
+      "target_macro": "PRECHARGE",
+      "target_pins": [
+        "ENB",
+        "PNAND3.C"
+      ],
+      "matched_handoff_constraints": [
+        "PRECHARGE_ENB_TO_PRECHARGE_ENB",
+        "WL_EN_BAR_TO_PRECHARGE_PNAND3_C"
+      ],
+      "matched_reservation_rules": [
+        "CONTROL_ROW_PRECHARGE_ENB_CHANNEL",
+        "CONTROL_ROW_WL_EN_BAR_SECONDARY_CHANNEL"
+      ],
+      "crossing_coverage_complete": true,
+      "metadata_ready": "partial",
+      "physical_ready": false,
+      "blocked_by": [
+        "PRECHARGE adapter metadata may remain partial",
+        "PRECHARGE power-domain closure may remain incomplete",
+        "handoff constraints are metadata-only",
+        "channel reservation rules are not legal routing",
+        "control routing proof is missing",
+        "rail continuity proof is missing"
+      ]
+    },
+    {
+      "interface_name": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+      "control_signals": [
+        "wordline_enable"
+      ],
+      "source_regions": [
+        "wordline_enable_control_region"
+      ],
+      "target_macro": "WORDLINEDRIVER",
+      "target_pins": [
+        "B"
+      ],
+      "matched_handoff_constraints": [
+        "WORDLINE_ENABLE_TO_WORDLINEDRIVER_B"
+      ],
+      "matched_reservation_rules": [
+        "CONTROL_ROW_WORDLINE_ENABLE_CHANNEL"
+      ],
+      "crossing_coverage_complete": true,
+      "metadata_ready": true,
+      "physical_ready": false,
+      "blocked_by": [
+        "handoff constraints are metadata-only",
+        "channel reservation rules are not legal routing",
+        "control routing proof is missing",
+        "delay timing proof is missing"
+      ]
+    }
+  ],
+  "consistency_checks": {
+    "time_control_evidence_crossing_bundle_available": true,
+    "precharge_gnd_evidence_search_available": true,
+    "precharge_gnd_evidence_found": false,
+    "precharge_closure_status": "partial_missing_gnd",
+    "precharge_power_metadata_complete": false,
+    "control_region_crossing_proof_available": true,
+    "all_core_dependency_edges_have_region_assignment": true,
+    "all_required_crossings_have_adjacency": false,
+    "all_required_crossings_have_handoff_or_reservation": true,
+    "all_crossing_budgets_pass": true,
+    "grouped_interface_crossing_proof_available": true,
+    "can_enter_time_control_metadata_closure": false,
+    "can_enter_time_control_physical_placement": false,
+    "can_enter_standalone_control_placement": false,
+    "safe_for_metadata_planning": false,
+    "safe_for_physical_placement": false
+  },
+  "unresolved_items": [
+    "PRECHARGE GND may remain missing, depending on evidence result",
+    "PRECHARGE rail continuity proof is missing",
+    "crossing proof is metadata-only, not legal routing",
+    "region adjacency is not legal routing",
+    "abstract region refinement is not legal placement",
+    "control routing proof is missing",
+    "delay timing proof is missing",
+    "wen-delay timing proof is missing",
+    "shared rail is disabled",
+    "no DRC/LVS proof exists",
+    "standalone integration is not allowed yet"
+  ],
+  "audit_summary": {
+    "time_control_evidence_crossing_bundle_available": true,
+    "precharge_closure_status": "partial_missing_gnd",
+    "precharge_gnd_evidence_found": false,
+    "all_required_crossings_have_adjacency": false,
+    "all_required_crossings_have_handoff_or_reservation": true,
+    "all_crossing_budgets_pass": true,
+    "can_enter_time_control_metadata_closure": false,
+    "can_enter_time_control_physical_placement": false,
+    "can_enter_standalone_control_placement": false
+  },
+  "can_enter_time_control_metadata_closure": false,
+  "can_enter_time_control_physical_placement": false,
+  "can_enter_standalone_control_placement": false,
+  "step_6_31_recommendation": {
+    "recommended_next_phase": "time_control_precharge_local_ground_semantics_or_finer_crossing_contracts",
+    "candidate_directions": [
+      "precharge_local_ground_semantics_review",
+      "conditional_wen_crossing_refinement",
+      "macro_handoff_side_refinement",
+      "time_control_delay_timing_metadata_refinement"
+    ],
+    "reason": [
+      "PRECHARGE local hardmacro metadata still does not expose GND evidence in current reports.",
+      "Crossing coverage is now bundled and structurally covered at metadata level, but it is still not legal routing proof.",
+      "The next step should refine evidence or contract granularity rather than attempt standalone integration."
+    ]
+  },
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false
+}
