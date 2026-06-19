@@ -1,0 +1,144 @@
+{
+  "scope": "step6_10_openyield_decoder_row_rule_audit",
+  "nodes": [
+    {
+      "id": "DECODER_LEVEL0_ROW",
+      "kind": "stage_row",
+      "level": 0
+    },
+    {
+      "id": "DECODER_LEVEL1_ROW_GROUP_0",
+      "kind": "stage_row",
+      "level": 1
+    },
+    {
+      "id": "DECODER_LEVEL1_ROW_GROUP_1",
+      "kind": "stage_row",
+      "level": 1
+    },
+    {
+      "id": "DECODER_LEVEL1_ROW_GROUP_2",
+      "kind": "stage_row",
+      "level": 1
+    },
+    {
+      "id": "DECODER_LEVEL1_ROW_GROUP_3",
+      "kind": "stage_row",
+      "level": 1
+    },
+    {
+      "id": "DECODER_LEVEL0_ROW_RULE",
+      "kind": "row_rule",
+      "placement_status": "needs_power_metadata_repair"
+    },
+    {
+      "id": "DECODER_LEVEL1_ROW_RULE",
+      "kind": "row_rule",
+      "placement_status": "needs_logic_macro_repair"
+    },
+    {
+      "id": "DECODER_STAGE_PROXY_RULE",
+      "kind": "row_rule",
+      "placement_status": "metadata_row_rule_only"
+    },
+    {
+      "id": "gen_inv_pin_meta",
+      "kind": "pin_metadata",
+      "complete": true
+    },
+    {
+      "id": "gen_nand2_pin_meta",
+      "kind": "pin_metadata",
+      "complete": true
+    },
+    {
+      "id": "gen_nand4_pin_meta",
+      "kind": "pin_metadata",
+      "complete": false
+    },
+    {
+      "id": "gen_wl_driver_pin_meta",
+      "kind": "pin_metadata",
+      "complete": true
+    },
+    {
+      "id": "gen_inv_power_meta",
+      "kind": "power_metadata",
+      "complete": true
+    },
+    {
+      "id": "gen_nand2_power_meta",
+      "kind": "power_metadata",
+      "complete": true
+    },
+    {
+      "id": "gen_nand4_power_meta",
+      "kind": "power_metadata",
+      "complete": false
+    },
+    {
+      "id": "gen_wl_driver_power_meta",
+      "kind": "power_metadata",
+      "complete": true
+    }
+  ],
+  "edges": [
+    {
+      "source": "DECODER_LEVEL0_ROW",
+      "target": "DECODER3_8_GROUP",
+      "relation": "packs_stage"
+    },
+    {
+      "source": "DECODER_LEVEL1_ROW_GROUP_0",
+      "target": "DECODER3_8_GROUP",
+      "relation": "packs_stage"
+    },
+    {
+      "source": "DECODER_LEVEL1_ROW_GROUP_1",
+      "target": "DECODER3_8_GROUP",
+      "relation": "packs_stage"
+    },
+    {
+      "source": "DECODER_LEVEL1_ROW_GROUP_2",
+      "target": "DECODER3_8_GROUP",
+      "relation": "packs_stage"
+    },
+    {
+      "source": "DECODER_LEVEL1_ROW_GROUP_3",
+      "target": "DECODER3_8_GROUP",
+      "relation": "packs_stage"
+    },
+    {
+      "source": "DECODER_LEVEL0_ROW",
+      "target": "DECODER_LEVEL0_ROW_RULE",
+      "relation": "governed_by"
+    },
+    {
+      "source": "DECODER_LEVEL1_ROW_GROUP_0",
+      "target": "DECODER_LEVEL1_ROW_RULE",
+      "relation": "governed_by"
+    },
+    {
+      "source": "DECODER_LEVEL1_ROW_GROUP_1",
+      "target": "DECODER_LEVEL1_ROW_RULE",
+      "relation": "governed_by"
+    },
+    {
+      "source": "DECODER_LEVEL1_ROW_GROUP_2",
+      "target": "DECODER_LEVEL1_ROW_RULE",
+      "relation": "governed_by"
+    },
+    {
+      "source": "DECODER_LEVEL1_ROW_GROUP_3",
+      "target": "DECODER_LEVEL1_ROW_RULE",
+      "relation": "governed_by"
+    }
+  ],
+  "blockers": [
+    "Direct PNAND3 / AND3 hard macro is still missing, so decoder stage logic is not fully resolved.",
+    "gen_nand4 is not pin/power metadata complete and cannot be treated as a proven PNAND3 replacement.",
+    "Shared rail safety is not proven for decoder generated-logic rows.",
+    "Per-stage pin metadata is only partial and output routing toward WORDLINEDRIVER.A remains unproven.",
+    "Row-rule and stage-packing data are metadata planning aids only, not legal decoder placement evidence."
+  ]
+}
