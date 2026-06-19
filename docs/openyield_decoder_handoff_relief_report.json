@@ -1,0 +1,157 @@
+{
+  "scope": "step6_19_openyield_decoder_handoff_relief_audit",
+  "decoder_handoff_relief_available": true,
+  "baseline_wordline_budget": {
+    "option_name": "baseline_current_wordline_budget",
+    "grouping_policy": "current_8_outputs_per_stage",
+    "stage_order_policy": "current_level1_order",
+    "tracks_per_group": 8,
+    "route_pitch": 0.2,
+    "route_margin": 0.2,
+    "required_width": 2.0,
+    "available_width": 2.0,
+    "margin": 0.0,
+    "budget_pass": true,
+    "risk": "high_or_tight",
+    "safe_for_metadata_planning": true,
+    "safe_for_physical_routing": false
+  },
+  "baseline_wordline_margin": 0.0,
+  "zero_margin_risk_identified": true,
+  "candidate_width_sweep": [
+    {
+      "candidate_width": 2.0,
+      "required_width": 2.0,
+      "margin": 0.0,
+      "budget_pass": true,
+      "risk_level": "tight_zero_margin"
+    },
+    {
+      "candidate_width": 2.2,
+      "required_width": 2.0,
+      "margin": 0.2,
+      "budget_pass": true,
+      "risk_level": "pass_low_margin"
+    },
+    {
+      "candidate_width": 2.4,
+      "required_width": 2.0,
+      "margin": 0.4,
+      "budget_pass": true,
+      "risk_level": "pass_moderate_margin"
+    },
+    {
+      "candidate_width": 2.6,
+      "required_width": 2.0,
+      "margin": 0.6,
+      "budget_pass": true,
+      "risk_level": "pass_moderate_margin"
+    },
+    {
+      "candidate_width": 3.0,
+      "required_width": 2.0,
+      "margin": 1.0,
+      "budget_pass": true,
+      "risk_level": "pass_moderate_margin"
+    }
+  ],
+  "positive_margin_candidate_available": true,
+  "first_positive_margin_width": 2.2,
+  "split_grouping_analysis": [
+    {
+      "option_name": "split_8_into_2x4",
+      "grouping_policy": "split_8_into_2x4",
+      "tracks_per_subgroup": 4,
+      "required_width": 1.2,
+      "available_width": 2.0,
+      "margin": 0.8,
+      "budget_pass": true,
+      "risk_level": "pass_moderate_margin",
+      "additional_windows_required": true,
+      "stage_output_contract_consistency": true,
+      "wordline_output_handoff_consistency": true,
+      "split_grouping_metadata_possible": true,
+      "split_grouping_requires_extra_window_count": true,
+      "physical_routing_proven": false
+    },
+    {
+      "option_name": "split_8_into_4x2",
+      "grouping_policy": "split_8_into_4x2",
+      "tracks_per_subgroup": 2,
+      "required_width": 0.8,
+      "available_width": 2.0,
+      "margin": 1.2,
+      "budget_pass": true,
+      "risk_level": "pass_moderate_margin",
+      "additional_windows_required": true,
+      "stage_output_contract_consistency": true,
+      "wordline_output_handoff_consistency": true,
+      "split_grouping_metadata_possible": true,
+      "split_grouping_requires_extra_window_count": true,
+      "physical_routing_proven": false
+    }
+  ],
+  "staggered_output_analysis": [
+    {
+      "option_name": "staggered_output_handoff",
+      "tracks_per_window": 4,
+      "window_count_increase": 2,
+      "required_width": 1.2,
+      "available_width": 2.0,
+      "margin": 0.8,
+      "metadata_budget_pass": true,
+      "risk_level": "pass_moderate_margin",
+      "requires_output_order_change": false,
+      "requires_stage_window_relayout": true,
+      "physical_routing_proven": false
+    },
+    {
+      "option_name": "staggered_output_handoff",
+      "tracks_per_window": 2,
+      "window_count_increase": 4,
+      "required_width": 0.8,
+      "available_width": 2.0,
+      "margin": 1.2,
+      "metadata_budget_pass": true,
+      "risk_level": "pass_moderate_margin",
+      "requires_output_order_change": false,
+      "requires_stage_window_relayout": true,
+      "physical_routing_proven": false
+    }
+  ],
+  "keep_current_with_extra_margin_option": {
+    "option_name": "keep_current_grouping_with_extra_margin_requirement",
+    "recommended_policy": "require_wordline_channel_width_gt_required_width",
+    "minimum_positive_margin": 0.2,
+    "recommended_wordline_channel_width": 2.2,
+    "metadata_only": true,
+    "physical_routing_proven": false
+  },
+  "output_mapping_preservation_checks": {
+    "truth_table_binding_preserved": true,
+    "output_contracts_preserved": true,
+    "wordline_global_mapping_preserved": true,
+    "wordline_driver_handoff_preserved": true,
+    "unused_enable_outputs_not_routed": true,
+    "output_mapping_preserved": true,
+    "physical_routing_proven": false
+  },
+  "recommended_handoff_relief_strategy": "metadata_channel_widening_to_2p2",
+  "recommended_min_wordline_channel_width": 2.2,
+  "recommended_margin": 0.2,
+  "physical_routing_proven": false,
+  "can_enter_decoder_preplacement_feasibility": true,
+  "can_enter_decoder_physical_prototype": false,
+  "can_enter_physical_decoder_placement": false,
+  "can_enter_very_limited_control_row_smoke": false,
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "blocker_list": [
+    "All relief options remain metadata-only and do not prove routing legality.",
+    "Widened metadata channel width does not create a legal routed channel by itself.",
+    "Split or staggered windows would require extra planning windows and stage/window relayout metadata.",
+    "Physical decoder prototype remains blocked even when positive metadata margin exists."
+  ],
+  "step_6_20_recommendation": "Next, if the team wants to keep the current semantic grouping, promote the 2.2um metadata channel width requirement into the next decoder planning step and audit whether the broader control-row floorplan can reserve that space."
+}
