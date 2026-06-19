@@ -1,0 +1,504 @@
+{
+  "scope": "step6_23_openyield_time_control_subblock_adapter_audit",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "time_control_subblock_audit_available": true,
+  "time_as_single_macro_allowed": false,
+  "auto_parse_success": true,
+  "manual_source_review_required": false,
+  "source_files": {
+    "time_generate": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\time_generate.py",
+    "testbench": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\testbenches\\sram_6t_core_testbench.py"
+  },
+  "keyword_hits": {
+    "TIME": true,
+    "delay_chain": true,
+    "DelayChain": true,
+    "wen_delay_chain": true,
+    "pdrive": true,
+    "pdrive2_for_pre": true,
+    "wl_pdrive": true,
+    "rbl_delay": true,
+    "rbl_delay_bar": true,
+    "s_en": true,
+    "w_en": true,
+    "PRE": true,
+    "wl_en": true,
+    "clk_buf": true,
+    "clk_bar": true,
+    "gated_clk_buf": true,
+    "gated_clk_bar": true
+  },
+  "time_control_decomposition_reference": {
+    "scope": "step6_1_time_control_decomposition_audit",
+    "can_enter_control_subblock_adapter_planning": true
+  },
+  "remaining_time_control_subblocks": [
+    "DELAY_CHAIN",
+    "WEN_DELAY_CHAIN",
+    "PDRIVE",
+    "PDRIVE2_FOR_PRE",
+    "WL_PDRIVE"
+  ],
+  "subblock_audit": [
+    {
+      "subblock_name": "DELAY_CHAIN",
+      "openyield_source_name": "delay_chain",
+      "source_file": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\time_generate.py",
+      "source_class_or_function": "DelayChain",
+      "input_signals": [
+        "rbl"
+      ],
+      "output_signals": [
+        "rbl_delay"
+      ],
+      "internal_signals": [
+        "dout_1..dout_8",
+        "n_0_*..n_8_*"
+      ],
+      "control_role": "replica-delay based timing generation",
+      "consumer_signals": [
+        "rbl_delay_bar inverter",
+        "sense_enable path",
+        "precharge path"
+      ],
+      "producer_signals": [
+        "replica bitline rbl"
+      ],
+      "candidate_local_macros": [
+        "gen_delay_inv",
+        "gen_inv"
+      ],
+      "candidate_generated_cells": [
+        "Pinv inverter chain"
+      ],
+      "mapping_status": "partial_generated_chain_candidate",
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "requires_generated_layout_or_stdcell_row": true,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "metadata_only": true,
+      "source_confirmed": true,
+      "manual_source_review_required": false,
+      "notes": [
+        "OpenYield source defines a nine-stage inverter delay chain with four load inverters per stage.",
+        "TIME instantiates DelayChain from rbl to rbl_delay."
+      ]
+    },
+    {
+      "subblock_name": "WEN_DELAY_CHAIN",
+      "openyield_source_name": "wen_delay_chain",
+      "source_file": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\time_generate.py",
+      "source_class_or_function": "WenDelayChain",
+      "input_signals": [
+        "rbl_delay_bar"
+      ],
+      "output_signals": [
+        "rbl_delay_bar_wen"
+      ],
+      "internal_signals": [
+        "wen_dly_1..N",
+        "wn_i_j"
+      ],
+      "control_role": "write-enable timing generation",
+      "consumer_signals": [
+        "write_enable / w_en special-case path"
+      ],
+      "producer_signals": [
+        "rbl_delay_bar inverter output"
+      ],
+      "candidate_local_macros": [
+        "gen_delay_inv",
+        "gen_inv"
+      ],
+      "candidate_generated_cells": [
+        "Pinv inverter chain"
+      ],
+      "mapping_status": "partial_generated_chain_candidate",
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "requires_generated_layout_or_stdcell_row": true,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "metadata_only": true,
+      "source_confirmed": true,
+      "manual_source_review_required": false,
+      "notes": [
+        "The chain is only instantiated in the special-case `write` + `16x512` branch.",
+        "This keeps the adapter audit at source-semantic level; the general path still uses rbl_delay_bar directly."
+      ]
+    },
+    {
+      "subblock_name": "PDRIVE",
+      "openyield_source_name": "pdrive",
+      "source_file": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\time_generate.py",
+      "source_class_or_function": "pdrive",
+      "input_signals": [
+        "clk"
+      ],
+      "output_signals": [
+        "clk_buf"
+      ],
+      "internal_signals": [
+        "zb1_node",
+        "zb2_node",
+        "zb3_node"
+      ],
+      "control_role": "clock buffer / pulse driver chain",
+      "consumer_signals": [
+        "clk_bar inverter",
+        "gated_clk_buf",
+        "ADDR_DFF",
+        "DATA_DFF"
+      ],
+      "producer_signals": [
+        "top-level clk"
+      ],
+      "candidate_local_macros": [
+        "gen_inv"
+      ],
+      "candidate_generated_cells": [
+        "Pinv staged buffer chain"
+      ],
+      "mapping_status": "partial_generated_chain_candidate",
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "requires_generated_layout_or_stdcell_row": true,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "metadata_only": true,
+      "source_confirmed": true,
+      "manual_source_review_required": false,
+      "notes": [
+        "The source is a four-stage inverter chain with progressive upsizing.",
+        "TIME uses pdrive to generate clk_buf, then a separate inverter derives clk_bar."
+      ]
+    },
+    {
+      "subblock_name": "PDRIVE2_FOR_PRE",
+      "openyield_source_name": "pdrive2_for_pre",
+      "source_file": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\time_generate.py",
+      "source_class_or_function": "pdrive2_for_pre",
+      "input_signals": [
+        "PRE_UNBUF"
+      ],
+      "output_signals": [
+        "PRE"
+      ],
+      "internal_signals": [
+        "zb1_node"
+      ],
+      "control_role": "precharge control driver",
+      "consumer_signals": [
+        "precharge_enb / PRE"
+      ],
+      "producer_signals": [
+        "PRE_UNBUF from PNAND3(gated_clk_buf, rbl_delay, wl_en_bar)"
+      ],
+      "candidate_local_macros": [
+        "gen_inv"
+      ],
+      "candidate_generated_cells": [
+        "Pinv two-stage buffer chain"
+      ],
+      "mapping_status": "partial_generated_chain_candidate",
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "requires_generated_layout_or_stdcell_row": true,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "metadata_only": true,
+      "source_confirmed": true,
+      "manual_source_review_required": false,
+      "notes": [
+        "The source is a two-stage inverter chain with drive scaling for precharge.",
+        "It is downstream of the PNAND3 precharge gating node, not a standalone timing source."
+      ]
+    },
+    {
+      "subblock_name": "WL_PDRIVE",
+      "openyield_source_name": "wl_pdrive",
+      "source_file": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\time_generate.py",
+      "source_class_or_function": "wl_pdrive",
+      "input_signals": [
+        "gated_clk_bar"
+      ],
+      "output_signals": [
+        "wl_en"
+      ],
+      "internal_signals": [
+        "zb1_node",
+        "wl_en_bar"
+      ],
+      "control_role": "wordline enable pulse driver",
+      "consumer_signals": [
+        "wordline_enable",
+        "wl_en_bar",
+        "precharge gating"
+      ],
+      "producer_signals": [
+        "gated_clk_bar"
+      ],
+      "candidate_local_macros": [
+        "gen_inv",
+        "gen_nand2"
+      ],
+      "candidate_generated_cells": [
+        "Pinv two-stage buffer chain",
+        "downstream inverter for wl_en_bar"
+      ],
+      "mapping_status": "partial_generated_chain_candidate",
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "requires_generated_layout_or_stdcell_row": true,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "metadata_only": true,
+      "source_confirmed": true,
+      "manual_source_review_required": false,
+      "notes": [
+        "The source is a two-stage inverter chain that drives wl_en from gated_clk_bar.",
+        "The testbench and earlier wordline audit confirm wl_en feeds the WordlineDriver B domain as active-high enable."
+      ]
+    }
+  ],
+  "local_candidate_macro_generated_cell_audit": [
+    {
+      "candidate_name": "gen_delay_inv",
+      "gds_available": true,
+      "spice_available": false,
+      "pin_metadata_available": true,
+      "power_metadata_available": true,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_delay_inv.gds",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_delay_inv.gds"
+      ],
+      "spice_paths": [],
+      "notes": [
+        "delay-chain inverter candidate",
+        "Conservative policy: physical placement remains blocked without routing, rail continuity, and pin-coverage proof."
+      ]
+    },
+    {
+      "candidate_name": "gen_inv",
+      "gds_available": true,
+      "spice_available": false,
+      "pin_metadata_available": true,
+      "power_metadata_available": true,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_inv.gds",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_inv.gds"
+      ],
+      "spice_paths": [],
+      "notes": [
+        "generic inverter candidate",
+        "Conservative policy: physical placement remains blocked without routing, rail continuity, and pin-coverage proof."
+      ]
+    },
+    {
+      "candidate_name": "gen_nand2",
+      "gds_available": true,
+      "spice_available": false,
+      "pin_metadata_available": true,
+      "power_metadata_available": true,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_nand2.gds",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_nand2.gds"
+      ],
+      "spice_paths": [],
+      "notes": [
+        "generic nand2 candidate",
+        "Conservative policy: physical placement remains blocked without routing, rail continuity, and pin-coverage proof."
+      ]
+    },
+    {
+      "candidate_name": "gen_nand4",
+      "gds_available": true,
+      "spice_available": false,
+      "pin_metadata_available": true,
+      "power_metadata_available": false,
+      "safe_for_metadata_planning": "partial",
+      "safe_for_physical_placement": false,
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_nand4.gds"
+      ],
+      "spice_paths": [],
+      "notes": [
+        "generic nand4 candidate",
+        "Conservative policy: physical placement remains blocked without routing, rail continuity, and pin-coverage proof."
+      ]
+    },
+    {
+      "candidate_name": "dff",
+      "gds_available": true,
+      "spice_available": true,
+      "pin_metadata_available": true,
+      "power_metadata_available": true,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\dff.gds"
+      ],
+      "spice_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp"
+      ],
+      "notes": [
+        "hardcell DFF candidate",
+        "Conservative policy: physical placement remains blocked without routing, rail continuity, and pin-coverage proof."
+      ]
+    }
+  ],
+  "control_signal_dependency_graph": {
+    "signals": [
+      {
+        "source": "clk",
+        "target": "clk_buf",
+        "via": "PDRIVE",
+        "dependency_confirmed": true
+      },
+      {
+        "source": "clk_buf",
+        "target": "clk_bar",
+        "via": "Pinv",
+        "dependency_confirmed": true
+      },
+      {
+        "source": "cs + clk_bar",
+        "target": "gated_clk_bar",
+        "via": "AND2",
+        "dependency_confirmed": true
+      },
+      {
+        "source": "cs + clk_buf",
+        "target": "gated_clk_buf",
+        "via": "AND2",
+        "dependency_confirmed": true
+      },
+      {
+        "source": "gated_clk_bar",
+        "target": "wordline_enable / wl_en",
+        "via": "WL_PDRIVE",
+        "dependency_confirmed": true
+      },
+      {
+        "source": "rbl",
+        "target": "rbl_delay",
+        "via": "DELAY_CHAIN",
+        "dependency_confirmed": true
+      },
+      {
+        "source": "rbl_delay",
+        "target": "rbl_delay_bar",
+        "via": "Pinv",
+        "dependency_confirmed": true
+      },
+      {
+        "source": "rbl_delay_bar + gated_clk_bar + we",
+        "target": "write_enable / w_en",
+        "via": "AND3",
+        "dependency_confirmed": true
+      },
+      {
+        "source": "rbl_delay + gated_clk_bar + we_bar",
+        "target": "sense_enable / s_en",
+        "via": "AND3",
+        "dependency_confirmed": true
+      },
+      {
+        "source": "gated_clk_buf + rbl_delay + wl_en_bar",
+        "target": "PRE_UNBUF",
+        "via": "PNAND3",
+        "dependency_confirmed": true
+      },
+      {
+        "source": "PRE_UNBUF",
+        "target": "precharge_enb / PRE",
+        "via": "PDRIVE2_FOR_PRE",
+        "dependency_confirmed": true
+      }
+    ]
+  },
+  "delay_chain_metadata_available": "partial",
+  "wen_delay_chain_metadata_available": "partial",
+  "pdrive_metadata_available": "partial",
+  "pdrive2_for_pre_metadata_available": "partial",
+  "wl_pdrive_metadata_available": "partial",
+  "safe_for_metadata_planning": {
+    "DELAY_CHAIN": true,
+    "WEN_DELAY_CHAIN": true,
+    "PDRIVE": true,
+    "PDRIVE2_FOR_PRE": true,
+    "WL_PDRIVE": true
+  },
+  "safe_for_physical_placement": {
+    "DELAY_CHAIN": false,
+    "WEN_DELAY_CHAIN": false,
+    "PDRIVE": false,
+    "PDRIVE2_FOR_PRE": false,
+    "WL_PDRIVE": false
+  },
+  "can_enter_time_control_subblock_metadata_planning": true,
+  "can_enter_time_control_physical_placement": false,
+  "can_enter_standalone_control_placement": false,
+  "unresolved_items": [
+    "TIME must remain decomposed; treating TIME as one macro is not allowed.",
+    "delay_chain / wen_delay_chain / pdrive / pdrive2_for_pre / wl_pdrive still require generated layout or stdcell-row realization.",
+    "gen_nand4 exists as GDS candidate but current pin metadata is incomplete.",
+    "Physical timing proof, routing proof, and control-row placement proof are all still missing.",
+    "This audit closes semantic planning only; it does not allow physical control placement or standalone control placement."
+  ],
+  "audit_summary": {
+    "remaining_control_subblocks_without_adapter_level_physical_closure": [
+      "DELAY_CHAIN",
+      "WEN_DELAY_CHAIN",
+      "PDRIVE",
+      "PDRIVE2_FOR_PRE",
+      "WL_PDRIVE"
+    ],
+    "subblocks_safe_for_metadata_planning": [
+      "DELAY_CHAIN",
+      "WEN_DELAY_CHAIN",
+      "PDRIVE",
+      "PDRIVE2_FOR_PRE",
+      "WL_PDRIVE"
+    ],
+    "subblocks_safe_for_physical_placement": [],
+    "time_control_subblock_audit_available": true,
+    "time_as_single_macro_allowed": false,
+    "can_enter_time_control_subblock_metadata_planning": true,
+    "can_enter_time_control_physical_placement": false,
+    "can_enter_standalone_control_placement": false
+  },
+  "step_6_24_recommendation": {
+    "recommended_next_phase": "time_control_signal_binding_contracts",
+    "candidate_directions": [
+      "delay_chain_binding_contracts",
+      "wen_delay_chain_binding_contracts",
+      "precharge_control_contracts",
+      "wordline_enable_control_contracts",
+      "sense_write_enable_signal_binding"
+    ],
+    "reason": [
+      "Source-level semantics are now sufficient for metadata planning.",
+      "Physical control placement is still blocked, so the next useful step is binding contracts rather than placement.",
+      "The remaining uncertainty is at signal-binding and generated-logic contract level, not decoder metadata level."
+    ]
+  },
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "source_snippets": {
+    "delay_chain": "class DelayChain(BaseSubcircuit):#用于复制位线延迟的延迟链\n    \"\"\"\n    延迟链电路 (sram_delay_chain)\n    输入: in, VDD, VSS\n    输出: out\n    \"\"\"\n    NAME = \"delay_chain\"\n    NODES = ('VDD', 'VSS', 'in', 'out')\n    \n    def __init__(self, nmos_model=\"NMOS_VTG\", pmos_model=\"PMOS_VTG\",\n                 pmos_width=5e-07, nmos_width=2.5e-07,\n                 length=0.05e-6,\n                 w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF,\n                 ):\n\n        super().__init__(\n            nmos_model, pmos_model,\n            nmos_width, pmos_width, length,\n            w_rc=w_rc, pi_res=pi_res, pi_cap=pi_cap,\n        ) \n        \n        # 创建基本反相器单元\n        self.inv = Pinv(nmos_model, pmos_model,0.9e-07,2.7e-07, length=0.05e-6,num=1)\n        self.subcircuit(self.inv)\n        \n        # 添加内部节点\n        #self.add_internal_nodes()\n        \n        # 构建延迟链\n        self.add_delay_chain()\n    \n    def add_delay_chain(self):\n        \"\"\"构建延迟链电路\"\"\"\n        # 第一级反相器\n        self.X('dinv0', self.inv.NAME, 'VDD', 'VSS', 'in', 'dout_1')\n        \n        # 第一级的4个负载\n        for j in range(4):\n            self.X(f'dload_0_{j}', self.inv.NAME, \n                   'VDD', 'VSS', 'dout_1', f'n_0_{j}')\n        \n        # 中间7级反相器 (第2级到第8级)\n        for i in range(1, 8):\n            # 反相器\n            self.X(f'dinv{i}', self.inv.NAME, \n                   'VDD', 'VSS', f'dout_{i}', f'dout_{i+1}')\n            \n            # 负载\n            for j in range(4):\n                self.X(f'dload_{i}_{j}', self.inv.NAME, \n                       'VDD', 'VSS', f'dout_{i+1}', f'n_{i}_{j}')\n        \n        # 最后一级反相器 (第9级)\n        self.X('dinv8', self.inv.NAME, 'VDD', 'VSS', 'dout_8', 'out')\n        \n        # 最后一级的4个负载\n        for j in range(4):\n            self.X(f'dload_8_{j}', self.inv.NAME, \n                   'VDD', 'VSS', 'out', f'n_8_{j}')\n            \n",
+    "wen_delay_chain": "class WenDelayChain(BaseSubcircuit):\n    NAME = \"wen_delay_chain\"\n    NODES = ('VDD', 'VSS', 'in', 'out')\n\n    def __init__(self, nmos_model=\"NMOS_VTG\", pmos_model=\"PMOS_VTG\",\n                 length=0.05e-6, stages=4, loads_per_stage=4,\n                 w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF):\n\n        stages = max(2, int(stages))\n        if stages % 2:\n            stages += 1\n\n        self.stages = stages\n        self.loads_per_stage = loads_per_stage\n\n        super().__init__(\n            nmos_model, pmos_model,\n            0.09e-6, 0.27e-6, length,\n            w_rc=w_rc, pi_res=pi_res, pi_cap=pi_cap,\n        )\n\n        self.inv = Pinv(\n            nmos_model, pmos_model,\n            nmos_width=0.09e-6,\n            pmos_width=0.27e-6,\n            length=length,\n            num='_wen_delay'\n        )\n        self.subcircuit(self.inv)\n        self.add_delay_chain()\n\n    def add_delay_chain(self):\n        prev = 'in'\n\n        for i in range(self.stages):\n            out = 'out' if i == self.stages - 1 else f'wen_dly_{i + 1}'\n\n            self.X(f'winv{i}', self.inv.NAME,\n                   'VDD', 'VSS', prev, out)\n\n            for j in range(self.loads_per_stage):\n                self.X(f'wload_{i}_{j}', self.inv.NAME,\n                       'VDD', 'VSS', out, f'wn_{i}_{j}')\n\n            prev = out\n\n",
+    "pdrive_family": "class pdrive(BaseSubcircuit):  # ////////缓冲器链，由一系列尺寸逐渐增大的反相器组成，增强时钟信号的驱动能力，提供陡峭的时钟边沿，并减少时钟 skew\n\n    NAME = \"pdrive\"\n    NODES = ('VDD', 'VSS', 'A', 'Z')\n\n    def __init__(self, nmos_model=\"NMOS_VTG\", pmos_model=\"PMOS_VTG\",\n                 pmos_width=0.27e-6, nmos_width=0.18e-6,\n                 length=0.05e-6,\n                 drive_scale=1.0,\n                 w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF,\n                 ):\n\n        super().__init__(\n            nmos_model, pmos_model,\n            nmos_width, pmos_width, length,\n            w_rc=w_rc, pi_res=pi_res, pi_cap=pi_cap,\n        )\n        drive_scale = max(1.0, float(drive_scale))\n        s1 = drive_scale ** 0.25\n        s2 = drive_scale ** 0.50\n        s3 = drive_scale ** 0.75\n        s4 = drive_scale\n        # 创建不同尺寸的反相器\n        self.inv1 = Pinv(nmos_model, pmos_model,0.09e-6 * s1,0.27e-6 * s1,0.05e-6,num=1)\n        self.inv2 = Pinv(nmos_model, pmos_model,0.27e-6 * s2,0.81e-6 * s2,0.05e-6,num=2)\n        self.inv3 = Pinv(nmos_model, pmos_model,0.91e-6 * s3,2.43e-6 * s3,0.05e-6,num=3)\n        self.inv4 = Pinv(nmos_model, pmos_model,2.43e-6 * s4,7.29e-6 * s4,0.05e-6,num=4)\n        \n        # 添加子电路\n        self.subcircuit(self.inv1)\n        self.subcircuit(self.inv2)\n        self.subcircuit(self.inv3)\n        self.subcircuit(self.inv4)\n        \n        # 添加内部节点\n        # self.node('zb1_node')\n        # self.node('zb2_node')\n        # self.node('zb3_node')\n        \n        # 构建缓冲器链\n        self.add_buffer_chain()\n\n    def add_buffer_chain(self):\n        \"\"\"构建四级缓冲器链\"\"\"\n        # 第一级: 尺寸=1\n        self.X('buf_inv1', self.inv1.NAME,\n               'VDD', 'VSS', 'A', 'zb1_node')\n        \n        # 第二级: 尺寸=3\n        self.X('buf_inv2', self.inv2.NAME,\n               'VDD', 'VSS', 'zb1_node', 'zb2_node')\n        \n        # 第三级: 尺寸=8\n        self.X('buf_inv3', self.inv3.NAME,\n               'VDD', 'VSS', 'zb2_node', 'zb3_node')\n        \n        # 第四级: 尺寸=25\n        self.X('buf_inv4', self.inv4.NAME,\n               'VDD', 'VSS', 'zb3_node', 'Z')\n        \nclass pdrive2_for_pre(BaseSubcircuit):  # ////////缓冲器链，由一系列尺寸逐渐增大的反相器组成，增强时钟信号的驱动能力，提供陡峭的时钟边沿，并减少时钟 skew\n\n    NAME = \"pdrive2_for_pre\"\n    NODES = ('VDD', 'VSS', 'A', 'Z')\n\n    def __init__(self, nmos_model=\"NMOS_VTG\", pmos_model=\"PMOS_VTG\",\n                 pmos_width=0.27e-6, nmos_width=0.18e-6,\n                 length=0.05e-6,\n                 drive_scale=1.0,\n                 w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF,\n                 ):\n\n        super().__init__(\n            nmos_model, pmos_model,\n            nmos_width, pmos_width, length,\n            w_rc=w_rc, pi_res=pi_res, pi_cap=pi_cap,\n        )\n\n        drive_scale = max(1.0, float(drive_scale))\n        stage1_scale = max(1.0, drive_scale ** 0.5)\n        stage2_scale = drive_scale\n        \n        # 创建不同尺寸的反相器\n        self.inv1 = Pinv(nmos_model, pmos_model,0.09e-6 * stage1_scale,0.27e-6 * stage1_scale,0.05e-6,num=1)\n        self.inv2 = Pinv(nmos_model, pmos_model,0.27e-6 * stage2_scale,0.81e-6 * stage2_scale,0.05e-6,num=2)\n        \n        # 添加子电路\n        self.subcircuit(self.inv1)\n        self.subcircuit(self.inv2)\n     \n        # 构建缓冲器链\n        self.add_buffer_chain()\n\n    def add_buffer_chain(self):\n        \"\"\"构建两级缓冲器链\"\"\"\n        # 第一级: 尺寸=1\n        self.X('buf_inv1', self.inv1.NAME,\n               'VDD', 'VSS', 'A', 'zb1_node')\n        \n        # 第二级: 尺寸=3\n        self.X('buf_inv2', self.inv2.NAME,\n               'VDD', 'VSS', 'zb1_node', 'Z')\n        \nclass wl_pdrive(BaseSubcircuit):  # ////////用于字线驱动的缓冲器\n\n    NAME = \"wl_pdrive\"\n    NODES = ('VDD', 'VSS', 'A', 'Z')\n\n    def __init__(self, nmos_model=\"NMOS_VTG\", pmos_model=\"PMOS_VTG\",\n                 # Base widths for NAND gate transistors\n                 pmos_width=0.27e-6, nmos_width=0.18e-6,\n                 length=0.05e-6,\n                 w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF,\n                 ):\n\n        super().__init__(\n            nmos_model, pmos_model,\n            nmos_width, pmos_width, length,\n            w_rc=w_rc, pi_res=pi_res, pi_cap=pi_cap,\n        )\n        \n        # 创建不同尺寸的反相器\n        self.inv1 = Pinv(nmos_model, pmos_model,0.09e-6,0.27e-6,0.05e-6,num=1)\n        self.inv2 = Pinv(nmos_model, pmos_model,0.45e-06,1.35e-06,0.05e-6,num=2)\n        \n        # 添加子电路\n        self.subcircuit(self.inv1)\n        self.subcircuit(self.inv2)\n\n        # 构建缓冲器链\n        self.add_buffer_chain()\n\n    def add_buffer_chain(self):\n        \"\"\"构建2级缓冲器链\"\"\"\n        # 第一级: 尺寸=1\n        self.X('buf_inv1', self.inv1.NAME,\n               'VDD', 'VSS', 'A', 'zb1_node')\n        \n        # 第二级: 尺寸=3\n        self.X('buf_inv2', self.inv2.NAME,\n               'VDD', 'VSS', 'zb1_node', 'Z')\n\n        \n",
+    "time_wiring": "wl_en=wl_pdrive()\n        self.subcircuit(wl_en)\n        self.X('wl_en',\n               wl_en.NAME,\n               'VDD', 'VSS', 'gated_clk_bar', 'wl_en')\n        inv_wl_en_bar = Pinv(\n            nmos_model=\"NMOS_VTG\",\n            pmos_model=\"PMOS_VTG\",\n            nmos_width=0.09e-6,\n            pmos_width=0.27e-6,\n            length=0.05e-6,\n            num='_wl_en_bar'\n        )\n        self.subcircuit(inv_wl_en_bar)\n        self.X('inv_wl_en_bar',\n            inv_wl_en_bar.NAME,\n            'VDD', 'VSS', 'wl_en', 'wl_en_bar')\n\n        #复制位线延迟链\n        delaychain=DelayChain()\n        self.subcircuit(delaychain)\n        self.X('delaychain',\n               delaychain.NAME,\n               'VDD', 'VSS', 'rbl', 'rbl_delay')\n        #复制位线延迟反相\n        inv_rbl_delay_bar = Pinv(\n            nmos_model=\"NMOS_VTG\",\n            pmos_model=\"PMOS_VTG\",\n            nmos_width=0.09e-6,\n            pmos_width=0.27e-6,\n            length=0.05e-6,\n        )\n        self.subcircuit(inv_rbl_delay_bar)\n        self.X('inv_rbl_delay_bar',\n               inv_rbl_delay_bar.NAME,\n               'VDD', 'VSS', 'rbl_delay', 'rbl_delay_bar')\n        \n        w_en_rbl_input = 'rbl_delay_bar'\n\n        if operation == 'write' and self.num_rows == 16 and self.num_cols == 512:\n            wen_delaychain = WenDelayChain(stages=6, loads_per_stage=4, w_rc=w_rc)\n            self.subcircuit(wen_delaychain)\n            self.X('wen_delaychain',\n                wen_delaychain.NAME,\n                'VDD', 'VSS', 'rbl_delay_bar', 'rbl_delay_bar_wen')\n            w_en_rbl_input = 'rbl_delay_bar_wen'\n        #产生写使能\n        w_en_ref_cols = 64\n        w_en_scale = max(1, ceil(self.num_cols / w_en_ref_cols))#按列数放大驱动晶体管尺寸\n        w_en=AND3(nmos_model_nand=\"NMOS_VTG\",\n                pmos_model_nand=\"PMOS_VTG\",\n                nmos_model_inv=\"NMOS_VTG\",\n                pmos_model_inv=\"PMOS_VTG\",\n                nand_pmos_width=0.27e-6,\n                nand_nmos_width=0.18e-6,\n                inv_pmos_width=1.08e-6 * w_en_scale,\n                inv_nmos_width=0.36e-6 * w_en_scale,\n                length=0.05e-6,\n                w_rc=w_rc\n                )\n        self.subcircuit(w_en)\n        self.X('w_en',\n               w_en.NAME,\n               'VDD','VSS' , w_en_rbl_input , 'gated_clk_bar' ,'we', 'w_en' )\n        #产生灵敏放大器\n        s_en=AND3(nmos_model_nand=\"NMOS_VTG\",\n                pmos_model_nand=\"PMOS_VTG\",\n                nmos_model_inv=\"NMOS_VTG\",\n                pmos_model_inv=\"PMOS_VTG\",\n                nand_pmos_width=0.27e-6,\n                nand_nmos_width=0.18e-6,\n                inv_pmos_width=1.08e-6 * w_en_scale,\n                inv_nmos_width=0.36e-6 * w_en_scale,\n                length=0.05e-6,\n                w_rc=w_rc\n            )\n        self.subcircuit(s_en)\n        self.X('s_en',\n               s_en.NAME,\n               'VDD','VSS' ,'rbl_delay', 'gated_clk_bar' ,'we_bar' ,'s_en' )\n\n        #产生预充电使能\n        # pre_unbuf=PNAND2(nmos_model=\"NMOS_VTG\",\n        #                 pmos_model=\"PMOS_VTG\",\n        #                 nmos_width=0.18e-6,\n        #                 pmos_width=0.27e-6,\n        #                 length=0.05e-6,\n        #                 w_rc=w_rc\n        #                 )\n        # self.subcircuit(pre_unbuf)\n        # self.X('pre_unbuf',\n        #        pre_unbuf.NAME,\n        #        'VDD','VSS', 'gated_clk_buf', 'rbl_delay', 'PRE_UNBUF')\n\n        pre_unbuf = PNAND3(nmos_model=\"NMOS_VTG\",\n                   pmos_model=\"PMOS_VTG\",\n                   nmos_width=0.27e-6,\n                   pmos_width=0.27e-6,\n                   length=0.05e-6,\n                   w_rc=w_rc\n                   )\n        self.subcircuit(pre_unbuf)\n        self.X('pre_unbuf',\n            pre_unbuf.NAME,\n            'VDD', 'VSS', 'gated_clk_buf', 'rbl_delay', 'wl_en_bar', 'PRE_UNBUF')\n\n        \n        pre_ref_cols = 64\n        pre_col_scale = (self.num_cols + 1) / (pre_ref_cols + 1)\n        pre_pmos_scale = max(0.5, self.num_rows / 16)\n        pre_drive_scale = max(1, ceil(pre_col_scale * pre_pmos_scale))\n        pre = pdrive2_for_pre(drive_scale=pre_drive_scale)\n        self.subcircuit(pre)\n        self.X('pre',\n               pre.NAME,\n               'VDD','VSS', 'PRE_UNBUF', 'PRE')\n       \n\n\n        \n        \n"
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "scope": "step6_23_openyield_time_control_subblock_adapter_audit",
+  "nodes": [
+    {
+      "id": "TIME",
+      "kind": "control_root"
+    },
+    {
+      "id": "DELAY_CHAIN",
+      "kind": "time_subblock",
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "id": "WEN_DELAY_CHAIN",
+      "kind": "time_subblock",
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "id": "PDRIVE",
+      "kind": "time_subblock",
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "id": "PDRIVE2_FOR_PRE",
+      "kind": "time_subblock",
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "id": "WL_PDRIVE",
+      "kind": "time_subblock",
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "id": "gen_delay_inv",
+      "kind": "local_candidate"
+    },
+    {
+      "id": "gen_inv",
+      "kind": "local_candidate"
+    },
+    {
+      "id": "gen_nand2",
+      "kind": "local_candidate"
+    },
+    {
+      "id": "gen_nand4",
+      "kind": "local_candidate"
+    },
+    {
+      "id": "dff",
+      "kind": "local_candidate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "TIME",
+      "target": "DELAY_CHAIN",
+      "relation": "decomposes_into"
+    },
+    {
+      "source": "TIME",
+      "target": "WEN_DELAY_CHAIN",
+      "relation": "decomposes_into"
+    },
+    {
+      "source": "TIME",
+      "target": "PDRIVE",
+      "relation": "decomposes_into"
+    },
+    {
+      "source": "TIME",
+      "target": "PDRIVE2_FOR_PRE",
+      "relation": "decomposes_into"
+    },
+    {
+      "source": "TIME",
+      "target": "WL_PDRIVE",
+      "relation": "decomposes_into"
+    },
+    {
+      "source": "clk",
+      "target": "clk_buf",
+      "relation": "PDRIVE",
+      "dependency_confirmed": true
+    },
+    {
+      "source": "clk_buf",
+      "target": "clk_bar",
+      "relation": "Pinv",
+      "dependency_confirmed": true
+    },
+    {
+      "source": "cs + clk_bar",
+      "target": "gated_clk_bar",
+      "relation": "AND2",
+      "dependency_confirmed": true
+    },
+    {
+      "source": "cs + clk_buf",
+      "target": "gated_clk_buf",
+      "relation": "AND2",
+      "dependency_confirmed": true
+    },
+    {
+      "source": "gated_clk_bar",
+      "target": "wordline_enable / wl_en",
+      "relation": "WL_PDRIVE",
+      "dependency_confirmed": true
+    },
+    {
+      "source": "rbl",
+      "target": "rbl_delay",
+      "relation": "DELAY_CHAIN",
+      "dependency_confirmed": true
+    },
+    {
+      "source": "rbl_delay",
+      "target": "rbl_delay_bar",
+      "relation": "Pinv",
+      "dependency_confirmed": true
+    },
+    {
+      "source": "rbl_delay_bar + gated_clk_bar + we",
+      "target": "write_enable / w_en",
+      "relation": "AND3",
+      "dependency_confirmed": true
+    },
+    {
+      "source": "rbl_delay + gated_clk_bar + we_bar",
+      "target": "sense_enable / s_en",
+      "relation": "AND3",
+      "dependency_confirmed": true
+    },
+    {
+      "source": "gated_clk_buf + rbl_delay + wl_en_bar",
+      "target": "PRE_UNBUF",
+      "relation": "PNAND3",
+      "dependency_confirmed": true
+    },
+    {
+      "source": "PRE_UNBUF",
+      "target": "precharge_enb / PRE",
+      "relation": "PDRIVE2_FOR_PRE",
+      "dependency_confirmed": true
+    }
+  ],
+  "summary": {
+    "remaining_control_subblocks_without_adapter_level_physical_closure": [
+      "DELAY_CHAIN",
+      "WEN_DELAY_CHAIN",
+      "PDRIVE",
+      "PDRIVE2_FOR_PRE",
+      "WL_PDRIVE"
+    ],
+    "subblocks_safe_for_metadata_planning": [
+      "DELAY_CHAIN",
+      "WEN_DELAY_CHAIN",
+      "PDRIVE",
+      "PDRIVE2_FOR_PRE",
+      "WL_PDRIVE"
+    ],
+    "subblocks_safe_for_physical_placement": [],
+    "time_control_subblock_audit_available": true,
+    "time_as_single_macro_allowed": false,
+    "can_enter_time_control_subblock_metadata_planning": true,
+    "can_enter_time_control_physical_placement": false,
+    "can_enter_standalone_control_placement": false
+  }
+}
