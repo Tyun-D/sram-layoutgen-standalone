@@ -1,0 +1,106 @@
+{
+  "scope": "step6_21_openyield_control_parent_reservation_audit",
+  "nodes": [
+    {
+      "id": "PARENT_CONTROL_ROW_DECODER_WORDLINE_2P2_RESERVATION",
+      "kind": "parent_reservation"
+    },
+    {
+      "id": "CLOCK_ENTRY_WINDOW",
+      "kind": "parent_control_window"
+    },
+    {
+      "id": "ADDR_TO_DECODER_WINDOW",
+      "kind": "parent_control_window"
+    },
+    {
+      "id": "DATA_TO_WRITEDRIVER_WINDOW",
+      "kind": "parent_control_window"
+    },
+    {
+      "id": "DECODER_INPUT_ANCHOR",
+      "kind": "control_anchor"
+    },
+    {
+      "id": "WRITEDRIVER_INPUT_ANCHOR",
+      "kind": "control_anchor"
+    },
+    {
+      "id": "DECODER_CASCADE_ENVELOPE",
+      "kind": "decoder_envelope"
+    },
+    {
+      "id": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_0",
+      "kind": "decoder_handoff_window"
+    },
+    {
+      "id": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_1",
+      "kind": "decoder_handoff_window"
+    },
+    {
+      "id": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_2",
+      "kind": "decoder_handoff_window"
+    },
+    {
+      "id": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_3",
+      "kind": "decoder_handoff_window"
+    },
+    {
+      "id": "ENABLE_BUS_HANDOFF_WINDOW",
+      "kind": "decoder_handoff_window"
+    },
+    {
+      "id": "PARENT_DECODER_WORDLINE_CHANNEL_RESERVATION_2P2",
+      "kind": "parent_keepout"
+    }
+  ],
+  "edges": [
+    {
+      "source": "PARENT_CONTROL_ROW_DECODER_WORDLINE_2P2_RESERVATION",
+      "target": "ADDR_TO_DECODER_WINDOW",
+      "relation": "affects"
+    },
+    {
+      "source": "PARENT_CONTROL_ROW_DECODER_WORDLINE_2P2_RESERVATION",
+      "target": "DECODER_INPUT_ANCHOR",
+      "relation": "affects"
+    },
+    {
+      "source": "PARENT_CONTROL_ROW_DECODER_WORDLINE_2P2_RESERVATION",
+      "target": "DECODER_CASCADE_ENVELOPE",
+      "relation": "affects"
+    },
+    {
+      "source": "PARENT_CONTROL_ROW_DECODER_WORDLINE_2P2_RESERVATION",
+      "target": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_0",
+      "relation": "affects"
+    },
+    {
+      "source": "PARENT_CONTROL_ROW_DECODER_WORDLINE_2P2_RESERVATION",
+      "target": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_1",
+      "relation": "affects"
+    },
+    {
+      "source": "PARENT_CONTROL_ROW_DECODER_WORDLINE_2P2_RESERVATION",
+      "target": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_2",
+      "relation": "affects"
+    },
+    {
+      "source": "PARENT_CONTROL_ROW_DECODER_WORDLINE_2P2_RESERVATION",
+      "target": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_3",
+      "relation": "affects"
+    },
+    {
+      "source": "PARENT_CONTROL_ROW_DECODER_WORDLINE_2P2_RESERVATION",
+      "target": "PARENT_DECODER_WORDLINE_CHANNEL_RESERVATION_2P2",
+      "relation": "records"
+    }
+  ],
+  "recommended_parent_policy": "record_parent_2p2_wordline_reservation_and_close_decoder_metadata",
+  "blockers": [
+    "Parent reservation is metadata-only and does not prove physical floorplan space.",
+    "ADDR_TO_DECODER_WINDOW and DECODER_CASCADE_ENVELOPE need synchronized metadata updates before any later physical planning step.",
+    "Clock/data-side windows remain logically unaffected but are still unproven as physical channels.",
+    "Decoder physical prototype and placement remain blocked."
+  ]
+}
