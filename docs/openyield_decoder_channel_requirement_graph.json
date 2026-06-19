@@ -1,0 +1,72 @@
+{
+  "scope": "step6_20_openyield_decoder_channel_requirement_audit",
+  "nodes": [
+    {
+      "id": "DECODER_WORDLINE_CHANNEL_2P2_REQUIREMENT",
+      "kind": "requirement"
+    },
+    {
+      "id": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_0",
+      "kind": "affected_window"
+    },
+    {
+      "id": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_1",
+      "kind": "affected_window"
+    },
+    {
+      "id": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_2",
+      "kind": "affected_window"
+    },
+    {
+      "id": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_3",
+      "kind": "affected_window"
+    },
+    {
+      "id": "ADDR_TO_DECODER_WINDOW",
+      "kind": "control_window"
+    },
+    {
+      "id": "DECODER_CASCADE_ENVELOPE",
+      "kind": "decoder_envelope"
+    }
+  ],
+  "edges": [
+    {
+      "source": "DECODER_WORDLINE_CHANNEL_2P2_REQUIREMENT",
+      "target": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_0",
+      "relation": "widens"
+    },
+    {
+      "source": "DECODER_WORDLINE_CHANNEL_2P2_REQUIREMENT",
+      "target": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_1",
+      "relation": "widens"
+    },
+    {
+      "source": "DECODER_WORDLINE_CHANNEL_2P2_REQUIREMENT",
+      "target": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_2",
+      "relation": "widens"
+    },
+    {
+      "source": "DECODER_WORDLINE_CHANNEL_2P2_REQUIREMENT",
+      "target": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_3",
+      "relation": "widens"
+    },
+    {
+      "source": "DECODER_WORDLINE_CHANNEL_2P2_REQUIREMENT",
+      "target": "ADDR_TO_DECODER_WINDOW",
+      "relation": "requires_parent_reservation"
+    },
+    {
+      "source": "DECODER_WORDLINE_CHANNEL_2P2_REQUIREMENT",
+      "target": "DECODER_CASCADE_ENVELOPE",
+      "relation": "propagates_to"
+    }
+  ],
+  "recommended_next_decoder_policy": "record_2p2_wordline_channel_requirement_and_stop_decoder_physical_push",
+  "blockers": [
+    "The 2.2um channel is only a propagated metadata reservation, not a legal routed channel.",
+    "Broader parent floorplan space for the extra 0.2um is not physically proven.",
+    "Control geometry windows and decoder envelope would need synchronized metadata updates.",
+    "Physical decoder prototype and placement remain blocked even after positive metadata margin is recorded."
+  ]
+}

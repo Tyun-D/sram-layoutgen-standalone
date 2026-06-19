@@ -1,0 +1,170 @@
+{
+  "scope": "step6_20_openyield_decoder_channel_requirement_audit",
+  "requirement_name": "DECODER_WORDLINE_CHANNEL_2P2_REQUIREMENT",
+  "source_step": "Step 6.19 decoder handoff relief",
+  "source_strategy": "metadata_channel_widening_to_2p2",
+  "base_width": 2.0,
+  "recommended_width": 2.2,
+  "required_width": 2.0,
+  "recommended_margin": 0.2,
+  "metadata_only": true,
+  "physical_routing_proven": false,
+  "decoder_channel_requirement_available": true,
+  "affected_windows": [
+    {
+      "window_name": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_0",
+      "source_stage": "DEC_1_0",
+      "old_width": 2.0,
+      "new_width": 2.2,
+      "delta_width": 0.2,
+      "old_margin": 0.0,
+      "new_margin": 0.2,
+      "budget_risk_before": "tight_zero_margin",
+      "budget_risk_after": "pass_low_margin",
+      "metadata_only": true,
+      "physical_routing_proven": false
+    },
+    {
+      "window_name": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_1",
+      "source_stage": "DEC_1_1",
+      "old_width": 2.0,
+      "new_width": 2.2,
+      "delta_width": 0.2,
+      "old_margin": 0.0,
+      "new_margin": 0.2,
+      "budget_risk_before": "tight_zero_margin",
+      "budget_risk_after": "pass_low_margin",
+      "metadata_only": true,
+      "physical_routing_proven": false
+    },
+    {
+      "window_name": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_2",
+      "source_stage": "DEC_1_2",
+      "old_width": 2.0,
+      "new_width": 2.2,
+      "delta_width": 0.2,
+      "old_margin": 0.0,
+      "new_margin": 0.2,
+      "budget_risk_before": "tight_zero_margin",
+      "budget_risk_after": "pass_low_margin",
+      "metadata_only": true,
+      "physical_routing_proven": false
+    },
+    {
+      "window_name": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_3",
+      "source_stage": "DEC_1_3",
+      "old_width": 2.0,
+      "new_width": 2.2,
+      "delta_width": 0.2,
+      "old_margin": 0.0,
+      "new_margin": 0.2,
+      "budget_risk_before": "tight_zero_margin",
+      "budget_risk_after": "pass_low_margin",
+      "metadata_only": true,
+      "physical_routing_proven": false
+    }
+  ],
+  "affected_handoff_groups": [
+    "DEC_1_0",
+    "DEC_1_1",
+    "DEC_1_2",
+    "DEC_1_3"
+  ],
+  "floorplan_compatibility": {
+    "stage_row_overlap_found": false,
+    "handoff_window_overlap_found": false,
+    "enable_bus_window_overlap_found": false,
+    "control_keepout_conflict_found": false,
+    "bbox_proxy_conflict_found": false,
+    "metadata_only": true
+  },
+  "control_window_compatibility": {
+    "control_geometry_window_compatibility_checked": true,
+    "decoder_wordline_channel_requires_floorplan_update": true,
+    "control_window_metadata_update_required": true,
+    "extra_width_required": 0.2,
+    "extra_width_available_or_assumed": "unknown",
+    "compatibility_status": "requires_parent_floorplan_reservation",
+    "safe_for_metadata_requirement_propagation": true,
+    "safe_for_physical_floorplan_claim": false,
+    "control_window_policy": "metadata_expand_wordline_windows",
+    "referenced_windows": [
+      "CLOCK_ENTRY_WINDOW",
+      "ADDR_TO_DECODER_WINDOW",
+      "DATA_TO_WRITEDRIVER_WINDOW",
+      "DECODER_INPUT_ANCHOR",
+      "WRITEDRIVER_INPUT_ANCHOR",
+      "DECODER_CASCADE_ENVELOPE"
+    ]
+  },
+  "enable_window_impact": {
+    "enable_channel_width": 2.0,
+    "enable_required_width": 1.2,
+    "enable_margin": 0.8,
+    "enable_handoff_budget_pass": true,
+    "enable_channel_unchanged": true,
+    "unused_enable_outputs_not_routed": true,
+    "enable_channel_impact": "none_in_metadata_model"
+  },
+  "bbox_proxy_overlap_checks": {
+    "stage_row_overlap_found": false,
+    "handoff_window_overlap_found": false,
+    "enable_bus_window_overlap_found": false,
+    "control_keepout_conflict_found": false,
+    "bbox_proxy_conflict_found": false,
+    "metadata_only": true
+  },
+  "updated_budget_summary": {
+    "base_wordline_channel_width": 2.0,
+    "recommended_wordline_channel_width": 2.2,
+    "wordline_required_width": 2.0,
+    "old_wordline_margin": 0.0,
+    "new_wordline_margin": 0.2,
+    "old_risk_level": "tight_zero_margin",
+    "new_risk_level": "pass_low_margin",
+    "recommended_wordline_channel_width_recorded": true
+  },
+  "risk_flags": {
+    "metadata_requirement_propagated": true,
+    "positive_wordline_margin_available": true,
+    "wordline_margin_still_low": true,
+    "physical_routing_proven": false,
+    "parent_floorplan_reservation_required": true,
+    "floorplan_space_proven": false,
+    "handoff_windows_are_proxy": true,
+    "stage_bbox_is_proxy": true,
+    "rail_continuity_unproven": true,
+    "physical_decoder_placement_blocked": true
+  },
+  "recommended_next_decoder_policy": "record_2p2_wordline_channel_requirement_and_stop_decoder_physical_push",
+  "recommended_wordline_channel_width_recorded": true,
+  "metadata_requirement_propagated": true,
+  "positive_wordline_margin_available": true,
+  "safe_for_metadata_requirement_propagation": true,
+  "safe_for_physical_floorplan_claim": false,
+  "compatibility_status": "requires_parent_floorplan_reservation",
+  "parent_floorplan_reservation_required": true,
+  "can_enter_decoder_preplacement_feasibility": true,
+  "can_enter_decoder_physical_prototype": false,
+  "can_enter_physical_decoder_placement": false,
+  "can_enter_very_limited_control_row_smoke": false,
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "blocker_list": [
+    "The 2.2um channel is only a propagated metadata reservation, not a legal routed channel.",
+    "Broader parent floorplan space for the extra 0.2um is not physically proven.",
+    "Control geometry windows and decoder envelope would need synchronized metadata updates.",
+    "Physical decoder prototype and placement remain blocked even after positive metadata margin is recorded."
+  ],
+  "step_6_21_recommendation": "Next, audit the parent control-row reservation model: determine where the extra 0.2um can be carved out in the broader control/decoder side plan without changing physical placement yet.",
+  "source_context": {
+    "control_geometry_decoder_window_width": 2.0,
+    "control_geometry_decoder_window_budget_required": 1.4,
+    "control_geometry_decoder_window_old_margin": 0.6,
+    "control_budget_decoder_channel_width": 2.0,
+    "control_row_decoder_channel_width": 2.0,
+    "decoder_target_envelope_metadata_only": true,
+    "control_floorplan_row_to_decoder_consumer": "DECODER_CASCADE.A[i]"
+  }
+}
