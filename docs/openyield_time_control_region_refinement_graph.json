@@ -1,0 +1,164 @@
+{
+  "scope": "step6_29_openyield_time_control_region_refinement_bundle",
+  "nodes": [
+    {
+      "id": "PRECHARGE_POWER_METADATA_CLOSURE",
+      "kind": "power_metadata"
+    },
+    {
+      "id": "delay_chain_region",
+      "kind": "control_region"
+    },
+    {
+      "id": "pdrive_region",
+      "kind": "control_region"
+    },
+    {
+      "id": "generated_logic_region",
+      "kind": "control_region"
+    },
+    {
+      "id": "consumer_handoff_region",
+      "kind": "control_region"
+    },
+    {
+      "id": "precharge_control_region",
+      "kind": "control_region"
+    },
+    {
+      "id": "wordline_enable_control_region",
+      "kind": "control_region"
+    },
+    {
+      "id": "sense_write_enable_region",
+      "kind": "control_region"
+    },
+    {
+      "id": "DELAY_CHAIN_TO_GENERATED_LOGIC",
+      "kind": "region_adjacency"
+    },
+    {
+      "id": "PDRIVE_TO_GENERATED_LOGIC",
+      "kind": "region_adjacency"
+    },
+    {
+      "id": "GENERATED_LOGIC_TO_CONSUMER_HANDOFF",
+      "kind": "region_adjacency"
+    },
+    {
+      "id": "PRECHARGE_CONTROL_TO_CONSUMER_HANDOFF",
+      "kind": "region_adjacency"
+    },
+    {
+      "id": "WORDLINE_ENABLE_TO_CONSUMER_HANDOFF",
+      "kind": "region_adjacency"
+    },
+    {
+      "id": "SENSE_WRITE_ENABLE_TO_CONSUMER_HANDOFF",
+      "kind": "region_adjacency"
+    },
+    {
+      "id": "WORDLINE_ENABLE_TO_PRECHARGE_CONTROL",
+      "kind": "region_adjacency"
+    },
+    {
+      "id": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+      "kind": "grouped_interface"
+    },
+    {
+      "id": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+      "kind": "grouped_interface"
+    },
+    {
+      "id": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "kind": "grouped_interface"
+    },
+    {
+      "id": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+      "kind": "grouped_interface"
+    }
+  ],
+  "edges": [
+    {
+      "source": "PRECHARGE_POWER_METADATA_CLOSURE",
+      "target": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "relation": "gates_metadata_readiness"
+    },
+    {
+      "source": "delay_chain_region",
+      "target": "generated_logic_region",
+      "relation": "adjacent_via_metadata",
+      "adjacency_name": "DELAY_CHAIN_TO_GENERATED_LOGIC"
+    },
+    {
+      "source": "pdrive_region",
+      "target": "generated_logic_region",
+      "relation": "adjacent_via_metadata",
+      "adjacency_name": "PDRIVE_TO_GENERATED_LOGIC"
+    },
+    {
+      "source": "generated_logic_region",
+      "target": "consumer_handoff_region",
+      "relation": "adjacent_via_metadata",
+      "adjacency_name": "GENERATED_LOGIC_TO_CONSUMER_HANDOFF"
+    },
+    {
+      "source": "precharge_control_region",
+      "target": "consumer_handoff_region",
+      "relation": "adjacent_via_metadata",
+      "adjacency_name": "PRECHARGE_CONTROL_TO_CONSUMER_HANDOFF"
+    },
+    {
+      "source": "wordline_enable_control_region",
+      "target": "consumer_handoff_region",
+      "relation": "adjacent_via_metadata",
+      "adjacency_name": "WORDLINE_ENABLE_TO_CONSUMER_HANDOFF"
+    },
+    {
+      "source": "sense_write_enable_region",
+      "target": "consumer_handoff_region",
+      "relation": "adjacent_via_metadata",
+      "adjacency_name": "SENSE_WRITE_ENABLE_TO_CONSUMER_HANDOFF"
+    },
+    {
+      "source": "wordline_enable_control_region",
+      "target": "precharge_control_region",
+      "relation": "adjacent_via_metadata",
+      "adjacency_name": "WORDLINE_ENABLE_TO_PRECHARGE_CONTROL"
+    },
+    {
+      "source": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+      "target": "sense_write_enable_region",
+      "relation": "draws_from_region"
+    },
+    {
+      "source": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+      "target": "sense_write_enable_region",
+      "relation": "draws_from_region"
+    },
+    {
+      "source": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "target": "precharge_control_region",
+      "relation": "draws_from_region"
+    },
+    {
+      "source": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "target": "wordline_enable_control_region",
+      "relation": "draws_from_region"
+    },
+    {
+      "source": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+      "target": "wordline_enable_control_region",
+      "relation": "draws_from_region"
+    }
+  ],
+  "summary": {
+    "time_control_region_refinement_available": true,
+    "precharge_closure_status": "partial_missing_gnd",
+    "all_region_budgets_pass": true,
+    "all_adjacency_budgets_pass": true,
+    "can_enter_time_control_region_metadata_planning": true,
+    "can_enter_time_control_physical_placement": false,
+    "can_enter_standalone_control_placement": false
+  }
+}
