@@ -1,0 +1,654 @@
+{
+  "scope": "step6_25_openyield_time_control_generated_logic_contract_packaging_audit",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "source_reports": {
+    "time_control_signal_binding": "step6_24_openyield_time_control_signal_binding_audit",
+    "time_control_subblock_audit": "step6_23_openyield_time_control_subblock_adapter_audit",
+    "decoder_composite_leaf_convention": "step6_12_openyield_decoder_composite_leaf_convention_audit",
+    "decoder_logic_repair": "step6_11_openyield_decoder_logic_repair_audit"
+  },
+  "time_control_generated_logic_contract_available": true,
+  "generated_logic_contract_packaging_available": true,
+  "partial_generated_logic_contracts_present": true,
+  "generated_logic_contract_list": [
+    {
+      "contract_name": "PINV_GENERATED_LOGIC_CONTRACT",
+      "logic_role": "inverter",
+      "source_openyield_symbol": "Pinv",
+      "used_by_signal_contracts": [
+        "CLK_BAR_BINDING_CONTRACT",
+        "RBL_DELAY_BAR_BINDING_CONTRACT",
+        "WORDLINE_ENABLE_BINDING_CONTRACT"
+      ],
+      "input_pins": [
+        "A"
+      ],
+      "output_pins": [
+        "Z"
+      ],
+      "polarity": "inverting",
+      "candidate_cells": [
+        "gen_inv"
+      ],
+      "candidate_sequence": [
+        "gen_inv"
+      ],
+      "candidate_cell_count_if_known": 1,
+      "candidate_mapping_status": "direct_metadata_inverter",
+      "pin_metadata_available": true,
+      "power_metadata_available": true,
+      "timing_metadata_available": false,
+      "routing_metadata_available": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "requires_generated_layout_or_stdcell_row": true,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "requires_rail_continuity_proof": true,
+      "metadata_only": true,
+      "notes": [
+        "Unified metadata mapping for clk_buf->clk_bar, rbl_delay->rbl_delay_bar, and wl_en->wl_en_bar.",
+        "Physical placement remains blocked despite local GDS availability."
+      ]
+    },
+    {
+      "contract_name": "AND2_GENERATED_LOGIC_CONTRACT",
+      "logic_role": "and2_composite",
+      "source_openyield_symbol": "AND2",
+      "used_by_signal_contracts": [
+        "GATED_CLK_BUF_BINDING_CONTRACT",
+        "GATED_CLK_BAR_BINDING_CONTRACT"
+      ],
+      "input_pins": [
+        "A",
+        "B"
+      ],
+      "output_pins": [
+        "Z"
+      ],
+      "polarity": "non_inverting_and",
+      "candidate_cells": [
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "candidate_sequence": [
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "candidate_cell_count_if_known": 2,
+      "candidate_mapping_status": "metadata_composite_and2",
+      "pin_metadata_available": true,
+      "power_metadata_available": true,
+      "timing_metadata_available": false,
+      "routing_metadata_available": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "requires_generated_layout_or_stdcell_row": true,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "requires_rail_continuity_proof": true,
+      "metadata_only": true,
+      "notes": [
+        "AND2 is represented as PNAND2 + INV semantic composition.",
+        "No direct physical AND2 macro is claimed."
+      ]
+    },
+    {
+      "contract_name": "AND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+      "logic_role": "and3_composite",
+      "source_openyield_symbol": "AND3",
+      "used_by_signal_contracts": [
+        "WRITE_ENABLE_BINDING_CONTRACT",
+        "SENSE_ENABLE_BINDING_CONTRACT"
+      ],
+      "input_pins": [
+        "A",
+        "B",
+        "C"
+      ],
+      "output_pins": [
+        "Z"
+      ],
+      "polarity": "non_inverting_and3",
+      "candidate_cells": [
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "candidate_sequence": [
+        "gen_nand2",
+        "gen_inv",
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "candidate_cell_count_if_known": 4,
+      "candidate_mapping_status": "metadata_composite_and3",
+      "pin_metadata_available": true,
+      "power_metadata_available": true,
+      "timing_metadata_available": false,
+      "routing_metadata_available": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "requires_generated_layout_or_stdcell_row": true,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "requires_rail_continuity_proof": true,
+      "metadata_only": true,
+      "notes": [
+        "Reuses decoder convention: AND3_COMPOSITE_NAND2_INV.",
+        "Input order is preserved for both write_enable and sense_enable contracts."
+      ]
+    },
+    {
+      "contract_name": "PNAND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+      "logic_role": "pnand3_composite",
+      "source_openyield_symbol": "PNAND3",
+      "used_by_signal_contracts": [
+        "PRECHARGE_ENB_BINDING_CONTRACT"
+      ],
+      "input_pins": [
+        "A",
+        "B",
+        "C"
+      ],
+      "output_pins": [
+        "Z"
+      ],
+      "polarity": "inverting_nand3",
+      "candidate_cells": [
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "candidate_sequence": [
+        "gen_nand2",
+        "gen_inv",
+        "gen_nand2"
+      ],
+      "candidate_cell_count_if_known": 3,
+      "candidate_mapping_status": "metadata_composite_pnand3",
+      "pin_metadata_available": true,
+      "power_metadata_available": true,
+      "timing_metadata_available": false,
+      "routing_metadata_available": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "requires_generated_layout_or_stdcell_row": true,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "requires_rail_continuity_proof": true,
+      "metadata_only": true,
+      "notes": [
+        "Reuses decoder convention: PNAND3_COMPOSITE_NAND2_INV.",
+        "Precharge input order gated_clk_buf / rbl_delay / wl_en_bar is preserved at metadata level."
+      ]
+    },
+    {
+      "contract_name": "PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "logic_role": "buffer_chain",
+      "source_openyield_symbol": "PDRIVE",
+      "used_by_signal_contracts": [
+        "CLK_BUF_BINDING_CONTRACT"
+      ],
+      "input_pins": [
+        "A"
+      ],
+      "output_pins": [
+        "Z"
+      ],
+      "polarity": "non_inverting_buffer_chain",
+      "candidate_cells": [
+        "gen_inv"
+      ],
+      "candidate_sequence": [
+        "gen_inv",
+        "gen_inv",
+        "gen_inv",
+        "gen_inv"
+      ],
+      "candidate_cell_count_if_known": 4,
+      "candidate_mapping_status": "generated_buffer_chain",
+      "pin_metadata_available": true,
+      "power_metadata_available": true,
+      "timing_metadata_available": false,
+      "routing_metadata_available": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "requires_generated_layout_or_stdcell_row": true,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "requires_rail_continuity_proof": true,
+      "metadata_only": true,
+      "notes": [
+        "Stage count source-confirmed as 4.",
+        "Drive-strength progression is known from source and preserved only as metadata notes."
+      ]
+    },
+    {
+      "contract_name": "PDRIVE2_FOR_PRE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "logic_role": "buffer_chain",
+      "source_openyield_symbol": "PDRIVE2_FOR_PRE",
+      "used_by_signal_contracts": [
+        "PRECHARGE_ENB_BINDING_CONTRACT"
+      ],
+      "input_pins": [
+        "A"
+      ],
+      "output_pins": [
+        "Z"
+      ],
+      "polarity": "non_inverting_buffer_chain",
+      "candidate_cells": [
+        "gen_inv"
+      ],
+      "candidate_sequence": [
+        "gen_inv",
+        "gen_inv"
+      ],
+      "candidate_cell_count_if_known": 2,
+      "candidate_mapping_status": "generated_precharge_buffer_chain",
+      "pin_metadata_available": true,
+      "power_metadata_available": true,
+      "timing_metadata_available": false,
+      "routing_metadata_available": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "requires_generated_layout_or_stdcell_row": true,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "requires_rail_continuity_proof": true,
+      "metadata_only": true,
+      "notes": [
+        "Stage count source-confirmed as 2.",
+        "Precharge ENB polarity is preserved through PRE_UNBUF -> PRE buffering."
+      ]
+    },
+    {
+      "contract_name": "WL_PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "logic_role": "buffer_chain",
+      "source_openyield_symbol": "WL_PDRIVE",
+      "used_by_signal_contracts": [
+        "WORDLINE_ENABLE_BINDING_CONTRACT"
+      ],
+      "input_pins": [
+        "A"
+      ],
+      "output_pins": [
+        "Z"
+      ],
+      "polarity": "non_inverting_buffer_chain",
+      "candidate_cells": [
+        "gen_inv"
+      ],
+      "candidate_sequence": [
+        "gen_inv",
+        "gen_inv"
+      ],
+      "candidate_cell_count_if_known": 2,
+      "candidate_mapping_status": "generated_wordline_enable_buffer_chain",
+      "pin_metadata_available": true,
+      "power_metadata_available": true,
+      "timing_metadata_available": false,
+      "routing_metadata_available": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "requires_generated_layout_or_stdcell_row": true,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "requires_rail_continuity_proof": true,
+      "metadata_only": true,
+      "notes": [
+        "Stage count source-confirmed as 2.",
+        "wordline_enable active-high semantics are preserved."
+      ]
+    },
+    {
+      "contract_name": "DELAY_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "logic_role": "delay_chain",
+      "source_openyield_symbol": "DELAY_CHAIN",
+      "used_by_signal_contracts": [
+        "RBL_DELAY_BINDING_CONTRACT"
+      ],
+      "input_pins": [
+        "in"
+      ],
+      "output_pins": [
+        "out"
+      ],
+      "polarity": "delayed_non_inverting",
+      "candidate_cells": [
+        "gen_delay_inv",
+        "gen_inv"
+      ],
+      "candidate_sequence": [
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv"
+      ],
+      "candidate_cell_count_if_known": 9,
+      "candidate_mapping_status": "generated_delay_chain",
+      "pin_metadata_available": true,
+      "power_metadata_available": true,
+      "timing_metadata_available": false,
+      "routing_metadata_available": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "requires_generated_layout_or_stdcell_row": true,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "requires_rail_continuity_proof": true,
+      "metadata_only": true,
+      "notes": [
+        "Stage count source-confirmed as 9.",
+        "Load model is known at source level: four load inverters per stage."
+      ]
+    },
+    {
+      "contract_name": "WEN_DELAY_CHAIN_CONDITIONAL_GENERATED_LOGIC_CONTRACT",
+      "logic_role": "conditional_delay_chain",
+      "source_openyield_symbol": "WEN_DELAY_CHAIN",
+      "used_by_signal_contracts": [
+        "WEN_DELAY_CONDITIONAL_BINDING_CONTRACT"
+      ],
+      "input_pins": [
+        "in"
+      ],
+      "output_pins": [
+        "out"
+      ],
+      "polarity": "delayed_non_inverting",
+      "candidate_cells": [
+        "gen_delay_inv",
+        "gen_inv"
+      ],
+      "candidate_sequence": [
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv"
+      ],
+      "candidate_cell_count_if_known": 6,
+      "candidate_mapping_status": "conditional_generated_delay_chain",
+      "pin_metadata_available": true,
+      "power_metadata_available": true,
+      "timing_metadata_available": false,
+      "routing_metadata_available": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "requires_generated_layout_or_stdcell_row": true,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "requires_rail_continuity_proof": true,
+      "metadata_only": true,
+      "notes": [
+        "Conditional applicability preserved exactly: operation == write and num_rows == 16 and num_cols == 512.",
+        "This contract must not generalize to all configs."
+      ]
+    }
+  ],
+  "candidate_cell_audit": [
+    {
+      "candidate_name": "gen_delay_inv",
+      "gds_available": true,
+      "spice_available": false,
+      "pin_metadata_available": true,
+      "power_metadata_available": true,
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_delay_inv.gds",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_delay_inv.gds"
+      ],
+      "spice_paths": [],
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "Metadata-only candidate summary.",
+        "Do not treat local GDS presence as physical placement proof."
+      ],
+      "used_by_generated_logic_contracts": [
+        "DELAY_CHAIN_GENERATED_LOGIC_CONTRACT",
+        "WEN_DELAY_CHAIN_CONDITIONAL_GENERATED_LOGIC_CONTRACT"
+      ]
+    },
+    {
+      "candidate_name": "gen_inv",
+      "gds_available": true,
+      "spice_available": false,
+      "pin_metadata_available": true,
+      "power_metadata_available": true,
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_inv.gds",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_inv.gds"
+      ],
+      "spice_paths": [],
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "Metadata-only candidate summary.",
+        "Do not treat local GDS presence as physical placement proof."
+      ],
+      "used_by_generated_logic_contracts": [
+        "PINV_GENERATED_LOGIC_CONTRACT",
+        "AND2_GENERATED_LOGIC_CONTRACT",
+        "AND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+        "PNAND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+        "PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+        "PDRIVE2_FOR_PRE_CHAIN_GENERATED_LOGIC_CONTRACT",
+        "WL_PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+        "DELAY_CHAIN_GENERATED_LOGIC_CONTRACT",
+        "WEN_DELAY_CHAIN_CONDITIONAL_GENERATED_LOGIC_CONTRACT"
+      ]
+    },
+    {
+      "candidate_name": "gen_nand2",
+      "gds_available": true,
+      "spice_available": false,
+      "pin_metadata_available": true,
+      "power_metadata_available": true,
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_nand2.gds",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_nand2.gds"
+      ],
+      "spice_paths": [],
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "Metadata-only candidate summary.",
+        "Do not treat local GDS presence as physical placement proof."
+      ],
+      "used_by_generated_logic_contracts": [
+        "AND2_GENERATED_LOGIC_CONTRACT",
+        "AND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+        "PNAND3_COMPOSITE_GENERATED_LOGIC_CONTRACT"
+      ]
+    },
+    {
+      "candidate_name": "gen_nand4",
+      "gds_available": true,
+      "spice_available": false,
+      "pin_metadata_available": true,
+      "power_metadata_available": false,
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_nand4.gds"
+      ],
+      "spice_paths": [],
+      "safe_for_metadata_planning": "partial",
+      "safe_for_physical_placement": false,
+      "notes": [
+        "Metadata-only candidate summary.",
+        "Do not treat local GDS presence as physical placement proof.",
+        "gen_nand4 remains partial and must not be used as a physical substitute."
+      ],
+      "used_by_generated_logic_contracts": [],
+      "gen_nand4_should_not_be_used_as_physical_substitute": true
+    },
+    {
+      "candidate_name": "dff",
+      "gds_available": true,
+      "spice_available": true,
+      "pin_metadata_available": true,
+      "power_metadata_available": true,
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\dff.gds"
+      ],
+      "spice_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp"
+      ],
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "Metadata-only candidate summary.",
+        "Do not treat local GDS presence as physical placement proof."
+      ],
+      "used_by_generated_logic_contracts": []
+    }
+  ],
+  "contract_to_signal_coverage": [
+    {
+      "signal_binding_contract": "CLK_BUF_BINDING_CONTRACT",
+      "generated_logic_contracts": [
+        "PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT"
+      ],
+      "covered": true
+    },
+    {
+      "signal_binding_contract": "CLK_BAR_BINDING_CONTRACT",
+      "generated_logic_contracts": [
+        "PINV_GENERATED_LOGIC_CONTRACT"
+      ],
+      "covered": true
+    },
+    {
+      "signal_binding_contract": "GATED_CLK_BUF_BINDING_CONTRACT",
+      "generated_logic_contracts": [
+        "AND2_GENERATED_LOGIC_CONTRACT"
+      ],
+      "covered": true
+    },
+    {
+      "signal_binding_contract": "GATED_CLK_BAR_BINDING_CONTRACT",
+      "generated_logic_contracts": [
+        "AND2_GENERATED_LOGIC_CONTRACT"
+      ],
+      "covered": true
+    },
+    {
+      "signal_binding_contract": "RBL_DELAY_BINDING_CONTRACT",
+      "generated_logic_contracts": [
+        "DELAY_CHAIN_GENERATED_LOGIC_CONTRACT"
+      ],
+      "covered": true
+    },
+    {
+      "signal_binding_contract": "RBL_DELAY_BAR_BINDING_CONTRACT",
+      "generated_logic_contracts": [
+        "PINV_GENERATED_LOGIC_CONTRACT"
+      ],
+      "covered": true
+    },
+    {
+      "signal_binding_contract": "WORDLINE_ENABLE_BINDING_CONTRACT",
+      "generated_logic_contracts": [
+        "WL_PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+        "PINV_GENERATED_LOGIC_CONTRACT"
+      ],
+      "covered": true
+    },
+    {
+      "signal_binding_contract": "WRITE_ENABLE_BINDING_CONTRACT",
+      "generated_logic_contracts": [
+        "AND3_COMPOSITE_GENERATED_LOGIC_CONTRACT"
+      ],
+      "covered": true
+    },
+    {
+      "signal_binding_contract": "SENSE_ENABLE_BINDING_CONTRACT",
+      "generated_logic_contracts": [
+        "AND3_COMPOSITE_GENERATED_LOGIC_CONTRACT"
+      ],
+      "covered": true
+    },
+    {
+      "signal_binding_contract": "PRECHARGE_ENB_BINDING_CONTRACT",
+      "generated_logic_contracts": [
+        "PNAND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+        "PDRIVE2_FOR_PRE_CHAIN_GENERATED_LOGIC_CONTRACT"
+      ],
+      "covered": true
+    },
+    {
+      "signal_binding_contract": "WEN_DELAY_CONDITIONAL_BINDING_CONTRACT",
+      "generated_logic_contracts": [
+        "WEN_DELAY_CHAIN_CONDITIONAL_GENERATED_LOGIC_CONTRACT"
+      ],
+      "covered": true
+    }
+  ],
+  "all_signal_bindings_have_generated_logic_contract": true,
+  "generated_logic_contract_coverage_complete": true,
+  "consistency_checks": {
+    "time_as_single_macro_allowed": false,
+    "generated_logic_contract_packaging_available": true,
+    "all_core_logic_roles_have_contract": true,
+    "all_signal_bindings_have_generated_logic_contract": true,
+    "and3_composite_reuses_decoder_convention": true,
+    "pnand3_composite_reuses_decoder_convention": true,
+    "buffer_chain_contracts_available": true,
+    "delay_chain_contracts_available": true,
+    "conditional_wen_delay_policy_captured": true,
+    "control_signal_polarity_preserved": true,
+    "control_signal_consumer_binding_preserved": true,
+    "safe_for_metadata_planning": true,
+    "safe_for_physical_placement": false
+  },
+  "unresolved_items": [
+    "generated logic contracts are metadata-only",
+    "chain stage placement is not legalized",
+    "delay timing proof is missing",
+    "wen-delay conditional timing proof is missing",
+    "composite internal routing is not proven",
+    "rail continuity is not proven",
+    "control-row physical placement is not proven",
+    "gen_nand4 remains partial",
+    "no DRC/LVS proof exists",
+    "standalone integration is not allowed yet"
+  ],
+  "can_enter_time_control_generated_logic_metadata_planning": true,
+  "can_enter_time_control_physical_placement": false,
+  "can_enter_standalone_control_placement": false,
+  "audit_summary": {
+    "time_control_generated_logic_contract_available": true,
+    "generated_logic_contract_packaging_available": true,
+    "all_core_logic_roles_have_contract": true,
+    "all_signal_bindings_have_generated_logic_contract": true,
+    "generated_logic_contract_coverage_complete": true,
+    "partial_generated_logic_contracts_present": true,
+    "can_enter_time_control_generated_logic_metadata_planning": true,
+    "can_enter_time_control_physical_placement": false,
+    "can_enter_standalone_control_placement": false
+  },
+  "step_6_26_recommendation": {
+    "recommended_next_phase": "time_control_consumer_side_contract_normalization",
+    "candidate_directions": [
+      "write_enable_consumer_contract_normalization",
+      "sense_enable_consumer_contract_normalization",
+      "precharge_enb_consumer_contract_normalization",
+      "wordline_enable_consumer_contract_normalization"
+    ],
+    "reason": [
+      "Generated-logic packaging is now available and covers every current TIME signal binding.",
+      "The next useful step is consumer-side contract normalization, not physical placement.",
+      "Control-row placement, routing, and signoff proofs remain blocked."
+    ]
+  },
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false
+}
