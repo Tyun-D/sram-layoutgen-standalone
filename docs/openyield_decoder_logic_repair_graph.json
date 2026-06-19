@@ -1,0 +1,145 @@
+{
+  "scope": "step6_11_openyield_decoder_logic_repair_audit",
+  "nodes": [
+    {
+      "id": "direct_pnand3_and3_macro",
+      "kind": "repair_option",
+      "status": "unavailable",
+      "safe_for_metadata_planning": false,
+      "safe_for_physical_placement": false
+    },
+    {
+      "id": "gen_nand4_as_pnand3_proxy",
+      "kind": "repair_option",
+      "status": "limited_proxy_only",
+      "safe_for_metadata_planning": "limited_proxy_only",
+      "safe_for_physical_placement": false
+    },
+    {
+      "id": "pnand3_from_nand2_inv",
+      "kind": "repair_option",
+      "status": "metadata_composite_candidate",
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "id": "and3_from_nand2_inv",
+      "kind": "repair_option",
+      "status": "metadata_composite_candidate",
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "id": "keep_and3_generated_logic_unresolved",
+      "kind": "repair_option",
+      "status": "fallback",
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false
+    }
+  ],
+  "edges": [
+    {
+      "source": "direct_pnand3_and3_macro",
+      "target": "gen_nand4_as_pnand3_proxy",
+      "relation": "fallback_to"
+    },
+    {
+      "source": "gen_nand4_as_pnand3_proxy",
+      "target": "pnand3_from_nand2_inv",
+      "relation": "compare_against"
+    },
+    {
+      "source": "pnand3_from_nand2_inv",
+      "target": "and3_from_nand2_inv",
+      "relation": "paired_composite"
+    },
+    {
+      "source": "and3_from_nand2_inv",
+      "target": "keep_and3_generated_logic_unresolved",
+      "relation": "fallback_if_overconstrained"
+    }
+  ],
+  "counts": {
+    "direct_pnand3_and3_macro": {
+      "per_stage_required_gen_inv": 0,
+      "per_stage_required_gen_nand2": 0,
+      "per_stage_required_gen_nand4": 0,
+      "per_stage_proxy_cell_count": 0,
+      "cascade_total_required_gen_inv": 0,
+      "cascade_total_required_gen_nand2": 0,
+      "cascade_total_required_gen_nand4": 0,
+      "cascade_total_proxy_cell_count": 0,
+      "stage_subcell_signature": {
+        "pinv": 3,
+        "and2": 8,
+        "and3": 8
+      }
+    },
+    "gen_nand4_as_pnand3_proxy": {
+      "per_stage_required_gen_inv": 19,
+      "per_stage_required_gen_nand2": 0,
+      "per_stage_required_gen_nand4": 8,
+      "per_stage_proxy_cell_count": 27,
+      "cascade_total_required_gen_inv": 95,
+      "cascade_total_required_gen_nand2": 0,
+      "cascade_total_required_gen_nand4": 40,
+      "cascade_total_proxy_cell_count": 135,
+      "stage_subcell_signature": {
+        "pinv": 3,
+        "and2": 8,
+        "and3": 8
+      }
+    },
+    "pnand3_from_nand2_inv": {
+      "per_stage_required_gen_inv": 19,
+      "per_stage_required_gen_nand2": 24,
+      "per_stage_required_gen_nand4": 0,
+      "per_stage_proxy_cell_count": 43,
+      "cascade_total_required_gen_inv": 95,
+      "cascade_total_required_gen_nand2": 120,
+      "cascade_total_required_gen_nand4": 0,
+      "cascade_total_proxy_cell_count": 215,
+      "stage_subcell_signature": {
+        "pinv": 3,
+        "and2": 8,
+        "and3": 8
+      }
+    },
+    "and3_from_nand2_inv": {
+      "per_stage_required_gen_inv": 27,
+      "per_stage_required_gen_nand2": 24,
+      "per_stage_required_gen_nand4": 0,
+      "per_stage_proxy_cell_count": 51,
+      "cascade_total_required_gen_inv": 135,
+      "cascade_total_required_gen_nand2": 120,
+      "cascade_total_required_gen_nand4": 0,
+      "cascade_total_proxy_cell_count": 255,
+      "stage_subcell_signature": {
+        "pinv": 3,
+        "and2": 8,
+        "and3": 8
+      }
+    },
+    "keep_and3_generated_logic_unresolved": {
+      "per_stage_required_gen_inv": 11,
+      "per_stage_required_gen_nand2": 8,
+      "per_stage_required_gen_nand4": 0,
+      "per_stage_proxy_cell_count": 27,
+      "cascade_total_required_gen_inv": 55,
+      "cascade_total_required_gen_nand2": 40,
+      "cascade_total_required_gen_nand4": 0,
+      "cascade_total_proxy_cell_count": 135,
+      "stage_subcell_signature": {
+        "pinv": 3,
+        "and2": 8,
+        "and3": 8
+      }
+    }
+  },
+  "blockers": [
+    "Direct PNAND3 / AND3 local hard macros are still absent.",
+    "gen_nand4 remains only a limited metadata proxy because label, power, polarity, and unused-input tie proof are incomplete.",
+    "Composite gen_nand2 + gen_inv logic equivalence is metadata-proven, but physical row routing and rail legality are still unproven.",
+    "Decoder generated-block planning can continue, but physical decoder placement and control-row smoke remain blocked."
+  ]
+}
