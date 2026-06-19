@@ -1,0 +1,135 @@
+{
+  "scope": "step6_17_openyield_decoder_generated_block_plan_summary",
+  "nodes": [
+    {
+      "id": "DECODER_CASCADE_GENERATED_BLOCK_PLAN",
+      "kind": "plan"
+    },
+    {
+      "id": "DEC_0_0",
+      "kind": "stage"
+    },
+    {
+      "id": "DEC_1_0",
+      "kind": "stage"
+    },
+    {
+      "id": "DEC_1_1",
+      "kind": "stage"
+    },
+    {
+      "id": "DEC_1_2",
+      "kind": "stage"
+    },
+    {
+      "id": "DEC_1_3",
+      "kind": "stage"
+    },
+    {
+      "id": "DECODER_LEVEL0_STAGE_TEMPLATE",
+      "kind": "template"
+    },
+    {
+      "id": "DECODER_LEVEL1_STAGE_TEMPLATE",
+      "kind": "template"
+    },
+    {
+      "id": "DECODER3_8_OUTPUT_CONTRACT_WL*",
+      "kind": "contract_family"
+    },
+    {
+      "id": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_*",
+      "kind": "handoff_window_family"
+    }
+  ],
+  "edges": [
+    {
+      "source": "DECODER_CASCADE_GENERATED_BLOCK_PLAN",
+      "target": "DEC_0_0",
+      "relation": "contains"
+    },
+    {
+      "source": "DECODER_CASCADE_GENERATED_BLOCK_PLAN",
+      "target": "DEC_1_0",
+      "relation": "contains"
+    },
+    {
+      "source": "DECODER_CASCADE_GENERATED_BLOCK_PLAN",
+      "target": "DEC_1_1",
+      "relation": "contains"
+    },
+    {
+      "source": "DECODER_CASCADE_GENERATED_BLOCK_PLAN",
+      "target": "DEC_1_2",
+      "relation": "contains"
+    },
+    {
+      "source": "DECODER_CASCADE_GENERATED_BLOCK_PLAN",
+      "target": "DEC_1_3",
+      "relation": "contains"
+    },
+    {
+      "source": "DEC_0_0",
+      "target": "DECODER_LEVEL0_STAGE_TEMPLATE",
+      "relation": "uses_template"
+    },
+    {
+      "source": "DEC_1_0",
+      "target": "DECODER_LEVEL1_STAGE_TEMPLATE",
+      "relation": "uses_template"
+    },
+    {
+      "source": "DEC_1_1",
+      "target": "DECODER_LEVEL1_STAGE_TEMPLATE",
+      "relation": "uses_template"
+    },
+    {
+      "source": "DEC_1_2",
+      "target": "DECODER_LEVEL1_STAGE_TEMPLATE",
+      "relation": "uses_template"
+    },
+    {
+      "source": "DEC_1_3",
+      "target": "DECODER_LEVEL1_STAGE_TEMPLATE",
+      "relation": "uses_template"
+    },
+    {
+      "source": "DECODER_LEVEL1_STAGE_TEMPLATE",
+      "target": "DECODER3_8_OUTPUT_CONTRACT_WL*",
+      "relation": "expands_outputs"
+    },
+    {
+      "source": "DECODER3_8_OUTPUT_CONTRACT_WL*",
+      "target": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_*",
+      "relation": "feeds_handoff"
+    }
+  ],
+  "consistency_checks": {
+    "decoder_stage_candidates_available": true,
+    "decoder_row_rules_available": true,
+    "decoder_logic_repair_strategy_available": true,
+    "decoder_composite_leaf_conventions_available": true,
+    "decoder_stage_templates_available": true,
+    "decoder_truth_table_binding_complete": true,
+    "decoder_output_contracts_available": true,
+    "decoder_output_handoff_budget_available": true,
+    "input_handoff_consistent": true,
+    "level_enable_handoff_consistent": true,
+    "wordline_output_handoff_consistent": true,
+    "unused_enable_outputs_not_routed": true,
+    "all_required_sections_present": true,
+    "metadata_chain_complete": true,
+    "physical_routing_proven": false
+  },
+  "blockers": [
+    "bbox proxies are metadata-only",
+    "stage packing is not legalized",
+    "composite internal net routing is not proven",
+    "rail continuity is not proven",
+    "shared rail is disabled",
+    "handoff windows are metadata proxies",
+    "wordline budget is tight and not a routing proof",
+    "decoder level1 enable target physical pin-side proof is missing",
+    "full channel legality is not proven"
+  ]
+}
