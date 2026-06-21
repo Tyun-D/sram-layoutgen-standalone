@@ -50,3 +50,22 @@ except ModuleNotFoundError:
     pass
 else:
     __all__.extend(["OpenYieldEnvironment", "check_openyield_environment", "generate_smoke_testbench"])
+
+try:
+    from .time_control_experimental_contract import (
+        TimeControlExperimentalConfigSurface,
+        TimeControlExperimentalContract,
+        TimeControlPrototypeSubplan,
+        build_time_control_experimental_contract,
+    )
+except ModuleNotFoundError:
+    pass
+else:
+    __all__.extend(
+        [
+            "TimeControlExperimentalConfigSurface",
+            "TimeControlExperimentalContract",
+            "TimeControlPrototypeSubplan",
+            "build_time_control_experimental_contract",
+        ]
+    )

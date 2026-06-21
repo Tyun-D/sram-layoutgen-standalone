@@ -1,0 +1,119 @@
+{
+  "scope": "step6_31_openyield_time_control_experimental_contract",
+  "nodes": [
+    {
+      "id": "enable_openyield_time_control_experimental_placement",
+      "kind": "config_flag"
+    },
+    {
+      "id": "ADDR_DFF_ROW",
+      "kind": "abstract_dff_row"
+    },
+    {
+      "id": "DATA_DFF_ROW",
+      "kind": "abstract_dff_row"
+    },
+    {
+      "id": "DELAY_CHAIN_CLUSTER",
+      "kind": "timing_chain_cluster"
+    },
+    {
+      "id": "WEN_DELAY_CHAIN_CLUSTER",
+      "kind": "timing_chain_cluster"
+    },
+    {
+      "id": "PDRIVE_CLUSTER",
+      "kind": "buffer_chain_cluster"
+    },
+    {
+      "id": "GENERATED_LOGIC_CLUSTER",
+      "kind": "stdcell_row_abstract_cluster"
+    },
+    {
+      "id": "PRECHARGE_HANDOFF",
+      "kind": "consumer_handoff_reservation_only"
+    },
+    {
+      "id": "SENSEAMP_HANDOFF",
+      "kind": "consumer_handoff_reservation_only"
+    },
+    {
+      "id": "WRITEDRIVER_HANDOFF",
+      "kind": "consumer_handoff_reservation_only"
+    },
+    {
+      "id": "WORDLINEDRIVER_HANDOFF",
+      "kind": "consumer_handoff_reservation_only"
+    },
+    {
+      "id": "DECODER_INTERFACE",
+      "kind": "decoder_boundary_reservation_only"
+    }
+  ],
+  "edges": [
+    {
+      "source": "enable_openyield_time_control_experimental_placement",
+      "target": "ADDR_DFF_ROW",
+      "relation": "guards_default_off"
+    },
+    {
+      "source": "enable_openyield_time_control_experimental_placement",
+      "target": "DATA_DFF_ROW",
+      "relation": "guards_default_off"
+    },
+    {
+      "source": "enable_openyield_time_control_experimental_placement",
+      "target": "DELAY_CHAIN_CLUSTER",
+      "relation": "guards_default_off"
+    },
+    {
+      "source": "enable_openyield_time_control_experimental_placement",
+      "target": "WEN_DELAY_CHAIN_CLUSTER",
+      "relation": "guards_default_off"
+    },
+    {
+      "source": "enable_openyield_time_control_experimental_placement",
+      "target": "PDRIVE_CLUSTER",
+      "relation": "guards_default_off"
+    },
+    {
+      "source": "enable_openyield_time_control_experimental_placement",
+      "target": "GENERATED_LOGIC_CLUSTER",
+      "relation": "guards_default_off"
+    },
+    {
+      "source": "enable_openyield_time_control_experimental_placement",
+      "target": "PRECHARGE_HANDOFF",
+      "relation": "guards_default_off"
+    },
+    {
+      "source": "enable_openyield_time_control_experimental_placement",
+      "target": "SENSEAMP_HANDOFF",
+      "relation": "guards_default_off"
+    },
+    {
+      "source": "enable_openyield_time_control_experimental_placement",
+      "target": "WRITEDRIVER_HANDOFF",
+      "relation": "guards_default_off"
+    },
+    {
+      "source": "enable_openyield_time_control_experimental_placement",
+      "target": "WORDLINEDRIVER_HANDOFF",
+      "relation": "guards_default_off"
+    },
+    {
+      "source": "enable_openyield_time_control_experimental_placement",
+      "target": "DECODER_INTERFACE",
+      "relation": "guards_default_off"
+    }
+  ],
+  "summary": {
+    "experimental_contract_available": true,
+    "default_enabled": false,
+    "legacy_path_unchanged": true,
+    "prototype_subplan_count": 11,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  }
+}
