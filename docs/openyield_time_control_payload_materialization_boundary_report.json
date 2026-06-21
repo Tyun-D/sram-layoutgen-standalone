@@ -1,0 +1,393 @@
+{
+  "scope": "step6_36_openyield_time_control_payload_materialization_boundary_audit",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "group_materialization_rows": [
+    {
+      "group_name": "front_end_registers",
+      "group_rank": 0,
+      "payload_order_sequence": [
+        "ADDR_DFF_ROW",
+        "DATA_DFF_ROW"
+      ],
+      "member_count": 2,
+      "materializable_via_payload_order": true,
+      "packing_rank_consistent": true
+    },
+    {
+      "group_name": "timing_generation",
+      "group_rank": 1,
+      "payload_order_sequence": [
+        "DELAY_CHAIN_CLUSTER",
+        "WEN_DELAY_CHAIN_CLUSTER",
+        "PDRIVE_CLUSTER"
+      ],
+      "member_count": 3,
+      "materializable_via_payload_order": true,
+      "packing_rank_consistent": true
+    },
+    {
+      "group_name": "generated_logic_core",
+      "group_rank": 2,
+      "payload_order_sequence": [
+        "GENERATED_LOGIC_CLUSTER"
+      ],
+      "member_count": 1,
+      "materializable_via_payload_order": true,
+      "packing_rank_consistent": true
+    },
+    {
+      "group_name": "consumer_handoff_boundary",
+      "group_rank": 3,
+      "payload_order_sequence": [
+        "PRECHARGE_HANDOFF",
+        "SENSEAMP_HANDOFF",
+        "WRITEDRIVER_HANDOFF",
+        "WORDLINEDRIVER_HANDOFF"
+      ],
+      "member_count": 4,
+      "materializable_via_payload_order": true,
+      "packing_rank_consistent": true
+    },
+    {
+      "group_name": "decoder_boundary",
+      "group_rank": 4,
+      "payload_order_sequence": [
+        "DECODER_INTERFACE"
+      ],
+      "member_count": 1,
+      "materializable_via_payload_order": true,
+      "packing_rank_consistent": true
+    }
+  ],
+  "region_anchor_rows": [
+    {
+      "region_name": "delay_chain_region",
+      "preferred_neighbor_regions": [
+        "generated_logic_region",
+        "sense_write_enable_region"
+      ],
+      "required_channel_width": 0.4,
+      "reserved_channel_width": 2.0,
+      "anchor_explicit": true
+    },
+    {
+      "region_name": "pdrive_region",
+      "preferred_neighbor_regions": [
+        "generated_logic_region",
+        "precharge_control_region",
+        "wordline_enable_control_region"
+      ],
+      "required_channel_width": 0.4,
+      "reserved_channel_width": 2.0,
+      "anchor_explicit": true
+    },
+    {
+      "region_name": "generated_logic_region",
+      "preferred_neighbor_regions": [
+        "delay_chain_region",
+        "pdrive_region",
+        "consumer_handoff_region"
+      ],
+      "required_channel_width": 0.4,
+      "reserved_channel_width": 2.0,
+      "anchor_explicit": true
+    },
+    {
+      "region_name": "consumer_handoff_region",
+      "preferred_neighbor_regions": [
+        "generated_logic_region",
+        "precharge_control_region",
+        "wordline_enable_control_region",
+        "sense_write_enable_region"
+      ],
+      "required_channel_width": 0.4,
+      "reserved_channel_width": 2.0,
+      "anchor_explicit": true
+    },
+    {
+      "region_name": "precharge_control_region",
+      "preferred_neighbor_regions": [
+        "pdrive_region",
+        "consumer_handoff_region",
+        "wordline_enable_control_region"
+      ],
+      "required_channel_width": 0.4,
+      "reserved_channel_width": 2.0,
+      "anchor_explicit": true
+    },
+    {
+      "region_name": "wordline_enable_control_region",
+      "preferred_neighbor_regions": [
+        "pdrive_region",
+        "consumer_handoff_region",
+        "precharge_control_region"
+      ],
+      "required_channel_width": 1.0,
+      "reserved_channel_width": 2.0,
+      "anchor_explicit": true
+    },
+    {
+      "region_name": "sense_write_enable_region",
+      "preferred_neighbor_regions": [
+        "delay_chain_region",
+        "generated_logic_region",
+        "consumer_handoff_region"
+      ],
+      "required_channel_width": 0.6,
+      "reserved_channel_width": 2.0,
+      "anchor_explicit": true
+    }
+  ],
+  "handoff_anchor_rows": [
+    {
+      "interface_name": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+      "target_macro": "WRITEDRIVER",
+      "source_regions": [
+        "sense_write_enable_region"
+      ],
+      "matching_subblocks": [
+        "WRITEDRIVER_HANDOFF"
+      ],
+      "metadata_ready": true,
+      "anchor_explicit": true
+    },
+    {
+      "interface_name": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+      "target_macro": "SENSEAMP",
+      "source_regions": [
+        "sense_write_enable_region"
+      ],
+      "matching_subblocks": [
+        "SENSEAMP_HANDOFF"
+      ],
+      "metadata_ready": true,
+      "anchor_explicit": true
+    },
+    {
+      "interface_name": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "target_macro": "PRECHARGE",
+      "source_regions": [
+        "precharge_control_region",
+        "wordline_enable_control_region"
+      ],
+      "matching_subblocks": [
+        "PRECHARGE_HANDOFF"
+      ],
+      "metadata_ready": "partial",
+      "anchor_explicit": true
+    },
+    {
+      "interface_name": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+      "target_macro": "WORDLINEDRIVER",
+      "source_regions": [
+        "wordline_enable_control_region"
+      ],
+      "matching_subblocks": [
+        "WORDLINEDRIVER_HANDOFF"
+      ],
+      "metadata_ready": true,
+      "anchor_explicit": true
+    }
+  ],
+  "blocker_rows": [
+    {
+      "subblock_name": "ADDR_DFF_ROW",
+      "payload_blocked_by": [
+        "no legal placement proof",
+        "no routing proof",
+        "no standalone integration"
+      ],
+      "experimental_blocked_by": [
+        "no legal placement proof",
+        "no routing proof",
+        "no standalone integration"
+      ],
+      "propagation_explicit": true
+    },
+    {
+      "subblock_name": "DATA_DFF_ROW",
+      "payload_blocked_by": [
+        "no legal placement proof",
+        "no routing proof",
+        "no standalone integration"
+      ],
+      "experimental_blocked_by": [
+        "no legal placement proof",
+        "no routing proof",
+        "no standalone integration"
+      ],
+      "propagation_explicit": true
+    },
+    {
+      "subblock_name": "DELAY_CHAIN_CLUSTER",
+      "payload_blocked_by": [
+        "delay timing proof missing",
+        "no legal placement proof",
+        "no routing proof"
+      ],
+      "experimental_blocked_by": [
+        "delay timing proof missing",
+        "no legal placement proof",
+        "no routing proof"
+      ],
+      "propagation_explicit": true
+    },
+    {
+      "subblock_name": "WEN_DELAY_CHAIN_CLUSTER",
+      "payload_blocked_by": [
+        "wen-delay timing proof missing",
+        "no legal placement proof",
+        "no routing proof"
+      ],
+      "experimental_blocked_by": [
+        "wen-delay timing proof missing",
+        "no legal placement proof",
+        "no routing proof"
+      ],
+      "propagation_explicit": true
+    },
+    {
+      "subblock_name": "PDRIVE_CLUSTER",
+      "payload_blocked_by": [
+        "no legal placement proof",
+        "no routing proof"
+      ],
+      "experimental_blocked_by": [
+        "no legal placement proof",
+        "no routing proof"
+      ],
+      "propagation_explicit": true
+    },
+    {
+      "subblock_name": "GENERATED_LOGIC_CLUSTER",
+      "payload_blocked_by": [
+        "stdcell physical library not proven",
+        "no legal routing proof",
+        "no DRC/LVS proof"
+      ],
+      "experimental_blocked_by": [
+        "stdcell physical library not proven",
+        "no legal routing proof",
+        "no DRC/LVS proof"
+      ],
+      "propagation_explicit": true
+    },
+    {
+      "subblock_name": "PRECHARGE_HANDOFF",
+      "payload_blocked_by": [
+        "rail continuity proof missing",
+        "no legal routing proof",
+        "no physical placement proof"
+      ],
+      "experimental_blocked_by": [
+        "rail continuity proof missing",
+        "no legal routing proof",
+        "no physical placement proof"
+      ],
+      "propagation_explicit": true
+    },
+    {
+      "subblock_name": "SENSEAMP_HANDOFF",
+      "payload_blocked_by": [
+        "no legal routing proof",
+        "no physical placement proof"
+      ],
+      "experimental_blocked_by": [
+        "no legal routing proof",
+        "no physical placement proof"
+      ],
+      "propagation_explicit": true
+    },
+    {
+      "subblock_name": "WRITEDRIVER_HANDOFF",
+      "payload_blocked_by": [
+        "no legal routing proof",
+        "no physical placement proof"
+      ],
+      "experimental_blocked_by": [
+        "no legal routing proof",
+        "no physical placement proof"
+      ],
+      "propagation_explicit": true
+    },
+    {
+      "subblock_name": "WORDLINEDRIVER_HANDOFF",
+      "payload_blocked_by": [
+        "no legal routing proof",
+        "no physical placement proof"
+      ],
+      "experimental_blocked_by": [
+        "no legal routing proof",
+        "no physical placement proof"
+      ],
+      "propagation_explicit": true
+    },
+    {
+      "subblock_name": "DECODER_INTERFACE",
+      "payload_blocked_by": [
+        "decoder placement intentionally untouched",
+        "no legal routing proof",
+        "no standalone integration"
+      ],
+      "experimental_blocked_by": [
+        "decoder placement intentionally untouched",
+        "no legal routing proof",
+        "no standalone integration"
+      ],
+      "propagation_explicit": true
+    }
+  ],
+  "source_reports": {
+    "payload": "step6_32_openyield_time_control_abstract_floorplan_payload",
+    "payload_completeness": "step6_34_openyield_time_control_payload_completeness_audit",
+    "payload_consumption_contract": "step6_35_openyield_time_control_payload_consumption_contract_audit",
+    "packing_invariants": "step6_33_openyield_time_control_packing_invariant_audit",
+    "placement_readiness": "stage_c_openyield_time_control_placement_readiness",
+    "experimental_contract": "step6_31_openyield_time_control_experimental_contract",
+    "prototype_plan": "stage_d_openyield_time_control_opt_in_prototype_plan"
+  },
+  "violations": {
+    "group_materialization_violations": [],
+    "region_anchor_violations": [],
+    "handoff_anchor_violations": [],
+    "blocker_propagation_violations": []
+  },
+  "consistency_checks": {
+    "payload_materialization_boundary_audit_available": true,
+    "group_rank_deterministic": true,
+    "intra_group_order_materialized": true,
+    "region_anchor_rules_explicit": true,
+    "handoff_anchor_rules_explicit": true,
+    "partial_precharge_propagation_explicit": true,
+    "blocker_propagation_explicit": true,
+    "builder_guardrails_explicit": true,
+    "future_default_off_builder_can_materialize_metadata_plan": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "audit_summary": {
+    "payload_materialization_boundary_audit_available": true,
+    "group_rank_deterministic": true,
+    "region_anchor_rules_explicit": true,
+    "handoff_anchor_rules_explicit": true,
+    "partial_precharge_propagation_explicit": true,
+    "future_default_off_builder_can_materialize_metadata_plan": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "notes": [
+    "This audit asks whether a future default-off prototype builder can turn the current payload into a deterministic abstract materialization plan without inventing hidden tie-breakers or anchor rules.",
+    "Passing this audit still does not prove legal placement, legal routing, timing closure, DRC, or LVS.",
+    "Payload-order materialization is an abstract builder rule only and must not be misread as physical legalization."
+  ],
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "can_modify_standalone_now": false,
+  "can_generate_time_control_gds_now": false,
+  "can_enter_physical_placement_now": false
+}
