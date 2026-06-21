@@ -158,3 +158,12 @@ except ModuleNotFoundError:
     pass
 else:
     __all__.append("build_time_control_goal_progress_audit_report")
+
+try:
+    from .time_control_prototype_artifact_contract import (
+        build_time_control_prototype_artifact_contract_report,
+    )
+except ModuleNotFoundError:
+    pass
+else:
+    __all__.append("build_time_control_prototype_artifact_contract_report")
