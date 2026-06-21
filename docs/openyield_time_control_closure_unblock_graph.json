@@ -1,0 +1,83 @@
+{
+  "scope": "stage_a_openyield_time_control_closure_unblock",
+  "nodes": [
+    {
+      "id": "GENERATED_LOGIC_TO_WORDLINE_ENABLE_CONTROL",
+      "kind": "adjacency"
+    },
+    {
+      "id": "PRECHARGE_GROUND_SEMANTICS",
+      "kind": "semantics"
+    },
+    {
+      "id": "CLK_TO_CLK_BUF",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "CLK_BUF_TO_CLK_BAR",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "CLK_BUF_CS_TO_GATED_CLK_BUF",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "CLK_BAR_CS_TO_GATED_CLK_BAR",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "GATED_CLK_BAR_TO_WL_EN",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "WL_EN_TO_WL_EN_BAR",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "RBL_TO_RBL_DELAY",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "RBL_DELAY_TO_RBL_DELAY_BAR",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "RBL_DELAY_BAR_GATED_CLK_BAR_WE_TO_W_EN",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "RBL_DELAY_GATED_CLK_BAR_WE_BAR_TO_S_EN",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "GATED_CLK_BUF_RBL_DELAY_WL_EN_BAR_TO_PRE_UNBUF",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "PRE_UNBUF_TO_PRE",
+      "kind": "dependency_edge"
+    }
+  ],
+  "edges": [
+    {
+      "source": "GENERATED_LOGIC_TO_WORDLINE_ENABLE_CONTROL",
+      "target": "GATED_CLK_BAR_TO_WL_EN",
+      "relation": "covers"
+    },
+    {
+      "source": "PRECHARGE_GROUND_SEMANTICS",
+      "target": "intentional_no_local_gnd_metadata_exception",
+      "relation": "classified_as"
+    }
+  ],
+  "summary": {
+    "generated_logic_to_wordline_enable_adjacency_available": true,
+    "gated_clk_bar_to_wl_en_crossing_covered": true,
+    "all_required_crossings_have_adjacency": true,
+    "all_required_crossings_have_handoff_or_reservation": true,
+    "all_crossing_budgets_pass": true,
+    "precharge_ground_semantics_classification": "intentional_no_local_gnd_metadata_exception",
+    "precharge_power_metadata_complete": true,
+    "can_enter_time_control_metadata_closure": true
+  }
+}
