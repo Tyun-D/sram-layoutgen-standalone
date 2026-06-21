@@ -1,0 +1,214 @@
+{
+  "scope": "step6_39_openyield_time_control_prototype_interface_surface_audit",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "config_rows": [
+    {
+      "field_name": "flag_name",
+      "allowed": true,
+      "value": "enable_openyield_time_control_experimental_placement",
+      "metadata_only_ok": true
+    },
+    {
+      "field_name": "default_enabled",
+      "allowed": true,
+      "value": false,
+      "metadata_only_ok": true
+    },
+    {
+      "field_name": "allowed_mode",
+      "allowed": true,
+      "value": "metadata_prototype_only",
+      "metadata_only_ok": true
+    },
+    {
+      "field_name": "legacy_path_unchanged",
+      "allowed": true,
+      "value": true,
+      "metadata_only_ok": true
+    },
+    {
+      "field_name": "standalone_py_modified",
+      "allowed": true,
+      "value": false,
+      "metadata_only_ok": true
+    },
+    {
+      "field_name": "routing_modified",
+      "allowed": true,
+      "value": false,
+      "metadata_only_ok": true
+    },
+    {
+      "field_name": "gds_writer_modified",
+      "allowed": true,
+      "value": false,
+      "metadata_only_ok": true
+    },
+    {
+      "field_name": "physical_gds_generated",
+      "allowed": true,
+      "value": false,
+      "metadata_only_ok": true
+    },
+    {
+      "field_name": "shared_rail_enabled",
+      "allowed": true,
+      "value": false,
+      "metadata_only_ok": true
+    },
+    {
+      "field_name": "uses_time_as_single_macro",
+      "allowed": true,
+      "value": false,
+      "metadata_only_ok": true
+    },
+    {
+      "field_name": "notes",
+      "allowed": true,
+      "value": [
+        "This is a future config surface only; do not wire into the active generator path yet.",
+        "The flag remains default-off until later physical proof explicitly reopens the gate."
+      ],
+      "metadata_only_ok": true
+    }
+  ],
+  "input_rows": [
+    {
+      "input_name": "experimental_contract.config_surface",
+      "required": true,
+      "metadata_only": true,
+      "present": true
+    },
+    {
+      "input_name": "abstract_floorplan_payload.payload",
+      "required": true,
+      "metadata_only": true,
+      "present": true
+    },
+    {
+      "input_name": "payload_completeness_report",
+      "required": true,
+      "metadata_only": true,
+      "present": true
+    },
+    {
+      "input_name": "payload_consumption_contract_report",
+      "required": true,
+      "metadata_only": true,
+      "present": true
+    },
+    {
+      "input_name": "payload_materialization_boundary_report",
+      "required": true,
+      "metadata_only": true,
+      "present": true
+    },
+    {
+      "input_name": "prototype_execution_guard_report",
+      "required": true,
+      "metadata_only": true,
+      "present": true
+    },
+    {
+      "input_name": "prototype_state_machine_report",
+      "required": true,
+      "metadata_only": true,
+      "present": true
+    }
+  ],
+  "output_rows": [
+    {
+      "artifact_class": "metadata_plan_object",
+      "allowed": true,
+      "must_remain_nonphysical": true,
+      "notes": "Abstract builder output may be an in-memory metadata plan only."
+    },
+    {
+      "artifact_class": "json_report",
+      "allowed": true,
+      "must_remain_nonphysical": true,
+      "notes": "Audit/report outputs are allowed."
+    },
+    {
+      "artifact_class": "markdown_report",
+      "allowed": true,
+      "must_remain_nonphysical": true,
+      "notes": "Human-readable audit outputs are allowed."
+    },
+    {
+      "artifact_class": "gds_layout",
+      "allowed": false,
+      "must_remain_nonphysical": true,
+      "notes": "GDS generation remains forbidden."
+    },
+    {
+      "artifact_class": "routed_geometry",
+      "allowed": false,
+      "must_remain_nonphysical": true,
+      "notes": "Routing geometry remains forbidden."
+    },
+    {
+      "artifact_class": "standalone_generator_patch",
+      "allowed": false,
+      "must_remain_nonphysical": true,
+      "notes": "Main generator integration remains forbidden."
+    }
+  ],
+  "payload_input_counts": {
+    "region_count": 7,
+    "subblock_count": 11,
+    "handoff_count": 4,
+    "blocked_capability_count": 6
+  },
+  "source_reports": {
+    "experimental_contract": "step6_31_openyield_time_control_experimental_contract",
+    "abstract_floorplan_payload": "step6_32_openyield_time_control_abstract_floorplan_payload",
+    "payload_completeness": "step6_34_openyield_time_control_payload_completeness_audit",
+    "payload_consumption_contract": "step6_35_openyield_time_control_payload_consumption_contract_audit",
+    "payload_materialization_boundary": "step6_36_openyield_time_control_payload_materialization_boundary_audit",
+    "prototype_execution_guard": "step6_37_openyield_time_control_prototype_execution_guard_audit",
+    "prototype_state_machine": "step6_38_openyield_time_control_prototype_state_machine_audit"
+  },
+  "violations": {
+    "config_violations": [],
+    "input_violations": [],
+    "output_violations": [],
+    "payload_surface_not_explicit": false
+  },
+  "consistency_checks": {
+    "prototype_interface_surface_audit_available": true,
+    "config_surface_restricted": true,
+    "input_surface_restricted": true,
+    "output_surface_restricted": true,
+    "payload_surface_explicit": true,
+    "metadata_only_mode_preserved": true,
+    "default_off_preserved": true,
+    "future_default_off_builder_interface_surface_clean": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "audit_summary": {
+    "prototype_interface_surface_audit_available": true,
+    "config_surface_restricted": true,
+    "input_surface_restricted": true,
+    "output_surface_restricted": true,
+    "future_default_off_builder_interface_surface_clean": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "notes": [
+    "This audit constrains the future builder's public interface to a minimal metadata-only surface.",
+    "Passing this audit still does not authorize standalone integration, routing, GDS generation, or physical placement.",
+    "The purpose is to keep future implementation scope narrow and explicit."
+  ],
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "can_modify_standalone_now": false,
+  "can_generate_time_control_gds_now": false,
+  "can_enter_physical_placement_now": false
+}

@@ -140,3 +140,12 @@ except ModuleNotFoundError:
     pass
 else:
     __all__.append("build_time_control_prototype_state_machine_report")
+
+try:
+    from .time_control_prototype_interface_surface import (
+        build_time_control_prototype_interface_surface_report,
+    )
+except ModuleNotFoundError:
+    pass
+else:
+    __all__.append("build_time_control_prototype_interface_surface_report")
