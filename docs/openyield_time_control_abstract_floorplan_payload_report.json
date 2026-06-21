@@ -1,0 +1,510 @@
+{
+  "scope": "step6_32_openyield_time_control_abstract_floorplan_payload",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "payload": {
+    "flag_name": "enable_openyield_time_control_experimental_placement",
+    "default_enabled": false,
+    "legacy_path_unchanged": true,
+    "standalone_py_modified": false,
+    "routing_modified": false,
+    "gds_writer_modified": false,
+    "physical_gds_generated": false,
+    "regions": [
+      {
+        "region_name": "delay_chain_region",
+        "preferred_neighbor_regions": [
+          "generated_logic_region",
+          "sense_write_enable_region"
+        ],
+        "required_channel_width": 0.4,
+        "reserved_channel_width": 2.0,
+        "budget_margin": 1.6,
+        "risk_level": "pass_moderate_margin",
+        "metadata_only": true,
+        "legal_physical_placement": false,
+        "notes": [
+          "estimated_signal_count=2",
+          "estimated_track_count=1"
+        ]
+      },
+      {
+        "region_name": "pdrive_region",
+        "preferred_neighbor_regions": [
+          "generated_logic_region",
+          "precharge_control_region",
+          "wordline_enable_control_region"
+        ],
+        "required_channel_width": 0.4,
+        "reserved_channel_width": 2.0,
+        "budget_margin": 1.6,
+        "risk_level": "pass_moderate_margin",
+        "metadata_only": true,
+        "legal_physical_placement": false,
+        "notes": [
+          "estimated_signal_count=3",
+          "estimated_track_count=1"
+        ]
+      },
+      {
+        "region_name": "generated_logic_region",
+        "preferred_neighbor_regions": [
+          "delay_chain_region",
+          "pdrive_region",
+          "consumer_handoff_region"
+        ],
+        "required_channel_width": 0.4,
+        "reserved_channel_width": 2.0,
+        "budget_margin": 1.6,
+        "risk_level": "pass_moderate_margin",
+        "metadata_only": true,
+        "legal_physical_placement": false,
+        "notes": [
+          "estimated_signal_count=6",
+          "estimated_track_count=1"
+        ]
+      },
+      {
+        "region_name": "consumer_handoff_region",
+        "preferred_neighbor_regions": [
+          "generated_logic_region",
+          "precharge_control_region",
+          "wordline_enable_control_region",
+          "sense_write_enable_region"
+        ],
+        "required_channel_width": 0.4,
+        "reserved_channel_width": 2.0,
+        "budget_margin": 1.6,
+        "risk_level": "pass_moderate_margin",
+        "metadata_only": true,
+        "legal_physical_placement": false,
+        "notes": [
+          "estimated_signal_count=4",
+          "estimated_track_count=1"
+        ]
+      },
+      {
+        "region_name": "precharge_control_region",
+        "preferred_neighbor_regions": [
+          "pdrive_region",
+          "consumer_handoff_region",
+          "wordline_enable_control_region"
+        ],
+        "required_channel_width": 0.4,
+        "reserved_channel_width": 2.0,
+        "budget_margin": 1.6,
+        "risk_level": "pass_moderate_margin",
+        "metadata_only": true,
+        "legal_physical_placement": false,
+        "notes": [
+          "estimated_signal_count=2",
+          "estimated_track_count=1"
+        ]
+      },
+      {
+        "region_name": "wordline_enable_control_region",
+        "preferred_neighbor_regions": [
+          "pdrive_region",
+          "consumer_handoff_region",
+          "precharge_control_region"
+        ],
+        "required_channel_width": 1.0,
+        "reserved_channel_width": 2.0,
+        "budget_margin": 1.0,
+        "risk_level": "pass_moderate_margin",
+        "metadata_only": true,
+        "legal_physical_placement": false,
+        "notes": [
+          "estimated_signal_count=2",
+          "estimated_track_count=4"
+        ]
+      },
+      {
+        "region_name": "sense_write_enable_region",
+        "preferred_neighbor_regions": [
+          "delay_chain_region",
+          "generated_logic_region",
+          "consumer_handoff_region"
+        ],
+        "required_channel_width": 0.6,
+        "reserved_channel_width": 2.0,
+        "budget_margin": 1.4,
+        "risk_level": "pass_moderate_margin",
+        "metadata_only": true,
+        "legal_physical_placement": false,
+        "notes": [
+          "estimated_signal_count=2",
+          "estimated_track_count=2"
+        ]
+      }
+    ],
+    "subblocks": [
+      {
+        "subblock_name": "ADDR_DFF_ROW",
+        "plan_kind": "abstract_dff_row",
+        "assigned_region": "generated_logic_region",
+        "relative_order_group": "front_end_registers",
+        "metadata_ready": true,
+        "physical_ready": false,
+        "requires_opt_in": true,
+        "consumer_target": null,
+        "blocked_by": [
+          "no legal placement proof",
+          "no routing proof",
+          "no standalone integration"
+        ],
+        "notes": [
+          "Address DFF decomposition is closed at metadata level only.",
+          "required_channel_width=0.4",
+          "reserved_channel_width=2.0",
+          "budget_margin=1.6"
+        ]
+      },
+      {
+        "subblock_name": "DATA_DFF_ROW",
+        "plan_kind": "abstract_dff_row",
+        "assigned_region": "generated_logic_region",
+        "relative_order_group": "front_end_registers",
+        "metadata_ready": true,
+        "physical_ready": false,
+        "requires_opt_in": true,
+        "consumer_target": null,
+        "blocked_by": [
+          "no legal placement proof",
+          "no routing proof",
+          "no standalone integration"
+        ],
+        "notes": [
+          "Data DFF decomposition is closed at metadata level only.",
+          "required_channel_width=0.4",
+          "reserved_channel_width=2.0",
+          "budget_margin=1.6"
+        ]
+      },
+      {
+        "subblock_name": "DELAY_CHAIN_CLUSTER",
+        "plan_kind": "timing_chain_cluster",
+        "assigned_region": "delay_chain_region",
+        "relative_order_group": "timing_generation",
+        "metadata_ready": true,
+        "physical_ready": false,
+        "requires_opt_in": true,
+        "consumer_target": null,
+        "blocked_by": [
+          "delay timing proof missing",
+          "no legal placement proof",
+          "no routing proof"
+        ],
+        "notes": [
+          "Replica-bitline delay chain is structurally decomposed but not physically proven.",
+          "required_channel_width=0.4",
+          "reserved_channel_width=2.0",
+          "budget_margin=1.6"
+        ]
+      },
+      {
+        "subblock_name": "WEN_DELAY_CHAIN_CLUSTER",
+        "plan_kind": "timing_chain_cluster",
+        "assigned_region": "sense_write_enable_region",
+        "relative_order_group": "timing_generation",
+        "metadata_ready": true,
+        "physical_ready": false,
+        "requires_opt_in": true,
+        "consumer_target": null,
+        "blocked_by": [
+          "wen-delay timing proof missing",
+          "no legal placement proof",
+          "no routing proof"
+        ],
+        "notes": [
+          "Write-enable delay chain remains metadata-only.",
+          "required_channel_width=0.6",
+          "reserved_channel_width=2.0",
+          "budget_margin=1.4"
+        ]
+      },
+      {
+        "subblock_name": "PDRIVE_CLUSTER",
+        "plan_kind": "buffer_chain_cluster",
+        "assigned_region": "pdrive_region",
+        "relative_order_group": "timing_generation",
+        "metadata_ready": true,
+        "physical_ready": false,
+        "requires_opt_in": true,
+        "consumer_target": null,
+        "blocked_by": [
+          "no legal placement proof",
+          "no routing proof"
+        ],
+        "notes": [
+          "Clock/precharge/wordline buffer chains are abstractly placeable, not physically placeable yet.",
+          "required_channel_width=0.4",
+          "reserved_channel_width=2.0",
+          "budget_margin=1.6"
+        ]
+      },
+      {
+        "subblock_name": "GENERATED_LOGIC_CLUSTER",
+        "plan_kind": "stdcell_row_abstract_cluster",
+        "assigned_region": "generated_logic_region",
+        "relative_order_group": "generated_logic_core",
+        "metadata_ready": true,
+        "physical_ready": false,
+        "requires_opt_in": true,
+        "consumer_target": null,
+        "blocked_by": [
+          "stdcell physical library not proven",
+          "no legal routing proof",
+          "no DRC/LVS proof"
+        ],
+        "notes": [
+          "Suitable for future prototype planning only.",
+          "required_channel_width=0.4",
+          "reserved_channel_width=2.0",
+          "budget_margin=1.6"
+        ]
+      },
+      {
+        "subblock_name": "PRECHARGE_HANDOFF",
+        "plan_kind": "consumer_handoff_reservation_only",
+        "assigned_region": "precharge_control_region",
+        "relative_order_group": "consumer_handoff_boundary",
+        "metadata_ready": true,
+        "physical_ready": false,
+        "requires_opt_in": true,
+        "consumer_target": "PRECHARGE",
+        "blocked_by": [
+          "rail continuity proof missing",
+          "no legal routing proof",
+          "no physical placement proof"
+        ],
+        "notes": [
+          "PRECHARGE stays at metadata/handoff readiness only.",
+          "Current closure status: intentional_no_local_gnd_metadata_exception.",
+          "required_channel_width=0.4",
+          "reserved_channel_width=2.0",
+          "budget_margin=1.6"
+        ]
+      },
+      {
+        "subblock_name": "SENSEAMP_HANDOFF",
+        "plan_kind": "consumer_handoff_reservation_only",
+        "assigned_region": "sense_write_enable_region",
+        "relative_order_group": "consumer_handoff_boundary",
+        "metadata_ready": true,
+        "physical_ready": false,
+        "requires_opt_in": true,
+        "consumer_target": "SENSEAMP",
+        "blocked_by": [
+          "no legal routing proof",
+          "no physical placement proof"
+        ],
+        "notes": [
+          "Sense path adapter is already opt-in elsewhere; TIME-side proof here remains metadata-only.",
+          "required_channel_width=0.6",
+          "reserved_channel_width=2.0",
+          "budget_margin=1.4"
+        ]
+      },
+      {
+        "subblock_name": "WRITEDRIVER_HANDOFF",
+        "plan_kind": "consumer_handoff_reservation_only",
+        "assigned_region": "sense_write_enable_region",
+        "relative_order_group": "consumer_handoff_boundary",
+        "metadata_ready": true,
+        "physical_ready": false,
+        "requires_opt_in": true,
+        "consumer_target": "WRITEDRIVER",
+        "blocked_by": [
+          "no legal routing proof",
+          "no physical placement proof"
+        ],
+        "notes": [
+          "Write path consumer contract is closed only at the semantic metadata level.",
+          "required_channel_width=0.6",
+          "reserved_channel_width=2.0",
+          "budget_margin=1.4"
+        ]
+      },
+      {
+        "subblock_name": "WORDLINEDRIVER_HANDOFF",
+        "plan_kind": "consumer_handoff_reservation_only",
+        "assigned_region": "wordline_enable_control_region",
+        "relative_order_group": "consumer_handoff_boundary",
+        "metadata_ready": true,
+        "physical_ready": false,
+        "requires_opt_in": true,
+        "consumer_target": "WORDLINEDRIVER",
+        "blocked_by": [
+          "no legal routing proof",
+          "no physical placement proof"
+        ],
+        "notes": [
+          "B high-active semantics are known, but no physical TIME/control placement is allowed yet.",
+          "required_channel_width=1.0",
+          "reserved_channel_width=2.0",
+          "budget_margin=1.0"
+        ]
+      },
+      {
+        "subblock_name": "DECODER_INTERFACE",
+        "plan_kind": "decoder_boundary_reservation_only",
+        "assigned_region": "consumer_handoff_region",
+        "relative_order_group": "decoder_boundary",
+        "metadata_ready": true,
+        "physical_ready": false,
+        "requires_opt_in": true,
+        "consumer_target": "DECODER_CASCADE",
+        "blocked_by": [
+          "decoder placement intentionally untouched",
+          "no legal routing proof",
+          "no standalone integration"
+        ],
+        "notes": [
+          "This is only a boundary contract for future coordination with decoder placement.",
+          "required_channel_width=0.4",
+          "reserved_channel_width=2.0",
+          "budget_margin=1.6"
+        ]
+      }
+    ],
+    "handoffs": [
+      {
+        "interface_name": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+        "source_regions": [
+          "sense_write_enable_region"
+        ],
+        "target_macro": "WRITEDRIVER",
+        "control_signals": [
+          "write_enable"
+        ],
+        "metadata_ready": true,
+        "physical_ready": false,
+        "blocked_by": [
+          "handoff constraints are metadata-only",
+          "channel reservation rules are not legal routing",
+          "control routing proof is missing",
+          "delay timing proof is missing"
+        ]
+      },
+      {
+        "interface_name": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+        "source_regions": [
+          "sense_write_enable_region"
+        ],
+        "target_macro": "SENSEAMP",
+        "control_signals": [
+          "sense_enable"
+        ],
+        "metadata_ready": true,
+        "physical_ready": false,
+        "blocked_by": [
+          "handoff constraints are metadata-only",
+          "channel reservation rules are not legal routing",
+          "control routing proof is missing",
+          "delay timing proof is missing"
+        ]
+      },
+      {
+        "interface_name": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+        "source_regions": [
+          "precharge_control_region",
+          "wordline_enable_control_region"
+        ],
+        "target_macro": "PRECHARGE",
+        "control_signals": [
+          "precharge_enb",
+          "wl_en_bar"
+        ],
+        "metadata_ready": "partial",
+        "physical_ready": false,
+        "blocked_by": [
+          "PRECHARGE adapter metadata may remain partial",
+          "PRECHARGE power-domain closure may remain incomplete",
+          "handoff constraints are metadata-only",
+          "channel reservation rules are not legal routing",
+          "control routing proof is missing",
+          "rail continuity proof is missing"
+        ]
+      },
+      {
+        "interface_name": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+        "source_regions": [
+          "wordline_enable_control_region"
+        ],
+        "target_macro": "WORDLINEDRIVER",
+        "control_signals": [
+          "wordline_enable"
+        ],
+        "metadata_ready": true,
+        "physical_ready": false,
+        "blocked_by": [
+          "handoff constraints are metadata-only",
+          "channel reservation rules are not legal routing",
+          "control routing proof is missing",
+          "delay timing proof is missing"
+        ]
+      }
+    ],
+    "blocked_capabilities": [
+      "standalone integration",
+      "physical TIME/control placement",
+      "TIME/control GDS generation",
+      "legal routing proof",
+      "rail continuity proof",
+      "shared rail enablement"
+    ],
+    "notes": [
+      "This payload is metadata-only and intended for future default-off prototype planning.",
+      "It does not prove legal placement, legal routing, rail continuity, or timing closure.",
+      "Do not connect this payload to standalone until a later readiness gate explicitly allows it."
+    ],
+    "gate_snapshot": {
+      "can_create_experimental_opt_in_placement_plan": true,
+      "can_modify_standalone_now": false,
+      "can_generate_time_control_gds_now": false,
+      "can_enter_physical_placement_now": false,
+      "precharge_closure_status": "intentional_no_local_gnd_metadata_exception"
+    }
+  },
+  "consistency_checks": {
+    "abstract_floorplan_payload_available": true,
+    "default_enabled": false,
+    "legacy_path_unchanged": true,
+    "region_count": 7,
+    "subblock_count": 11,
+    "handoff_count": 4,
+    "all_regions_metadata_only": true,
+    "all_subblocks_require_opt_in": true,
+    "any_physical_ready_subblocks": false,
+    "standalone_py_modified": false,
+    "routing_modified": false,
+    "gds_writer_modified": false,
+    "physical_gds_generated": false,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "audit_summary": {
+    "abstract_floorplan_payload_available": true,
+    "default_enabled": false,
+    "region_count": 7,
+    "subblock_count": 11,
+    "handoff_count": 4,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "can_modify_standalone_now": false,
+  "can_generate_time_control_gds_now": false,
+  "can_enter_physical_placement_now": false,
+  "notes": [
+    "This payload is metadata-only and intended for future default-off prototype planning.",
+    "It does not prove legal placement, legal routing, rail continuity, or timing closure.",
+    "Do not connect this payload to standalone until a later readiness gate explicitly allows it."
+  ]
+}

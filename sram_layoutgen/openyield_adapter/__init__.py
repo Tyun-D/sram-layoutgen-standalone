@@ -69,3 +69,24 @@ else:
             "build_time_control_experimental_contract",
         ]
     )
+
+try:
+    from .time_control_abstract_floorplan_payload import (
+        AbstractFloorplanHandoff,
+        AbstractFloorplanRegion,
+        AbstractFloorplanSubblock,
+        TimeControlAbstractFloorplanPayload,
+        build_time_control_abstract_floorplan_payload,
+    )
+except ModuleNotFoundError:
+    pass
+else:
+    __all__.extend(
+        [
+            "AbstractFloorplanHandoff",
+            "AbstractFloorplanRegion",
+            "AbstractFloorplanSubblock",
+            "TimeControlAbstractFloorplanPayload",
+            "build_time_control_abstract_floorplan_payload",
+        ]
+    )

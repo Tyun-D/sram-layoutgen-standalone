@@ -1,0 +1,185 @@
+{
+  "scope": "step6_32_openyield_time_control_abstract_floorplan_payload",
+  "nodes": [
+    {
+      "id": "delay_chain_region",
+      "kind": "region"
+    },
+    {
+      "id": "pdrive_region",
+      "kind": "region"
+    },
+    {
+      "id": "generated_logic_region",
+      "kind": "region"
+    },
+    {
+      "id": "consumer_handoff_region",
+      "kind": "region"
+    },
+    {
+      "id": "precharge_control_region",
+      "kind": "region"
+    },
+    {
+      "id": "wordline_enable_control_region",
+      "kind": "region"
+    },
+    {
+      "id": "sense_write_enable_region",
+      "kind": "region"
+    },
+    {
+      "id": "ADDR_DFF_ROW",
+      "kind": "abstract_dff_row"
+    },
+    {
+      "id": "DATA_DFF_ROW",
+      "kind": "abstract_dff_row"
+    },
+    {
+      "id": "DELAY_CHAIN_CLUSTER",
+      "kind": "timing_chain_cluster"
+    },
+    {
+      "id": "WEN_DELAY_CHAIN_CLUSTER",
+      "kind": "timing_chain_cluster"
+    },
+    {
+      "id": "PDRIVE_CLUSTER",
+      "kind": "buffer_chain_cluster"
+    },
+    {
+      "id": "GENERATED_LOGIC_CLUSTER",
+      "kind": "stdcell_row_abstract_cluster"
+    },
+    {
+      "id": "PRECHARGE_HANDOFF",
+      "kind": "consumer_handoff_reservation_only"
+    },
+    {
+      "id": "SENSEAMP_HANDOFF",
+      "kind": "consumer_handoff_reservation_only"
+    },
+    {
+      "id": "WRITEDRIVER_HANDOFF",
+      "kind": "consumer_handoff_reservation_only"
+    },
+    {
+      "id": "WORDLINEDRIVER_HANDOFF",
+      "kind": "consumer_handoff_reservation_only"
+    },
+    {
+      "id": "DECODER_INTERFACE",
+      "kind": "decoder_boundary_reservation_only"
+    },
+    {
+      "id": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+      "kind": "handoff"
+    },
+    {
+      "id": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+      "kind": "handoff"
+    },
+    {
+      "id": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "kind": "handoff"
+    },
+    {
+      "id": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+      "kind": "handoff"
+    }
+  ],
+  "edges": [
+    {
+      "source": "ADDR_DFF_ROW",
+      "target": "generated_logic_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "DATA_DFF_ROW",
+      "target": "generated_logic_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "DELAY_CHAIN_CLUSTER",
+      "target": "delay_chain_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "WEN_DELAY_CHAIN_CLUSTER",
+      "target": "sense_write_enable_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "PDRIVE_CLUSTER",
+      "target": "pdrive_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "GENERATED_LOGIC_CLUSTER",
+      "target": "generated_logic_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "PRECHARGE_HANDOFF",
+      "target": "precharge_control_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "SENSEAMP_HANDOFF",
+      "target": "sense_write_enable_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "WRITEDRIVER_HANDOFF",
+      "target": "sense_write_enable_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "WORDLINEDRIVER_HANDOFF",
+      "target": "wordline_enable_control_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "DECODER_INTERFACE",
+      "target": "consumer_handoff_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+      "target": "sense_write_enable_region",
+      "relation": "draws_from_region"
+    },
+    {
+      "source": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+      "target": "sense_write_enable_region",
+      "relation": "draws_from_region"
+    },
+    {
+      "source": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "target": "precharge_control_region",
+      "relation": "draws_from_region"
+    },
+    {
+      "source": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "target": "wordline_enable_control_region",
+      "relation": "draws_from_region"
+    },
+    {
+      "source": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+      "target": "wordline_enable_control_region",
+      "relation": "draws_from_region"
+    }
+  ],
+  "summary": {
+    "abstract_floorplan_payload_available": true,
+    "default_enabled": false,
+    "region_count": 7,
+    "subblock_count": 11,
+    "handoff_count": 4,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  }
+}
