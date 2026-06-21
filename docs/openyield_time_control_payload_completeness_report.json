@@ -1,0 +1,328 @@
+{
+  "scope": "step6_34_openyield_time_control_payload_completeness_audit",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "config_missing_fields": [],
+  "region_checks": [
+    {
+      "region_name": "delay_chain_region",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true
+    },
+    {
+      "region_name": "pdrive_region",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true
+    },
+    {
+      "region_name": "generated_logic_region",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true
+    },
+    {
+      "region_name": "consumer_handoff_region",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true
+    },
+    {
+      "region_name": "precharge_control_region",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true
+    },
+    {
+      "region_name": "wordline_enable_control_region",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true
+    },
+    {
+      "region_name": "sense_write_enable_region",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true
+    }
+  ],
+  "subblock_checks": [
+    {
+      "subblock_name": "ADDR_DFF_ROW",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true,
+      "metadata_ready": true
+    },
+    {
+      "subblock_name": "DATA_DFF_ROW",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true,
+      "metadata_ready": true
+    },
+    {
+      "subblock_name": "DELAY_CHAIN_CLUSTER",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true,
+      "metadata_ready": true
+    },
+    {
+      "subblock_name": "WEN_DELAY_CHAIN_CLUSTER",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true,
+      "metadata_ready": true
+    },
+    {
+      "subblock_name": "PDRIVE_CLUSTER",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true,
+      "metadata_ready": true
+    },
+    {
+      "subblock_name": "GENERATED_LOGIC_CLUSTER",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true,
+      "metadata_ready": true
+    },
+    {
+      "subblock_name": "PRECHARGE_HANDOFF",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true,
+      "metadata_ready": true
+    },
+    {
+      "subblock_name": "SENSEAMP_HANDOFF",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true,
+      "metadata_ready": true
+    },
+    {
+      "subblock_name": "WRITEDRIVER_HANDOFF",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true,
+      "metadata_ready": true
+    },
+    {
+      "subblock_name": "WORDLINEDRIVER_HANDOFF",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true,
+      "metadata_ready": true
+    },
+    {
+      "subblock_name": "DECODER_INTERFACE",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true,
+      "metadata_ready": true
+    }
+  ],
+  "handoff_checks": [
+    {
+      "interface_name": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true,
+      "metadata_ready": true
+    },
+    {
+      "interface_name": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true,
+      "metadata_ready": true
+    },
+    {
+      "interface_name": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true,
+      "metadata_ready": "partial"
+    },
+    {
+      "interface_name": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+      "missing_fields": [],
+      "complete_for_metadata_consumer": true,
+      "metadata_ready": true
+    }
+  ],
+  "handoff_traceability": [
+    {
+      "interface_name": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+      "consumer_contract": "WRITE_ENABLE_CONSUMER_CONTRACT",
+      "binding_contracts": [
+        "WRITE_ENABLE_BINDING_CONTRACT"
+      ],
+      "consumer_contract_found": true,
+      "traceable": true
+    },
+    {
+      "interface_name": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+      "consumer_contract": "SENSE_ENABLE_CONSUMER_CONTRACT",
+      "binding_contracts": [
+        "SENSE_ENABLE_BINDING_CONTRACT"
+      ],
+      "consumer_contract_found": true,
+      "traceable": true
+    },
+    {
+      "interface_name": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "consumer_contract": "PRECHARGE_ENB_CONSUMER_CONTRACT",
+      "binding_contracts": [
+        "PRECHARGE_ENB_BINDING_CONTRACT"
+      ],
+      "consumer_contract_found": true,
+      "traceable": true
+    },
+    {
+      "interface_name": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+      "consumer_contract": "WORDLINE_ENABLE_CONSUMER_CONTRACT",
+      "binding_contracts": [
+        "WORDLINE_ENABLE_BINDING_CONTRACT"
+      ],
+      "consumer_contract_found": true,
+      "traceable": true
+    }
+  ],
+  "subblock_traceability": [
+    {
+      "subblock_name": "ADDR_DFF_ROW",
+      "generated_logic_contracts": [],
+      "consumer_contract": null,
+      "traceable": true
+    },
+    {
+      "subblock_name": "DATA_DFF_ROW",
+      "generated_logic_contracts": [],
+      "consumer_contract": null,
+      "traceable": true
+    },
+    {
+      "subblock_name": "DELAY_CHAIN_CLUSTER",
+      "generated_logic_contracts": [
+        "DELAY_CHAIN_GENERATED_LOGIC_CONTRACT"
+      ],
+      "consumer_contract": null,
+      "traceable": true
+    },
+    {
+      "subblock_name": "WEN_DELAY_CHAIN_CLUSTER",
+      "generated_logic_contracts": [
+        "WEN_DELAY_CHAIN_CONDITIONAL_GENERATED_LOGIC_CONTRACT"
+      ],
+      "consumer_contract": null,
+      "traceable": true
+    },
+    {
+      "subblock_name": "PDRIVE_CLUSTER",
+      "generated_logic_contracts": [
+        "PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+        "PDRIVE2_FOR_PRE_CHAIN_GENERATED_LOGIC_CONTRACT",
+        "WL_PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT"
+      ],
+      "consumer_contract": null,
+      "traceable": true
+    },
+    {
+      "subblock_name": "GENERATED_LOGIC_CLUSTER",
+      "generated_logic_contracts": [
+        "PINV_GENERATED_LOGIC_CONTRACT",
+        "AND2_GENERATED_LOGIC_CONTRACT",
+        "AND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+        "PNAND3_COMPOSITE_GENERATED_LOGIC_CONTRACT"
+      ],
+      "consumer_contract": null,
+      "traceable": true
+    },
+    {
+      "subblock_name": "PRECHARGE_HANDOFF",
+      "generated_logic_contracts": [],
+      "consumer_contract": "PRECHARGE_ENB_CONSUMER_CONTRACT",
+      "traceable": true
+    },
+    {
+      "subblock_name": "SENSEAMP_HANDOFF",
+      "generated_logic_contracts": [],
+      "consumer_contract": "SENSE_ENABLE_CONSUMER_CONTRACT",
+      "traceable": true
+    },
+    {
+      "subblock_name": "WRITEDRIVER_HANDOFF",
+      "generated_logic_contracts": [],
+      "consumer_contract": "WRITE_ENABLE_CONSUMER_CONTRACT",
+      "traceable": true
+    },
+    {
+      "subblock_name": "WORDLINEDRIVER_HANDOFF",
+      "generated_logic_contracts": [],
+      "consumer_contract": "WORDLINE_ENABLE_CONSUMER_CONTRACT",
+      "traceable": true
+    },
+    {
+      "subblock_name": "DECODER_INTERFACE",
+      "generated_logic_contracts": [],
+      "consumer_contract": null,
+      "traceable": true
+    }
+  ],
+  "generated_contract_presence": {
+    "DELAY_CHAIN_GENERATED_LOGIC_CONTRACT": true,
+    "WEN_DELAY_CHAIN_CONDITIONAL_GENERATED_LOGIC_CONTRACT": true,
+    "PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT": true,
+    "PDRIVE2_FOR_PRE_CHAIN_GENERATED_LOGIC_CONTRACT": true,
+    "WL_PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT": true,
+    "PINV_GENERATED_LOGIC_CONTRACT": true,
+    "AND2_GENERATED_LOGIC_CONTRACT": true,
+    "AND3_COMPOSITE_GENERATED_LOGIC_CONTRACT": true,
+    "PNAND3_COMPOSITE_GENERATED_LOGIC_CONTRACT": true
+  },
+  "consumer_contract_presence": {
+    "WRITE_ENABLE_CONSUMER_CONTRACT": true,
+    "SENSE_ENABLE_CONSUMER_CONTRACT": true,
+    "PRECHARGE_ENB_CONSUMER_CONTRACT": true,
+    "WORDLINE_ENABLE_CONSUMER_CONTRACT": true
+  },
+  "partial_items": {
+    "handoffs_marked_partial": [
+      "TIME_CONTROL_TO_PRECHARGE_INTERFACE"
+    ]
+  },
+  "violations": {
+    "region_missing_fields": {},
+    "subblock_missing_fields": {},
+    "handoff_missing_fields": {},
+    "missing_handoff_traceability": [],
+    "missing_subblock_traceability": [],
+    "missing_generated_contracts": [],
+    "missing_consumer_contracts": [],
+    "partial_status_not_explicit": false
+  },
+  "consistency_checks": {
+    "payload_completeness_audit_available": true,
+    "config_surface_complete": true,
+    "all_regions_complete_for_metadata_consumer": true,
+    "all_subblocks_complete_for_metadata_consumer": true,
+    "all_handoffs_complete_for_metadata_consumer": true,
+    "handoff_traceability_complete": true,
+    "subblock_traceability_complete": true,
+    "generated_contract_references_present": true,
+    "consumer_contract_references_present": true,
+    "packing_invariants_clean": true,
+    "partial_status_explicit": true,
+    "consumption_contract_complete_for_metadata": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "audit_summary": {
+    "payload_completeness_audit_available": true,
+    "config_surface_complete": true,
+    "handoff_traceability_complete": true,
+    "subblock_traceability_complete": true,
+    "consumption_contract_complete_for_metadata": true,
+    "partial_handoff_count": 1,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "notes": [
+    "This audit checks whether a future default-off prototype builder would have enough explicit metadata to consume the payload without guessing.",
+    "A complete metadata consumption contract does not imply legal placement, legal routing, timing closure, DRC, or LVS.",
+    "Partial PRECHARGE status is allowed only when it is explicit and preserved as blocked metadata."
+  ],
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "can_modify_standalone_now": false,
+  "can_generate_time_control_gds_now": false,
+  "can_enter_physical_placement_now": false
+}

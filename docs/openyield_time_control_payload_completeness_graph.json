@@ -1,0 +1,134 @@
+{
+  "scope": "step6_34_openyield_time_control_payload_completeness_audit",
+  "nodes": [
+    {
+      "id": "ADDR_DFF_ROW",
+      "kind": "subblock"
+    },
+    {
+      "id": "DATA_DFF_ROW",
+      "kind": "subblock"
+    },
+    {
+      "id": "DELAY_CHAIN_CLUSTER",
+      "kind": "subblock"
+    },
+    {
+      "id": "WEN_DELAY_CHAIN_CLUSTER",
+      "kind": "subblock"
+    },
+    {
+      "id": "PDRIVE_CLUSTER",
+      "kind": "subblock"
+    },
+    {
+      "id": "GENERATED_LOGIC_CLUSTER",
+      "kind": "subblock"
+    },
+    {
+      "id": "PRECHARGE_HANDOFF",
+      "kind": "subblock"
+    },
+    {
+      "id": "SENSEAMP_HANDOFF",
+      "kind": "subblock"
+    },
+    {
+      "id": "WRITEDRIVER_HANDOFF",
+      "kind": "subblock"
+    },
+    {
+      "id": "WORDLINEDRIVER_HANDOFF",
+      "kind": "subblock"
+    },
+    {
+      "id": "DECODER_INTERFACE",
+      "kind": "subblock"
+    },
+    {
+      "id": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+      "kind": "handoff"
+    },
+    {
+      "id": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+      "kind": "handoff"
+    },
+    {
+      "id": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "kind": "handoff"
+    },
+    {
+      "id": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+      "kind": "handoff"
+    },
+    {
+      "id": "WRITE_ENABLE_CONSUMER_CONTRACT",
+      "kind": "consumer_contract"
+    },
+    {
+      "id": "SENSE_ENABLE_CONSUMER_CONTRACT",
+      "kind": "consumer_contract"
+    },
+    {
+      "id": "PRECHARGE_ENB_CONSUMER_CONTRACT",
+      "kind": "consumer_contract"
+    },
+    {
+      "id": "WORDLINE_ENABLE_CONSUMER_CONTRACT",
+      "kind": "consumer_contract"
+    }
+  ],
+  "edges": [
+    {
+      "source": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+      "target": "WRITE_ENABLE_CONSUMER_CONTRACT",
+      "relation": "consumes_via_contract"
+    },
+    {
+      "source": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+      "target": "SENSE_ENABLE_CONSUMER_CONTRACT",
+      "relation": "consumes_via_contract"
+    },
+    {
+      "source": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "target": "PRECHARGE_ENB_CONSUMER_CONTRACT",
+      "relation": "consumes_via_contract"
+    },
+    {
+      "source": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+      "target": "WORDLINE_ENABLE_CONSUMER_CONTRACT",
+      "relation": "consumes_via_contract"
+    },
+    {
+      "source": "PRECHARGE_HANDOFF",
+      "target": "PRECHARGE_ENB_CONSUMER_CONTRACT",
+      "relation": "traceable_consumer"
+    },
+    {
+      "source": "SENSEAMP_HANDOFF",
+      "target": "SENSE_ENABLE_CONSUMER_CONTRACT",
+      "relation": "traceable_consumer"
+    },
+    {
+      "source": "WRITEDRIVER_HANDOFF",
+      "target": "WRITE_ENABLE_CONSUMER_CONTRACT",
+      "relation": "traceable_consumer"
+    },
+    {
+      "source": "WORDLINEDRIVER_HANDOFF",
+      "target": "WORDLINE_ENABLE_CONSUMER_CONTRACT",
+      "relation": "traceable_consumer"
+    }
+  ],
+  "summary": {
+    "payload_completeness_audit_available": true,
+    "config_surface_complete": true,
+    "handoff_traceability_complete": true,
+    "subblock_traceability_complete": true,
+    "consumption_contract_complete_for_metadata": true,
+    "partial_handoff_count": 1,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  }
+}

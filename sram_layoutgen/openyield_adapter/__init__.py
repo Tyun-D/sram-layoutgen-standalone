@@ -97,3 +97,10 @@ except ModuleNotFoundError:
     pass
 else:
     __all__.append("build_time_control_packing_invariant_report")
+
+try:
+    from .time_control_payload_completeness import build_time_control_payload_completeness_report
+except ModuleNotFoundError:
+    pass
+else:
+    __all__.append("build_time_control_payload_completeness_report")
