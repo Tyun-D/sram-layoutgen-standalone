@@ -104,3 +104,12 @@ except ModuleNotFoundError:
     pass
 else:
     __all__.append("build_time_control_payload_completeness_report")
+
+try:
+    from .time_control_payload_consumption_contract import (
+        build_time_control_payload_consumption_contract_report,
+    )
+except ModuleNotFoundError:
+    pass
+else:
+    __all__.append("build_time_control_payload_consumption_contract_report")
