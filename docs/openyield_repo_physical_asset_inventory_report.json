@@ -1,0 +1,3976 @@
+{
+  "scope": "repo_physical_asset_discovery_readonly_evidence_collection",
+  "repo_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean",
+  "searched_roots": [
+    "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean",
+    "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+    "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs",
+    "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build"
+  ],
+  "searched_extensions": [
+    ".cdl",
+    ".drc",
+    ".gds",
+    ".json",
+    ".lef",
+    ".lib",
+    ".log",
+    ".lydrc",
+    ".lyp",
+    ".lyrdb",
+    ".lyt",
+    ".md",
+    ".net",
+    ".py",
+    ".rb",
+    ".sp",
+    ".spi",
+    ".spice",
+    ".sv",
+    ".tcl",
+    ".v"
+  ],
+  "hardcell_macro_gds_inventory": {
+    "root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib",
+    "count": 26,
+    "focus_macros": [
+      "gen_precharge",
+      "gen_inv",
+      "gen_nand2",
+      "gen_delay_inv",
+      "dff",
+      "sense_amp",
+      "write_driver",
+      "gen_wl_driver",
+      "gen_col_mux",
+      "gen_col_mux_vdd_labeled",
+      "cell_1rw",
+      "dummy_cell_1rw",
+      "replica_cell_1rw"
+    ],
+    "focus_missing": [],
+    "items": [
+      {
+        "macro_name": "cell_1rw",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\cell_1rw.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "openyield_macro_aliases.json"
+        ],
+        "known_labels": [
+          "Q",
+          "Q_bar",
+          "bl",
+          "br",
+          "gnd",
+          "vdd",
+          "wl"
+        ],
+        "known_power_labels": [
+          "gnd",
+          "vdd"
+        ],
+        "vdd_known": true,
+        "gnd_known": true,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": -0.095,
+          "y0": -0.1,
+          "x1": 0.8,
+          "y1": 1.465
+        },
+        "role_guess": "bitcell",
+        "focus_macro": true,
+        "openyield_bindings": [
+          "SRAM_6T_CELL"
+        ],
+        "replacement_binding_present": false,
+        "notes": []
+      },
+      {
+        "macro_name": "cell_2rw",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\cell_2rw.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "filesystem_scan"
+        ],
+        "known_labels": [
+          "bl0",
+          "bl1",
+          "br0",
+          "br1",
+          "gnd",
+          "vdd",
+          "wl0",
+          "wl1"
+        ],
+        "known_power_labels": [
+          "gnd",
+          "vdd"
+        ],
+        "vdd_known": true,
+        "gnd_known": true,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": 0.0,
+          "y0": -0.1,
+          "x1": 1.175,
+          "y1": 1.595
+        },
+        "role_guess": "bitcell",
+        "focus_macro": false,
+        "openyield_bindings": [],
+        "replacement_binding_present": false,
+        "notes": []
+      },
+      {
+        "macro_name": "dff",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\dff.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "openyield_macro_aliases.json"
+        ],
+        "known_labels": [
+          "D",
+          "Q",
+          "clk",
+          "gnd",
+          "vdd"
+        ],
+        "known_power_labels": [
+          "gnd",
+          "vdd"
+        ],
+        "vdd_known": true,
+        "gnd_known": true,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": 0.0,
+          "y0": -0.0999999999999994,
+          "x1": 2.8599999999999826,
+          "y1": 2.5699999999999843
+        },
+        "role_guess": "dff",
+        "focus_macro": true,
+        "openyield_bindings": [
+          "DFF"
+        ],
+        "replacement_binding_present": false,
+        "notes": []
+      },
+      {
+        "macro_name": "dummy_cell_1rw",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\dummy_cell_1rw.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "openyield_macro_aliases.json"
+        ],
+        "known_labels": [
+          "bl",
+          "br",
+          "gnd",
+          "vdd",
+          "wl"
+        ],
+        "known_power_labels": [
+          "gnd",
+          "vdd"
+        ],
+        "vdd_known": true,
+        "gnd_known": true,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": -0.09499999999999872,
+          "y0": -0.09999999999999866,
+          "x1": 0.7999999999999893,
+          "y1": 1.4649999999999803
+        },
+        "role_guess": "dummy_bitcell",
+        "focus_macro": true,
+        "openyield_bindings": [
+          "Dummy_CELL",
+          "Dummy_Row",
+          "Dummy_Column"
+        ],
+        "replacement_binding_present": false,
+        "notes": []
+      },
+      {
+        "macro_name": "dummy_cell_2rw",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\dummy_cell_2rw.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "filesystem_scan"
+        ],
+        "known_labels": [
+          "bl0",
+          "bl1",
+          "br0",
+          "br1",
+          "gnd",
+          "vdd",
+          "wl0",
+          "wl1"
+        ],
+        "known_power_labels": [
+          "gnd",
+          "vdd"
+        ],
+        "vdd_known": true,
+        "gnd_known": true,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": 0.0,
+          "y0": -0.1,
+          "x1": 1.175,
+          "y1": 1.595
+        },
+        "role_guess": "dummy_bitcell",
+        "focus_macro": false,
+        "openyield_bindings": [],
+        "replacement_binding_present": false,
+        "notes": []
+      },
+      {
+        "macro_name": "gen_col_mux",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_col_mux.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "replacement_macros.json"
+        ],
+        "known_labels": [],
+        "known_power_labels": [],
+        "vdd_known": false,
+        "gnd_known": false,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": 0.0,
+          "y0": 0.0,
+          "x1": 0.8949999999999998,
+          "y1": 1.5649999999999997
+        },
+        "role_guess": "column_mux",
+        "focus_macro": true,
+        "openyield_bindings": [],
+        "replacement_binding_present": true,
+        "notes": []
+      },
+      {
+        "macro_name": "gen_delay_inv",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_delay_inv.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "replacement_macros.json"
+        ],
+        "known_labels": [],
+        "known_power_labels": [],
+        "vdd_known": false,
+        "gnd_known": false,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": 0.0,
+          "y0": 0.0,
+          "x1": 1.1999999999999997,
+          "y1": 1.5649999999999997
+        },
+        "role_guess": "hard_macro",
+        "focus_macro": true,
+        "openyield_bindings": [],
+        "replacement_binding_present": true,
+        "notes": []
+      },
+      {
+        "macro_name": "gen_inv",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_inv.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "replacement_macros.json"
+        ],
+        "known_labels": [],
+        "known_power_labels": [],
+        "vdd_known": false,
+        "gnd_known": false,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": 0.0,
+          "y0": 0.0,
+          "x1": 1.1999999999999997,
+          "y1": 1.5649999999999997
+        },
+        "role_guess": "hard_macro",
+        "focus_macro": true,
+        "openyield_bindings": [],
+        "replacement_binding_present": true,
+        "notes": []
+      },
+      {
+        "macro_name": "gen_nand2",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_nand2.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "replacement_macros.json"
+        ],
+        "known_labels": [],
+        "known_power_labels": [],
+        "vdd_known": false,
+        "gnd_known": false,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": 0.0,
+          "y0": 0.0,
+          "x1": 1.6499999999999997,
+          "y1": 1.5649999999999997
+        },
+        "role_guess": "hard_macro",
+        "focus_macro": true,
+        "openyield_bindings": [],
+        "replacement_binding_present": true,
+        "notes": []
+      },
+      {
+        "macro_name": "gen_nand4",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_nand4.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "filesystem_scan"
+        ],
+        "known_labels": [],
+        "known_power_labels": [],
+        "vdd_known": false,
+        "gnd_known": false,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": 0.0,
+          "y0": 0.0,
+          "x1": 2.5999999999999996,
+          "y1": 1.5649999999999997
+        },
+        "role_guess": "hard_macro",
+        "focus_macro": false,
+        "openyield_bindings": [],
+        "replacement_binding_present": false,
+        "notes": []
+      },
+      {
+        "macro_name": "gen_nor2",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_nor2.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "filesystem_scan"
+        ],
+        "known_labels": [],
+        "known_power_labels": [],
+        "vdd_known": false,
+        "gnd_known": false,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": 0.0,
+          "y0": 0.0,
+          "x1": 1.6499999999999997,
+          "y1": 1.5649999999999997
+        },
+        "role_guess": "hard_macro",
+        "focus_macro": false,
+        "openyield_bindings": [],
+        "replacement_binding_present": false,
+        "notes": []
+      },
+      {
+        "macro_name": "gen_precharge",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_precharge.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "replacement_macros.json"
+        ],
+        "known_labels": [],
+        "known_power_labels": [],
+        "vdd_known": false,
+        "gnd_known": false,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": 0.0,
+          "y0": 0.0,
+          "x1": 0.8949999999999998,
+          "y1": 1.5649999999999997
+        },
+        "role_guess": "precharge",
+        "focus_macro": true,
+        "openyield_bindings": [],
+        "replacement_binding_present": true,
+        "notes": []
+      },
+      {
+        "macro_name": "gen_well_tap",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_well_tap.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "filesystem_scan"
+        ],
+        "known_labels": [],
+        "known_power_labels": [],
+        "vdd_known": false,
+        "gnd_known": false,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": 0.0,
+          "y0": 0.0,
+          "x1": 0.8949999999999998,
+          "y1": 1.5649999999999997
+        },
+        "role_guess": "hard_macro",
+        "focus_macro": false,
+        "openyield_bindings": [],
+        "replacement_binding_present": false,
+        "notes": []
+      },
+      {
+        "macro_name": "gen_wl_driver",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_wl_driver.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "replacement_macros.json"
+        ],
+        "known_labels": [],
+        "known_power_labels": [],
+        "vdd_known": false,
+        "gnd_known": false,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": 0.0,
+          "y0": 0.0,
+          "x1": 1.5499999999999996,
+          "y1": 1.5649999999999997
+        },
+        "role_guess": "wordline_driver",
+        "focus_macro": true,
+        "openyield_bindings": [],
+        "replacement_binding_present": true,
+        "notes": []
+      },
+      {
+        "macro_name": "gen_col_mux",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_col_mux.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "replacement_macros.json",
+          "openram_replacements_gds"
+        ],
+        "known_labels": [
+          "D",
+          "G",
+          "S",
+          "bl",
+          "bl_out",
+          "br",
+          "br_out",
+          "gnd",
+          "sel"
+        ],
+        "known_power_labels": [
+          "gnd"
+        ],
+        "vdd_known": false,
+        "gnd_known": true,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7375,
+          "y1": 1.8
+        },
+        "role_guess": "column_mux",
+        "focus_macro": true,
+        "openyield_bindings": [],
+        "replacement_binding_present": true,
+        "notes": []
+      },
+      {
+        "macro_name": "gen_delay_inv",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_delay_inv.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "replacement_macros.json",
+          "openram_replacements_gds"
+        ],
+        "known_labels": [
+          "A",
+          "D",
+          "G",
+          "S",
+          "Z",
+          "gnd",
+          "vdd"
+        ],
+        "known_power_labels": [
+          "gnd",
+          "vdd"
+        ],
+        "vdd_known": true,
+        "gnd_known": true,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 2.505
+        },
+        "role_guess": "replacement_macro",
+        "focus_macro": true,
+        "openyield_bindings": [],
+        "replacement_binding_present": true,
+        "notes": []
+      },
+      {
+        "macro_name": "gen_inv",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_inv.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "replacement_macros.json",
+          "openram_replacements_gds"
+        ],
+        "known_labels": [
+          "A",
+          "D",
+          "G",
+          "S",
+          "Z",
+          "gnd",
+          "vdd"
+        ],
+        "known_power_labels": [
+          "gnd",
+          "vdd"
+        ],
+        "vdd_known": true,
+        "gnd_known": true,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 1.4000000000000001
+        },
+        "role_guess": "replacement_macro",
+        "focus_macro": true,
+        "openyield_bindings": [],
+        "replacement_binding_present": true,
+        "notes": []
+      },
+      {
+        "macro_name": "gen_nand2",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_nand2.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "replacement_macros.json",
+          "openram_replacements_gds"
+        ],
+        "known_labels": [
+          "A",
+          "B",
+          "D",
+          "G",
+          "S",
+          "Z",
+          "gnd",
+          "vdd"
+        ],
+        "known_power_labels": [
+          "gnd",
+          "vdd"
+        ],
+        "vdd_known": true,
+        "gnd_known": true,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.9575,
+          "y1": 1.4000000000000001
+        },
+        "role_guess": "replacement_macro",
+        "focus_macro": true,
+        "openyield_bindings": [],
+        "replacement_binding_present": true,
+        "notes": []
+      },
+      {
+        "macro_name": "gen_precharge",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_precharge.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "replacement_macros.json",
+          "openram_replacements_gds"
+        ],
+        "known_labels": [
+          "D",
+          "G",
+          "S",
+          "bl",
+          "br",
+          "en_bar",
+          "vdd"
+        ],
+        "known_power_labels": [
+          "vdd"
+        ],
+        "vdd_known": true,
+        "gnd_known": false,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.705,
+          "y1": 1.34
+        },
+        "role_guess": "precharge",
+        "focus_macro": true,
+        "openyield_bindings": [],
+        "replacement_binding_present": true,
+        "notes": []
+      },
+      {
+        "macro_name": "gen_wl_driver",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_wl_driver.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "replacement_macros.json",
+          "openram_replacements_gds"
+        ],
+        "known_labels": [
+          "A",
+          "B",
+          "D",
+          "G",
+          "S",
+          "Z",
+          "gnd",
+          "vdd"
+        ],
+        "known_power_labels": [
+          "gnd",
+          "vdd"
+        ],
+        "vdd_known": true,
+        "gnd_known": true,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": -0.08,
+          "y0": -0.105,
+          "x1": 2.965,
+          "y1": 1.4000000000000001
+        },
+        "role_guess": "wordline_driver",
+        "focus_macro": true,
+        "openyield_bindings": [],
+        "replacement_binding_present": true,
+        "notes": []
+      },
+      {
+        "macro_name": "gen_col_mux_vdd_labeled",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openyield_repaired\\gen_col_mux_vdd_labeled.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "openyield_repaired_gds"
+        ],
+        "known_labels": [
+          "D",
+          "G",
+          "S",
+          "bl",
+          "bl_out",
+          "br",
+          "br_out",
+          "gnd",
+          "sel",
+          "vdd"
+        ],
+        "known_power_labels": [
+          "gnd",
+          "vdd"
+        ],
+        "vdd_known": true,
+        "gnd_known": true,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7375,
+          "y1": 1.8
+        },
+        "role_guess": "column_mux",
+        "focus_macro": true,
+        "openyield_bindings": [],
+        "replacement_binding_present": false,
+        "notes": []
+      },
+      {
+        "macro_name": "replica_cell_1rw",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\replica_cell_1rw.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "openyield_macro_aliases.json"
+        ],
+        "known_labels": [
+          "bl",
+          "br",
+          "gnd",
+          "vdd",
+          "wl"
+        ],
+        "known_power_labels": [
+          "gnd",
+          "vdd"
+        ],
+        "vdd_known": true,
+        "gnd_known": true,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": -0.09499999999999872,
+          "y0": -0.09999999999999866,
+          "x1": 0.7999999999999893,
+          "y1": 1.4649999999999803
+        },
+        "role_guess": "replica_bitcell",
+        "focus_macro": true,
+        "openyield_bindings": [
+          "Replica_CELL",
+          "Replica_Column"
+        ],
+        "replacement_binding_present": false,
+        "notes": []
+      },
+      {
+        "macro_name": "replica_cell_2rw",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\replica_cell_2rw.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "filesystem_scan"
+        ],
+        "known_labels": [
+          "bl0",
+          "bl1",
+          "br0",
+          "br1",
+          "gnd",
+          "vdd",
+          "wl0",
+          "wl1"
+        ],
+        "known_power_labels": [
+          "gnd",
+          "vdd"
+        ],
+        "vdd_known": true,
+        "gnd_known": true,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": 0.0,
+          "y0": -0.1,
+          "x1": 1.175,
+          "y1": 1.595
+        },
+        "role_guess": "replica_bitcell",
+        "focus_macro": false,
+        "openyield_bindings": [],
+        "replacement_binding_present": false,
+        "notes": []
+      },
+      {
+        "macro_name": "sense_amp",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\sense_amp.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "openyield_macro_aliases.json"
+        ],
+        "known_labels": [
+          "bl",
+          "br",
+          "dout",
+          "en",
+          "gnd",
+          "vdd"
+        ],
+        "known_power_labels": [
+          "gnd",
+          "vdd"
+        ],
+        "vdd_known": true,
+        "gnd_known": true,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": -0.03499999999999979,
+          "y0": 0.0,
+          "x1": 0.7399999999999956,
+          "y1": 6.009999999999963
+        },
+        "role_guess": "sense_amp",
+        "focus_macro": true,
+        "openyield_bindings": [
+          "SENSEAMP"
+        ],
+        "replacement_binding_present": false,
+        "notes": []
+      },
+      {
+        "macro_name": "tri_gate",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\tri_gate.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "openyield_macro_aliases.json"
+        ],
+        "known_labels": [
+          "en",
+          "en_bar",
+          "gnd",
+          "in",
+          "out",
+          "vdd"
+        ],
+        "known_power_labels": [
+          "gnd",
+          "vdd"
+        ],
+        "vdd_known": true,
+        "gnd_known": true,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": 0.0,
+          "y0": 0.0,
+          "x1": 0.7399999999999956,
+          "y1": 2.974999999999982
+        },
+        "role_guess": "hard_macro",
+        "focus_macro": false,
+        "openyield_bindings": [
+          "tri_gate"
+        ],
+        "replacement_binding_present": false,
+        "notes": []
+      },
+      {
+        "macro_name": "write_driver",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\write_driver.gds",
+        "gds_exists": true,
+        "source_of_binding": [
+          "openyield_macro_aliases.json"
+        ],
+        "known_labels": [
+          "bl",
+          "br",
+          "din",
+          "en",
+          "gnd",
+          "vdd"
+        ],
+        "known_power_labels": [
+          "gnd",
+          "vdd"
+        ],
+        "vdd_known": true,
+        "gnd_known": true,
+        "pin_side_known": false,
+        "bbox_known": true,
+        "bbox": {
+          "x0": -0.0999999999999994,
+          "y0": 0.0,
+          "x1": 0.7399999999999956,
+          "y1": 4.174999999999975
+        },
+        "role_guess": "write_driver",
+        "focus_macro": true,
+        "openyield_bindings": [
+          "WRITEDRIVER"
+        ],
+        "replacement_binding_present": false,
+        "notes": []
+      }
+    ]
+  },
+  "spice_cdl_inventory": {
+    "count": 10,
+    "items": [
+      {
+        "cell_or_macro": "cell_1rw",
+        "spice_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_1rw.sp",
+        "spice_exists": true,
+        "subckt_name": "cell_1rw",
+        "pins_if_parseable": [
+          "bl",
+          "br",
+          "wl",
+          "vdd",
+          "gnd"
+        ],
+        "power_pins_if_parseable": [
+          "vdd",
+          "gnd"
+        ],
+        "matches_gds_macro_name": true,
+        "notes": []
+      },
+      {
+        "cell_or_macro": "cell_2rw",
+        "spice_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "spice_exists": true,
+        "subckt_name": "cell_2rw",
+        "pins_if_parseable": [
+          "bl0",
+          "br0",
+          "bl1",
+          "br1",
+          "wl0",
+          "wl1",
+          "vdd",
+          "gnd"
+        ],
+        "power_pins_if_parseable": [
+          "vdd",
+          "gnd"
+        ],
+        "matches_gds_macro_name": true,
+        "notes": []
+      },
+      {
+        "cell_or_macro": "dff",
+        "spice_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "spice_exists": true,
+        "subckt_name": "dff",
+        "pins_if_parseable": [
+          "D",
+          "Q",
+          "clk",
+          "vdd",
+          "gnd"
+        ],
+        "power_pins_if_parseable": [
+          "vdd",
+          "gnd"
+        ],
+        "matches_gds_macro_name": true,
+        "notes": []
+      },
+      {
+        "cell_or_macro": "dummy_cell_1rw",
+        "spice_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dummy_cell_1rw.sp",
+        "spice_exists": true,
+        "subckt_name": "dummy_cell_1rw",
+        "pins_if_parseable": [
+          "bl",
+          "br",
+          "wl",
+          "vdd",
+          "gnd"
+        ],
+        "power_pins_if_parseable": [
+          "vdd",
+          "gnd"
+        ],
+        "matches_gds_macro_name": true,
+        "notes": []
+      },
+      {
+        "cell_or_macro": "dummy_cell_2rw",
+        "spice_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "spice_exists": true,
+        "subckt_name": "dummy_cell_2rw",
+        "pins_if_parseable": [
+          "bl0",
+          "br0",
+          "bl1",
+          "br1",
+          "wl0",
+          "wl1",
+          "vdd",
+          "gnd"
+        ],
+        "power_pins_if_parseable": [
+          "vdd",
+          "gnd"
+        ],
+        "matches_gds_macro_name": true,
+        "notes": []
+      },
+      {
+        "cell_or_macro": "replica_cell_1rw",
+        "spice_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_1rw.sp",
+        "spice_exists": true,
+        "subckt_name": "replica_cell_1rw",
+        "pins_if_parseable": [
+          "bl",
+          "br",
+          "wl",
+          "vdd",
+          "gnd"
+        ],
+        "power_pins_if_parseable": [
+          "vdd",
+          "gnd"
+        ],
+        "matches_gds_macro_name": true,
+        "notes": []
+      },
+      {
+        "cell_or_macro": "replica_cell_2rw",
+        "spice_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "spice_exists": true,
+        "subckt_name": "replica_cell_2rw",
+        "pins_if_parseable": [
+          "bl0",
+          "br0",
+          "bl1",
+          "br1",
+          "wl0",
+          "wl1",
+          "vdd",
+          "gnd"
+        ],
+        "power_pins_if_parseable": [
+          "vdd",
+          "gnd"
+        ],
+        "matches_gds_macro_name": true,
+        "notes": []
+      },
+      {
+        "cell_or_macro": "sense_amp",
+        "spice_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "spice_exists": true,
+        "subckt_name": "sense_amp",
+        "pins_if_parseable": [
+          "bl",
+          "br",
+          "dout",
+          "en",
+          "vdd",
+          "gnd"
+        ],
+        "power_pins_if_parseable": [
+          "vdd",
+          "gnd"
+        ],
+        "matches_gds_macro_name": true,
+        "notes": []
+      },
+      {
+        "cell_or_macro": "tri_gate",
+        "spice_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\tri_gate.sp",
+        "spice_exists": true,
+        "subckt_name": "tri_gate",
+        "pins_if_parseable": [
+          "in",
+          "out",
+          "en",
+          "en_bar",
+          "vdd",
+          "gnd"
+        ],
+        "power_pins_if_parseable": [
+          "vdd",
+          "gnd"
+        ],
+        "matches_gds_macro_name": true,
+        "notes": []
+      },
+      {
+        "cell_or_macro": "write_driver",
+        "spice_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "spice_exists": true,
+        "subckt_name": "write_driver",
+        "pins_if_parseable": [
+          "din",
+          "bl",
+          "br",
+          "en",
+          "vdd",
+          "gnd"
+        ],
+        "power_pins_if_parseable": [
+          "vdd",
+          "gnd"
+        ],
+        "matches_gds_macro_name": true,
+        "notes": []
+      }
+    ]
+  },
+  "lef_tech_inventory": {
+    "count": 3,
+    "items": [
+      {
+        "asset_type": "drc_deck",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\tech\\freepdk45.lydrc",
+        "exists": true,
+        "relevant_layers": [
+          "m1",
+          "m2",
+          "via1",
+          "poly",
+          "active"
+        ],
+        "pin_layer_info_available": true,
+        "routing_layer_info_available": true,
+        "notes": []
+      },
+      {
+        "asset_type": "klayout_layer_props",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\tech\\freepdk45.lyp",
+        "exists": true,
+        "relevant_layers": [
+          "m1",
+          "m2",
+          "via1",
+          "poly",
+          "active"
+        ],
+        "pin_layer_info_available": true,
+        "routing_layer_info_available": true,
+        "notes": []
+      },
+      {
+        "asset_type": "klayout_tech",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\tech\\freepdk45.lyt",
+        "exists": true,
+        "relevant_layers": [
+          "m1",
+          "m2",
+          "via1",
+          "poly",
+          "active"
+        ],
+        "pin_layer_info_available": true,
+        "routing_layer_info_available": true,
+        "notes": []
+      }
+    ]
+  },
+  "drc_klayout_verification_inventory": {
+    "count": 37,
+    "items": [
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_hardcell_drc_baseline\\cell_1rw_drc.log",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "drc_report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_hardcell_drc_baseline\\cell_1rw_drc.lyrdb",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_hardcell_drc_baseline\\dummy_cell_1rw_drc.log",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "drc_report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_hardcell_drc_baseline\\dummy_cell_1rw_drc.lyrdb",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_hardcell_drc_baseline\\replica_cell_1rw_drc.log",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "drc_report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_hardcell_drc_baseline\\replica_cell_1rw_drc.lyrdb",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_step4_final_smoke\\2x16_wpr1\\openyield_alternating_mx\\standalone_altmx_drc.log",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "drc_report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_step4_final_smoke\\2x16_wpr1\\openyield_alternating_mx\\standalone_altmx_drc.lyrdb",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_mx\\storage_only_drc.log",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "drc_report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_mx\\storage_only_drc.lyrdb",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_mx\\storage_only_drc_report.json",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_mx\\storage_only_drc_report.md",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_2x4_stitched_drc.log",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "drc_report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_2x4_stitched_drc.lyrdb",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_drc.log",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "drc_report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_drc.lyrdb",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_drc_report.json",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_drc_report.md",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_drc_marker_classification_report.json",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_drc_marker_classification_report.md",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_hardcell_drc_baseline_report.json",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_hardcell_drc_baseline_report.md",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_storage_only_drc_smoke_report.json",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_storage_only_drc_smoke_report.md",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "signoff_script_or_report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\SIGNOFF.md",
+        "exists": true,
+        "used_before": true,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "signoff_script_or_report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\examples\\run_external_signoff.ps1",
+        "exists": true,
+        "used_before": false,
+        "target_technology": "unknown",
+        "can_run_readonly": true,
+        "requires_gds_input": true,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\scripts\\__pycache__\\openyield_drc_marker_classify.cpython-314.pyc",
+        "exists": true,
+        "used_before": false,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\scripts\\__pycache__\\openyield_hardcell_drc_baseline.cpython-314.pyc",
+        "exists": true,
+        "used_before": false,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\scripts\\__pycache__\\openyield_storage_only_drc_smoke.cpython-314.pyc",
+        "exists": true,
+        "used_before": false,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "klayout_helper",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\scripts\\klayout_gds_summary.rb",
+        "exists": true,
+        "used_before": false,
+        "target_technology": "unknown",
+        "can_run_readonly": true,
+        "requires_gds_input": true,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\scripts\\openyield_drc_marker_classify.py",
+        "exists": true,
+        "used_before": false,
+        "target_technology": "unknown",
+        "can_run_readonly": true,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\scripts\\openyield_hardcell_drc_baseline.py",
+        "exists": true,
+        "used_before": false,
+        "target_technology": "unknown",
+        "can_run_readonly": true,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "verification_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\scripts\\openyield_storage_only_drc_smoke.py",
+        "exists": true,
+        "used_before": false,
+        "target_technology": "unknown",
+        "can_run_readonly": true,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "signoff_script_or_report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\sram_layoutgen\\__pycache__\\signoff.cpython-314.pyc",
+        "exists": true,
+        "used_before": false,
+        "target_technology": "unknown",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "signoff_script_or_report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\sram_layoutgen\\signoff.py",
+        "exists": true,
+        "used_before": false,
+        "target_technology": "unknown",
+        "can_run_readonly": true,
+        "requires_gds_input": false,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "drc_deck",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\tech\\freepdk45.lydrc",
+        "exists": true,
+        "used_before": false,
+        "target_technology": "freepdk45",
+        "can_run_readonly": true,
+        "requires_gds_input": true,
+        "notes": []
+      },
+      {
+        "tool_or_deck": "lvs_asset",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\tech\\freepdk45.lylvs",
+        "exists": true,
+        "used_before": false,
+        "target_technology": "freepdk45",
+        "can_run_readonly": false,
+        "requires_gds_input": false,
+        "notes": []
+      }
+    ]
+  },
+  "openram_generated_output_inventory": {
+    "root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build",
+    "count": 523,
+    "counts_by_extension": {
+      ".gds": 292,
+      ".json": 88,
+      ".lef": 41,
+      ".log": 7,
+      ".lyrdb": 7,
+      ".md": 47,
+      ".sp": 41
+    },
+    "top_output_directories": [
+      [
+        "openyield_step4_final_smoke/2x16_wpr1/openyield_alternating_mx",
+        14
+      ],
+      [
+        "openyield_columnmux_standalone_smoke/columnmux_only",
+        12
+      ],
+      [
+        "openyield_columnmux_standalone_smoke/legacy_default",
+        12
+      ],
+      [
+        "openyield_columnmux_standalone_smoke/senseamp_plus_columnmux",
+        12
+      ],
+      [
+        "openyield_columnmux_standalone_smoke/storage_plus_senseamp_plus_columnmux",
+        12
+      ],
+      [
+        "openyield_read_write_path_semantic_review_legacy_default",
+        12
+      ],
+      [
+        "openyield_read_write_path_semantic_review_read_path_only",
+        12
+      ],
+      [
+        "openyield_read_write_path_semantic_review_read_write_path",
+        12
+      ],
+      [
+        "openyield_read_write_path_semantic_review_storage_plus_read_write_path",
+        12
+      ],
+      [
+        "openyield_read_write_path_semantic_review_write_path_only",
+        12
+      ],
+      [
+        "openyield_senseamp_standalone_legacy_default",
+        12
+      ],
+      [
+        "openyield_senseamp_standalone_senseamp_only",
+        12
+      ],
+      [
+        "openyield_senseamp_standalone_storage_plus_senseamp",
+        12
+      ],
+      [
+        "openyield_standalone_row_policy_legacy_default",
+        12
+      ],
+      [
+        "openyield_standalone_row_policy_openyield_all_r0",
+        12
+      ],
+      [
+        "openyield_standalone_row_policy_openyield_alternating_mx",
+        12
+      ],
+      [
+        "openyield_step4_final_smoke/2x16_wpr1/legacy_default",
+        12
+      ],
+      [
+        "openyield_step4_final_smoke/2x16_wpr1/openyield_all_r0",
+        12
+      ],
+      [
+        "openyield_step4_final_smoke/4x32_wpr2/legacy_default",
+        12
+      ],
+      [
+        "openyield_step4_final_smoke/4x32_wpr2/openyield_all_r0",
+        12
+      ]
+    ],
+    "items": [
+      {
+        "output_name": "gen_col_mux_vdd_labeled",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_colmux_repair\\gen_col_mux_vdd_labeled.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "columnmux_only.architecture",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\columnmux_only\\columnmux_only.architecture.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "columnmux_only.complete",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\columnmux_only\\columnmux_only.complete.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "columnmux_only.debug",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\columnmux_only\\columnmux_only.debug.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "columnmux_only",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\columnmux_only\\columnmux_only.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "columnmux_only.integration",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\columnmux_only\\columnmux_only.integration.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "columnmux_only.layout",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\columnmux_only\\columnmux_only.layout.json",
+        "type": "json",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "columnmux_only",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\columnmux_only\\columnmux_only.lef",
+        "type": "lef",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "columnmux_only.presentation",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\columnmux_only\\columnmux_only.presentation.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "columnmux_only.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\columnmux_only\\columnmux_only.report.json",
+        "type": "json",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "columnmux_only.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\columnmux_only\\columnmux_only.report.md",
+        "type": "md",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "columnmux_only.route_guides",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\columnmux_only\\columnmux_only.route_guides.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "columnmux_only",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\columnmux_only\\columnmux_only.sp",
+        "type": "sp",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "legacy_default.architecture",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\legacy_default\\legacy_default.architecture.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "legacy_default.complete",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\legacy_default\\legacy_default.complete.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "legacy_default.debug",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\legacy_default\\legacy_default.debug.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "legacy_default",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\legacy_default\\legacy_default.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "legacy_default.integration",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\legacy_default\\legacy_default.integration.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "legacy_default.layout",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\legacy_default\\legacy_default.layout.json",
+        "type": "json",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "legacy_default",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\legacy_default\\legacy_default.lef",
+        "type": "lef",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "legacy_default.presentation",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\legacy_default\\legacy_default.presentation.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "legacy_default.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\legacy_default\\legacy_default.report.json",
+        "type": "json",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "legacy_default.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\legacy_default\\legacy_default.report.md",
+        "type": "md",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "legacy_default.route_guides",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\legacy_default\\legacy_default.route_guides.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "legacy_default",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\legacy_default\\legacy_default.sp",
+        "type": "sp",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "senseamp_plus_columnmux.architecture",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\senseamp_plus_columnmux\\senseamp_plus_columnmux.architecture.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "senseamp_plus_columnmux.complete",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\senseamp_plus_columnmux\\senseamp_plus_columnmux.complete.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "senseamp_plus_columnmux.debug",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\senseamp_plus_columnmux\\senseamp_plus_columnmux.debug.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "senseamp_plus_columnmux",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\senseamp_plus_columnmux\\senseamp_plus_columnmux.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "senseamp_plus_columnmux.integration",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\senseamp_plus_columnmux\\senseamp_plus_columnmux.integration.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "senseamp_plus_columnmux.layout",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\senseamp_plus_columnmux\\senseamp_plus_columnmux.layout.json",
+        "type": "json",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "senseamp_plus_columnmux",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\senseamp_plus_columnmux\\senseamp_plus_columnmux.lef",
+        "type": "lef",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "senseamp_plus_columnmux.presentation",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\senseamp_plus_columnmux\\senseamp_plus_columnmux.presentation.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "senseamp_plus_columnmux.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\senseamp_plus_columnmux\\senseamp_plus_columnmux.report.json",
+        "type": "json",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "senseamp_plus_columnmux.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\senseamp_plus_columnmux\\senseamp_plus_columnmux.report.md",
+        "type": "md",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "senseamp_plus_columnmux.route_guides",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\senseamp_plus_columnmux\\senseamp_plus_columnmux.route_guides.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "senseamp_plus_columnmux",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\senseamp_plus_columnmux\\senseamp_plus_columnmux.sp",
+        "type": "sp",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "storage_plus_senseamp_plus_columnmux.architecture",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\storage_plus_senseamp_plus_columnmux\\storage_plus_senseamp_plus_columnmux.architecture.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "storage_plus_senseamp_plus_columnmux.complete",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\storage_plus_senseamp_plus_columnmux\\storage_plus_senseamp_plus_columnmux.complete.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "storage_plus_senseamp_plus_columnmux.debug",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\storage_plus_senseamp_plus_columnmux\\storage_plus_senseamp_plus_columnmux.debug.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "storage_plus_senseamp_plus_columnmux",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\storage_plus_senseamp_plus_columnmux\\storage_plus_senseamp_plus_columnmux.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "storage_plus_senseamp_plus_columnmux.integration",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\storage_plus_senseamp_plus_columnmux\\storage_plus_senseamp_plus_columnmux.integration.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "storage_plus_senseamp_plus_columnmux.layout",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\storage_plus_senseamp_plus_columnmux\\storage_plus_senseamp_plus_columnmux.layout.json",
+        "type": "json",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "storage_plus_senseamp_plus_columnmux",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\storage_plus_senseamp_plus_columnmux\\storage_plus_senseamp_plus_columnmux.lef",
+        "type": "lef",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "storage_plus_senseamp_plus_columnmux.presentation",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\storage_plus_senseamp_plus_columnmux\\storage_plus_senseamp_plus_columnmux.presentation.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "storage_plus_senseamp_plus_columnmux.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\storage_plus_senseamp_plus_columnmux\\storage_plus_senseamp_plus_columnmux.report.json",
+        "type": "json",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "storage_plus_senseamp_plus_columnmux.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\storage_plus_senseamp_plus_columnmux\\storage_plus_senseamp_plus_columnmux.report.md",
+        "type": "md",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "storage_plus_senseamp_plus_columnmux.route_guides",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\storage_plus_senseamp_plus_columnmux\\storage_plus_senseamp_plus_columnmux.route_guides.gds",
+        "type": "gds",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "storage_plus_senseamp_plus_columnmux",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_columnmux_standalone_smoke\\storage_plus_senseamp_plus_columnmux\\storage_plus_senseamp_plus_columnmux.sp",
+        "type": "sp",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "cell_1rw_drc",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_hardcell_drc_baseline\\cell_1rw_drc.log",
+        "type": "log",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "cell_1rw_drc",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_hardcell_drc_baseline\\cell_1rw_drc.lyrdb",
+        "type": "lyrdb",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": "marker_report",
+        "notes": []
+      },
+      {
+        "output_name": "dummy_cell_1rw_drc",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_hardcell_drc_baseline\\dummy_cell_1rw_drc.log",
+        "type": "log",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "dummy_cell_1rw_drc",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_hardcell_drc_baseline\\dummy_cell_1rw_drc.lyrdb",
+        "type": "lyrdb",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": "marker_report",
+        "notes": []
+      },
+      {
+        "output_name": "replica_cell_1rw_drc",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_hardcell_drc_baseline\\replica_cell_1rw_drc.log",
+        "type": "log",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "replica_cell_1rw_drc",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_hardcell_drc_baseline\\replica_cell_1rw_drc.lyrdb",
+        "type": "lyrdb",
+        "config_if_known": null,
+        "area_if_known": null,
+        "drc_if_known": "marker_report",
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.architecture",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_legacy_default\\sram_4x32_wpr2_fd45.architecture.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.complete",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_legacy_default\\sram_4x32_wpr2_fd45.complete.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.debug",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_legacy_default\\sram_4x32_wpr2_fd45.debug.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_legacy_default\\sram_4x32_wpr2_fd45.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.integration",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_legacy_default\\sram_4x32_wpr2_fd45.integration.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.layout",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_legacy_default\\sram_4x32_wpr2_fd45.layout.json",
+        "type": "json",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_legacy_default\\sram_4x32_wpr2_fd45.lef",
+        "type": "lef",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.presentation",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_legacy_default\\sram_4x32_wpr2_fd45.presentation.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_legacy_default\\sram_4x32_wpr2_fd45.report.json",
+        "type": "json",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_legacy_default\\sram_4x32_wpr2_fd45.report.md",
+        "type": "md",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.route_guides",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_legacy_default\\sram_4x32_wpr2_fd45.route_guides.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_legacy_default\\sram_4x32_wpr2_fd45.sp",
+        "type": "sp",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.architecture",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_path_only\\sram_4x32_wpr2_fd45.architecture.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.complete",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_path_only\\sram_4x32_wpr2_fd45.complete.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.debug",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_path_only\\sram_4x32_wpr2_fd45.debug.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_path_only\\sram_4x32_wpr2_fd45.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.integration",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_path_only\\sram_4x32_wpr2_fd45.integration.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.layout",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_path_only\\sram_4x32_wpr2_fd45.layout.json",
+        "type": "json",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_path_only\\sram_4x32_wpr2_fd45.lef",
+        "type": "lef",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.presentation",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_path_only\\sram_4x32_wpr2_fd45.presentation.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_path_only\\sram_4x32_wpr2_fd45.report.json",
+        "type": "json",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_path_only\\sram_4x32_wpr2_fd45.report.md",
+        "type": "md",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.route_guides",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_path_only\\sram_4x32_wpr2_fd45.route_guides.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_path_only\\sram_4x32_wpr2_fd45.sp",
+        "type": "sp",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.architecture",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_write_path\\sram_4x32_wpr2_fd45.architecture.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.complete",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_write_path\\sram_4x32_wpr2_fd45.complete.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.debug",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_write_path\\sram_4x32_wpr2_fd45.debug.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_write_path\\sram_4x32_wpr2_fd45.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.integration",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_write_path\\sram_4x32_wpr2_fd45.integration.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.layout",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_write_path\\sram_4x32_wpr2_fd45.layout.json",
+        "type": "json",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_write_path\\sram_4x32_wpr2_fd45.lef",
+        "type": "lef",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.presentation",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_write_path\\sram_4x32_wpr2_fd45.presentation.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_write_path\\sram_4x32_wpr2_fd45.report.json",
+        "type": "json",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_write_path\\sram_4x32_wpr2_fd45.report.md",
+        "type": "md",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.route_guides",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_write_path\\sram_4x32_wpr2_fd45.route_guides.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_read_write_path\\sram_4x32_wpr2_fd45.sp",
+        "type": "sp",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.architecture",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_storage_plus_read_write_path\\sram_4x32_wpr2_fd45.architecture.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.complete",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_storage_plus_read_write_path\\sram_4x32_wpr2_fd45.complete.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.debug",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_storage_plus_read_write_path\\sram_4x32_wpr2_fd45.debug.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_storage_plus_read_write_path\\sram_4x32_wpr2_fd45.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.integration",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_storage_plus_read_write_path\\sram_4x32_wpr2_fd45.integration.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.layout",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_storage_plus_read_write_path\\sram_4x32_wpr2_fd45.layout.json",
+        "type": "json",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_storage_plus_read_write_path\\sram_4x32_wpr2_fd45.lef",
+        "type": "lef",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.presentation",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_storage_plus_read_write_path\\sram_4x32_wpr2_fd45.presentation.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_storage_plus_read_write_path\\sram_4x32_wpr2_fd45.report.json",
+        "type": "json",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_storage_plus_read_write_path\\sram_4x32_wpr2_fd45.report.md",
+        "type": "md",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.route_guides",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_storage_plus_read_write_path\\sram_4x32_wpr2_fd45.route_guides.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_storage_plus_read_write_path\\sram_4x32_wpr2_fd45.sp",
+        "type": "sp",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.architecture",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_write_path_only\\sram_4x32_wpr2_fd45.architecture.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.complete",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_write_path_only\\sram_4x32_wpr2_fd45.complete.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.debug",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_write_path_only\\sram_4x32_wpr2_fd45.debug.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_write_path_only\\sram_4x32_wpr2_fd45.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.integration",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_write_path_only\\sram_4x32_wpr2_fd45.integration.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.layout",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_write_path_only\\sram_4x32_wpr2_fd45.layout.json",
+        "type": "json",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_write_path_only\\sram_4x32_wpr2_fd45.lef",
+        "type": "lef",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.presentation",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_write_path_only\\sram_4x32_wpr2_fd45.presentation.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_write_path_only\\sram_4x32_wpr2_fd45.report.json",
+        "type": "json",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_write_path_only\\sram_4x32_wpr2_fd45.report.md",
+        "type": "md",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45.route_guides",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_write_path_only\\sram_4x32_wpr2_fd45.route_guides.gds",
+        "type": "gds",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_4x32_wpr2_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_read_write_path_semantic_review_write_path_only\\sram_4x32_wpr2_fd45.sp",
+        "type": "sp",
+        "config_if_known": "wpr2",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.architecture",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_legacy_default\\sram_2x16_wpr1_fd45.architecture.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.complete",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_legacy_default\\sram_2x16_wpr1_fd45.complete.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.debug",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_legacy_default\\sram_2x16_wpr1_fd45.debug.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_legacy_default\\sram_2x16_wpr1_fd45.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.integration",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_legacy_default\\sram_2x16_wpr1_fd45.integration.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.layout",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_legacy_default\\sram_2x16_wpr1_fd45.layout.json",
+        "type": "json",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_legacy_default\\sram_2x16_wpr1_fd45.lef",
+        "type": "lef",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.presentation",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_legacy_default\\sram_2x16_wpr1_fd45.presentation.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_legacy_default\\sram_2x16_wpr1_fd45.report.json",
+        "type": "json",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_legacy_default\\sram_2x16_wpr1_fd45.report.md",
+        "type": "md",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.route_guides",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_legacy_default\\sram_2x16_wpr1_fd45.route_guides.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_legacy_default\\sram_2x16_wpr1_fd45.sp",
+        "type": "sp",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.architecture",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_senseamp_only\\sram_2x16_wpr1_fd45.architecture.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.complete",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_senseamp_only\\sram_2x16_wpr1_fd45.complete.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.debug",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_senseamp_only\\sram_2x16_wpr1_fd45.debug.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_senseamp_only\\sram_2x16_wpr1_fd45.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.integration",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_senseamp_only\\sram_2x16_wpr1_fd45.integration.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.layout",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_senseamp_only\\sram_2x16_wpr1_fd45.layout.json",
+        "type": "json",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_senseamp_only\\sram_2x16_wpr1_fd45.lef",
+        "type": "lef",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.presentation",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_senseamp_only\\sram_2x16_wpr1_fd45.presentation.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_senseamp_only\\sram_2x16_wpr1_fd45.report.json",
+        "type": "json",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_senseamp_only\\sram_2x16_wpr1_fd45.report.md",
+        "type": "md",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.route_guides",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_senseamp_only\\sram_2x16_wpr1_fd45.route_guides.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_senseamp_only\\sram_2x16_wpr1_fd45.sp",
+        "type": "sp",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.architecture",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_storage_plus_senseamp\\sram_2x16_wpr1_fd45.architecture.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.complete",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_storage_plus_senseamp\\sram_2x16_wpr1_fd45.complete.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.debug",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_storage_plus_senseamp\\sram_2x16_wpr1_fd45.debug.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_storage_plus_senseamp\\sram_2x16_wpr1_fd45.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.integration",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_storage_plus_senseamp\\sram_2x16_wpr1_fd45.integration.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.layout",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_storage_plus_senseamp\\sram_2x16_wpr1_fd45.layout.json",
+        "type": "json",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_storage_plus_senseamp\\sram_2x16_wpr1_fd45.lef",
+        "type": "lef",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.presentation",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_storage_plus_senseamp\\sram_2x16_wpr1_fd45.presentation.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_storage_plus_senseamp\\sram_2x16_wpr1_fd45.report.json",
+        "type": "json",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_storage_plus_senseamp\\sram_2x16_wpr1_fd45.report.md",
+        "type": "md",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.route_guides",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_storage_plus_senseamp\\sram_2x16_wpr1_fd45.route_guides.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_storage_plus_senseamp\\sram_2x16_wpr1_fd45.sp",
+        "type": "sp",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.architecture",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_legacy_default\\sram_2x16_wpr1_fd45.architecture.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.complete",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_legacy_default\\sram_2x16_wpr1_fd45.complete.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.debug",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_legacy_default\\sram_2x16_wpr1_fd45.debug.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_legacy_default\\sram_2x16_wpr1_fd45.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.integration",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_legacy_default\\sram_2x16_wpr1_fd45.integration.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.layout",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_legacy_default\\sram_2x16_wpr1_fd45.layout.json",
+        "type": "json",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_legacy_default\\sram_2x16_wpr1_fd45.lef",
+        "type": "lef",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.presentation",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_legacy_default\\sram_2x16_wpr1_fd45.presentation.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_legacy_default\\sram_2x16_wpr1_fd45.report.json",
+        "type": "json",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_legacy_default\\sram_2x16_wpr1_fd45.report.md",
+        "type": "md",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.route_guides",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_legacy_default\\sram_2x16_wpr1_fd45.route_guides.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_legacy_default\\sram_2x16_wpr1_fd45.sp",
+        "type": "sp",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.architecture",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_all_r0\\sram_2x16_wpr1_fd45.architecture.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.complete",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_all_r0\\sram_2x16_wpr1_fd45.complete.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.debug",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_all_r0\\sram_2x16_wpr1_fd45.debug.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_all_r0\\sram_2x16_wpr1_fd45.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.integration",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_all_r0\\sram_2x16_wpr1_fd45.integration.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.layout",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_all_r0\\sram_2x16_wpr1_fd45.layout.json",
+        "type": "json",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_all_r0\\sram_2x16_wpr1_fd45.lef",
+        "type": "lef",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.presentation",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_all_r0\\sram_2x16_wpr1_fd45.presentation.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_all_r0\\sram_2x16_wpr1_fd45.report.json",
+        "type": "json",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_all_r0\\sram_2x16_wpr1_fd45.report.md",
+        "type": "md",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.route_guides",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_all_r0\\sram_2x16_wpr1_fd45.route_guides.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_all_r0\\sram_2x16_wpr1_fd45.sp",
+        "type": "sp",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.architecture",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_alternating_mx\\sram_2x16_wpr1_fd45.architecture.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.complete",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_alternating_mx\\sram_2x16_wpr1_fd45.complete.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.debug",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_alternating_mx\\sram_2x16_wpr1_fd45.debug.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_alternating_mx\\sram_2x16_wpr1_fd45.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.integration",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_alternating_mx\\sram_2x16_wpr1_fd45.integration.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.layout",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_alternating_mx\\sram_2x16_wpr1_fd45.layout.json",
+        "type": "json",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_alternating_mx\\sram_2x16_wpr1_fd45.lef",
+        "type": "lef",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.presentation",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_alternating_mx\\sram_2x16_wpr1_fd45.presentation.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_alternating_mx\\sram_2x16_wpr1_fd45.report.json",
+        "type": "json",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_alternating_mx\\sram_2x16_wpr1_fd45.report.md",
+        "type": "md",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.route_guides",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_alternating_mx\\sram_2x16_wpr1_fd45.route_guides.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_standalone_row_policy_openyield_alternating_mx\\sram_2x16_wpr1_fd45.sp",
+        "type": "sp",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.architecture",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_step4_final_smoke\\2x16_wpr1\\legacy_default\\sram_2x16_wpr1_fd45.architecture.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.complete",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_step4_final_smoke\\2x16_wpr1\\legacy_default\\sram_2x16_wpr1_fd45.complete.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.debug",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_step4_final_smoke\\2x16_wpr1\\legacy_default\\sram_2x16_wpr1_fd45.debug.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_step4_final_smoke\\2x16_wpr1\\legacy_default\\sram_2x16_wpr1_fd45.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.integration",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_step4_final_smoke\\2x16_wpr1\\legacy_default\\sram_2x16_wpr1_fd45.integration.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.layout",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_step4_final_smoke\\2x16_wpr1\\legacy_default\\sram_2x16_wpr1_fd45.layout.json",
+        "type": "json",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_step4_final_smoke\\2x16_wpr1\\legacy_default\\sram_2x16_wpr1_fd45.lef",
+        "type": "lef",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.presentation",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_step4_final_smoke\\2x16_wpr1\\legacy_default\\sram_2x16_wpr1_fd45.presentation.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_step4_final_smoke\\2x16_wpr1\\legacy_default\\sram_2x16_wpr1_fd45.report.json",
+        "type": "json",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.report",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_step4_final_smoke\\2x16_wpr1\\legacy_default\\sram_2x16_wpr1_fd45.report.md",
+        "type": "md",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.route_guides",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_step4_final_smoke\\2x16_wpr1\\legacy_default\\sram_2x16_wpr1_fd45.route_guides.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_step4_final_smoke\\2x16_wpr1\\legacy_default\\sram_2x16_wpr1_fd45.sp",
+        "type": "sp",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      },
+      {
+        "output_name": "sram_2x16_wpr1_fd45.architecture",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_step4_final_smoke\\2x16_wpr1\\openyield_all_r0\\sram_2x16_wpr1_fd45.architecture.gds",
+        "type": "gds",
+        "config_if_known": "wpr1",
+        "area_if_known": null,
+        "drc_if_known": null,
+        "notes": []
+      }
+    ],
+    "truncated": true,
+    "total_item_count": 523
+  },
+  "layout_writer_routing_standalone_readonly_inventory": {
+    "count": 10,
+    "items": [
+      {
+        "component": "standalone",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\sram_layoutgen\\standalone.py",
+        "role_guess": "top-level generator / integration entry",
+        "read_only_inspected": true,
+        "modified": false,
+        "notes": []
+      },
+      {
+        "component": "gds_writer",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\sram_layoutgen\\gds_writer.py",
+        "role_guess": "GDS emission",
+        "read_only_inspected": true,
+        "modified": false,
+        "notes": []
+      },
+      {
+        "component": "lef_writer",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\sram_layoutgen\\lef_writer.py",
+        "role_guess": "LEF writer",
+        "read_only_inspected": true,
+        "modified": false,
+        "notes": []
+      },
+      {
+        "component": "routing",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\sram_layoutgen\\geometry.py",
+        "role_guess": "geometry primitives used by routing/layout",
+        "read_only_inspected": true,
+        "modified": false,
+        "notes": []
+      },
+      {
+        "component": "routing",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\sram_layoutgen\\verifier.py",
+        "role_guess": "route/connectivity verification entry",
+        "read_only_inspected": true,
+        "modified": false,
+        "notes": []
+      },
+      {
+        "component": "signoff",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\sram_layoutgen\\signoff.py",
+        "role_guess": "external DRC/LVS helpers",
+        "read_only_inspected": true,
+        "modified": false,
+        "notes": []
+      },
+      {
+        "component": "placement",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\sram_layoutgen\\openram_placement.py",
+        "role_guess": "OpenRAM-style placement",
+        "read_only_inspected": true,
+        "modified": false,
+        "notes": []
+      },
+      {
+        "component": "power_stitch_script",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\scripts\\openyield_storage_only_gds_smoke.py",
+        "role_guess": "storage-only smoke/export",
+        "read_only_inspected": true,
+        "modified": false,
+        "notes": []
+      },
+      {
+        "component": "power_stitch_script",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\scripts\\openyield_storage_only_drc_smoke.py",
+        "role_guess": "storage-only DRC smoke",
+        "read_only_inspected": true,
+        "modified": false,
+        "notes": []
+      },
+      {
+        "component": "time_control_readonly",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\scripts\\openyield_time_control_final_boundary_summary.py",
+        "role_guess": "TIME/control boundary summary",
+        "read_only_inspected": true,
+        "modified": false,
+        "notes": []
+      }
+    ]
+  },
+  "timing_metadata_inventory": {
+    "count": 26,
+    "items": [
+      {
+        "name": "openyield_time_control_abstract_floorplan_payload_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_abstract_floorplan_payload_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_builder_output_regression_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_builder_output_regression_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_closure_unblock_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_closure_unblock_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_consumer_contract_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_consumer_contract_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_decomposition_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_decomposition_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_evidence_crossing_bundle_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_evidence_crossing_bundle_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_experimental_contract_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_experimental_contract_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_fast_bundle_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_fast_bundle_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_final_boundary_summary_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_final_boundary_summary_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_generated_logic_contract_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_generated_logic_contract_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_goal_progress_audit_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_goal_progress_audit_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_metadata_closure_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_metadata_closure_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_opt_in_prototype_plan_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_opt_in_prototype_plan_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_packing_invariant_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_packing_invariant_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_payload_completeness_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_payload_completeness_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_payload_consumption_contract_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_payload_consumption_contract_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_payload_materialization_boundary_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_payload_materialization_boundary_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_placement_readiness_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_placement_readiness_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_precharge_constraints_bundle_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_precharge_constraints_bundle_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_prototype_artifact_contract_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_prototype_artifact_contract_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_prototype_execution_guard_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_prototype_execution_guard_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_prototype_interface_surface_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_prototype_interface_surface_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_prototype_state_machine_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_prototype_state_machine_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_region_refinement_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_region_refinement_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_signal_binding_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_signal_binding_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_subblock_audit_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_subblock_audit_report.json",
+        "kind": "time_control_report"
+      }
+    ]
+  },
+  "missing_assets": [],
+  "usable_assets_for_next_proof": {
+    "hardcell_focus_macros": [
+      {
+        "macro_name": "cell_1rw",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\cell_1rw.gds"
+      },
+      {
+        "macro_name": "dff",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\dff.gds"
+      },
+      {
+        "macro_name": "dummy_cell_1rw",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\dummy_cell_1rw.gds"
+      },
+      {
+        "macro_name": "gen_col_mux",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_col_mux.gds"
+      },
+      {
+        "macro_name": "gen_delay_inv",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_delay_inv.gds"
+      },
+      {
+        "macro_name": "gen_inv",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_inv.gds"
+      },
+      {
+        "macro_name": "gen_nand2",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_nand2.gds"
+      },
+      {
+        "macro_name": "gen_precharge",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_precharge.gds"
+      },
+      {
+        "macro_name": "gen_wl_driver",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_wl_driver.gds"
+      },
+      {
+        "macro_name": "gen_col_mux",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_col_mux.gds"
+      },
+      {
+        "macro_name": "gen_delay_inv",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_delay_inv.gds"
+      },
+      {
+        "macro_name": "gen_inv",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_inv.gds"
+      },
+      {
+        "macro_name": "gen_nand2",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_nand2.gds"
+      },
+      {
+        "macro_name": "gen_precharge",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_precharge.gds"
+      },
+      {
+        "macro_name": "gen_wl_driver",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_wl_driver.gds"
+      },
+      {
+        "macro_name": "gen_col_mux_vdd_labeled",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openyield_repaired\\gen_col_mux_vdd_labeled.gds"
+      },
+      {
+        "macro_name": "replica_cell_1rw",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\replica_cell_1rw.gds"
+      },
+      {
+        "macro_name": "sense_amp",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\sense_amp.gds"
+      },
+      {
+        "macro_name": "write_driver",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\write_driver.gds"
+      }
+    ],
+    "drc_decks": [
+      {
+        "tool_or_deck": "drc_deck",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\tech\\freepdk45.lydrc"
+      }
+    ],
+    "tech_assets": [
+      {
+        "asset_type": "drc_deck",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\tech\\freepdk45.lydrc"
+      },
+      {
+        "asset_type": "klayout_layer_props",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\tech\\freepdk45.lyp"
+      },
+      {
+        "asset_type": "klayout_tech",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\tech\\freepdk45.lyt"
+      }
+    ],
+    "layout_entrypoints": [
+      {
+        "component": "standalone",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\sram_layoutgen\\standalone.py"
+      },
+      {
+        "component": "gds_writer",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\sram_layoutgen\\gds_writer.py"
+      },
+      {
+        "component": "lef_writer",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\sram_layoutgen\\lef_writer.py"
+      },
+      {
+        "component": "routing",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\sram_layoutgen\\geometry.py"
+      },
+      {
+        "component": "routing",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\sram_layoutgen\\verifier.py"
+      },
+      {
+        "component": "signoff",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\sram_layoutgen\\signoff.py"
+      },
+      {
+        "component": "placement",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\sram_layoutgen\\openram_placement.py"
+      },
+      {
+        "component": "power_stitch_script",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\scripts\\openyield_storage_only_gds_smoke.py"
+      },
+      {
+        "component": "power_stitch_script",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\scripts\\openyield_storage_only_drc_smoke.py"
+      },
+      {
+        "component": "time_control_readonly",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\scripts\\openyield_time_control_final_boundary_summary.py"
+      }
+    ],
+    "time_metadata_reports": [
+      {
+        "name": "openyield_time_control_abstract_floorplan_payload_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_abstract_floorplan_payload_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_builder_output_regression_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_builder_output_regression_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_closure_unblock_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_closure_unblock_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_consumer_contract_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_consumer_contract_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_decomposition_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_decomposition_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_evidence_crossing_bundle_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_evidence_crossing_bundle_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_experimental_contract_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_experimental_contract_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_fast_bundle_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_fast_bundle_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_final_boundary_summary_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_final_boundary_summary_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_generated_logic_contract_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_generated_logic_contract_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_goal_progress_audit_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_goal_progress_audit_report.json",
+        "kind": "time_control_report"
+      },
+      {
+        "name": "openyield_time_control_metadata_closure_report.json",
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_metadata_closure_report.json",
+        "kind": "time_control_report"
+      }
+    ]
+  },
+  "ranked_next_tasks": [
+    {
+      "task": "hardcell_power_rail_continuity_readonly_audit",
+      "rank": 1,
+      "ready": true,
+      "reason": "Hardcell GDS plus technology and DRC deck are present."
+    },
+    {
+      "task": "time_control_leaf_bbox_pin_side_inventory",
+      "rank": 2,
+      "ready": true,
+      "reason": "Hardcell GDS and pin labels are present for readonly geometry inventory."
+    },
+    {
+      "task": "time_control_composite_internal_placement_feasibility_audit",
+      "rank": 3,
+      "ready": true,
+      "reason": "Placement readonly entrypoints and tech assets are locatable."
+    },
+    {
+      "task": "time_control_route_obstacle_inventory",
+      "rank": 4,
+      "ready": true,
+      "reason": "Routing-related code and tech assets are locatable."
+    },
+    {
+      "task": "delay_chain_timing_metadata_inventory",
+      "rank": 5,
+      "ready": true,
+      "reason": "TIME/control metadata reports already exist for readonly follow-up."
+    }
+  ],
+  "recommended_next_goal": "hardcell_power_rail_continuity_readonly_audit",
+  "hardcell_power_rail_continuity_readonly_audit_inputs": {
+    "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+    "drc_decks": [
+      "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\tech\\freepdk45.lydrc"
+    ],
+    "macro_gds_inputs": [
+      {
+        "macro_name": "cell_1rw",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\cell_1rw.gds"
+      },
+      {
+        "macro_name": "dummy_cell_1rw",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\dummy_cell_1rw.gds"
+      },
+      {
+        "macro_name": "gen_col_mux",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_col_mux.gds"
+      },
+      {
+        "macro_name": "gen_wl_driver",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_wl_driver.gds"
+      },
+      {
+        "macro_name": "gen_col_mux",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_col_mux.gds"
+      },
+      {
+        "macro_name": "gen_wl_driver",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_wl_driver.gds"
+      },
+      {
+        "macro_name": "replica_cell_1rw",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\replica_cell_1rw.gds"
+      },
+      {
+        "macro_name": "sense_amp",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\sense_amp.gds"
+      },
+      {
+        "macro_name": "write_driver",
+        "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\write_driver.gds"
+      }
+    ]
+  },
+  "decision_flags": {
+    "repo_physical_asset_inventory_available": true,
+    "hardcell_gds_inventory_available": true,
+    "spice_inventory_available": true,
+    "lef_or_tech_inventory_available": true,
+    "drc_deck_inventory_available": true,
+    "openram_generated_output_inventory_available": true,
+    "layout_writer_inventory_available": true,
+    "routing_inventory_available": true,
+    "standalone_inventory_available": true,
+    "can_enter_hardcell_power_rail_continuity_readonly_audit": true,
+    "can_enter_legal_placement_readonly_audit": true,
+    "can_enter_routing_obstacle_readonly_audit": true,
+    "can_enter_timing_metadata_inventory": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "boundary_assertions": {
+    "standalone_modified": false,
+    "routing_modified": false,
+    "gds_writer_modified": false,
+    "legacy_path_unchanged": true
+  },
+  "notes": [
+    "This inventory is filesystem-driven and read-only.",
+    "Locating GDS/SPICE/DRC assets is evidence of asset presence, not proof of rail continuity, routing correctness, DRC clean, or LVS clean.",
+    "TIME/control physical placement and GDS generation remain blocked by the current metadata-only boundary."
+  ]
+}
