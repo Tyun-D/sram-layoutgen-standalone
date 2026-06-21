@@ -176,3 +176,12 @@ except ModuleNotFoundError:
     pass
 else:
     __all__.append("build_time_control_builder_output_regression_report")
+
+try:
+    from .time_control_final_boundary_summary import (
+        build_time_control_final_boundary_summary_report,
+    )
+except ModuleNotFoundError:
+    pass
+else:
+    __all__.append("build_time_control_final_boundary_summary_report")
