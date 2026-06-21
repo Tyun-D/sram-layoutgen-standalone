@@ -90,3 +90,10 @@ else:
             "build_time_control_abstract_floorplan_payload",
         ]
     )
+
+try:
+    from .time_control_packing_invariants import build_time_control_packing_invariant_report
+except ModuleNotFoundError:
+    pass
+else:
+    __all__.append("build_time_control_packing_invariant_report")
