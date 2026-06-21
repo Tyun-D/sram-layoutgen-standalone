@@ -1,0 +1,168 @@
+{
+  "scope": "stage_d_openyield_time_control_opt_in_prototype_plan",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "source_reports": {
+    "time_control_placement_readiness": "stage_c_openyield_time_control_placement_readiness",
+    "time_control_metadata_closure": "stage_b_openyield_time_control_metadata_closure"
+  },
+  "prototype_contract": {
+    "default_enabled": false,
+    "legacy_path_unchanged": true,
+    "standalone_py_modified": false,
+    "routing_modified": false,
+    "gds_writer_modified": false,
+    "physical_gds_generated": false,
+    "shared_rail_enabled": false,
+    "uses_time_as_single_macro": false,
+    "allows_only_metadata_prototype": true
+  },
+  "phased_steps": [
+    {
+      "step_name": "prototype_config_surface_only",
+      "allowed": true,
+      "default_enabled": false,
+      "touches": [
+        "future spec/config surface only"
+      ],
+      "forbidden": [
+        "standalone.py",
+        "routing",
+        "gds writer"
+      ],
+      "notes": [
+        "Do not wire this into the active generator path yet."
+      ]
+    },
+    {
+      "step_name": "abstract_subblock_row_packing_plan",
+      "allowed": true,
+      "default_enabled": false,
+      "touches": [
+        "metadata plan objects",
+        "abstract region packing"
+      ],
+      "forbidden": [
+        "physical placement",
+        "GDS generation",
+        "real routed wires"
+      ],
+      "notes": [
+        "Only encode rows, ordering, neighbor intent, and handoff placeholders."
+      ]
+    },
+    {
+      "step_name": "consumer_handoff_stub_contracts",
+      "allowed": true,
+      "default_enabled": false,
+      "touches": [
+        "metadata-only consumer handoff reservations"
+      ],
+      "forbidden": [
+        "sense/write/WL physical rewiring",
+        "shared rail"
+      ],
+      "notes": [
+        "Keep peripheral routing on legacy path until later proof exists."
+      ]
+    },
+    {
+      "step_name": "standalone_opt_in_gate_review",
+      "allowed": false,
+      "default_enabled": false,
+      "touches": [
+        "standalone.py only after a later gate"
+      ],
+      "forbidden": [
+        "current turn integration"
+      ],
+      "notes": [
+        "Blocked until later physical/layout proof exists."
+      ]
+    }
+  ],
+  "candidate_interfaces": [
+    {
+      "name": "ADDR_DFF_ROW",
+      "future_plan_kind": "abstract_dff_row",
+      "must_remain_default_off": true,
+      "blocked_by": [
+        "addr bus physical proof missing",
+        "standalone integration blocked"
+      ]
+    },
+    {
+      "name": "DATA_DFF_ROW",
+      "future_plan_kind": "abstract_dff_row",
+      "must_remain_default_off": true,
+      "blocked_by": [
+        "data bus physical proof missing",
+        "standalone integration blocked"
+      ]
+    },
+    {
+      "name": "GENERATED_LOGIC_CLUSTER",
+      "future_plan_kind": "stdcell_row_abstract_cluster",
+      "must_remain_default_off": true,
+      "blocked_by": [
+        "stdcell physical library proof missing",
+        "routing proof missing"
+      ]
+    },
+    {
+      "name": "PRECHARGE_HANDOFF",
+      "future_plan_kind": "consumer_handoff_reservation_only",
+      "must_remain_default_off": true,
+      "blocked_by": [
+        "rail continuity proof missing",
+        "routing proof missing"
+      ]
+    },
+    {
+      "name": "WORDLINEDRIVER_HANDOFF",
+      "future_plan_kind": "consumer_handoff_reservation_only",
+      "must_remain_default_off": true,
+      "blocked_by": [
+        "wordline routing proof missing",
+        "decoder coordination unresolved"
+      ]
+    }
+  ],
+  "consistency_checks": {
+    "default_off_experimental_opt_in_prototype_plan_available": true,
+    "stage_c_gate_passed": true,
+    "time_control_metadata_closure_available": true,
+    "legacy_path_unchanged": true,
+    "default_enabled": false,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false,
+    "can_claim_routing_proof": false,
+    "safe_for_metadata_prototype_only": true
+  },
+  "unresolved_items": [
+    "This plan is intentionally non-executable in the main generator path.",
+    "No standalone integration is allowed in this stage.",
+    "No TIME/control physical placement is allowed in this stage.",
+    "No TIME/control GDS is allowed in this stage.",
+    "No routing proof, DRC proof, or LVS proof is added by this plan.",
+    "Decoder/TIME boundary still needs a later coordinated physical proof."
+  ],
+  "audit_summary": {
+    "default_off_experimental_opt_in_prototype_plan_available": true,
+    "default_enabled": false,
+    "legacy_path_unchanged": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "default_enabled": false,
+  "legacy_path_unchanged": true,
+  "can_modify_standalone_now": false,
+  "can_generate_time_control_gds_now": false,
+  "can_enter_physical_placement_now": false,
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false
+}

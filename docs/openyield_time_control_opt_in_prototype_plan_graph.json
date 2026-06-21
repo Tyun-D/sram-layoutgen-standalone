@@ -1,0 +1,76 @@
+{
+  "scope": "stage_d_openyield_time_control_opt_in_prototype_plan",
+  "nodes": [
+    {
+      "id": "prototype_config_surface_only",
+      "kind": "prototype_step"
+    },
+    {
+      "id": "abstract_subblock_row_packing_plan",
+      "kind": "prototype_step"
+    },
+    {
+      "id": "consumer_handoff_stub_contracts",
+      "kind": "prototype_step"
+    },
+    {
+      "id": "standalone_opt_in_gate_review",
+      "kind": "prototype_step"
+    },
+    {
+      "id": "ADDR_DFF_ROW",
+      "kind": "candidate_interface"
+    },
+    {
+      "id": "DATA_DFF_ROW",
+      "kind": "candidate_interface"
+    },
+    {
+      "id": "GENERATED_LOGIC_CLUSTER",
+      "kind": "candidate_interface"
+    },
+    {
+      "id": "PRECHARGE_HANDOFF",
+      "kind": "candidate_interface"
+    },
+    {
+      "id": "WORDLINEDRIVER_HANDOFF",
+      "kind": "candidate_interface"
+    }
+  ],
+  "edges": [
+    {
+      "source": "ADDR_DFF_ROW",
+      "target": "prototype_config_surface_only",
+      "relation": "candidate_for_future_opt_in"
+    },
+    {
+      "source": "DATA_DFF_ROW",
+      "target": "prototype_config_surface_only",
+      "relation": "candidate_for_future_opt_in"
+    },
+    {
+      "source": "GENERATED_LOGIC_CLUSTER",
+      "target": "prototype_config_surface_only",
+      "relation": "candidate_for_future_opt_in"
+    },
+    {
+      "source": "PRECHARGE_HANDOFF",
+      "target": "prototype_config_surface_only",
+      "relation": "candidate_for_future_opt_in"
+    },
+    {
+      "source": "WORDLINEDRIVER_HANDOFF",
+      "target": "prototype_config_surface_only",
+      "relation": "candidate_for_future_opt_in"
+    }
+  ],
+  "summary": {
+    "default_off_experimental_opt_in_prototype_plan_available": true,
+    "default_enabled": false,
+    "legacy_path_unchanged": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  }
+}
