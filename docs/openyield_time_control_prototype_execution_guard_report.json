@@ -1,0 +1,225 @@
+{
+  "scope": "step6_37_openyield_time_control_prototype_execution_guard_audit",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "guard_rows": [
+    {
+      "guard_name": "default_enabled_false",
+      "passed": true
+    },
+    {
+      "guard_name": "legacy_path_unchanged",
+      "passed": true
+    },
+    {
+      "guard_name": "standalone_unmodified",
+      "passed": true
+    },
+    {
+      "guard_name": "routing_unmodified",
+      "passed": true
+    },
+    {
+      "guard_name": "gds_writer_unmodified",
+      "passed": true
+    },
+    {
+      "guard_name": "physical_gds_not_generated",
+      "passed": true
+    },
+    {
+      "guard_name": "shared_rail_disabled",
+      "passed": true
+    },
+    {
+      "guard_name": "time_not_single_macro",
+      "passed": true
+    },
+    {
+      "guard_name": "metadata_only_mode",
+      "passed": true
+    },
+    {
+      "guard_name": "cannot_modify_standalone_now",
+      "passed": true
+    },
+    {
+      "guard_name": "cannot_generate_gds_now",
+      "passed": true
+    },
+    {
+      "guard_name": "cannot_enter_physical_now",
+      "passed": true
+    }
+  ],
+  "phased_step_rows": [
+    {
+      "step_name": "prototype_config_surface_only",
+      "allowed": true,
+      "default_enabled": false,
+      "touches": [
+        "future spec/config surface only"
+      ],
+      "forbidden": [
+        "standalone.py",
+        "routing",
+        "gds writer"
+      ],
+      "forbidden_explicit": true,
+      "touch_scope_known": true,
+      "default_off_preserved": true
+    },
+    {
+      "step_name": "abstract_subblock_row_packing_plan",
+      "allowed": true,
+      "default_enabled": false,
+      "touches": [
+        "metadata plan objects",
+        "abstract region packing"
+      ],
+      "forbidden": [
+        "physical placement",
+        "GDS generation",
+        "real routed wires"
+      ],
+      "forbidden_explicit": true,
+      "touch_scope_known": true,
+      "default_off_preserved": true
+    },
+    {
+      "step_name": "consumer_handoff_stub_contracts",
+      "allowed": true,
+      "default_enabled": false,
+      "touches": [
+        "metadata-only consumer handoff reservations"
+      ],
+      "forbidden": [
+        "sense/write/WL physical rewiring",
+        "shared rail"
+      ],
+      "forbidden_explicit": true,
+      "touch_scope_known": true,
+      "default_off_preserved": true
+    },
+    {
+      "step_name": "standalone_opt_in_gate_review",
+      "allowed": false,
+      "default_enabled": false,
+      "touches": [
+        "standalone.py only after a later gate"
+      ],
+      "forbidden": [
+        "current turn integration"
+      ],
+      "forbidden_explicit": true,
+      "touch_scope_known": true,
+      "default_off_preserved": true
+    }
+  ],
+  "capability_rows": [
+    {
+      "capability": "default-off config surfacing",
+      "should_be_allowed": true,
+      "present": true
+    },
+    {
+      "capability": "abstract row/region metadata packing",
+      "should_be_allowed": true,
+      "present": true
+    },
+    {
+      "capability": "consumer handoff reservation modeling",
+      "should_be_allowed": true,
+      "present": true
+    },
+    {
+      "capability": "future gate bookkeeping",
+      "should_be_allowed": true,
+      "present": true
+    },
+    {
+      "capability": "standalone integration",
+      "should_be_allowed": false,
+      "present": true
+    },
+    {
+      "capability": "physical TIME/control placement",
+      "should_be_allowed": false,
+      "present": true
+    },
+    {
+      "capability": "TIME/control GDS generation",
+      "should_be_allowed": false,
+      "present": true
+    },
+    {
+      "capability": "legal routing proof",
+      "should_be_allowed": false,
+      "present": true
+    },
+    {
+      "capability": "rail continuity proof",
+      "should_be_allowed": false,
+      "present": true
+    },
+    {
+      "capability": "shared rail enablement",
+      "should_be_allowed": false,
+      "present": true
+    }
+  ],
+  "source_reports": {
+    "prototype_plan": "stage_d_openyield_time_control_opt_in_prototype_plan",
+    "experimental_contract": "step6_31_openyield_time_control_experimental_contract",
+    "payload": "step6_32_openyield_time_control_abstract_floorplan_payload",
+    "payload_completeness": "step6_34_openyield_time_control_payload_completeness_audit",
+    "payload_consumption_contract": "step6_35_openyield_time_control_payload_consumption_contract_audit",
+    "payload_materialization_boundary": "step6_36_openyield_time_control_payload_materialization_boundary_audit",
+    "placement_readiness": "stage_c_openyield_time_control_placement_readiness"
+  },
+  "violations": {
+    "guard_violations": [],
+    "phased_step_violations": [],
+    "capability_violations": [],
+    "residual_risk_note_missing": false
+  },
+  "consistency_checks": {
+    "prototype_execution_guard_audit_available": true,
+    "default_off_preserved": true,
+    "standalone_guard_explicit": true,
+    "routing_guard_explicit": true,
+    "gds_writer_guard_explicit": true,
+    "physical_gds_guard_explicit": true,
+    "shared_rail_guard_explicit": true,
+    "time_macro_guard_explicit": true,
+    "phased_step_guards_explicit": true,
+    "blocked_capabilities_explicit": true,
+    "residual_risk_notes_explicit": true,
+    "future_default_off_builder_guardrails_clean": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "audit_summary": {
+    "prototype_execution_guard_audit_available": true,
+    "default_off_preserved": true,
+    "phased_step_guards_explicit": true,
+    "blocked_capabilities_explicit": true,
+    "future_default_off_builder_guardrails_clean": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "notes": [
+    "This audit formalizes which actions a future default-off prototype builder may and may not perform.",
+    "Passing this audit still does not authorize standalone integration, routing, GDS generation, or physical placement.",
+    "The purpose is to make non-physical execution boundaries explicit before any builder implementation begins."
+  ],
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "can_modify_standalone_now": false,
+  "can_generate_time_control_gds_now": false,
+  "can_enter_physical_placement_now": false
+}

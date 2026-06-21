@@ -1,0 +1,191 @@
+{
+  "scope": "step6_37_openyield_time_control_prototype_execution_guard_audit",
+  "nodes": [
+    {
+      "id": "default_enabled_false",
+      "kind": "guard"
+    },
+    {
+      "id": "legacy_path_unchanged",
+      "kind": "guard"
+    },
+    {
+      "id": "standalone_unmodified",
+      "kind": "guard"
+    },
+    {
+      "id": "routing_unmodified",
+      "kind": "guard"
+    },
+    {
+      "id": "gds_writer_unmodified",
+      "kind": "guard"
+    },
+    {
+      "id": "physical_gds_not_generated",
+      "kind": "guard"
+    },
+    {
+      "id": "shared_rail_disabled",
+      "kind": "guard"
+    },
+    {
+      "id": "time_not_single_macro",
+      "kind": "guard"
+    },
+    {
+      "id": "metadata_only_mode",
+      "kind": "guard"
+    },
+    {
+      "id": "cannot_modify_standalone_now",
+      "kind": "guard"
+    },
+    {
+      "id": "cannot_generate_gds_now",
+      "kind": "guard"
+    },
+    {
+      "id": "cannot_enter_physical_now",
+      "kind": "guard"
+    },
+    {
+      "id": "prototype_config_surface_only",
+      "kind": "phased_step"
+    },
+    {
+      "id": "abstract_subblock_row_packing_plan",
+      "kind": "phased_step"
+    },
+    {
+      "id": "consumer_handoff_stub_contracts",
+      "kind": "phased_step"
+    },
+    {
+      "id": "standalone_opt_in_gate_review",
+      "kind": "phased_step"
+    },
+    {
+      "id": "default-off config surfacing",
+      "kind": "capability"
+    },
+    {
+      "id": "abstract row/region metadata packing",
+      "kind": "capability"
+    },
+    {
+      "id": "consumer handoff reservation modeling",
+      "kind": "capability"
+    },
+    {
+      "id": "future gate bookkeeping",
+      "kind": "capability"
+    },
+    {
+      "id": "standalone integration",
+      "kind": "capability"
+    },
+    {
+      "id": "physical TIME/control placement",
+      "kind": "capability"
+    },
+    {
+      "id": "TIME/control GDS generation",
+      "kind": "capability"
+    },
+    {
+      "id": "legal routing proof",
+      "kind": "capability"
+    },
+    {
+      "id": "rail continuity proof",
+      "kind": "capability"
+    },
+    {
+      "id": "shared rail enablement",
+      "kind": "capability"
+    }
+  ],
+  "edges": [
+    {
+      "source": "prototype_config_surface_only",
+      "target": "standalone.py",
+      "relation": "forbidden_action"
+    },
+    {
+      "source": "prototype_config_surface_only",
+      "target": "routing",
+      "relation": "forbidden_action"
+    },
+    {
+      "source": "prototype_config_surface_only",
+      "target": "gds writer",
+      "relation": "forbidden_action"
+    },
+    {
+      "source": "abstract_subblock_row_packing_plan",
+      "target": "physical placement",
+      "relation": "forbidden_action"
+    },
+    {
+      "source": "abstract_subblock_row_packing_plan",
+      "target": "GDS generation",
+      "relation": "forbidden_action"
+    },
+    {
+      "source": "abstract_subblock_row_packing_plan",
+      "target": "real routed wires",
+      "relation": "forbidden_action"
+    },
+    {
+      "source": "consumer_handoff_stub_contracts",
+      "target": "sense/write/WL physical rewiring",
+      "relation": "forbidden_action"
+    },
+    {
+      "source": "consumer_handoff_stub_contracts",
+      "target": "shared rail",
+      "relation": "forbidden_action"
+    },
+    {
+      "source": "standalone_opt_in_gate_review",
+      "target": "current turn integration",
+      "relation": "forbidden_action"
+    },
+    {
+      "source": "prototype_config_surface_only",
+      "target": "future spec/config surface only",
+      "relation": "allowed_touch_scope"
+    },
+    {
+      "source": "abstract_subblock_row_packing_plan",
+      "target": "metadata plan objects",
+      "relation": "allowed_touch_scope"
+    },
+    {
+      "source": "abstract_subblock_row_packing_plan",
+      "target": "abstract region packing",
+      "relation": "allowed_touch_scope"
+    },
+    {
+      "source": "consumer_handoff_stub_contracts",
+      "target": "metadata-only consumer handoff reservations",
+      "relation": "allowed_touch_scope"
+    },
+    {
+      "source": "standalone_opt_in_gate_review",
+      "target": "standalone.py only after a later gate",
+      "relation": "allowed_touch_scope"
+    }
+  ],
+  "summary": {
+    "prototype_execution_guard_audit_available": true,
+    "default_off_preserved": true,
+    "phased_step_guards_explicit": true,
+    "blocked_capabilities_explicit": true,
+    "future_default_off_builder_guardrails_clean": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  }
+}

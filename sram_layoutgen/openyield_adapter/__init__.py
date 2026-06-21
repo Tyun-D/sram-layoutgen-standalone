@@ -122,3 +122,12 @@ except ModuleNotFoundError:
     pass
 else:
     __all__.append("build_time_control_payload_materialization_boundary_report")
+
+try:
+    from .time_control_prototype_execution_guard import (
+        build_time_control_prototype_execution_guard_report,
+    )
+except ModuleNotFoundError:
+    pass
+else:
+    __all__.append("build_time_control_prototype_execution_guard_report")
