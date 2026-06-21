@@ -149,3 +149,12 @@ except ModuleNotFoundError:
     pass
 else:
     __all__.append("build_time_control_prototype_interface_surface_report")
+
+try:
+    from .time_control_goal_progress_audit import (
+        build_time_control_goal_progress_audit_report,
+    )
+except ModuleNotFoundError:
+    pass
+else:
+    __all__.append("build_time_control_goal_progress_audit_report")

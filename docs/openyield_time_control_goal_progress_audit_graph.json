@@ -1,0 +1,71 @@
+{
+  "scope": "goal_chain_openyield_time_control_progress_audit",
+  "nodes": [
+    {
+      "id": "Stage A / closure_unblock",
+      "kind": "stage"
+    },
+    {
+      "id": "Stage B / metadata_closure",
+      "kind": "stage"
+    },
+    {
+      "id": "Stage C / placement_readiness",
+      "kind": "stage"
+    },
+    {
+      "id": "Stage D / default_off_prototype_plan",
+      "kind": "stage"
+    },
+    {
+      "id": "Post-Stage D / experimental_contract",
+      "kind": "stage"
+    },
+    {
+      "id": "Post-Stage D / abstract_floorplan_payload",
+      "kind": "stage"
+    }
+  ],
+  "edges": [
+    {
+      "source": "Stage A / closure_unblock",
+      "target": "Stage B / metadata_closure",
+      "relation": "progresses_to",
+      "next_gate_opened": true
+    },
+    {
+      "source": "Stage B / metadata_closure",
+      "target": "Stage C / placement_readiness",
+      "relation": "progresses_to",
+      "next_gate_opened": true
+    },
+    {
+      "source": "Stage C / placement_readiness",
+      "target": "Stage D / default_off_prototype_plan",
+      "relation": "progresses_to",
+      "next_gate_opened": true
+    },
+    {
+      "source": "Stage D / default_off_prototype_plan",
+      "target": "Post-Stage D / experimental_contract",
+      "relation": "progresses_to",
+      "next_gate_opened": true
+    },
+    {
+      "source": "Post-Stage D / experimental_contract",
+      "target": "Post-Stage D / abstract_floorplan_payload",
+      "relation": "progresses_to",
+      "next_gate_opened": true
+    }
+  ],
+  "summary": {
+    "highest_stage_reached": "Post-Stage D / abstract_floorplan_payload",
+    "can_enter_time_control_metadata_closure": true,
+    "can_enter_very_limited_abstract_to_placement_readiness": true,
+    "can_create_experimental_opt_in_placement_plan": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false,
+    "legacy_path_unchanged": true
+  }
+}
