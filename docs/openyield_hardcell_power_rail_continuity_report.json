@@ -1,0 +1,1894 @@
+{
+  "scope": "hardcell_power_rail_continuity_readonly_audit",
+  "repo_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "inventory_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_repo_physical_asset_inventory_report.json",
+  "gds_pin_audit_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_gds_pin_audit_report.json",
+  "input_assets": {
+    "inventory_report": {
+      "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+      "drc_decks": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\tech\\freepdk45.lydrc"
+      ],
+      "macro_gds_inputs": [
+        {
+          "macro_name": "cell_1rw",
+          "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\cell_1rw.gds"
+        },
+        {
+          "macro_name": "dummy_cell_1rw",
+          "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\dummy_cell_1rw.gds"
+        },
+        {
+          "macro_name": "gen_col_mux",
+          "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_col_mux.gds"
+        },
+        {
+          "macro_name": "gen_wl_driver",
+          "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_wl_driver.gds"
+        },
+        {
+          "macro_name": "gen_col_mux",
+          "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_col_mux.gds"
+        },
+        {
+          "macro_name": "gen_wl_driver",
+          "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_wl_driver.gds"
+        },
+        {
+          "macro_name": "replica_cell_1rw",
+          "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\replica_cell_1rw.gds"
+        },
+        {
+          "macro_name": "sense_amp",
+          "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\sense_amp.gds"
+        },
+        {
+          "macro_name": "write_driver",
+          "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\write_driver.gds"
+        }
+      ]
+    },
+    "gds_variant_count": 19,
+    "spice_macro_count": 13
+  },
+  "gds_geometry_parse_available": true,
+  "gds_power_rail_label_audit": [
+    {
+      "macro_name": "cell_1rw",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\cell_1rw.gds",
+      "gds_exists": true,
+      "top_cell": "cell_1rw",
+      "bbox": {
+        "x0": -0.095,
+        "y0": -0.1,
+        "x1": 0.8,
+        "y1": 1.465
+      },
+      "labels": [
+        "Q",
+        "Q_bar",
+        "bl",
+        "br",
+        "gnd",
+        "vdd",
+        "wl"
+      ],
+      "vdd_labels": [
+        "vdd"
+      ],
+      "gnd_labels": [
+        "gnd"
+      ],
+      "vdd_label_count": 1,
+      "gnd_label_count": 1,
+      "vdd_side": "top",
+      "gnd_side": "bottom",
+      "vdd_layer": 11,
+      "gnd_layer": 11,
+      "vdd_bbox_if_known": {
+        "x0": -0.09,
+        "y0": 1.3325,
+        "x1": 0.795,
+        "y1": 1.3975
+      },
+      "gnd_bbox_if_known": {
+        "x0": -0.09,
+        "y0": -0.0325,
+        "x1": 0.795,
+        "y1": 0.0325
+      },
+      "power_rail_shapes_found": true,
+      "vdd_rail_shape_count": 1,
+      "gnd_rail_shape_count": 1,
+      "vdd_rail_span": {
+        "x0": -0.09,
+        "y0": 1.3325,
+        "x1": 0.795,
+        "y1": 1.3975
+      },
+      "gnd_rail_span": {
+        "x0": -0.09,
+        "y0": -0.0325,
+        "x1": 0.795,
+        "y1": 0.0325
+      },
+      "vdd_rail_touches_left_edge": true,
+      "vdd_rail_touches_right_edge": true,
+      "gnd_rail_touches_left_edge": true,
+      "gnd_rail_touches_right_edge": true,
+      "top_bottom_rail_policy": "top_vdd_bottom_gnd",
+      "left_right_abutment_possible": false,
+      "rail_continuity_within_macro_proven": true,
+      "rail_continuity_across_abutment_proven": true,
+      "safe_for_row_power_planning": true,
+      "safe_for_shared_rail": false,
+      "safe_for_physical_placement": true,
+      "notes": []
+    },
+    {
+      "macro_name": "dummy_cell_1rw",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\dummy_cell_1rw.gds",
+      "gds_exists": true,
+      "top_cell": "dummy_cell_1rw",
+      "bbox": {
+        "x0": -0.09499999999999872,
+        "y0": -0.09999999999999866,
+        "x1": 0.7999999999999893,
+        "y1": 1.4649999999999803
+      },
+      "labels": [
+        "bl",
+        "br",
+        "gnd",
+        "vdd",
+        "wl"
+      ],
+      "vdd_labels": [
+        "vdd"
+      ],
+      "gnd_labels": [
+        "gnd"
+      ],
+      "vdd_label_count": 1,
+      "gnd_label_count": 1,
+      "vdd_side": "top",
+      "gnd_side": "bottom",
+      "vdd_layer": 11,
+      "gnd_layer": 11,
+      "vdd_bbox_if_known": {
+        "x0": -0.08999999999999879,
+        "y0": 1.332499999999982,
+        "x1": 0.7949999999999894,
+        "y1": 1.3974999999999813
+      },
+      "gnd_bbox_if_known": {
+        "x0": 0.2849999999999962,
+        "y0": -0.032499999999999564,
+        "x1": 0.4199999999999944,
+        "y1": 0.032499999999999564
+      },
+      "power_rail_shapes_found": true,
+      "vdd_rail_shape_count": 1,
+      "gnd_rail_shape_count": 2,
+      "vdd_rail_span": {
+        "x0": -0.08999999999999879,
+        "y0": 1.332499999999982,
+        "x1": 0.7949999999999894,
+        "y1": 1.3974999999999813
+      },
+      "gnd_rail_span": {
+        "x0": -0.08999999999999879,
+        "y0": -0.032499999999999564,
+        "x1": 0.7949999999999894,
+        "y1": 0.032499999999999564
+      },
+      "vdd_rail_touches_left_edge": true,
+      "vdd_rail_touches_right_edge": true,
+      "gnd_rail_touches_left_edge": true,
+      "gnd_rail_touches_right_edge": true,
+      "top_bottom_rail_policy": "top_vdd_bottom_gnd",
+      "left_right_abutment_possible": false,
+      "rail_continuity_within_macro_proven": true,
+      "rail_continuity_across_abutment_proven": true,
+      "safe_for_row_power_planning": true,
+      "safe_for_shared_rail": false,
+      "safe_for_physical_placement": true,
+      "notes": []
+    },
+    {
+      "macro_name": "replica_cell_1rw",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\replica_cell_1rw.gds",
+      "gds_exists": true,
+      "top_cell": "replica_cell_1rw",
+      "bbox": {
+        "x0": -0.09499999999999872,
+        "y0": -0.09999999999999866,
+        "x1": 0.7999999999999893,
+        "y1": 1.4649999999999803
+      },
+      "labels": [
+        "bl",
+        "br",
+        "gnd",
+        "vdd",
+        "wl"
+      ],
+      "vdd_labels": [
+        "vdd"
+      ],
+      "gnd_labels": [
+        "gnd"
+      ],
+      "vdd_label_count": 1,
+      "gnd_label_count": 1,
+      "vdd_side": "top",
+      "gnd_side": "bottom",
+      "vdd_layer": 11,
+      "gnd_layer": 11,
+      "vdd_bbox_if_known": {
+        "x0": -0.08999999999999879,
+        "y0": 1.332499999999982,
+        "x1": 0.7949999999999894,
+        "y1": 1.3974999999999813
+      },
+      "gnd_bbox_if_known": {
+        "x0": -0.08999999999999879,
+        "y0": -0.032499999999999564,
+        "x1": 0.7949999999999894,
+        "y1": 0.032499999999999564
+      },
+      "power_rail_shapes_found": true,
+      "vdd_rail_shape_count": 1,
+      "gnd_rail_shape_count": 1,
+      "vdd_rail_span": {
+        "x0": -0.08999999999999879,
+        "y0": 1.332499999999982,
+        "x1": 0.7949999999999894,
+        "y1": 1.3974999999999813
+      },
+      "gnd_rail_span": {
+        "x0": -0.08999999999999879,
+        "y0": -0.032499999999999564,
+        "x1": 0.7949999999999894,
+        "y1": 0.032499999999999564
+      },
+      "vdd_rail_touches_left_edge": true,
+      "vdd_rail_touches_right_edge": true,
+      "gnd_rail_touches_left_edge": true,
+      "gnd_rail_touches_right_edge": true,
+      "top_bottom_rail_policy": "top_vdd_bottom_gnd",
+      "left_right_abutment_possible": false,
+      "rail_continuity_within_macro_proven": true,
+      "rail_continuity_across_abutment_proven": true,
+      "safe_for_row_power_planning": true,
+      "safe_for_shared_rail": false,
+      "safe_for_physical_placement": true,
+      "notes": []
+    },
+    {
+      "macro_name": "sense_amp",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\sense_amp.gds",
+      "gds_exists": true,
+      "top_cell": "sense_amp",
+      "bbox": {
+        "x0": -0.03499999999999979,
+        "y0": 0.0,
+        "x1": 0.7399999999999956,
+        "y1": 6.009999999999963
+      },
+      "labels": [
+        "bl",
+        "br",
+        "dout",
+        "en",
+        "gnd",
+        "vdd"
+      ],
+      "vdd_labels": [
+        "vdd"
+      ],
+      "gnd_labels": [
+        "gnd"
+      ],
+      "vdd_label_count": 1,
+      "gnd_label_count": 2,
+      "vdd_side": "left",
+      "gnd_side": "right",
+      "vdd_layer": 13,
+      "gnd_layer": 13,
+      "vdd_bbox_if_known": {
+        "x0": 0.31749999999999806,
+        "y0": 3.7349999999999772,
+        "x1": 0.3874999999999977,
+        "y1": 3.8699999999999766
+      },
+      "gnd_bbox_if_known": {
+        "x0": 0.6274999999999962,
+        "y0": 0.10249999999999938,
+        "x1": 0.7024999999999958,
+        "y1": 0.17749999999999894
+      },
+      "power_rail_shapes_found": true,
+      "vdd_rail_shape_count": 1,
+      "gnd_rail_shape_count": 3,
+      "vdd_rail_span": {
+        "x0": 0.31749999999999806,
+        "y0": 3.7349999999999772,
+        "x1": 0.3874999999999977,
+        "y1": 3.8699999999999766
+      },
+      "gnd_rail_span": {
+        "x0": 0.6274999999999962,
+        "y0": 0.07249999999999956,
+        "x1": 0.7399999999999956,
+        "y1": 5.7624999999999655
+      },
+      "vdd_rail_touches_left_edge": false,
+      "vdd_rail_touches_right_edge": false,
+      "gnd_rail_touches_left_edge": false,
+      "gnd_rail_touches_right_edge": true,
+      "top_bottom_rail_policy": "side_rails_or_mixed",
+      "left_right_abutment_possible": false,
+      "rail_continuity_within_macro_proven": true,
+      "rail_continuity_across_abutment_proven": false,
+      "safe_for_row_power_planning": false,
+      "safe_for_shared_rail": false,
+      "safe_for_physical_placement": true,
+      "notes": [
+        "Across-abutment rail continuity is not proven."
+      ]
+    },
+    {
+      "macro_name": "write_driver",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\write_driver.gds",
+      "gds_exists": true,
+      "top_cell": "write_driver",
+      "bbox": {
+        "x0": -0.0999999999999994,
+        "y0": 0.0,
+        "x1": 0.7399999999999956,
+        "y1": 4.174999999999975
+      },
+      "labels": [
+        "bl",
+        "br",
+        "din",
+        "en",
+        "gnd",
+        "vdd"
+      ],
+      "vdd_labels": [
+        "vdd"
+      ],
+      "gnd_labels": [
+        "gnd"
+      ],
+      "vdd_label_count": 1,
+      "gnd_label_count": 1,
+      "vdd_side": "left",
+      "gnd_side": "left",
+      "vdd_layer": 13,
+      "gnd_layer": 13,
+      "vdd_bbox_if_known": {
+        "x0": 0.10499999999999937,
+        "y0": 0.39499999999999763,
+        "x1": 0.23999999999999855,
+        "y1": 0.4649999999999972
+      },
+      "gnd_bbox_if_known": {
+        "x0": -0.03499999999999979,
+        "y0": 1.162499999999993,
+        "x1": 0.03499999999999979,
+        "y1": 3.7974999999999772
+      },
+      "power_rail_shapes_found": true,
+      "vdd_rail_shape_count": 1,
+      "gnd_rail_shape_count": 1,
+      "vdd_rail_span": {
+        "x0": 0.10499999999999937,
+        "y0": 0.39499999999999763,
+        "x1": 0.23999999999999855,
+        "y1": 0.4649999999999972
+      },
+      "gnd_rail_span": {
+        "x0": -0.03499999999999979,
+        "y0": 1.162499999999993,
+        "x1": 0.03499999999999979,
+        "y1": 3.7974999999999772
+      },
+      "vdd_rail_touches_left_edge": false,
+      "vdd_rail_touches_right_edge": false,
+      "gnd_rail_touches_left_edge": false,
+      "gnd_rail_touches_right_edge": false,
+      "top_bottom_rail_policy": "side_rails_or_mixed",
+      "left_right_abutment_possible": false,
+      "rail_continuity_within_macro_proven": true,
+      "rail_continuity_across_abutment_proven": false,
+      "safe_for_row_power_planning": false,
+      "safe_for_shared_rail": false,
+      "safe_for_physical_placement": true,
+      "notes": [
+        "Across-abutment rail continuity is not proven."
+      ]
+    },
+    {
+      "macro_name": "gen_wl_driver",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_wl_driver.gds",
+      "gds_exists": true,
+      "top_cell": "gen_wl_driver",
+      "bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 1.5499999999999996,
+        "y1": 1.5649999999999997
+      },
+      "labels": [],
+      "vdd_labels": [],
+      "gnd_labels": [],
+      "vdd_label_count": 0,
+      "gnd_label_count": 0,
+      "vdd_side": "right",
+      "gnd_side": "bottom",
+      "vdd_layer": null,
+      "gnd_layer": null,
+      "vdd_bbox_if_known": {
+        "x0": 0.0,
+        "y0": 1.3325,
+        "x1": 2.965,
+        "y1": 1.3975
+      },
+      "gnd_bbox_if_known": {
+        "x0": 0.0,
+        "y0": -0.0325,
+        "x1": 2.965,
+        "y1": 0.0325
+      },
+      "power_rail_shapes_found": true,
+      "vdd_rail_shape_count": 1,
+      "gnd_rail_shape_count": 1,
+      "vdd_rail_span": {
+        "x0": 0.0,
+        "y0": 1.3325,
+        "x1": 2.965,
+        "y1": 1.3975
+      },
+      "gnd_rail_span": {
+        "x0": 0.0,
+        "y0": -0.0325,
+        "x1": 2.965,
+        "y1": 0.0325
+      },
+      "vdd_rail_touches_left_edge": true,
+      "vdd_rail_touches_right_edge": false,
+      "gnd_rail_touches_left_edge": true,
+      "gnd_rail_touches_right_edge": false,
+      "top_bottom_rail_policy": "side_rails_or_mixed",
+      "left_right_abutment_possible": false,
+      "rail_continuity_within_macro_proven": false,
+      "rail_continuity_across_abutment_proven": false,
+      "safe_for_row_power_planning": false,
+      "safe_for_shared_rail": false,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "VDD label not found in GDS TEXT.",
+        "GND label not found in GDS TEXT.",
+        "Within-macro rail continuity is not proven by current readonly geometry evidence.",
+        "Across-abutment rail continuity is not proven."
+      ]
+    },
+    {
+      "macro_name": "gen_wl_driver",
+      "variant_name": "openram_replacements",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_wl_driver.gds",
+      "gds_exists": true,
+      "top_cell": "gen_wl_driver",
+      "bbox": {
+        "x0": -0.08,
+        "y0": -0.105,
+        "x1": 2.965,
+        "y1": 1.4000000000000001
+      },
+      "labels": [
+        "A",
+        "B",
+        "D",
+        "G",
+        "S",
+        "Z",
+        "gnd",
+        "vdd"
+      ],
+      "vdd_labels": [
+        "vdd"
+      ],
+      "gnd_labels": [
+        "gnd"
+      ],
+      "vdd_label_count": 3,
+      "gnd_label_count": 3,
+      "vdd_side": "top",
+      "gnd_side": "bottom",
+      "vdd_layer": 11,
+      "gnd_layer": 11,
+      "vdd_bbox_if_known": {
+        "x0": 0.0,
+        "y0": 1.3325,
+        "x1": 2.965,
+        "y1": 1.3975
+      },
+      "gnd_bbox_if_known": {
+        "x0": 0.0,
+        "y0": -0.0325,
+        "x1": 2.965,
+        "y1": 0.0325
+      },
+      "power_rail_shapes_found": true,
+      "vdd_rail_shape_count": 3,
+      "gnd_rail_shape_count": 4,
+      "vdd_rail_span": {
+        "x0": 0.0,
+        "y0": 1.3325,
+        "x1": 2.965,
+        "y1": 1.3975
+      },
+      "gnd_rail_span": {
+        "x0": 0.0,
+        "y0": -0.0325,
+        "x1": 2.965,
+        "y1": 0.0475
+      },
+      "vdd_rail_touches_left_edge": false,
+      "vdd_rail_touches_right_edge": true,
+      "gnd_rail_touches_left_edge": false,
+      "gnd_rail_touches_right_edge": true,
+      "top_bottom_rail_policy": "top_vdd_bottom_gnd",
+      "left_right_abutment_possible": false,
+      "rail_continuity_within_macro_proven": true,
+      "rail_continuity_across_abutment_proven": false,
+      "safe_for_row_power_planning": false,
+      "safe_for_shared_rail": false,
+      "safe_for_physical_placement": true,
+      "notes": [
+        "Across-abutment rail continuity is not proven."
+      ]
+    },
+    {
+      "macro_name": "gen_col_mux",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_col_mux.gds",
+      "gds_exists": true,
+      "top_cell": "gen_col_mux",
+      "bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 0.8949999999999998,
+        "y1": 1.5649999999999997
+      },
+      "labels": [],
+      "vdd_labels": [],
+      "gnd_labels": [],
+      "vdd_label_count": 0,
+      "gnd_label_count": 0,
+      "vdd_side": "unknown",
+      "gnd_side": "right",
+      "vdd_layer": null,
+      "gnd_layer": null,
+      "vdd_bbox_if_known": null,
+      "gnd_bbox_if_known": {
+        "x0": 0.6725,
+        "y0": 0.8375,
+        "x1": 0.7375,
+        "y1": 0.9025
+      },
+      "power_rail_shapes_found": true,
+      "vdd_rail_shape_count": 0,
+      "gnd_rail_shape_count": 1,
+      "vdd_rail_span": null,
+      "gnd_rail_span": {
+        "x0": 0.6725,
+        "y0": 0.8375,
+        "x1": 0.7375,
+        "y1": 0.9025
+      },
+      "vdd_rail_touches_left_edge": false,
+      "vdd_rail_touches_right_edge": false,
+      "gnd_rail_touches_left_edge": false,
+      "gnd_rail_touches_right_edge": false,
+      "top_bottom_rail_policy": "side_rails_or_mixed",
+      "left_right_abutment_possible": false,
+      "rail_continuity_within_macro_proven": false,
+      "rail_continuity_across_abutment_proven": false,
+      "safe_for_row_power_planning": false,
+      "safe_for_shared_rail": false,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "VDD label not found in GDS TEXT.",
+        "GND label not found in GDS TEXT.",
+        "Within-macro rail continuity is not proven by current readonly geometry evidence.",
+        "Across-abutment rail continuity is not proven.",
+        "Column mux VDD completeness is variant-sensitive."
+      ]
+    },
+    {
+      "macro_name": "gen_col_mux",
+      "variant_name": "openram_replacements",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_col_mux.gds",
+      "gds_exists": true,
+      "top_cell": "gen_col_mux",
+      "bbox": {
+        "x0": -0.08,
+        "y0": -0.08,
+        "x1": 0.7375,
+        "y1": 1.8
+      },
+      "labels": [
+        "D",
+        "G",
+        "S",
+        "bl",
+        "bl_out",
+        "br",
+        "br_out",
+        "gnd",
+        "sel"
+      ],
+      "vdd_labels": [],
+      "gnd_labels": [
+        "gnd"
+      ],
+      "vdd_label_count": 0,
+      "gnd_label_count": 1,
+      "vdd_side": "unknown",
+      "gnd_side": "right",
+      "vdd_layer": null,
+      "gnd_layer": 11,
+      "vdd_bbox_if_known": null,
+      "gnd_bbox_if_known": {
+        "x0": 0.6725,
+        "y0": 0.8375,
+        "x1": 0.7375,
+        "y1": 0.9025
+      },
+      "power_rail_shapes_found": true,
+      "vdd_rail_shape_count": 0,
+      "gnd_rail_shape_count": 1,
+      "vdd_rail_span": null,
+      "gnd_rail_span": {
+        "x0": 0.6725,
+        "y0": 0.8375,
+        "x1": 0.7375,
+        "y1": 0.9025
+      },
+      "vdd_rail_touches_left_edge": false,
+      "vdd_rail_touches_right_edge": false,
+      "gnd_rail_touches_left_edge": false,
+      "gnd_rail_touches_right_edge": true,
+      "top_bottom_rail_policy": "side_rails_or_mixed",
+      "left_right_abutment_possible": false,
+      "rail_continuity_within_macro_proven": false,
+      "rail_continuity_across_abutment_proven": false,
+      "safe_for_row_power_planning": false,
+      "safe_for_shared_rail": false,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "VDD label not found in GDS TEXT.",
+        "Within-macro rail continuity is not proven by current readonly geometry evidence.",
+        "Across-abutment rail continuity is not proven.",
+        "Column mux VDD completeness is variant-sensitive."
+      ]
+    },
+    {
+      "macro_name": "gen_col_mux_vdd_labeled",
+      "variant_name": "openyield_repaired",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openyield_repaired\\gen_col_mux_vdd_labeled.gds",
+      "gds_exists": true,
+      "top_cell": "gen_col_mux_vdd_labeled",
+      "bbox": {
+        "x0": -0.08,
+        "y0": -0.08,
+        "x1": 0.7375,
+        "y1": 1.8
+      },
+      "labels": [
+        "D",
+        "G",
+        "S",
+        "bl",
+        "bl_out",
+        "br",
+        "br_out",
+        "gnd",
+        "sel",
+        "vdd"
+      ],
+      "vdd_labels": [
+        "vdd"
+      ],
+      "gnd_labels": [
+        "gnd"
+      ],
+      "vdd_label_count": 1,
+      "gnd_label_count": 1,
+      "vdd_side": "top",
+      "gnd_side": "right",
+      "vdd_layer": 11,
+      "gnd_layer": 11,
+      "vdd_bbox_if_known": {
+        "x0": 0.14,
+        "y0": 1.6275,
+        "x1": 0.46,
+        "y1": 1.6925000000000001
+      },
+      "gnd_bbox_if_known": {
+        "x0": 0.6725,
+        "y0": 0.8375,
+        "x1": 0.7375,
+        "y1": 0.9025
+      },
+      "power_rail_shapes_found": true,
+      "vdd_rail_shape_count": 1,
+      "gnd_rail_shape_count": 1,
+      "vdd_rail_span": {
+        "x0": 0.14,
+        "y0": 1.6275,
+        "x1": 0.46,
+        "y1": 1.6925000000000001
+      },
+      "gnd_rail_span": {
+        "x0": 0.6725,
+        "y0": 0.8375,
+        "x1": 0.7375,
+        "y1": 0.9025
+      },
+      "vdd_rail_touches_left_edge": false,
+      "vdd_rail_touches_right_edge": false,
+      "gnd_rail_touches_left_edge": false,
+      "gnd_rail_touches_right_edge": true,
+      "top_bottom_rail_policy": "side_rails_or_mixed",
+      "left_right_abutment_possible": false,
+      "rail_continuity_within_macro_proven": true,
+      "rail_continuity_across_abutment_proven": false,
+      "safe_for_row_power_planning": false,
+      "safe_for_shared_rail": false,
+      "safe_for_physical_placement": true,
+      "notes": [
+        "Across-abutment rail continuity is not proven."
+      ]
+    },
+    {
+      "macro_name": "gen_inv",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_inv.gds",
+      "gds_exists": true,
+      "top_cell": "gen_inv",
+      "bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 1.1999999999999997,
+        "y1": 1.5649999999999997
+      },
+      "labels": [],
+      "vdd_labels": [],
+      "gnd_labels": [],
+      "vdd_label_count": 0,
+      "gnd_label_count": 0,
+      "vdd_side": "top",
+      "gnd_side": "bottom",
+      "vdd_layer": null,
+      "gnd_layer": null,
+      "vdd_bbox_if_known": {
+        "x0": 0.0,
+        "y0": 1.3325,
+        "x1": 0.6875,
+        "y1": 1.3975
+      },
+      "gnd_bbox_if_known": {
+        "x0": 0.0,
+        "y0": -0.0325,
+        "x1": 0.6875,
+        "y1": 0.0325
+      },
+      "power_rail_shapes_found": true,
+      "vdd_rail_shape_count": 1,
+      "gnd_rail_shape_count": 1,
+      "vdd_rail_span": {
+        "x0": 0.0,
+        "y0": 1.3325,
+        "x1": 0.6875,
+        "y1": 1.3975
+      },
+      "gnd_rail_span": {
+        "x0": 0.0,
+        "y0": -0.0325,
+        "x1": 0.6875,
+        "y1": 0.0325
+      },
+      "vdd_rail_touches_left_edge": true,
+      "vdd_rail_touches_right_edge": false,
+      "gnd_rail_touches_left_edge": true,
+      "gnd_rail_touches_right_edge": false,
+      "top_bottom_rail_policy": "top_vdd_bottom_gnd",
+      "left_right_abutment_possible": false,
+      "rail_continuity_within_macro_proven": false,
+      "rail_continuity_across_abutment_proven": false,
+      "safe_for_row_power_planning": false,
+      "safe_for_shared_rail": false,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "VDD label not found in GDS TEXT.",
+        "GND label not found in GDS TEXT.",
+        "Within-macro rail continuity is not proven by current readonly geometry evidence.",
+        "Across-abutment rail continuity is not proven."
+      ]
+    },
+    {
+      "macro_name": "gen_inv",
+      "variant_name": "openram_replacements",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_inv.gds",
+      "gds_exists": true,
+      "top_cell": "gen_inv",
+      "bbox": {
+        "x0": -0.08,
+        "y0": -0.08,
+        "x1": 0.7425,
+        "y1": 1.4000000000000001
+      },
+      "labels": [
+        "A",
+        "D",
+        "G",
+        "S",
+        "Z",
+        "gnd",
+        "vdd"
+      ],
+      "vdd_labels": [
+        "vdd"
+      ],
+      "gnd_labels": [
+        "gnd"
+      ],
+      "vdd_label_count": 1,
+      "gnd_label_count": 1,
+      "vdd_side": "top",
+      "gnd_side": "bottom",
+      "vdd_layer": 11,
+      "gnd_layer": 11,
+      "vdd_bbox_if_known": {
+        "x0": 0.0,
+        "y0": 1.3325,
+        "x1": 0.6875,
+        "y1": 1.3975
+      },
+      "gnd_bbox_if_known": {
+        "x0": 0.0,
+        "y0": -0.0325,
+        "x1": 0.6875,
+        "y1": 0.0325
+      },
+      "power_rail_shapes_found": true,
+      "vdd_rail_shape_count": 1,
+      "gnd_rail_shape_count": 1,
+      "vdd_rail_span": {
+        "x0": 0.0,
+        "y0": 1.3325,
+        "x1": 0.6875,
+        "y1": 1.3975
+      },
+      "gnd_rail_span": {
+        "x0": 0.0,
+        "y0": -0.0325,
+        "x1": 0.6875,
+        "y1": 0.0325
+      },
+      "vdd_rail_touches_left_edge": false,
+      "vdd_rail_touches_right_edge": false,
+      "gnd_rail_touches_left_edge": false,
+      "gnd_rail_touches_right_edge": false,
+      "top_bottom_rail_policy": "top_vdd_bottom_gnd",
+      "left_right_abutment_possible": false,
+      "rail_continuity_within_macro_proven": true,
+      "rail_continuity_across_abutment_proven": false,
+      "safe_for_row_power_planning": false,
+      "safe_for_shared_rail": false,
+      "safe_for_physical_placement": true,
+      "notes": [
+        "Across-abutment rail continuity is not proven."
+      ]
+    },
+    {
+      "macro_name": "gen_nand2",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_nand2.gds",
+      "gds_exists": true,
+      "top_cell": "gen_nand2",
+      "bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 1.6499999999999997,
+        "y1": 1.5649999999999997
+      },
+      "labels": [],
+      "vdd_labels": [],
+      "gnd_labels": [],
+      "vdd_label_count": 0,
+      "gnd_label_count": 0,
+      "vdd_side": "top",
+      "gnd_side": "bottom",
+      "vdd_layer": null,
+      "gnd_layer": null,
+      "vdd_bbox_if_known": {
+        "x0": 0.0,
+        "y0": 1.3325,
+        "x1": 0.9025,
+        "y1": 1.3975
+      },
+      "gnd_bbox_if_known": {
+        "x0": 0.0,
+        "y0": -0.0325,
+        "x1": 0.9025,
+        "y1": 0.0325
+      },
+      "power_rail_shapes_found": true,
+      "vdd_rail_shape_count": 1,
+      "gnd_rail_shape_count": 1,
+      "vdd_rail_span": {
+        "x0": 0.0,
+        "y0": 1.3325,
+        "x1": 0.9025,
+        "y1": 1.3975
+      },
+      "gnd_rail_span": {
+        "x0": 0.0,
+        "y0": -0.0325,
+        "x1": 0.9025,
+        "y1": 0.0325
+      },
+      "vdd_rail_touches_left_edge": true,
+      "vdd_rail_touches_right_edge": false,
+      "gnd_rail_touches_left_edge": true,
+      "gnd_rail_touches_right_edge": false,
+      "top_bottom_rail_policy": "top_vdd_bottom_gnd",
+      "left_right_abutment_possible": false,
+      "rail_continuity_within_macro_proven": false,
+      "rail_continuity_across_abutment_proven": false,
+      "safe_for_row_power_planning": false,
+      "safe_for_shared_rail": false,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "VDD label not found in GDS TEXT.",
+        "GND label not found in GDS TEXT.",
+        "Within-macro rail continuity is not proven by current readonly geometry evidence.",
+        "Across-abutment rail continuity is not proven."
+      ]
+    },
+    {
+      "macro_name": "gen_nand2",
+      "variant_name": "openram_replacements",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_nand2.gds",
+      "gds_exists": true,
+      "top_cell": "gen_nand2",
+      "bbox": {
+        "x0": -0.08,
+        "y0": -0.08,
+        "x1": 0.9575,
+        "y1": 1.4000000000000001
+      },
+      "labels": [
+        "A",
+        "B",
+        "D",
+        "G",
+        "S",
+        "Z",
+        "gnd",
+        "vdd"
+      ],
+      "vdd_labels": [
+        "vdd"
+      ],
+      "gnd_labels": [
+        "gnd"
+      ],
+      "vdd_label_count": 1,
+      "gnd_label_count": 1,
+      "vdd_side": "top",
+      "gnd_side": "bottom",
+      "vdd_layer": 11,
+      "gnd_layer": 11,
+      "vdd_bbox_if_known": {
+        "x0": 0.0,
+        "y0": 1.3325,
+        "x1": 0.9025,
+        "y1": 1.3975
+      },
+      "gnd_bbox_if_known": {
+        "x0": 0.0,
+        "y0": -0.0325,
+        "x1": 0.9025,
+        "y1": 0.0325
+      },
+      "power_rail_shapes_found": true,
+      "vdd_rail_shape_count": 1,
+      "gnd_rail_shape_count": 1,
+      "vdd_rail_span": {
+        "x0": 0.0,
+        "y0": 1.3325,
+        "x1": 0.9025,
+        "y1": 1.3975
+      },
+      "gnd_rail_span": {
+        "x0": 0.0,
+        "y0": -0.0325,
+        "x1": 0.9025,
+        "y1": 0.0325
+      },
+      "vdd_rail_touches_left_edge": false,
+      "vdd_rail_touches_right_edge": false,
+      "gnd_rail_touches_left_edge": false,
+      "gnd_rail_touches_right_edge": false,
+      "top_bottom_rail_policy": "top_vdd_bottom_gnd",
+      "left_right_abutment_possible": false,
+      "rail_continuity_within_macro_proven": true,
+      "rail_continuity_across_abutment_proven": false,
+      "safe_for_row_power_planning": false,
+      "safe_for_shared_rail": false,
+      "safe_for_physical_placement": true,
+      "notes": [
+        "Across-abutment rail continuity is not proven."
+      ]
+    },
+    {
+      "macro_name": "gen_delay_inv",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_delay_inv.gds",
+      "gds_exists": true,
+      "top_cell": "gen_delay_inv",
+      "bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 1.1999999999999997,
+        "y1": 1.5649999999999997
+      },
+      "labels": [],
+      "vdd_labels": [],
+      "gnd_labels": [],
+      "vdd_label_count": 0,
+      "gnd_label_count": 0,
+      "vdd_side": "left",
+      "gnd_side": "bottom",
+      "vdd_layer": null,
+      "gnd_layer": null,
+      "vdd_bbox_if_known": {
+        "x0": 0.0,
+        "y0": 2.4375,
+        "x1": 0.6875,
+        "y1": 2.5025
+      },
+      "gnd_bbox_if_known": {
+        "x0": 0.0,
+        "y0": -0.0325,
+        "x1": 0.6875,
+        "y1": 0.0325
+      },
+      "power_rail_shapes_found": true,
+      "vdd_rail_shape_count": 1,
+      "gnd_rail_shape_count": 1,
+      "vdd_rail_span": {
+        "x0": 0.0,
+        "y0": 2.4375,
+        "x1": 0.6875,
+        "y1": 2.5025
+      },
+      "gnd_rail_span": {
+        "x0": 0.0,
+        "y0": -0.0325,
+        "x1": 0.6875,
+        "y1": 0.0325
+      },
+      "vdd_rail_touches_left_edge": true,
+      "vdd_rail_touches_right_edge": false,
+      "gnd_rail_touches_left_edge": true,
+      "gnd_rail_touches_right_edge": false,
+      "top_bottom_rail_policy": "side_rails_or_mixed",
+      "left_right_abutment_possible": false,
+      "rail_continuity_within_macro_proven": false,
+      "rail_continuity_across_abutment_proven": false,
+      "safe_for_row_power_planning": false,
+      "safe_for_shared_rail": false,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "VDD label not found in GDS TEXT.",
+        "GND label not found in GDS TEXT.",
+        "Within-macro rail continuity is not proven by current readonly geometry evidence.",
+        "Across-abutment rail continuity is not proven."
+      ]
+    },
+    {
+      "macro_name": "gen_delay_inv",
+      "variant_name": "openram_replacements",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_delay_inv.gds",
+      "gds_exists": true,
+      "top_cell": "gen_delay_inv",
+      "bbox": {
+        "x0": -0.08,
+        "y0": -0.08,
+        "x1": 0.7425,
+        "y1": 2.505
+      },
+      "labels": [
+        "A",
+        "D",
+        "G",
+        "S",
+        "Z",
+        "gnd",
+        "vdd"
+      ],
+      "vdd_labels": [
+        "vdd"
+      ],
+      "gnd_labels": [
+        "gnd"
+      ],
+      "vdd_label_count": 1,
+      "gnd_label_count": 1,
+      "vdd_side": "top",
+      "gnd_side": "bottom",
+      "vdd_layer": 11,
+      "gnd_layer": 11,
+      "vdd_bbox_if_known": {
+        "x0": 0.0,
+        "y0": 2.4375,
+        "x1": 0.6875,
+        "y1": 2.5025
+      },
+      "gnd_bbox_if_known": {
+        "x0": 0.0,
+        "y0": -0.0325,
+        "x1": 0.6875,
+        "y1": 0.0325
+      },
+      "power_rail_shapes_found": true,
+      "vdd_rail_shape_count": 1,
+      "gnd_rail_shape_count": 1,
+      "vdd_rail_span": {
+        "x0": 0.0,
+        "y0": 2.4375,
+        "x1": 0.6875,
+        "y1": 2.5025
+      },
+      "gnd_rail_span": {
+        "x0": 0.0,
+        "y0": -0.0325,
+        "x1": 0.6875,
+        "y1": 0.0325
+      },
+      "vdd_rail_touches_left_edge": false,
+      "vdd_rail_touches_right_edge": false,
+      "gnd_rail_touches_left_edge": false,
+      "gnd_rail_touches_right_edge": false,
+      "top_bottom_rail_policy": "top_vdd_bottom_gnd",
+      "left_right_abutment_possible": false,
+      "rail_continuity_within_macro_proven": true,
+      "rail_continuity_across_abutment_proven": false,
+      "safe_for_row_power_planning": false,
+      "safe_for_shared_rail": false,
+      "safe_for_physical_placement": true,
+      "notes": [
+        "Across-abutment rail continuity is not proven."
+      ]
+    },
+    {
+      "macro_name": "gen_precharge",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_precharge.gds",
+      "gds_exists": true,
+      "top_cell": "gen_precharge",
+      "bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 0.8949999999999998,
+        "y1": 1.5649999999999997
+      },
+      "labels": [],
+      "vdd_labels": [],
+      "gnd_labels": [],
+      "vdd_label_count": 0,
+      "gnd_label_count": 0,
+      "vdd_side": "left",
+      "gnd_side": "unknown",
+      "vdd_layer": null,
+      "gnd_layer": null,
+      "vdd_bbox_if_known": {
+        "x0": 0.34,
+        "y0": 0.905,
+        "x1": 0.405,
+        "y1": 1.185
+      },
+      "gnd_bbox_if_known": null,
+      "power_rail_shapes_found": true,
+      "vdd_rail_shape_count": 1,
+      "gnd_rail_shape_count": 0,
+      "vdd_rail_span": {
+        "x0": 0.34,
+        "y0": 0.905,
+        "x1": 0.405,
+        "y1": 1.185
+      },
+      "gnd_rail_span": null,
+      "vdd_rail_touches_left_edge": false,
+      "vdd_rail_touches_right_edge": false,
+      "gnd_rail_touches_left_edge": false,
+      "gnd_rail_touches_right_edge": false,
+      "top_bottom_rail_policy": "side_rails_or_mixed",
+      "left_right_abutment_possible": false,
+      "rail_continuity_within_macro_proven": false,
+      "rail_continuity_across_abutment_proven": false,
+      "safe_for_row_power_planning": false,
+      "safe_for_shared_rail": false,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "VDD label not found in GDS TEXT.",
+        "GND label not found in GDS TEXT.",
+        "Within-macro rail continuity is not proven by current readonly geometry evidence.",
+        "Across-abutment rail continuity is not proven.",
+        "PRECHARGE is evaluated conservatively; metadata exceptions are not physical proof."
+      ]
+    },
+    {
+      "macro_name": "gen_precharge",
+      "variant_name": "openram_replacements",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_precharge.gds",
+      "gds_exists": true,
+      "top_cell": "gen_precharge",
+      "bbox": {
+        "x0": -0.08,
+        "y0": -0.08,
+        "x1": 0.705,
+        "y1": 1.34
+      },
+      "labels": [
+        "D",
+        "G",
+        "S",
+        "bl",
+        "br",
+        "en_bar",
+        "vdd"
+      ],
+      "vdd_labels": [
+        "vdd"
+      ],
+      "gnd_labels": [],
+      "vdd_label_count": 1,
+      "gnd_label_count": 0,
+      "vdd_side": "top",
+      "gnd_side": "unknown",
+      "vdd_layer": 11,
+      "gnd_layer": null,
+      "vdd_bbox_if_known": {
+        "x0": 0.34,
+        "y0": 0.905,
+        "x1": 0.405,
+        "y1": 1.185
+      },
+      "gnd_bbox_if_known": null,
+      "power_rail_shapes_found": true,
+      "vdd_rail_shape_count": 2,
+      "gnd_rail_shape_count": 0,
+      "vdd_rail_span": {
+        "x0": 0.34,
+        "y0": 0.905,
+        "x1": 0.405,
+        "y1": 1.2175
+      },
+      "gnd_rail_span": null,
+      "vdd_rail_touches_left_edge": false,
+      "vdd_rail_touches_right_edge": false,
+      "gnd_rail_touches_left_edge": false,
+      "gnd_rail_touches_right_edge": false,
+      "top_bottom_rail_policy": "unknown",
+      "left_right_abutment_possible": false,
+      "rail_continuity_within_macro_proven": false,
+      "rail_continuity_across_abutment_proven": false,
+      "safe_for_row_power_planning": false,
+      "safe_for_shared_rail": false,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "GND label not found in GDS TEXT.",
+        "Within-macro rail continuity is not proven by current readonly geometry evidence.",
+        "Across-abutment rail continuity is not proven.",
+        "PRECHARGE is evaluated conservatively; metadata exceptions are not physical proof."
+      ]
+    },
+    {
+      "macro_name": "dff",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\dff.gds",
+      "gds_exists": true,
+      "top_cell": "dff",
+      "bbox": {
+        "x0": 0.0,
+        "y0": -0.0999999999999994,
+        "x1": 2.8599999999999826,
+        "y1": 2.5699999999999843
+      },
+      "labels": [
+        "D",
+        "Q",
+        "clk",
+        "gnd",
+        "vdd"
+      ],
+      "vdd_labels": [
+        "vdd"
+      ],
+      "gnd_labels": [
+        "gnd"
+      ],
+      "vdd_label_count": 1,
+      "gnd_label_count": 1,
+      "vdd_side": "top",
+      "gnd_side": "bottom",
+      "vdd_layer": 11,
+      "gnd_layer": 11,
+      "vdd_bbox_if_known": {
+        "x0": 0.0999999999999994,
+        "y0": 1.2674999999999923,
+        "x1": 2.8599999999999826,
+        "y1": 2.5349999999999846
+      },
+      "gnd_bbox_if_known": {
+        "x0": 0.0999999999999994,
+        "y0": -0.06499999999999961,
+        "x1": 2.7599999999999834,
+        "y1": 0.987499999999994
+      },
+      "power_rail_shapes_found": true,
+      "vdd_rail_shape_count": 2,
+      "gnd_rail_shape_count": 2,
+      "vdd_rail_span": {
+        "x0": 0.0,
+        "y0": 1.2674999999999923,
+        "x1": 2.8599999999999826,
+        "y1": 2.5349999999999846
+      },
+      "gnd_rail_span": {
+        "x0": 0.0,
+        "y0": -0.06499999999999961,
+        "x1": 2.8599999999999826,
+        "y1": 0.987499999999994
+      },
+      "vdd_rail_touches_left_edge": true,
+      "vdd_rail_touches_right_edge": true,
+      "gnd_rail_touches_left_edge": true,
+      "gnd_rail_touches_right_edge": true,
+      "top_bottom_rail_policy": "top_vdd_bottom_gnd",
+      "left_right_abutment_possible": false,
+      "rail_continuity_within_macro_proven": true,
+      "rail_continuity_across_abutment_proven": false,
+      "safe_for_row_power_planning": false,
+      "safe_for_shared_rail": false,
+      "safe_for_physical_placement": true,
+      "notes": [
+        "Across-abutment rail continuity is not proven."
+      ]
+    }
+  ],
+  "spice_cross_check": [
+    {
+      "macro_name": "cell_1rw",
+      "spice_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_1rw.sp",
+      "spice_exists": true,
+      "subckt_name": "cell_1rw",
+      "spice_power_pins": [
+        "vdd",
+        "gnd"
+      ],
+      "spice_has_vdd": true,
+      "spice_has_gnd": true,
+      "matches_gds_macro": true,
+      "spice_gds_power_consistency": "power_pins_present"
+    },
+    {
+      "macro_name": "dummy_cell_1rw",
+      "spice_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dummy_cell_1rw.sp",
+      "spice_exists": true,
+      "subckt_name": "dummy_cell_1rw",
+      "spice_power_pins": [
+        "vdd",
+        "gnd"
+      ],
+      "spice_has_vdd": true,
+      "spice_has_gnd": true,
+      "matches_gds_macro": true,
+      "spice_gds_power_consistency": "power_pins_present"
+    },
+    {
+      "macro_name": "replica_cell_1rw",
+      "spice_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_1rw.sp",
+      "spice_exists": true,
+      "subckt_name": "replica_cell_1rw",
+      "spice_power_pins": [
+        "vdd",
+        "gnd"
+      ],
+      "spice_has_vdd": true,
+      "spice_has_gnd": true,
+      "matches_gds_macro": true,
+      "spice_gds_power_consistency": "power_pins_present"
+    },
+    {
+      "macro_name": "sense_amp",
+      "spice_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+      "spice_exists": true,
+      "subckt_name": "sense_amp",
+      "spice_power_pins": [
+        "vdd",
+        "gnd"
+      ],
+      "spice_has_vdd": true,
+      "spice_has_gnd": true,
+      "matches_gds_macro": true,
+      "spice_gds_power_consistency": "power_pins_present"
+    },
+    {
+      "macro_name": "write_driver",
+      "spice_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+      "spice_exists": true,
+      "subckt_name": "write_driver",
+      "spice_power_pins": [
+        "vdd",
+        "gnd"
+      ],
+      "spice_has_vdd": true,
+      "spice_has_gnd": true,
+      "matches_gds_macro": true,
+      "spice_gds_power_consistency": "power_pins_present"
+    },
+    {
+      "macro_name": "dff",
+      "spice_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+      "spice_exists": true,
+      "subckt_name": "dff",
+      "spice_power_pins": [
+        "vdd",
+        "gnd"
+      ],
+      "spice_has_vdd": true,
+      "spice_has_gnd": true,
+      "matches_gds_macro": true,
+      "spice_gds_power_consistency": "power_pins_present"
+    },
+    {
+      "macro_name": "gen_inv",
+      "spice_path": null,
+      "spice_exists": false,
+      "subckt_name": null,
+      "spice_power_pins": [],
+      "spice_has_vdd": false,
+      "spice_has_gnd": false,
+      "matches_gds_macro": true,
+      "spice_gds_power_consistency": "missing_power_pins"
+    },
+    {
+      "macro_name": "gen_nand2",
+      "spice_path": null,
+      "spice_exists": false,
+      "subckt_name": null,
+      "spice_power_pins": [],
+      "spice_has_vdd": false,
+      "spice_has_gnd": false,
+      "matches_gds_macro": true,
+      "spice_gds_power_consistency": "missing_power_pins"
+    },
+    {
+      "macro_name": "gen_delay_inv",
+      "spice_path": null,
+      "spice_exists": false,
+      "subckt_name": null,
+      "spice_power_pins": [],
+      "spice_has_vdd": false,
+      "spice_has_gnd": false,
+      "matches_gds_macro": true,
+      "spice_gds_power_consistency": "missing_power_pins"
+    },
+    {
+      "macro_name": "gen_precharge",
+      "spice_path": null,
+      "spice_exists": false,
+      "subckt_name": null,
+      "spice_power_pins": [],
+      "spice_has_vdd": false,
+      "spice_has_gnd": false,
+      "matches_gds_macro": true,
+      "spice_gds_power_consistency": "spice_missing"
+    },
+    {
+      "macro_name": "gen_wl_driver",
+      "spice_path": null,
+      "spice_exists": false,
+      "subckt_name": null,
+      "spice_power_pins": [],
+      "spice_has_vdd": false,
+      "spice_has_gnd": false,
+      "matches_gds_macro": true,
+      "spice_gds_power_consistency": "missing_power_pins"
+    },
+    {
+      "macro_name": "gen_col_mux",
+      "spice_path": null,
+      "spice_exists": false,
+      "subckt_name": null,
+      "spice_power_pins": [],
+      "spice_has_vdd": false,
+      "spice_has_gnd": false,
+      "matches_gds_macro": true,
+      "spice_gds_power_consistency": "missing_power_pins"
+    },
+    {
+      "macro_name": "gen_col_mux_vdd_labeled",
+      "spice_path": null,
+      "spice_exists": false,
+      "subckt_name": null,
+      "spice_power_pins": [],
+      "spice_has_vdd": false,
+      "spice_has_gnd": false,
+      "matches_gds_macro": true,
+      "spice_gds_power_consistency": "missing_power_pins"
+    }
+  ],
+  "precharge_special_decision": [
+    {
+      "precharge_variant": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_precharge.gds",
+      "vdd_found": false,
+      "gnd_found": false,
+      "en_label_found": false,
+      "openyield_no_local_gnd_exception": false,
+      "gds_no_gnd_confirmed": true,
+      "spice_available": false,
+      "spice_gnd_found": false,
+      "power_metadata_completion_basis": "missing",
+      "rail_continuity_proven": false,
+      "safe_for_metadata_planning": false,
+      "safe_for_physical_placement": false,
+      "precharge_power_status": "partial_missing_gnd"
+    },
+    {
+      "precharge_variant": "openram_replacements",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_precharge.gds",
+      "vdd_found": true,
+      "gnd_found": false,
+      "en_label_found": true,
+      "openyield_no_local_gnd_exception": true,
+      "gds_no_gnd_confirmed": true,
+      "spice_available": false,
+      "spice_gnd_found": false,
+      "power_metadata_completion_basis": "metadata_exception",
+      "rail_continuity_proven": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "precharge_power_status": "vdd_only_no_local_gnd_exception_metadata_only"
+    }
+  ],
+  "macro_variant_comparison": [
+    {
+      "macro_name": "cell_1rw",
+      "variants": [
+        "default_gds_lib"
+      ],
+      "recommended_variant_for_future_time_control_planning": "default_gds_lib",
+      "reason": "Storage hardcells should stay on technology/freepdk45/gds_lib/*.gds.",
+      "power_metadata_quality": {
+        "default_gds_lib": "explicit_vdd_gnd"
+      },
+      "rail_geometry_quality": {
+        "default_gds_lib": "abutment_proven"
+      },
+      "spice_consistency": "power_pins_present",
+      "warnings": []
+    },
+    {
+      "macro_name": "dff",
+      "variants": [
+        "default_gds_lib"
+      ],
+      "recommended_variant_for_future_time_control_planning": "default_gds_lib",
+      "reason": "OpenRAM replacement variant carries the strongest local power metadata among generated-logic candidates.",
+      "power_metadata_quality": {
+        "default_gds_lib": "explicit_vdd_gnd"
+      },
+      "rail_geometry_quality": {
+        "default_gds_lib": "within_macro_only"
+      },
+      "spice_consistency": "power_pins_present",
+      "warnings": []
+    },
+    {
+      "macro_name": "dummy_cell_1rw",
+      "variants": [
+        "default_gds_lib"
+      ],
+      "recommended_variant_for_future_time_control_planning": "default_gds_lib",
+      "reason": "Storage hardcells should stay on technology/freepdk45/gds_lib/*.gds.",
+      "power_metadata_quality": {
+        "default_gds_lib": "explicit_vdd_gnd"
+      },
+      "rail_geometry_quality": {
+        "default_gds_lib": "abutment_proven"
+      },
+      "spice_consistency": "power_pins_present",
+      "warnings": []
+    },
+    {
+      "macro_name": "gen_col_mux",
+      "variants": [
+        "default_gds_lib",
+        "openram_replacements"
+      ],
+      "recommended_variant_for_future_time_control_planning": "openram_replacements",
+      "reason": "OpenRAM replacement variant carries the strongest local power metadata among generated-logic candidates.",
+      "power_metadata_quality": {
+        "default_gds_lib": "power_metadata_incomplete",
+        "openram_replacements": "power_metadata_incomplete"
+      },
+      "rail_geometry_quality": {
+        "default_gds_lib": "geometry_unproven",
+        "openram_replacements": "geometry_unproven"
+      },
+      "spice_consistency": "missing_power_pins",
+      "warnings": [
+        "Unrepaired gen_col_mux variants lack complete VDD metadata."
+      ]
+    },
+    {
+      "macro_name": "gen_col_mux_vdd_labeled",
+      "variants": [
+        "openyield_repaired"
+      ],
+      "recommended_variant_for_future_time_control_planning": "openyield_repaired",
+      "reason": "Repaired column mux exposes explicit VDD/GND labels and is preferred for future planning.",
+      "power_metadata_quality": {
+        "openyield_repaired": "explicit_vdd_gnd"
+      },
+      "rail_geometry_quality": {
+        "openyield_repaired": "within_macro_only"
+      },
+      "spice_consistency": "missing_power_pins",
+      "warnings": []
+    },
+    {
+      "macro_name": "gen_delay_inv",
+      "variants": [
+        "default_gds_lib",
+        "openram_replacements"
+      ],
+      "recommended_variant_for_future_time_control_planning": "openram_replacements",
+      "reason": "OpenRAM replacement variant carries the strongest local power metadata among generated-logic candidates.",
+      "power_metadata_quality": {
+        "default_gds_lib": "power_metadata_incomplete",
+        "openram_replacements": "explicit_vdd_gnd"
+      },
+      "rail_geometry_quality": {
+        "default_gds_lib": "geometry_unproven",
+        "openram_replacements": "within_macro_only"
+      },
+      "spice_consistency": "missing_power_pins",
+      "warnings": []
+    },
+    {
+      "macro_name": "gen_inv",
+      "variants": [
+        "default_gds_lib",
+        "openram_replacements"
+      ],
+      "recommended_variant_for_future_time_control_planning": "openram_replacements",
+      "reason": "OpenRAM replacement variant carries the strongest local power metadata among generated-logic candidates.",
+      "power_metadata_quality": {
+        "default_gds_lib": "power_metadata_incomplete",
+        "openram_replacements": "explicit_vdd_gnd"
+      },
+      "rail_geometry_quality": {
+        "default_gds_lib": "geometry_unproven",
+        "openram_replacements": "within_macro_only"
+      },
+      "spice_consistency": "missing_power_pins",
+      "warnings": []
+    },
+    {
+      "macro_name": "gen_nand2",
+      "variants": [
+        "default_gds_lib",
+        "openram_replacements"
+      ],
+      "recommended_variant_for_future_time_control_planning": "openram_replacements",
+      "reason": "OpenRAM replacement variant carries the strongest local power metadata among generated-logic candidates.",
+      "power_metadata_quality": {
+        "default_gds_lib": "power_metadata_incomplete",
+        "openram_replacements": "explicit_vdd_gnd"
+      },
+      "rail_geometry_quality": {
+        "default_gds_lib": "geometry_unproven",
+        "openram_replacements": "within_macro_only"
+      },
+      "spice_consistency": "missing_power_pins",
+      "warnings": []
+    },
+    {
+      "macro_name": "gen_precharge",
+      "variants": [
+        "default_gds_lib",
+        "openram_replacements"
+      ],
+      "recommended_variant_for_future_time_control_planning": "openram_replacements",
+      "reason": "OpenRAM replacement carries the clearest power metadata, but remains metadata-only if GND is absent.",
+      "power_metadata_quality": {
+        "default_gds_lib": "power_metadata_incomplete",
+        "openram_replacements": "vdd_only"
+      },
+      "rail_geometry_quality": {
+        "default_gds_lib": "geometry_unproven",
+        "openram_replacements": "geometry_unproven"
+      },
+      "spice_consistency": "spice_missing",
+      "warnings": [
+        "PRECHARGE may remain vdd-only and metadata-only; do not treat as physical-ready."
+      ]
+    },
+    {
+      "macro_name": "gen_wl_driver",
+      "variants": [
+        "default_gds_lib",
+        "openram_replacements"
+      ],
+      "recommended_variant_for_future_time_control_planning": "openram_replacements",
+      "reason": "OpenRAM replacement variant carries the strongest local power metadata among generated-logic candidates.",
+      "power_metadata_quality": {
+        "default_gds_lib": "power_metadata_incomplete",
+        "openram_replacements": "explicit_vdd_gnd"
+      },
+      "rail_geometry_quality": {
+        "default_gds_lib": "geometry_unproven",
+        "openram_replacements": "within_macro_only"
+      },
+      "spice_consistency": "missing_power_pins",
+      "warnings": []
+    },
+    {
+      "macro_name": "replica_cell_1rw",
+      "variants": [
+        "default_gds_lib"
+      ],
+      "recommended_variant_for_future_time_control_planning": "default_gds_lib",
+      "reason": "Storage hardcells should stay on technology/freepdk45/gds_lib/*.gds.",
+      "power_metadata_quality": {
+        "default_gds_lib": "explicit_vdd_gnd"
+      },
+      "rail_geometry_quality": {
+        "default_gds_lib": "abutment_proven"
+      },
+      "spice_consistency": "power_pins_present",
+      "warnings": []
+    },
+    {
+      "macro_name": "sense_amp",
+      "variants": [
+        "default_gds_lib"
+      ],
+      "recommended_variant_for_future_time_control_planning": "default_gds_lib",
+      "reason": "OpenRAM replacement variant carries the strongest local power metadata among generated-logic candidates.",
+      "power_metadata_quality": {
+        "default_gds_lib": "explicit_vdd_gnd"
+      },
+      "rail_geometry_quality": {
+        "default_gds_lib": "within_macro_only"
+      },
+      "spice_consistency": "power_pins_present",
+      "warnings": [
+        "QB/dout_b remains unresolved; power audit does not prove signal-side compatibility."
+      ]
+    },
+    {
+      "macro_name": "write_driver",
+      "variants": [
+        "default_gds_lib"
+      ],
+      "recommended_variant_for_future_time_control_planning": "default_gds_lib",
+      "reason": "OpenRAM replacement variant carries the strongest local power metadata among generated-logic candidates.",
+      "power_metadata_quality": {
+        "default_gds_lib": "explicit_vdd_gnd"
+      },
+      "rail_geometry_quality": {
+        "default_gds_lib": "within_macro_only"
+      },
+      "spice_consistency": "power_pins_present",
+      "warnings": []
+    }
+  ],
+  "rail_continuity_decision": {
+    "hardcell_power_rail_continuity_readonly_audit_available": true,
+    "all_required_macro_gds_found": true,
+    "all_required_macro_power_metadata_available": false,
+    "all_required_macro_spice_checked_or_missing_recorded": true,
+    "precharge_power_exception_recorded": true,
+    "within_macro_rail_evidence_available": true,
+    "abutment_rail_continuity_proven": false,
+    "shared_rail_safe": false,
+    "can_enter_legal_placement_readonly_audit": true,
+    "can_enter_physical_placement_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_modify_standalone_now": false
+  },
+  "unresolved_blockers": [
+    "gen_wl_driver:default_gds_lib lacks proven within-macro rail evidence.",
+    "gen_wl_driver:default_gds_lib is not physical-placement ready.",
+    "gen_col_mux:default_gds_lib lacks proven within-macro rail evidence.",
+    "gen_col_mux:default_gds_lib is not physical-placement ready.",
+    "gen_col_mux:openram_replacements lacks proven within-macro rail evidence.",
+    "gen_col_mux:openram_replacements is not physical-placement ready.",
+    "gen_inv:default_gds_lib lacks proven within-macro rail evidence.",
+    "gen_inv:default_gds_lib is not physical-placement ready.",
+    "gen_nand2:default_gds_lib lacks proven within-macro rail evidence.",
+    "gen_nand2:default_gds_lib is not physical-placement ready.",
+    "gen_delay_inv:default_gds_lib lacks proven within-macro rail evidence.",
+    "gen_delay_inv:default_gds_lib is not physical-placement ready.",
+    "gen_precharge:default_gds_lib lacks proven within-macro rail evidence.",
+    "gen_precharge:default_gds_lib is not physical-placement ready.",
+    "gen_precharge:openram_replacements lacks proven within-macro rail evidence.",
+    "gen_precharge:openram_replacements is not physical-placement ready.",
+    "gen_inv has no local SPICE and remains metadata-only for power cross-check.",
+    "gen_nand2 has no local SPICE and remains metadata-only for power cross-check.",
+    "gen_delay_inv has no local SPICE and remains metadata-only for power cross-check.",
+    "gen_precharge has no local SPICE and remains metadata-only for power cross-check.",
+    "gen_wl_driver has no local SPICE and remains metadata-only for power cross-check.",
+    "gen_col_mux has no local SPICE and remains metadata-only for power cross-check.",
+    "gen_col_mux_vdd_labeled has no local SPICE and remains metadata-only for power cross-check.",
+    "PRECHARGE default_gds_lib remains exception-based: partial_missing_gnd.",
+    "PRECHARGE openram_replacements remains exception-based: vdd_only_no_local_gnd_exception_metadata_only."
+  ],
+  "next_recommended_proof_task": "time_control_leaf_bbox_pin_side_inventory",
+  "boundary_assertions": {
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false,
+    "standalone_modified": false,
+    "routing_modified": false,
+    "gds_writer_modified": false
+  },
+  "audit_summary": {
+    "audited_gds_variants": 19,
+    "audited_spice_macros": 13,
+    "storage_abutment_ready_variants": [
+      "default_gds_lib",
+      "default_gds_lib",
+      "default_gds_lib"
+    ],
+    "precharge_statuses": {
+      "default_gds_lib": "partial_missing_gnd",
+      "openram_replacements": "vdd_only_no_local_gnd_exception_metadata_only"
+    },
+    "decision": {
+      "hardcell_power_rail_continuity_readonly_audit_available": true,
+      "all_required_macro_gds_found": true,
+      "all_required_macro_power_metadata_available": false,
+      "all_required_macro_spice_checked_or_missing_recorded": true,
+      "precharge_power_exception_recorded": true,
+      "within_macro_rail_evidence_available": true,
+      "abutment_rail_continuity_proven": false,
+      "shared_rail_safe": false,
+      "can_enter_legal_placement_readonly_audit": true,
+      "can_enter_physical_placement_now": false,
+      "can_generate_time_control_gds_now": false,
+      "can_modify_standalone_now": false
+    }
+  }
+}
