@@ -1,0 +1,148 @@
+{
+  "scope": "step6_41_openyield_time_control_builder_output_regression_audit",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "artifact_sample_rows": [
+    {
+      "artifact_name": "candidate_artifact_shape",
+      "kind": "metadata_plan_object",
+      "top_key_count": 10,
+      "deep_key_count": 17,
+      "forbidden_top_level_hits": [],
+      "forbidden_deep_hits": [],
+      "metadata_only_ok": true
+    },
+    {
+      "artifact_name": "experimental_contract.config_surface",
+      "kind": "metadata_plan_object",
+      "top_key_count": 11,
+      "deep_key_count": 11,
+      "forbidden_top_level_hits": [],
+      "forbidden_deep_hits": [],
+      "metadata_only_ok": true
+    },
+    {
+      "artifact_name": "experimental_contract.prototype_subplans",
+      "kind": "metadata_plan_object",
+      "top_key_count": 0,
+      "deep_key_count": 99,
+      "forbidden_top_level_hits": [],
+      "forbidden_deep_hits": [],
+      "metadata_only_ok": true
+    },
+    {
+      "artifact_name": "abstract_floorplan_payload.payload",
+      "kind": "metadata_plan_object",
+      "top_key_count": 13,
+      "deep_key_count": 219,
+      "forbidden_top_level_hits": [],
+      "forbidden_deep_hits": [],
+      "metadata_only_ok": true
+    },
+    {
+      "artifact_name": "goal_progress_audit.audit_summary",
+      "kind": "json_report",
+      "top_key_count": 8,
+      "deep_key_count": 8,
+      "forbidden_top_level_hits": [],
+      "forbidden_deep_hits": [],
+      "metadata_only_ok": true
+    }
+  ],
+  "output_class_rows": [
+    {
+      "artifact_class": "metadata_plan_object",
+      "allowed": true,
+      "must_remain_nonphysical": true,
+      "notes": "Abstract builder output may be an in-memory metadata plan only."
+    },
+    {
+      "artifact_class": "json_report",
+      "allowed": true,
+      "must_remain_nonphysical": true,
+      "notes": "Audit/report outputs are allowed."
+    },
+    {
+      "artifact_class": "markdown_report",
+      "allowed": true,
+      "must_remain_nonphysical": true,
+      "notes": "Human-readable audit outputs are allowed."
+    },
+    {
+      "artifact_class": "gds_layout",
+      "allowed": false,
+      "must_remain_nonphysical": true,
+      "notes": "GDS generation remains forbidden."
+    },
+    {
+      "artifact_class": "routed_geometry",
+      "allowed": false,
+      "must_remain_nonphysical": true,
+      "notes": "Routing geometry remains forbidden."
+    },
+    {
+      "artifact_class": "standalone_generator_patch",
+      "allowed": false,
+      "must_remain_nonphysical": true,
+      "notes": "Main generator integration remains forbidden."
+    }
+  ],
+  "allowed_output_classes": [
+    "json_report",
+    "markdown_report",
+    "metadata_plan_object"
+  ],
+  "forbidden_output_classes": [
+    "gds_layout",
+    "routed_geometry",
+    "standalone_generator_patch"
+  ],
+  "source_reports": {
+    "prototype_artifact_contract": "step6_40_openyield_time_control_prototype_artifact_contract_audit",
+    "prototype_interface_surface": "step6_39_openyield_time_control_prototype_interface_surface_audit",
+    "experimental_contract": "step6_31_openyield_time_control_experimental_contract",
+    "abstract_floorplan_payload": "step6_32_openyield_time_control_abstract_floorplan_payload",
+    "goal_progress_audit": "goal_chain_openyield_time_control_progress_audit"
+  },
+  "violations": {
+    "missing_required_sections": [],
+    "forbidden_field_hits": [],
+    "regression_warnings": []
+  },
+  "consistency_checks": {
+    "builder_output_regression_audit_available": true,
+    "allowed_output_classes_explicit": true,
+    "forbidden_output_classes_explicit": true,
+    "candidate_artifact_shape_complete": true,
+    "sample_outputs_forbidden_field_free": true,
+    "goal_gates_still_closed": true,
+    "metadata_only_mode_preserved": true,
+    "default_off_preserved": true,
+    "future_default_off_builder_output_regression_clean": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "audit_summary": {
+    "builder_output_regression_audit_available": true,
+    "candidate_artifact_shape_complete": true,
+    "sample_outputs_forbidden_field_free": true,
+    "goal_gates_still_closed": true,
+    "future_default_off_builder_output_regression_clean": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "notes": [
+    "This audit checks regression drift in metadata-only builder outputs.",
+    "Passing this audit still does not authorize standalone integration, routing, GDS generation, or physical placement.",
+    "The intent is to catch schema creep before any future builder starts emitting physical-looking payloads."
+  ],
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "can_modify_standalone_now": false,
+  "can_generate_time_control_gds_now": false,
+  "can_enter_physical_placement_now": false
+}

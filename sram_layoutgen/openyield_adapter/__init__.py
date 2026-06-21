@@ -167,3 +167,12 @@ except ModuleNotFoundError:
     pass
 else:
     __all__.append("build_time_control_prototype_artifact_contract_report")
+
+try:
+    from .time_control_builder_output_regression import (
+        build_time_control_builder_output_regression_report,
+    )
+except ModuleNotFoundError:
+    pass
+else:
+    __all__.append("build_time_control_builder_output_regression_report")
