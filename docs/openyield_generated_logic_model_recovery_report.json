@@ -1,0 +1,1223 @@
+{
+  "scope": "recover_generated_logic_spice_or_timing_model_inventory",
+  "repo_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "upstream_repo_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "audit_summary": {
+    "generated_logic_model_recovery_inventory_available": true,
+    "all_p0_macros_analyzed": true,
+    "all_repo_model_sources_searched": true,
+    "usable_model_found_for_all_p0": false,
+    "recoverable_source_found_for_all_p0": true,
+    "characterization_required_for_any_p0": true,
+    "can_enter_model_characterization_plan": true,
+    "can_enter_delay_chain_testbench_plan": true,
+    "can_enter_timing_proof_now": false,
+    "can_enter_physical_timing_closure_now": false,
+    "can_enter_physical_routing_now": false,
+    "can_enter_physical_placement_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_modify_standalone_now": false
+  },
+  "searched_roots": [
+    "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+    "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib",
+    "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements",
+    "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openyield_repaired",
+    "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib",
+    "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\tech",
+    "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\sram_layoutgen",
+    "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\scripts",
+    "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs",
+    "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build",
+    "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield"
+  ],
+  "searched_extensions": [
+    ".cdl",
+    ".gds",
+    ".json",
+    ".lef",
+    ".lib",
+    ".log",
+    ".md",
+    ".net",
+    ".py",
+    ".sp",
+    ".spi",
+    ".spice",
+    ".tcl"
+  ],
+  "input_reports_and_assets": {
+    "timing_proof_plan": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_timing_proof_plan_report.json",
+    "timing_metadata": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_timing_metadata_report.json",
+    "asset_inventory": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_repo_physical_asset_inventory_report.json",
+    "leaf_inventory": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_leaf_inventory_report.json",
+    "subblock_audit": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_subblock_audit_report.json"
+  },
+  "p0_generated_logic_model_inventory": [
+    {
+      "macro_name": "gen_inv",
+      "priority": "P0",
+      "role_in_time_control": "generic inverter leaf for PDRIVE / WL_PDRIVE / PINV / composite logic",
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_inv.gds",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_inv.gds"
+      ],
+      "spice_paths": [],
+      "cdl_paths": [],
+      "lib_paths": [],
+      "lef_paths": [],
+      "python_generator_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\time_generate.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\decoder.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\standard_cell.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\wordline_driver.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\testbenches\\parameter_factor.py"
+      ],
+      "json_metadata_paths": [],
+      "build_output_paths": [],
+      "subckt_names_if_found": [],
+      "lib_cell_names_if_found": [],
+      "timing_arcs_if_found": [],
+      "pin_list_if_found": [
+        "A",
+        "D",
+        "G",
+        "S",
+        "Z",
+        "gnd",
+        "vdd"
+      ],
+      "power_pins_if_found": [
+        "vdd",
+        "gnd"
+      ],
+      "matches_recommended_gds_variant": true,
+      "gds_exists": true,
+      "spice_exists": false,
+      "lib_exists": false,
+      "python_generator_exists": true,
+      "can_recover_transistor_level_netlist": true,
+      "can_recover_delay_model": false,
+      "has_usable_spice_now": false,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false,
+      "can_recover_from_existing_repo": "partial",
+      "recovery_source_type": "generator_source_only",
+      "recovery_confidence": "medium",
+      "requires_manual_model_creation": true,
+      "requires_characterization": true,
+      "requires_pdk_device_models": true,
+      "requires_testbench": true,
+      "blocks_timing_objects": [
+        "PDRIVE",
+        "WL_PDRIVE",
+        "PINV",
+        "AND2",
+        "AND3_COMPOSITE",
+        "PNAND3_COMPOSITE"
+      ],
+      "next_action": "materialize_transistor_level_netlist_then_characterize",
+      "recovery_decision": "recoverable_from_generator_source",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": false,
+      "can_claim_timing_proof_now": false,
+      "notes": [
+        "path_found != usable_model",
+        "spice_found != timing_characterized",
+        "generator_source_found != recovered_model",
+        "build_output_found != validated_model",
+        "Python/OpenYield generator source exists but no directly usable SPICE/LIB was found.",
+        "Recovery still requires manual netlist materialization plus characterization.",
+        "Referenced by TIME/control subblock DELAY_CHAIN.",
+        "Referenced by TIME/control subblock WEN_DELAY_CHAIN.",
+        "Referenced by TIME/control subblock PDRIVE.",
+        "Referenced by TIME/control subblock PDRIVE2_FOR_PRE.",
+        "Referenced by TIME/control subblock WL_PDRIVE."
+      ]
+    },
+    {
+      "macro_name": "gen_nand2",
+      "priority": "P0",
+      "role_in_time_control": "generic nand2 leaf for AND2 / AND3_COMPOSITE / PNAND3_COMPOSITE",
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_nand2.gds",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_nand2.gds"
+      ],
+      "spice_paths": [],
+      "cdl_paths": [],
+      "lib_paths": [],
+      "lef_paths": [],
+      "python_generator_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\time_generate.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\decoder.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\standard_cell.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\wordline_driver.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\testbenches\\parameter_factor.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\testbenches\\sram_6t_core_testbench.py"
+      ],
+      "json_metadata_paths": [],
+      "build_output_paths": [],
+      "subckt_names_if_found": [],
+      "lib_cell_names_if_found": [],
+      "timing_arcs_if_found": [],
+      "pin_list_if_found": [
+        "A",
+        "B",
+        "D",
+        "G",
+        "S",
+        "Z",
+        "gnd",
+        "vdd"
+      ],
+      "power_pins_if_found": [
+        "vdd",
+        "gnd"
+      ],
+      "matches_recommended_gds_variant": true,
+      "gds_exists": true,
+      "spice_exists": false,
+      "lib_exists": false,
+      "python_generator_exists": true,
+      "can_recover_transistor_level_netlist": true,
+      "can_recover_delay_model": false,
+      "has_usable_spice_now": false,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false,
+      "can_recover_from_existing_repo": "partial",
+      "recovery_source_type": "generator_source_only",
+      "recovery_confidence": "medium",
+      "requires_manual_model_creation": true,
+      "requires_characterization": true,
+      "requires_pdk_device_models": true,
+      "requires_testbench": true,
+      "blocks_timing_objects": [
+        "AND2",
+        "AND3_COMPOSITE",
+        "PNAND3_COMPOSITE",
+        "WRITE_ENABLE_PATH",
+        "SENSE_ENABLE_PATH",
+        "PRECHARGE_ENABLE_PATH"
+      ],
+      "next_action": "materialize_transistor_level_netlist_then_characterize",
+      "recovery_decision": "recoverable_from_generator_source",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": false,
+      "can_claim_timing_proof_now": false,
+      "notes": [
+        "path_found != usable_model",
+        "spice_found != timing_characterized",
+        "generator_source_found != recovered_model",
+        "build_output_found != validated_model",
+        "Python/OpenYield generator source exists but no directly usable SPICE/LIB was found.",
+        "Recovery still requires manual netlist materialization plus characterization.",
+        "Referenced by TIME/control subblock WL_PDRIVE."
+      ]
+    },
+    {
+      "macro_name": "gen_delay_inv",
+      "priority": "P0",
+      "role_in_time_control": "delay-chain inverter leaf for DELAY_CHAIN / WEN_DELAY_CHAIN",
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_delay_inv.gds",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_delay_inv.gds"
+      ],
+      "spice_paths": [],
+      "cdl_paths": [],
+      "lib_paths": [],
+      "lef_paths": [],
+      "python_generator_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\time_generate.py"
+      ],
+      "json_metadata_paths": [],
+      "build_output_paths": [],
+      "subckt_names_if_found": [],
+      "lib_cell_names_if_found": [],
+      "timing_arcs_if_found": [],
+      "pin_list_if_found": [
+        "A",
+        "D",
+        "G",
+        "S",
+        "Z",
+        "gnd",
+        "vdd"
+      ],
+      "power_pins_if_found": [
+        "vdd",
+        "gnd"
+      ],
+      "matches_recommended_gds_variant": true,
+      "gds_exists": true,
+      "spice_exists": false,
+      "lib_exists": false,
+      "python_generator_exists": true,
+      "can_recover_transistor_level_netlist": true,
+      "can_recover_delay_model": false,
+      "has_usable_spice_now": false,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false,
+      "can_recover_from_existing_repo": "partial",
+      "recovery_source_type": "generator_source_only",
+      "recovery_confidence": "medium",
+      "requires_manual_model_creation": true,
+      "requires_characterization": true,
+      "requires_pdk_device_models": true,
+      "requires_testbench": true,
+      "blocks_timing_objects": [
+        "DELAY_CHAIN",
+        "WEN_DELAY_CHAIN",
+        "RBL_DELAY_PATH"
+      ],
+      "next_action": "materialize_transistor_level_netlist_then_characterize",
+      "recovery_decision": "recoverable_from_generator_source",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": true,
+      "can_claim_timing_proof_now": false,
+      "notes": [
+        "path_found != usable_model",
+        "spice_found != timing_characterized",
+        "generator_source_found != recovered_model",
+        "build_output_found != validated_model",
+        "Python/OpenYield generator source exists but no directly usable SPICE/LIB was found.",
+        "Recovery still requires manual netlist materialization plus characterization.",
+        "Referenced by TIME/control subblock DELAY_CHAIN.",
+        "Referenced by TIME/control subblock WEN_DELAY_CHAIN."
+      ]
+    }
+  ],
+  "secondary_macro_model_inventory": [
+    {
+      "macro_name": "gen_precharge",
+      "priority": "P1",
+      "role_in_time_control": "precharge consumer macro reference",
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_precharge.gds",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_precharge.gds"
+      ],
+      "spice_paths": [],
+      "cdl_paths": [],
+      "lib_paths": [],
+      "lef_paths": [],
+      "python_generator_paths": [],
+      "json_metadata_paths": [],
+      "build_output_paths": [],
+      "subckt_names_if_found": [],
+      "lib_cell_names_if_found": [],
+      "timing_arcs_if_found": [],
+      "pin_list_if_found": [
+        "D",
+        "G",
+        "S",
+        "bl",
+        "br",
+        "en_bar",
+        "vdd"
+      ],
+      "power_pins_if_found": [
+        "vdd"
+      ],
+      "matches_recommended_gds_variant": true,
+      "gds_exists": true,
+      "spice_exists": false,
+      "lib_exists": false,
+      "python_generator_exists": false,
+      "can_recover_transistor_level_netlist": false,
+      "can_recover_delay_model": false,
+      "has_usable_spice_now": false,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false,
+      "can_recover_from_existing_repo": false,
+      "recovery_source_type": "gds_metadata_only",
+      "recovery_confidence": "low",
+      "requires_manual_model_creation": true,
+      "requires_characterization": true,
+      "requires_pdk_device_models": true,
+      "requires_testbench": true,
+      "blocks_timing_objects": [
+        "PRECHARGE",
+        "PRECHARGE_ENABLE_PATH"
+      ],
+      "next_action": "characterization_plan_required",
+      "recovery_decision": "metadata_only_no_recovery_source",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": false,
+      "can_claim_timing_proof_now": false,
+      "notes": [
+        "path_found != usable_model",
+        "spice_found != timing_characterized",
+        "generator_source_found != recovered_model",
+        "build_output_found != validated_model"
+      ]
+    },
+    {
+      "macro_name": "gen_wl_driver",
+      "priority": "P1",
+      "role_in_time_control": "wordline-enable consumer macro reference",
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_wl_driver.gds",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_wl_driver.gds"
+      ],
+      "spice_paths": [],
+      "cdl_paths": [],
+      "lib_paths": [],
+      "lef_paths": [],
+      "python_generator_paths": [],
+      "json_metadata_paths": [],
+      "build_output_paths": [],
+      "subckt_names_if_found": [],
+      "lib_cell_names_if_found": [],
+      "timing_arcs_if_found": [],
+      "pin_list_if_found": [
+        "A",
+        "B",
+        "D",
+        "G",
+        "S",
+        "Z",
+        "gnd",
+        "vdd"
+      ],
+      "power_pins_if_found": [
+        "vdd",
+        "gnd"
+      ],
+      "matches_recommended_gds_variant": true,
+      "gds_exists": true,
+      "spice_exists": false,
+      "lib_exists": false,
+      "python_generator_exists": false,
+      "can_recover_transistor_level_netlist": false,
+      "can_recover_delay_model": false,
+      "has_usable_spice_now": false,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false,
+      "can_recover_from_existing_repo": false,
+      "recovery_source_type": "gds_metadata_only",
+      "recovery_confidence": "low",
+      "requires_manual_model_creation": true,
+      "requires_characterization": true,
+      "requires_pdk_device_models": true,
+      "requires_testbench": true,
+      "blocks_timing_objects": [
+        "WL_PDRIVE",
+        "WORDLINE_ENABLE_PATH"
+      ],
+      "next_action": "characterization_plan_required",
+      "recovery_decision": "metadata_only_no_recovery_source",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": false,
+      "can_claim_timing_proof_now": false,
+      "notes": [
+        "path_found != usable_model",
+        "spice_found != timing_characterized",
+        "generator_source_found != recovered_model",
+        "build_output_found != validated_model"
+      ]
+    },
+    {
+      "macro_name": "gen_col_mux_vdd_labeled",
+      "priority": "P2",
+      "role_in_time_control": "read-path alias reference, not current TIME/control blocker",
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_colmux_repair\\gen_col_mux_vdd_labeled.gds",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openyield_repaired\\gen_col_mux_vdd_labeled.gds"
+      ],
+      "spice_paths": [],
+      "cdl_paths": [],
+      "lib_paths": [],
+      "lef_paths": [],
+      "python_generator_paths": [],
+      "json_metadata_paths": [],
+      "build_output_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_colmux_repair\\gen_col_mux_vdd_labeled.gds"
+      ],
+      "subckt_names_if_found": [],
+      "lib_cell_names_if_found": [],
+      "timing_arcs_if_found": [],
+      "pin_list_if_found": [
+        "D",
+        "G",
+        "S",
+        "bl",
+        "bl_out",
+        "br",
+        "br_out",
+        "gnd",
+        "sel",
+        "vdd"
+      ],
+      "power_pins_if_found": [
+        "vdd",
+        "gnd"
+      ],
+      "matches_recommended_gds_variant": true,
+      "gds_exists": true,
+      "spice_exists": false,
+      "lib_exists": false,
+      "python_generator_exists": false,
+      "can_recover_transistor_level_netlist": false,
+      "can_recover_delay_model": false,
+      "has_usable_spice_now": false,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false,
+      "can_recover_from_existing_repo": false,
+      "recovery_source_type": "gds_metadata_only",
+      "recovery_confidence": "low",
+      "requires_manual_model_creation": true,
+      "requires_characterization": true,
+      "requires_pdk_device_models": true,
+      "requires_testbench": true,
+      "blocks_timing_objects": [],
+      "next_action": "characterization_plan_required",
+      "recovery_decision": "metadata_only_no_recovery_source",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": false,
+      "can_claim_timing_proof_now": false,
+      "notes": [
+        "path_found != usable_model",
+        "spice_found != timing_characterized",
+        "generator_source_found != recovered_model",
+        "build_output_found != validated_model",
+        "Build outputs contain name-matched artifacts; they are candidates only."
+      ]
+    },
+    {
+      "macro_name": "dff",
+      "priority": "P1",
+      "role_in_time_control": "clocked row consumer reference",
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\dff.gds"
+      ],
+      "spice_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp"
+      ],
+      "cdl_paths": [],
+      "lib_paths": [],
+      "lef_paths": [],
+      "python_generator_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\time_generate.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\testbenches\\sram_6t_core_MC_testbench.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\testbenches\\sram_6t_core_testbench.py"
+      ],
+      "json_metadata_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_dff_array_adapter_report.json",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_dff_array_placement_report.json"
+      ],
+      "build_output_paths": [],
+      "subckt_names_if_found": [
+        "dff"
+      ],
+      "lib_cell_names_if_found": [],
+      "timing_arcs_if_found": [],
+      "pin_list_if_found": [
+        "D",
+        "Q",
+        "clk",
+        "vdd",
+        "gnd"
+      ],
+      "power_pins_if_found": [
+        "vdd",
+        "gnd"
+      ],
+      "matches_recommended_gds_variant": true,
+      "gds_exists": true,
+      "spice_exists": true,
+      "lib_exists": false,
+      "python_generator_exists": true,
+      "can_recover_transistor_level_netlist": true,
+      "can_recover_delay_model": true,
+      "has_usable_spice_now": true,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false,
+      "can_recover_from_existing_repo": true,
+      "recovery_source_type": "existing_spice_only",
+      "recovery_confidence": "medium",
+      "requires_manual_model_creation": false,
+      "requires_characterization": true,
+      "requires_pdk_device_models": true,
+      "requires_testbench": true,
+      "blocks_timing_objects": [
+        "DFF_ROW",
+        "GATED_CLOCK_PATH"
+      ],
+      "next_action": "plan_characterization_from_existing_spice",
+      "recovery_decision": "recoverable_from_existing_spice",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": false,
+      "can_claim_timing_proof_now": false,
+      "notes": [
+        "path_found != usable_model",
+        "spice_found != timing_characterized",
+        "generator_source_found != recovered_model",
+        "build_output_found != validated_model"
+      ]
+    },
+    {
+      "macro_name": "sense_amp",
+      "priority": "P1",
+      "role_in_time_control": "sense-enable consumer reference",
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\sense_amp.gds"
+      ],
+      "spice_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\sense_amp.sp"
+      ],
+      "cdl_paths": [],
+      "lib_paths": [],
+      "lef_paths": [],
+      "python_generator_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\config.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\config_yaml\\config.py"
+      ],
+      "json_metadata_paths": [],
+      "build_output_paths": [],
+      "subckt_names_if_found": [
+        "sense_amp"
+      ],
+      "lib_cell_names_if_found": [],
+      "timing_arcs_if_found": [],
+      "pin_list_if_found": [
+        "bl",
+        "br",
+        "dout",
+        "en",
+        "vdd",
+        "gnd"
+      ],
+      "power_pins_if_found": [
+        "vdd",
+        "gnd"
+      ],
+      "matches_recommended_gds_variant": true,
+      "gds_exists": true,
+      "spice_exists": true,
+      "lib_exists": false,
+      "python_generator_exists": true,
+      "can_recover_transistor_level_netlist": true,
+      "can_recover_delay_model": true,
+      "has_usable_spice_now": true,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false,
+      "can_recover_from_existing_repo": true,
+      "recovery_source_type": "existing_spice_only",
+      "recovery_confidence": "medium",
+      "requires_manual_model_creation": false,
+      "requires_characterization": true,
+      "requires_pdk_device_models": true,
+      "requires_testbench": true,
+      "blocks_timing_objects": [
+        "SENSE_ENABLE_PATH"
+      ],
+      "next_action": "plan_characterization_from_existing_spice",
+      "recovery_decision": "recoverable_from_existing_spice",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": false,
+      "can_claim_timing_proof_now": false,
+      "notes": [
+        "path_found != usable_model",
+        "spice_found != timing_characterized",
+        "generator_source_found != recovered_model",
+        "build_output_found != validated_model"
+      ]
+    },
+    {
+      "macro_name": "write_driver",
+      "priority": "P1",
+      "role_in_time_control": "write-enable consumer reference",
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\write_driver.gds"
+      ],
+      "spice_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp"
+      ],
+      "cdl_paths": [],
+      "lib_paths": [],
+      "lef_paths": [],
+      "python_generator_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\config.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\demo_run_a_testbench.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\equivalent_modeling\\main_sram.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\main_sram.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\size_optimization\\exp_utils.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\size_optimization\\experiment.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\config_yaml\\config.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\sram_cell_add_equivalent.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\testbenches\\parameter_factor.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\testbenches\\sram_6t_core_testbench.py"
+      ],
+      "json_metadata_paths": [],
+      "build_output_paths": [],
+      "subckt_names_if_found": [
+        "write_driver"
+      ],
+      "lib_cell_names_if_found": [],
+      "timing_arcs_if_found": [],
+      "pin_list_if_found": [
+        "din",
+        "bl",
+        "br",
+        "en",
+        "vdd",
+        "gnd"
+      ],
+      "power_pins_if_found": [
+        "vdd",
+        "gnd"
+      ],
+      "matches_recommended_gds_variant": true,
+      "gds_exists": true,
+      "spice_exists": true,
+      "lib_exists": false,
+      "python_generator_exists": true,
+      "can_recover_transistor_level_netlist": true,
+      "can_recover_delay_model": true,
+      "has_usable_spice_now": true,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false,
+      "can_recover_from_existing_repo": true,
+      "recovery_source_type": "existing_spice_only",
+      "recovery_confidence": "medium",
+      "requires_manual_model_creation": false,
+      "requires_characterization": true,
+      "requires_pdk_device_models": true,
+      "requires_testbench": true,
+      "blocks_timing_objects": [
+        "WRITE_ENABLE_PATH"
+      ],
+      "next_action": "plan_characterization_from_existing_spice",
+      "recovery_decision": "recoverable_from_existing_spice",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": false,
+      "can_claim_timing_proof_now": false,
+      "notes": [
+        "path_found != usable_model",
+        "spice_found != timing_characterized",
+        "generator_source_found != recovered_model",
+        "build_output_found != validated_model"
+      ]
+    },
+    {
+      "macro_name": "cell_1rw",
+      "priority": "P2",
+      "role_in_time_control": "replica/bitline load reference",
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\cell_1rw.gds",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\dummy_cell_1rw.gds",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\replica_cell_1rw.gds"
+      ],
+      "spice_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_1rw.sp",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dummy_cell_1rw.sp",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_1rw.sp"
+      ],
+      "cdl_paths": [],
+      "lib_paths": [],
+      "lef_paths": [],
+      "python_generator_paths": [],
+      "json_metadata_paths": [],
+      "build_output_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_hardcell_drc_baseline\\cell_1rw_drc.log",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_hardcell_drc_baseline\\dummy_cell_1rw_drc.log",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_hardcell_drc_baseline\\replica_cell_1rw_drc.log"
+      ],
+      "subckt_names_if_found": [
+        "cell_1rw",
+        "dummy_cell_1rw",
+        "replica_cell_1rw"
+      ],
+      "lib_cell_names_if_found": [],
+      "timing_arcs_if_found": [],
+      "pin_list_if_found": [
+        "bl",
+        "br",
+        "wl",
+        "vdd",
+        "gnd",
+        "Q",
+        "Q_bar"
+      ],
+      "power_pins_if_found": [
+        "vdd",
+        "gnd"
+      ],
+      "matches_recommended_gds_variant": true,
+      "gds_exists": true,
+      "spice_exists": true,
+      "lib_exists": false,
+      "python_generator_exists": false,
+      "can_recover_transistor_level_netlist": true,
+      "can_recover_delay_model": true,
+      "has_usable_spice_now": true,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false,
+      "can_recover_from_existing_repo": true,
+      "recovery_source_type": "existing_spice_only",
+      "recovery_confidence": "medium",
+      "requires_manual_model_creation": false,
+      "requires_characterization": true,
+      "requires_pdk_device_models": true,
+      "requires_testbench": true,
+      "blocks_timing_objects": [
+        "RBL_DELAY_PATH"
+      ],
+      "next_action": "plan_characterization_from_existing_spice",
+      "recovery_decision": "recoverable_from_existing_spice",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": false,
+      "can_claim_timing_proof_now": false,
+      "notes": [
+        "path_found != usable_model",
+        "spice_found != timing_characterized",
+        "generator_source_found != recovered_model",
+        "build_output_found != validated_model",
+        "Build outputs contain name-matched artifacts; they are candidates only."
+      ]
+    },
+    {
+      "macro_name": "replica_cell_1rw",
+      "priority": "P2",
+      "role_in_time_control": "replica timing reference cell",
+      "gds_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\replica_cell_1rw.gds"
+      ],
+      "spice_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_1rw.sp"
+      ],
+      "cdl_paths": [],
+      "lib_paths": [],
+      "lef_paths": [],
+      "python_generator_paths": [],
+      "json_metadata_paths": [],
+      "build_output_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_hardcell_drc_baseline\\replica_cell_1rw_drc.log"
+      ],
+      "subckt_names_if_found": [
+        "replica_cell_1rw"
+      ],
+      "lib_cell_names_if_found": [],
+      "timing_arcs_if_found": [],
+      "pin_list_if_found": [
+        "bl",
+        "br",
+        "wl",
+        "vdd",
+        "gnd"
+      ],
+      "power_pins_if_found": [
+        "vdd",
+        "gnd"
+      ],
+      "matches_recommended_gds_variant": true,
+      "gds_exists": true,
+      "spice_exists": true,
+      "lib_exists": false,
+      "python_generator_exists": false,
+      "can_recover_transistor_level_netlist": true,
+      "can_recover_delay_model": true,
+      "has_usable_spice_now": true,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false,
+      "can_recover_from_existing_repo": true,
+      "recovery_source_type": "existing_spice_only",
+      "recovery_confidence": "medium",
+      "requires_manual_model_creation": false,
+      "requires_characterization": true,
+      "requires_pdk_device_models": true,
+      "requires_testbench": true,
+      "blocks_timing_objects": [
+        "DELAY_CHAIN",
+        "RBL_DELAY_PATH"
+      ],
+      "next_action": "plan_characterization_from_existing_spice",
+      "recovery_decision": "recoverable_from_existing_spice",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": false,
+      "can_claim_timing_proof_now": false,
+      "notes": [
+        "path_found != usable_model",
+        "spice_found != timing_characterized",
+        "generator_source_found != recovered_model",
+        "build_output_found != validated_model",
+        "Build outputs contain name-matched artifacts; they are candidates only."
+      ]
+    }
+  ],
+  "build_output_model_search": [
+    {
+      "macro_name": "gen_col_mux_vdd_labeled",
+      "candidate_model_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_colmux_repair\\gen_col_mux_vdd_labeled.gds",
+      "candidate_origin": "build_output",
+      "matches_macro_name": true,
+      "matches_pin_order": false,
+      "has_power_pins": true,
+      "usable_without_conversion": false,
+      "conversion_needed": true,
+      "risk": "candidate_only_not_validated"
+    },
+    {
+      "macro_name": "cell_1rw",
+      "candidate_model_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_hardcell_drc_baseline\\cell_1rw_drc.log",
+      "candidate_origin": "build_output",
+      "matches_macro_name": false,
+      "matches_pin_order": false,
+      "has_power_pins": true,
+      "usable_without_conversion": false,
+      "conversion_needed": true,
+      "risk": "candidate_only_not_validated"
+    },
+    {
+      "macro_name": "cell_1rw",
+      "candidate_model_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_hardcell_drc_baseline\\dummy_cell_1rw_drc.log",
+      "candidate_origin": "build_output",
+      "matches_macro_name": false,
+      "matches_pin_order": false,
+      "has_power_pins": true,
+      "usable_without_conversion": false,
+      "conversion_needed": true,
+      "risk": "candidate_only_not_validated"
+    },
+    {
+      "macro_name": "cell_1rw",
+      "candidate_model_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_hardcell_drc_baseline\\replica_cell_1rw_drc.log",
+      "candidate_origin": "build_output",
+      "matches_macro_name": false,
+      "matches_pin_order": false,
+      "has_power_pins": true,
+      "usable_without_conversion": false,
+      "conversion_needed": true,
+      "risk": "candidate_only_not_validated"
+    },
+    {
+      "macro_name": "replica_cell_1rw",
+      "candidate_model_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_hardcell_drc_baseline\\replica_cell_1rw_drc.log",
+      "candidate_origin": "build_output",
+      "matches_macro_name": false,
+      "matches_pin_order": false,
+      "has_power_pins": true,
+      "usable_without_conversion": false,
+      "conversion_needed": true,
+      "risk": "candidate_only_not_validated"
+    }
+  ],
+  "python_generator_source_recovery_search": [
+    {
+      "macro_name": "gen_inv",
+      "python_generator_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\time_generate.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\decoder.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\standard_cell.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\wordline_driver.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\testbenches\\parameter_factor.py"
+      ],
+      "python_generator_exists": true,
+      "recovery_source_type": "generator_source_only",
+      "can_recover_transistor_level_netlist": true,
+      "requires_manual_model_creation": true,
+      "requires_characterization": true
+    },
+    {
+      "macro_name": "gen_nand2",
+      "python_generator_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\time_generate.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\decoder.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\standard_cell.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\wordline_driver.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\testbenches\\parameter_factor.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\testbenches\\sram_6t_core_testbench.py"
+      ],
+      "python_generator_exists": true,
+      "recovery_source_type": "generator_source_only",
+      "can_recover_transistor_level_netlist": true,
+      "requires_manual_model_creation": true,
+      "requires_characterization": true
+    },
+    {
+      "macro_name": "gen_delay_inv",
+      "python_generator_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\time_generate.py"
+      ],
+      "python_generator_exists": true,
+      "recovery_source_type": "generator_source_only",
+      "can_recover_transistor_level_netlist": true,
+      "requires_manual_model_creation": true,
+      "requires_characterization": true
+    },
+    {
+      "macro_name": "dff",
+      "python_generator_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\time_generate.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\testbenches\\sram_6t_core_MC_testbench.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\testbenches\\sram_6t_core_testbench.py"
+      ],
+      "python_generator_exists": true,
+      "recovery_source_type": "existing_spice_only",
+      "can_recover_transistor_level_netlist": true,
+      "requires_manual_model_creation": false,
+      "requires_characterization": true
+    },
+    {
+      "macro_name": "sense_amp",
+      "python_generator_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\config.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\config_yaml\\config.py"
+      ],
+      "python_generator_exists": true,
+      "recovery_source_type": "existing_spice_only",
+      "can_recover_transistor_level_netlist": true,
+      "requires_manual_model_creation": false,
+      "requires_characterization": true
+    },
+    {
+      "macro_name": "write_driver",
+      "python_generator_paths": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\config.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\demo_run_a_testbench.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\equivalent_modeling\\main_sram.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\main_sram.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\size_optimization\\exp_utils.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\size_optimization\\experiment.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\config_yaml\\config.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\sram_cell_add_equivalent.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\testbenches\\parameter_factor.py",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\testbenches\\sram_6t_core_testbench.py"
+      ],
+      "python_generator_exists": true,
+      "recovery_source_type": "existing_spice_only",
+      "can_recover_transistor_level_netlist": true,
+      "requires_manual_model_creation": false,
+      "requires_characterization": true
+    }
+  ],
+  "model_recovery_decision_table": [
+    {
+      "macro_name": "gen_inv",
+      "recovery_decision": "recoverable_from_generator_source",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": false,
+      "can_claim_timing_proof_now": false
+    },
+    {
+      "macro_name": "gen_nand2",
+      "recovery_decision": "recoverable_from_generator_source",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": false,
+      "can_claim_timing_proof_now": false
+    },
+    {
+      "macro_name": "gen_delay_inv",
+      "recovery_decision": "recoverable_from_generator_source",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": true,
+      "can_claim_timing_proof_now": false
+    },
+    {
+      "macro_name": "gen_precharge",
+      "recovery_decision": "metadata_only_no_recovery_source",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": false,
+      "can_claim_timing_proof_now": false
+    },
+    {
+      "macro_name": "gen_wl_driver",
+      "recovery_decision": "metadata_only_no_recovery_source",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": false,
+      "can_claim_timing_proof_now": false
+    },
+    {
+      "macro_name": "gen_col_mux_vdd_labeled",
+      "recovery_decision": "metadata_only_no_recovery_source",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": false,
+      "can_claim_timing_proof_now": false
+    },
+    {
+      "macro_name": "dff",
+      "recovery_decision": "recoverable_from_existing_spice",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": false,
+      "can_claim_timing_proof_now": false
+    },
+    {
+      "macro_name": "sense_amp",
+      "recovery_decision": "recoverable_from_existing_spice",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": false,
+      "can_claim_timing_proof_now": false
+    },
+    {
+      "macro_name": "write_driver",
+      "recovery_decision": "recoverable_from_existing_spice",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": false,
+      "can_claim_timing_proof_now": false
+    },
+    {
+      "macro_name": "cell_1rw",
+      "recovery_decision": "recoverable_from_existing_spice",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": false,
+      "can_claim_timing_proof_now": false
+    },
+    {
+      "macro_name": "replica_cell_1rw",
+      "recovery_decision": "recoverable_from_existing_spice",
+      "can_enter_model_characterization_plan": true,
+      "can_enter_delay_chain_testbench_plan": false,
+      "can_claim_timing_proof_now": false
+    }
+  ],
+  "timing_object_unblock_matrix": [
+    {
+      "macro_name": "gen_inv",
+      "blocks_timing_objects": [
+        "PDRIVE",
+        "WL_PDRIVE",
+        "PINV",
+        "AND2",
+        "AND3_COMPOSITE",
+        "PNAND3_COMPOSITE"
+      ],
+      "recovery_decision": "recoverable_from_generator_source",
+      "has_usable_spice_now": false,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false
+    },
+    {
+      "macro_name": "gen_nand2",
+      "blocks_timing_objects": [
+        "AND2",
+        "AND3_COMPOSITE",
+        "PNAND3_COMPOSITE",
+        "WRITE_ENABLE_PATH",
+        "SENSE_ENABLE_PATH",
+        "PRECHARGE_ENABLE_PATH"
+      ],
+      "recovery_decision": "recoverable_from_generator_source",
+      "has_usable_spice_now": false,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false
+    },
+    {
+      "macro_name": "gen_delay_inv",
+      "blocks_timing_objects": [
+        "DELAY_CHAIN",
+        "WEN_DELAY_CHAIN",
+        "RBL_DELAY_PATH"
+      ],
+      "recovery_decision": "recoverable_from_generator_source",
+      "has_usable_spice_now": false,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false
+    },
+    {
+      "macro_name": "gen_precharge",
+      "blocks_timing_objects": [
+        "PRECHARGE",
+        "PRECHARGE_ENABLE_PATH"
+      ],
+      "recovery_decision": "metadata_only_no_recovery_source",
+      "has_usable_spice_now": false,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false
+    },
+    {
+      "macro_name": "gen_wl_driver",
+      "blocks_timing_objects": [
+        "WL_PDRIVE",
+        "WORDLINE_ENABLE_PATH"
+      ],
+      "recovery_decision": "metadata_only_no_recovery_source",
+      "has_usable_spice_now": false,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false
+    },
+    {
+      "macro_name": "gen_col_mux_vdd_labeled",
+      "blocks_timing_objects": [],
+      "recovery_decision": "metadata_only_no_recovery_source",
+      "has_usable_spice_now": false,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false
+    },
+    {
+      "macro_name": "dff",
+      "blocks_timing_objects": [
+        "DFF_ROW",
+        "GATED_CLOCK_PATH"
+      ],
+      "recovery_decision": "recoverable_from_existing_spice",
+      "has_usable_spice_now": true,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false
+    },
+    {
+      "macro_name": "sense_amp",
+      "blocks_timing_objects": [
+        "SENSE_ENABLE_PATH"
+      ],
+      "recovery_decision": "recoverable_from_existing_spice",
+      "has_usable_spice_now": true,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false
+    },
+    {
+      "macro_name": "write_driver",
+      "blocks_timing_objects": [
+        "WRITE_ENABLE_PATH"
+      ],
+      "recovery_decision": "recoverable_from_existing_spice",
+      "has_usable_spice_now": true,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false
+    },
+    {
+      "macro_name": "cell_1rw",
+      "blocks_timing_objects": [
+        "RBL_DELAY_PATH"
+      ],
+      "recovery_decision": "recoverable_from_existing_spice",
+      "has_usable_spice_now": true,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false
+    },
+    {
+      "macro_name": "replica_cell_1rw",
+      "blocks_timing_objects": [
+        "DELAY_CHAIN",
+        "RBL_DELAY_PATH"
+      ],
+      "recovery_decision": "recoverable_from_existing_spice",
+      "has_usable_spice_now": true,
+      "has_usable_lib_now": false,
+      "has_equivalent_delay_model_now": false
+    }
+  ],
+  "blockers": [
+    "gen_inv: Recovery still requires manual netlist materialization plus characterization.",
+    "gen_nand2: Recovery still requires manual netlist materialization plus characterization.",
+    "gen_delay_inv: Recovery still requires manual netlist materialization plus characterization."
+  ],
+  "next_recommended_proof_task": "delay_chain_spice_testbench_plan",
+  "boundary_assertions": {
+    "path_found_is_not_usable_model": true,
+    "spice_found_is_not_timing_characterized": true,
+    "generator_source_found_is_not_recovered_model": true,
+    "build_output_found_is_not_validated_model": true,
+    "standalone_modified": false,
+    "routing_modified": false,
+    "gds_writer_modified": false
+  },
+  "fallback_sources": {
+    "filesystem_scan_used": true,
+    "timing_plan_source_used": "time_control_timing_proof_planning",
+    "timing_metadata_source_used": "time_control_timing_metadata_inventory",
+    "asset_inventory_source_used": "repo_physical_asset_discovery_readonly_evidence_collection",
+    "leaf_inventory_source_used": "time_control_leaf_bbox_pin_side_inventory",
+    "subblock_audit_source_used": "step6_23_openyield_time_control_subblock_adapter_audit"
+  }
+}

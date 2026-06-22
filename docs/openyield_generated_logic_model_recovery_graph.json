@@ -1,0 +1,347 @@
+{
+  "scope": "recover_generated_logic_spice_or_timing_model_inventory",
+  "nodes": [
+    {
+      "id": "generated_logic_inventory",
+      "kind": "root"
+    },
+    {
+      "id": "macro:gen_inv",
+      "kind": "macro",
+      "label": "gen_inv"
+    },
+    {
+      "id": "timing:PDRIVE",
+      "kind": "timing_object",
+      "label": "PDRIVE"
+    },
+    {
+      "id": "timing:WL_PDRIVE",
+      "kind": "timing_object",
+      "label": "WL_PDRIVE"
+    },
+    {
+      "id": "timing:PINV",
+      "kind": "timing_object",
+      "label": "PINV"
+    },
+    {
+      "id": "timing:AND2",
+      "kind": "timing_object",
+      "label": "AND2"
+    },
+    {
+      "id": "timing:AND3_COMPOSITE",
+      "kind": "timing_object",
+      "label": "AND3_COMPOSITE"
+    },
+    {
+      "id": "timing:PNAND3_COMPOSITE",
+      "kind": "timing_object",
+      "label": "PNAND3_COMPOSITE"
+    },
+    {
+      "id": "macro:gen_nand2",
+      "kind": "macro",
+      "label": "gen_nand2"
+    },
+    {
+      "id": "timing:WRITE_ENABLE_PATH",
+      "kind": "timing_object",
+      "label": "WRITE_ENABLE_PATH"
+    },
+    {
+      "id": "timing:SENSE_ENABLE_PATH",
+      "kind": "timing_object",
+      "label": "SENSE_ENABLE_PATH"
+    },
+    {
+      "id": "timing:PRECHARGE_ENABLE_PATH",
+      "kind": "timing_object",
+      "label": "PRECHARGE_ENABLE_PATH"
+    },
+    {
+      "id": "macro:gen_delay_inv",
+      "kind": "macro",
+      "label": "gen_delay_inv"
+    },
+    {
+      "id": "timing:DELAY_CHAIN",
+      "kind": "timing_object",
+      "label": "DELAY_CHAIN"
+    },
+    {
+      "id": "timing:WEN_DELAY_CHAIN",
+      "kind": "timing_object",
+      "label": "WEN_DELAY_CHAIN"
+    },
+    {
+      "id": "timing:RBL_DELAY_PATH",
+      "kind": "timing_object",
+      "label": "RBL_DELAY_PATH"
+    },
+    {
+      "id": "macro:gen_precharge",
+      "kind": "macro",
+      "label": "gen_precharge"
+    },
+    {
+      "id": "timing:PRECHARGE",
+      "kind": "timing_object",
+      "label": "PRECHARGE"
+    },
+    {
+      "id": "macro:gen_wl_driver",
+      "kind": "macro",
+      "label": "gen_wl_driver"
+    },
+    {
+      "id": "timing:WORDLINE_ENABLE_PATH",
+      "kind": "timing_object",
+      "label": "WORDLINE_ENABLE_PATH"
+    },
+    {
+      "id": "macro:gen_col_mux_vdd_labeled",
+      "kind": "macro",
+      "label": "gen_col_mux_vdd_labeled"
+    },
+    {
+      "id": "macro:dff",
+      "kind": "macro",
+      "label": "dff"
+    },
+    {
+      "id": "timing:DFF_ROW",
+      "kind": "timing_object",
+      "label": "DFF_ROW"
+    },
+    {
+      "id": "timing:GATED_CLOCK_PATH",
+      "kind": "timing_object",
+      "label": "GATED_CLOCK_PATH"
+    },
+    {
+      "id": "macro:sense_amp",
+      "kind": "macro",
+      "label": "sense_amp"
+    },
+    {
+      "id": "macro:write_driver",
+      "kind": "macro",
+      "label": "write_driver"
+    },
+    {
+      "id": "macro:cell_1rw",
+      "kind": "macro",
+      "label": "cell_1rw"
+    },
+    {
+      "id": "macro:replica_cell_1rw",
+      "kind": "macro",
+      "label": "replica_cell_1rw"
+    }
+  ],
+  "edges": [
+    {
+      "from": "generated_logic_inventory",
+      "to": "macro:gen_inv",
+      "relation": "inventoried"
+    },
+    {
+      "from": "macro:gen_inv",
+      "to": "timing:PDRIVE",
+      "relation": "blocks"
+    },
+    {
+      "from": "macro:gen_inv",
+      "to": "timing:WL_PDRIVE",
+      "relation": "blocks"
+    },
+    {
+      "from": "macro:gen_inv",
+      "to": "timing:PINV",
+      "relation": "blocks"
+    },
+    {
+      "from": "macro:gen_inv",
+      "to": "timing:AND2",
+      "relation": "blocks"
+    },
+    {
+      "from": "macro:gen_inv",
+      "to": "timing:AND3_COMPOSITE",
+      "relation": "blocks"
+    },
+    {
+      "from": "macro:gen_inv",
+      "to": "timing:PNAND3_COMPOSITE",
+      "relation": "blocks"
+    },
+    {
+      "from": "generated_logic_inventory",
+      "to": "macro:gen_nand2",
+      "relation": "inventoried"
+    },
+    {
+      "from": "macro:gen_nand2",
+      "to": "timing:AND2",
+      "relation": "blocks"
+    },
+    {
+      "from": "macro:gen_nand2",
+      "to": "timing:AND3_COMPOSITE",
+      "relation": "blocks"
+    },
+    {
+      "from": "macro:gen_nand2",
+      "to": "timing:PNAND3_COMPOSITE",
+      "relation": "blocks"
+    },
+    {
+      "from": "macro:gen_nand2",
+      "to": "timing:WRITE_ENABLE_PATH",
+      "relation": "blocks"
+    },
+    {
+      "from": "macro:gen_nand2",
+      "to": "timing:SENSE_ENABLE_PATH",
+      "relation": "blocks"
+    },
+    {
+      "from": "macro:gen_nand2",
+      "to": "timing:PRECHARGE_ENABLE_PATH",
+      "relation": "blocks"
+    },
+    {
+      "from": "generated_logic_inventory",
+      "to": "macro:gen_delay_inv",
+      "relation": "inventoried"
+    },
+    {
+      "from": "macro:gen_delay_inv",
+      "to": "timing:DELAY_CHAIN",
+      "relation": "blocks"
+    },
+    {
+      "from": "macro:gen_delay_inv",
+      "to": "timing:WEN_DELAY_CHAIN",
+      "relation": "blocks"
+    },
+    {
+      "from": "macro:gen_delay_inv",
+      "to": "timing:RBL_DELAY_PATH",
+      "relation": "blocks"
+    },
+    {
+      "from": "generated_logic_inventory",
+      "to": "macro:gen_precharge",
+      "relation": "inventoried"
+    },
+    {
+      "from": "macro:gen_precharge",
+      "to": "timing:PRECHARGE",
+      "relation": "blocks"
+    },
+    {
+      "from": "macro:gen_precharge",
+      "to": "timing:PRECHARGE_ENABLE_PATH",
+      "relation": "blocks"
+    },
+    {
+      "from": "generated_logic_inventory",
+      "to": "macro:gen_wl_driver",
+      "relation": "inventoried"
+    },
+    {
+      "from": "macro:gen_wl_driver",
+      "to": "timing:WL_PDRIVE",
+      "relation": "blocks"
+    },
+    {
+      "from": "macro:gen_wl_driver",
+      "to": "timing:WORDLINE_ENABLE_PATH",
+      "relation": "blocks"
+    },
+    {
+      "from": "generated_logic_inventory",
+      "to": "macro:gen_col_mux_vdd_labeled",
+      "relation": "inventoried"
+    },
+    {
+      "from": "generated_logic_inventory",
+      "to": "macro:dff",
+      "relation": "inventoried"
+    },
+    {
+      "from": "macro:dff",
+      "to": "timing:DFF_ROW",
+      "relation": "blocks"
+    },
+    {
+      "from": "macro:dff",
+      "to": "timing:GATED_CLOCK_PATH",
+      "relation": "blocks"
+    },
+    {
+      "from": "generated_logic_inventory",
+      "to": "macro:sense_amp",
+      "relation": "inventoried"
+    },
+    {
+      "from": "macro:sense_amp",
+      "to": "timing:SENSE_ENABLE_PATH",
+      "relation": "blocks"
+    },
+    {
+      "from": "generated_logic_inventory",
+      "to": "macro:write_driver",
+      "relation": "inventoried"
+    },
+    {
+      "from": "macro:write_driver",
+      "to": "timing:WRITE_ENABLE_PATH",
+      "relation": "blocks"
+    },
+    {
+      "from": "generated_logic_inventory",
+      "to": "macro:cell_1rw",
+      "relation": "inventoried"
+    },
+    {
+      "from": "macro:cell_1rw",
+      "to": "timing:RBL_DELAY_PATH",
+      "relation": "blocks"
+    },
+    {
+      "from": "generated_logic_inventory",
+      "to": "macro:replica_cell_1rw",
+      "relation": "inventoried"
+    },
+    {
+      "from": "macro:replica_cell_1rw",
+      "to": "timing:DELAY_CHAIN",
+      "relation": "blocks"
+    },
+    {
+      "from": "macro:replica_cell_1rw",
+      "to": "timing:RBL_DELAY_PATH",
+      "relation": "blocks"
+    }
+  ],
+  "summary": {
+    "generated_logic_model_recovery_inventory_available": true,
+    "all_p0_macros_analyzed": true,
+    "all_repo_model_sources_searched": true,
+    "usable_model_found_for_all_p0": false,
+    "recoverable_source_found_for_all_p0": true,
+    "characterization_required_for_any_p0": true,
+    "can_enter_model_characterization_plan": true,
+    "can_enter_delay_chain_testbench_plan": true,
+    "can_enter_timing_proof_now": false,
+    "can_enter_physical_timing_closure_now": false,
+    "can_enter_physical_routing_now": false,
+    "can_enter_physical_placement_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_modify_standalone_now": false
+  }
+}
