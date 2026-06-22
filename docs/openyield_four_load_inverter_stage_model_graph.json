@@ -1,0 +1,554 @@
+{
+  "scope": "four_load_inverter_stage_model_plan",
+  "nodes": [
+    {
+      "id": "source:DelayChain",
+      "kind": "source",
+      "label": "DelayChain"
+    },
+    {
+      "id": "source:Pinv",
+      "kind": "source",
+      "label": "Pinv"
+    },
+    {
+      "id": "binding:recommended",
+      "kind": "decision",
+      "label": "same_source_Pinv_as_delay_stage"
+    },
+    {
+      "id": "candidate:same_source_Pinv_as_delay_stage",
+      "kind": "binding_candidate",
+      "label": "same_source_Pinv_as_delay_stage"
+    },
+    {
+      "id": "candidate:gen_delay_inv_candidate_subckt",
+      "kind": "binding_candidate",
+      "label": "gen_delay_inv_candidate_subckt"
+    },
+    {
+      "id": "candidate:gen_inv_openram_replacement",
+      "kind": "binding_candidate",
+      "label": "gen_inv_openram_replacement"
+    },
+    {
+      "id": "candidate:symbolic_inverter_load_only",
+      "kind": "binding_candidate",
+      "label": "symbolic_inverter_load_only"
+    },
+    {
+      "id": "stage:0",
+      "kind": "delay_stage",
+      "label": "dinv0"
+    },
+    {
+      "id": "load:dload_0_0",
+      "kind": "load_instance",
+      "label": "dload_0_0"
+    },
+    {
+      "id": "load:dload_0_1",
+      "kind": "load_instance",
+      "label": "dload_0_1"
+    },
+    {
+      "id": "load:dload_0_2",
+      "kind": "load_instance",
+      "label": "dload_0_2"
+    },
+    {
+      "id": "load:dload_0_3",
+      "kind": "load_instance",
+      "label": "dload_0_3"
+    },
+    {
+      "id": "stage:1",
+      "kind": "delay_stage",
+      "label": "dinv1"
+    },
+    {
+      "id": "load:dload_1_0",
+      "kind": "load_instance",
+      "label": "dload_1_0"
+    },
+    {
+      "id": "load:dload_1_1",
+      "kind": "load_instance",
+      "label": "dload_1_1"
+    },
+    {
+      "id": "load:dload_1_2",
+      "kind": "load_instance",
+      "label": "dload_1_2"
+    },
+    {
+      "id": "load:dload_1_3",
+      "kind": "load_instance",
+      "label": "dload_1_3"
+    },
+    {
+      "id": "stage:2",
+      "kind": "delay_stage",
+      "label": "dinv2"
+    },
+    {
+      "id": "load:dload_2_0",
+      "kind": "load_instance",
+      "label": "dload_2_0"
+    },
+    {
+      "id": "load:dload_2_1",
+      "kind": "load_instance",
+      "label": "dload_2_1"
+    },
+    {
+      "id": "load:dload_2_2",
+      "kind": "load_instance",
+      "label": "dload_2_2"
+    },
+    {
+      "id": "load:dload_2_3",
+      "kind": "load_instance",
+      "label": "dload_2_3"
+    },
+    {
+      "id": "stage:3",
+      "kind": "delay_stage",
+      "label": "dinv3"
+    },
+    {
+      "id": "load:dload_3_0",
+      "kind": "load_instance",
+      "label": "dload_3_0"
+    },
+    {
+      "id": "load:dload_3_1",
+      "kind": "load_instance",
+      "label": "dload_3_1"
+    },
+    {
+      "id": "load:dload_3_2",
+      "kind": "load_instance",
+      "label": "dload_3_2"
+    },
+    {
+      "id": "load:dload_3_3",
+      "kind": "load_instance",
+      "label": "dload_3_3"
+    },
+    {
+      "id": "stage:4",
+      "kind": "delay_stage",
+      "label": "dinv4"
+    },
+    {
+      "id": "load:dload_4_0",
+      "kind": "load_instance",
+      "label": "dload_4_0"
+    },
+    {
+      "id": "load:dload_4_1",
+      "kind": "load_instance",
+      "label": "dload_4_1"
+    },
+    {
+      "id": "load:dload_4_2",
+      "kind": "load_instance",
+      "label": "dload_4_2"
+    },
+    {
+      "id": "load:dload_4_3",
+      "kind": "load_instance",
+      "label": "dload_4_3"
+    },
+    {
+      "id": "stage:5",
+      "kind": "delay_stage",
+      "label": "dinv5"
+    },
+    {
+      "id": "load:dload_5_0",
+      "kind": "load_instance",
+      "label": "dload_5_0"
+    },
+    {
+      "id": "load:dload_5_1",
+      "kind": "load_instance",
+      "label": "dload_5_1"
+    },
+    {
+      "id": "load:dload_5_2",
+      "kind": "load_instance",
+      "label": "dload_5_2"
+    },
+    {
+      "id": "load:dload_5_3",
+      "kind": "load_instance",
+      "label": "dload_5_3"
+    },
+    {
+      "id": "stage:6",
+      "kind": "delay_stage",
+      "label": "dinv6"
+    },
+    {
+      "id": "load:dload_6_0",
+      "kind": "load_instance",
+      "label": "dload_6_0"
+    },
+    {
+      "id": "load:dload_6_1",
+      "kind": "load_instance",
+      "label": "dload_6_1"
+    },
+    {
+      "id": "load:dload_6_2",
+      "kind": "load_instance",
+      "label": "dload_6_2"
+    },
+    {
+      "id": "load:dload_6_3",
+      "kind": "load_instance",
+      "label": "dload_6_3"
+    },
+    {
+      "id": "stage:7",
+      "kind": "delay_stage",
+      "label": "dinv7"
+    },
+    {
+      "id": "load:dload_7_0",
+      "kind": "load_instance",
+      "label": "dload_7_0"
+    },
+    {
+      "id": "load:dload_7_1",
+      "kind": "load_instance",
+      "label": "dload_7_1"
+    },
+    {
+      "id": "load:dload_7_2",
+      "kind": "load_instance",
+      "label": "dload_7_2"
+    },
+    {
+      "id": "load:dload_7_3",
+      "kind": "load_instance",
+      "label": "dload_7_3"
+    },
+    {
+      "id": "stage:8",
+      "kind": "delay_stage",
+      "label": "dinv8"
+    },
+    {
+      "id": "load:dload_8_0",
+      "kind": "load_instance",
+      "label": "dload_8_0"
+    },
+    {
+      "id": "load:dload_8_1",
+      "kind": "load_instance",
+      "label": "dload_8_1"
+    },
+    {
+      "id": "load:dload_8_2",
+      "kind": "load_instance",
+      "label": "dload_8_2"
+    },
+    {
+      "id": "load:dload_8_3",
+      "kind": "load_instance",
+      "label": "dload_8_3"
+    }
+  ],
+  "edges": [
+    {
+      "from": "source:DelayChain",
+      "to": "source:Pinv",
+      "relation": "instantiates"
+    },
+    {
+      "from": "source:Pinv",
+      "to": "binding:recommended",
+      "relation": "supports"
+    },
+    {
+      "from": "source:DelayChain",
+      "to": "candidate:same_source_Pinv_as_delay_stage",
+      "relation": "candidate_binding"
+    },
+    {
+      "from": "candidate:same_source_Pinv_as_delay_stage",
+      "to": "binding:recommended",
+      "relation": "recommended_path"
+    },
+    {
+      "from": "source:DelayChain",
+      "to": "candidate:gen_delay_inv_candidate_subckt",
+      "relation": "candidate_binding"
+    },
+    {
+      "from": "source:DelayChain",
+      "to": "candidate:gen_inv_openram_replacement",
+      "relation": "candidate_binding"
+    },
+    {
+      "from": "source:DelayChain",
+      "to": "candidate:symbolic_inverter_load_only",
+      "relation": "candidate_binding"
+    },
+    {
+      "from": "candidate:symbolic_inverter_load_only",
+      "to": "binding:recommended",
+      "relation": "recommended_path"
+    },
+    {
+      "from": "source:DelayChain",
+      "to": "stage:0",
+      "relation": "contains"
+    },
+    {
+      "from": "stage:0",
+      "to": "load:dload_0_0",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:0",
+      "to": "load:dload_0_1",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:0",
+      "to": "load:dload_0_2",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:0",
+      "to": "load:dload_0_3",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "source:DelayChain",
+      "to": "stage:1",
+      "relation": "contains"
+    },
+    {
+      "from": "stage:1",
+      "to": "load:dload_1_0",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:1",
+      "to": "load:dload_1_1",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:1",
+      "to": "load:dload_1_2",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:1",
+      "to": "load:dload_1_3",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "source:DelayChain",
+      "to": "stage:2",
+      "relation": "contains"
+    },
+    {
+      "from": "stage:2",
+      "to": "load:dload_2_0",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:2",
+      "to": "load:dload_2_1",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:2",
+      "to": "load:dload_2_2",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:2",
+      "to": "load:dload_2_3",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "source:DelayChain",
+      "to": "stage:3",
+      "relation": "contains"
+    },
+    {
+      "from": "stage:3",
+      "to": "load:dload_3_0",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:3",
+      "to": "load:dload_3_1",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:3",
+      "to": "load:dload_3_2",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:3",
+      "to": "load:dload_3_3",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "source:DelayChain",
+      "to": "stage:4",
+      "relation": "contains"
+    },
+    {
+      "from": "stage:4",
+      "to": "load:dload_4_0",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:4",
+      "to": "load:dload_4_1",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:4",
+      "to": "load:dload_4_2",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:4",
+      "to": "load:dload_4_3",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "source:DelayChain",
+      "to": "stage:5",
+      "relation": "contains"
+    },
+    {
+      "from": "stage:5",
+      "to": "load:dload_5_0",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:5",
+      "to": "load:dload_5_1",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:5",
+      "to": "load:dload_5_2",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:5",
+      "to": "load:dload_5_3",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "source:DelayChain",
+      "to": "stage:6",
+      "relation": "contains"
+    },
+    {
+      "from": "stage:6",
+      "to": "load:dload_6_0",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:6",
+      "to": "load:dload_6_1",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:6",
+      "to": "load:dload_6_2",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:6",
+      "to": "load:dload_6_3",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "source:DelayChain",
+      "to": "stage:7",
+      "relation": "contains"
+    },
+    {
+      "from": "stage:7",
+      "to": "load:dload_7_0",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:7",
+      "to": "load:dload_7_1",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:7",
+      "to": "load:dload_7_2",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:7",
+      "to": "load:dload_7_3",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "source:DelayChain",
+      "to": "stage:8",
+      "relation": "contains"
+    },
+    {
+      "from": "stage:8",
+      "to": "load:dload_8_0",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:8",
+      "to": "load:dload_8_1",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:8",
+      "to": "load:dload_8_2",
+      "relation": "fans_out_to"
+    },
+    {
+      "from": "stage:8",
+      "to": "load:dload_8_3",
+      "relation": "fans_out_to"
+    }
+  ],
+  "summary": {
+    "four_load_inverter_stage_model_plan_available": true,
+    "source_four_load_pattern_found": true,
+    "load_count_per_stage_confirmed": true,
+    "all_stage_load_contracts_available": true,
+    "load_inverter_binding_decision_available": true,
+    "load_capacitance_quantified": false,
+    "load_pin_order_validated_by_spice": false,
+    "can_emit_symbolic_load_testbench_template_now": true,
+    "can_run_delay_chain_testbench_now": false,
+    "can_claim_delay_proof_now": false,
+    "can_claim_timing_closure_now": false,
+    "can_enter_delay_chain_testbench_template_contract": true,
+    "can_enter_pvt_corner_definition_plan": true,
+    "can_enter_replica_load_calibration_plan": true,
+    "can_enter_wen_delay_chain_conditional_testbench_plan": true,
+    "can_enter_physical_timing_closure_now": false,
+    "can_enter_physical_routing_now": false,
+    "can_enter_physical_placement_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_modify_standalone_now": false
+  }
+}

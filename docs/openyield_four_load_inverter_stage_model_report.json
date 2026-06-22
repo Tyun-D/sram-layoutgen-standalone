@@ -1,0 +1,1084 @@
+{
+  "scope": "four_load_inverter_stage_model_plan",
+  "repo_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "input_reports_and_assets": {
+    "gen_delay_inv_recovery": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_gen_delay_inv_netlist_recovery_report.json",
+    "delay_chain_plan": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_delay_chain_testbench_plan_report.json",
+    "leaf_inventory": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_leaf_inventory_report.json",
+    "time_generate_source": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\time_generate.py",
+    "standard_cell_source": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\standard_cell.py",
+    "gen_delay_inv_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_delay_inv.gds",
+    "gen_inv_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_inv.gds"
+  },
+  "audit_summary": {
+    "four_load_inverter_stage_model_plan_available": true,
+    "source_four_load_pattern_found": true,
+    "load_count_per_stage_confirmed": true,
+    "all_stage_load_contracts_available": true,
+    "load_inverter_binding_decision_available": true,
+    "load_capacitance_quantified": false,
+    "load_pin_order_validated_by_spice": false,
+    "can_emit_symbolic_load_testbench_template_now": true,
+    "can_run_delay_chain_testbench_now": false,
+    "can_claim_delay_proof_now": false,
+    "can_claim_timing_closure_now": false,
+    "can_enter_delay_chain_testbench_template_contract": true,
+    "can_enter_pvt_corner_definition_plan": true,
+    "can_enter_replica_load_calibration_plan": true,
+    "can_enter_wen_delay_chain_conditional_testbench_plan": true,
+    "can_enter_physical_timing_closure_now": false,
+    "can_enter_physical_routing_now": false,
+    "can_enter_physical_placement_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_modify_standalone_now": false
+  },
+  "source_evidence": {
+    "source_file": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\time_generate.py",
+    "source_symbol_or_function": [
+      "DelayChain.add_delay_chain",
+      "Pinv"
+    ],
+    "source_lines_if_available": [
+      299,
+      306,
+      321,
+      333,
+      336,
+      337,
+      341,
+      343,
+      347,
+      348,
+      352,
+      355,
+      356,
+      5,
+      10,
+      16,
+      24,
+      25,
+      26,
+      31,
+      33
+    ],
+    "source_uses_same_inv_for_delay_and_load": true,
+    "source_load_instance_pattern": "dload_<stage>_<slot> instances all use self.inv.NAME, same as dinv<stage>",
+    "source_load_count_per_stage": 4,
+    "source_load_stage_count": 9,
+    "source_load_nodes": {
+      "stage_0": {
+        "driver_output": "dout_1",
+        "load_outputs": [
+          "n_0_0",
+          "n_0_1",
+          "n_0_2",
+          "n_0_3"
+        ]
+      },
+      "stage_1_to_7": "driver outputs dout_2..dout_8 each fan out to n_<stage>_0..3",
+      "stage_8": {
+        "driver_output": "out",
+        "load_outputs": [
+          "n_8_0",
+          "n_8_1",
+          "n_8_2",
+          "n_8_3"
+        ]
+      }
+    },
+    "source_mentions_load_transistor_sizing": true,
+    "source_mentions_load_pin_order": true,
+    "source_mentions_load_power_pins": true,
+    "source_evidence_strength": "high",
+    "source_limitations": [
+      "The source proves instance topology and shared leaf origin, but not a validated SPICE subckt file.",
+      "The source proves Pinv node order (VDD, VSS, A, Z) for the Python generator leaf, not a validated exported .SUBCKT order for gen_delay_inv/gen_inv.",
+      "The source does not quantify the effective input capacitance of each load inverter."
+    ],
+    "supporting_source_blocks": {
+      "delay_chain_block": [
+        {
+          "line": 299,
+          "text": "class DelayChain(BaseSubcircuit):#用于复制位线延迟的延迟链"
+        },
+        {
+          "line": 300,
+          "text": "    \"\"\""
+        },
+        {
+          "line": 301,
+          "text": "    延迟链电路 (sram_delay_chain)"
+        },
+        {
+          "line": 302,
+          "text": "    输入: in, VDD, VSS"
+        },
+        {
+          "line": 303,
+          "text": "    输出: out"
+        },
+        {
+          "line": 304,
+          "text": "    \"\"\""
+        },
+        {
+          "line": 305,
+          "text": "    NAME = \"delay_chain\""
+        },
+        {
+          "line": 306,
+          "text": "    NODES = ('VDD', 'VSS', 'in', 'out')"
+        },
+        {
+          "line": 307,
+          "text": ""
+        },
+        {
+          "line": 308,
+          "text": "    def __init__(self, nmos_model=\"NMOS_VTG\", pmos_model=\"PMOS_VTG\","
+        },
+        {
+          "line": 309,
+          "text": "                 pmos_width=5e-07, nmos_width=2.5e-07,"
+        },
+        {
+          "line": 310,
+          "text": "                 length=0.05e-6,"
+        },
+        {
+          "line": 311,
+          "text": "                 w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF,"
+        },
+        {
+          "line": 312,
+          "text": "                 ):"
+        },
+        {
+          "line": 313,
+          "text": ""
+        },
+        {
+          "line": 314,
+          "text": "        super().__init__("
+        },
+        {
+          "line": 315,
+          "text": "            nmos_model, pmos_model,"
+        },
+        {
+          "line": 316,
+          "text": "            nmos_width, pmos_width, length,"
+        },
+        {
+          "line": 317,
+          "text": "            w_rc=w_rc, pi_res=pi_res, pi_cap=pi_cap,"
+        },
+        {
+          "line": 318,
+          "text": "        )"
+        },
+        {
+          "line": 319,
+          "text": ""
+        },
+        {
+          "line": 320,
+          "text": "        # 创建基本反相器单元"
+        },
+        {
+          "line": 321,
+          "text": "        self.inv = Pinv(nmos_model, pmos_model,0.9e-07,2.7e-07, length=0.05e-6,num=1)"
+        },
+        {
+          "line": 322,
+          "text": "        self.subcircuit(self.inv)"
+        },
+        {
+          "line": 323,
+          "text": ""
+        },
+        {
+          "line": 324,
+          "text": "        # 添加内部节点"
+        },
+        {
+          "line": 325,
+          "text": "        #self.add_internal_nodes()"
+        },
+        {
+          "line": 326,
+          "text": ""
+        },
+        {
+          "line": 327,
+          "text": "        # 构建延迟链"
+        },
+        {
+          "line": 328,
+          "text": "        self.add_delay_chain()"
+        },
+        {
+          "line": 329,
+          "text": ""
+        },
+        {
+          "line": 330,
+          "text": "    def add_delay_chain(self):"
+        },
+        {
+          "line": 331,
+          "text": "        \"\"\"构建延迟链电路\"\"\""
+        },
+        {
+          "line": 332,
+          "text": "        # 第一级反相器"
+        },
+        {
+          "line": 333,
+          "text": "        self.X('dinv0', self.inv.NAME, 'VDD', 'VSS', 'in', 'dout_1')"
+        },
+        {
+          "line": 334,
+          "text": ""
+        },
+        {
+          "line": 335,
+          "text": "        # 第一级的4个负载"
+        },
+        {
+          "line": 336,
+          "text": "        for j in range(4):"
+        },
+        {
+          "line": 337,
+          "text": "            self.X(f'dload_0_{j}', self.inv.NAME,"
+        },
+        {
+          "line": 338,
+          "text": "                   'VDD', 'VSS', 'dout_1', f'n_0_{j}')"
+        },
+        {
+          "line": 339,
+          "text": ""
+        },
+        {
+          "line": 340,
+          "text": "        # 中间7级反相器 (第2级到第8级)"
+        },
+        {
+          "line": 341,
+          "text": "        for i in range(1, 8):"
+        },
+        {
+          "line": 342,
+          "text": "            # 反相器"
+        },
+        {
+          "line": 343,
+          "text": "            self.X(f'dinv{i}', self.inv.NAME,"
+        },
+        {
+          "line": 344,
+          "text": "                   'VDD', 'VSS', f'dout_{i}', f'dout_{i+1}')"
+        },
+        {
+          "line": 345,
+          "text": ""
+        },
+        {
+          "line": 346,
+          "text": "            # 负载"
+        },
+        {
+          "line": 347,
+          "text": "            for j in range(4):"
+        },
+        {
+          "line": 348,
+          "text": "                self.X(f'dload_{i}_{j}', self.inv.NAME,"
+        },
+        {
+          "line": 349,
+          "text": "                       'VDD', 'VSS', f'dout_{i+1}', f'n_{i}_{j}')"
+        },
+        {
+          "line": 350,
+          "text": ""
+        },
+        {
+          "line": 351,
+          "text": "        # 最后一级反相器 (第9级)"
+        },
+        {
+          "line": 352,
+          "text": "        self.X('dinv8', self.inv.NAME, 'VDD', 'VSS', 'dout_8', 'out')"
+        },
+        {
+          "line": 353,
+          "text": ""
+        },
+        {
+          "line": 354,
+          "text": "        # 最后一级的4个负载"
+        },
+        {
+          "line": 355,
+          "text": "        for j in range(4):"
+        },
+        {
+          "line": 356,
+          "text": "            self.X(f'dload_8_{j}', self.inv.NAME,"
+        }
+      ],
+      "pinv_block": [
+        {
+          "line": 5,
+          "text": "class Pinv(BaseSubcircuit):"
+        },
+        {
+          "line": 6,
+          "text": "    \"\"\""
+        },
+        {
+          "line": 7,
+          "text": "    Standard CMOS Inverter"
+        },
+        {
+          "line": 8,
+          "text": "    NODES: VDD, VSS, A (Input), Z (Output)"
+        },
+        {
+          "line": 9,
+          "text": "    \"\"\""
+        },
+        {
+          "line": 10,
+          "text": "    NODES = ('VDD', 'VSS', 'A', 'Z')"
+        },
+        {
+          "line": 11,
+          "text": ""
+        },
+        {
+          "line": 12,
+          "text": "    def __init__(self, nmos_model, pmos_model,"
+        },
+        {
+          "line": 13,
+          "text": "                 nmos_width, pmos_width, length,"
+        },
+        {
+          "line": 14,
+          "text": "                 w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF,num=''):"
+        },
+        {
+          "line": 15,
+          "text": ""
+        },
+        {
+          "line": 16,
+          "text": "        self.NAME = f\"PINV{num}\""
+        },
+        {
+          "line": 17,
+          "text": "        super().__init__("
+        },
+        {
+          "line": 18,
+          "text": "            nmos_model, pmos_model,"
+        },
+        {
+          "line": 19,
+          "text": "            nmos_width, pmos_width, length,"
+        },
+        {
+          "line": 20,
+          "text": "            w_rc, pi_res, pi_cap)"
+        },
+        {
+          "line": 21,
+          "text": ""
+        },
+        {
+          "line": 22,
+          "text": "        self.nmos_model = nmos_model"
+        },
+        {
+          "line": 23,
+          "text": "        self.pmos_model = pmos_model"
+        },
+        {
+          "line": 24,
+          "text": "        self.nmos_width = nmos_width"
+        },
+        {
+          "line": 25,
+          "text": "        self.pmos_width = pmos_width"
+        },
+        {
+          "line": 26,
+          "text": "        self.length = length"
+        },
+        {
+          "line": 27,
+          "text": ""
+        },
+        {
+          "line": 28,
+          "text": "        self.add_inverter_transistors()"
+        },
+        {
+          "line": 29,
+          "text": ""
+        },
+        {
+          "line": 30,
+          "text": "    def add_inverter_transistors(self):"
+        },
+        {
+          "line": 31,
+          "text": "        self.M('pinv_pmos', 'Z', 'A', 'VDD', 'VDD',"
+        },
+        {
+          "line": 32,
+          "text": "            model=self.pmos_model, w=self.pmos_width, l=self.length)"
+        },
+        {
+          "line": 33,
+          "text": "        self.M('pinv_nmos', 'Z', 'A', 'VSS', 'VSS',"
+        },
+        {
+          "line": 34,
+          "text": "            model=self.nmos_model, w=self.nmos_width, l=self.length)"
+        }
+      ]
+    },
+    "derived_conclusions": {
+      "load_inverter_same_as_delay_stage_source": true,
+      "load_count_source_confirmed": true,
+      "load_capacitance_quantified": false,
+      "four_load_count_known": true,
+      "four_load_capacitance_value_known": false,
+      "requires_characterization_or_cap_estimation": true
+    }
+  },
+  "load_inverter_same_as_delay_stage_source": true,
+  "load_count_source_confirmed": true,
+  "load_capacitance_quantified": false,
+  "four_load_count_known": true,
+  "four_load_capacitance_value_known": false,
+  "requires_characterization_or_cap_estimation": true,
+  "load_inverter_same_as_delay_stage_source_decision": {
+    "load_inverter_same_as_delay_stage_source": true,
+    "load_count_source_confirmed": true,
+    "load_capacitance_quantified": false,
+    "reason": "DelayChain instantiates both dinv* and dload_* with the same self.inv.NAME leaf."
+  },
+  "load_inverter_candidate_binding_comparison": [
+    {
+      "candidate_name": "same_source_Pinv_as_delay_stage",
+      "source_basis": "DelayChain uses self.inv.NAME for both dinv* and dload_*; Pinv is the exact source leaf.",
+      "gds_basis": "No direct GDS leaf named PINV1; planning-only binding stays at source-generator level.",
+      "spice_basis": "standard_cell.py defines Pinv transistor topology with NODES=('VDD','VSS','A','Z'), but it is not validated SPICE in this step.",
+      "pin_order_basis": [
+        "VDD",
+        "VSS",
+        "A",
+        "Z"
+      ],
+      "same_as_delay_stage": true,
+      "matches_source_instance_pattern": true,
+      "has_validated_spice": false,
+      "has_validated_load_cap": false,
+      "requires_manual_netlist_materialization": true,
+      "requires_characterization": true,
+      "risk": "medium",
+      "recommended_for_planning": true,
+      "recommended_for_simulation_now": false,
+      "notes": "Best source-faithful planning binding. Strong for topology, still non-runnable."
+    },
+    {
+      "candidate_name": "gen_delay_inv_candidate_subckt",
+      "source_basis": "Previous recovery step can materialize a candidate gen_delay_inv contract from DelayChain source.",
+      "gds_basis": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_delay_inv.gds",
+      "spice_basis": "Candidate-only subckt contract from recovery report; not validated, not runnable now.",
+      "pin_order_basis": [
+        "A",
+        "Z",
+        "vdd",
+        "gnd"
+      ],
+      "same_as_delay_stage": false,
+      "matches_source_instance_pattern": false,
+      "has_validated_spice": false,
+      "has_validated_load_cap": false,
+      "requires_manual_netlist_materialization": true,
+      "requires_characterization": true,
+      "risk": "medium",
+      "recommended_for_planning": false,
+      "recommended_for_simulation_now": false,
+      "notes": "Useful canonical alias for future template packaging, but the source names Pinv rather than gen_delay_inv."
+    },
+    {
+      "candidate_name": "gen_inv_openram_replacement",
+      "source_basis": "Leaf inventory shows gen_inv exists and is inverter-like, but DelayChain source never names gen_inv for dload_*.",
+      "gds_basis": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_inv.gds",
+      "spice_basis": "No validated gen_inv SPICE model is present in current planning inputs.",
+      "pin_order_basis": [
+        "A",
+        "Z",
+        "vdd",
+        "gnd"
+      ],
+      "same_as_delay_stage": false,
+      "matches_source_instance_pattern": false,
+      "has_validated_spice": false,
+      "has_validated_load_cap": false,
+      "requires_manual_netlist_materialization": true,
+      "requires_characterization": true,
+      "risk": "high",
+      "recommended_for_planning": false,
+      "recommended_for_simulation_now": false,
+      "notes": "Do not bind directly now. Similar geometry/function is not enough to prove the load model."
+    },
+    {
+      "candidate_name": "symbolic_inverter_load_only",
+      "source_basis": "Conservative abstraction: source proves four inverter loads per stage without proving numerical capacitance.",
+      "gds_basis": "No physical leaf commitment required.",
+      "spice_basis": "May be represented as placeholder inverter-load metadata only; not executable now.",
+      "pin_order_basis": [
+        "input=stage_output",
+        "output=dummy_node",
+        "supplies=power_aliases"
+      ],
+      "same_as_delay_stage": false,
+      "matches_source_instance_pattern": true,
+      "has_validated_spice": false,
+      "has_validated_load_cap": false,
+      "requires_manual_netlist_materialization": false,
+      "requires_characterization": true,
+      "risk": "low",
+      "recommended_for_planning": true,
+      "recommended_for_simulation_now": false,
+      "notes": "Best fallback when we need a testbench contract without overclaiming electrical values."
+    }
+  ],
+  "recommended_planning_binding": "same_source_Pinv_as_delay_stage",
+  "fallback_planning_binding": "symbolic_inverter_load_only",
+  "per_stage_load_model_contract": [
+    {
+      "stage_index": 0,
+      "driver_instance": "dinv0",
+      "driver_input": "in",
+      "driver_output": "dout_1",
+      "load_instance_count": 4,
+      "load_instance_names": [
+        "dload_0_0",
+        "dload_0_1",
+        "dload_0_2",
+        "dload_0_3"
+      ],
+      "load_input_node": "dout_1",
+      "load_output_nodes": [
+        "n_0_0",
+        "n_0_1",
+        "n_0_2",
+        "n_0_3"
+      ],
+      "load_cell_candidate": "same_source_Pinv_as_delay_stage",
+      "load_cell_pin_order_candidate": [
+        "VDD",
+        "VSS",
+        "A",
+        "Z"
+      ],
+      "load_cell_pin_order_validated_by_spice": false,
+      "load_capacitance_value": null,
+      "load_capacitance_known": false,
+      "load_model_type": "four_parallel_inverter_gate_loads",
+      "load_model_status": "source_confirmed_count_only_not_quantified",
+      "requires_gen_delay_inv_model": true,
+      "requires_load_inverter_model": true,
+      "requires_pdk_device_model": true,
+      "requires_characterization": true,
+      "safe_for_testbench_template": true,
+      "safe_for_simulation_now": false
+    },
+    {
+      "stage_index": 1,
+      "driver_instance": "dinv1",
+      "driver_input": "dout_1",
+      "driver_output": "dout_2",
+      "load_instance_count": 4,
+      "load_instance_names": [
+        "dload_1_0",
+        "dload_1_1",
+        "dload_1_2",
+        "dload_1_3"
+      ],
+      "load_input_node": "dout_2",
+      "load_output_nodes": [
+        "n_1_0",
+        "n_1_1",
+        "n_1_2",
+        "n_1_3"
+      ],
+      "load_cell_candidate": "same_source_Pinv_as_delay_stage",
+      "load_cell_pin_order_candidate": [
+        "VDD",
+        "VSS",
+        "A",
+        "Z"
+      ],
+      "load_cell_pin_order_validated_by_spice": false,
+      "load_capacitance_value": null,
+      "load_capacitance_known": false,
+      "load_model_type": "four_parallel_inverter_gate_loads",
+      "load_model_status": "source_confirmed_count_only_not_quantified",
+      "requires_gen_delay_inv_model": true,
+      "requires_load_inverter_model": true,
+      "requires_pdk_device_model": true,
+      "requires_characterization": true,
+      "safe_for_testbench_template": true,
+      "safe_for_simulation_now": false
+    },
+    {
+      "stage_index": 2,
+      "driver_instance": "dinv2",
+      "driver_input": "dout_2",
+      "driver_output": "dout_3",
+      "load_instance_count": 4,
+      "load_instance_names": [
+        "dload_2_0",
+        "dload_2_1",
+        "dload_2_2",
+        "dload_2_3"
+      ],
+      "load_input_node": "dout_3",
+      "load_output_nodes": [
+        "n_2_0",
+        "n_2_1",
+        "n_2_2",
+        "n_2_3"
+      ],
+      "load_cell_candidate": "same_source_Pinv_as_delay_stage",
+      "load_cell_pin_order_candidate": [
+        "VDD",
+        "VSS",
+        "A",
+        "Z"
+      ],
+      "load_cell_pin_order_validated_by_spice": false,
+      "load_capacitance_value": null,
+      "load_capacitance_known": false,
+      "load_model_type": "four_parallel_inverter_gate_loads",
+      "load_model_status": "source_confirmed_count_only_not_quantified",
+      "requires_gen_delay_inv_model": true,
+      "requires_load_inverter_model": true,
+      "requires_pdk_device_model": true,
+      "requires_characterization": true,
+      "safe_for_testbench_template": true,
+      "safe_for_simulation_now": false
+    },
+    {
+      "stage_index": 3,
+      "driver_instance": "dinv3",
+      "driver_input": "dout_3",
+      "driver_output": "dout_4",
+      "load_instance_count": 4,
+      "load_instance_names": [
+        "dload_3_0",
+        "dload_3_1",
+        "dload_3_2",
+        "dload_3_3"
+      ],
+      "load_input_node": "dout_4",
+      "load_output_nodes": [
+        "n_3_0",
+        "n_3_1",
+        "n_3_2",
+        "n_3_3"
+      ],
+      "load_cell_candidate": "same_source_Pinv_as_delay_stage",
+      "load_cell_pin_order_candidate": [
+        "VDD",
+        "VSS",
+        "A",
+        "Z"
+      ],
+      "load_cell_pin_order_validated_by_spice": false,
+      "load_capacitance_value": null,
+      "load_capacitance_known": false,
+      "load_model_type": "four_parallel_inverter_gate_loads",
+      "load_model_status": "source_confirmed_count_only_not_quantified",
+      "requires_gen_delay_inv_model": true,
+      "requires_load_inverter_model": true,
+      "requires_pdk_device_model": true,
+      "requires_characterization": true,
+      "safe_for_testbench_template": true,
+      "safe_for_simulation_now": false
+    },
+    {
+      "stage_index": 4,
+      "driver_instance": "dinv4",
+      "driver_input": "dout_4",
+      "driver_output": "dout_5",
+      "load_instance_count": 4,
+      "load_instance_names": [
+        "dload_4_0",
+        "dload_4_1",
+        "dload_4_2",
+        "dload_4_3"
+      ],
+      "load_input_node": "dout_5",
+      "load_output_nodes": [
+        "n_4_0",
+        "n_4_1",
+        "n_4_2",
+        "n_4_3"
+      ],
+      "load_cell_candidate": "same_source_Pinv_as_delay_stage",
+      "load_cell_pin_order_candidate": [
+        "VDD",
+        "VSS",
+        "A",
+        "Z"
+      ],
+      "load_cell_pin_order_validated_by_spice": false,
+      "load_capacitance_value": null,
+      "load_capacitance_known": false,
+      "load_model_type": "four_parallel_inverter_gate_loads",
+      "load_model_status": "source_confirmed_count_only_not_quantified",
+      "requires_gen_delay_inv_model": true,
+      "requires_load_inverter_model": true,
+      "requires_pdk_device_model": true,
+      "requires_characterization": true,
+      "safe_for_testbench_template": true,
+      "safe_for_simulation_now": false
+    },
+    {
+      "stage_index": 5,
+      "driver_instance": "dinv5",
+      "driver_input": "dout_5",
+      "driver_output": "dout_6",
+      "load_instance_count": 4,
+      "load_instance_names": [
+        "dload_5_0",
+        "dload_5_1",
+        "dload_5_2",
+        "dload_5_3"
+      ],
+      "load_input_node": "dout_6",
+      "load_output_nodes": [
+        "n_5_0",
+        "n_5_1",
+        "n_5_2",
+        "n_5_3"
+      ],
+      "load_cell_candidate": "same_source_Pinv_as_delay_stage",
+      "load_cell_pin_order_candidate": [
+        "VDD",
+        "VSS",
+        "A",
+        "Z"
+      ],
+      "load_cell_pin_order_validated_by_spice": false,
+      "load_capacitance_value": null,
+      "load_capacitance_known": false,
+      "load_model_type": "four_parallel_inverter_gate_loads",
+      "load_model_status": "source_confirmed_count_only_not_quantified",
+      "requires_gen_delay_inv_model": true,
+      "requires_load_inverter_model": true,
+      "requires_pdk_device_model": true,
+      "requires_characterization": true,
+      "safe_for_testbench_template": true,
+      "safe_for_simulation_now": false
+    },
+    {
+      "stage_index": 6,
+      "driver_instance": "dinv6",
+      "driver_input": "dout_6",
+      "driver_output": "dout_7",
+      "load_instance_count": 4,
+      "load_instance_names": [
+        "dload_6_0",
+        "dload_6_1",
+        "dload_6_2",
+        "dload_6_3"
+      ],
+      "load_input_node": "dout_7",
+      "load_output_nodes": [
+        "n_6_0",
+        "n_6_1",
+        "n_6_2",
+        "n_6_3"
+      ],
+      "load_cell_candidate": "same_source_Pinv_as_delay_stage",
+      "load_cell_pin_order_candidate": [
+        "VDD",
+        "VSS",
+        "A",
+        "Z"
+      ],
+      "load_cell_pin_order_validated_by_spice": false,
+      "load_capacitance_value": null,
+      "load_capacitance_known": false,
+      "load_model_type": "four_parallel_inverter_gate_loads",
+      "load_model_status": "source_confirmed_count_only_not_quantified",
+      "requires_gen_delay_inv_model": true,
+      "requires_load_inverter_model": true,
+      "requires_pdk_device_model": true,
+      "requires_characterization": true,
+      "safe_for_testbench_template": true,
+      "safe_for_simulation_now": false
+    },
+    {
+      "stage_index": 7,
+      "driver_instance": "dinv7",
+      "driver_input": "dout_7",
+      "driver_output": "dout_8",
+      "load_instance_count": 4,
+      "load_instance_names": [
+        "dload_7_0",
+        "dload_7_1",
+        "dload_7_2",
+        "dload_7_3"
+      ],
+      "load_input_node": "dout_8",
+      "load_output_nodes": [
+        "n_7_0",
+        "n_7_1",
+        "n_7_2",
+        "n_7_3"
+      ],
+      "load_cell_candidate": "same_source_Pinv_as_delay_stage",
+      "load_cell_pin_order_candidate": [
+        "VDD",
+        "VSS",
+        "A",
+        "Z"
+      ],
+      "load_cell_pin_order_validated_by_spice": false,
+      "load_capacitance_value": null,
+      "load_capacitance_known": false,
+      "load_model_type": "four_parallel_inverter_gate_loads",
+      "load_model_status": "source_confirmed_count_only_not_quantified",
+      "requires_gen_delay_inv_model": true,
+      "requires_load_inverter_model": true,
+      "requires_pdk_device_model": true,
+      "requires_characterization": true,
+      "safe_for_testbench_template": true,
+      "safe_for_simulation_now": false
+    },
+    {
+      "stage_index": 8,
+      "driver_instance": "dinv8",
+      "driver_input": "dout_8",
+      "driver_output": "out",
+      "load_instance_count": 4,
+      "load_instance_names": [
+        "dload_8_0",
+        "dload_8_1",
+        "dload_8_2",
+        "dload_8_3"
+      ],
+      "load_input_node": "out",
+      "load_output_nodes": [
+        "n_8_0",
+        "n_8_1",
+        "n_8_2",
+        "n_8_3"
+      ],
+      "load_cell_candidate": "same_source_Pinv_as_delay_stage",
+      "load_cell_pin_order_candidate": [
+        "VDD",
+        "VSS",
+        "A",
+        "Z"
+      ],
+      "load_cell_pin_order_validated_by_spice": false,
+      "load_capacitance_value": null,
+      "load_capacitance_known": false,
+      "load_model_type": "four_parallel_inverter_gate_loads",
+      "load_model_status": "source_confirmed_count_only_not_quantified",
+      "requires_gen_delay_inv_model": true,
+      "requires_load_inverter_model": true,
+      "requires_pdk_device_model": true,
+      "requires_characterization": true,
+      "safe_for_testbench_template": true,
+      "safe_for_simulation_now": false
+    }
+  ],
+  "spice_template_implication": {
+    "template_load_strategy": "planning_only_four_parallel_inverter_loads_per_stage",
+    "load_subckt_name_candidate": "PINV1",
+    "load_pin_order_candidate": [
+      "VDD",
+      "VSS",
+      "A",
+      "Z"
+    ],
+    "load_connection_pattern": {
+      "rule": "each load inverter input connects to the current stage output, each load inverter output connects to a unique dummy node",
+      "stage_0_example": {
+        "driver_output": "dout_1",
+        "load_instances": [
+          {
+            "instance_name": "dload_0_0",
+            "input_node": "dout_1",
+            "output_node": "n_0_0"
+          },
+          {
+            "instance_name": "dload_0_1",
+            "input_node": "dout_1",
+            "output_node": "n_0_1"
+          },
+          {
+            "instance_name": "dload_0_2",
+            "input_node": "dout_1",
+            "output_node": "n_0_2"
+          },
+          {
+            "instance_name": "dload_0_3",
+            "input_node": "dout_1",
+            "output_node": "n_0_3"
+          }
+        ]
+      }
+    },
+    "load_output_treatment": "dummy load outputs must remain isolated metadata nodes and must not be treated as real signal path endpoints",
+    "floating_load_outputs_allowed": true,
+    "requires_dummy_output_load_handling": true,
+    "requires_body_tie_policy": true,
+    "requires_pdk_model_binding": true,
+    "requires_validation_before_run": true,
+    "can_emit_template_with_symbolic_loads": true,
+    "can_run_template_now": false,
+    "notes": [
+      "The source proves stage fanout topology, not quantitative capacitance.",
+      "A future template may normalize PINV1 into a canonical alias such as gen_delay_inv, but that alias is not validated now.",
+      "Dummy load outputs are bookkeeping nodes only."
+    ]
+  },
+  "load_model_artifact_contract": {
+    "artifacts": [
+      {
+        "artifact_name": "four_load_inverter_stage_contract.json",
+        "artifact_type": "planning_contract_json",
+        "allowed_now": true,
+        "requires_manual_review": true,
+        "requires_pdk_binding": false,
+        "requires_characterization": false,
+        "is_validated_load_model": false,
+        "is_timing_proof": false,
+        "notes": "Allowed now as planning-only load contract."
+      },
+      {
+        "artifact_name": "delay_chain_load_model_notes.md",
+        "artifact_type": "planning_notes_markdown",
+        "allowed_now": true,
+        "requires_manual_review": false,
+        "requires_pdk_binding": false,
+        "requires_characterization": false,
+        "is_validated_load_model": false,
+        "is_timing_proof": false,
+        "notes": "Allowed now as human-readable explanation."
+      },
+      {
+        "artifact_name": "delay_chain_symbolic_load_template.sp",
+        "artifact_type": "symbolic_spice_template",
+        "allowed_now": true,
+        "requires_manual_review": true,
+        "requires_pdk_binding": true,
+        "requires_characterization": true,
+        "is_validated_load_model": false,
+        "is_timing_proof": false,
+        "notes": "Allowed only as a non-runnable or clearly non-validated template."
+      },
+      {
+        "artifact_name": "validated_four_load_model.sp",
+        "artifact_type": "validated_spice_model",
+        "allowed_now": false,
+        "requires_manual_review": true,
+        "requires_pdk_binding": true,
+        "requires_characterization": true,
+        "is_validated_load_model": true,
+        "is_timing_proof": false,
+        "notes": "Forbidden now."
+      },
+      {
+        "artifact_name": "load_capacitance_extracted.json",
+        "artifact_type": "quantified_load_extract",
+        "allowed_now": false,
+        "requires_manual_review": true,
+        "requires_pdk_binding": true,
+        "requires_characterization": true,
+        "is_validated_load_model": true,
+        "is_timing_proof": false,
+        "notes": "Forbidden now because capacitance is not characterized."
+      },
+      {
+        "artifact_name": "measured_delay_result.json",
+        "artifact_type": "measurement_result",
+        "allowed_now": false,
+        "requires_manual_review": true,
+        "requires_pdk_binding": true,
+        "requires_characterization": true,
+        "is_validated_load_model": false,
+        "is_timing_proof": true,
+        "notes": "Forbidden now because no SPICE run is authorized."
+      },
+      {
+        "artifact_name": "timing_closed_report.md",
+        "artifact_type": "timing_closure_claim",
+        "allowed_now": false,
+        "requires_manual_review": true,
+        "requires_pdk_binding": true,
+        "requires_characterization": true,
+        "is_validated_load_model": false,
+        "is_timing_proof": true,
+        "notes": "Forbidden now because no delay proof or closure may be claimed."
+      }
+    ]
+  },
+  "blockers": [
+    "The four-load count is source-confirmed, but the effective load capacitance per inverter is not quantified.",
+    "No validated SPICE pin order exists for gen_delay_inv or gen_inv in the current input set.",
+    "No PDK transistor model include path is bound for executable simulation.",
+    "A future load template still needs manual netlist materialization and characterization.",
+    "Replica bitline calibration remains required before any delay proof.",
+    "No existing validated SPICE subckt for gen_delay_inv was found.",
+    "GDS pin labels provide candidate logical pins only, not validated SPICE pin order.",
+    "Transistor sizing is source-visible in DelayChain construction, but Pinv internal implementation still needs manual recovery review.",
+    "PDK model include path is not bound in current plan.",
+    "Body connection policy is not proven from current source/GDS evidence alone.",
+    "No characterization or simulation has been run.",
+    "gen_inv: Recovery still requires manual netlist materialization plus characterization.",
+    "gen_nand2: Recovery still requires manual netlist materialization plus characterization.",
+    "gen_delay_inv: Recovery still requires manual netlist materialization plus characterization.",
+    "gen_delay_inv has no usable SPICE or Liberty model yet.",
+    "PDK transistor model path is not yet proven in current planning inputs.",
+    "PVT corner definitions remain unspecified for execution.",
+    "Replica bitline RC/load calibration is not yet quantified.",
+    "Input slew values are not yet quantified.",
+    "Output load values are not yet quantified.",
+    "Waveform threshold levels are not yet quantified.",
+    "No executable simulation is authorized in this step.",
+    "missing spice or lib for generated/control leaf",
+    "timing proof is missing",
+    "no SPICE timing closure has been run",
+    "replica calibration required",
+    "gen_delay_inv timing model missing"
+  ],
+  "next_recommended_proof_task": "delay_chain_testbench_template_contract",
+  "boundary_assertions": {
+    "generator_source_is_not_validated_spice": true,
+    "load_inverter_contract_is_not_characterization_result": true,
+    "load_count_confirmation_is_not_load_capacitance_value": true,
+    "symbolic_template != executable_simulation": true,
+    "standalone_modified": false,
+    "routing_modified": false,
+    "gds_writer_modified": false
+  }
+}
