@@ -1,0 +1,221 @@
+{
+  "nodes": [
+    {
+      "id": "routing_obstacle",
+      "label": "time_control_routing_obstacle_readonly_audit",
+      "kind": "root"
+    },
+    {
+      "id": "net:clk",
+      "label": "clk",
+      "kind": "control_net"
+    },
+    {
+      "id": "net:clk_buf",
+      "label": "clk_buf",
+      "kind": "control_net"
+    },
+    {
+      "id": "net:clk_bar",
+      "label": "clk_bar",
+      "kind": "control_net"
+    },
+    {
+      "id": "net:gated_clk_buf",
+      "label": "gated_clk_buf",
+      "kind": "control_net"
+    },
+    {
+      "id": "net:gated_clk_bar",
+      "label": "gated_clk_bar",
+      "kind": "control_net"
+    },
+    {
+      "id": "net:rbl",
+      "label": "rbl",
+      "kind": "control_net"
+    },
+    {
+      "id": "net:rbl_delay",
+      "label": "rbl_delay",
+      "kind": "control_net"
+    },
+    {
+      "id": "net:rbl_delay_bar",
+      "label": "rbl_delay_bar",
+      "kind": "control_net"
+    },
+    {
+      "id": "net:rbl_delay_bar_wen",
+      "label": "rbl_delay_bar_wen",
+      "kind": "control_net"
+    },
+    {
+      "id": "net:we",
+      "label": "we",
+      "kind": "control_net"
+    },
+    {
+      "id": "net:we_bar",
+      "label": "we_bar",
+      "kind": "control_net"
+    },
+    {
+      "id": "net:w_en",
+      "label": "w_en",
+      "kind": "control_net"
+    },
+    {
+      "id": "net:write_enable",
+      "label": "write_enable",
+      "kind": "control_net"
+    },
+    {
+      "id": "net:s_en",
+      "label": "s_en",
+      "kind": "control_net"
+    },
+    {
+      "id": "net:sense_enable",
+      "label": "sense_enable",
+      "kind": "control_net"
+    },
+    {
+      "id": "net:PRE_UNBUF",
+      "label": "PRE_UNBUF",
+      "kind": "control_net"
+    },
+    {
+      "id": "net:PRE",
+      "label": "PRE",
+      "kind": "control_net"
+    },
+    {
+      "id": "net:precharge_enb",
+      "label": "precharge_enb",
+      "kind": "control_net"
+    },
+    {
+      "id": "net:wl_en",
+      "label": "wl_en",
+      "kind": "control_net"
+    },
+    {
+      "id": "net:wordline_enable",
+      "label": "wordline_enable",
+      "kind": "control_net"
+    },
+    {
+      "id": "net:wl_en_bar",
+      "label": "wl_en_bar",
+      "kind": "control_net"
+    }
+  ],
+  "edges": [
+    {
+      "from": "routing_obstacle",
+      "to": "net:clk",
+      "relation": "audited"
+    },
+    {
+      "from": "routing_obstacle",
+      "to": "net:clk_buf",
+      "relation": "audited"
+    },
+    {
+      "from": "routing_obstacle",
+      "to": "net:clk_bar",
+      "relation": "audited"
+    },
+    {
+      "from": "routing_obstacle",
+      "to": "net:gated_clk_buf",
+      "relation": "audited"
+    },
+    {
+      "from": "routing_obstacle",
+      "to": "net:gated_clk_bar",
+      "relation": "audited"
+    },
+    {
+      "from": "routing_obstacle",
+      "to": "net:rbl",
+      "relation": "audited"
+    },
+    {
+      "from": "routing_obstacle",
+      "to": "net:rbl_delay",
+      "relation": "audited"
+    },
+    {
+      "from": "routing_obstacle",
+      "to": "net:rbl_delay_bar",
+      "relation": "audited"
+    },
+    {
+      "from": "routing_obstacle",
+      "to": "net:rbl_delay_bar_wen",
+      "relation": "audited"
+    },
+    {
+      "from": "routing_obstacle",
+      "to": "net:we",
+      "relation": "audited"
+    },
+    {
+      "from": "routing_obstacle",
+      "to": "net:we_bar",
+      "relation": "audited"
+    },
+    {
+      "from": "routing_obstacle",
+      "to": "net:w_en",
+      "relation": "audited"
+    },
+    {
+      "from": "routing_obstacle",
+      "to": "net:write_enable",
+      "relation": "audited"
+    },
+    {
+      "from": "routing_obstacle",
+      "to": "net:s_en",
+      "relation": "audited"
+    },
+    {
+      "from": "routing_obstacle",
+      "to": "net:sense_enable",
+      "relation": "audited"
+    },
+    {
+      "from": "routing_obstacle",
+      "to": "net:PRE_UNBUF",
+      "relation": "audited"
+    },
+    {
+      "from": "routing_obstacle",
+      "to": "net:PRE",
+      "relation": "audited"
+    },
+    {
+      "from": "routing_obstacle",
+      "to": "net:precharge_enb",
+      "relation": "audited"
+    },
+    {
+      "from": "routing_obstacle",
+      "to": "net:wl_en",
+      "relation": "audited"
+    },
+    {
+      "from": "routing_obstacle",
+      "to": "net:wordline_enable",
+      "relation": "audited"
+    },
+    {
+      "from": "routing_obstacle",
+      "to": "net:wl_en_bar",
+      "relation": "audited"
+    }
+  ]
+}
