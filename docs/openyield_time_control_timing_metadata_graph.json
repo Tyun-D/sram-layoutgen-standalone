@@ -1,0 +1,181 @@
+{
+  "nodes": [
+    {
+      "id": "timing_inventory",
+      "label": "time_control_timing_metadata_inventory",
+      "kind": "root"
+    },
+    {
+      "id": "timing:DELAY_CHAIN",
+      "label": "DELAY_CHAIN",
+      "kind": "timing_object"
+    },
+    {
+      "id": "timing:WEN_DELAY_CHAIN",
+      "label": "WEN_DELAY_CHAIN",
+      "kind": "timing_object"
+    },
+    {
+      "id": "timing:PDRIVE",
+      "label": "PDRIVE",
+      "kind": "timing_object"
+    },
+    {
+      "id": "timing:PDRIVE2_FOR_PRE",
+      "label": "PDRIVE2_FOR_PRE",
+      "kind": "timing_object"
+    },
+    {
+      "id": "timing:WL_PDRIVE",
+      "label": "WL_PDRIVE",
+      "kind": "timing_object"
+    },
+    {
+      "id": "timing:PINV",
+      "label": "PINV",
+      "kind": "timing_object"
+    },
+    {
+      "id": "timing:AND2",
+      "label": "AND2",
+      "kind": "timing_object"
+    },
+    {
+      "id": "timing:AND3_COMPOSITE",
+      "label": "AND3_COMPOSITE",
+      "kind": "timing_object"
+    },
+    {
+      "id": "timing:PNAND3_COMPOSITE",
+      "label": "PNAND3_COMPOSITE",
+      "kind": "timing_object"
+    },
+    {
+      "id": "timing:PRECHARGE",
+      "label": "PRECHARGE",
+      "kind": "timing_object"
+    },
+    {
+      "id": "timing:DFF_ROW",
+      "label": "DFF_ROW",
+      "kind": "timing_object"
+    },
+    {
+      "id": "timing:WRITE_ENABLE_PATH",
+      "label": "WRITE_ENABLE_PATH",
+      "kind": "timing_object"
+    },
+    {
+      "id": "timing:SENSE_ENABLE_PATH",
+      "label": "SENSE_ENABLE_PATH",
+      "kind": "timing_object"
+    },
+    {
+      "id": "timing:PRECHARGE_ENABLE_PATH",
+      "label": "PRECHARGE_ENABLE_PATH",
+      "kind": "timing_object"
+    },
+    {
+      "id": "timing:WORDLINE_ENABLE_PATH",
+      "label": "WORDLINE_ENABLE_PATH",
+      "kind": "timing_object"
+    },
+    {
+      "id": "timing:RBL_DELAY_PATH",
+      "label": "RBL_DELAY_PATH",
+      "kind": "timing_object"
+    },
+    {
+      "id": "timing:GATED_CLOCK_PATH",
+      "label": "GATED_CLOCK_PATH",
+      "kind": "timing_object"
+    }
+  ],
+  "edges": [
+    {
+      "from": "timing_inventory",
+      "to": "timing:DELAY_CHAIN",
+      "relation": "inventoried"
+    },
+    {
+      "from": "timing_inventory",
+      "to": "timing:WEN_DELAY_CHAIN",
+      "relation": "inventoried"
+    },
+    {
+      "from": "timing_inventory",
+      "to": "timing:PDRIVE",
+      "relation": "inventoried"
+    },
+    {
+      "from": "timing_inventory",
+      "to": "timing:PDRIVE2_FOR_PRE",
+      "relation": "inventoried"
+    },
+    {
+      "from": "timing_inventory",
+      "to": "timing:WL_PDRIVE",
+      "relation": "inventoried"
+    },
+    {
+      "from": "timing_inventory",
+      "to": "timing:PINV",
+      "relation": "inventoried"
+    },
+    {
+      "from": "timing_inventory",
+      "to": "timing:AND2",
+      "relation": "inventoried"
+    },
+    {
+      "from": "timing_inventory",
+      "to": "timing:AND3_COMPOSITE",
+      "relation": "inventoried"
+    },
+    {
+      "from": "timing_inventory",
+      "to": "timing:PNAND3_COMPOSITE",
+      "relation": "inventoried"
+    },
+    {
+      "from": "timing_inventory",
+      "to": "timing:PRECHARGE",
+      "relation": "inventoried"
+    },
+    {
+      "from": "timing_inventory",
+      "to": "timing:DFF_ROW",
+      "relation": "inventoried"
+    },
+    {
+      "from": "timing_inventory",
+      "to": "timing:WRITE_ENABLE_PATH",
+      "relation": "inventoried"
+    },
+    {
+      "from": "timing_inventory",
+      "to": "timing:SENSE_ENABLE_PATH",
+      "relation": "inventoried"
+    },
+    {
+      "from": "timing_inventory",
+      "to": "timing:PRECHARGE_ENABLE_PATH",
+      "relation": "inventoried"
+    },
+    {
+      "from": "timing_inventory",
+      "to": "timing:WORDLINE_ENABLE_PATH",
+      "relation": "inventoried"
+    },
+    {
+      "from": "timing_inventory",
+      "to": "timing:RBL_DELAY_PATH",
+      "relation": "inventoried"
+    },
+    {
+      "from": "timing_inventory",
+      "to": "timing:GATED_CLOCK_PATH",
+      "relation": "inventoried"
+    }
+  ]
+}

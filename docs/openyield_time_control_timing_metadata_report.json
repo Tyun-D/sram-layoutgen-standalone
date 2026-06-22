@@ -1,0 +1,2126 @@
+{
+  "scope": "time_control_timing_metadata_inventory",
+  "repo_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "input_reports_and_assets": {
+    "routing_obstacle": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_routing_obstacle_report.json",
+    "legal_placement_readonly": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_legal_placement_readonly_report.json",
+    "composite_feasibility": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_composite_feasibility_report.json",
+    "leaf_inventory": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_leaf_inventory_report.json",
+    "generated_logic_contracts": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_generated_logic_contract_report.json",
+    "signal_bindings": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_signal_binding_report.json",
+    "repo_asset_inventory": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_repo_physical_asset_inventory_report.json",
+    "subblock_audit": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_subblock_audit_report.json"
+  },
+  "timing_object_table": [
+    {
+      "timing_object": "DELAY_CHAIN",
+      "timing_role": "replica_bitline_delay / rbl_delay_generation",
+      "source_contract": "DELAY_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "source_signals": [
+        "rbl"
+      ],
+      "target_signals": [
+        "rbl_delay",
+        "Pinv.A",
+        "AND3.A",
+        "PNAND3.B"
+      ],
+      "leaf_sequence": [
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv"
+      ],
+      "stage_count": 9,
+      "stage_count_source": "generated_logic_contract.candidate_cell_count_if_known",
+      "known_leaf_macro": [
+        "gen_delay_inv"
+      ],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "source_confirmed_four_load_inverters_per_stage",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": true,
+      "requires_waveform_check": true,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_missing_spice_or_lib",
+      "consumer_macro": null,
+      "consumer_pin": null,
+      "consumer_pin_side": null,
+      "notes": [
+        "Stage count source-confirmed as 9.",
+        "Load model is known at source level: four load inverters per stage.",
+        "OpenYield source defines a nine-stage inverter delay chain with four load inverters per stage.",
+        "TIME instantiates DelayChain from rbl to rbl_delay.",
+        "This contract is especially timing-sensitive and must remain metadata-only until delay proof exists."
+      ],
+      "blockers": [
+        "missing spice or lib for generated/control leaf",
+        "timing proof is missing",
+        "no SPICE timing closure has been run",
+        "replica calibration required"
+      ]
+    },
+    {
+      "timing_object": "WEN_DELAY_CHAIN",
+      "timing_role": "write_enable_delay_conditioning",
+      "source_contract": "WEN_DELAY_CHAIN_CONDITIONAL_GENERATED_LOGIC_CONTRACT",
+      "source_signals": [
+        "rbl_delay_bar"
+      ],
+      "target_signals": [
+        "rbl_delay_bar_wen",
+        "AND3.A via w_en_rbl_input"
+      ],
+      "leaf_sequence": [
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv"
+      ],
+      "stage_count": 6,
+      "stage_count_source": "generated_logic_contract.candidate_cell_count_if_known",
+      "known_leaf_macro": [
+        "gen_delay_inv"
+      ],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "conditional_write_branch_load_present_but_not_quantified_for_general_configs",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": true,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": true,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_missing_spice_or_lib",
+      "consumer_macro": null,
+      "consumer_pin": null,
+      "consumer_pin_side": null,
+      "notes": [
+        "Conditional applicability preserved exactly: operation == write and num_rows == 16 and num_cols == 512.",
+        "This contract must not generalize to all configs.",
+        "The chain is only instantiated in the special-case `write` + `16x512` branch.",
+        "This keeps the adapter audit at source-semantic level; the general path still uses rbl_delay_bar directly.",
+        "This contract is partial/conditional by design and must not be generalized beyond the source-confirmed branch."
+      ],
+      "blockers": [
+        "missing spice or lib for generated/control leaf",
+        "timing proof is missing",
+        "no SPICE timing closure has been run",
+        "write path timing model required"
+      ]
+    },
+    {
+      "timing_object": "PDRIVE",
+      "timing_role": "clock_buffer_chain",
+      "source_contract": "PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "source_signals": [
+        "clk"
+      ],
+      "target_signals": [
+        "clk_buf",
+        "ADDR_DFF.CLK",
+        "DATA_DFF.CLK",
+        "DFF_BUF.CLK",
+        "Pinv.A",
+        "AND2.B"
+      ],
+      "leaf_sequence": [
+        "gen_inv",
+        "gen_inv",
+        "gen_inv",
+        "gen_inv"
+      ],
+      "stage_count": 4,
+      "stage_count_source": "generated_logic_contract.candidate_cell_count_if_known",
+      "known_leaf_macro": [
+        "gen_inv"
+      ],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "consumer_fanout_known_metadata_only",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": false,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_missing_spice_or_lib",
+      "consumer_macro": null,
+      "consumer_pin": null,
+      "consumer_pin_side": null,
+      "notes": [
+        "Stage count source-confirmed as 4.",
+        "Drive-strength progression is known from source and preserved only as metadata notes.",
+        "The source is a four-stage inverter chain with progressive upsizing.",
+        "TIME uses pdrive to generate clk_buf, then a separate inverter derives clk_bar.",
+        "Producer is a four-stage inverter chain with upsizing.",
+        "This contract can drive planning metadata but not physical control placement."
+      ],
+      "blockers": [
+        "missing spice or lib for generated/control leaf",
+        "timing proof is missing",
+        "no SPICE timing closure has been run"
+      ]
+    },
+    {
+      "timing_object": "PDRIVE2_FOR_PRE",
+      "timing_role": "precharge_enable_buffer_chain",
+      "source_contract": "PDRIVE2_FOR_PRE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "source_signals": [
+        "gated_clk_buf",
+        "rbl_delay",
+        "wl_en_bar"
+      ],
+      "target_signals": [
+        "PRE",
+        "PRECHARGE.ENB"
+      ],
+      "leaf_sequence": [
+        "gen_inv",
+        "gen_inv"
+      ],
+      "stage_count": 2,
+      "stage_count_source": "generated_logic_contract.candidate_cell_count_if_known",
+      "known_leaf_macro": [
+        "gen_inv"
+      ],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "consumer_fanout_known_metadata_only",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": false,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_precharge_power_exception",
+      "consumer_macro": null,
+      "consumer_pin": null,
+      "consumer_pin_side": null,
+      "notes": [
+        "Stage count source-confirmed as 2.",
+        "Precharge ENB polarity is preserved through PRE_UNBUF -> PRE buffering.",
+        "The source is a two-stage inverter chain with drive scaling for precharge.",
+        "It is downstream of the PNAND3 precharge gating node, not a standalone timing source.",
+        "The signal name PRE is treated as canonical precharge_enb because the PRECHARGE consumer pin is ENB."
+      ],
+      "blockers": [
+        "missing spice or lib for generated/control leaf",
+        "timing proof is missing",
+        "no SPICE timing closure has been run",
+        "precharge power exception retained"
+      ]
+    },
+    {
+      "timing_object": "WL_PDRIVE",
+      "timing_role": "wordline_enable_buffer_chain",
+      "source_contract": "WL_PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "source_signals": [
+        "gated_clk_bar"
+      ],
+      "target_signals": [
+        "wl_en",
+        "WORDLINEDRIVER.B",
+        "Pinv.A(wl_en_bar)",
+        "RWL_AND2.B"
+      ],
+      "leaf_sequence": [
+        "gen_inv",
+        "gen_inv"
+      ],
+      "stage_count": 2,
+      "stage_count_source": "generated_logic_contract.candidate_cell_count_if_known",
+      "known_leaf_macro": [
+        "gen_inv"
+      ],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "consumer_fanout_known_metadata_only",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": false,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_missing_spice_or_lib",
+      "consumer_macro": null,
+      "consumer_pin": null,
+      "consumer_pin_side": null,
+      "notes": [
+        "Stage count source-confirmed as 2.",
+        "wordline_enable active-high semantics are preserved.",
+        "The source is a two-stage inverter chain that drives wl_en from gated_clk_bar.",
+        "The testbench and earlier wordline audit confirm wl_en feeds the WordlineDriver B domain as active-high enable.",
+        "The active-high interpretation is source-confirmed and consistent with the prior WORDLINEDRIVER adapter audit."
+      ],
+      "blockers": [
+        "missing spice or lib for generated/control leaf",
+        "timing proof is missing",
+        "no SPICE timing closure has been run"
+      ]
+    },
+    {
+      "timing_object": "PINV",
+      "timing_role": "single_inversion_helper",
+      "source_contract": "PINV_GENERATED_LOGIC_CONTRACT",
+      "source_signals": [
+        "clk_buf",
+        "rbl_delay",
+        "gated_clk_bar"
+      ],
+      "target_signals": [
+        "clk_bar",
+        "AND2.B",
+        "rbl_delay_bar",
+        "AND3.A",
+        "WEN_DELAY_CHAIN.in",
+        "wl_en",
+        "WORDLINEDRIVER.B",
+        "Pinv.A(wl_en_bar)",
+        "RWL_AND2.B"
+      ],
+      "leaf_sequence": [
+        "gen_inv"
+      ],
+      "stage_count": 1,
+      "stage_count_source": "generated_logic_contract.candidate_cell_count_if_known",
+      "known_leaf_macro": [
+        "gen_inv"
+      ],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "binding_level_consumer_list_known",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": false,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_missing_spice_or_lib",
+      "consumer_macro": null,
+      "consumer_pin": null,
+      "consumer_pin_side": null,
+      "notes": [
+        "Unified metadata mapping for clk_buf->clk_bar, rbl_delay->rbl_delay_bar, and wl_en->wl_en_bar.",
+        "Physical placement remains blocked despite local GDS availability.",
+        "clk_bar is explicitly the inversion of clk_buf, not a separately buffered top-level input.",
+        "rbl_delay_bar is the default write-enable-side timing input.",
+        "The active-high interpretation is source-confirmed and consistent with the prior WORDLINEDRIVER adapter audit."
+      ],
+      "blockers": [
+        "missing spice or lib for generated/control leaf",
+        "timing proof is missing",
+        "no SPICE timing closure has been run"
+      ]
+    },
+    {
+      "timing_object": "AND2",
+      "timing_role": "gated_clock_generation",
+      "source_contract": "AND2_GENERATED_LOGIC_CONTRACT",
+      "source_signals": [
+        "cs",
+        "clk_buf",
+        "clk_bar"
+      ],
+      "target_signals": [
+        "gated_clk_buf",
+        "PNAND3.A",
+        "gated_clk_bar",
+        "WL_PDRIVE.A",
+        "AND3.B"
+      ],
+      "leaf_sequence": [
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "stage_count": 2,
+      "stage_count_source": "generated_logic_contract.candidate_cell_count_if_known",
+      "known_leaf_macro": [
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "binding_level_consumer_list_known",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": false,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_missing_spice_or_lib",
+      "consumer_macro": null,
+      "consumer_pin": null,
+      "consumer_pin_side": null,
+      "notes": [
+        "AND2 is represented as PNAND2 + INV semantic composition.",
+        "No direct physical AND2 macro is claimed.",
+        "This is an AND semantic contract, not a direct hard macro mapping.",
+        "This gated clock branch is the direct producer for wl_en and the enable-side input for w_en / s_en generation."
+      ],
+      "blockers": [
+        "missing spice or lib for generated/control leaf",
+        "timing proof is missing",
+        "no SPICE timing closure has been run"
+      ]
+    },
+    {
+      "timing_object": "AND3_COMPOSITE",
+      "timing_role": "enable_logic_generation",
+      "source_contract": "AND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+      "source_signals": [
+        "rbl_delay_bar or rbl_delay_bar_wen",
+        "gated_clk_bar",
+        "we",
+        "rbl_delay",
+        "we_bar"
+      ],
+      "target_signals": [
+        "w_en",
+        "WRITEDRIVER.EN",
+        "s_en",
+        "SENSEAMP.EN"
+      ],
+      "leaf_sequence": [
+        "gen_nand2",
+        "gen_inv",
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "stage_count": 4,
+      "stage_count_source": "generated_logic_contract.candidate_cell_count_if_known",
+      "known_leaf_macro": [
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "binding_level_consumer_list_known",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": false,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_missing_spice_or_lib",
+      "consumer_macro": null,
+      "consumer_pin": null,
+      "consumer_pin_side": null,
+      "notes": [
+        "Reuses decoder convention: AND3_COMPOSITE_NAND2_INV.",
+        "Input order is preserved for both write_enable and sense_enable contracts.",
+        "The first input is conditionally substituted by WEN_DELAY_CHAIN output in one special write branch.",
+        "Physical implementation remains blocked because local AND3 is only a semantic composite, not a proven physical macro.",
+        "This contract stays single-ended on the consumer side because the current sense-amp adapter uses Q -> dout and keeps QB dropped."
+      ],
+      "blockers": [
+        "missing spice or lib for generated/control leaf",
+        "timing proof is missing",
+        "no SPICE timing closure has been run"
+      ]
+    },
+    {
+      "timing_object": "PNAND3_COMPOSITE",
+      "timing_role": "precharge_gating_generation",
+      "source_contract": "PNAND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+      "source_signals": [
+        "gated_clk_buf",
+        "rbl_delay",
+        "wl_en_bar"
+      ],
+      "target_signals": [
+        "PRE",
+        "PRECHARGE.ENB"
+      ],
+      "leaf_sequence": [
+        "gen_nand2",
+        "gen_inv",
+        "gen_nand2"
+      ],
+      "stage_count": 3,
+      "stage_count_source": "generated_logic_contract.candidate_cell_count_if_known",
+      "known_leaf_macro": [
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "binding_level_consumer_list_known",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": false,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_precharge_power_exception",
+      "consumer_macro": null,
+      "consumer_pin": null,
+      "consumer_pin_side": null,
+      "notes": [
+        "Reuses decoder convention: PNAND3_COMPOSITE_NAND2_INV.",
+        "Precharge input order gated_clk_buf / rbl_delay / wl_en_bar is preserved at metadata level.",
+        "The signal name PRE is treated as canonical precharge_enb because the PRECHARGE consumer pin is ENB."
+      ],
+      "blockers": [
+        "missing spice or lib for generated/control leaf",
+        "timing proof is missing",
+        "no SPICE timing closure has been run",
+        "precharge power exception retained"
+      ]
+    },
+    {
+      "timing_object": "PRECHARGE",
+      "timing_role": "precharge_consumer_handoff",
+      "source_contract": "metadata_source_not_found",
+      "source_signals": [],
+      "target_signals": [],
+      "leaf_sequence": [
+        "gen_precharge"
+      ],
+      "stage_count": 1,
+      "stage_count_source": "composite_feasibility.leaf_count",
+      "known_leaf_macro": [
+        "gen_precharge"
+      ],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": null,
+      "known_input_slew_model": null,
+      "known_output_load_model": null,
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": false,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_precharge_power_exception",
+      "consumer_macro": null,
+      "consumer_pin": null,
+      "consumer_pin_side": "bottom/unknown",
+      "notes": [
+        "routing obstacle risk=moderate_to_high"
+      ],
+      "blockers": [
+        "missing spice or lib for generated/control leaf",
+        "missing load model",
+        "timing proof is missing",
+        "no SPICE timing closure has been run",
+        "precharge power exception retained"
+      ]
+    },
+    {
+      "timing_object": "DFF_ROW",
+      "timing_role": "clocked_register_row",
+      "source_contract": "metadata_source_not_found",
+      "source_signals": [],
+      "target_signals": [],
+      "leaf_sequence": [
+        "dff"
+      ],
+      "stage_count": 1,
+      "stage_count_source": "composite_feasibility.leaf_count",
+      "known_leaf_macro": [
+        "dff"
+      ],
+      "leaf_has_spice": true,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": null,
+      "known_input_slew_model": null,
+      "known_output_load_model": null,
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": false,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_standalone_clock_integration",
+      "consumer_macro": null,
+      "consumer_pin": null,
+      "consumer_pin_side": null,
+      "notes": [
+        "routing obstacle risk=moderate"
+      ],
+      "blockers": [
+        "missing load model",
+        "timing proof is missing",
+        "no SPICE timing closure has been run",
+        "standalone clock integration required"
+      ]
+    },
+    {
+      "timing_object": "WRITE_ENABLE_PATH",
+      "timing_role": "consumer_enable_path",
+      "source_contract": "metadata_source_not_found",
+      "source_signals": [
+        "rbl_delay_bar or rbl_delay_bar_wen",
+        "gated_clk_bar",
+        "we"
+      ],
+      "target_signals": [
+        "w_en",
+        "WRITEDRIVER.EN"
+      ],
+      "leaf_sequence": [],
+      "stage_count": null,
+      "stage_count_source": "missing",
+      "known_leaf_macro": [],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "path_dependency_known_but_numeric_load_unproven",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": false,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_missing_stage_count",
+      "consumer_macro": "write_driver",
+      "consumer_pin": "EN",
+      "consumer_pin_side": "bottom",
+      "notes": [
+        "The first input is conditionally substituted by WEN_DELAY_CHAIN output in one special write branch.",
+        "Physical implementation remains blocked because local AND3 is only a semantic composite, not a proven physical macro.",
+        "routing obstacle risk=moderate"
+      ],
+      "blockers": [
+        "stage count missing",
+        "timing proof is missing",
+        "no SPICE timing closure has been run"
+      ]
+    },
+    {
+      "timing_object": "SENSE_ENABLE_PATH",
+      "timing_role": "consumer_enable_path",
+      "source_contract": "metadata_source_not_found",
+      "source_signals": [
+        "rbl_delay",
+        "gated_clk_bar",
+        "we_bar"
+      ],
+      "target_signals": [
+        "s_en",
+        "SENSEAMP.EN"
+      ],
+      "leaf_sequence": [],
+      "stage_count": null,
+      "stage_count_source": "missing",
+      "known_leaf_macro": [],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "path_dependency_known_but_numeric_load_unproven",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": false,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_missing_stage_count",
+      "consumer_macro": "sense_amp",
+      "consumer_pin": "EN",
+      "consumer_pin_side": "top",
+      "notes": [
+        "This contract stays single-ended on the consumer side because the current sense-amp adapter uses Q -> dout and keeps QB dropped.",
+        "routing obstacle risk=moderate"
+      ],
+      "blockers": [
+        "stage count missing",
+        "timing proof is missing",
+        "no SPICE timing closure has been run"
+      ]
+    },
+    {
+      "timing_object": "PRECHARGE_ENABLE_PATH",
+      "timing_role": "consumer_enable_path",
+      "source_contract": "metadata_source_not_found",
+      "source_signals": [
+        "gated_clk_buf",
+        "rbl_delay",
+        "wl_en_bar"
+      ],
+      "target_signals": [
+        "PRE",
+        "PRECHARGE.ENB"
+      ],
+      "leaf_sequence": [],
+      "stage_count": null,
+      "stage_count_source": "missing",
+      "known_leaf_macro": [],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "path_dependency_known_but_numeric_load_unproven",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": true,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_precharge_power_exception",
+      "consumer_macro": "gen_precharge",
+      "consumer_pin": "ENB / en_bar / PNAND3.C",
+      "consumer_pin_side": "bottom/unknown",
+      "notes": [
+        "The signal name PRE is treated as canonical precharge_enb because the PRECHARGE consumer pin is ENB.",
+        "routing obstacle risk=moderate",
+        "routing obstacle risk=moderate_to_high"
+      ],
+      "blockers": [
+        "stage count missing",
+        "timing proof is missing",
+        "no SPICE timing closure has been run",
+        "precharge power exception retained"
+      ]
+    },
+    {
+      "timing_object": "WORDLINE_ENABLE_PATH",
+      "timing_role": "consumer_enable_path",
+      "source_contract": "metadata_source_not_found",
+      "source_signals": [
+        "gated_clk_bar"
+      ],
+      "target_signals": [
+        "wl_en",
+        "WORDLINEDRIVER.B",
+        "Pinv.A(wl_en_bar)",
+        "RWL_AND2.B"
+      ],
+      "leaf_sequence": [],
+      "stage_count": null,
+      "stage_count_source": "missing",
+      "known_leaf_macro": [],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "path_dependency_known_but_numeric_load_unproven",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": false,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_missing_stage_count",
+      "consumer_macro": "gen_wl_driver",
+      "consumer_pin": "B",
+      "consumer_pin_side": "bottom/unknown",
+      "notes": [
+        "The active-high interpretation is source-confirmed and consistent with the prior WORDLINEDRIVER adapter audit.",
+        "routing obstacle risk=moderate",
+        "routing obstacle risk=moderate_to_high"
+      ],
+      "blockers": [
+        "stage count missing",
+        "timing proof is missing",
+        "no SPICE timing closure has been run"
+      ]
+    },
+    {
+      "timing_object": "RBL_DELAY_PATH",
+      "timing_role": "replica_delay_path",
+      "source_contract": "metadata_source_not_found",
+      "source_signals": [
+        "rbl",
+        "rbl_delay",
+        "rbl_delay_bar"
+      ],
+      "target_signals": [
+        "rbl_delay",
+        "Pinv.A",
+        "AND3.A",
+        "PNAND3.B",
+        "rbl_delay_bar",
+        "WEN_DELAY_CHAIN.in",
+        "rbl_delay_bar_wen",
+        "AND3.A via w_en_rbl_input"
+      ],
+      "leaf_sequence": [],
+      "stage_count": null,
+      "stage_count_source": "missing",
+      "known_leaf_macro": [],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "path_dependency_known_but_numeric_load_unproven",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": true,
+      "requires_waveform_check": false,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_missing_stage_count",
+      "consumer_macro": null,
+      "consumer_pin": null,
+      "consumer_pin_side": null,
+      "notes": [
+        "This contract is especially timing-sensitive and must remain metadata-only until delay proof exists.",
+        "rbl_delay_bar is the default write-enable-side timing input.",
+        "This contract is partial/conditional by design and must not be generalized beyond the source-confirmed branch.",
+        "routing obstacle risk=moderate"
+      ],
+      "blockers": [
+        "stage count missing",
+        "timing proof is missing",
+        "no SPICE timing closure has been run",
+        "replica calibration required"
+      ]
+    },
+    {
+      "timing_object": "GATED_CLOCK_PATH",
+      "timing_role": "gated_clock_path",
+      "source_contract": "metadata_source_not_found",
+      "source_signals": [
+        "clk",
+        "clk_buf",
+        "cs",
+        "clk_bar"
+      ],
+      "target_signals": [
+        "clk_buf",
+        "ADDR_DFF.CLK",
+        "DATA_DFF.CLK",
+        "DFF_BUF.CLK",
+        "Pinv.A",
+        "AND2.B",
+        "clk_bar",
+        "gated_clk_buf",
+        "PNAND3.A",
+        "gated_clk_bar",
+        "WL_PDRIVE.A",
+        "AND3.B"
+      ],
+      "leaf_sequence": [],
+      "stage_count": null,
+      "stage_count_source": "missing",
+      "known_leaf_macro": [],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "path_dependency_known_but_numeric_load_unproven",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": true,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_standalone_clock_integration",
+      "consumer_macro": null,
+      "consumer_pin": null,
+      "consumer_pin_side": null,
+      "notes": [
+        "Producer is a four-stage inverter chain with upsizing.",
+        "This contract can drive planning metadata but not physical control placement.",
+        "clk_bar is explicitly the inversion of clk_buf, not a separately buffered top-level input.",
+        "This is an AND semantic contract, not a direct hard macro mapping.",
+        "This gated clock branch is the direct producer for wl_en and the enable-side input for w_en / s_en generation.",
+        "routing obstacle risk=moderate"
+      ],
+      "blockers": [
+        "stage count missing",
+        "timing proof is missing",
+        "no SPICE timing closure has been run",
+        "standalone clock integration required"
+      ]
+    }
+  ],
+  "delay_chain_timing_metadata": {
+    "timing_object": "DELAY_CHAIN",
+    "timing_role": "replica_bitline_delay / rbl_delay_generation",
+    "source_contract": "DELAY_CHAIN_GENERATED_LOGIC_CONTRACT",
+    "source_signals": [
+      "rbl"
+    ],
+    "target_signals": [
+      "rbl_delay",
+      "Pinv.A",
+      "AND3.A",
+      "PNAND3.B"
+    ],
+    "leaf_sequence": [
+      "gen_delay_inv",
+      "gen_delay_inv",
+      "gen_delay_inv",
+      "gen_delay_inv",
+      "gen_delay_inv",
+      "gen_delay_inv",
+      "gen_delay_inv",
+      "gen_delay_inv",
+      "gen_delay_inv"
+    ],
+    "stage_count": 9,
+    "stage_count_source": "generated_logic_contract.candidate_cell_count_if_known",
+    "known_leaf_macro": [
+      "gen_delay_inv"
+    ],
+    "leaf_has_spice": false,
+    "leaf_has_lib": false,
+    "known_cell_delay_model": false,
+    "known_load_model": "source_confirmed_four_load_inverters_per_stage",
+    "known_input_slew_model": null,
+    "known_output_load_model": "consumer_pin_list_known_metadata_only",
+    "known_rc_model": null,
+    "known_corner_definition": null,
+    "known_voltage_temperature_corner": null,
+    "requires_spice": true,
+    "requires_liberty": true,
+    "requires_parasitic_estimate": true,
+    "requires_routing_rc": true,
+    "requires_load_extraction": true,
+    "requires_replica_path_calibration": true,
+    "requires_waveform_check": true,
+    "requires_margin_policy": true,
+    "requires_write_path_timing_model": false,
+    "timing_metadata_available": true,
+    "timing_proof_available": false,
+    "safe_for_timing_metadata_planning": true,
+    "safe_for_timing_proof_planning": true,
+    "safe_for_timing_closure": false,
+    "timing_proof_readiness_classification": "blocked_by_missing_spice_or_lib",
+    "consumer_macro": null,
+    "consumer_pin": null,
+    "consumer_pin_side": null,
+    "notes": [
+      "Stage count source-confirmed as 9.",
+      "Load model is known at source level: four load inverters per stage.",
+      "OpenYield source defines a nine-stage inverter delay chain with four load inverters per stage.",
+      "TIME instantiates DelayChain from rbl to rbl_delay.",
+      "This contract is especially timing-sensitive and must remain metadata-only until delay proof exists."
+    ],
+    "blockers": [
+      "missing spice or lib for generated/control leaf",
+      "timing proof is missing",
+      "no SPICE timing closure has been run",
+      "replica calibration required"
+    ]
+  },
+  "wen_delay_chain_timing_metadata": {
+    "timing_object": "WEN_DELAY_CHAIN",
+    "timing_role": "write_enable_delay_conditioning",
+    "source_contract": "WEN_DELAY_CHAIN_CONDITIONAL_GENERATED_LOGIC_CONTRACT",
+    "source_signals": [
+      "rbl_delay_bar"
+    ],
+    "target_signals": [
+      "rbl_delay_bar_wen",
+      "AND3.A via w_en_rbl_input"
+    ],
+    "leaf_sequence": [
+      "gen_delay_inv",
+      "gen_delay_inv",
+      "gen_delay_inv",
+      "gen_delay_inv",
+      "gen_delay_inv",
+      "gen_delay_inv"
+    ],
+    "stage_count": 6,
+    "stage_count_source": "generated_logic_contract.candidate_cell_count_if_known",
+    "known_leaf_macro": [
+      "gen_delay_inv"
+    ],
+    "leaf_has_spice": false,
+    "leaf_has_lib": false,
+    "known_cell_delay_model": false,
+    "known_load_model": "conditional_write_branch_load_present_but_not_quantified_for_general_configs",
+    "known_input_slew_model": null,
+    "known_output_load_model": "consumer_pin_list_known_metadata_only",
+    "known_rc_model": null,
+    "known_corner_definition": null,
+    "known_voltage_temperature_corner": null,
+    "requires_spice": true,
+    "requires_liberty": true,
+    "requires_parasitic_estimate": true,
+    "requires_routing_rc": true,
+    "requires_load_extraction": true,
+    "requires_replica_path_calibration": false,
+    "requires_waveform_check": true,
+    "requires_margin_policy": true,
+    "requires_write_path_timing_model": true,
+    "timing_metadata_available": true,
+    "timing_proof_available": false,
+    "safe_for_timing_metadata_planning": true,
+    "safe_for_timing_proof_planning": true,
+    "safe_for_timing_closure": false,
+    "timing_proof_readiness_classification": "blocked_by_missing_spice_or_lib",
+    "consumer_macro": null,
+    "consumer_pin": null,
+    "consumer_pin_side": null,
+    "notes": [
+      "Conditional applicability preserved exactly: operation == write and num_rows == 16 and num_cols == 512.",
+      "This contract must not generalize to all configs.",
+      "The chain is only instantiated in the special-case `write` + `16x512` branch.",
+      "This keeps the adapter audit at source-semantic level; the general path still uses rbl_delay_bar directly.",
+      "This contract is partial/conditional by design and must not be generalized beyond the source-confirmed branch."
+    ],
+    "blockers": [
+      "missing spice or lib for generated/control leaf",
+      "timing proof is missing",
+      "no SPICE timing closure has been run",
+      "write path timing model required"
+    ]
+  },
+  "pdrive_wordline_precharge_drive_metadata": [
+    {
+      "timing_object": "PDRIVE",
+      "timing_role": "clock_buffer_chain",
+      "source_contract": "PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "source_signals": [
+        "clk"
+      ],
+      "target_signals": [
+        "clk_buf",
+        "ADDR_DFF.CLK",
+        "DATA_DFF.CLK",
+        "DFF_BUF.CLK",
+        "Pinv.A",
+        "AND2.B"
+      ],
+      "leaf_sequence": [
+        "gen_inv",
+        "gen_inv",
+        "gen_inv",
+        "gen_inv"
+      ],
+      "stage_count": 4,
+      "stage_count_source": "generated_logic_contract.candidate_cell_count_if_known",
+      "known_leaf_macro": [
+        "gen_inv"
+      ],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "consumer_fanout_known_metadata_only",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": false,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_missing_spice_or_lib",
+      "consumer_macro": null,
+      "consumer_pin": null,
+      "consumer_pin_side": null,
+      "notes": [
+        "Stage count source-confirmed as 4.",
+        "Drive-strength progression is known from source and preserved only as metadata notes.",
+        "The source is a four-stage inverter chain with progressive upsizing.",
+        "TIME uses pdrive to generate clk_buf, then a separate inverter derives clk_bar.",
+        "Producer is a four-stage inverter chain with upsizing.",
+        "This contract can drive planning metadata but not physical control placement."
+      ],
+      "blockers": [
+        "missing spice or lib for generated/control leaf",
+        "timing proof is missing",
+        "no SPICE timing closure has been run"
+      ]
+    },
+    {
+      "timing_object": "PDRIVE2_FOR_PRE",
+      "timing_role": "precharge_enable_buffer_chain",
+      "source_contract": "PDRIVE2_FOR_PRE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "source_signals": [
+        "gated_clk_buf",
+        "rbl_delay",
+        "wl_en_bar"
+      ],
+      "target_signals": [
+        "PRE",
+        "PRECHARGE.ENB"
+      ],
+      "leaf_sequence": [
+        "gen_inv",
+        "gen_inv"
+      ],
+      "stage_count": 2,
+      "stage_count_source": "generated_logic_contract.candidate_cell_count_if_known",
+      "known_leaf_macro": [
+        "gen_inv"
+      ],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "consumer_fanout_known_metadata_only",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": false,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_precharge_power_exception",
+      "consumer_macro": null,
+      "consumer_pin": null,
+      "consumer_pin_side": null,
+      "notes": [
+        "Stage count source-confirmed as 2.",
+        "Precharge ENB polarity is preserved through PRE_UNBUF -> PRE buffering.",
+        "The source is a two-stage inverter chain with drive scaling for precharge.",
+        "It is downstream of the PNAND3 precharge gating node, not a standalone timing source.",
+        "The signal name PRE is treated as canonical precharge_enb because the PRECHARGE consumer pin is ENB."
+      ],
+      "blockers": [
+        "missing spice or lib for generated/control leaf",
+        "timing proof is missing",
+        "no SPICE timing closure has been run",
+        "precharge power exception retained"
+      ]
+    },
+    {
+      "timing_object": "WL_PDRIVE",
+      "timing_role": "wordline_enable_buffer_chain",
+      "source_contract": "WL_PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "source_signals": [
+        "gated_clk_bar"
+      ],
+      "target_signals": [
+        "wl_en",
+        "WORDLINEDRIVER.B",
+        "Pinv.A(wl_en_bar)",
+        "RWL_AND2.B"
+      ],
+      "leaf_sequence": [
+        "gen_inv",
+        "gen_inv"
+      ],
+      "stage_count": 2,
+      "stage_count_source": "generated_logic_contract.candidate_cell_count_if_known",
+      "known_leaf_macro": [
+        "gen_inv"
+      ],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "consumer_fanout_known_metadata_only",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": false,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_missing_spice_or_lib",
+      "consumer_macro": null,
+      "consumer_pin": null,
+      "consumer_pin_side": null,
+      "notes": [
+        "Stage count source-confirmed as 2.",
+        "wordline_enable active-high semantics are preserved.",
+        "The source is a two-stage inverter chain that drives wl_en from gated_clk_bar.",
+        "The testbench and earlier wordline audit confirm wl_en feeds the WordlineDriver B domain as active-high enable.",
+        "The active-high interpretation is source-confirmed and consistent with the prior WORDLINEDRIVER adapter audit."
+      ],
+      "blockers": [
+        "missing spice or lib for generated/control leaf",
+        "timing proof is missing",
+        "no SPICE timing closure has been run"
+      ]
+    },
+    {
+      "timing_object": "PRECHARGE_ENABLE_PATH",
+      "timing_role": "consumer_enable_path",
+      "source_contract": "metadata_source_not_found",
+      "source_signals": [
+        "gated_clk_buf",
+        "rbl_delay",
+        "wl_en_bar"
+      ],
+      "target_signals": [
+        "PRE",
+        "PRECHARGE.ENB"
+      ],
+      "leaf_sequence": [],
+      "stage_count": null,
+      "stage_count_source": "missing",
+      "known_leaf_macro": [],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "path_dependency_known_but_numeric_load_unproven",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": true,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_precharge_power_exception",
+      "consumer_macro": "gen_precharge",
+      "consumer_pin": "ENB / en_bar / PNAND3.C",
+      "consumer_pin_side": "bottom/unknown",
+      "notes": [
+        "The signal name PRE is treated as canonical precharge_enb because the PRECHARGE consumer pin is ENB.",
+        "routing obstacle risk=moderate",
+        "routing obstacle risk=moderate_to_high"
+      ],
+      "blockers": [
+        "stage count missing",
+        "timing proof is missing",
+        "no SPICE timing closure has been run",
+        "precharge power exception retained"
+      ]
+    },
+    {
+      "timing_object": "WORDLINE_ENABLE_PATH",
+      "timing_role": "consumer_enable_path",
+      "source_contract": "metadata_source_not_found",
+      "source_signals": [
+        "gated_clk_bar"
+      ],
+      "target_signals": [
+        "wl_en",
+        "WORDLINEDRIVER.B",
+        "Pinv.A(wl_en_bar)",
+        "RWL_AND2.B"
+      ],
+      "leaf_sequence": [],
+      "stage_count": null,
+      "stage_count_source": "missing",
+      "known_leaf_macro": [],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "path_dependency_known_but_numeric_load_unproven",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": false,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_missing_stage_count",
+      "consumer_macro": "gen_wl_driver",
+      "consumer_pin": "B",
+      "consumer_pin_side": "bottom/unknown",
+      "notes": [
+        "The active-high interpretation is source-confirmed and consistent with the prior WORDLINEDRIVER adapter audit.",
+        "routing obstacle risk=moderate",
+        "routing obstacle risk=moderate_to_high"
+      ],
+      "blockers": [
+        "stage count missing",
+        "timing proof is missing",
+        "no SPICE timing closure has been run"
+      ]
+    }
+  ],
+  "write_sense_enable_path_timing_metadata": [
+    {
+      "timing_object": "WRITE_ENABLE_PATH",
+      "timing_role": "consumer_enable_path",
+      "source_contract": "metadata_source_not_found",
+      "source_signals": [
+        "rbl_delay_bar or rbl_delay_bar_wen",
+        "gated_clk_bar",
+        "we"
+      ],
+      "target_signals": [
+        "w_en",
+        "WRITEDRIVER.EN"
+      ],
+      "leaf_sequence": [],
+      "stage_count": null,
+      "stage_count_source": "missing",
+      "known_leaf_macro": [],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "path_dependency_known_but_numeric_load_unproven",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": false,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_missing_stage_count",
+      "consumer_macro": "write_driver",
+      "consumer_pin": "EN",
+      "consumer_pin_side": "bottom",
+      "notes": [
+        "The first input is conditionally substituted by WEN_DELAY_CHAIN output in one special write branch.",
+        "Physical implementation remains blocked because local AND3 is only a semantic composite, not a proven physical macro.",
+        "routing obstacle risk=moderate"
+      ],
+      "blockers": [
+        "stage count missing",
+        "timing proof is missing",
+        "no SPICE timing closure has been run"
+      ]
+    },
+    {
+      "timing_object": "SENSE_ENABLE_PATH",
+      "timing_role": "consumer_enable_path",
+      "source_contract": "metadata_source_not_found",
+      "source_signals": [
+        "rbl_delay",
+        "gated_clk_bar",
+        "we_bar"
+      ],
+      "target_signals": [
+        "s_en",
+        "SENSEAMP.EN"
+      ],
+      "leaf_sequence": [],
+      "stage_count": null,
+      "stage_count_source": "missing",
+      "known_leaf_macro": [],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "path_dependency_known_but_numeric_load_unproven",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": false,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_missing_stage_count",
+      "consumer_macro": "sense_amp",
+      "consumer_pin": "EN",
+      "consumer_pin_side": "top",
+      "notes": [
+        "This contract stays single-ended on the consumer side because the current sense-amp adapter uses Q -> dout and keeps QB dropped.",
+        "routing obstacle risk=moderate"
+      ],
+      "blockers": [
+        "stage count missing",
+        "timing proof is missing",
+        "no SPICE timing closure has been run"
+      ]
+    }
+  ],
+  "dff_row_gated_clock_timing_metadata": [
+    {
+      "timing_object": "DFF_ROW",
+      "timing_role": "clocked_register_row",
+      "source_contract": "metadata_source_not_found",
+      "source_signals": [],
+      "target_signals": [],
+      "leaf_sequence": [
+        "dff"
+      ],
+      "stage_count": 1,
+      "stage_count_source": "composite_feasibility.leaf_count",
+      "known_leaf_macro": [
+        "dff"
+      ],
+      "leaf_has_spice": true,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": null,
+      "known_input_slew_model": null,
+      "known_output_load_model": null,
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": false,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_standalone_clock_integration",
+      "consumer_macro": null,
+      "consumer_pin": null,
+      "consumer_pin_side": null,
+      "notes": [
+        "routing obstacle risk=moderate"
+      ],
+      "blockers": [
+        "missing load model",
+        "timing proof is missing",
+        "no SPICE timing closure has been run",
+        "standalone clock integration required"
+      ]
+    },
+    {
+      "timing_object": "GATED_CLOCK_PATH",
+      "timing_role": "gated_clock_path",
+      "source_contract": "metadata_source_not_found",
+      "source_signals": [
+        "clk",
+        "clk_buf",
+        "cs",
+        "clk_bar"
+      ],
+      "target_signals": [
+        "clk_buf",
+        "ADDR_DFF.CLK",
+        "DATA_DFF.CLK",
+        "DFF_BUF.CLK",
+        "Pinv.A",
+        "AND2.B",
+        "clk_bar",
+        "gated_clk_buf",
+        "PNAND3.A",
+        "gated_clk_bar",
+        "WL_PDRIVE.A",
+        "AND3.B"
+      ],
+      "leaf_sequence": [],
+      "stage_count": null,
+      "stage_count_source": "missing",
+      "known_leaf_macro": [],
+      "leaf_has_spice": false,
+      "leaf_has_lib": false,
+      "known_cell_delay_model": false,
+      "known_load_model": "path_dependency_known_but_numeric_load_unproven",
+      "known_input_slew_model": null,
+      "known_output_load_model": "consumer_pin_list_known_metadata_only",
+      "known_rc_model": null,
+      "known_corner_definition": null,
+      "known_voltage_temperature_corner": null,
+      "requires_spice": true,
+      "requires_liberty": true,
+      "requires_parasitic_estimate": true,
+      "requires_routing_rc": true,
+      "requires_load_extraction": true,
+      "requires_replica_path_calibration": false,
+      "requires_waveform_check": true,
+      "requires_margin_policy": true,
+      "requires_write_path_timing_model": false,
+      "timing_metadata_available": true,
+      "timing_proof_available": false,
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false,
+      "timing_proof_readiness_classification": "blocked_by_standalone_clock_integration",
+      "consumer_macro": null,
+      "consumer_pin": null,
+      "consumer_pin_side": null,
+      "notes": [
+        "Producer is a four-stage inverter chain with upsizing.",
+        "This contract can drive planning metadata but not physical control placement.",
+        "clk_bar is explicitly the inversion of clk_buf, not a separately buffered top-level input.",
+        "This is an AND semantic contract, not a direct hard macro mapping.",
+        "This gated clock branch is the direct producer for wl_en and the enable-side input for w_en / s_en generation.",
+        "routing obstacle risk=moderate"
+      ],
+      "blockers": [
+        "stage count missing",
+        "timing proof is missing",
+        "no SPICE timing closure has been run",
+        "standalone clock integration required"
+      ]
+    }
+  ],
+  "spice_lib_model_inventory": [
+    {
+      "macro_name": "gen_inv",
+      "spice_exists": false,
+      "lib_exists": false,
+      "subckt_name": null,
+      "power_pins_known": false,
+      "timing_arcs_known": false,
+      "delay_model_available": false,
+      "load_model_available": false,
+      "usable_for_timing_proof_now": false,
+      "notes": [
+        "gds path: E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_inv.gds",
+        "no liberty model located"
+      ]
+    },
+    {
+      "macro_name": "gen_nand2",
+      "spice_exists": false,
+      "lib_exists": false,
+      "subckt_name": null,
+      "power_pins_known": false,
+      "timing_arcs_known": false,
+      "delay_model_available": false,
+      "load_model_available": false,
+      "usable_for_timing_proof_now": false,
+      "notes": [
+        "gds path: E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_nand2.gds",
+        "no liberty model located"
+      ]
+    },
+    {
+      "macro_name": "gen_delay_inv",
+      "spice_exists": false,
+      "lib_exists": false,
+      "subckt_name": null,
+      "power_pins_known": false,
+      "timing_arcs_known": false,
+      "delay_model_available": false,
+      "load_model_available": false,
+      "usable_for_timing_proof_now": false,
+      "notes": [
+        "gds path: E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_delay_inv.gds",
+        "no liberty model located"
+      ]
+    },
+    {
+      "macro_name": "gen_precharge",
+      "spice_exists": false,
+      "lib_exists": false,
+      "subckt_name": null,
+      "power_pins_known": false,
+      "timing_arcs_known": false,
+      "delay_model_available": false,
+      "load_model_available": false,
+      "usable_for_timing_proof_now": false,
+      "notes": [
+        "gds path: E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_precharge.gds",
+        "no liberty model located"
+      ]
+    },
+    {
+      "macro_name": "dff",
+      "spice_exists": true,
+      "lib_exists": false,
+      "subckt_name": "dff",
+      "power_pins_known": true,
+      "timing_arcs_known": false,
+      "delay_model_available": false,
+      "load_model_available": false,
+      "usable_for_timing_proof_now": false,
+      "notes": [
+        "spice path: E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "gds path: E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\dff.gds",
+        "no liberty model located"
+      ]
+    },
+    {
+      "macro_name": "sense_amp",
+      "spice_exists": true,
+      "lib_exists": false,
+      "subckt_name": "sense_amp",
+      "power_pins_known": true,
+      "timing_arcs_known": false,
+      "delay_model_available": false,
+      "load_model_available": false,
+      "usable_for_timing_proof_now": false,
+      "notes": [
+        "spice path: E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "gds path: E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\sense_amp.gds",
+        "no liberty model located"
+      ]
+    },
+    {
+      "macro_name": "write_driver",
+      "spice_exists": true,
+      "lib_exists": false,
+      "subckt_name": "write_driver",
+      "power_pins_known": true,
+      "timing_arcs_known": false,
+      "delay_model_available": false,
+      "load_model_available": false,
+      "usable_for_timing_proof_now": false,
+      "notes": [
+        "spice path: E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "gds path: E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\write_driver.gds",
+        "no liberty model located"
+      ]
+    },
+    {
+      "macro_name": "gen_wl_driver",
+      "spice_exists": false,
+      "lib_exists": false,
+      "subckt_name": null,
+      "power_pins_known": false,
+      "timing_arcs_known": false,
+      "delay_model_available": false,
+      "load_model_available": false,
+      "usable_for_timing_proof_now": false,
+      "notes": [
+        "gds path: E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_wl_driver.gds",
+        "no liberty model located"
+      ]
+    },
+    {
+      "macro_name": "gen_col_mux_vdd_labeled",
+      "spice_exists": false,
+      "lib_exists": false,
+      "subckt_name": null,
+      "power_pins_known": false,
+      "timing_arcs_known": false,
+      "delay_model_available": false,
+      "load_model_available": false,
+      "usable_for_timing_proof_now": false,
+      "notes": [
+        "gds path: E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openyield_repaired\\gen_col_mux_vdd_labeled.gds",
+        "no liberty model located"
+      ]
+    },
+    {
+      "macro_name": "cell_1rw",
+      "spice_exists": true,
+      "lib_exists": false,
+      "subckt_name": "cell_1rw",
+      "power_pins_known": true,
+      "timing_arcs_known": false,
+      "delay_model_available": false,
+      "load_model_available": false,
+      "usable_for_timing_proof_now": false,
+      "notes": [
+        "spice path: E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_1rw.sp",
+        "gds path: E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\cell_1rw.gds",
+        "no liberty model located"
+      ]
+    },
+    {
+      "macro_name": "replica_cell_1rw",
+      "spice_exists": true,
+      "lib_exists": false,
+      "subckt_name": "replica_cell_1rw",
+      "power_pins_known": true,
+      "timing_arcs_known": false,
+      "delay_model_available": false,
+      "load_model_available": false,
+      "usable_for_timing_proof_now": false,
+      "notes": [
+        "spice path: E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_1rw.sp",
+        "gds path: E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\replica_cell_1rw.gds",
+        "no liberty model located"
+      ]
+    }
+  ],
+  "timing_proof_readiness_classification": [
+    {
+      "timing_object": "DELAY_CHAIN",
+      "classification": "blocked_by_missing_spice_or_lib",
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false
+    },
+    {
+      "timing_object": "WEN_DELAY_CHAIN",
+      "classification": "blocked_by_missing_spice_or_lib",
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false
+    },
+    {
+      "timing_object": "PDRIVE",
+      "classification": "blocked_by_missing_spice_or_lib",
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false
+    },
+    {
+      "timing_object": "PDRIVE2_FOR_PRE",
+      "classification": "blocked_by_precharge_power_exception",
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false
+    },
+    {
+      "timing_object": "WL_PDRIVE",
+      "classification": "blocked_by_missing_spice_or_lib",
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false
+    },
+    {
+      "timing_object": "PINV",
+      "classification": "blocked_by_missing_spice_or_lib",
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false
+    },
+    {
+      "timing_object": "AND2",
+      "classification": "blocked_by_missing_spice_or_lib",
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false
+    },
+    {
+      "timing_object": "AND3_COMPOSITE",
+      "classification": "blocked_by_missing_spice_or_lib",
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false
+    },
+    {
+      "timing_object": "PNAND3_COMPOSITE",
+      "classification": "blocked_by_precharge_power_exception",
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false
+    },
+    {
+      "timing_object": "PRECHARGE",
+      "classification": "blocked_by_precharge_power_exception",
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false
+    },
+    {
+      "timing_object": "DFF_ROW",
+      "classification": "blocked_by_standalone_clock_integration",
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false
+    },
+    {
+      "timing_object": "WRITE_ENABLE_PATH",
+      "classification": "blocked_by_missing_stage_count",
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false
+    },
+    {
+      "timing_object": "SENSE_ENABLE_PATH",
+      "classification": "blocked_by_missing_stage_count",
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false
+    },
+    {
+      "timing_object": "PRECHARGE_ENABLE_PATH",
+      "classification": "blocked_by_precharge_power_exception",
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false
+    },
+    {
+      "timing_object": "WORDLINE_ENABLE_PATH",
+      "classification": "blocked_by_missing_stage_count",
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false
+    },
+    {
+      "timing_object": "RBL_DELAY_PATH",
+      "classification": "blocked_by_missing_stage_count",
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false
+    },
+    {
+      "timing_object": "GATED_CLOCK_PATH",
+      "classification": "blocked_by_standalone_clock_integration",
+      "safe_for_timing_metadata_planning": true,
+      "safe_for_timing_proof_planning": true,
+      "safe_for_timing_closure": false
+    }
+  ],
+  "blockers": [
+    "DELAY_CHAIN: missing spice or lib for generated/control leaf",
+    "DELAY_CHAIN: timing proof is missing",
+    "DELAY_CHAIN: no SPICE timing closure has been run",
+    "DELAY_CHAIN: replica calibration required",
+    "WEN_DELAY_CHAIN: missing spice or lib for generated/control leaf",
+    "WEN_DELAY_CHAIN: timing proof is missing",
+    "WEN_DELAY_CHAIN: no SPICE timing closure has been run",
+    "WEN_DELAY_CHAIN: write path timing model required",
+    "PDRIVE: missing spice or lib for generated/control leaf",
+    "PDRIVE: timing proof is missing",
+    "PDRIVE: no SPICE timing closure has been run",
+    "PDRIVE2_FOR_PRE: missing spice or lib for generated/control leaf",
+    "PDRIVE2_FOR_PRE: timing proof is missing",
+    "PDRIVE2_FOR_PRE: no SPICE timing closure has been run",
+    "PDRIVE2_FOR_PRE: precharge power exception retained",
+    "WL_PDRIVE: missing spice or lib for generated/control leaf",
+    "WL_PDRIVE: timing proof is missing",
+    "WL_PDRIVE: no SPICE timing closure has been run",
+    "PINV: missing spice or lib for generated/control leaf",
+    "PINV: timing proof is missing",
+    "PINV: no SPICE timing closure has been run",
+    "AND2: missing spice or lib for generated/control leaf",
+    "AND2: timing proof is missing",
+    "AND2: no SPICE timing closure has been run",
+    "AND3_COMPOSITE: missing spice or lib for generated/control leaf",
+    "AND3_COMPOSITE: timing proof is missing",
+    "AND3_COMPOSITE: no SPICE timing closure has been run",
+    "PNAND3_COMPOSITE: missing spice or lib for generated/control leaf",
+    "PNAND3_COMPOSITE: timing proof is missing",
+    "PNAND3_COMPOSITE: no SPICE timing closure has been run",
+    "PNAND3_COMPOSITE: precharge power exception retained",
+    "PRECHARGE: missing spice or lib for generated/control leaf",
+    "PRECHARGE: missing load model",
+    "PRECHARGE: timing proof is missing",
+    "PRECHARGE: no SPICE timing closure has been run",
+    "PRECHARGE: precharge power exception retained",
+    "DFF_ROW: missing load model",
+    "DFF_ROW: timing proof is missing",
+    "DFF_ROW: no SPICE timing closure has been run",
+    "DFF_ROW: standalone clock integration required",
+    "WRITE_ENABLE_PATH: stage count missing",
+    "WRITE_ENABLE_PATH: timing proof is missing",
+    "WRITE_ENABLE_PATH: no SPICE timing closure has been run",
+    "SENSE_ENABLE_PATH: stage count missing",
+    "SENSE_ENABLE_PATH: timing proof is missing",
+    "SENSE_ENABLE_PATH: no SPICE timing closure has been run",
+    "PRECHARGE_ENABLE_PATH: stage count missing",
+    "PRECHARGE_ENABLE_PATH: timing proof is missing",
+    "PRECHARGE_ENABLE_PATH: no SPICE timing closure has been run",
+    "PRECHARGE_ENABLE_PATH: precharge power exception retained",
+    "WORDLINE_ENABLE_PATH: stage count missing",
+    "WORDLINE_ENABLE_PATH: timing proof is missing",
+    "WORDLINE_ENABLE_PATH: no SPICE timing closure has been run",
+    "RBL_DELAY_PATH: stage count missing",
+    "RBL_DELAY_PATH: timing proof is missing",
+    "RBL_DELAY_PATH: no SPICE timing closure has been run",
+    "RBL_DELAY_PATH: replica calibration required",
+    "GATED_CLOCK_PATH: stage count missing",
+    "GATED_CLOCK_PATH: timing proof is missing",
+    "GATED_CLOCK_PATH: no SPICE timing closure has been run",
+    "GATED_CLOCK_PATH: standalone clock integration required"
+  ],
+  "next_recommended_proof_task": "time_control_timing_proof_planning",
+  "boundary_assertions": {
+    "stage_count_known_is_not_delay_proof": true,
+    "leaf_sequence_known_is_not_timing_proof": true,
+    "spice_exists_is_not_timing_closure": true,
+    "routing_obstacle_inventory_is_not_parasitic_extraction": true,
+    "timing_metadata_planning_is_not_timing_proof": true,
+    "standalone_modified": false,
+    "routing_modified": false,
+    "gds_writer_modified": false
+  },
+  "audit_summary": {
+    "time_control_timing_metadata_inventory_available": true,
+    "all_required_timing_objects_analyzed": true,
+    "all_stage_counts_recorded_or_missing_noted": true,
+    "all_required_timing_model_sources_checked": true,
+    "delay_chain_timing_metadata_available": true,
+    "wen_delay_chain_timing_metadata_available": true,
+    "pdrive_timing_metadata_available": true,
+    "enable_path_timing_metadata_available": true,
+    "precharge_timing_exception_retained": true,
+    "dff_row_clock_timing_metadata_available": true,
+    "timing_proof_available_now": false,
+    "can_enter_timing_proof_planning": true,
+    "can_enter_physical_timing_closure_now": false,
+    "can_enter_routing_proof_planning": true,
+    "can_enter_physical_routing_now": false,
+    "can_enter_physical_placement_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_modify_standalone_now": false
+  }
+}
