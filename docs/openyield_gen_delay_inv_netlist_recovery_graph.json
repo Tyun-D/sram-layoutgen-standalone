@@ -1,0 +1,124 @@
+{
+  "scope": "gen_delay_inv_transistor_netlist_recovery_plan",
+  "nodes": [
+    {
+      "id": "source:time_generate.py",
+      "kind": "source",
+      "label": "time_generate.py"
+    },
+    {
+      "id": "leaf:gen_delay_inv",
+      "kind": "macro",
+      "label": "gen_delay_inv"
+    },
+    {
+      "id": "contract:gen_delay_inv",
+      "kind": "subckt_contract",
+      "label": "candidate_subckt_contract"
+    },
+    {
+      "id": "artifact:1",
+      "kind": "future_artifact",
+      "label": "gen_delay_inv_candidate_subckt_template.sp"
+    },
+    {
+      "id": "artifact:2",
+      "kind": "future_artifact",
+      "label": "gen_delay_inv_subckt_contract.json"
+    },
+    {
+      "id": "artifact:3",
+      "kind": "future_artifact",
+      "label": "gen_delay_inv_recovery_notes.md"
+    },
+    {
+      "id": "artifact:4",
+      "kind": "future_artifact",
+      "label": "gen_delay_inv_validated.sp"
+    },
+    {
+      "id": "artifact:5",
+      "kind": "future_artifact",
+      "label": "gen_delay_inv.lib"
+    },
+    {
+      "id": "artifact:6",
+      "kind": "future_artifact",
+      "label": "measured_delay_result.json"
+    },
+    {
+      "id": "artifact:7",
+      "kind": "future_artifact",
+      "label": "timing_closed_report.md"
+    }
+  ],
+  "edges": [
+    {
+      "from": "source:time_generate.py",
+      "to": "leaf:gen_delay_inv",
+      "relation": "evidence_for"
+    },
+    {
+      "from": "leaf:gen_delay_inv",
+      "to": "contract:gen_delay_inv",
+      "relation": "contracts_as"
+    },
+    {
+      "from": "contract:gen_delay_inv",
+      "to": "artifact:1",
+      "relation": "future_artifact"
+    },
+    {
+      "from": "contract:gen_delay_inv",
+      "to": "artifact:2",
+      "relation": "future_artifact"
+    },
+    {
+      "from": "contract:gen_delay_inv",
+      "to": "artifact:3",
+      "relation": "future_artifact"
+    },
+    {
+      "from": "contract:gen_delay_inv",
+      "to": "artifact:4",
+      "relation": "future_artifact"
+    },
+    {
+      "from": "contract:gen_delay_inv",
+      "to": "artifact:5",
+      "relation": "future_artifact"
+    },
+    {
+      "from": "contract:gen_delay_inv",
+      "to": "artifact:6",
+      "relation": "future_artifact"
+    },
+    {
+      "from": "contract:gen_delay_inv",
+      "to": "artifact:7",
+      "relation": "future_artifact"
+    }
+  ],
+  "summary": {
+    "gen_delay_inv_transistor_netlist_recovery_plan_available": true,
+    "source_evidence_found": true,
+    "gds_pin_evidence_found": true,
+    "candidate_subckt_contract_available": true,
+    "candidate_pin_order_available": true,
+    "candidate_pin_order_validated_by_spice": false,
+    "transistor_sizing_known": false,
+    "pdk_device_model_bound": false,
+    "can_emit_candidate_subckt_template_now": true,
+    "can_emit_validated_spice_now": false,
+    "can_enter_four_load_inverter_stage_model_plan": true,
+    "can_enter_delay_chain_testbench_template_contract": true,
+    "can_run_delay_chain_testbench_now": false,
+    "can_claim_delay_proof_now": false,
+    "can_claim_timing_closure_now": false,
+    "can_enter_physical_timing_closure_now": false,
+    "can_enter_physical_routing_now": false,
+    "can_enter_physical_placement_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_modify_standalone_now": false
+  }
+}
