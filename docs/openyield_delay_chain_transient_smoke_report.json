@@ -1,0 +1,88 @@
+{
+  "scope": "delay_chain_ngspice_transient_smoke",
+  "repo_root": "/data1/qujh/work/sram_layoutgen_step45_clean",
+  "repo_head": "97d982e7c6e2d016488a4b84197c7bfd2a5a302a",
+  "candidate_dir": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/candidate_spice",
+  "ngspice": {
+    "path": "/usr/bin/ngspice",
+    "version": "******\n** ngspice-36 : Circuit level simulation program\n** The U. C. Berkeley CAD Group\n** Copyright 1985-1994, Regents of the University of California.\n** Copyright 2001-2020, The ngspice team.\n** Please get your ngspice manual from http://ngspice.sourceforge.net/docs.html\n** Please file your bug-reports at http://ngspice.sourceforge.net/bugrep.html\n** Creation Date: Mon Mar 11 21:44:53 UTC 2024\n******"
+  },
+  "model_include": {
+    "path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/candidate_spice/local_model_include_nom_server.inc",
+    "exists": true,
+    "model_paths": [
+      "/data1/qujh/OpenRAM/technology/freepdk45/models/tran_models/models_nom/NMOS_VTG.inc",
+      "/data1/qujh/OpenRAM/technology/freepdk45/models/tran_models/models_nom/PMOS_VTG.inc"
+    ]
+  },
+  "transient_deck": {
+    "path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/candidate_spice/delay_chain_transient_smoke_ngspice.sp",
+    "exists": true,
+    "contents": "* DELAY CHAIN TRANSIENT SMOKE\n* CANDIDATE / PLANNING-ONLY\n* TEMPORARY VDD/TEMP/STIMULUS\n* NOT DELAY PROOF\n* NOT TIMING CLOSURE\n* Smoke-only transient and smoke-only measurements.\n\n.include \"local_model_include_nom_server.inc\"\n.include \"gen_delay_inv_candidate.sp\"\n\n.param VDD_VALUE=1.0\n.temp 25\n\nVDD_SRC vdd 0 {VDD_VALUE}\nVIN rbl 0 DC 0 PULSE(0 {VDD_VALUE} 50p 10p 10p 1.5n 3n)\n\nXdinv0 rbl dout_1 vdd 0 gen_delay_inv\nXdload_0_0 dout_1 n_0_0 vdd 0 gen_delay_inv\nXdload_0_1 dout_1 n_0_1 vdd 0 gen_delay_inv\nXdload_0_2 dout_1 n_0_2 vdd 0 gen_delay_inv\nXdload_0_3 dout_1 n_0_3 vdd 0 gen_delay_inv\n\nXdinv1 dout_1 dout_2 vdd 0 gen_delay_inv\nXdload_1_0 dout_2 n_1_0 vdd 0 gen_delay_inv\nXdload_1_1 dout_2 n_1_1 vdd 0 gen_delay_inv\nXdload_1_2 dout_2 n_1_2 vdd 0 gen_delay_inv\nXdload_1_3 dout_2 n_1_3 vdd 0 gen_delay_inv\n\nXdinv2 dout_2 dout_3 vdd 0 gen_delay_inv\nXdload_2_0 dout_3 n_2_0 vdd 0 gen_delay_inv\nXdload_2_1 dout_3 n_2_1 vdd 0 gen_delay_inv\nXdload_2_2 dout_3 n_2_2 vdd 0 gen_delay_inv\nXdload_2_3 dout_3 n_2_3 vdd 0 gen_delay_inv\n\nXdinv3 dout_3 dout_4 vdd 0 gen_delay_inv\nXdload_3_0 dout_4 n_3_0 vdd 0 gen_delay_inv\nXdload_3_1 dout_4 n_3_1 vdd 0 gen_delay_inv\nXdload_3_2 dout_4 n_3_2 vdd 0 gen_delay_inv\nXdload_3_3 dout_4 n_3_3 vdd 0 gen_delay_inv\n\nXdinv4 dout_4 dout_5 vdd 0 gen_delay_inv\nXdload_4_0 dout_5 n_4_0 vdd 0 gen_delay_inv\nXdload_4_1 dout_5 n_4_1 vdd 0 gen_delay_inv\nXdload_4_2 dout_5 n_4_2 vdd 0 gen_delay_inv\nXdload_4_3 dout_5 n_4_3 vdd 0 gen_delay_inv\n\nXdinv5 dout_5 dout_6 vdd 0 gen_delay_inv\nXdload_5_0 dout_6 n_5_0 vdd 0 gen_delay_inv\nXdload_5_1 dout_6 n_5_1 vdd 0 gen_delay_inv\nXdload_5_2 dout_6 n_5_2 vdd 0 gen_delay_inv\nXdload_5_3 dout_6 n_5_3 vdd 0 gen_delay_inv\n\nXdinv6 dout_6 dout_7 vdd 0 gen_delay_inv\nXdload_6_0 dout_7 n_6_0 vdd 0 gen_delay_inv\nXdload_6_1 dout_7 n_6_1 vdd 0 gen_delay_inv\nXdload_6_2 dout_7 n_6_2 vdd 0 gen_delay_inv\nXdload_6_3 dout_7 n_6_3 vdd 0 gen_delay_inv\n\nXdinv7 dout_7 dout_8 vdd 0 gen_delay_inv\nXdload_7_0 dout_8 n_7_0 vdd 0 gen_delay_inv\nXdload_7_1 dout_8 n_7_1 vdd 0 gen_delay_inv\nXdload_7_2 dout_8 n_7_2 vdd 0 gen_delay_inv\nXdload_7_3 dout_8 n_7_3 vdd 0 gen_delay_inv\n\nXdinv8 dout_8 rbl_delay vdd 0 gen_delay_inv\nXdload_8_0 rbl_delay n_8_0 vdd 0 gen_delay_inv\nXdload_8_1 rbl_delay n_8_1 vdd 0 gen_delay_inv\nXdload_8_2 rbl_delay n_8_2 vdd 0 gen_delay_inv\nXdload_8_3 rbl_delay n_8_3 vdd 0 gen_delay_inv\n\n.measure tran smoke_delay_rise_to_fall \\n+ trig v(rbl) val='0.5*VDD_VALUE' rise=1 \\n+ targ v(rbl_delay) val='0.5*VDD_VALUE' fall=1\n\n.tran 2p 2n\n.print tran v(rbl) v(dout_1) v(dout_4) v(dout_8) v(rbl_delay)\n.end\n"
+  },
+  "stimulus_summary": {
+    "vdd_param": "1.0",
+    "temperature_c": "25",
+    "input_source": "VIN rbl 0 DC 0 PULSE(0 {VDD_VALUE} 50p 10p 10p 1.5n 3n)",
+    "measurement_note": "Smoke-only delay measure is not timing proof."
+  },
+  "stage_count": 9,
+  "four_load_policy": {
+    "loads_per_stage_expected": 4,
+    "load_instances_found": 36,
+    "policy_matches_candidate_topology": true
+  },
+  "transient_attempted": true,
+  "transient_run_pass": true,
+  "rbl_delay_observed": true,
+  "measure_attempted": true,
+  "measure_pass": false,
+  "smoke_only_measured_delay": null,
+  "key_warnings": [
+    "Trying gmin =   1.0000E-05 Warning: Further gmin increment",
+    "Trying gmin =   6.4938E-06 Warning: Further gmin increment",
+    "Trying gmin =   1.7154E-05 Warning: Further gmin increment"
+  ],
+  "key_errors": [
+    "measure 'smoke_delay_rise_to_fall'  failed",
+    "Error: measure  smoke_delay_rise_to_fall  :",
+    ".measure tran smoke_delay_rise_to_fall \\n+ trig v(rbl) val=    5.000000000000000e-01     rise=1 \\n+ targ v(rbl_delay) val=    5.000000000000000e-01     fall=1 failed!"
+  ],
+  "failure_classification": {
+    "code": "E",
+    "label": "measure syntax issue"
+  },
+  "key_log_excerpt": "Trying gmin =   1.0000E-05 Warning: Further gmin increment\nTrying gmin =   6.4938E-06 Warning: Further gmin increment\nTrying gmin =   1.7154E-05 Warning: Further gmin increment\nrbl_delay                             0.999995\n  Measurements for Transient Analysis\n\tmeasure 'smoke_delay_rise_to_fall'  failed\nError: measure  smoke_delay_rise_to_fall  :\n .measure tran smoke_delay_rise_to_fall \\n+ trig v(rbl) val=    5.000000000000000e-01     rise=1 \\n+ targ v(rbl_delay) val=    5.000000000000000e-01     fall=1 failed!\nIndex   time            v(dout_8)       v(rbl_delay)    \nIndex   time            v(dout_8)       v(rbl_delay)    \nIndex   time            v(dout_8)       v(rbl_delay)    \nIndex   time            v(dout_8)       v(rbl_delay)    \nIndex   time            v(dout_8)       v(rbl_delay)    \nIndex   time            v(dout_8)       v(rbl_delay)    \nIndex   time            v(dout_8)       v(rbl_delay)    \nIndex   time            v(dout_8)       v(rbl_delay)    \nIndex   time            v(dout_8)       v(rbl_delay)    \nIndex   time            v(dout_8)       v(rbl_delay)    \nIndex   time            v(dout_8)       v(rbl_delay)    \nIndex   time            v(dout_8)       v(rbl_delay)    \nIndex   time            v(dout_8)       v(rbl_delay)    \nIndex   time            v(dout_8)       v(rbl_delay)    \nIndex   time            v(dout_8)       v(rbl_delay)    \nIndex   time            v(dout_8)       v(rbl_delay)    \nIndex   time            v(dout_8)       v(rbl_delay)    \nIndex   time            v(dout_8)       v(rbl_delay)    ",
+  "boundary_assertions": {
+    "transient_smoke_is_not_delay_proof": true,
+    "timing_closure_not_claimed": true,
+    "physical_timing_closure_not_claimed": true,
+    "physical_routing_not_claimed": true,
+    "physical_placement_not_claimed": true,
+    "time_control_gds_not_claimed": true,
+    "standalone_modified": false,
+    "routing_modified": false,
+    "gds_writer_modified": false
+  },
+  "audit_summary": {
+    "delay_chain_transient_smoke_available": true,
+    "repo_head": "97d982e7c6e2d016488a4b84197c7bfd2a5a302a",
+    "ngspice_found": true,
+    "model_include_available": true,
+    "transient_deck_generated": true,
+    "transient_attempted": true,
+    "transient_run_pass": true,
+    "rbl_delay_observed": true,
+    "measure_attempted": true,
+    "measure_pass": false,
+    "smoke_delay_value_available": false,
+    "can_enter_delay_measurement_refinement": true,
+    "can_claim_delay_proof_now": false,
+    "can_claim_timing_closure_now": false,
+    "can_enter_physical_timing_closure_now": false,
+    "can_enter_physical_routing_now": false,
+    "can_enter_physical_placement_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_modify_standalone_now": false
+  }
+}
