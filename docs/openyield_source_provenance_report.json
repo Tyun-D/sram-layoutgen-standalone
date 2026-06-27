@@ -1,0 +1,52 @@
+{
+  "scope": "openyield_source_provenance",
+  "main_repo_path": "/data1/qujh/work/sram_layoutgen_step45_clean",
+  "main_repo_head": "fc85009cd68cacd4c682ec2cdadb576a2583bdb3",
+  "openyield_source_path": "/data1/qujh/work/external/OpenYield",
+  "openyield_remote_url": "https://github.com/ShenShan123/OpenYield.git",
+  "openyield_branch": "main",
+  "openyield_head": "1c34428d8b913963c4971d093b1a7c2df97a2509",
+  "openyield_latest_commit_message": "完善等效电路",
+  "time_generate_py_path": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+  "delay_chain_evidence": {
+    "found": true,
+    "path": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+    "line": 299,
+    "match": "class DelayChain(BaseSubcircuit):#用于复制位线延迟的延迟链"
+  },
+  "pinv_evidence": {
+    "found": true,
+    "path": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/standard_cell.py",
+    "line": 5,
+    "match": "class Pinv(BaseSubcircuit):"
+  },
+  "sram_compiler_tree_present": true,
+  "source_files_found": [
+    "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+    "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/standard_cell.py",
+    "/data1/qujh/work/external/OpenYield/sram_compiler"
+  ],
+  "source_files_missing": [],
+  "openyield_source_committed_into_main_repo": false,
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "gates": {
+    "openyield_source_available": true,
+    "openyield_source_path": "/data1/qujh/work/external/OpenYield",
+    "openyield_remote_available": true,
+    "openyield_remote_url": "https://github.com/ShenShan123/OpenYield.git",
+    "openyield_head_recorded": true,
+    "time_generate_py_found": true,
+    "delay_chain_source_found": true,
+    "pinv_source_found": true,
+    "source_provenance_report_available": true,
+    "evidence_timeline_updated": true,
+    "milestone_summary_updated": true,
+    "can_reproduce_candidate_spice_from_source": false,
+    "can_enter_delay_chain_transient_smoke": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_claim_openyield_full_integration_now": false
+  }
+}
