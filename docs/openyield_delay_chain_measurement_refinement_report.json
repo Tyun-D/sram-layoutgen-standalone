@@ -1,0 +1,136 @@
+{
+  "scope": "delay_chain_measurement_refinement",
+  "repo_root": "/data1/qujh/work/sram_layoutgen_step45_clean",
+  "repo_head": "08d14fedb811f1853b7908ba0ed3797c9ada9363",
+  "previous_transient_smoke_commit": "fc85009cd68cacd4c682ec2cdadb576a2583bdb3",
+  "ngspice": {
+    "path": "/usr/bin/ngspice",
+    "version": "******\n** ngspice-36 : Circuit level simulation program\n** The U. C. Berkeley CAD Group\n** Copyright 1985-1994, Regents of the University of California.\n** Copyright 2001-2020, The ngspice team.\n** Please get your ngspice manual from http://ngspice.sourceforge.net/docs.html\n** Please file your bug-reports at http://ngspice.sourceforge.net/bugrep.html\n** Creation Date: Mon Mar 11 21:44:53 UTC 2024\n******"
+  },
+  "model_include_path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/candidate_spice/local_model_include_nom_server.inc",
+  "refined_deck_path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/candidate_spice/delay_chain_measurement_refined_ngspice.sp",
+  "stimulus_summary": {
+    "vdd_param": "1.0",
+    "vth_param": "'0.5*VDD_VALUE'",
+    "temperature_c": "25",
+    "input_source": "VIN rbl 0 DC 0 PULSE(0 {VDD_VALUE} 50p 10p 10p 1.5n 3n)",
+    "transient_window": "2p 4n"
+  },
+  "stage_count": 9,
+  "four_load_policy": {
+    "loads_per_stage_expected": 4,
+    "load_instances_found": 36,
+    "policy_matches_candidate_topology": true
+  },
+  "inversion_expectation": {
+    "stage_count": 9,
+    "odd_stage_chain": true,
+    "expected_behavior": "9-stage chain is overall inverting; rbl rising should map to rbl_delay falling, and rbl falling should map to rbl_delay rising."
+  },
+  "original_measure_failure_reason": {
+    "primary_reason": "Malformed ngspice .measure continuation was written as literal \\n+ text, so ngspice parsed it as a bogus function instead of a continued measure statement.",
+    "ngspice_error_excerpt": "measure 'smoke_delay_rise_to_fall'  failed",
+    "literal_backslash_n_present_in_deck": true,
+    "odd_stage_chain_inverting": true,
+    "edge_diagnosis": "The 9-stage chain is overall inverting, so rise->fall and fall->rise are the correct target edge pairings; the prior failure was not evidence of a circuit error.",
+    "threshold_crossing_seen_in_log": true,
+    "transient_stop_time_was_sufficient": true,
+    "print_output_parseable_by_python": true
+  },
+  "refined_measure_attempted": true,
+  "refined_measure_pass": true,
+  "measure_results": {
+    "smoke_delay_rise_to_fall": {
+      "success": true,
+      "seconds": 1.963452e-10,
+      "raw": "1.963452e-10"
+    },
+    "smoke_delay_fall_to_rise": {
+      "success": true,
+      "seconds": 1.87624e-10,
+      "raw": "1.876240e-10"
+    }
+  },
+  "python_postprocess_attempted": true,
+  "python_postprocess_pass": true,
+  "python_postprocess": {
+    "pass": true,
+    "reason": null,
+    "crossings": {
+      "rbl_rise_1": 5.5e-11,
+      "rbl_fall_1": 1.565e-09,
+      "rbl_delay_fall_1": 2.5134518321602275e-10,
+      "rbl_delay_rise_1": 1.7526239566595644e-09
+    },
+    "delays": {
+      "rise_to_fall_delay": 1.9634518321602276e-10,
+      "fall_to_rise_delay": 1.8762395665956436e-10
+    }
+  },
+  "smoke_only_delay": {
+    "rise_to_fall_delay_seconds": 1.963452e-10,
+    "fall_to_rise_delay_seconds": 1.87624e-10,
+    "source_priority": "ngspice_measure_then_python_postprocess",
+    "measure_postprocess_comparison": {
+      "smoke_delay_rise_to_fall": {
+        "comparable": true,
+        "measure_seconds": 1.963452e-10,
+        "postprocess_seconds": 1.9634518321602276e-10,
+        "delta_seconds": 1.6783977236889568e-17,
+        "abs_delta_seconds": 1.6783977236889568e-17
+      },
+      "smoke_delay_fall_to_rise": {
+        "comparable": true,
+        "measure_seconds": 1.87624e-10,
+        "postprocess_seconds": 1.8762395665956436e-10,
+        "delta_seconds": 4.3340435647409813e-17,
+        "abs_delta_seconds": 4.3340435647409813e-17
+      }
+    }
+  },
+  "key_warnings": [
+    "Trying gmin =   1.0000E-05 Warning: Further gmin increment",
+    "Trying gmin =   6.4938E-06 Warning: Further gmin increment",
+    "Trying gmin =   1.7154E-05 Warning: Further gmin increment"
+  ],
+  "key_errors": [],
+  "boundary_assertions": {
+    "measurement_refinement_is_smoke_only": true,
+    "delay_proof_not_claimed": true,
+    "timing_closure_not_claimed": true,
+    "physical_timing_closure_not_claimed": true,
+    "physical_routing_not_claimed": true,
+    "physical_placement_not_claimed": true,
+    "time_control_gds_not_claimed": true,
+    "standalone_modified": false,
+    "routing_modified": false,
+    "gds_writer_modified": false
+  },
+  "audit_summary": {
+    "delay_chain_measurement_refinement_available": true,
+    "repo_head": "08d14fedb811f1853b7908ba0ed3797c9ada9363",
+    "ngspice_found": true,
+    "refined_measurement_deck_generated": true,
+    "refined_ngspice_run_attempted": true,
+    "refined_ngspice_run_pass": true,
+    "inversion_expectation_recorded": true,
+    "measure_failure_reason_identified": true,
+    "refined_measure_attempted": true,
+    "refined_measure_pass": true,
+    "postprocess_delay_attempted": true,
+    "postprocess_delay_pass": true,
+    "smoke_delay_value_available": true,
+    "smoke_delay_rise_to_fall_available": true,
+    "smoke_delay_fall_to_rise_available": true,
+    "can_enter_pvt_corner_smoke": true,
+    "can_claim_delay_proof_now": false,
+    "can_claim_timing_closure_now": false,
+    "can_enter_physical_timing_closure_now": false,
+    "can_enter_physical_routing_now": false,
+    "can_enter_physical_placement_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_modify_standalone_now": false,
+    "evidence_timeline_updated": true,
+    "milestone_summary_updated": true
+  }
+}

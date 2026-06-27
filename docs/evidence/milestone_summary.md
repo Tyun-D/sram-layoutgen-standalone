@@ -6,10 +6,11 @@
 - ngspice syntax smoke passed on the server using the server-local FreePDK45 nominal include.
 - Delay chain transient smoke passed and showed propagation from `rbl` to `rbl_delay`.
 - External OpenYield source provenance is now recorded with concrete `DelayChain`, `Pinv`, and `time_generate.py` evidence.
+- Measurement refinement artifacts are prepared to pursue smoke-only delay extraction through ngspice `.measure` and Python postprocess.
 
 ## Current Limits
 
-- Smoke-only `.measure` has not produced a usable delay value yet.
+- Prior transient smoke `.measure` failed because the deck wrote literal `\n+` continuation text into the measure statement.
 - Candidate SPICE has not been fully regenerated from OpenYield source in an automated reproducible path.
 - No timing proof, timing closure, physical timing closure, routing closure, placement closure, or time-control GDS claim is available.
 - `standalone.py`, routing, and `gds_writer.py` remain unchanged.
