@@ -1,0 +1,123 @@
+# OpenYield Delay Chain Timing Metadata Report
+
+- Scope: `delay_chain_timing_metadata_update`
+- Repo root: `/data1/qujh/work/sram_layoutgen_step45_clean`
+- Repo HEAD: `fbf2827a9f87234878c0d0c78dd5390a76d344b4`
+- Previous PVT corner smoke commit: `fbf2827a9f87234878c0d0c78dd5390a76d344b4`
+- PVT source report: `/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_delay_chain_pvt_corner_smoke_report.json`
+
+## Audit Summary
+
+```json
+{
+  "delay_chain_timing_metadata_update_available": true,
+  "repo_head": "fbf2827a9f87234878c0d0c78dd5390a76d344b4",
+  "pvt_corner_smoke_report_found": true,
+  "pvt_corner_smoke_values_loaded": true,
+  "timing_object_recorded": true,
+  "source_signal_recorded": true,
+  "target_signal_recorded": true,
+  "stage_count_recorded": true,
+  "four_load_policy_recorded": true,
+  "inversion_recorded": true,
+  "corner_delay_table_recorded": true,
+  "worst_smoke_delay_recorded": true,
+  "timing_metadata_summary_available": true,
+  "evidence_timeline_updated": true,
+  "milestone_summary_updated": true,
+  "can_enter_openyield_source_provenance_linking": true,
+  "can_enter_control_timing_mapping_review": true,
+  "can_claim_delay_proof_now": false,
+  "can_claim_timing_closure_now": false,
+  "can_enter_physical_timing_closure_now": false,
+  "can_enter_physical_routing_now": false,
+  "can_enter_physical_placement_now": false,
+  "can_generate_time_control_gds_now": false,
+  "can_modify_standalone_now": false
+}
+```
+
+## Timing Metadata
+
+```json
+{
+  "timing_object": "DELAY_CHAIN",
+  "source_signal": "rbl",
+  "target_signal": "rbl_delay",
+  "stage_count": 9,
+  "load_policy": "four_load_inverters_per_stage",
+  "inversion": "odd_stage_chain_inverts",
+  "model_corners": [
+    "nom",
+    "ff",
+    "ss"
+  ],
+  "VDD": 1.0,
+  "TEMP": 25,
+  "delay_unit": "s",
+  "rise_to_fall_delay_by_corner": {
+    "nom": 1.963452e-10,
+    "ff": 1.801558e-10,
+    "ss": 2.15738e-10
+  },
+  "fall_to_rise_delay_by_corner": {
+    "nom": 1.87624e-10,
+    "ff": 1.715128e-10,
+    "ss": 2.067219e-10
+  },
+  "worst_smoke_delay": 2.15738e-10,
+  "worst_smoke_delay_corner": "ss",
+  "evidence_type": "ngspice_smoke_only",
+  "proof_status": "not_formal_proof",
+  "timing_closure_status": "not_timing_closure",
+  "physical_integration_status": "not_enabled"
+}
+```
+
+## Corner Delay Table
+
+```json
+{
+  "nom": {
+    "VDD": 1.0,
+    "TEMP": 25,
+    "rise_to_fall_delay_s": 1.963452e-10,
+    "fall_to_rise_delay_s": 1.87624e-10,
+    "max_delay_s": 1.963452e-10,
+    "notes": "ngspice measure passed"
+  },
+  "ff": {
+    "VDD": 1.0,
+    "TEMP": 25,
+    "rise_to_fall_delay_s": 1.801558e-10,
+    "fall_to_rise_delay_s": 1.715128e-10,
+    "max_delay_s": 1.801558e-10,
+    "notes": "ngspice measure passed"
+  },
+  "ss": {
+    "VDD": 1.0,
+    "TEMP": 25,
+    "rise_to_fall_delay_s": 2.15738e-10,
+    "fall_to_rise_delay_s": 2.067219e-10,
+    "max_delay_s": 2.15738e-10,
+    "notes": "ngspice measure passed"
+  }
+}
+```
+
+## Boundary Assertions
+
+```json
+{
+  "timing_metadata_is_smoke_only": true,
+  "delay_proof_not_claimed": true,
+  "timing_closure_not_claimed": true,
+  "physical_timing_closure_not_claimed": true,
+  "physical_routing_not_claimed": true,
+  "physical_placement_not_claimed": true,
+  "time_control_gds_not_claimed": true,
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false
+}
+```
