@@ -11,6 +11,7 @@
 - Timing metadata summary now records the smoke-only delay chain evidence for downstream review.
 - OpenYield source linking, control timing mapping, and source-linked timing metadata audit are now generated, with the next gate set to `metadata_consumer_adapter` and all physical-integration claims still blocked.
 - Metadata consumer adapter is now implemented, DELAY_CHAIN timing metadata is consumable through the adapter API, blocked control paths remain blocked/source-identifed-only, and the next gate is `control_path_candidate_generation` or `guarded_adapter_integration`.
+- Control path candidate generation wave1 is complete: source-linked contracts exist for `PRECHARGE`, `PRECHARGE_ENABLE_PATH`, `SENSE_ENABLE_PATH`, `WRITE_ENABLE_PATH`, `WORDLINE_ENABLE_PATH`, `GATED_CLOCK_PATH`, and `DFF_ROW`; `PRECHARGE` has a candidate SPICE skeleton and `PRECHARGE_ENABLE_PATH` has a testbench skeleton; next gate is `selected_control_path_spice_smoke` or `guarded_adapter_registry`.
 
 ## Current Limits
 
@@ -29,6 +30,8 @@
 - `can_enter_metadata_consumer_adapter=True`
 - `can_enter_control_path_candidate_generation=True`
 - `can_enter_guarded_adapter_integration=True`
+- `can_enter_selected_control_path_spice_smoke=True`
+- `can_enter_guarded_adapter_registry=True`
 - `can_modify_standalone_now=False`
 - `can_generate_time_control_gds_now=False`
 - `can_claim_openyield_full_integration_now=False`

@@ -41,6 +41,27 @@ class ControlMappingEntry:
 
 
 @dataclass
+class CandidateContractEntry:
+    control_object: str
+    priority: int
+    openyield_source_file: str
+    source_symbol: str
+    source_ports_or_nodes: str
+    local_candidate_name: str
+    candidate_type: str
+    candidate_artifact: str
+    spice_candidate_available: bool
+    testbench_skeleton_available: bool
+    timing_metadata_available: bool
+    source_evidence_status: str
+    recovery_status: str
+    blocked_reason: str
+    next_required_action: str
+    integration_readiness: str
+    forbidden_claims: list[str] = field(default_factory=list)
+
+
+@dataclass
 class TimingObjectMetadata:
     name: str
     source_signal: str
@@ -106,6 +127,35 @@ def load_control_mapping(path: str | Path) -> list[ControlMappingEntry]:
                     corner_coverage=row['corner_coverage'],
                     integration_readiness=row['integration_readiness'],
                     next_required_action=row['next_required_action'],
+                    forbidden_claims=[item for item in row['forbidden_claims'].split(';') if item],
+                )
+            )
+    return entries
+
+
+def load_candidate_contracts(path: str | Path) -> list[CandidateContractEntry]:
+    entries: list[CandidateContractEntry] = []
+    with Path(path).open('r', encoding='utf-8', newline='') as handle:
+        reader = csv.DictReader(handle)
+        for row in reader:
+            entries.append(
+                CandidateContractEntry(
+                    control_object=row['control_object'],
+                    priority=int(row['priority']),
+                    openyield_source_file=row['openyield_source_file'],
+                    source_symbol=row['source_symbol'],
+                    source_ports_or_nodes=row['source_ports_or_nodes'],
+                    local_candidate_name=row['local_candidate_name'],
+                    candidate_type=row['candidate_type'],
+                    candidate_artifact=row['candidate_artifact'],
+                    spice_candidate_available=_parse_bool(row['spice_candidate_available']),
+                    testbench_skeleton_available=_parse_bool(row['testbench_skeleton_available']),
+                    timing_metadata_available=_parse_bool(row['timing_metadata_available']),
+                    source_evidence_status=row['source_evidence_status'],
+                    recovery_status=row['recovery_status'],
+                    blocked_reason=row['blocked_reason'],
+                    next_required_action=row['next_required_action'],
+                    integration_readiness=row['integration_readiness'],
                     forbidden_claims=[item for item in row['forbidden_claims'].split(';') if item],
                 )
             )
