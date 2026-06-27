@@ -1,0 +1,35 @@
+{
+  "scope": "source_linked_timing_metadata_audit",
+  "repo_root": "/data1/qujh/work/sram_layoutgen_step45_clean",
+  "repo_head": "fe96f55ccc3588ff9ae431ce64db47b0899b6693",
+  "openyield_head": "1c34428d8b913963c4971d093b1a7c2df97a2509",
+  "timing_metadata_path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_delay_chain_timing_metadata_report.json",
+  "source_link_report_path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_source_provenance_linking_report.json",
+  "mapping_table_path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/mapping/openyield_control_timing_mapping.csv",
+  "delay_chain_summary": {
+    "evidence_status": "source_linked_and_smoke_timing_metadata_available",
+    "worst_smoke_delay_s": 2.15738e-10,
+    "corner_coverage": "nom/ff/ss @ VDD=1.0, TEMP=25C"
+  },
+  "gates": {
+    "source_linked_timing_metadata_available": true,
+    "delay_chain_source_linked": true,
+    "delay_chain_timing_metadata_available": true,
+    "control_mapping_table_available": true,
+    "delay_chain_ready_for_metadata_consumption": true,
+    "any_control_path_ready_for_physical_integration": false,
+    "can_enter_metadata_consumer_adapter": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_claim_openyield_full_integration_now": false
+  },
+  "boundary_assertions": {
+    "standalone_modified": false,
+    "routing_modified": false,
+    "gds_writer_modified": false,
+    "time_control_gds_generated": false,
+    "delay_proof_claimed": false,
+    "timing_closure_claimed": false,
+    "physical_integration_enabled": false
+  }
+}

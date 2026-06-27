@@ -9,6 +9,7 @@
 - Measurement refinement passed and produced smoke-only delays through both ngspice `.measure` and Python postprocess fallback.
 - PVT corner smoke passed for `nom`, `ff`, and `ss` at `VDD=1.0V`, `TEMP=25C`, with the expected delay ordering `ff < nom < ss`.
 - Timing metadata summary now records the smoke-only delay chain evidence for downstream review.
+- OpenYield source linking, control timing mapping, and source-linked timing metadata audit are now generated, with the next gate set to `metadata_consumer_adapter` and all physical-integration claims still blocked.
 
 ## Current Limits
 
@@ -24,6 +25,7 @@
 - `can_enter_timing_metadata_update=True`
 - `can_enter_openyield_source_provenance_linking=True`
 - `can_enter_control_timing_mapping_review=True`
+- `can_enter_metadata_consumer_adapter=True`
 - `can_modify_standalone_now=False`
 - `can_generate_time_control_gds_now=False`
 - `can_claim_openyield_full_integration_now=False`
