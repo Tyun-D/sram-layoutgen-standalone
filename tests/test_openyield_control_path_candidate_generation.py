@@ -10,6 +10,7 @@ if str(REPO_ROOT) not in sys.path:
 
 from sram_layoutgen.openyield_adapter.timing_metadata_consumer import (  # noqa: E402
     emit_consumer_summary,
+    get_control_object_status,
     load_candidate_contracts,
 )
 
@@ -26,11 +27,19 @@ def main() -> int:
     assert len(contracts) == 7
 
     contract_by_object = {row.control_object: row for row in contracts}
-    assert contract_by_object["PRECHARGE"].candidate_artifact.endswith("precharge_candidate_contract.sp")
+    assert contract_by_object["PRECHARGE"].candidate_artifact.endswith("precharge_candidate_ngspice.sp")
     assert contract_by_object["PRECHARGE_ENABLE_PATH"].candidate_artifact.endswith("precharge_enable_candidate_tb.sp")
     assert bool(contract_by_object["PRECHARGE"].next_required_action)
     assert bool(contract_by_object["PRECHARGE_ENABLE_PATH"].next_required_action)
     assert all(bool(row.next_required_action) for row in contracts)
+
+    precharge_status = get_control_object_status(
+        mapping_csv,
+        contracts_csv,
+        "PRECHARGE",
+    )
+    assert precharge_status["mapping_evidence_status"] == "source_linked_candidate_spice_smoke_available"
+    assert precharge_status["ready_for_physical_integration"] is False
 
     summary = emit_consumer_summary(timing_json, source_json, audit_json, mapping_csv)
     assert summary.delay_chain_consumable is True

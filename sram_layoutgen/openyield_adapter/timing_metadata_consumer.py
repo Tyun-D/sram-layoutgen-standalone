@@ -162,6 +162,34 @@ def load_candidate_contracts(path: str | Path) -> list[CandidateContractEntry]:
     return entries
 
 
+def get_control_object_status(
+    mapping_csv: str | Path,
+    contracts_csv: str | Path,
+    control_object: str,
+) -> dict[str, Any]:
+    mapping = next(
+        entry for entry in load_control_mapping(mapping_csv)
+        if entry.openyield_object == control_object
+    )
+    contract = next(
+        entry for entry in load_candidate_contracts(contracts_csv)
+        if entry.control_object == control_object
+    )
+    return {
+        "control_object": control_object,
+        "mapping_evidence_status": mapping.evidence_status,
+        "mapping_candidate_artifact": mapping.local_candidate_artifact,
+        "mapping_next_required_action": mapping.next_required_action,
+        "contract_evidence_status": contract.source_evidence_status,
+        "contract_candidate_artifact": contract.candidate_artifact,
+        "contract_recovery_status": contract.recovery_status,
+        "contract_next_required_action": contract.next_required_action,
+        "ready_for_metadata_consumption": mapping.ready_for_metadata_consumption,
+        "ready_for_physical_integration": False,
+        "forbidden_claims": contract.forbidden_claims,
+    }
+
+
 def build_consumable_timing_objects(
     timing_json: str | Path,
     source_json: str | Path,

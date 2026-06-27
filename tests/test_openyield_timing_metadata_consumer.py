@@ -11,6 +11,7 @@ if str(REPO_ROOT) not in sys.path:
 from sram_layoutgen.openyield_adapter.timing_metadata_consumer import (  # noqa: E402
     build_consumable_timing_objects,
     emit_consumer_summary,
+    get_control_object_status,
     load_control_mapping,
     load_timing_metadata,
 )
@@ -22,6 +23,7 @@ def main() -> int:
     source_json = repo_root / 'docs/openyield_source_provenance_linking_report.json'
     audit_json = repo_root / 'docs/openyield_source_linked_timing_metadata_audit_report.json'
     mapping_csv = repo_root / 'docs/mapping/openyield_control_timing_mapping.csv'
+    contracts_csv = repo_root / 'docs/mapping/openyield_control_path_candidate_contracts.csv'
 
     mappings = load_control_mapping(mapping_csv)
     assert any(entry.openyield_object == 'DELAY_CHAIN' for entry in mappings)
@@ -56,6 +58,10 @@ def main() -> int:
     assert summary.gates['metadata_consumer_smoke_pass'] is True
     assert summary.gates['can_enter_control_path_candidate_generation'] is True
     assert summary.gates['can_enter_guarded_adapter_integration'] is True
+
+    precharge_status = get_control_object_status(mapping_csv, contracts_csv, 'PRECHARGE')
+    assert precharge_status['mapping_evidence_status'] == 'source_linked_candidate_spice_smoke_available'
+    assert precharge_status['ready_for_physical_integration'] is False
     return 0
 
 
