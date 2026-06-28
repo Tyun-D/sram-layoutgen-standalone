@@ -18,6 +18,7 @@ from .gate_row_packer import (
     emit_gate_row_packing_report,
     emit_gate_row_vertical_abutment_report,
 )
+from .gds_row_abutment_audit import audit_gds_row_abutment, render_markdown as render_gds_row_abutment_markdown
 from .timing_metadata_consumer import (
     build_consumable_timing_objects,
     emit_consumer_summary,
@@ -62,6 +63,8 @@ def generate_layout_prototype(
     words_per_row: int = DEFAULT_LAYOUT_CASE["words_per_row"],
     enable_openyield_gate_row_packing: bool = False,
     enable_openyield_gate_row_vertical_abutment: bool = False,
+    enable_openyield_rail_to_rail_abutment: bool = False,
+    enable_openyield_dff_row_packing: bool = False,
 ) -> dict[str, Any]:
     repo = Path(repo_root).resolve()
     out = resolve_dir(repo, out_dir)
@@ -76,6 +79,8 @@ def generate_layout_prototype(
         words_per_row,
         enable_openyield_gate_row_packing,
         enable_openyield_gate_row_vertical_abutment,
+        enable_openyield_rail_to_rail_abutment,
+        enable_openyield_dff_row_packing,
     )
     metrics = write_standalone(spec, out)
     gds_path = (repo / metrics["gds"]).resolve() if not Path(metrics["gds"]).is_absolute() else Path(metrics["gds"]).resolve()
@@ -93,8 +98,22 @@ def generate_layout_prototype(
 
     gate_row_packing_report = None
     gate_row_vertical_abutment_report = None
+    rail_to_rail_abutment_report = None
+    gds_row_abutment_audit = None
     if enable_openyield_gate_row_packing:
-        if enable_openyield_gate_row_vertical_abutment:
+        if enable_openyield_rail_to_rail_abutment:
+            old_root = repo / "outputs/layout_prototype/hybrid_openyield_row_abutted"
+            rail_to_rail_abutment_report = emit_gate_row_vertical_abutment_report(
+                plan=_packing_plan_from_metrics(metrics),
+                out_json=out / "rail_to_rail_abutment_report.json",
+                out_md=out / "rail_to_rail_abutment_report.md",
+                old_gds=old_root / "hybrid_openyield_row_abutted.gds",
+                new_gds=gds_path,
+                old_layout_json=old_root / "hybrid_openyield_row_abutted.layout.json",
+                new_layout_json=Path(metrics["layout_json"]),
+                top_cell_name=metrics["name"],
+            )
+        elif enable_openyield_gate_row_vertical_abutment:
             old_root = repo / "outputs/layout_prototype/hybrid_openyield_compacted"
             gate_row_vertical_abutment_report = emit_gate_row_vertical_abutment_report(
                 plan=_packing_plan_from_metrics(metrics),
@@ -118,6 +137,10 @@ def generate_layout_prototype(
                 new_layout_json=Path(metrics["layout_json"]),
                 top_cell_name=metrics["name"],
             )
+    if enable_openyield_rail_to_rail_abutment:
+        gds_row_abutment_audit = audit_gds_row_abutment(gds_path, layout_json=metrics["layout_json"])
+        write_json(out / "gds_row_abutment_audit.json", gds_row_abutment_audit)
+        (out / "gds_row_abutment_audit.md").write_text(render_gds_row_abutment_markdown(gds_row_abutment_audit), encoding="utf-8")
 
     result = {
         "mode": mode,
@@ -133,6 +156,8 @@ def generate_layout_prototype(
             "enable_openyield_wordlinedriver_adapter": spec.enable_openyield_wordlinedriver_adapter,
             "enable_openyield_gate_row_packing": spec.enable_openyield_gate_row_packing,
             "enable_openyield_gate_row_vertical_abutment": spec.enable_openyield_gate_row_vertical_abutment,
+            "enable_openyield_rail_to_rail_abutment": spec.enable_openyield_rail_to_rail_abutment,
+            "enable_openyield_dff_row_packing": spec.enable_openyield_dff_row_packing,
             "openyield_storage_row_orientation_policy": spec.openyield_storage_row_orientation_policy,
         },
         "out_dir": str(out),
@@ -175,6 +200,8 @@ def generate_layout_prototype(
         ),
         "gate_row_packing_report": gate_row_packing_report,
         "gate_row_vertical_abutment_report": gate_row_vertical_abutment_report,
+        "rail_to_rail_abutment_report": rail_to_rail_abutment_report,
+        "gds_row_abutment_audit": gds_row_abutment_audit,
         "standalone_default_behavior_preserved": True,
         "standalone_modified_for_explicit_opt_in": True,
     }
@@ -201,6 +228,8 @@ def build_spec(
     words_per_row: int,
     enable_openyield_gate_row_packing: bool = False,
     enable_openyield_gate_row_vertical_abutment: bool = False,
+    enable_openyield_rail_to_rail_abutment: bool = False,
+    enable_openyield_dff_row_packing: bool = False,
 ) -> StandaloneSpec:
     if mode == "legacy_baseline":
         return StandaloneSpec(
@@ -215,7 +244,9 @@ def build_spec(
             num_words=num_words,
             words_per_row=words_per_row,
             name=(
-                "hybrid_openyield_row_abutted"
+                "hybrid_openyield_rail_abutted"
+                if enable_openyield_rail_to_rail_abutment
+                else "hybrid_openyield_row_abutted"
                 if enable_openyield_gate_row_vertical_abutment
                 else "hybrid_openyield_compacted"
                 if enable_openyield_gate_row_packing
@@ -228,6 +259,8 @@ def build_spec(
             enable_openyield_wordlinedriver_adapter=True,
             enable_openyield_gate_row_packing=enable_openyield_gate_row_packing,
             enable_openyield_gate_row_vertical_abutment=enable_openyield_gate_row_vertical_abutment,
+            enable_openyield_rail_to_rail_abutment=enable_openyield_rail_to_rail_abutment,
+            enable_openyield_dff_row_packing=enable_openyield_dff_row_packing,
             openyield_storage_row_orientation_policy="alternating_mx",
         )
     raise ValueError(f"unsupported mode: {mode}")

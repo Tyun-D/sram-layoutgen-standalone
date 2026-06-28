@@ -69,6 +69,8 @@ class StandaloneSpec:
     enable_openyield_wordlinedriver_adapter: bool = False
     enable_openyield_gate_row_packing: bool = False
     enable_openyield_gate_row_vertical_abutment: bool = False
+    enable_openyield_rail_to_rail_abutment: bool = False
+    enable_openyield_dff_row_packing: bool = False
     openyield_storage_row_orientation_policy: str = "all_r0"
 
     def __post_init__(self) -> None:
@@ -434,11 +436,24 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
             cell_name,
             tech.cell(cell_name).width,
             tech.cell(cell_name).height,
+            gds_path=tech.cell(cell_name).gds_path,
+            bbox_x0=tech.cell(cell_name).bbox_x0,
             bbox_y0=tech.cell(cell_name).bbox_y0,
+            bbox_x1=tech.cell(cell_name).bbox_x1,
             bbox_y1=tech.cell(cell_name).bbox_y1,
         )
         for cell_name in {"gen_inv", "gen_nand2", "gen_delay_inv", "gen_wl_driver"}
     }
+    dff_footprint = build_gate_cell_footprint(
+        "dff",
+        tech.cell("dff").width,
+        tech.cell("dff").height,
+        gds_path=tech.cell("dff").gds_path,
+        bbox_x0=tech.cell("dff").bbox_x0,
+        bbox_y0=tech.cell("dff").bbox_y0,
+        bbox_x1=tech.cell("dff").bbox_x1,
+        bbox_y1=tech.cell("dff").bbox_y1,
+    )
     compact_gate_row_pitch = max(
         legal_origin_delta_y(row_decode_cell, row_decode_cell, "R0", "MX"),
         legal_origin_delta_y(row_decode_cell, row_decode_cell, "MX", "R0"),
@@ -525,7 +540,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
                 origin_y=candidate_y_array,
                 explicit_opt_in=True,
                 row_pitch=gate_footprints[row_decode_cell].bbox_height if spec.enable_openyield_gate_row_vertical_abutment else compact_gate_row_pitch,
-                vertical_abutment_policy="zero_gap_alternating_mx" if spec.enable_openyield_gate_row_vertical_abutment else "standard_row_spacing",
+                vertical_abutment_policy="rail_to_rail_geometry_abutment" if spec.enable_openyield_rail_to_rail_abutment else "zero_gap_alternating_mx" if spec.enable_openyield_gate_row_vertical_abutment else "standard_row_spacing",
             )
             positions = {
                 row_index: {
@@ -778,6 +793,8 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         "enable_openyield_wordlinedriver_adapter": spec.enable_openyield_wordlinedriver_adapter,
         "enable_openyield_gate_row_packing": spec.enable_openyield_gate_row_packing,
         "enable_openyield_gate_row_vertical_abutment": spec.enable_openyield_gate_row_vertical_abutment,
+        "enable_openyield_rail_to_rail_abutment": spec.enable_openyield_rail_to_rail_abutment,
+        "enable_openyield_dff_row_packing": spec.enable_openyield_dff_row_packing,
         "num_rows": rows,
         "num_cols": cols,
         "bank_style": "contiguous-openram-origin-array",
@@ -1152,6 +1169,19 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
             placement_mode="openram_origin",
         )
 
+    def add_hard_macro_instance(
+        name: str,
+        cell_name: str,
+        x: float,
+        y: float,
+        role: str,
+        mirror: str = "R0",
+    ) -> Rect:
+        cell = tech.cell(cell_name)
+        rect = placed_bbox_from_openram_origin(cell, x, y, mirror)
+        db.add_instance(Instance(name, cell_name, rect, role, mirror=mirror, placement_mode="openram_origin", origin=Point(x, y)))
+        return rect
+
     precharge_rects: list[Rect] = []
     column_mux_rects: list[Rect] = []
     for col in range(cols):
@@ -1238,7 +1268,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         return float(selected_row_logic_plan["positions"][row]["driver_x"])  # type: ignore[index]
 
     def add_gate_row_stitch_shapes(plan_dict: dict[str, object], name_prefix: str) -> None:
-        if spec.enable_openyield_gate_row_vertical_abutment:
+        if spec.enable_openyield_gate_row_vertical_abutment or spec.enable_openyield_rail_to_rail_abutment:
             return
         rail_alignment = plan_dict.get("rail_alignment", {}) if isinstance(plan_dict, dict) else {}
         rows_data = plan_dict.get("rows", []) if isinstance(plan_dict, dict) else []
@@ -1314,18 +1344,40 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     if spec.enable_openyield_gate_row_packing and isinstance(decoder_gate_packing, dict):
         add_gate_row_stitch_shapes(decoder_gate_packing, "decoder_gate_rows")
 
-    control_rect = add_hard_array(
-        "control_dff_array",
-        "dff",
-        x_control,
-        y_data,
-        control_cols,
-        control_rows,
-        control_dff_pitch_x,
-        dff_row_pitch,
-        "control_logic",
-        mirror_x=True,
-    )
+    control_dff_plan = None
+    data_dff_plan = None
+    if spec.enable_openyield_dff_row_packing:
+        control_dff_rows = [["dff" for _ in range(control_cols)] for _ in range(control_rows)]
+        control_dff_plan = build_gate_row_packing_plan(
+            block_name="control_dff",
+            row_cells=control_dff_rows,
+            footprints={"dff": dff_footprint},
+            origin_x=x_control,
+            origin_y=y_data,
+            explicit_opt_in=True,
+            row_pitch=None if spec.enable_openyield_rail_to_rail_abutment else dff_row_pitch,
+            vertical_abutment_policy="rail_to_rail_geometry_abutment" if spec.enable_openyield_rail_to_rail_abutment else "standard_row_spacing",
+        )
+        control_rects = []
+        control_dff_index = 0
+        for row in control_dff_plan.rows:
+            for placement in row.cells:
+                control_rects.append(add_hard_macro_instance(f"control_dff_{control_dff_index}", "dff", placement.x, placement.y, "control_logic", mirror=row.mirror))
+                control_dff_index += 1
+        control_rect = Rect.union(control_rects)
+    else:
+        control_rect = add_hard_array(
+            "control_dff_array",
+            "dff",
+            x_control,
+            y_data,
+            control_cols,
+            control_rows,
+            control_dff_pitch_x,
+            dff_row_pitch,
+            "control_logic",
+            mirror_x=True,
+        )
     db.add_shape("m3", control_rect, "module", name="control_dff_array")
     control_gate_y = origin_y_for_bbox_y0("gen_inv", control_rect.y1 + module_stack_gap, "R0")
     control_glue_rects: list[Rect] = []
@@ -1341,7 +1393,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
             legal_origin_delta_y("gen_inv", "gen_nand2", "R0", "MX"),
             legal_origin_delta_y("gen_nand2", "gen_inv", "MX", "R0"),
         ),
-        vertical_abutment_policy="zero_gap_alternating_mx" if spec.enable_openyield_gate_row_vertical_abutment else "standard_row_spacing",
+        vertical_abutment_policy="rail_to_rail_geometry_abutment" if spec.enable_openyield_rail_to_rail_abutment else "zero_gap_alternating_mx" if spec.enable_openyield_gate_row_vertical_abutment else "standard_row_spacing",
     )
     for row in control_glue_packing.rows:
         for placement_index, placement in enumerate(row.cells):
@@ -1372,7 +1424,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         origin_y=column_select_y0,
         explicit_opt_in=spec.enable_openyield_gate_row_packing,
         row_pitch=gate_footprints[column_select_cell].bbox_height if spec.enable_openyield_gate_row_vertical_abutment else column_select_row_pitch,
-        vertical_abutment_policy="zero_gap_alternating_mx" if spec.enable_openyield_gate_row_vertical_abutment else "standard_row_spacing",
+        vertical_abutment_policy="rail_to_rail_geometry_abutment" if spec.enable_openyield_rail_to_rail_abutment else "zero_gap_alternating_mx" if spec.enable_openyield_gate_row_vertical_abutment else "standard_row_spacing",
     )
     instance_index = 0
     for row in column_select_packing.rows:
@@ -1399,7 +1451,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         origin_y=delay_y,
         explicit_opt_in=spec.enable_openyield_gate_row_packing,
         row_pitch=gate_footprints["gen_delay_inv"].bbox_height if spec.enable_openyield_gate_row_vertical_abutment else delay_row_pitch,
-        vertical_abutment_policy="zero_gap_alternating_mx" if spec.enable_openyield_gate_row_vertical_abutment else "standard_row_spacing",
+        vertical_abutment_policy="rail_to_rail_geometry_abutment" if spec.enable_openyield_rail_to_rail_abutment else "zero_gap_alternating_mx" if spec.enable_openyield_gate_row_vertical_abutment else "standard_row_spacing",
     )
     delay_index = 0
     for row in delay_packing.rows:
@@ -1422,7 +1474,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         "enabled": bool(spec.enable_openyield_gate_row_packing),
         "explicit_opt_in": bool(spec.enable_openyield_gate_row_packing),
         "vertical_abutment_enabled": bool(spec.enable_openyield_gate_row_vertical_abutment),
-        "vertical_abutment_policy": "zero_gap_alternating_mx" if spec.enable_openyield_gate_row_vertical_abutment else "standard_row_spacing",
+        "vertical_abutment_policy": "rail_to_rail_geometry_abutment" if spec.enable_openyield_rail_to_rail_abutment else "zero_gap_alternating_mx" if spec.enable_openyield_gate_row_vertical_abutment else "standard_row_spacing",
         "legacy_default_behavior_preserved": True,
         "adapter_applied_to_placement": bool(spec.enable_openyield_gate_row_packing),
         "routing_changed": False,
@@ -1432,6 +1484,8 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         "control_glue_plan": control_glue_packing.to_dict(),
         "column_select_plan": column_select_packing.to_dict(),
         "delay_chain_plan": delay_packing.to_dict(),
+        "control_dff_plan": control_dff_plan.to_dict() if control_dff_plan is not None else {},
+        "data_dff_plan": data_dff_plan.to_dict() if data_dff_plan is not None else {},
     }
 
     sense_origin_x = x_array
@@ -1516,14 +1570,35 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         sense_x = x_array + i * column_pitch + sense.width * 0.5
         db.add_shape("m2", Rect(sense_x - 0.035, y_column, sense_x + 0.035, y_mux), "route_guide", f"mux_d[{i}]", f"sense_drop_{i}")
 
-    for i in range(spec.word_size):
-        col = i % data_cols
-        row = i // data_cols
-        x = x_array + col * control_dff_pitch_x
-        y = y_data + row * dff_row_pitch
-        rect = Rect(x, y, x + physical_cell_width("dff"), y + physical_cell_height("dff"))
-        db.add_instance(Instance(f"data_dff_{i}", "dff", rect, "data_dff"))
-    data_rect = Rect(x_array, y_data, x_array + data_w, y_data + data_h)
+    if spec.enable_openyield_dff_row_packing:
+        data_dff_rows_spec = [["dff" for _ in range(min(data_cols, spec.word_size - row * data_cols))] for row in range(data_rows)]
+        data_dff_plan = build_gate_row_packing_plan(
+            block_name="data_dff",
+            row_cells=data_dff_rows_spec,
+            footprints={"dff": dff_footprint},
+            origin_x=x_array,
+            origin_y=y_data,
+            explicit_opt_in=True,
+            row_pitch=None if spec.enable_openyield_rail_to_rail_abutment else dff_row_pitch,
+            vertical_abutment_policy="rail_to_rail_geometry_abutment" if spec.enable_openyield_rail_to_rail_abutment else "standard_row_spacing",
+        )
+        data_rects = []
+        data_index = 0
+        for row in data_dff_plan.rows:
+            for placement in row.cells:
+                data_rects.append(add_hard_macro_instance(f"data_dff_{data_index}", "dff", placement.x, placement.y, "data_dff", mirror=row.mirror))
+                data_index += 1
+        data_rect = Rect.union(data_rects)
+    else:
+        data_dff_plan = None
+        for i in range(spec.word_size):
+            col = i % data_cols
+            row = i // data_cols
+            x = x_array + col * control_dff_pitch_x
+            y = y_data + row * dff_row_pitch
+            rect = Rect(x, y, x + physical_cell_width("dff"), y + physical_cell_height("dff"))
+            db.add_instance(Instance(f"data_dff_{i}", "dff", rect, "data_dff"))
+        data_rect = Rect(x_array, y_data, x_array + data_w, y_data + data_h)
     db.add_shape("m2", data_rect, "module", name="data_dff_array")
 
     pin_w = perimeter_pin_w
@@ -2137,6 +2212,8 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
         "enable_openyield_wordlinedriver_adapter": spec.enable_openyield_wordlinedriver_adapter,
         "enable_openyield_gate_row_packing": spec.enable_openyield_gate_row_packing,
         "enable_openyield_gate_row_vertical_abutment": spec.enable_openyield_gate_row_vertical_abutment,
+        "enable_openyield_rail_to_rail_abutment": spec.enable_openyield_rail_to_rail_abutment,
+        "enable_openyield_dff_row_packing": spec.enable_openyield_dff_row_packing,
         "openyield_storage_row_orientation_policy": spec.openyield_storage_row_orientation_policy,
         "bank_style": layout.metadata.get("bank_style"),
         "floorplan_compaction_strategy": layout.metadata.get("floorplan_compaction_strategy"),
