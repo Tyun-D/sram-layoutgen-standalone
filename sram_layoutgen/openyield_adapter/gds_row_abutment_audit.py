@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import csv
 from pathlib import Path
 from typing import Any
 
@@ -116,6 +117,8 @@ def _pair_audit(lower_row: list[dict[str, Any]], upper_row: list[dict[str, Any]]
         diff_net_short = float(upper_gnd["y0"]) < float(lower_vdd["y1"]) - 1e-9
     if lower_top_net == "gnd" and lower_gnd and upper_vdd:
         diff_net_short = float(upper_vdd["y0"]) < float(lower_gnd["y1"]) - 1e-9
+    positive_overlap = bool(same_net_gap is not None and same_net_gap < -1e-9)
+    edge_touch_only = bool(same_net_gap is not None and abs(float(same_net_gap)) <= 1e-9)
     return {
         "row_index": row_index,
         "lower_row_origin_y": float(lower["origin"]["y"]),
@@ -129,12 +132,32 @@ def _pair_audit(lower_row: list[dict[str, Any]], upper_row: list[dict[str, Any]]
         "actual_cell_to_cell_gap_um": cell_gap,
         "vertical_distance_to_previous_row_rail_um": same_net_gap,
         "same_net_rail_touches_or_overlaps": bool(same_net_gap is not None and lower_top_net == upper_bottom_net and same_net_gap <= 1e-9),
+        "edge_touch_only": edge_touch_only,
+        "positive_overlap": positive_overlap,
+        "positive_overlap_depth_um": max(0.0, -float(same_net_gap)) if same_net_gap is not None else 0.0,
         "real_vertical_gap_exists": bool(same_net_gap is not None and same_net_gap > 1e-9),
         "diff_net_short_found": diff_net_short,
     }
 
 
-def audit_gds_row_abutment(gds: str | Path, layout_json: str | Path | None = None) -> dict[str, Any]:
+def _load_eligibility(path: str | Path | None) -> dict[str, dict[str, Any]]:
+    if path is None:
+        return {}
+    csv_path = Path(path)
+    if not csv_path.exists():
+        return {}
+    out: dict[str, dict[str, Any]] = {}
+    with csv_path.open("r", encoding="utf-8", newline="") as handle:
+        for row in csv.DictReader(handle):
+            out[str(row.get("cell_name") or "")] = row
+    return out
+
+
+def audit_gds_row_abutment(
+    gds: str | Path,
+    layout_json: str | Path | None = None,
+    eligibility: str | Path | None = None,
+) -> dict[str, Any]:
     gds_path = Path(gds)
     lib = gdstk.read_gds(gds_path)
     top = lib.top_level()[0]
@@ -154,7 +177,27 @@ def audit_gds_row_abutment(gds: str | Path, layout_json: str | Path | None = Non
     data_dff_pairs = [_pair_audit(data_dff_rows[i], data_dff_rows[i + 1], i + 1) for i in range(len(data_dff_rows) - 1)]
     dff_pairs = control_dff_pairs + data_dff_pairs
     all_pairs = gate_pairs + dff_pairs
+    gate_gaps = [pair["vertical_distance_to_previous_row_rail_um"] for pair in gate_pairs if pair["vertical_distance_to_previous_row_rail_um"] is not None]
     gaps = [pair["vertical_distance_to_previous_row_rail_um"] for pair in all_pairs if pair["vertical_distance_to_previous_row_rail_um"] is not None]
+    edge_touch_count = sum(1 for pair in gate_pairs if pair["vertical_distance_to_previous_row_rail_um"] is not None and abs(float(pair["vertical_distance_to_previous_row_rail_um"])) <= 1e-9)
+    positive_overlap_pairs = [
+        pair for pair in gate_pairs
+        if pair["vertical_distance_to_previous_row_rail_um"] is not None and float(pair["vertical_distance_to_previous_row_rail_um"]) < -1e-9
+    ]
+    positive_overlap_count = len(positive_overlap_pairs)
+    positive_overlap_depth_um = max((-float(pair["vertical_distance_to_previous_row_rail_um"]) for pair in positive_overlap_pairs), default=0.0)
+    dff_vertical_overlap_found = any(
+        pair["vertical_distance_to_previous_row_rail_um"] is not None and float(pair["vertical_distance_to_previous_row_rail_um"]) < -1e-9
+        for pair in dff_pairs
+    )
+    eligibility_by_cell = _load_eligibility(eligibility)
+    dff_excluded_by_policy = True
+    for inst in instance_rows:
+        if inst["role"] in DFF_ROLES:
+            cell_eligibility = eligibility_by_cell.get(inst["cell_name"], {})
+            if cell_eligibility and cell_eligibility.get("eligibility_class") != "excluded_dff_pending_manual_review":
+                dff_excluded_by_policy = False
+    decoder_pairs = [pair for pair in gate_pairs if True]
     return {
         "gds_geometry_audit_available": True,
         "gds_path": str(gds_path.resolve()),
@@ -162,15 +205,39 @@ def audit_gds_row_abutment(gds: str | Path, layout_json: str | Path | None = Non
         "cell_instances": instance_rows,
         "gate_row_pairs": gate_pairs,
         "dff_row_pairs": dff_pairs,
+        "decoder_rows": {
+            "pair_count": len(gate_pairs),
+            "edge_touch_or_positive_overlap": all(pair["same_net_rail_touches_or_overlaps"] for pair in gate_pairs) if gate_pairs else True,
+            "positive_overlap_count": sum(1 for pair in gate_pairs if pair["vertical_distance_to_previous_row_rail_um"] is not None and float(pair["vertical_distance_to_previous_row_rail_um"]) < -1e-9),
+            "positive_overlap_depth_um": max(
+                (-float(pair["vertical_distance_to_previous_row_rail_um"]) for pair in gate_pairs if pair["vertical_distance_to_previous_row_rail_um"] is not None and float(pair["vertical_distance_to_previous_row_rail_um"]) < -1e-9),
+                default=0.0,
+            ),
+        },
+        "standard_gate_rows": {
+            "pair_count": len(gate_pairs),
+            "positive_overlap_count": sum(1 for pair in gate_pairs if pair["vertical_distance_to_previous_row_rail_um"] is not None and float(pair["vertical_distance_to_previous_row_rail_um"]) < -1e-9),
+            "positive_overlap_depth_um": max(
+                (-float(pair["vertical_distance_to_previous_row_rail_um"]) for pair in gate_pairs if pair["vertical_distance_to_previous_row_rail_um"] is not None and float(pair["vertical_distance_to_previous_row_rail_um"]) < -1e-9),
+                default=0.0,
+            ),
+        },
         "real_vertical_abutment_pass": all(pair["same_net_rail_touches_or_overlaps"] and not pair["diff_net_short_found"] for pair in gate_pairs) if gate_pairs else True,
-        "actual_interrow_rail_gap_um": max(gaps) if gaps else 0.0,
+        "actual_interrow_rail_gap_um": max(0.0, max(gate_gaps)) if gate_gaps else 0.0,
         "extra_interrow_power_stripe_found": False,
+        "edge_touch_count": edge_touch_count,
+        "positive_overlap_count": positive_overlap_count,
+        "positive_overlap_depth_um": positive_overlap_depth_um,
+        "same_net_power_overlap_pass": all(pair["same_net_rail_touches_or_overlaps"] and not pair["diff_net_short_found"] for pair in positive_overlap_pairs) if positive_overlap_pairs else False,
         "same_net_rail_touch_or_overlap_pass": all(pair["same_net_rail_touches_or_overlaps"] for pair in all_pairs) if all_pairs else True,
         "diff_net_short_found": any(pair["diff_net_short_found"] for pair in all_pairs),
         "dff_row_packing_attempted": bool(control_dff_rows or data_dff_rows),
         "dff_real_abutment_pass": all(pair["same_net_rail_touches_or_overlaps"] and not pair["diff_net_short_found"] for pair in dff_pairs) if dff_pairs else False,
         "dff_left_right_abutment_pass": all(abs(float(row[i + 1]["bbox"]["x0"]) - float(row[i]["bbox"]["x1"])) <= 1e-9 for row in (control_dff_rows + data_dff_rows) for i in range(len(row) - 1)) if (control_dff_rows or data_dff_rows) else False,
         "dff_vertical_abutment_pass": all(pair["same_net_rail_touches_or_overlaps"] for pair in dff_pairs) if dff_pairs else False,
+        "dff_vertical_overlap_found": dff_vertical_overlap_found,
+        "dff_vertical_overlap_forbidden_pass": (not dff_vertical_overlap_found) if dff_excluded_by_policy else True,
+        "dff_vertical_overlap_excluded_by_policy": dff_excluded_by_policy,
         "dff_rail_geometry_available": all(inst["detected_vdd_rail_bbox"] and inst["detected_gnd_rail_bbox"] for inst in instance_rows if inst["role"] in DFF_ROLES) if (control_dff_rows or data_dff_rows) else False,
         "dff_blocked_reason": None,
     }
@@ -183,14 +250,18 @@ def render_markdown(report: dict[str, Any]) -> str:
         f"- gds_path: `{report['gds_path']}`",
         f"- real_vertical_abutment_pass: `{report['real_vertical_abutment_pass']}`",
         f"- actual_interrow_rail_gap_um: `{report['actual_interrow_rail_gap_um']}`",
+        f"- edge_touch_count: `{report['edge_touch_count']}`",
+        f"- positive_overlap_count: `{report['positive_overlap_count']}`",
+        f"- positive_overlap_depth_um: `{report['positive_overlap_depth_um']}`",
         f"- extra_interrow_power_stripe_found: `{report['extra_interrow_power_stripe_found']}`",
         f"- dff_real_abutment_pass: `{report['dff_real_abutment_pass']}`",
+        f"- dff_vertical_overlap_found: `{report['dff_vertical_overlap_found']}`",
         "",
         "## Row Pairs",
         "",
     ]
     for pair in report["gate_row_pairs"] + report["dff_row_pairs"]:
         lines.append(
-            f"- row_index=`{pair['row_index']}` vdd_gap=`{pair['actual_vdd_to_vdd_gap_um']}` gnd_gap=`{pair['actual_gnd_to_gnd_gap_um']}` cell_gap=`{pair['actual_cell_to_cell_gap_um']}` same_net_touch=`{pair['same_net_rail_touches_or_overlaps']}` diff_net_short=`{pair['diff_net_short_found']}`"
+            f"- row_index=`{pair['row_index']}` vdd_gap=`{pair['actual_vdd_to_vdd_gap_um']}` gnd_gap=`{pair['actual_gnd_to_gnd_gap_um']}` cell_gap=`{pair['actual_cell_to_cell_gap_um']}` same_net_touch=`{pair['same_net_rail_touches_or_overlaps']}` positive_overlap=`{pair['positive_overlap']}` overlap_depth_um=`{pair['positive_overlap_depth_um']}` diff_net_short=`{pair['diff_net_short_found']}`"
         )
     return "\n".join(lines) + "\n"

@@ -108,6 +108,32 @@ class GateCellFootprint:
 
 
 @dataclass(frozen=True)
+class RailOverlapEligibility:
+    cell_name: str
+    overlap_eligible: bool
+    max_safe_overlap_depth_um: float
+    candidate_overlap_depth_um: float
+    recommended_packing_policy: str
+    blocked_reason: str | None = None
+
+
+@dataclass(frozen=True)
+class RailOverlapPackingPlan:
+    selected_overlap_depth_um: float
+    edge_touch_only: bool
+    blocked_reason: str | None = None
+
+
+@dataclass(frozen=True)
+class RailOverlapRowDomain:
+    domain_name: str
+    packing_policy: str
+    selected_overlap_depth_um: float
+    overlap_eligible: bool
+    blocked_reason: str | None = None
+
+
+@dataclass(frozen=True)
 class GateCellPlacement:
     instance_name: str
     cell_name: str
@@ -182,6 +208,8 @@ class GateRowPackingPlan:
     average_vertical_gap_um: float
     extra_interrow_power_stripe_inserted: bool
     rail_alignment: dict[str, Any]
+    selected_overlap_depth_um: float = 0.0
+    row_domain: str | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -199,6 +227,8 @@ class GateRowPackingPlan:
             "average_vertical_gap_um": self.average_vertical_gap_um,
             "extra_interrow_power_stripe_inserted": self.extra_interrow_power_stripe_inserted,
             "rail_alignment": self.rail_alignment,
+            "selected_overlap_depth_um": self.selected_overlap_depth_um,
+            "row_domain": self.row_domain,
             "rows": [row.to_dict() for row in self.rows],
         }
 
@@ -385,6 +415,8 @@ def pack_rows_bottom_to_top(
     origin_y: float,
     row_pitch: float | None,
     orientation_policy: str = "alternating_r0_mx",
+    vertical_abutment_policy: str = "standard_row_spacing",
+    overlap_depth_by_row: list[float] | None = None,
 ) -> tuple[GateRow, ...]:
     rows: list[GateRow] = []
     for row_index, cells in enumerate(row_cells):
@@ -402,7 +434,14 @@ def pack_rows_bottom_to_top(
             if lower_net is None or upper_net is None or lower_net != upper_net or lower_same_y1 is None or upper_same_y0 is None:
                 row_origin_y = previous_row.origin_y + previous_lead.bbox_height
             else:
-                row_origin_y = previous_row.origin_y + float(lower_same_y1) - float(upper_same_y0)
+                target_origin_y = previous_row.origin_y + float(lower_same_y1) - float(upper_same_y0)
+                if vertical_abutment_policy == "same_net_power_rail_overlap_packing":
+                    overlap_depth = 0.0
+                    if overlap_depth_by_row is not None and row_index - 1 < len(overlap_depth_by_row):
+                        overlap_depth = max(0.0, float(overlap_depth_by_row[row_index - 1]))
+                    row_origin_y = target_origin_y - overlap_depth
+                else:
+                    row_origin_y = target_origin_y
         rows.append(pack_cells_left_to_right(f"{block_name}_row{row_index}", row_index, cells, footprints, origin_x, row_origin_y, mirror))
     return tuple(rows)
 
@@ -416,6 +455,9 @@ def validate_rail_alignment(
     boundaries: list[dict[str, Any]] = []
     vdd_pass = True
     gnd_pass = True
+    edge_touch_count = 0
+    positive_overlap_count = 0
+    overlap_depths: list[float] = []
     for lower, upper in zip(rows, rows[1:]):
         lower_first = footprints[lower.cells[0].cell_name]
         upper_first = footprints[upper.cells[0].cell_name]
@@ -427,6 +469,13 @@ def validate_rail_alignment(
         physical_boundary_gap = float(upper_bbox_bottom) - float(lower_bbox_top)
         same_net_gap = None if lower_y1 is None or upper_y0 is None else float(upper.origin_y + upper_y0) - float(lower.origin_y + lower_y1)
         same_net_touch = bool(same_net_gap is not None and same_net_gap <= 1e-9)
+        positive_overlap = bool(same_net_gap is not None and same_net_gap < -1e-9)
+        edge_touch_only = bool(same_net_gap is not None and abs(same_net_gap) <= 1e-9)
+        if edge_touch_only:
+            edge_touch_count += 1
+        if positive_overlap:
+            positive_overlap_count += 1
+            overlap_depths.append(-float(same_net_gap))
         lower_vdd = lower_first.rail_interval("vdd", lower.mirror)
         upper_vdd = upper_first.rail_interval("vdd", upper.mirror)
         lower_gnd = lower_first.rail_interval("gnd", lower.mirror)
@@ -451,6 +500,9 @@ def validate_rail_alignment(
             "vertical_gap_um": 0.0 if vertical_abutment_policy in {"zero_gap_alternating_mx", "rail_to_rail_geometry_abutment"} else float(row_gap),
             "physical_boundary_gap_um": physical_boundary_gap,
             "same_net_rail_touch_or_overlap_pass": same_net_touch,
+            "edge_touch_only": edge_touch_only,
+            "positive_overlap": positive_overlap,
+            "positive_overlap_depth_um": max(0.0, -float(same_net_gap)) if same_net_gap is not None else 0.0,
             "diff_net_short_found": diff_net_short_found,
             "actual_same_net_gap_um": same_net_gap,
             "actual_vdd_to_vdd_gap_um": actual_vdd_gap,
@@ -478,10 +530,35 @@ def validate_rail_alignment(
         "real_vertical_abutment_pass": all(item["same_net_rail_touch_or_overlap_pass"] and not item["diff_net_short_found"] for item in boundaries) if boundaries else True,
         "vdd_rail_continuity_candidate": vdd_pass,
         "gnd_rail_continuity_candidate": gnd_pass,
-        "actual_interrow_rail_gap_um": max(gaps) if gaps else 0.0,
+        "actual_interrow_rail_gap_um": max(0.0, max(gaps)) if gaps else 0.0,
+        "edge_touch_count": edge_touch_count,
+        "positive_overlap_count": positive_overlap_count,
+        "positive_overlap_depth_um": max(overlap_depths) if overlap_depths else 0.0,
+        "positive_overlap_applied": positive_overlap_count > 0,
+        "same_net_power_overlap_pass": all(
+            item["actual_same_net"] and item["positive_overlap"] and not item["diff_net_short_found"]
+            for item in boundaries
+        ) if boundaries else False,
         "same_net_rail_touch_or_overlap_pass": all(item["same_net_rail_touch_or_overlap_pass"] for item in boundaries) if boundaries else True,
         "diff_net_short_found": any(item["diff_net_short_found"] for item in boundaries),
     }
+
+
+def _row_overlap_depth(
+    row: list[str],
+    overlap_eligibility: dict[str, RailOverlapEligibility] | None,
+) -> tuple[float, str | None]:
+    if not overlap_eligibility:
+        return 0.0, "missing_overlap_eligibility"
+    depths: list[float] = []
+    for cell_name in row:
+        eligibility = overlap_eligibility.get(cell_name)
+        if eligibility is None:
+            return 0.0, f"missing_overlap_eligibility:{cell_name}"
+        if not eligibility.overlap_eligible:
+            return 0.0, eligibility.blocked_reason or eligibility.recommended_packing_policy
+        depths.append(max(0.0, min(eligibility.candidate_overlap_depth_um, eligibility.max_safe_overlap_depth_um)))
+    return (min(depths) if depths else 0.0), None
 
 
 def build_gate_row_packing_plan(
@@ -494,6 +571,8 @@ def build_gate_row_packing_plan(
     row_pitch: float | None = None,
     orientation_policy: str = "alternating_r0_mx",
     vertical_abutment_policy: str = "standard_row_spacing",
+    overlap_eligibility: dict[str, RailOverlapEligibility] | None = None,
+    row_domain: str | None = None,
 ) -> GateRowPackingPlan:
     blocked_cells: list[dict[str, Any]] = []
     fallback_cells: list[str] = []
@@ -513,6 +592,8 @@ def build_gate_row_packing_plan(
             allowed_rows.append(allowed_row)
     dominant_height = max(heights) if heights else 0.0
     dominant_bbox_height = max((footprints[cell].bbox_height for row in allowed_rows for cell in row), default=0.0)
+    row_overlap_depths: list[float] | None = None
+    selected_overlap_depth_um = 0.0
     if vertical_abutment_policy == "zero_gap_alternating_mx":
         row_pitch = dominant_bbox_height
         row_gap = 0.0
@@ -523,12 +604,45 @@ def build_gate_row_packing_plan(
         row_gap = 0.0
         orientation_policy = "alternating_r0_mx"
         extra_interrow_power_stripe_inserted = False
+    elif vertical_abutment_policy == "same_net_power_rail_overlap_packing":
+        row_pitch = None
+        row_gap = 0.0
+        orientation_policy = "alternating_r0_mx"
+        extra_interrow_power_stripe_inserted = False
+        row_overlap_depths = []
+        overlap_blocked = False
+        for lower_row, upper_row in zip(allowed_rows, allowed_rows[1:]):
+            lower_depth, lower_block = _row_overlap_depth(lower_row, overlap_eligibility)
+            upper_depth, upper_block = _row_overlap_depth(upper_row, overlap_eligibility)
+            if lower_block or upper_block:
+                overlap_blocked = True
+                row_overlap_depths.append(0.0)
+                blocked_cells.append({
+                    "cell_name": ",".join(sorted(set(lower_row + upper_row))),
+                    "blocked_reason": lower_block or upper_block or "overlap_eligibility_blocked",
+                })
+                continue
+            pair_depth = max(0.0, min(lower_depth, upper_depth))
+            row_overlap_depths.append(pair_depth)
+            selected_overlap_depth_um = max(selected_overlap_depth_um, pair_depth)
+        if overlap_blocked and selected_overlap_depth_um <= 1e-9:
+            vertical_abutment_policy = "rail_to_rail_geometry_abutment"
     else:
         if row_pitch is None:
             row_pitch = dominant_bbox_height if dominant_bbox_height else dominant_height
         row_gap = max(0.0, float(row_pitch) - dominant_bbox_height) if dominant_bbox_height else 0.0
         extra_interrow_power_stripe_inserted = False
-    rows = pack_rows_bottom_to_top(block_name, allowed_rows, footprints, origin_x, origin_y, float(row_pitch) if row_pitch is not None else None, orientation_policy)
+    rows = pack_rows_bottom_to_top(
+        block_name,
+        allowed_rows,
+        footprints,
+        origin_x,
+        origin_y,
+        float(row_pitch) if row_pitch is not None else None,
+        orientation_policy,
+        vertical_abutment_policy=vertical_abutment_policy,
+        overlap_depth_by_row=row_overlap_depths,
+    )
     rail_alignment = validate_rail_alignment(rows, footprints, vertical_abutment_policy=vertical_abutment_policy, row_gap=row_gap)
     total_width = max((row.width for row in rows), default=0.0)
     if rows:
@@ -553,6 +667,8 @@ def build_gate_row_packing_plan(
         average_vertical_gap_um=float(row_gap),
         extra_interrow_power_stripe_inserted=extra_interrow_power_stripe_inserted,
         rail_alignment=rail_alignment,
+        selected_overlap_depth_um=float(selected_overlap_depth_um),
+        row_domain=row_domain,
     )
 
 
@@ -588,9 +704,10 @@ def _report_payload(
         "gate_row_packing_opt_in_available": True,
         "gate_row_vertical_abutment_available": plan.vertical_abutment_policy == "zero_gap_alternating_mx",
         "rail_to_rail_geometry_abutment_available": plan.vertical_abutment_policy == "rail_to_rail_geometry_abutment",
+        "same_net_power_rail_overlap_packing_available": plan.vertical_abutment_policy == "same_net_power_rail_overlap_packing",
         "gds_geometry_audit_available": True,
         "old_policy_was_abstract_pitch": True,
-        "new_policy_uses_real_rail_geometry": plan.vertical_abutment_policy == "rail_to_rail_geometry_abutment",
+        "new_policy_uses_real_rail_geometry": plan.vertical_abutment_policy in {"rail_to_rail_geometry_abutment", "same_net_power_rail_overlap_packing"},
         "vertical_abutment_policy": plan.vertical_abutment_policy,
         "row_gap_removed": abs(plan.row_gap) <= 1e-9,
         "row_pitch_equals_cell_height": abs(plan.row_pitch - max((row.height for row in plan.rows), default=0.0)) <= 1e-9 if plan.rows else False,
@@ -601,6 +718,11 @@ def _report_payload(
         "vertical_abutment_pass": plan.rail_alignment.get("vertical_abutment_pass", False),
         "real_vertical_abutment_pass": plan.rail_alignment.get("real_vertical_abutment_pass", False),
         "actual_interrow_rail_gap_um": plan.rail_alignment.get("actual_interrow_rail_gap_um", 0.0),
+        "positive_overlap_applied": plan.rail_alignment.get("positive_overlap_applied", False),
+        "positive_overlap_depth_um": plan.rail_alignment.get("positive_overlap_depth_um", 0.0),
+        "edge_touch_count": plan.rail_alignment.get("edge_touch_count", 0),
+        "positive_overlap_count": plan.rail_alignment.get("positive_overlap_count", 0),
+        "same_net_power_overlap_pass": plan.rail_alignment.get("same_net_power_overlap_pass", False),
         "same_net_rail_touch_or_overlap_pass": plan.rail_alignment.get("same_net_rail_touch_or_overlap_pass", False),
         "diff_net_short_found": plan.rail_alignment.get("diff_net_short_found", True),
         "legacy_default_behavior_preserved": True,
@@ -650,6 +772,7 @@ def _report_payload(
         "notes": [
             "old average intra-row gap is not reconstructed numerically from the previous GDS; the previous compacted result visibly inserted inter-row stitch shapes.",
             "new gate rows are packed with real GDS bbox x/y abutment and real rail geometry when available.",
+            "same_net power overlap is only applied when real GDS geometry proves safe overlap depth.",
             "routing still legacy",
             "gate placement compacted",
             "routing compaction not yet performed",

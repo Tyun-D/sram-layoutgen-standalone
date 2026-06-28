@@ -22,7 +22,9 @@ def main() -> int:
     parser.add_argument("--enable-openyield-gate-row-packing", action="store_true")
     parser.add_argument("--enable-openyield-gate-row-vertical-abutment", action="store_true")
     parser.add_argument("--enable-openyield-rail-to-rail-abutment", action="store_true")
+    parser.add_argument("--enable-openyield-power-rail-overlap-packing", action="store_true")
     parser.add_argument("--enable-openyield-dff-row-packing", action="store_true")
+    parser.add_argument("--exclude-dff-vertical-overlap", action="store_true")
     args = parser.parse_args()
 
     result = generate_layout_prototype(
@@ -33,7 +35,9 @@ def main() -> int:
         enable_openyield_gate_row_packing=args.enable_openyield_gate_row_packing,
         enable_openyield_gate_row_vertical_abutment=args.enable_openyield_gate_row_vertical_abutment,
         enable_openyield_rail_to_rail_abutment=args.enable_openyield_rail_to_rail_abutment,
+        enable_openyield_power_rail_overlap_packing=args.enable_openyield_power_rail_overlap_packing,
         enable_openyield_dff_row_packing=args.enable_openyield_dff_row_packing,
+        exclude_dff_vertical_overlap=args.exclude_dff_vertical_overlap,
     )
     print(json.dumps({
         "mode": result["mode"],

@@ -26,6 +26,7 @@ from .openyield_adapter.array_aggregation import (
 )
 from .openyield_adapter.architecture_adapter import build_senseamp_architecture_adapter
 from .openyield_adapter.columnmux_placement import build_columnmux_limited_placement_plan
+from .openyield_adapter.cell_rail_overlap_eligibility import classify_cell_rail_overlap
 from .openyield_adapter.gate_row_packer import (
     build_gate_cell_footprint,
     build_gate_row_packing_plan,
@@ -70,7 +71,9 @@ class StandaloneSpec:
     enable_openyield_gate_row_packing: bool = False
     enable_openyield_gate_row_vertical_abutment: bool = False
     enable_openyield_rail_to_rail_abutment: bool = False
+    enable_openyield_power_rail_overlap_packing: bool = False
     enable_openyield_dff_row_packing: bool = False
+    exclude_dff_vertical_overlap: bool = False
     openyield_storage_row_orientation_policy: str = "all_r0"
 
     def __post_init__(self) -> None:
@@ -444,6 +447,10 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         )
         for cell_name in {"gen_inv", "gen_nand2", "gen_delay_inv", "gen_wl_driver"}
     }
+    overlap_eligibility = {
+        cell_name: classify_cell_rail_overlap(Path(__file__).resolve().parents[1], cell_name)
+        for cell_name in {"gen_inv", "gen_nand2", "gen_delay_inv", "gen_wl_driver", "dff"}
+    }
     dff_footprint = build_gate_cell_footprint(
         "dff",
         tech.cell("dff").width,
@@ -454,6 +461,15 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         bbox_x1=tech.cell("dff").bbox_x1,
         bbox_y1=tech.cell("dff").bbox_y1,
     )
+
+    def gate_vertical_policy(domain_name: str) -> str:
+        if spec.enable_openyield_power_rail_overlap_packing and domain_name != "dff_domain":
+            return "same_net_power_rail_overlap_packing"
+        if spec.enable_openyield_rail_to_rail_abutment and domain_name != "dff_domain":
+            return "rail_to_rail_geometry_abutment"
+        if spec.enable_openyield_gate_row_vertical_abutment and domain_name != "dff_domain":
+            return "zero_gap_alternating_mx"
+        return "standard_row_spacing"
     compact_gate_row_pitch = max(
         legal_origin_delta_y(row_decode_cell, row_decode_cell, "R0", "MX"),
         legal_origin_delta_y(row_decode_cell, row_decode_cell, "MX", "R0"),
@@ -540,7 +556,9 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
                 origin_y=candidate_y_array,
                 explicit_opt_in=True,
                 row_pitch=gate_footprints[row_decode_cell].bbox_height if spec.enable_openyield_gate_row_vertical_abutment else compact_gate_row_pitch,
-                vertical_abutment_policy="rail_to_rail_geometry_abutment" if spec.enable_openyield_rail_to_rail_abutment else "zero_gap_alternating_mx" if spec.enable_openyield_gate_row_vertical_abutment else "standard_row_spacing",
+                vertical_abutment_policy=gate_vertical_policy("decoder_gate_domain"),
+                overlap_eligibility=overlap_eligibility,
+                row_domain="decoder_gate_domain",
             )
             positions = {
                 row_index: {
@@ -794,7 +812,9 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         "enable_openyield_gate_row_packing": spec.enable_openyield_gate_row_packing,
         "enable_openyield_gate_row_vertical_abutment": spec.enable_openyield_gate_row_vertical_abutment,
         "enable_openyield_rail_to_rail_abutment": spec.enable_openyield_rail_to_rail_abutment,
+        "enable_openyield_power_rail_overlap_packing": spec.enable_openyield_power_rail_overlap_packing,
         "enable_openyield_dff_row_packing": spec.enable_openyield_dff_row_packing,
+        "exclude_dff_vertical_overlap": spec.exclude_dff_vertical_overlap,
         "num_rows": rows,
         "num_cols": cols,
         "bank_style": "contiguous-openram-origin-array",
@@ -1268,7 +1288,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         return float(selected_row_logic_plan["positions"][row]["driver_x"])  # type: ignore[index]
 
     def add_gate_row_stitch_shapes(plan_dict: dict[str, object], name_prefix: str) -> None:
-        if spec.enable_openyield_gate_row_vertical_abutment or spec.enable_openyield_rail_to_rail_abutment:
+        if spec.enable_openyield_gate_row_vertical_abutment or spec.enable_openyield_rail_to_rail_abutment or spec.enable_openyield_power_rail_overlap_packing:
             return
         rail_alignment = plan_dict.get("rail_alignment", {}) if isinstance(plan_dict, dict) else {}
         rows_data = plan_dict.get("rows", []) if isinstance(plan_dict, dict) else []
@@ -1355,8 +1375,10 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
             origin_x=x_control,
             origin_y=y_data,
             explicit_opt_in=True,
-            row_pitch=None if spec.enable_openyield_rail_to_rail_abutment else dff_row_pitch,
-            vertical_abutment_policy="rail_to_rail_geometry_abutment" if spec.enable_openyield_rail_to_rail_abutment else "standard_row_spacing",
+            row_pitch=dff_row_pitch,
+            vertical_abutment_policy="standard_row_spacing",
+            overlap_eligibility={"dff": overlap_eligibility["dff"]},
+            row_domain="dff_domain",
         )
         control_rects = []
         control_dff_index = 0
@@ -1393,7 +1415,9 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
             legal_origin_delta_y("gen_inv", "gen_nand2", "R0", "MX"),
             legal_origin_delta_y("gen_nand2", "gen_inv", "MX", "R0"),
         ),
-        vertical_abutment_policy="rail_to_rail_geometry_abutment" if spec.enable_openyield_rail_to_rail_abutment else "zero_gap_alternating_mx" if spec.enable_openyield_gate_row_vertical_abutment else "standard_row_spacing",
+        vertical_abutment_policy=gate_vertical_policy("control_gate_domain"),
+        overlap_eligibility=overlap_eligibility,
+        row_domain="control_gate_domain",
     )
     for row in control_glue_packing.rows:
         for placement_index, placement in enumerate(row.cells):
@@ -1424,7 +1448,9 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         origin_y=column_select_y0,
         explicit_opt_in=spec.enable_openyield_gate_row_packing,
         row_pitch=gate_footprints[column_select_cell].bbox_height if spec.enable_openyield_gate_row_vertical_abutment else column_select_row_pitch,
-        vertical_abutment_policy="rail_to_rail_geometry_abutment" if spec.enable_openyield_rail_to_rail_abutment else "zero_gap_alternating_mx" if spec.enable_openyield_gate_row_vertical_abutment else "standard_row_spacing",
+        vertical_abutment_policy=gate_vertical_policy("control_gate_domain"),
+        overlap_eligibility=overlap_eligibility,
+        row_domain="control_gate_domain",
     )
     instance_index = 0
     for row in column_select_packing.rows:
@@ -1451,7 +1477,9 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         origin_y=delay_y,
         explicit_opt_in=spec.enable_openyield_gate_row_packing,
         row_pitch=gate_footprints["gen_delay_inv"].bbox_height if spec.enable_openyield_gate_row_vertical_abutment else delay_row_pitch,
-        vertical_abutment_policy="rail_to_rail_geometry_abutment" if spec.enable_openyield_rail_to_rail_abutment else "zero_gap_alternating_mx" if spec.enable_openyield_gate_row_vertical_abutment else "standard_row_spacing",
+        vertical_abutment_policy=gate_vertical_policy("control_gate_domain"),
+        overlap_eligibility=overlap_eligibility,
+        row_domain="control_gate_domain",
     )
     delay_index = 0
     for row in delay_packing.rows:
@@ -1474,7 +1502,9 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         "enabled": bool(spec.enable_openyield_gate_row_packing),
         "explicit_opt_in": bool(spec.enable_openyield_gate_row_packing),
         "vertical_abutment_enabled": bool(spec.enable_openyield_gate_row_vertical_abutment),
-        "vertical_abutment_policy": "rail_to_rail_geometry_abutment" if spec.enable_openyield_rail_to_rail_abutment else "zero_gap_alternating_mx" if spec.enable_openyield_gate_row_vertical_abutment else "standard_row_spacing",
+        "vertical_abutment_policy": gate_vertical_policy("control_gate_domain"),
+        "same_net_power_rail_overlap_packing_enabled": bool(spec.enable_openyield_power_rail_overlap_packing),
+        "exclude_dff_vertical_overlap": bool(spec.exclude_dff_vertical_overlap),
         "legacy_default_behavior_preserved": True,
         "adapter_applied_to_placement": bool(spec.enable_openyield_gate_row_packing),
         "routing_changed": False,
@@ -1579,8 +1609,10 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
             origin_x=x_array,
             origin_y=y_data,
             explicit_opt_in=True,
-            row_pitch=None if spec.enable_openyield_rail_to_rail_abutment else dff_row_pitch,
-            vertical_abutment_policy="rail_to_rail_geometry_abutment" if spec.enable_openyield_rail_to_rail_abutment else "standard_row_spacing",
+            row_pitch=dff_row_pitch,
+            vertical_abutment_policy="standard_row_spacing",
+            overlap_eligibility={"dff": overlap_eligibility["dff"]},
+            row_domain="dff_domain",
         )
         data_rects = []
         data_index = 0
@@ -2213,7 +2245,9 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
         "enable_openyield_gate_row_packing": spec.enable_openyield_gate_row_packing,
         "enable_openyield_gate_row_vertical_abutment": spec.enable_openyield_gate_row_vertical_abutment,
         "enable_openyield_rail_to_rail_abutment": spec.enable_openyield_rail_to_rail_abutment,
+        "enable_openyield_power_rail_overlap_packing": spec.enable_openyield_power_rail_overlap_packing,
         "enable_openyield_dff_row_packing": spec.enable_openyield_dff_row_packing,
+        "exclude_dff_vertical_overlap": spec.exclude_dff_vertical_overlap,
         "openyield_storage_row_orientation_policy": spec.openyield_storage_row_orientation_policy,
         "bank_style": layout.metadata.get("bank_style"),
         "floorplan_compaction_strategy": layout.metadata.get("floorplan_compaction_strategy"),
