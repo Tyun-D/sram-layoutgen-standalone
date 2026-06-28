@@ -12,3 +12,4 @@
 - `2026-06-28`: Metadata consumer adapter completed at commit `80ac61f10acef8751460a8b5afba68f6e995d43c`; control path candidate generation wave1 completed; `PRECHARGE` and `PRECHARGE_ENABLE_PATH` now have source-linked candidate artifacts; remaining control objects have exact next actions toward selected control path SPICE smoke or guarded adapter registry.
 - `2026-06-28`: Ran source-linked PRECHARGE ngspice smoke; run_pass=`True`, behavior_plausible=`False`, and advanced PRECHARGE to `source_linked_candidate_spice_smoke_available` without enabling physical integration.
 - `2026-06-28`: Ran source-linked PRECHARGE ngspice smoke; run_pass=`True`, behavior_plausible=`True`, and advanced PRECHARGE to `source_linked_candidate_spice_smoke_available` without enabling physical integration.
+- 2026-06-28: Added guarded layout prototype generation wrapper for legacy baseline and hybrid OpenYield GDS production.

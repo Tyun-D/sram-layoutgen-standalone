@@ -1,0 +1,216 @@
+VERSION 5.4 ;
+NAMESCASESENSITIVE ON ;
+BUSBITCHARS "[]" ;
+DIVIDERCHAR "/" ;
+UNITS
+  DATABASE MICRONS 2000 ;
+END UNITS
+MACRO legacy_baseline
+   CLASS BLOCK ;
+   SIZE 36.6225 BY 45.9500 ;
+   SYMMETRY X Y R90 ;
+   PIN addr[0]
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal3 ;
+         RECT 36.4625 20.1475 36.6225 20.6475 ;
+      END
+   END addr[0]
+   PIN addr[1]
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal3 ;
+         RECT 36.4625 21.5125 36.6225 22.0125 ;
+      END
+   END addr[1]
+   PIN addr[2]
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal3 ;
+         RECT 36.4625 22.8775 36.6225 23.3775 ;
+      END
+   END addr[2]
+   PIN addr[3]
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal3 ;
+         RECT 36.4625 24.2425 36.6225 24.7425 ;
+      END
+   END addr[3]
+   PIN addr[4]
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal3 ;
+         RECT 36.4625 25.6075 36.6225 26.1075 ;
+      END
+   END addr[4]
+   PIN addr[5]
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal3 ;
+         RECT 36.4625 26.9725 36.6225 27.4725 ;
+      END
+   END addr[5]
+   PIN clk
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal2 ;
+         RECT 0.0000 0.2425 0.1600 0.7425 ;
+      END
+   END clk
+   PIN csb
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal2 ;
+         RECT 0.0000 0.9925 0.1600 1.4925 ;
+      END
+   END csb
+   PIN din[0]
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal2 ;
+         RECT 13.1800 0.0000 13.6800 0.1600 ;
+      END
+   END din[0]
+   PIN din[1]
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal2 ;
+         RECT 16.2400 0.0000 16.7400 0.1600 ;
+      END
+   END din[1]
+   PIN din[2]
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal2 ;
+         RECT 19.3000 0.0000 19.8000 0.1600 ;
+      END
+   END din[2]
+   PIN din[3]
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal2 ;
+         RECT 22.3600 0.0000 22.8600 0.1600 ;
+      END
+   END din[3]
+   PIN din[4]
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal2 ;
+         RECT 25.4200 0.0000 25.9200 0.1600 ;
+      END
+   END din[4]
+   PIN din[5]
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal2 ;
+         RECT 28.4800 0.0000 28.9800 0.1600 ;
+      END
+   END din[5]
+   PIN din[6]
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal2 ;
+         RECT 31.5400 0.0000 32.0400 0.1600 ;
+      END
+   END din[6]
+   PIN din[7]
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal2 ;
+         RECT 34.6000 0.0000 35.1000 0.1600 ;
+      END
+   END din[7]
+   PIN dout[0]
+      DIRECTION OUTPUT ;
+      PORT
+         LAYER metal3 ;
+         RECT 36.4625 3.2875 36.6225 3.5375 ;
+      END
+   END dout[0]
+   PIN dout[1]
+      DIRECTION OUTPUT ;
+      PORT
+         LAYER metal3 ;
+         RECT 36.4625 3.8375 36.6225 4.0875 ;
+      END
+   END dout[1]
+   PIN dout[2]
+      DIRECTION OUTPUT ;
+      PORT
+         LAYER metal3 ;
+         RECT 36.4625 4.3875 36.6225 4.6375 ;
+      END
+   END dout[2]
+   PIN dout[3]
+      DIRECTION OUTPUT ;
+      PORT
+         LAYER metal3 ;
+         RECT 36.4625 4.9375 36.6225 5.1875 ;
+      END
+   END dout[3]
+   PIN dout[4]
+      DIRECTION OUTPUT ;
+      PORT
+         LAYER metal3 ;
+         RECT 36.4625 5.4875 36.6225 5.7375 ;
+      END
+   END dout[4]
+   PIN dout[5]
+      DIRECTION OUTPUT ;
+      PORT
+         LAYER metal3 ;
+         RECT 36.4625 6.0375 36.6225 6.2875 ;
+      END
+   END dout[5]
+   PIN dout[6]
+      DIRECTION OUTPUT ;
+      PORT
+         LAYER metal3 ;
+         RECT 36.4625 6.5875 36.6225 6.8375 ;
+      END
+   END dout[6]
+   PIN dout[7]
+      DIRECTION OUTPUT ;
+      PORT
+         LAYER metal3 ;
+         RECT 36.4625 7.1375 36.6225 7.3875 ;
+      END
+   END dout[7]
+   PIN gnd
+      DIRECTION INOUT ;
+      USE GROUND ;
+      SHAPE ABUTMENT ;
+      PORT
+         LAYER metal4 ;
+         RECT 0.0000 0.0500 36.6225 0.2000 ;
+      END
+   END gnd
+   PIN vdd
+      DIRECTION INOUT ;
+      USE POWER ;
+      SHAPE ABUTMENT ;
+      PORT
+         LAYER metal4 ;
+         RECT 0.0000 45.7500 36.6225 45.9000 ;
+      END
+   END vdd
+   PIN web
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal2 ;
+         RECT 0.0000 1.7425 0.1600 2.2425 ;
+      END
+   END web
+   OBS
+      LAYER metal1 ;
+         RECT 0.8000 0.8000 35.8225 45.1500 ;
+      LAYER metal2 ;
+         RECT 0.8000 0.8000 35.8225 45.1500 ;
+      LAYER metal3 ;
+         RECT 0.8000 0.8000 35.8225 45.1500 ;
+      LAYER metal4 ;
+         RECT 1.1200 1.1200 35.5025 44.8300 ;
+   END
+END legacy_baseline
+END LIBRARY

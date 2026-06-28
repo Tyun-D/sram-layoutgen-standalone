@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import math
+import os
 from html import escape
 from dataclasses import dataclass
 from dataclasses import replace
@@ -112,6 +113,23 @@ def repo_root() -> Path:
 
 def default_pdk_root() -> Path:
     return package_root() / "technology" / "freepdk45"
+
+
+def default_openyield_root() -> Path:
+    candidates: list[Path] = []
+    env_root = os.environ.get("OPENYIELD_ROOT")
+    if env_root:
+        candidates.append(Path(env_root).expanduser())
+    candidates.extend([
+        package_root().parent / "external" / "OpenYield",
+        repo_root() / "external" / "OpenYield",
+        package_root() / "third_party" / "OpenYield",
+        repo_root() / "third_party" / "OpenYield",
+    ])
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate.resolve()
+    return candidates[0] if candidates else package_root().parent / "external" / "OpenYield"
 
 
 def columnmux_repaired_alias_path() -> Path:
@@ -660,7 +678,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     if spec.enable_openyield_wordlinedriver_adapter:
         wordlinedriver_contract_info = load_wordlinedriver_contract()
         wordlinedriver_local_macro = inspect_local_wordlinedriver_macro(default_pdk_root())
-        wordlinedriver_source_audit = inspect_openyield_wordlinedriver_source(repo_root() / "third_party" / "OpenYield")
+        wordlinedriver_source_audit = inspect_openyield_wordlinedriver_source(default_openyield_root())
         wordlinedriver_adapter_info = build_wordlinedriver_adapter(
             wordlinedriver_local_macro,
             wordlinedriver_contract_info,

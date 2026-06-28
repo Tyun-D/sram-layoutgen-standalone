@@ -38,3 +38,4 @@
 - `can_modify_standalone_now=False`
 - `can_generate_time_control_gds_now=False`
 - `can_claim_openyield_full_integration_now=False`
+- OpenYield layout prototype generation is now reproducible in guarded legacy/hybrid modes; full physical gap closure is still pending.
