@@ -12,6 +12,7 @@ from typing import Any
 from sram_layoutgen.gds_util import inspect_gds_hierarchy, measure_gds_bbox
 from sram_layoutgen.standalone import StandaloneSpec, write_standalone
 
+from .gate_row_packer import emit_gate_row_packing_report
 from .timing_metadata_consumer import (
     build_consumable_timing_objects,
     emit_consumer_summary,
@@ -54,6 +55,7 @@ def generate_layout_prototype(
     word_size: int = DEFAULT_LAYOUT_CASE["word_size"],
     num_words: int = DEFAULT_LAYOUT_CASE["num_words"],
     words_per_row: int = DEFAULT_LAYOUT_CASE["words_per_row"],
+    enable_openyield_gate_row_packing: bool = False,
 ) -> dict[str, Any]:
     repo = Path(repo_root).resolve()
     out = resolve_dir(repo, out_dir)
@@ -61,7 +63,7 @@ def generate_layout_prototype(
     out.mkdir(parents=True, exist_ok=True)
 
     support = load_support_bundle(docs)
-    spec = build_spec(mode, word_size, num_words, words_per_row)
+    spec = build_spec(mode, word_size, num_words, words_per_row, enable_openyield_gate_row_packing)
     metrics = write_standalone(spec, out)
     gds_path = (repo / metrics["gds"]).resolve() if not Path(metrics["gds"]).is_absolute() else Path(metrics["gds"]).resolve()
     sanity = build_gds_sanity(repo, gds_path, metrics, out)
@@ -72,9 +74,23 @@ def generate_layout_prototype(
     write_json(coverage_json, coverage)
     coverage_md.write_text(render_module_coverage_markdown(coverage), encoding="utf-8")
 
-    log_name = "baseline_generation.log" if mode == "legacy_baseline" else "hybrid_generation.log"
+    log_name = "generation.log" if enable_openyield_gate_row_packing else ("baseline_generation.log" if mode == "legacy_baseline" else "hybrid_generation.log")
     log_path = out / log_name
     log_path.write_text(render_generation_log(mode, spec, metrics, support, sanity, coverage), encoding="utf-8")
+
+    gate_row_packing_report = None
+    if enable_openyield_gate_row_packing:
+        old_root = repo / "outputs/layout_prototype/hybrid_openyield"
+        gate_row_packing_report = emit_gate_row_packing_report(
+            plan=_packing_plan_from_metrics(metrics),
+            out_json=out / "gate_row_packing_report.json",
+            out_md=out / "gate_row_packing_report.md",
+            old_gds=old_root / "hybrid_openyield_prototype.gds",
+            new_gds=gds_path,
+            old_layout_json=old_root / "hybrid_openyield_prototype.layout.json",
+            new_layout_json=Path(metrics["layout_json"]),
+            top_cell_name=metrics["name"],
+        )
 
     result = {
         "mode": mode,
@@ -88,6 +104,7 @@ def generate_layout_prototype(
             "enable_openyield_columnmux_adapter": spec.enable_openyield_columnmux_adapter,
             "enable_openyield_writedriver_adapter": spec.enable_openyield_writedriver_adapter,
             "enable_openyield_wordlinedriver_adapter": spec.enable_openyield_wordlinedriver_adapter,
+            "enable_openyield_gate_row_packing": spec.enable_openyield_gate_row_packing,
             "openyield_storage_row_orientation_policy": spec.openyield_storage_row_orientation_policy,
         },
         "out_dir": str(out),
@@ -114,6 +131,7 @@ def generate_layout_prototype(
                 "openyield_writedriver_adapter",
                 "openyield_wordlinedriver_adapter",
                 "openyield_array_aggregation_integration",
+                "openyield_gate_row_packing",
             )
         ),
         "gds_writer_modified": any(
@@ -124,8 +142,10 @@ def generate_layout_prototype(
                 "openyield_writedriver_adapter",
                 "openyield_wordlinedriver_adapter",
                 "openyield_array_aggregation_integration",
+                "openyield_gate_row_packing",
             )
         ),
+        "gate_row_packing_report": gate_row_packing_report,
         "standalone_default_behavior_preserved": True,
         "standalone_modified_for_explicit_opt_in": True,
     }
@@ -145,7 +165,13 @@ def resolve_dir(repo: Path, value: str | Path) -> Path:
     return path.resolve() if path.is_absolute() else (repo / path).resolve()
 
 
-def build_spec(mode: str, word_size: int, num_words: int, words_per_row: int) -> StandaloneSpec:
+def build_spec(
+    mode: str,
+    word_size: int,
+    num_words: int,
+    words_per_row: int,
+    enable_openyield_gate_row_packing: bool = False,
+) -> StandaloneSpec:
     if mode == "legacy_baseline":
         return StandaloneSpec(
             word_size=word_size,
@@ -158,12 +184,13 @@ def build_spec(mode: str, word_size: int, num_words: int, words_per_row: int) ->
             word_size=word_size,
             num_words=num_words,
             words_per_row=words_per_row,
-            name="hybrid_openyield_prototype",
+            name="hybrid_openyield_compacted" if enable_openyield_gate_row_packing else "hybrid_openyield_prototype",
             enable_openyield_array_aggregation=True,
             enable_openyield_senseamp_adapter=True,
             enable_openyield_columnmux_adapter=True,
             enable_openyield_writedriver_adapter=True,
             enable_openyield_wordlinedriver_adapter=True,
+            enable_openyield_gate_row_packing=enable_openyield_gate_row_packing,
             openyield_storage_row_orientation_policy="alternating_mx",
         )
     raise ValueError(f"unsupported mode: {mode}")
@@ -466,9 +493,48 @@ def render_generation_log(
     ]) + "\n"
 
 
+def _packing_plan_from_metrics(metrics: dict[str, Any]):
+    payload = metrics.get("openyield_gate_row_packing", {})
+    decoder = payload.get("decoder_plan", {}) if isinstance(payload, dict) else {}
+    rows = decoder.get("rows", []) if isinstance(decoder, dict) else []
+    rail_alignment = decoder.get("rail_alignment", {}) if isinstance(decoder, dict) else {}
+    from .gate_row_packer import GateRow, GateRowPackingPlan  # local import keeps this helper narrow
+
+    plan_rows = tuple(
+        GateRow(
+            row_name=str(item["row_name"]),
+            row_index=int(item["row_index"]),
+            origin_x=float(item["origin_x"]),
+            origin_y=float(item["origin_y"]),
+            width=float(item["width"]),
+            height=float(item["height"]),
+            mirror=str(item["mirror"]),
+            cells=tuple(),
+            vdd_y=float(item["vdd_y"]) if item.get("vdd_y") is not None else None,
+            gnd_y=float(item["gnd_y"]) if item.get("gnd_y") is not None else None,
+            blocked_reason=item.get("blocked_reason"),
+        )
+        for item in rows
+    )
+    return GateRowPackingPlan(
+        block_name="decoder_gate_rows",
+        explicit_opt_in=bool(payload.get("enabled", False)),
+        row_pitch=float(decoder.get("row_pitch", 0.0) or 0.0),
+        total_width=float(decoder.get("total_width", 0.0) or 0.0),
+        total_height=float(decoder.get("total_height", 0.0) or 0.0),
+        rows=plan_rows,
+        fallback_cells=tuple(decoder.get("fallback_cells", [])),
+        blocked_cells=tuple(decoder.get("blocked_cells", [])),
+        blocked_reason=decoder.get("blocked_reason"),
+        average_intra_row_gap_um=float(decoder.get("average_intra_row_gap_um", 0.0) or 0.0),
+        rail_alignment=rail_alignment if isinstance(rail_alignment, dict) else {},
+    )
+
+
 def build_docs_report(repo: Path) -> dict[str, Any]:
     baseline = load_result(repo / "outputs/layout_prototype/baseline_legacy/prototype_result.json")
     hybrid = load_result(repo / "outputs/layout_prototype/hybrid_openyield/prototype_result.json")
+    compacted = load_result(repo / "outputs/layout_prototype/hybrid_openyield_compacted/prototype_result.json")
     hybrid_coverage = hybrid.get("module_coverage", []) if hybrid else []
     gates = {
         "layout_prototype_generation_available": bool(baseline or hybrid),
@@ -476,7 +542,17 @@ def build_docs_report(repo: Path) -> dict[str, Any]:
         "legacy_baseline_gds_generated": bool(baseline and baseline["gds_sanity"]["gds_file_exists"] and baseline["gds_sanity"]["gds_file_size_gt_zero"]),
         "hybrid_openyield_attempted": bool(hybrid),
         "hybrid_openyield_gds_generated": bool(hybrid and hybrid["gds_sanity"]["gds_file_exists"] and hybrid["gds_sanity"]["gds_file_size_gt_zero"]),
-        "gds_output_path": hybrid.get("gds_path") if hybrid else (baseline.get("gds_path") if baseline else None),
+        "hybrid_compacted_attempted": bool(compacted),
+        "hybrid_compacted_gds_generated": bool(compacted and compacted["gds_sanity"]["gds_file_exists"] and compacted["gds_sanity"]["gds_file_size_gt_zero"]),
+        "gds_output_path": (
+            compacted.get("gds_path")
+            if compacted
+            else hybrid.get("gds_path")
+            if hybrid
+            else baseline.get("gds_path")
+            if baseline
+            else None
+        ),
         "module_coverage_available": bool(hybrid and hybrid.get("module_coverage_json")),
         "openyield_metadata_consumed": bool(hybrid and hybrid["support_bundle"].get("openyield_metadata_consumed", False)),
         "timing_metadata_consumer_used": bool(hybrid and hybrid["support_bundle"].get("timing_metadata_consumer_used", False)),
@@ -497,6 +573,7 @@ def build_docs_report(repo: Path) -> dict[str, Any]:
         "scope": "openyield_layout_prototype_generation",
         "baseline": baseline,
         "hybrid": hybrid,
+        "hybrid_compacted": compacted,
         "gates": gates,
         "openyield_driven_modules": hybrid.get("openyield_driven_modules", []) if hybrid else [],
         "fallback_modules": hybrid.get("fallback_modules", []) if hybrid else [],
@@ -519,6 +596,8 @@ def render_docs_report_markdown(report: dict[str, Any]) -> str:
         f"- legacy baseline GDS generated: `{gates['legacy_baseline_gds_generated']}`",
         f"- hybrid OpenYield attempted: `{gates['hybrid_openyield_attempted']}`",
         f"- hybrid OpenYield GDS generated: `{gates['hybrid_openyield_gds_generated']}`",
+        f"- hybrid compacted attempted: `{gates['hybrid_compacted_attempted']}`",
+        f"- hybrid compacted GDS generated: `{gates['hybrid_compacted_gds_generated']}`",
         f"- module coverage available: `{gates['module_coverage_available']}`",
         f"- openyield metadata consumed: `{gates['openyield_metadata_consumed']}`",
         f"- timing metadata consumer used: `{gates['timing_metadata_consumer_used']}`",

@@ -4,6 +4,8 @@
 - legacy baseline GDS generated: `True`
 - hybrid OpenYield attempted: `True`
 - hybrid OpenYield GDS generated: `True`
+- hybrid compacted attempted: `True`
+- hybrid compacted GDS generated: `True`
 - module coverage available: `True`
 - openyield metadata consumed: `True`
 - timing metadata consumer used: `True`

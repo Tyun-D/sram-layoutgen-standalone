@@ -13,3 +13,4 @@
 - `2026-06-28`: Ran source-linked PRECHARGE ngspice smoke; run_pass=`True`, behavior_plausible=`False`, and advanced PRECHARGE to `source_linked_candidate_spice_smoke_available` without enabling physical integration.
 - `2026-06-28`: Ran source-linked PRECHARGE ngspice smoke; run_pass=`True`, behavior_plausible=`True`, and advanced PRECHARGE to `source_linked_candidate_spice_smoke_available` without enabling physical integration.
 - 2026-06-28: Added guarded layout prototype generation wrapper for legacy baseline and hybrid OpenYield GDS production.
+- `2026-06-29`: Added explicit opt-in gate-row packing for hybrid OpenYield prototype compaction, packed decoder/control generated cells into abutted rows, and emitted `hybrid_openyield_compacted` GDS plus gate-row rail-alignment audit artifacts.
