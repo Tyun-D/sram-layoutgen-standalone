@@ -20,6 +20,7 @@ def main() -> int:
     parser.add_argument("--out-dir", required=True)
     parser.add_argument("--metadata-dir", default="docs")
     parser.add_argument("--enable-openyield-gate-row-packing", action="store_true")
+    parser.add_argument("--enable-openyield-gate-row-vertical-abutment", action="store_true")
     args = parser.parse_args()
 
     result = generate_layout_prototype(
@@ -28,6 +29,7 @@ def main() -> int:
         out_dir=args.out_dir,
         metadata_dir=args.metadata_dir,
         enable_openyield_gate_row_packing=args.enable_openyield_gate_row_packing,
+        enable_openyield_gate_row_vertical_abutment=args.enable_openyield_gate_row_vertical_abutment,
     )
     print(json.dumps({
         "mode": result["mode"],

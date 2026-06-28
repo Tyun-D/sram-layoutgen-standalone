@@ -68,6 +68,7 @@ class StandaloneSpec:
     enable_openyield_writedriver_adapter: bool = False
     enable_openyield_wordlinedriver_adapter: bool = False
     enable_openyield_gate_row_packing: bool = False
+    enable_openyield_gate_row_vertical_abutment: bool = False
     openyield_storage_row_orientation_policy: str = "all_r0"
 
     def __post_init__(self) -> None:
@@ -428,6 +429,16 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     row_decode_cell = "gen_nand2"
     row_decode_to_driver_gap = 0.0
     decoder_w = physical_cell_width(row_decode_cell) + row_decode_to_driver_gap + physical_cell_width("gen_wl_driver")
+    gate_footprints = {
+        cell_name: build_gate_cell_footprint(
+            cell_name,
+            tech.cell(cell_name).width,
+            tech.cell(cell_name).height,
+            bbox_y0=tech.cell(cell_name).bbox_y0,
+            bbox_y1=tech.cell(cell_name).bbox_y1,
+        )
+        for cell_name in {"gen_inv", "gen_nand2", "gen_delay_inv", "gen_wl_driver"}
+    }
     compact_gate_row_pitch = max(
         legal_origin_delta_y(row_decode_cell, row_decode_cell, "R0", "MX"),
         legal_origin_delta_y(row_decode_cell, row_decode_cell, "MX", "R0"),
@@ -438,7 +449,13 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     precharge_h = tech.cell("gen_precharge").height
     column_macro_pitch = bitcell_pitch_x
     column_macro_w = (cols - 1) * column_macro_pitch + max(physical_cell_width("gen_precharge"), physical_cell_width("gen_col_mux"))
-    row_logic_pitch = compact_gate_row_pitch if spec.enable_openyield_gate_row_packing else max(bitcell_pitch_y, compact_gate_row_pitch)
+    row_logic_pitch = (
+        gate_footprints[row_decode_cell].bbox_height
+        if spec.enable_openyield_gate_row_vertical_abutment
+        else compact_gate_row_pitch
+        if spec.enable_openyield_gate_row_packing
+        else max(bitcell_pitch_y, compact_gate_row_pitch)
+    )
     row_logic_h = (rows - 1) * row_logic_pitch + max(physical_cell_height(row_decode_cell), physical_cell_height("gen_wl_driver"))
     # Dummy, bitcell, and replica cells belong to one storage-array family.
     # Use the same native bitcell pitch across the whole family so the visual
@@ -493,11 +510,6 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         + strict_macro_spacing
     )
 
-    gate_footprints = {
-        cell_name: build_gate_cell_footprint(cell_name, tech.cell(cell_name).width, tech.cell(cell_name).height)
-        for cell_name in {"gen_inv", "gen_nand2", "gen_delay_inv", "gen_wl_driver"}
-    }
-
     def row_logic_plan(
         candidate_y_array: float,
         candidate_y_precharge: float,
@@ -512,7 +524,8 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
                 origin_x=x_decoder,
                 origin_y=candidate_y_array,
                 explicit_opt_in=True,
-                row_pitch=compact_gate_row_pitch,
+                row_pitch=gate_footprints[row_decode_cell].bbox_height if spec.enable_openyield_gate_row_vertical_abutment else compact_gate_row_pitch,
+                vertical_abutment_policy="zero_gap_alternating_mx" if spec.enable_openyield_gate_row_vertical_abutment else "standard_row_spacing",
             )
             positions = {
                 row_index: {
@@ -764,6 +777,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         "enable_openyield_writedriver_adapter": spec.enable_openyield_writedriver_adapter,
         "enable_openyield_wordlinedriver_adapter": spec.enable_openyield_wordlinedriver_adapter,
         "enable_openyield_gate_row_packing": spec.enable_openyield_gate_row_packing,
+        "enable_openyield_gate_row_vertical_abutment": spec.enable_openyield_gate_row_vertical_abutment,
         "num_rows": rows,
         "num_cols": cols,
         "bank_style": "contiguous-openram-origin-array",
@@ -1224,6 +1238,8 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         return float(selected_row_logic_plan["positions"][row]["driver_x"])  # type: ignore[index]
 
     def add_gate_row_stitch_shapes(plan_dict: dict[str, object], name_prefix: str) -> None:
+        if spec.enable_openyield_gate_row_vertical_abutment:
+            return
         rail_alignment = plan_dict.get("rail_alignment", {}) if isinstance(plan_dict, dict) else {}
         rows_data = plan_dict.get("rows", []) if isinstance(plan_dict, dict) else []
         rows_by_name = {
@@ -1321,10 +1337,11 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         origin_x=x_control,
         origin_y=control_gate_y,
         explicit_opt_in=spec.enable_openyield_gate_row_packing,
-        row_pitch=max(
+        row_pitch=gate_footprints["gen_inv"].bbox_height if spec.enable_openyield_gate_row_vertical_abutment else max(
             legal_origin_delta_y("gen_inv", "gen_nand2", "R0", "MX"),
             legal_origin_delta_y("gen_nand2", "gen_inv", "MX", "R0"),
         ),
+        vertical_abutment_policy="zero_gap_alternating_mx" if spec.enable_openyield_gate_row_vertical_abutment else "standard_row_spacing",
     )
     for row in control_glue_packing.rows:
         for placement_index, placement in enumerate(row.cells):
@@ -1354,7 +1371,8 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         origin_x=x_control,
         origin_y=column_select_y0,
         explicit_opt_in=spec.enable_openyield_gate_row_packing,
-        row_pitch=column_select_row_pitch,
+        row_pitch=gate_footprints[column_select_cell].bbox_height if spec.enable_openyield_gate_row_vertical_abutment else column_select_row_pitch,
+        vertical_abutment_policy="zero_gap_alternating_mx" if spec.enable_openyield_gate_row_vertical_abutment else "standard_row_spacing",
     )
     instance_index = 0
     for row in column_select_packing.rows:
@@ -1380,7 +1398,8 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         origin_x=x_control,
         origin_y=delay_y,
         explicit_opt_in=spec.enable_openyield_gate_row_packing,
-        row_pitch=delay_row_pitch,
+        row_pitch=gate_footprints["gen_delay_inv"].bbox_height if spec.enable_openyield_gate_row_vertical_abutment else delay_row_pitch,
+        vertical_abutment_policy="zero_gap_alternating_mx" if spec.enable_openyield_gate_row_vertical_abutment else "standard_row_spacing",
     )
     delay_index = 0
     for row in delay_packing.rows:
@@ -1402,6 +1421,8 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     db.metadata["openyield_gate_row_packing"] = {
         "enabled": bool(spec.enable_openyield_gate_row_packing),
         "explicit_opt_in": bool(spec.enable_openyield_gate_row_packing),
+        "vertical_abutment_enabled": bool(spec.enable_openyield_gate_row_vertical_abutment),
+        "vertical_abutment_policy": "zero_gap_alternating_mx" if spec.enable_openyield_gate_row_vertical_abutment else "standard_row_spacing",
         "legacy_default_behavior_preserved": True,
         "adapter_applied_to_placement": bool(spec.enable_openyield_gate_row_packing),
         "routing_changed": False,
@@ -2115,6 +2136,7 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
         "enable_openyield_writedriver_adapter": spec.enable_openyield_writedriver_adapter,
         "enable_openyield_wordlinedriver_adapter": spec.enable_openyield_wordlinedriver_adapter,
         "enable_openyield_gate_row_packing": spec.enable_openyield_gate_row_packing,
+        "enable_openyield_gate_row_vertical_abutment": spec.enable_openyield_gate_row_vertical_abutment,
         "openyield_storage_row_orientation_policy": spec.openyield_storage_row_orientation_policy,
         "bank_style": layout.metadata.get("bank_style"),
         "floorplan_compaction_strategy": layout.metadata.get("floorplan_compaction_strategy"),

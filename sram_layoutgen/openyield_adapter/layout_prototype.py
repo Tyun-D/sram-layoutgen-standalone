@@ -12,7 +12,12 @@ from typing import Any
 from sram_layoutgen.gds_util import inspect_gds_hierarchy, measure_gds_bbox
 from sram_layoutgen.standalone import StandaloneSpec, write_standalone
 
-from .gate_row_packer import emit_gate_row_packing_report
+from .gate_row_packer import (
+    GateRow,
+    GateRowPackingPlan,
+    emit_gate_row_packing_report,
+    emit_gate_row_vertical_abutment_report,
+)
 from .timing_metadata_consumer import (
     build_consumable_timing_objects,
     emit_consumer_summary,
@@ -56,6 +61,7 @@ def generate_layout_prototype(
     num_words: int = DEFAULT_LAYOUT_CASE["num_words"],
     words_per_row: int = DEFAULT_LAYOUT_CASE["words_per_row"],
     enable_openyield_gate_row_packing: bool = False,
+    enable_openyield_gate_row_vertical_abutment: bool = False,
 ) -> dict[str, Any]:
     repo = Path(repo_root).resolve()
     out = resolve_dir(repo, out_dir)
@@ -63,7 +69,14 @@ def generate_layout_prototype(
     out.mkdir(parents=True, exist_ok=True)
 
     support = load_support_bundle(docs)
-    spec = build_spec(mode, word_size, num_words, words_per_row, enable_openyield_gate_row_packing)
+    spec = build_spec(
+        mode,
+        word_size,
+        num_words,
+        words_per_row,
+        enable_openyield_gate_row_packing,
+        enable_openyield_gate_row_vertical_abutment,
+    )
     metrics = write_standalone(spec, out)
     gds_path = (repo / metrics["gds"]).resolve() if not Path(metrics["gds"]).is_absolute() else Path(metrics["gds"]).resolve()
     sanity = build_gds_sanity(repo, gds_path, metrics, out)
@@ -74,23 +87,37 @@ def generate_layout_prototype(
     write_json(coverage_json, coverage)
     coverage_md.write_text(render_module_coverage_markdown(coverage), encoding="utf-8")
 
-    log_name = "generation.log" if enable_openyield_gate_row_packing else ("baseline_generation.log" if mode == "legacy_baseline" else "hybrid_generation.log")
+    log_name = "generation.log" if (enable_openyield_gate_row_packing or enable_openyield_gate_row_vertical_abutment) else ("baseline_generation.log" if mode == "legacy_baseline" else "hybrid_generation.log")
     log_path = out / log_name
     log_path.write_text(render_generation_log(mode, spec, metrics, support, sanity, coverage), encoding="utf-8")
 
     gate_row_packing_report = None
+    gate_row_vertical_abutment_report = None
     if enable_openyield_gate_row_packing:
-        old_root = repo / "outputs/layout_prototype/hybrid_openyield"
-        gate_row_packing_report = emit_gate_row_packing_report(
-            plan=_packing_plan_from_metrics(metrics),
-            out_json=out / "gate_row_packing_report.json",
-            out_md=out / "gate_row_packing_report.md",
-            old_gds=old_root / "hybrid_openyield_prototype.gds",
-            new_gds=gds_path,
-            old_layout_json=old_root / "hybrid_openyield_prototype.layout.json",
-            new_layout_json=Path(metrics["layout_json"]),
-            top_cell_name=metrics["name"],
-        )
+        if enable_openyield_gate_row_vertical_abutment:
+            old_root = repo / "outputs/layout_prototype/hybrid_openyield_compacted"
+            gate_row_vertical_abutment_report = emit_gate_row_vertical_abutment_report(
+                plan=_packing_plan_from_metrics(metrics),
+                out_json=out / "gate_row_vertical_abutment_report.json",
+                out_md=out / "gate_row_vertical_abutment_report.md",
+                old_gds=old_root / "hybrid_openyield_compacted.gds",
+                new_gds=gds_path,
+                old_layout_json=old_root / "hybrid_openyield_compacted.layout.json",
+                new_layout_json=Path(metrics["layout_json"]),
+                top_cell_name=metrics["name"],
+            )
+        else:
+            old_root = repo / "outputs/layout_prototype/hybrid_openyield"
+            gate_row_packing_report = emit_gate_row_packing_report(
+                plan=_packing_plan_from_metrics(metrics),
+                out_json=out / "gate_row_packing_report.json",
+                out_md=out / "gate_row_packing_report.md",
+                old_gds=old_root / "hybrid_openyield_prototype.gds",
+                new_gds=gds_path,
+                old_layout_json=old_root / "hybrid_openyield_prototype.layout.json",
+                new_layout_json=Path(metrics["layout_json"]),
+                top_cell_name=metrics["name"],
+            )
 
     result = {
         "mode": mode,
@@ -105,6 +132,7 @@ def generate_layout_prototype(
             "enable_openyield_writedriver_adapter": spec.enable_openyield_writedriver_adapter,
             "enable_openyield_wordlinedriver_adapter": spec.enable_openyield_wordlinedriver_adapter,
             "enable_openyield_gate_row_packing": spec.enable_openyield_gate_row_packing,
+            "enable_openyield_gate_row_vertical_abutment": spec.enable_openyield_gate_row_vertical_abutment,
             "openyield_storage_row_orientation_policy": spec.openyield_storage_row_orientation_policy,
         },
         "out_dir": str(out),
@@ -146,6 +174,7 @@ def generate_layout_prototype(
             )
         ),
         "gate_row_packing_report": gate_row_packing_report,
+        "gate_row_vertical_abutment_report": gate_row_vertical_abutment_report,
         "standalone_default_behavior_preserved": True,
         "standalone_modified_for_explicit_opt_in": True,
     }
@@ -171,6 +200,7 @@ def build_spec(
     num_words: int,
     words_per_row: int,
     enable_openyield_gate_row_packing: bool = False,
+    enable_openyield_gate_row_vertical_abutment: bool = False,
 ) -> StandaloneSpec:
     if mode == "legacy_baseline":
         return StandaloneSpec(
@@ -184,13 +214,20 @@ def build_spec(
             word_size=word_size,
             num_words=num_words,
             words_per_row=words_per_row,
-            name="hybrid_openyield_compacted" if enable_openyield_gate_row_packing else "hybrid_openyield_prototype",
+            name=(
+                "hybrid_openyield_row_abutted"
+                if enable_openyield_gate_row_vertical_abutment
+                else "hybrid_openyield_compacted"
+                if enable_openyield_gate_row_packing
+                else "hybrid_openyield_prototype"
+            ),
             enable_openyield_array_aggregation=True,
             enable_openyield_senseamp_adapter=True,
             enable_openyield_columnmux_adapter=True,
             enable_openyield_writedriver_adapter=True,
             enable_openyield_wordlinedriver_adapter=True,
             enable_openyield_gate_row_packing=enable_openyield_gate_row_packing,
+            enable_openyield_gate_row_vertical_abutment=enable_openyield_gate_row_vertical_abutment,
             openyield_storage_row_orientation_policy="alternating_mx",
         )
     raise ValueError(f"unsupported mode: {mode}")
@@ -498,7 +535,6 @@ def _packing_plan_from_metrics(metrics: dict[str, Any]):
     decoder = payload.get("decoder_plan", {}) if isinstance(payload, dict) else {}
     rows = decoder.get("rows", []) if isinstance(decoder, dict) else []
     rail_alignment = decoder.get("rail_alignment", {}) if isinstance(decoder, dict) else {}
-    from .gate_row_packer import GateRow, GateRowPackingPlan  # local import keeps this helper narrow
 
     plan_rows = tuple(
         GateRow(
@@ -519,7 +555,9 @@ def _packing_plan_from_metrics(metrics: dict[str, Any]):
     return GateRowPackingPlan(
         block_name="decoder_gate_rows",
         explicit_opt_in=bool(payload.get("enabled", False)),
+        vertical_abutment_policy=str(decoder.get("vertical_abutment_policy", payload.get("vertical_abutment_policy", "standard_row_spacing"))),
         row_pitch=float(decoder.get("row_pitch", 0.0) or 0.0),
+        row_gap=float(decoder.get("row_gap", 0.0) or 0.0),
         total_width=float(decoder.get("total_width", 0.0) or 0.0),
         total_height=float(decoder.get("total_height", 0.0) or 0.0),
         rows=plan_rows,
@@ -527,6 +565,8 @@ def _packing_plan_from_metrics(metrics: dict[str, Any]):
         blocked_cells=tuple(decoder.get("blocked_cells", [])),
         blocked_reason=decoder.get("blocked_reason"),
         average_intra_row_gap_um=float(decoder.get("average_intra_row_gap_um", 0.0) or 0.0),
+        average_vertical_gap_um=float(decoder.get("average_vertical_gap_um", 0.0) or 0.0),
+        extra_interrow_power_stripe_inserted=bool(decoder.get("extra_interrow_power_stripe_inserted", False)),
         rail_alignment=rail_alignment if isinstance(rail_alignment, dict) else {},
     )
 
