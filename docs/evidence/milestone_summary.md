@@ -16,6 +16,7 @@
 - Hybrid OpenYield physical compaction is now available as an explicit opt-in: decoder/control gate cells can be packed into abutted rows with rail-alignment audit artifacts, while routing and `gds_writer.py` remain unchanged.
 - Hybrid OpenYield vertical gate-row abutment is now available as an explicit opt-in: decoder/control gate rows can use zero-gap alternating `R0/MX` packing without inserted inter-row power stripes, while routing and `gds_writer.py` remain unchanged.
 - An evidence-backed `OpenYield netlist-to-GDS readiness` matrix is now generated: 25 modules/capabilities are classified across source link, physical cell presence, pin mapping, placement, rail, routing, timing, DRC/LVS, and current hybrid integration status.
+- An evidence-backed L0 `OpenYield module semantics closure` report is now generated: 25 semantic objects, 20 parameter rows, 25 connection rows, 7 config-variation rows, and 21 OpenYield-to-layoutgen mapping rows are captured in CSV/Markdown/JSON artifacts.
 
 ## Current Limits
 
@@ -27,6 +28,7 @@
 - Vertical gate-row abutment now removes artificial inter-row stripes, but it is still not a claim of full rail signoff, DRC closure, or LVS closure.
 - `DELAY_CHAIN` is still metadata-consumable only, while `PRECHARGE`, `PRECHARGE_ENABLE_PATH`, `SENSE_ENABLE_PATH`, `WRITE_ENABLE_PATH`, `WORDLINE_ENABLE_PATH`, `GATED_CLOCK_PATH`, and `DFF_ROW` remain candidate-contract-only rather than physical-ready.
 - The largest full-OpenYield-GDS blocker cluster is now explicit: decoder/gate-row physical closure, TIME/DFF/control physical integration, rail continuity, and legacy routing replacement.
+- The largest L0-to-L1 blocker is now explicit: OpenYield exposes `num_rows`/`num_cols` semantics cleanly, but not first-class `word_size`/`num_words`/`words_per_row`/bank/port semantics, and `TIME` still needs a stable decomposition contract.
 
 ## Current Gates
 
@@ -52,3 +54,5 @@
 - `can_enter_decoder_gate_row_abutment=True`
 - `can_enter_delay_chain_physical_gap_closure=True`
 - `can_enter_precharge_physical_gap_closure=True`
+- `l0_module_semantics_matrix_available=True`
+- `can_enter_unrestricted_l1_physical_primitive_closure=False`

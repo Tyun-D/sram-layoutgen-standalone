@@ -1,0 +1,245 @@
+{
+  "nodes": [
+    {
+      "id": "CONTROL_LOGIC"
+    },
+    {
+      "id": "DELAY_CHAIN"
+    },
+    {
+      "id": "DFF_ROW"
+    },
+    {
+      "id": "GATED_CLOCK_PATH"
+    },
+    {
+      "id": "PRECHARGE_ENABLE_PATH"
+    },
+    {
+      "id": "SENSE_ENABLE_PATH"
+    },
+    {
+      "id": "SRAM_TOP"
+    },
+    {
+      "id": "VDD/GND"
+    },
+    {
+      "id": "WORDLINE_ENABLE_PATH"
+    },
+    {
+      "id": "WRITE_ENABLE_PATH"
+    },
+    {
+      "id": "all_modules"
+    },
+    {
+      "id": "bitcell_array"
+    },
+    {
+      "id": "column_mux"
+    },
+    {
+      "id": "precharge"
+    },
+    {
+      "id": "replica_array"
+    },
+    {
+      "id": "row_decoder"
+    },
+    {
+      "id": "sense_amp"
+    },
+    {
+      "id": "wordline_driver"
+    },
+    {
+      "id": "write_driver"
+    }
+  ],
+  "edges": [
+    {
+      "source": "SRAM_TOP",
+      "target": "DFF_ROW",
+      "signal": "A[i]",
+      "category": "address",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "DFF_ROW",
+      "target": "row_decoder",
+      "signal": "A_dff[i]",
+      "category": "address",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "row_decoder",
+      "target": "wordline_driver",
+      "signal": "DEC_WL[i]",
+      "category": "decoder_wordline",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "CONTROL_LOGIC",
+      "target": "wordline_driver",
+      "signal": "WL_EN",
+      "category": "control_enable",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "wordline_driver",
+      "target": "bitcell_array",
+      "signal": "WL[i]",
+      "category": "wordline",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "bitcell_array",
+      "target": "precharge",
+      "signal": "BL[i];BLB[i]",
+      "category": "bitline",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "precharge",
+      "target": "column_mux",
+      "signal": "BL[i];BLB[i]",
+      "category": "bitline",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "column_mux",
+      "target": "sense_amp",
+      "signal": "SA_IN[*];SA_INB[*]",
+      "category": "read_data",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "bitcell_array",
+      "target": "sense_amp",
+      "signal": "BL[i];BLB[i]",
+      "category": "read_data",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "sense_amp",
+      "target": "SRAM_TOP",
+      "signal": "SA_Q[*];SA_QB[*]",
+      "category": "read_data",
+      "confidence": "MEDIUM"
+    },
+    {
+      "source": "SRAM_TOP",
+      "target": "DFF_ROW",
+      "signal": "DIN[i]",
+      "category": "write_data",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "DFF_ROW",
+      "target": "write_driver",
+      "signal": "DIN_dff[i]",
+      "category": "write_data",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "CONTROL_LOGIC",
+      "target": "write_driver",
+      "signal": "w_en",
+      "category": "control_enable",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "write_driver",
+      "target": "bitcell_array",
+      "signal": "BL[i];BLB[i]",
+      "category": "bitline",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "replica_array",
+      "target": "DELAY_CHAIN",
+      "signal": "rbl",
+      "category": "timing_sense",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "DELAY_CHAIN",
+      "target": "SENSE_ENABLE_PATH",
+      "signal": "rbl_delay",
+      "category": "timing_control",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "DELAY_CHAIN",
+      "target": "WRITE_ENABLE_PATH",
+      "signal": "rbl_delay_bar",
+      "category": "timing_control",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "CONTROL_LOGIC",
+      "target": "precharge",
+      "signal": "PRE",
+      "category": "control_enable",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "CONTROL_LOGIC",
+      "target": "sense_amp",
+      "signal": "s_en",
+      "category": "control_enable",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "CONTROL_LOGIC",
+      "target": "DFF_ROW",
+      "signal": "clk_buf",
+      "category": "clock",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "CONTROL_LOGIC",
+      "target": "GATED_CLOCK_PATH",
+      "signal": "gated_clk_bar;gated_clk_buf",
+      "category": "clock_control",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "CONTROL_LOGIC",
+      "target": "WORDLINE_ENABLE_PATH",
+      "signal": "wl_en",
+      "category": "control_enable",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "CONTROL_LOGIC",
+      "target": "PRECHARGE_ENABLE_PATH",
+      "signal": "PRE",
+      "category": "control_enable",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "CONTROL_LOGIC",
+      "target": "WRITE_ENABLE_PATH",
+      "signal": "w_en",
+      "category": "control_enable",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "CONTROL_LOGIC",
+      "target": "SENSE_ENABLE_PATH",
+      "signal": "s_en",
+      "category": "control_enable",
+      "confidence": "HIGH"
+    },
+    {
+      "source": "VDD/GND",
+      "target": "all_modules",
+      "signal": "VDD;VSS",
+      "category": "power",
+      "confidence": "HIGH"
+    }
+  ]
+}
