@@ -15,6 +15,7 @@
 - PRECHARGE ngspice smoke is now complete: the source-linked candidate subckt and transient smoke deck both ran, BL/BLB behavior was checked against active-low ENB inference, and PRECHARGE moved to `source_linked_candidate_spice_smoke_available` while remaining not physical-ready.
 - Hybrid OpenYield physical compaction is now available as an explicit opt-in: decoder/control gate cells can be packed into abutted rows with rail-alignment audit artifacts, while routing and `gds_writer.py` remain unchanged.
 - Hybrid OpenYield vertical gate-row abutment is now available as an explicit opt-in: decoder/control gate rows can use zero-gap alternating `R0/MX` packing without inserted inter-row power stripes, while routing and `gds_writer.py` remain unchanged.
+- An evidence-backed `OpenYield netlist-to-GDS readiness` matrix is now generated: 25 modules/capabilities are classified across source link, physical cell presence, pin mapping, placement, rail, routing, timing, DRC/LVS, and current hybrid integration status.
 
 ## Current Limits
 
@@ -24,6 +25,8 @@
 - `standalone.py` now contains explicit opt-in gate-row packing; routing and `gds_writer.py` remain unchanged.
 - Gate-row compaction improves placement density, but routing compaction, DRC closure, LVS closure, and full power-rail continuity proof are still pending.
 - Vertical gate-row abutment now removes artificial inter-row stripes, but it is still not a claim of full rail signoff, DRC closure, or LVS closure.
+- `DELAY_CHAIN` is still metadata-consumable only, while `PRECHARGE`, `PRECHARGE_ENABLE_PATH`, `SENSE_ENABLE_PATH`, `WRITE_ENABLE_PATH`, `WORDLINE_ENABLE_PATH`, `GATED_CLOCK_PATH`, and `DFF_ROW` remain candidate-contract-only rather than physical-ready.
+- The largest full-OpenYield-GDS blocker cluster is now explicit: decoder/gate-row physical closure, TIME/DFF/control physical integration, rail continuity, and legacy routing replacement.
 
 ## Current Gates
 
@@ -45,3 +48,7 @@
 - OpenYield layout prototype generation is now reproducible in guarded legacy/hybrid modes; full physical gap closure is still pending.
 - `can_enter_routing_compaction=True`
 - `can_enter_power_rail_stitching_verification=True`
+- `netlist_to_gds_readiness_matrix_available=True`
+- `can_enter_decoder_gate_row_abutment=True`
+- `can_enter_delay_chain_physical_gap_closure=True`
+- `can_enter_precharge_physical_gap_closure=True`
