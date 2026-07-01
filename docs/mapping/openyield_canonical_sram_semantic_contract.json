@@ -1,0 +1,151 @@
+{
+  "contract_name": "openyield_canonical_sram_semantic_contract",
+  "scope": {
+    "single_bank": true,
+    "single_implicit_readwrite_port": true,
+    "write_mask_supported": false,
+    "multi_bank_supported": false,
+    "multi_port_supported": false,
+    "column_mux_ratio_supported_values": [
+      1,
+      2
+    ]
+  },
+  "supported_sram_scope": {
+    "bank_count": 1,
+    "port_count": 1,
+    "readwrite_port_model": "one shared implicit read/write port controlled by csb/web",
+    "write_mask_model": "unsupported",
+    "words_per_row_supported_values": [
+      1,
+      2
+    ]
+  },
+  "unsupported_features": [
+    "multi_bank",
+    "multi_port",
+    "write_mask",
+    "write_size",
+    "words_per_row_gt_2",
+    "column_mux_ratio_gt_2"
+  ],
+  "local_logical_parameters": [
+    "num_words",
+    "word_size",
+    "words_per_row",
+    "num_rows",
+    "physical_num_cols",
+    "column_mux_ratio",
+    "addr_size",
+    "row_addr_size"
+  ],
+  "openyield_parameters": [
+    "num_rows",
+    "num_cols",
+    "choose_columnmux",
+    "operation"
+  ],
+  "derivation_rules": [
+    {
+      "rule_name": "logical_to_physical_rows",
+      "rule": "num_rows = ceil(num_words / words_per_row)",
+      "scope": "canonical_local_contract"
+    },
+    {
+      "rule_name": "logical_to_physical_cols",
+      "rule": "physical_num_cols = word_size * words_per_row",
+      "scope": "canonical_local_contract"
+    },
+    {
+      "rule_name": "words_per_row_to_mux",
+      "rule": "column_mux_ratio = words_per_row; words_per_row=1 -> choose_columnmux=False; words_per_row=2 -> choose_columnmux=True; words_per_row>2 -> unsupported_until_column_mux_generalized",
+      "scope": "canonical_local_contract"
+    },
+    {
+      "rule_name": "openyield_num_rows_binding",
+      "rule": "OpenYield num_rows = local num_rows",
+      "scope": "source_backed"
+    },
+    {
+      "rule_name": "openyield_num_cols_binding",
+      "rule": "OpenYield num_cols = local physical_num_cols",
+      "scope": "source_backed"
+    },
+    {
+      "rule_name": "address_width",
+      "rule": "row_addr_size = ceil(log2(num_rows)); addr_size = row_addr_size in current OpenYield source",
+      "scope": "source_backed"
+    }
+  ],
+  "module_instance_count_rules": [
+    "bitcell_array cell count = num_rows * physical_num_cols",
+    "row_decoder outputs = num_rows",
+    "wordline_driver instances = num_rows",
+    "write_driver instances = physical_num_cols",
+    "precharge instances = physical_num_cols for read path plus one replica precharge; write-only path keeps replica precharge only",
+    "sense_amp instances = physical_num_cols when words_per_row=1 else physical_num_cols / 2 when words_per_row=2",
+    "column_mux instances = 0 when words_per_row=1 else physical_num_cols / 2 when words_per_row=2",
+    "replica_array rows = num_rows + 1",
+    "dummy_column rows = num_rows + 3 when dummy structures are enabled",
+    "ADDR_DFF count = ceil(log2(num_rows)); DATA_DFF count = physical_num_cols for write/read&write modes"
+  ],
+  "control_time_boundary": {
+    "root_object": "CONTROL_LOGIC",
+    "root_source": "sram_compiler/subcircuits/time_generate.py:483-757",
+    "decomposed_objects": [
+      "DFF_ROW",
+      "GATED_CLOCK_PATH",
+      "WORDLINE_ENABLE_PATH",
+      "PRECHARGE_ENABLE_PATH",
+      "SENSE_ENABLE_PATH",
+      "WRITE_ENABLE_PATH",
+      "DELAY_CHAIN"
+    ],
+    "contract_rule": "TIME is treated as one composite semantic root with stable internal boundary objects, not as one physical primitive."
+  },
+  "top_level_port_contract": {
+    "power": [
+      "VDD",
+      "VSS"
+    ],
+    "clock": [
+      "clk"
+    ],
+    "external_control": [
+      "csb",
+      "web"
+    ],
+    "address_inputs": "A[i], i in [0, addr_size-1]",
+    "write_data_inputs": "DIN[i], i in [0, physical_num_cols-1] for write/read&write source semantics",
+    "storage_array_nets": [
+      "BL[i]",
+      "BLB[i]",
+      "WL[i]"
+    ],
+    "replica_nets": [
+      "RBL",
+      "RBLB",
+      "RWL"
+    ],
+    "read_output_semantics": "SenseAmp Q path is canonical DOUT semantic path; QB remains observation/complement semantic output and may be dropped by local hardcell adapter."
+  },
+  "single_bank_assumption": {
+    "bank_count_supported": 1,
+    "bank_object": "implicit single BANK object inside SRAM_TOP assembly",
+    "unsupported_rule": "num_banks > 1 is outside current L0/L1 scope"
+  },
+  "routing_power_timing_handoff_semantics": {
+    "routing_semantics": "Canonical net names and upstream/downstream ownership are frozen at L0; detailed geometry/routing remains L2+ work.",
+    "power_semantics": "All OpenYield modules use VDD/VSS or VDD-only PRECHARGE convention; rail continuity proof remains later-layer work.",
+    "timing_semantics": "Control enable ordering and delay-chain relations are frozen semantically; transient waveforms and timing closure remain later-layer work."
+  },
+  "source_evidence": [
+    "sram_compiler/testbenches/sram_6t_core_testbench.py",
+    "sram_compiler/subcircuits/time_generate.py",
+    "sram_compiler/subcircuits/decoder.py",
+    "sram_compiler/subcircuits/wordline_driver.py",
+    "sram_compiler/subcircuits/mux_and_sa.py",
+    "sram_compiler/subcircuits/precharge_and_write_driver.py",
+    "sram_compiler/config_yaml/global.yaml"
+  ]
+}

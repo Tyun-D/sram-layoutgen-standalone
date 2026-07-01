@@ -1,0 +1,128 @@
+{
+  "contract_name": "openyield_time_control_decomposition_contract",
+  "root_object": "CONTROL_LOGIC",
+  "root_source": "sram_compiler/subcircuits/time_generate.py:483-757",
+  "objects": [
+    {
+      "semantic_object": "CONTROL_LOGIC",
+      "source_evidence": "sram_compiler/subcircuits/time_generate.py",
+      "input_signals": "clk,csb,web,A[i],DIN[i],rbl",
+      "output_signals": "clk_buf,clk_bar,cs,cs_bar,we,we_bar,gated_clk_bar,gated_clk_buf,wl_en,PRE,s_en,w_en,A_dff[i],DIN_dff[i],rbl_delay,rbl_delay_bar",
+      "upstream": "SRAM_TOP;replica_array",
+      "downstream": "DFF_ROW;GATED_CLOCK_PATH;WORDLINE_ENABLE_PATH;PRECHARGE_ENABLE_PATH;SENSE_ENABLE_PATH;WRITE_ENABLE_PATH;DELAY_CHAIN",
+      "role": "Composite control/timing generator",
+      "contract_boundary": "TIME is one semantic root with stable sub-boundaries",
+      "required_for_L1": true,
+      "parameter_dependencies": "num_rows;num_cols;operation",
+      "known_unresolved_physical_issues": "Physical implementation, placement, and routing remain later-layer work."
+    },
+    {
+      "semantic_object": "DFF_ROW",
+      "source_evidence": "sram_compiler/subcircuits/time_generate.py",
+      "input_signals": "clk_buf,A[i],DIN[i],csb,web",
+      "output_signals": "A_dff[i],DIN_dff[i],cs,cs_bar,we,we_bar",
+      "upstream": "SRAM_TOP;CONTROL_LOGIC",
+      "downstream": "row_decoder;write_driver;GATED_CLOCK_PATH",
+      "role": "Registered control/data capture layer",
+      "contract_boundary": "Generated DFF arrays remain one semantic object even if physically decomposed later",
+      "required_for_L1": true,
+      "parameter_dependencies": "num_rows;num_cols;operation",
+      "known_unresolved_physical_issues": "Row packing and physical clock distribution remain later-layer work."
+    },
+    {
+      "semantic_object": "GATED_CLOCK_PATH",
+      "source_evidence": "sram_compiler/subcircuits/time_generate.py",
+      "input_signals": "cs,clk_buf,clk_bar",
+      "output_signals": "gated_clk_bar,gated_clk_buf",
+      "upstream": "CONTROL_LOGIC;DFF_ROW",
+      "downstream": "WORDLINE_ENABLE_PATH;PRECHARGE_ENABLE_PATH;SENSE_ENABLE_PATH;WRITE_ENABLE_PATH",
+      "role": "Internal clock gating path",
+      "contract_boundary": "Stable semantic boundary for all gated clock consumers",
+      "required_for_L1": true,
+      "parameter_dependencies": "num_rows;num_cols",
+      "known_unresolved_physical_issues": "Actual gate-level or cell-level implementation remains later-layer work."
+    },
+    {
+      "semantic_object": "WORDLINE_ENABLE_PATH",
+      "source_evidence": "sram_compiler/subcircuits/time_generate.py",
+      "input_signals": "gated_clk_bar",
+      "output_signals": "wl_en,wl_en_bar",
+      "upstream": "GATED_CLOCK_PATH",
+      "downstream": "wordline_driver;PRECHARGE_ENABLE_PATH",
+      "role": "Wordline enable generator",
+      "contract_boundary": "Stable semantic boundary from gated clock to WL enable outputs",
+      "required_for_L1": true,
+      "parameter_dependencies": "num_rows;num_cols",
+      "known_unresolved_physical_issues": "Physical buffering remains later-layer work."
+    },
+    {
+      "semantic_object": "PRECHARGE_ENABLE_PATH",
+      "source_evidence": "sram_compiler/subcircuits/time_generate.py",
+      "input_signals": "gated_clk_buf,rbl_delay,wl_en_bar",
+      "output_signals": "PRE",
+      "upstream": "CONTROL_LOGIC;DELAY_CHAIN;WORDLINE_ENABLE_PATH",
+      "downstream": "precharge",
+      "role": "Precharge enable path",
+      "contract_boundary": "Stable semantic boundary from timing/control signals to PRE",
+      "required_for_L1": true,
+      "parameter_dependencies": "num_rows;num_cols",
+      "known_unresolved_physical_issues": "Transistor-level truth implementation remains later-layer work."
+    },
+    {
+      "semantic_object": "SENSE_ENABLE_PATH",
+      "source_evidence": "sram_compiler/subcircuits/time_generate.py",
+      "input_signals": "rbl_delay,gated_clk_bar,we_bar",
+      "output_signals": "s_en",
+      "upstream": "CONTROL_LOGIC;DELAY_CHAIN;GATED_CLOCK_PATH",
+      "downstream": "sense_amp",
+      "role": "Sense enable path",
+      "contract_boundary": "Stable semantic boundary from timing/control signals to s_en",
+      "required_for_L1": true,
+      "parameter_dependencies": "num_rows;num_cols",
+      "known_unresolved_physical_issues": "Physical path synthesis remains later-layer work."
+    },
+    {
+      "semantic_object": "WRITE_ENABLE_PATH",
+      "source_evidence": "sram_compiler/subcircuits/time_generate.py",
+      "input_signals": "rbl_delay_bar or rbl_delay_bar_wen,gated_clk_bar,we",
+      "output_signals": "w_en",
+      "upstream": "CONTROL_LOGIC;DELAY_CHAIN;GATED_CLOCK_PATH",
+      "downstream": "write_driver",
+      "role": "Write enable path",
+      "contract_boundary": "Stable semantic boundary from timing/control signals to w_en",
+      "required_for_L1": true,
+      "parameter_dependencies": "num_rows;num_cols;operation",
+      "known_unresolved_physical_issues": "Special-case 16x512 WenDelayChain remains semantic-only at L0."
+    },
+    {
+      "semantic_object": "DELAY_CHAIN",
+      "source_evidence": "sram_compiler/subcircuits/time_generate.py",
+      "input_signals": "rbl or rbl_delay_bar",
+      "output_signals": "rbl_delay,rbl_delay_bar,(optional)rbl_delay_bar_wen",
+      "upstream": "replica_array",
+      "downstream": "PRECHARGE_ENABLE_PATH;SENSE_ENABLE_PATH;WRITE_ENABLE_PATH",
+      "role": "Replica delay timing generator",
+      "contract_boundary": "Stable timing-source boundary feeding enable paths",
+      "required_for_L1": true,
+      "parameter_dependencies": "num_rows;num_cols;operation",
+      "known_unresolved_physical_issues": "Physical implementation of the chain remains later-layer work."
+    },
+    {
+      "semantic_object": "timing_semantics",
+      "source_evidence": "sram_compiler/subcircuits/time_generate.py",
+      "input_signals": "clk,csb,web,rbl",
+      "output_signals": "enable ordering and observation timing points",
+      "upstream": "CONTROL_LOGIC;DELAY_CHAIN;replica_array",
+      "downstream": "precharge;sense_amp;write_driver;wordline_driver",
+      "role": "Semantic timing handoff object",
+      "contract_boundary": "Captures reusable timing order separate from transient testbench pulse definitions",
+      "required_for_L1": true,
+      "parameter_dependencies": "num_rows;num_cols;operation",
+      "known_unresolved_physical_issues": "Timing closure itself remains out of scope."
+    }
+  ],
+  "source_evidence": [
+    "sram_compiler/subcircuits/time_generate.py",
+    "sram_compiler/testbenches/sram_6t_core_testbench.py:58-105"
+  ]
+}

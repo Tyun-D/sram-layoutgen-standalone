@@ -1,7 +1,5 @@
 # OpenYield Module Connection Matrix
 
-- row count: `26`
-
 | source_module | source_port_or_signal | target_module | target_port_or_signal | signal_name | signal_category | direction | is_power | is_clock | is_control | is_data | is_bitline | is_wordline | is_timing_path | evidence_source | confidence | unresolved_reason |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | SRAM_TOP | A[i] | DFF_ROW | A[i] | A[i] | address | input_to_register | False | False | False | False | False | False | False | sram_compiler/subcircuits/time_generate.py:501-537;sram_compiler/testbenches/sram_6t_core_testbench.py:1025-1040 | HIGH |  |
