@@ -25,3 +25,5 @@
 - 2026-07-02: Generated OpenYield L1 physical primitive readiness inventory and module-to-primitive dependency matrix.
 
 - 2026-07-02: Generated OpenYield L1 physical primitive readiness inventory and module-to-primitive dependency matrix.
+
+- 2026-07-02: Closed OpenYield L1 primitive-source blockers with composition-backed generator contracts and promoted precharge hardmacro pin contract.

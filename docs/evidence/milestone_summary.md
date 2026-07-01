@@ -64,3 +64,5 @@
 - L1 first pass: primitive inventory frozen; L2 gate depends on remaining physical-source blockers.
 
 - L1 first pass: primitive inventory frozen; L2 gate depends on remaining physical-source blockers.
+
+- L1 gap closure: required primitive physical sources are closed; flow may enter L2 placement/abutment/rail-rule closure.

@@ -1,21 +1,33 @@
 # L1 Physical Primitive Gap Summary
 
-## First-pass Conclusion
+## First-round Blockers
 
-- can_claim_L1_physical_primitives_closed_now: `False`
-- can_enter_L2_placement_abutment_rule_closure: `False`
-- can_enter_L3_module_gds_generation: `False`
+- `nand3` and `and3` were `SOURCE_ONLY`.
+- `enable_path_leaf_gate`, `gated_clock_leaf_gate`, and `control_logic_leaf_gate` were `CANDIDATE_SPICE_ONLY`.
+- `and2`, `buffer`, and decoder/driver leaf groups were fallback-only without a promoted composition source.
+- `precharge_cell` still carried a hardmacro pin-contract readiness gap.
 
-## Main Blockers
+## This-pass Closure
 
-- `and3:SOURCE_ONLY:OpenYield source exists but no local GDS/generator/fallback physical source is available.`
-- `control_logic_leaf_gate:CANDIDATE_SPICE_ONLY:Only candidate SPICE evidence exists; no local physical generator or GDS is available.`
-- `enable_path_leaf_gate:CANDIDATE_SPICE_ONLY:Only candidate SPICE evidence exists; no local physical generator or GDS is available.`
-- `gated_clock_leaf_gate:CANDIDATE_SPICE_ONLY:Only candidate SPICE evidence exists; no local physical generator or GDS is available.`
-- `nand3:SOURCE_ONLY:OpenYield source exists but no local GDS/generator/fallback physical source is available.`
+1. `nand3` is closed by a composition-backed Python source contract using a `nand4`-derived generator policy with one input tied high.
+2. `and3` is closed by explicit `nand3 + inv` composition policy.
+3. `and2` and `buffer` are promoted to explicit composition-backed generator contracts.
+4. `enable_path_leaf_gate`, `gated_clock_leaf_gate`, and `control_logic_leaf_gate` are closed by TIME-contract-derived composition sources rather than candidate SPICE only.
+5. `precharge_cell` is closed as L1-ready through hardmacro GDS + pin contract + bbox, with geometry refinement deferred to L2.
 
-## Needed Evidence Or Generators
+## What Moves To L2
 
-- For `nand3` and `and3`: add a local physical source, either replacement GDS, a Python generator, or an explicit compositional fallback that the GDS writer can instantiate as a stable leaf.
-- For control/decode leaf groups that remain metadata or candidate-only: freeze whether they decompose into existing local cells or need dedicated hardmacros.
-- For primitives that already have GDS but incomplete abutment metadata: close L2 left/right and top/bottom stitching rules rather than rediscovering leaf semantics.
+- Abutment/orientation rules for composition-backed leaves.
+- Rail stitch and local row-packing rules for control/decode paths.
+- Precharge pin-geometry refinement and detailed rail extraction.
+
+## Why L2 Is Now Allowed
+
+- remaining_L1_blockers_count: `0`
+- can_enter_L2_placement_abutment_rule_closure: `True`
+- Every required primitive in the current L0-supported scope now has an explicit local physical source: existing GDS, hardmacro GDS, Python generator, or composition-backed Python generator contract.
+
+## Why L3 Is Still Blocked
+
+- Module GDS composition, row packing, abutment, rail stitching, and final geometry proof remain L2/L3 work.
+- This pass does not claim full OpenYield GDS, DRC, LVS, or timing closure.
