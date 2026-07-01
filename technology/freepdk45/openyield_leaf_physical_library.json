@@ -1,0 +1,486 @@
+{
+  "library_name": "openyield_leaf_physical_library",
+  "technology": "freepdk45",
+  "primitive_count": 27,
+  "primitives": [
+    {
+      "name": "bitcell",
+      "category": "storage_cell",
+      "local_physical_source_type": "EXISTING_GDS",
+      "local_physical_source_path": "technology/freepdk45/gds_lib/cell_1rw.gds",
+      "readiness_level": "LEAF_GDS_READY",
+      "bbox_known": true,
+      "pin_labels_known": true,
+      "vdd_gnd_pins_known": true,
+      "rail_geometry_known": true,
+      "usable_for_module_gds_generation": true,
+      "usable_for_top_level_gds_generation": true,
+      "evidence_files": [
+        "docs/openyield_storage_pitch_audit_report.md",
+        "sram_compiler/subcircuits/sram_6t_core.py",
+        "technology/freepdk45/gds_lib/cell_1rw.gds"
+      ]
+    },
+    {
+      "name": "dummy_cell",
+      "category": "storage_cell",
+      "local_physical_source_type": "EXISTING_GDS",
+      "local_physical_source_path": "technology/freepdk45/gds_lib/dummy_cell_1rw.gds",
+      "readiness_level": "LEAF_GDS_READY",
+      "bbox_known": true,
+      "pin_labels_known": true,
+      "vdd_gnd_pins_known": true,
+      "rail_geometry_known": true,
+      "usable_for_module_gds_generation": true,
+      "usable_for_top_level_gds_generation": true,
+      "evidence_files": [
+        "docs/openyield_storage_pitch_audit_report.md",
+        "sram_compiler/subcircuits/dummy_row_or_column.py",
+        "technology/freepdk45/gds_lib/dummy_cell_1rw.gds"
+      ]
+    },
+    {
+      "name": "replica_cell",
+      "category": "storage_cell",
+      "local_physical_source_type": "EXISTING_GDS",
+      "local_physical_source_path": "technology/freepdk45/gds_lib/replica_cell_1rw.gds",
+      "readiness_level": "LEAF_GDS_READY",
+      "bbox_known": true,
+      "pin_labels_known": true,
+      "vdd_gnd_pins_known": true,
+      "rail_geometry_known": true,
+      "usable_for_module_gds_generation": true,
+      "usable_for_top_level_gds_generation": true,
+      "evidence_files": [
+        "docs/openyield_storage_pitch_audit_report.md",
+        "sram_compiler/subcircuits/replica_column.py",
+        "technology/freepdk45/gds_lib/replica_cell_1rw.gds"
+      ]
+    },
+    {
+      "name": "inv",
+      "category": "standard_cell",
+      "local_physical_source_type": "HARDMACRO_GDS",
+      "local_physical_source_path": "technology/freepdk45/gds_lib/openram_replacements/gen_inv.gds",
+      "readiness_level": "HARDMACRO_GDS_READY",
+      "bbox_known": true,
+      "pin_labels_known": true,
+      "vdd_gnd_pins_known": true,
+      "rail_geometry_known": true,
+      "usable_for_module_gds_generation": true,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "docs/openyield_hardcell_power_rail_continuity_report.md",
+        "sram_compiler/subcircuits/standard_cell.py",
+        "technology/freepdk45/gds_lib/openram_replacements/gen_inv.gds"
+      ]
+    },
+    {
+      "name": "delay_inv",
+      "category": "timing_buffer",
+      "local_physical_source_type": "HARDMACRO_GDS",
+      "local_physical_source_path": "technology/freepdk45/gds_lib/openram_replacements/gen_delay_inv.gds",
+      "readiness_level": "HARDMACRO_GDS_READY",
+      "bbox_known": true,
+      "pin_labels_known": true,
+      "vdd_gnd_pins_known": true,
+      "rail_geometry_known": true,
+      "usable_for_module_gds_generation": true,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "docs/candidate_spice/delay_chain_corner_placeholder.inc",
+        "docs/candidate_spice/delay_chain_measure.inc",
+        "docs/candidate_spice/delay_chain_measurement_refined_ngspice.log",
+        "docs/openyield_hardcell_power_rail_continuity_report.md",
+        "sram_compiler/subcircuits/standard_cell.py",
+        "sram_compiler/subcircuits/time_generate.py",
+        "technology/freepdk45/gds_lib/openram_replacements/gen_delay_inv.gds"
+      ]
+    },
+    {
+      "name": "nand2",
+      "category": "standard_cell",
+      "local_physical_source_type": "HARDMACRO_GDS",
+      "local_physical_source_path": "technology/freepdk45/gds_lib/openram_replacements/gen_nand2.gds",
+      "readiness_level": "HARDMACRO_GDS_READY",
+      "bbox_known": true,
+      "pin_labels_known": true,
+      "vdd_gnd_pins_known": true,
+      "rail_geometry_known": true,
+      "usable_for_module_gds_generation": true,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "docs/openyield_hardcell_power_rail_continuity_report.md",
+        "sram_compiler/subcircuits/standard_cell.py",
+        "technology/freepdk45/gds_lib/openram_replacements/gen_nand2.gds"
+      ]
+    },
+    {
+      "name": "nand3",
+      "category": "standard_cell",
+      "local_physical_source_type": "SOURCE_ONLY",
+      "local_physical_source_path": "",
+      "readiness_level": "SOURCE_ONLY_NEEDS_PHYSICAL_GENERATOR",
+      "bbox_known": false,
+      "pin_labels_known": false,
+      "vdd_gnd_pins_known": false,
+      "rail_geometry_known": false,
+      "usable_for_module_gds_generation": false,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "sram_compiler/subcircuits/standard_cell.py"
+      ]
+    },
+    {
+      "name": "nand4",
+      "category": "standard_cell",
+      "local_physical_source_type": "PYTHON_GENERATOR",
+      "local_physical_source_path": "technology/freepdk45/gds_lib/gen_nand4.gds",
+      "readiness_level": "PYTHON_GENERATOR_READY",
+      "bbox_known": true,
+      "pin_labels_known": true,
+      "vdd_gnd_pins_known": true,
+      "rail_geometry_known": true,
+      "usable_for_module_gds_generation": true,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "technology/freepdk45/gds_lib/gen_nand4.gds"
+      ]
+    },
+    {
+      "name": "nor2",
+      "category": "standard_cell",
+      "local_physical_source_type": "PYTHON_GENERATOR",
+      "local_physical_source_path": "technology/freepdk45/gds_lib/gen_nor2.gds",
+      "readiness_level": "PYTHON_GENERATOR_READY",
+      "bbox_known": true,
+      "pin_labels_known": true,
+      "vdd_gnd_pins_known": true,
+      "rail_geometry_known": true,
+      "usable_for_module_gds_generation": true,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "technology/freepdk45/gds_lib/gen_nor2.gds"
+      ]
+    },
+    {
+      "name": "nor3",
+      "category": "standard_cell",
+      "local_physical_source_type": "MISSING",
+      "local_physical_source_path": "",
+      "readiness_level": "MISSING_PHYSICAL_SOURCE",
+      "bbox_known": false,
+      "pin_labels_known": false,
+      "vdd_gnd_pins_known": false,
+      "rail_geometry_known": false,
+      "usable_for_module_gds_generation": false,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": []
+    },
+    {
+      "name": "and2",
+      "category": "compound_gate",
+      "local_physical_source_type": "FALLBACK_ONLY",
+      "local_physical_source_path": "sram_layoutgen/stdcell.py::gen_nand2 + gen_inv composition",
+      "readiness_level": "FALLBACK_ONLY",
+      "bbox_known": false,
+      "pin_labels_known": false,
+      "vdd_gnd_pins_known": false,
+      "rail_geometry_known": false,
+      "usable_for_module_gds_generation": false,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "sram_compiler/subcircuits/standard_cell.py",
+        "sram_layoutgen/stdcell.py::gen_nand2 + gen_inv composition"
+      ]
+    },
+    {
+      "name": "and3",
+      "category": "compound_gate",
+      "local_physical_source_type": "SOURCE_ONLY",
+      "local_physical_source_path": "",
+      "readiness_level": "SOURCE_ONLY_NEEDS_PHYSICAL_GENERATOR",
+      "bbox_known": false,
+      "pin_labels_known": false,
+      "vdd_gnd_pins_known": false,
+      "rail_geometry_known": false,
+      "usable_for_module_gds_generation": false,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "sram_compiler/subcircuits/standard_cell.py"
+      ]
+    },
+    {
+      "name": "or2",
+      "category": "compound_gate",
+      "local_physical_source_type": "MISSING",
+      "local_physical_source_path": "",
+      "readiness_level": "MISSING_PHYSICAL_SOURCE",
+      "bbox_known": false,
+      "pin_labels_known": false,
+      "vdd_gnd_pins_known": false,
+      "rail_geometry_known": false,
+      "usable_for_module_gds_generation": false,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": []
+    },
+    {
+      "name": "or3",
+      "category": "compound_gate",
+      "local_physical_source_type": "MISSING",
+      "local_physical_source_path": "",
+      "readiness_level": "MISSING_PHYSICAL_SOURCE",
+      "bbox_known": false,
+      "pin_labels_known": false,
+      "vdd_gnd_pins_known": false,
+      "rail_geometry_known": false,
+      "usable_for_module_gds_generation": false,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": []
+    },
+    {
+      "name": "buffer",
+      "category": "buffer",
+      "local_physical_source_type": "FALLBACK_ONLY",
+      "local_physical_source_path": "sram_layoutgen/stdcell.py::gen_inv chain",
+      "readiness_level": "FALLBACK_ONLY",
+      "bbox_known": false,
+      "pin_labels_known": false,
+      "vdd_gnd_pins_known": false,
+      "rail_geometry_known": false,
+      "usable_for_module_gds_generation": false,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "sram_compiler/subcircuits/standard_cell.py",
+        "sram_compiler/subcircuits/time_generate.py",
+        "sram_layoutgen/stdcell.py::gen_inv chain"
+      ]
+    },
+    {
+      "name": "precharge_cell",
+      "category": "peripheral_cell",
+      "local_physical_source_type": "HARDMACRO_GDS",
+      "local_physical_source_path": "technology/freepdk45/gds_lib/openram_replacements/gen_precharge.gds",
+      "readiness_level": "GDS_EXISTS_NEEDS_PIN_RAIL_EXTRACTION",
+      "bbox_known": true,
+      "pin_labels_known": true,
+      "vdd_gnd_pins_known": true,
+      "rail_geometry_known": true,
+      "usable_for_module_gds_generation": false,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "docs/candidate_spice/control_paths/precharge_candidate_contract.sp",
+        "docs/candidate_spice/control_paths/precharge_candidate_ngspice.sp",
+        "docs/candidate_spice/control_paths/precharge_smoke_ngspice.log",
+        "docs/openyield_hardcell_power_rail_continuity_report.md",
+        "sram_compiler/subcircuits/precharge_and_write_driver.py",
+        "technology/freepdk45/gds_lib/openram_replacements/gen_precharge.gds"
+      ]
+    },
+    {
+      "name": "dff_cell",
+      "category": "sequential_cell",
+      "local_physical_source_type": "EXISTING_GDS",
+      "local_physical_source_path": "technology/freepdk45/gds_lib/dff.gds",
+      "readiness_level": "LEAF_GDS_READY",
+      "bbox_known": true,
+      "pin_labels_known": true,
+      "vdd_gnd_pins_known": true,
+      "rail_geometry_known": true,
+      "usable_for_module_gds_generation": true,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "docs/openyield_hardcell_power_rail_continuity_report.md",
+        "sram_compiler/subcircuits/time_generate.py",
+        "technology/freepdk45/gds_lib/dff.gds"
+      ]
+    },
+    {
+      "name": "sense_amp",
+      "category": "peripheral_cell",
+      "local_physical_source_type": "EXISTING_GDS",
+      "local_physical_source_path": "technology/freepdk45/gds_lib/sense_amp.gds",
+      "readiness_level": "LEAF_GDS_READY",
+      "bbox_known": true,
+      "pin_labels_known": true,
+      "vdd_gnd_pins_known": true,
+      "rail_geometry_known": true,
+      "usable_for_module_gds_generation": true,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "docs/openyield_hardcell_power_rail_continuity_report.md",
+        "sram_compiler/subcircuits/mux_and_sa.py",
+        "technology/freepdk45/gds_lib/sense_amp.gds"
+      ]
+    },
+    {
+      "name": "write_driver",
+      "category": "peripheral_cell",
+      "local_physical_source_type": "EXISTING_GDS",
+      "local_physical_source_path": "technology/freepdk45/gds_lib/write_driver.gds",
+      "readiness_level": "LEAF_GDS_READY",
+      "bbox_known": true,
+      "pin_labels_known": true,
+      "vdd_gnd_pins_known": true,
+      "rail_geometry_known": true,
+      "usable_for_module_gds_generation": true,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "docs/openyield_hardcell_power_rail_continuity_report.md",
+        "sram_compiler/subcircuits/precharge_and_write_driver.py",
+        "technology/freepdk45/gds_lib/write_driver.gds"
+      ]
+    },
+    {
+      "name": "column_mux",
+      "category": "peripheral_cell",
+      "local_physical_source_type": "HARDMACRO_GDS",
+      "local_physical_source_path": "technology/freepdk45/gds_lib/openyield_repaired/gen_col_mux_vdd_labeled.gds",
+      "readiness_level": "HARDMACRO_GDS_READY",
+      "bbox_known": true,
+      "pin_labels_known": true,
+      "vdd_gnd_pins_known": true,
+      "rail_geometry_known": true,
+      "usable_for_module_gds_generation": true,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "docs/openyield_hardcell_power_rail_continuity_report.md",
+        "sram_compiler/subcircuits/mux_and_sa.py",
+        "technology/freepdk45/gds_lib/openyield_repaired/gen_col_mux_vdd_labeled.gds"
+      ]
+    },
+    {
+      "name": "wordline_driver",
+      "category": "peripheral_cell",
+      "local_physical_source_type": "HARDMACRO_GDS",
+      "local_physical_source_path": "technology/freepdk45/gds_lib/openram_replacements/gen_wl_driver.gds",
+      "readiness_level": "HARDMACRO_GDS_READY",
+      "bbox_known": true,
+      "pin_labels_known": true,
+      "vdd_gnd_pins_known": true,
+      "rail_geometry_known": true,
+      "usable_for_module_gds_generation": true,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "docs/openyield_hardcell_power_rail_continuity_report.md",
+        "sram_compiler/subcircuits/wordline_driver.py",
+        "technology/freepdk45/gds_lib/openram_replacements/gen_wl_driver.gds"
+      ]
+    },
+    {
+      "name": "decoder_leaf_gate",
+      "category": "leaf_gate_group",
+      "local_physical_source_type": "FALLBACK_ONLY",
+      "local_physical_source_path": "docs/mapping/openyield_decoder_wordline_semantic_contract.md",
+      "readiness_level": "FALLBACK_ONLY",
+      "bbox_known": false,
+      "pin_labels_known": false,
+      "vdd_gnd_pins_known": false,
+      "rail_geometry_known": false,
+      "usable_for_module_gds_generation": false,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "docs/mapping/openyield_decoder_wordline_semantic_contract.json",
+        "docs/mapping/openyield_decoder_wordline_semantic_contract.md",
+        "sram_compiler/subcircuits/decoder.py",
+        "sram_compiler/subcircuits/standard_cell.py"
+      ]
+    },
+    {
+      "name": "wordline_decoder_leaf_gate",
+      "category": "leaf_gate_group",
+      "local_physical_source_type": "FALLBACK_ONLY",
+      "local_physical_source_path": "docs/mapping/openyield_decoder_wordline_semantic_contract.md",
+      "readiness_level": "FALLBACK_ONLY",
+      "bbox_known": false,
+      "pin_labels_known": false,
+      "vdd_gnd_pins_known": false,
+      "rail_geometry_known": false,
+      "usable_for_module_gds_generation": false,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "docs/mapping/openyield_decoder_wordline_semantic_contract.json",
+        "docs/mapping/openyield_decoder_wordline_semantic_contract.md",
+        "sram_compiler/subcircuits/decoder.py"
+      ]
+    },
+    {
+      "name": "wordline_driver_leaf_gate",
+      "category": "leaf_gate_group",
+      "local_physical_source_type": "FALLBACK_ONLY",
+      "local_physical_source_path": "sram_layoutgen/stdcell.py::gen_wl_driver",
+      "readiness_level": "FALLBACK_ONLY",
+      "bbox_known": false,
+      "pin_labels_known": false,
+      "vdd_gnd_pins_known": false,
+      "rail_geometry_known": false,
+      "usable_for_module_gds_generation": false,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "sram_compiler/subcircuits/wordline_driver.py",
+        "sram_layoutgen/stdcell.py::gen_wl_driver"
+      ]
+    },
+    {
+      "name": "enable_path_leaf_gate",
+      "category": "leaf_gate_group",
+      "local_physical_source_type": "CANDIDATE_SPICE_ONLY",
+      "local_physical_source_path": "docs/mapping/openyield_control_path_semantic_contracts.csv",
+      "readiness_level": "SPICE_ONLY_NEEDS_LAYOUT_GENERATOR",
+      "bbox_known": false,
+      "pin_labels_known": false,
+      "vdd_gnd_pins_known": false,
+      "rail_geometry_known": false,
+      "usable_for_module_gds_generation": false,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "docs/candidate_spice/control_paths/precharge_enable_candidate_tb.sp",
+        "docs/candidate_spice/control_paths/sense_enable_path_candidate_contract.inc",
+        "docs/candidate_spice/control_paths/wordline_enable_path_candidate_contract.inc",
+        "docs/mapping/openyield_control_path_semantic_contracts.csv",
+        "sram_compiler/subcircuits/time_generate.py"
+      ]
+    },
+    {
+      "name": "gated_clock_leaf_gate",
+      "category": "leaf_gate_group",
+      "local_physical_source_type": "CANDIDATE_SPICE_ONLY",
+      "local_physical_source_path": "docs/mapping/openyield_control_path_semantic_contracts.csv",
+      "readiness_level": "SPICE_ONLY_NEEDS_LAYOUT_GENERATOR",
+      "bbox_known": false,
+      "pin_labels_known": false,
+      "vdd_gnd_pins_known": false,
+      "rail_geometry_known": false,
+      "usable_for_module_gds_generation": false,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "docs/candidate_spice/control_paths/gated_clock_path_candidate_contract.inc",
+        "docs/mapping/openyield_control_path_semantic_contracts.csv",
+        "sram_compiler/subcircuits/time_generate.py"
+      ]
+    },
+    {
+      "name": "control_logic_leaf_gate",
+      "category": "leaf_gate_group",
+      "local_physical_source_type": "CANDIDATE_SPICE_ONLY",
+      "local_physical_source_path": "docs/mapping/openyield_time_control_decomposition_contract.json",
+      "readiness_level": "SPICE_ONLY_NEEDS_LAYOUT_GENERATOR",
+      "bbox_known": false,
+      "pin_labels_known": false,
+      "vdd_gnd_pins_known": false,
+      "rail_geometry_known": false,
+      "usable_for_module_gds_generation": false,
+      "usable_for_top_level_gds_generation": false,
+      "evidence_files": [
+        "docs/candidate_spice/control_paths/dff_row_candidate_contract.inc",
+        "docs/mapping/openyield_time_control_decomposition_contract.json",
+        "sram_compiler/subcircuits/time_generate.py"
+      ]
+    }
+  ],
+  "source_notes": [
+    "L1 first pass is readonly and does not generate new GDS.",
+    "Rows may prefer OpenRAM replacement or repaired macros when default gds_lib labels are incomplete.",
+    "Composite control-leaf groups remain metadata/fallback classifications unless a concrete local leaf macro exists."
+  ]
+}

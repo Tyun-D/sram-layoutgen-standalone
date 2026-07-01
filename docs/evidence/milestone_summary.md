@@ -58,3 +58,9 @@
 - `can_enter_unrestricted_l1_physical_primitive_closure=False`
 - OpenYield L0 semantic contract gaps are now closed for the supported scope: a canonical SRAM semantic contract, logical-to-OpenYield mapping, top/bank contract, TIME decomposition contract, control-path contracts, and decoder-wordline handoff contract are all generated, and L1 physical primitive closure can now begin without claiming physical completion.
 - OpenYield L0 semantic contract gaps are now closed for the supported scope: a canonical SRAM semantic contract, logical-to-OpenYield mapping, top/bank contract, TIME decomposition contract, control-path contracts, and decoder-wordline handoff contract are all generated, and L1 physical primitive closure can now begin without claiming physical completion.
+
+- L1 first pass: primitive inventory frozen; L2 gate depends on remaining physical-source blockers.
+
+- L1 first pass: primitive inventory frozen; L2 gate depends on remaining physical-source blockers.
+
+- L1 first pass: primitive inventory frozen; L2 gate depends on remaining physical-source blockers.

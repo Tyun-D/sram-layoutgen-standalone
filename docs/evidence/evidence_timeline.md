@@ -19,3 +19,9 @@
 - `2026-07-02`: Completed L0 `OpenYield module semantics closure` pass from current OpenYield source and local layoutgen files; generated module/parameter/connection/config-variation/mapping matrices plus a JSON/Markdown closure report; confirmed 25 L0 semantic objects, 9 `SEMANTICS_CLOSED` modules, and the main remaining blockers around missing logical-spec parameter semantics and composite `TIME` decomposition.
 - `2026-07-02`: Closed OpenYield L0 semantic contract gaps by generating canonical SRAM/top-bank/TIME/control-path/decoder-wordline contracts, freezing logical-to-OpenYield parameter mapping, updating module/parameter/connection/mapping matrices, and setting `can_enter_L1_physical_primitive_closure=True` while keeping all physical/GDS/signoff claims false.
 - `2026-07-02`: Closed OpenYield L0 semantic contract gaps by generating canonical SRAM/top-bank/TIME/control-path/decoder-wordline contracts, freezing logical-to-OpenYield parameter mapping, updating module/parameter/connection/mapping matrices, and setting `can_enter_L1_physical_primitive_closure=True` while keeping all physical/GDS/signoff claims false.
+
+- 2026-07-02: Generated OpenYield L1 physical primitive readiness inventory and module-to-primitive dependency matrix.
+
+- 2026-07-02: Generated OpenYield L1 physical primitive readiness inventory and module-to-primitive dependency matrix.
+
+- 2026-07-02: Generated OpenYield L1 physical primitive readiness inventory and module-to-primitive dependency matrix.
