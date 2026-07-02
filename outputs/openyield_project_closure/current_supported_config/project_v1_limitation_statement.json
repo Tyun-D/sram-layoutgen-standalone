@@ -1,0 +1,76 @@
+{
+  "limitations": [
+    {
+      "limitation_id": "lim_1",
+      "statement": "DRC markers = 24687，尚未清零。",
+      "why_it_matters": "当前不能 claim DRC clean。",
+      "evidence_files": [
+        "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_validation/current_supported_config/drc_smoke_report.json"
+      ]
+    },
+    {
+      "limitation_id": "lim_2",
+      "statement": "当前 top-level GDS 是 candidate layout，不是 signoff layout。",
+      "why_it_matters": "当前终点是可交付候选态，不是可流片版图。",
+      "evidence_files": [
+        "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_top_level_assembly/current_supported_config/openyield_top_level_candidate.gds"
+      ]
+    },
+    {
+      "limitation_id": "lim_3",
+      "statement": "部分模块使用 candidate geometry。",
+      "why_it_matters": "这些模块会阻塞 DRC/LVS/timing/signoff claim。",
+      "evidence_files": [
+        "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_validation/current_supported_config/candidate_geometry_risk_report.json"
+      ]
+    },
+    {
+      "limitation_id": "lim_4",
+      "statement": "部分模块使用 contract pins。",
+      "why_it_matters": "这些模块适合 basic validation，但不适合 DRC/LVS signoff。",
+      "evidence_files": [
+        "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_validation/current_supported_config/pin_accessibility_audit.json"
+      ]
+    },
+    {
+      "limitation_id": "lim_5",
+      "statement": "LVS blocked by missing netlist。",
+      "why_it_matters": "当前不能 claim LVS clean。",
+      "evidence_files": [
+        "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_validation/current_supported_config/lvs_feasibility_report.json"
+      ]
+    },
+    {
+      "limitation_id": "lim_6",
+      "statement": "timing 仍是 metadata / smoke 级别。",
+      "why_it_matters": "当前不能 claim timing closure。",
+      "evidence_files": [
+        "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_L5_validation_report.json"
+      ]
+    },
+    {
+      "limitation_id": "lim_7",
+      "statement": "当前仅覆盖 single-bank / single-port / limited words_per_row。",
+      "why_it_matters": "更广 scope 仍未进入当前交付态。",
+      "evidence_files": [
+        "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_top_level_assembly/current_supported_config/top_level_generator_manifest.json"
+      ]
+    },
+    {
+      "limitation_id": "lim_8",
+      "statement": "multi-bank / multi-port / write mask / larger mux ratio 仍 unsupported。",
+      "why_it_matters": "这些功能需要新增独立实现阶段。",
+      "evidence_files": [
+        "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_top_level_assembly/current_supported_config/top_level_generator_manifest.json"
+      ]
+    },
+    {
+      "limitation_id": "lim_9",
+      "statement": "DRC marker 分类依赖当前 deck、当前 GDS 和当前 marker parser，不代表最终物理收敛。",
+      "why_it_matters": "后续若更换 deck 或 source geometry，分类比例可能变化。",
+      "evidence_files": [
+        "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_L6_drc_marker_triage_report.json"
+      ]
+    }
+  ]
+}

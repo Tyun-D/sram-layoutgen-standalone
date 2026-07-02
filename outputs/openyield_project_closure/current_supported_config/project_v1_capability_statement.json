@@ -1,0 +1,83 @@
+{
+  "capabilities": [
+    {
+      "capability_id": "cap_1",
+      "statement": "OpenYield 语义到本地 layoutgen 的映射已建立。",
+      "evidence_files": [
+        "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_L5_validation_report.json",
+        "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_L6_drc_marker_triage_report.json",
+        "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_top_level_assembly/current_supported_config/openyield_top_level_candidate.gds"
+      ]
+    },
+    {
+      "capability_id": "cap_2",
+      "statement": "当前 scope 支持 single-bank、single-port、words_per_row 1/2。",
+      "evidence_files": [
+        "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_top_level_assembly/current_supported_config/top_level_generator_manifest.json"
+      ]
+    },
+    {
+      "capability_id": "cap_3",
+      "statement": "20 个 L3 target modules 已生成 standalone module GDS。",
+      "evidence_files": [
+        "/data1/qujh/work/sram_layoutgen_step45_clean/docs/mapping/openyield_module_gds_inventory.csv"
+      ]
+    },
+    {
+      "capability_id": "cap_4",
+      "statement": "20 个模块均有 generator manifest / pins / bbox / rail metadata。",
+      "evidence_files": [
+        "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds"
+      ]
+    },
+    {
+      "capability_id": "cap_5",
+      "statement": "top-level SRAM candidate GDS 已生成。",
+      "evidence_files": [
+        "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_top_level_assembly/current_supported_config/openyield_top_level_candidate.gds"
+      ]
+    },
+    {
+      "capability_id": "cap_6",
+      "statement": "top-level GDS hierarchy 完整。",
+      "evidence_files": [
+        "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_validation/current_supported_config/top_gds_hierarchy_diagnosis.json"
+      ]
+    },
+    {
+      "capability_id": "cap_7",
+      "statement": "top-level GDS 可解析。",
+      "evidence_files": [
+        "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_L5_validation_report.json"
+      ]
+    },
+    {
+      "capability_id": "cap_8",
+      "statement": "20 个 required modules 全部实例化。",
+      "evidence_files": [
+        "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_top_level_assembly/current_supported_config/module_placement.json"
+      ]
+    },
+    {
+      "capability_id": "cap_9",
+      "statement": "L5 basic validation 已通过，remaining_L5_basic_validation_blockers_count=0。",
+      "evidence_files": [
+        "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_L5_validation_report.json"
+      ]
+    },
+    {
+      "capability_id": "cap_10",
+      "statement": "DRC marker 已完成 100% 分类，coverage=1.0。",
+      "evidence_files": [
+        "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_L6_drc_marker_triage_report.json"
+      ]
+    },
+    {
+      "capability_id": "cap_11",
+      "statement": "已形成后续 DRC 修复优先级计划。",
+      "evidence_files": [
+        "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_drc_triage/current_supported_config/drc_marker_fix_priority.json"
+      ]
+    }
+  ]
+}
