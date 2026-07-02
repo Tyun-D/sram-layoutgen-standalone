@@ -1,0 +1,254 @@
+{
+  "pin_accessibility_status": "PASSED",
+  "top_level_pin_count": 8,
+  "top_level_pin_names": [
+    "A[*]",
+    "DIN[*]",
+    "DOUT[*]",
+    "GND",
+    "VDD",
+    "clk",
+    "csb",
+    "web"
+  ],
+  "missing_required_top_level_pins": [],
+  "module_pin_status": {
+    "row_decoder": {
+      "pins_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/row_decoder/pins.json",
+      "pin_count": 5,
+      "has_power_pin": true,
+      "uses_contract_pins": true,
+      "pin_sources": [
+        "composition_contract_and_base_leaf_pin_map"
+      ],
+      "pin_access_rule_status": "PIN_ACCESS_RULE_CLOSED_BY_CONTRACT"
+    },
+    "dummy_array": {
+      "pins_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/dummy_array/pins.json",
+      "pin_count": 5,
+      "has_power_pin": true,
+      "uses_contract_pins": true,
+      "pin_sources": [
+        "module_contract_pin_map"
+      ],
+      "pin_access_rule_status": "PIN_ACCESS_RULE_CLOSED"
+    },
+    "bitcell_array": {
+      "pins_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/bitcell_array/pins.json",
+      "pin_count": 7,
+      "has_power_pin": true,
+      "uses_contract_pins": true,
+      "pin_sources": [
+        "module_contract_pin_map"
+      ],
+      "pin_access_rule_status": "PIN_ACCESS_RULE_CLOSED"
+    },
+    "replica_array": {
+      "pins_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/replica_array/pins.json",
+      "pin_count": 6,
+      "has_power_pin": true,
+      "uses_contract_pins": true,
+      "pin_sources": [
+        "module_contract_pin_map"
+      ],
+      "pin_access_rule_status": "PIN_ACCESS_RULE_CLOSED"
+    },
+    "precharge": {
+      "pins_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/precharge/pins.json",
+      "pin_count": 5,
+      "has_power_pin": true,
+      "uses_contract_pins": true,
+      "pin_sources": [
+        "module_contract_pin_map"
+      ],
+      "pin_access_rule_status": "PIN_ACCESS_RULE_CLOSED"
+    },
+    "column_mux": {
+      "pins_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/column_mux/pins.json",
+      "pin_count": 10,
+      "has_power_pin": true,
+      "uses_contract_pins": false,
+      "pin_sources": [
+        "gds_text_labels"
+      ],
+      "pin_access_rule_status": "PIN_ACCESS_RULE_CLOSED"
+    },
+    "wordline_decoder": {
+      "pins_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_decoder/pins.json",
+      "pin_count": 5,
+      "has_power_pin": true,
+      "uses_contract_pins": true,
+      "pin_sources": [
+        "composition_contract_and_base_leaf_pin_map"
+      ],
+      "pin_access_rule_status": "PIN_ACCESS_RULE_CLOSED_BY_CONTRACT"
+    },
+    "sense_amp": {
+      "pins_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/sense_amp/pins.json",
+      "pin_count": 6,
+      "has_power_pin": true,
+      "uses_contract_pins": false,
+      "pin_sources": [
+        "gds_text_labels"
+      ],
+      "pin_access_rule_status": "PIN_ACCESS_RULE_CLOSED"
+    },
+    "decoder_gate_cells": {
+      "pins_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/decoder_gate_cells/pins.json",
+      "pin_count": 5,
+      "has_power_pin": true,
+      "uses_contract_pins": true,
+      "pin_sources": [
+        "composition_contract_and_base_leaf_pin_map"
+      ],
+      "pin_access_rule_status": "PIN_ACCESS_RULE_CLOSED_BY_CONTRACT"
+    },
+    "wordline_driver": {
+      "pins_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_driver/pins.json",
+      "pin_count": 8,
+      "has_power_pin": true,
+      "uses_contract_pins": false,
+      "pin_sources": [
+        "gds_text_labels"
+      ],
+      "pin_access_rule_status": "PIN_ACCESS_RULE_CLOSED"
+    },
+    "write_driver": {
+      "pins_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/write_driver/pins.json",
+      "pin_count": 6,
+      "has_power_pin": true,
+      "uses_contract_pins": false,
+      "pin_sources": [
+        "gds_text_labels"
+      ],
+      "pin_access_rule_status": "PIN_ACCESS_RULE_CLOSED"
+    },
+    "wordline_driver_gate_cells": {
+      "pins_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_driver_gate_cells/pins.json",
+      "pin_count": 5,
+      "has_power_pin": true,
+      "uses_contract_pins": true,
+      "pin_sources": [
+        "composition_contract_and_base_leaf_pin_map"
+      ],
+      "pin_access_rule_status": "PIN_ACCESS_RULE_CLOSED_BY_CONTRACT"
+    },
+    "CONTROL_LOGIC": {
+      "pins_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/CONTROL_LOGIC/pins.json",
+      "pin_count": 11,
+      "has_power_pin": true,
+      "uses_contract_pins": true,
+      "pin_sources": [
+        "composition_contract_and_base_leaf_pin_map"
+      ],
+      "pin_access_rule_status": "PIN_ACCESS_RULE_CLOSED_BY_CONTRACT"
+    },
+    "DFF_ROW": {
+      "pins_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/DFF_ROW/pins.json",
+      "pin_count": 5,
+      "has_power_pin": true,
+      "uses_contract_pins": true,
+      "pin_sources": [
+        "composition_contract_and_base_leaf_pin_map"
+      ],
+      "pin_access_rule_status": "PIN_ACCESS_RULE_CLOSED"
+    },
+    "DELAY_CHAIN": {
+      "pins_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/DELAY_CHAIN/pins.json",
+      "pin_count": 5,
+      "has_power_pin": true,
+      "uses_contract_pins": true,
+      "pin_sources": [
+        "composition_contract_and_base_leaf_pin_map"
+      ],
+      "pin_access_rule_status": "PIN_ACCESS_RULE_CLOSED"
+    },
+    "GATED_CLOCK_PATH": {
+      "pins_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/GATED_CLOCK_PATH/pins.json",
+      "pin_count": 5,
+      "has_power_pin": true,
+      "uses_contract_pins": true,
+      "pin_sources": [
+        "composition_contract_and_base_leaf_pin_map"
+      ],
+      "pin_access_rule_status": "PIN_ACCESS_RULE_CLOSED_BY_CONTRACT"
+    },
+    "WORDLINE_ENABLE_PATH": {
+      "pins_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/WORDLINE_ENABLE_PATH/pins.json",
+      "pin_count": 5,
+      "has_power_pin": true,
+      "uses_contract_pins": true,
+      "pin_sources": [
+        "composition_contract_and_base_leaf_pin_map"
+      ],
+      "pin_access_rule_status": "PIN_ACCESS_RULE_CLOSED_BY_CONTRACT"
+    },
+    "PRECHARGE_ENABLE_PATH": {
+      "pins_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/PRECHARGE_ENABLE_PATH/pins.json",
+      "pin_count": 5,
+      "has_power_pin": true,
+      "uses_contract_pins": true,
+      "pin_sources": [
+        "composition_contract_and_base_leaf_pin_map"
+      ],
+      "pin_access_rule_status": "PIN_ACCESS_RULE_CLOSED_BY_CONTRACT"
+    },
+    "SENSE_ENABLE_PATH": {
+      "pins_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/SENSE_ENABLE_PATH/pins.json",
+      "pin_count": 5,
+      "has_power_pin": true,
+      "uses_contract_pins": true,
+      "pin_sources": [
+        "composition_contract_and_base_leaf_pin_map"
+      ],
+      "pin_access_rule_status": "PIN_ACCESS_RULE_CLOSED_BY_CONTRACT"
+    },
+    "WRITE_ENABLE_PATH": {
+      "pins_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/WRITE_ENABLE_PATH/pins.json",
+      "pin_count": 5,
+      "has_power_pin": true,
+      "uses_contract_pins": true,
+      "pin_sources": [
+        "composition_contract_and_base_leaf_pin_map"
+      ],
+      "pin_access_rule_status": "PIN_ACCESS_RULE_CLOSED_BY_CONTRACT"
+    }
+  },
+  "missing_module_pin_metadata": [],
+  "modules_using_contract_pins": [
+    "CONTROL_LOGIC",
+    "DELAY_CHAIN",
+    "DFF_ROW",
+    "GATED_CLOCK_PATH",
+    "PRECHARGE_ENABLE_PATH",
+    "SENSE_ENABLE_PATH",
+    "WORDLINE_ENABLE_PATH",
+    "WRITE_ENABLE_PATH",
+    "bitcell_array",
+    "decoder_gate_cells",
+    "dummy_array",
+    "precharge",
+    "replica_array",
+    "row_decoder",
+    "wordline_decoder",
+    "wordline_driver_gate_cells"
+  ],
+  "modules_needing_pin_geometry_followup": [
+    "CONTROL_LOGIC",
+    "DELAY_CHAIN",
+    "DFF_ROW",
+    "GATED_CLOCK_PATH",
+    "PRECHARGE_ENABLE_PATH",
+    "SENSE_ENABLE_PATH",
+    "WORDLINE_ENABLE_PATH",
+    "WRITE_ENABLE_PATH",
+    "bitcell_array",
+    "decoder_gate_cells",
+    "dummy_array",
+    "precharge",
+    "replica_array",
+    "row_decoder",
+    "wordline_decoder",
+    "wordline_driver_gate_cells"
+  ]
+}
