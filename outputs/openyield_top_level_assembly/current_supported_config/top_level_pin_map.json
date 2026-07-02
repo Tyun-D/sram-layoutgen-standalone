@@ -1,0 +1,93 @@
+{
+  "config_name": "current_supported_config",
+  "top_level_pins": [
+    {
+      "top_pin_name": "A[*]",
+      "pin_role": "address_input",
+      "mapped_module": "DFF_ROW",
+      "mapped_pin": "D[*]",
+      "x": 0.0,
+      "y": 20.208,
+      "layer": "m2",
+      "pin_source": "top_level_contract_to_registered_address",
+      "mapped_instance": "DFF_ROW_u0"
+    },
+    {
+      "top_pin_name": "DIN[*]",
+      "pin_role": "write_data_input",
+      "mapped_module": "DFF_ROW",
+      "mapped_pin": "D[*]",
+      "x": 0.0,
+      "y": 16.419,
+      "layer": "m2",
+      "pin_source": "top_level_contract_to_registered_write_data",
+      "mapped_instance": "DFF_ROW_u0"
+    },
+    {
+      "top_pin_name": "clk",
+      "pin_role": "clock_input",
+      "mapped_module": "CONTROL_LOGIC",
+      "mapped_pin": "clk",
+      "x": 15.30025,
+      "y": 25.26,
+      "layer": "m1",
+      "pin_source": "top_level_contract_to_control_logic",
+      "mapped_instance": "CONTROL_LOGIC_u0"
+    },
+    {
+      "top_pin_name": "csb",
+      "pin_role": "active_low_control_input",
+      "mapped_module": "CONTROL_LOGIC",
+      "mapped_pin": "cs",
+      "x": 21.8575,
+      "y": 25.26,
+      "layer": "m1",
+      "pin_source": "top_level_contract_to_control_logic_contract_pin",
+      "mapped_instance": "CONTROL_LOGIC_u0"
+    },
+    {
+      "top_pin_name": "web",
+      "pin_role": "active_low_control_input",
+      "mapped_module": "CONTROL_LOGIC",
+      "mapped_pin": "we",
+      "x": 27.1033,
+      "y": 25.26,
+      "layer": "m1",
+      "pin_source": "top_level_contract_to_control_logic_contract_pin",
+      "mapped_instance": "CONTROL_LOGIC_u0"
+    },
+    {
+      "top_pin_name": "DOUT[*]",
+      "pin_role": "read_output",
+      "mapped_module": "sense_amp",
+      "mapped_pin": "dout",
+      "x": 43.715,
+      "y": 12.63,
+      "layer": "m2",
+      "pin_source": "top_level_contract_to_sense_amp_output",
+      "mapped_instance": "sense_amp_u0"
+    },
+    {
+      "top_pin_name": "VDD",
+      "pin_role": "power",
+      "mapped_module": "SRAM_TOP",
+      "mapped_pin": "VDD",
+      "x": 8.743,
+      "y": 0.0,
+      "layer": "m1",
+      "pin_source": "top_level_power_contract",
+      "mapped_instance": "SRAM_TOP"
+    },
+    {
+      "top_pin_name": "GND",
+      "pin_role": "ground",
+      "mapped_module": "SRAM_TOP",
+      "mapped_pin": "GND",
+      "x": 34.972,
+      "y": 0.0,
+      "layer": "m1",
+      "pin_source": "top_level_power_contract",
+      "mapped_instance": "SRAM_TOP"
+    }
+  ]
+}

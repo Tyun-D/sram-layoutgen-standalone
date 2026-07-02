@@ -78,3 +78,9 @@
 - `can_claim_drc_clean_now=False`
 - `can_claim_lvs_clean_now=False`
 - `can_claim_timing_closure_now=False`
+- L4 first round: a reproducible Python top-level assembly generator now instantiates all 20 required L3 modules into a single-bank SRAM candidate GDS and emits floorplan/pin-map/rail-stitch/routing-handoff metadata, while still keeping validated full-GDS, DRC, LVS, and timing-closure claims false.
+- `can_claim_L4_top_level_candidate_gds_generated_now=True`
+- `can_enter_L5_validation=False`
+- L4 first round: a reproducible Python top-level assembly generator now instantiates all 20 required L3 modules into a single-bank SRAM candidate GDS and emits floorplan/pin-map/rail-stitch/routing-handoff metadata, while still keeping validated full-GDS, DRC, LVS, and timing-closure claims false.
+- `can_claim_L4_top_level_candidate_gds_generated_now=True`
+- `can_enter_L5_validation=True`

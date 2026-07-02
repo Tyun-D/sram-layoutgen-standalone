@@ -1,0 +1,27 @@
+{
+  "config_name": "current_supported_config",
+  "num_words": 4,
+  "num_rows": 4,
+  "word_size": 4,
+  "words_per_row": 1,
+  "column_mux_ratio": 1,
+  "single_bank": true,
+  "single_port": true,
+  "port_count": 1,
+  "notes": [
+    "Chosen to match frozen L3 standalone module dimensions for deterministic first-round top-level assembly.",
+    "This L4 candidate GDS does not claim signoff-ready array sizing beyond the current supported scope."
+  ],
+  "repo_root": "/data1/qujh/work/sram_layoutgen_step45_clean",
+  "openyield_root": "/data1/qujh/work/external/OpenYield",
+  "supported_scope": {
+    "bank_count": 1,
+    "port_count": 1,
+    "readwrite_port_model": "one shared implicit read/write port controlled by csb/web",
+    "write_mask_model": "unsupported",
+    "words_per_row_supported_values": [
+      1,
+      2
+    ]
+  }
+}
