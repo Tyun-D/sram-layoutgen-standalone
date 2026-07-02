@@ -1,0 +1,87 @@
+{
+  "fix_priority": [
+    {
+      "priority": "P1",
+      "root_cause_category": "LAYER_MAP_OR_DRC_DECK_INTERPRETATION",
+      "marker_count": 12012,
+      "affected_modules": [
+        "bitcell_array",
+        "dummy_array",
+        "replica_array",
+        "sense_amp",
+        "write_driver",
+        "wordline_driver",
+        "precharge",
+        "column_mux"
+      ],
+      "expected_fix_location": "L6/L7 DRC deck and imported source geometry review",
+      "expected_fix_files": "technology/freepdk45/tech/freepdk45.lydrc; technology/freepdk45/gds_lib/*.gds",
+      "suggested_fix_strategy": "Separate deck-grid/systematic imported-geometry issues from true placement violations, then decide whether source snapping or deck exceptions are appropriate.",
+      "risk": "High DRC signoff risk until this category is retired.",
+      "whether_to_fix_in_L7": true
+    },
+    {
+      "priority": "P3",
+      "root_cause_category": "CANDIDATE_GEOMETRY_INTERNAL",
+      "marker_count": 666,
+      "affected_modules": [
+        "row_decoder"
+      ],
+      "expected_fix_location": "L3 module generator / candidate geometry",
+      "expected_fix_files": "sram_layoutgen/openyield_adapter/module_gds_generators.py",
+      "suggested_fix_strategy": "Prioritize generator-level cleanup for the affected candidate module before top-level signoff work.",
+      "risk": "High DRC signoff risk until this category is retired.",
+      "whether_to_fix_in_L7": true
+    },
+    {
+      "priority": "P3",
+      "root_cause_category": "MODULE_INTERNAL_HARDMACRO",
+      "marker_count": 49,
+      "affected_modules": [
+        "wordline_driver",
+        "column_mux"
+      ],
+      "expected_fix_location": "Imported hardmacro or macro-local cleanup",
+      "expected_fix_files": "technology/freepdk45/gds_lib/*.gds; outputs/openyield_module_gds/<module>/generator_manifest.json",
+      "suggested_fix_strategy": "Audit the underlying hardmacro geometry and wrapper assumptions before top-level closure.",
+      "risk": "High DRC signoff risk until this category is retired.",
+      "whether_to_fix_in_L7": true
+    },
+    {
+      "priority": "P3",
+      "root_cause_category": "MODULE_WRAPPER_IMPORT",
+      "marker_count": 16,
+      "affected_modules": [
+        "write_driver",
+        "sense_amp"
+      ],
+      "expected_fix_location": "L3/L4 wrapper import path",
+      "expected_fix_files": "sram_layoutgen/openyield_adapter/gds_hierarchy_export.py; sram_layoutgen/openyield_adapter/top_level_assembly.py",
+      "suggested_fix_strategy": "Review wrapper namespace/import behavior and distinguish true macro DRC from wrapper artifacts.",
+      "risk": "High DRC signoff risk until this category is retired.",
+      "whether_to_fix_in_L7": true
+    },
+    {
+      "priority": "P4",
+      "root_cause_category": "CONTRACT_PIN_GEOMETRY_PLACEHOLDER",
+      "marker_count": 11944,
+      "affected_modules": [
+        "DFF_ROW",
+        "CONTROL_LOGIC",
+        "SENSE_ENABLE_PATH",
+        "WRITE_ENABLE_PATH",
+        "decoder_gate_cells",
+        "WORDLINE_ENABLE_PATH",
+        "wordline_driver_gate_cells",
+        "wordline_decoder",
+        "PRECHARGE_ENABLE_PATH",
+        "GATED_CLOCK_PATH"
+      ],
+      "expected_fix_location": "L3 pin export / L4 boundary pin realization",
+      "expected_fix_files": "outputs/openyield_module_gds/<module>/pins.json; sram_layoutgen/openyield_adapter/module_gds_generators.py",
+      "suggested_fix_strategy": "Replace contract-pin placeholders with geometry-backed pin shapes or audited boundary access shapes.",
+      "risk": "High DRC signoff risk until this category is retired.",
+      "whether_to_fix_in_L7": true
+    }
+  ]
+}

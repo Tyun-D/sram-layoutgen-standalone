@@ -1,0 +1,239 @@
+{
+  "root_cause_categories": [
+    {
+      "root_cause_category": "LAYER_MAP_OR_DRC_DECK_INTERPRETATION",
+      "marker_count": 12012,
+      "percentage": 0.486572,
+      "affected_rules": [
+        "GRID: vertexes on layer metal1 not on grid of 0.0025",
+        "GRID: vertexes on layer cont not on grid of 0.0025",
+        "GRID: vertexes on layer active not on grid of 0.0025",
+        "GRID: vertexes on layer poly not on grid of 0.0025",
+        "GRID: vertexes on layer metal2 not on grid of 0.0025",
+        "GRID: vertexes on layer via1 not on grid of 0.0025",
+        "GRID: vertexes on layer nplus not on grid of 0.0025",
+        "GRID: vertexes on layer pplus not on grid of 0.0025",
+        "GRID: vertexes on layer vtg not on grid of 0.0025",
+        "GRID: vertexes on layer well not on grid of 0.0025"
+      ],
+      "affected_layers": [
+        "metal1",
+        "cont",
+        "active",
+        "poly",
+        "metal2",
+        "via1",
+        "nplus",
+        "pplus",
+        "vtg",
+        "well"
+      ],
+      "affected_modules": [
+        "bitcell_array",
+        "dummy_array",
+        "replica_array",
+        "sense_amp",
+        "write_driver",
+        "wordline_driver",
+        "precharge",
+        "column_mux"
+      ],
+      "representative_marker_ids": [
+        "M00880",
+        "M00881",
+        "M00882",
+        "M00883",
+        "M00884",
+        "M00885",
+        "M00886",
+        "M00887",
+        "M00888",
+        "M00889"
+      ],
+      "why_likely": "Large off-grid marker families on imported macros/arrays point to source-library grid mismatch versus the FreePDK45 deck grid.",
+      "blocks_drc_clean": true,
+      "blocks_lvs_clean": false,
+      "recommended_fix_layer": "L6/L7 DRC deck and imported source geometry review",
+      "recommended_next_action": "Separate deck-grid/systematic imported-geometry issues from true placement violations, then decide whether source snapping or deck exceptions are appropriate."
+    },
+    {
+      "root_cause_category": "CONTRACT_PIN_GEOMETRY_PLACEHOLDER",
+      "marker_count": 11944,
+      "percentage": 0.483817,
+      "affected_rules": [
+        "GRID: vertexes on layer cont not on grid of 0.0025",
+        "GRID: vertexes on layer metal1 not on grid of 0.0025",
+        "GRID: vertexes on layer poly not on grid of 0.0025",
+        "GRID: vertexes on layer active not on grid of 0.0025",
+        "GRID: vertexes on layer pplus not on grid of 0.0025",
+        "GRID: vertexes on layer nplus not on grid of 0.0025",
+        "GRID: vertexes on layer via1 not on grid of 0.0025",
+        "CONTACT.1",
+        "GRID: vertexes on layer metal2 not on grid of 0.0025",
+        "GRID: vertexes on layer well not on grid of 0.0025"
+      ],
+      "affected_layers": [
+        "cont",
+        "metal1",
+        "poly",
+        "active",
+        "pplus",
+        "nplus",
+        "via1",
+        "metal2",
+        "well",
+        "vtg"
+      ],
+      "affected_modules": [
+        "DFF_ROW",
+        "CONTROL_LOGIC",
+        "SENSE_ENABLE_PATH",
+        "WRITE_ENABLE_PATH",
+        "decoder_gate_cells",
+        "WORDLINE_ENABLE_PATH",
+        "wordline_driver_gate_cells",
+        "wordline_decoder",
+        "PRECHARGE_ENABLE_PATH",
+        "GATED_CLOCK_PATH"
+      ],
+      "representative_marker_ids": [
+        "M00002",
+        "M00003",
+        "M00004",
+        "M00005",
+        "M00006",
+        "M00007",
+        "M00008",
+        "M00011",
+        "M00012",
+        "M00013"
+      ],
+      "why_likely": "Marker is near a module boundary that still relies on contract-pin exports rather than geometry-backed access proof.",
+      "blocks_drc_clean": true,
+      "blocks_lvs_clean": true,
+      "recommended_fix_layer": "L3 pin export / L4 boundary pin realization",
+      "recommended_next_action": "Replace contract-pin placeholders with geometry-backed pin shapes or audited boundary access shapes."
+    },
+    {
+      "root_cause_category": "CANDIDATE_GEOMETRY_INTERNAL",
+      "marker_count": 666,
+      "percentage": 0.026978,
+      "affected_rules": [
+        "GRID: vertexes on layer metal1 not on grid of 0.0025",
+        "GRID: vertexes on layer cont not on grid of 0.0025",
+        "GRID: vertexes on layer poly not on grid of 0.0025",
+        "GRID: vertexes on layer active not on grid of 0.0025",
+        "GRID: vertexes on layer nplus not on grid of 0.0025",
+        "GRID: vertexes on layer pplus not on grid of 0.0025",
+        "CONTACT.1",
+        "GRID: vertexes on layer well not on grid of 0.0025",
+        "GRID: vertexes on layer vtg not on grid of 0.0025",
+        "METAL1.2"
+      ],
+      "affected_layers": [
+        "metal1",
+        "cont",
+        "poly",
+        "active",
+        "nplus",
+        "pplus",
+        "well",
+        "vtg"
+      ],
+      "affected_modules": [
+        "row_decoder"
+      ],
+      "representative_marker_ids": [
+        "M00001",
+        "M00009",
+        "M00010",
+        "M00038",
+        "M00039",
+        "M00111",
+        "M00112",
+        "M00113",
+        "M00114",
+        "M00115"
+      ],
+      "why_likely": "Marker falls inside a candidate-geometry module that is not yet signoff-proven.",
+      "blocks_drc_clean": true,
+      "blocks_lvs_clean": true,
+      "recommended_fix_layer": "L3 module generator / candidate geometry",
+      "recommended_next_action": "Prioritize generator-level cleanup for the affected candidate module before top-level signoff work."
+    },
+    {
+      "root_cause_category": "MODULE_INTERNAL_HARDMACRO",
+      "marker_count": 49,
+      "percentage": 0.001985,
+      "affected_rules": [
+        "METAL1.1",
+        "CONTACT.1",
+        "POLY.1",
+        "METAL1.2",
+        "POLY.6"
+      ],
+      "affected_layers": [
+        "metal1",
+        "cont",
+        "poly"
+      ],
+      "affected_modules": [
+        "wordline_driver",
+        "column_mux"
+      ],
+      "representative_marker_ids": [
+        "M00046",
+        "M00053",
+        "M00054",
+        "M00055",
+        "M00056",
+        "M00096",
+        "M00099",
+        "M00100",
+        "M00187",
+        "M00188"
+      ],
+      "why_likely": "Marker is inside a hardmacro-derived module rather than at a top-level seam.",
+      "blocks_drc_clean": true,
+      "blocks_lvs_clean": false,
+      "recommended_fix_layer": "Imported hardmacro or macro-local cleanup",
+      "recommended_next_action": "Audit the underlying hardmacro geometry and wrapper assumptions before top-level closure."
+    },
+    {
+      "root_cause_category": "MODULE_WRAPPER_IMPORT",
+      "marker_count": 16,
+      "percentage": 0.000648,
+      "affected_rules": [
+        "VIA1.1",
+        "METAL1.1",
+        "CONTACT.1"
+      ],
+      "affected_layers": [
+        "via1",
+        "metal1",
+        "cont"
+      ],
+      "affected_modules": [
+        "write_driver",
+        "sense_amp"
+      ],
+      "representative_marker_ids": [
+        "M00251",
+        "M00252",
+        "M00491",
+        "M00492",
+        "M00520",
+        "M00521",
+        "M00823",
+        "M00824",
+        "M00825",
+        "M00826"
+      ],
+      "why_likely": "Marker originates in a wrapped imported hardmacro hierarchy and may reflect wrapper-to-source import interaction.",
+      "blocks_drc_clean": true,
+      "blocks_lvs_clean": false,
+      "recommended_fix_layer": "L3/L4 wrapper import path",
+      "recommended_next_action": "Review wrapper namespace/import behavior and distinguish true macro DRC from wrapper artifacts."
+    }
+  ]
+}
