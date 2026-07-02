@@ -1,0 +1,280 @@
+{
+  "openram_source_found": true,
+  "openram_source_path": "/data1/qujh/OpenRAM",
+  "scope": "audit_only_no_new_gds_generation_code",
+  "gds_entry_audit": {
+    "config_to_compiler": {
+      "evidence_file": "/data1/qujh/OpenRAM/sram_compiler.py:18-64",
+      "class_or_function": "main flow in sram_compiler.py",
+      "why_it_matters": "Config enters through openram.init_openram and is propagated through OPTS before SRAM object creation."
+    },
+    "sram_top_class": {
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/sram.py:23-58",
+      "class_or_function": "class sram.__init__",
+      "why_it_matters": "This wrapper constructs sram_config and instantiates sram_1bank."
+    },
+    "bank_class": {
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/modules/bank.py:18",
+      "class_or_function": "class bank",
+      "why_it_matters": "Bank is the core physical composition point for array, row path, column path, and control distribution."
+    },
+    "gds_writer_call": {
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/sram.py:99-158;/data1/qujh/OpenRAM/compiler/base/hierarchy_layout.py:1431-1492",
+      "class_or_function": "sram.save; layout.gds_write",
+      "why_it_matters": "Layout creation is separated from recursive GDS serialization."
+    },
+    "main_call_chain": [
+      "/data1/qujh/OpenRAM/sram_compiler.py:18-64 main",
+      "/data1/qujh/OpenRAM/compiler/sram.py:23-58 sram.__init__",
+      "/data1/qujh/OpenRAM/compiler/sram_config.py:77-149 compute_sizes/recompute_sizes",
+      "/data1/qujh/OpenRAM/compiler/modules/sram_1bank.py:209-243 create_layout",
+      "/data1/qujh/OpenRAM/compiler/modules/bank.py:114-148 route_layout",
+      "/data1/qujh/OpenRAM/compiler/sram.py:99-158 save",
+      "/data1/qujh/OpenRAM/compiler/base/hierarchy_layout.py:1473-1492 gds_write"
+    ]
+  },
+  "parameter_model": [
+    {
+      "topic": "canonical_config",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/sram_config.py:14-149",
+      "class_or_function": "class sram_config; compute_sizes; recompute_sizes",
+      "why_it_matters": "OpenRAM derives num_rows, num_cols, row/col address sizes, and bank geometry from a compact semantic parameter set."
+    },
+    {
+      "topic": "words_per_row_estimation",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/sram_config.py:151-184",
+      "class_or_function": "estimate_words_per_row",
+      "why_it_matters": "The mux ratio is chosen as part of physical aspect-ratio estimation rather than a disconnected parameter."
+    },
+    {
+      "topic": "multiport_constants",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/sram_config.py:185-214",
+      "class_or_function": "setup_multiport_constants",
+      "why_it_matters": "Port behavior is normalized into shared read/write/readwrite port lists before layout generation."
+    }
+  ],
+  "bitcell_array_audit": [
+    {
+      "topic": "bitcell_instantiation",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/modules/bitcell_array.py:13-63;/data1/qujh/OpenRAM/compiler/modules/bitcell_base_array.py:60-72",
+      "class_or_function": "bitcell_array.create_instances; bitcell_base_array.get_bitcell_pins",
+      "why_it_matters": "Per-bitcell connectivity is generated from naming contracts, not ad hoc routing."
+    },
+    {
+      "topic": "replica_dummy_caps",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/modules/replica_bitcell_array.py:73-120;/data1/qujh/OpenRAM/compiler/modules/replica_bitcell_array.py:278-301;/data1/qujh/OpenRAM/compiler/modules/capped_replica_bitcell_array.py:69-116;/data1/qujh/OpenRAM/compiler/modules/capped_replica_bitcell_array.py:273-296",
+      "class_or_function": "add_modules; add_replica_columns; add_end_caps",
+      "why_it_matters": "A production SRAM array wrapper includes replica, dummy, and cap logic around the main array."
+    },
+    {
+      "topic": "pitch_and_offsets",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/modules/bitcell_base_array.py:172-205",
+      "class_or_function": "place_array; get_column_offsets",
+      "why_it_matters": "Physical pitch comes from the real bitcell size and actual placed instance positions."
+    },
+    {
+      "topic": "array_pin_export",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/modules/bitcell_base_array.py:118-157",
+      "class_or_function": "add_bitline_pins; add_wl_pins; route_supplies",
+      "why_it_matters": "OpenRAM exports full-height bitlines and full-width wordlines as array-level pins."
+    }
+  ],
+  "row_decoder_wordline_driver_audit": [
+    {
+      "topic": "row_path_module",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/modules/port_address.py:159-234",
+      "class_or_function": "add_modules; create_row_decoder; create_wordline_driver",
+      "why_it_matters": "Address path is encapsulated as a dedicated module boundary."
+    },
+    {
+      "topic": "row_alignment",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/modules/port_address.py:236-260;/data1/qujh/OpenRAM/compiler/modules/bank.py:862-899",
+      "class_or_function": "place_instances; route_port_address_out",
+      "why_it_matters": "Decoder/WL driver placement and row-wise connections are explicit and array-aligned."
+    }
+  ],
+  "column_path_audit": [
+    {
+      "topic": "column_path_aggregation",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/modules/port_data.py:193-266",
+      "class_or_function": "add_modules",
+      "why_it_matters": "Precharge, mux, sense amp, write driver, and write-mask logic are assembled under one module."
+    },
+    {
+      "topic": "instance_stack_and_offsets",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/modules/port_data.py:438-479",
+      "class_or_function": "compute_instance_offsets; place_instances",
+      "why_it_matters": "Column-path blocks are stacked in a fixed vertical order driven by bit offsets."
+    },
+    {
+      "topic": "mux_dependent_connectivity",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/modules/port_data.py:326-415;/data1/qujh/OpenRAM/compiler/modules/port_data.py:553-799",
+      "class_or_function": "create_column_mux_array; create_sense_amp_array; create_write_driver_array; route_sense_amp_to_column_mux_or_precharge_array; route_write_driver_to_column_mux_or_precharge_array",
+      "why_it_matters": "words_per_row and column mux ratio change both instantiated modules and net topology."
+    }
+  ],
+  "control_logic_audit": [
+    {
+      "topic": "control_outputs",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/modules/control_logic.py:102-132",
+      "class_or_function": "setup_signal_busses",
+      "why_it_matters": "OpenRAM models SRAM control as a structured bus of internal and exported control signals."
+    },
+    {
+      "topic": "replica_delay_style",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/modules/control_logic.py:194-254",
+      "class_or_function": "create_delay; route_delay; create_pen_row; route_pen",
+      "why_it_matters": "Replica bitline and delay chain are part of the timing/control mechanism, not just verification extras."
+    },
+    {
+      "topic": "delay_chain_variant",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/modules/control_logic_delay.py:37-101;/data1/qujh/OpenRAM/compiler/modules/control_logic_delay.py:177-371",
+      "class_or_function": "add_modules; setup_signal_busses; create_delay; route_delay; create_wlen_row; route_wlen; create_pen_row; route_pen",
+      "why_it_matters": "Control logic should be a replaceable strategy layer."
+    }
+  ],
+  "floorplan_audit": [
+    {
+      "topic": "bank_floorplan",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/modules/bank.py:291-303;/data1/qujh/OpenRAM/compiler/modules/bank.py:444-519",
+      "class_or_function": "place_instances; place_port_data; place_port_address",
+      "why_it_matters": "The bank uses an SRAM-specific quadrant arrangement."
+    },
+    {
+      "topic": "top_floorplan",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/modules/sram_1bank.py:782-910",
+      "class_or_function": "place_instances; place_control; place_row_addr_dffs; place_dffs",
+      "why_it_matters": "The SRAM top-level places bank, control, and flops with explicit channel-aware offsets."
+    },
+    {
+      "topic": "bbox_computation",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/modules/bank.py:639-675;/data1/qujh/OpenRAM/compiler/base/hierarchy_layout.py:280-382",
+      "class_or_function": "setup_routing_constraints; find_lowest_coords; find_highest_coords; offset_all_coordinates",
+      "why_it_matters": "Bounding boxes are derived from placed/routed geometry, not hard-coded."
+    }
+  ],
+  "routing_audit": [
+    {
+      "topic": "primitive_api",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/base/hierarchy_layout.py:1135-1319",
+      "class_or_function": "add_layout_pin; add_label_pin; add_label; add_path; add_wire; add_via; add_via_center; add_via_stack_center",
+      "why_it_matters": "These are the minimum reusable routing/layout primitives."
+    },
+    {
+      "topic": "bus_api",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/base/hierarchy_layout.py:1563-1615",
+      "class_or_function": "create_vertical_bus; create_horizontal_bus; create_bus",
+      "why_it_matters": "Structured bus generation is used throughout bank/control layout."
+    },
+    {
+      "topic": "channel_router",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/base/channel_route.py:72-260",
+      "class_or_function": "class channel_route.route",
+      "why_it_matters": "Dense grouped connections use an explicit conflict-graph-based channel router."
+    },
+    {
+      "topic": "power_router_hook",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/router/supply_router.py:15-200",
+      "class_or_function": "class supply_router.route",
+      "why_it_matters": "Power export is treated as a router-backed flow, not just pin copying."
+    },
+    {
+      "topic": "perimeter_signal_hook",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/router/signal_escape_router.py:14-214",
+      "class_or_function": "class signal_escape_router.route",
+      "why_it_matters": "Top-level signal escape can be automated without becoming a full detailed router."
+    }
+  ],
+  "power_pin_lef_lvs_audit": [
+    {
+      "topic": "power_export",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/modules/bank.py:598-621;/data1/qujh/OpenRAM/compiler/modules/capped_replica_bitcell_array.py:318-373",
+      "class_or_function": "route_supplies",
+      "why_it_matters": "Power propagation and perimeter power stitching are layered responsibilities."
+    },
+    {
+      "topic": "lef_generation",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/base/lef.py:70-203",
+      "class_or_function": "lef_write; lef_write_pin; lef_write_obstructions",
+      "why_it_matters": "LEF is generated directly from layout pin and blockage data."
+    },
+    {
+      "topic": "lvs_name_consistency",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/modules/bitcell_base_array.py:60-72;/data1/qujh/OpenRAM/compiler/modules/sram_1bank.py:145-207",
+      "class_or_function": "get_bitcell_pins; connect_inst flows",
+      "why_it_matters": "Pin naming consistency is established at instantiation time."
+    }
+  ],
+  "drc_lvs_flow_audit": [
+    {
+      "topic": "inline_verification_hook",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/base/hierarchy_design.py:50-79",
+      "class_or_function": "DRC_LVS",
+      "why_it_matters": "Each module can export temporary GDS/SPICE and invoke verification hooks."
+    },
+    {
+      "topic": "verification_backend_dispatch",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/verify/__init__.py:41-63",
+      "class_or_function": "backend imports",
+      "why_it_matters": "DRC/LVS backend selection is unified behind run_drc/run_lvs."
+    },
+    {
+      "topic": "klayout_and_magic_scripts",
+      "evidence_file": "/data1/qujh/OpenRAM/compiler/verify/klayout.py:26-163;/data1/qujh/OpenRAM/compiler/verify/magic.py:67-315",
+      "class_or_function": "write_drc_script; run_drc; write_lvs_script; run_lvs",
+      "why_it_matters": "Verification errors are persisted via generated scripts and reports."
+    }
+  ],
+  "current_layoutgen_audit": [
+    {
+      "topic": "module_registry_exists",
+      "evidence_file": "/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/openyield_adapter/module_gds_generators.py:151-1227",
+      "class_or_function": "ModuleGDSGenerationPlan; ModuleLayoutGenerator; ModuleGDSGeneratorRegistry; run_module_gds_generation",
+      "why_it_matters": "Current project already has a reusable registry pattern for module-level GDS generation."
+    },
+    {
+      "topic": "candidate_top_assembly_exists",
+      "evidence_file": "/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/openyield_adapter/top_level_assembly.py:280-1467",
+      "class_or_function": "OpenYieldTopLevelAssembler",
+      "why_it_matters": "Current project already has top-level candidate assembly, rail handoff, and pin-map generation."
+    },
+    {
+      "topic": "custom_gds_writer_exists",
+      "evidence_file": "/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/gds_writer.py:16-318",
+      "class_or_function": "GDSWriter",
+      "why_it_matters": "A self-developed GDS writer already exists and should be reused rather than replaced."
+    },
+    {
+      "topic": "full_sram_physical_generator",
+      "evidence_file": "NOT_FOUND",
+      "class_or_function": "NOT_FOUND",
+      "why_it_matters": "The current repository does not contain an OpenRAM-equivalent full SRAM physical generator pipeline."
+    },
+    {
+      "topic": "full_bank_physical_generator",
+      "evidence_file": "NOT_FOUND",
+      "class_or_function": "NOT_FOUND",
+      "why_it_matters": "There is no current bank-level physical generator class comparable to OpenRAM bank.py."
+    },
+    {
+      "topic": "sram_specialized_router",
+      "evidence_file": "NOT_FOUND",
+      "class_or_function": "NOT_FOUND",
+      "why_it_matters": "The current project lacks a dedicated SRAM-specialized router for WL/BL/control/power."
+    }
+  ],
+  "recommended_architecture": {
+    "modules": [
+      "OpenYield netlist parser",
+      "canonical SRAM parameter model",
+      "module generator registry",
+      "topology-aware floorplanner",
+      "SRAM-specialized router",
+      "power planner",
+      "pin/label exporter",
+      "GDS writer",
+      "DRC/LVS hooks"
+    ],
+    "why_it_matters": "This structure preserves OpenRAM's useful decomposition while replacing OpenRAM-specific assumptions with OpenYield semantics."
+  }
+}
