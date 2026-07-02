@@ -153,13 +153,32 @@ def _bbox_inside(inner: dict[str, Any], outer: dict[str, Any], tol: float = 1e-6
     )
 
 
+def normalize_top_gds_module_reference(
+    ref_name: str,
+    required_modules: set[str],
+    manifest_cell_renaming_map: dict[str, str] | None = None,
+) -> str | None:
+    text = str(ref_name)
+    if text in required_modules:
+        return text
+    for module in required_modules:
+        if text == f"{module}__{module}":
+            return module
+        if text.startswith(f"{module}__"):
+            return module
+    if manifest_cell_renaming_map:
+        for _, renamed_cell in manifest_cell_renaming_map.items():
+            if renamed_cell != text:
+                continue
+            for module in required_modules:
+                if text == f"{module}__{module}" or text.startswith(f"{module}__"):
+                    return module
+    return None
+
+
 def _normalize_top_module_reference(name: str) -> str:
-    text = str(name)
-    if "__" in text:
-        prefix = text.split("__", 1)[0]
-        if prefix in L3_REQUIRED_MODULES:
-            return prefix
-    return text
+    normalized = normalize_top_gds_module_reference(name, set(L3_REQUIRED_MODULES))
+    return normalized or str(name)
 
 
 def _bboxes_overlap(a: dict[str, Any], b: dict[str, Any], tol: float = 1e-9) -> bool:
@@ -442,14 +461,22 @@ class ModuleCompletenessValidator(BaseValidator):
         placement = self.context["module_placement"]
         l4_report = self.context["l4_report"]
         inventory_rows = self.context["module_gds_inventory_rows"]
+        manifest = self.context["top_level_generator_manifest"]
+        manifest_cell_renaming_map = manifest.get("hierarchy_export", {}).get("cell_renaming_map", {})
         present = {item["module_name"] for item in placement["instances"]}
         required = set(L3_REQUIRED_MODULES)
         placement_missing = sorted(required - present)
         placement_extra = sorted(present - required)
-        top_refs = {_normalize_top_module_reference(name) for name in self.context["gds_sanity_result"].details.get("module_references", [])}
-        if not top_refs:
-            top_refs = {_normalize_top_module_reference(name) for name in l4_report.get("module_references", [])}
-        top_missing = sorted(required - top_refs)
+        top_refs_raw = list(self.context["gds_sanity_result"].details.get("module_references", []))
+        if not top_refs_raw:
+            top_refs_raw = list(l4_report.get("module_references", []))
+        top_refs_normalized = {
+            normalized
+            for name in top_refs_raw
+            for normalized in [normalize_top_gds_module_reference(name, required, manifest_cell_renaming_map)]
+            if normalized is not None
+        }
+        top_missing = sorted(required - top_refs_normalized)
         inventory_required = {
             row["module"]
             for row in inventory_rows
@@ -480,9 +507,12 @@ class ModuleCompletenessValidator(BaseValidator):
             "required_modules_present_in_placement": sorted(present & required),
             "required_modules_missing_from_placement": placement_missing,
             "required_modules_missing_from_top_gds_references": top_missing,
+            "required_modules_present_in_top_gds_references": sorted(top_refs_normalized & required),
             "required_modules_missing_from_l4_report": l4_report.get("required_l3_modules_missing_from_top", []),
             "placement_extra_modules": placement_extra,
-            "module_references_seen": sorted(top_refs),
+            "module_references_seen_raw": sorted(top_refs_raw),
+            "module_references_normalized": sorted(top_refs_normalized),
+            "module_references_seen": sorted(top_refs_normalized),
             "module_completeness_status": status,
             "blocking_gaps": blockers,
         }

@@ -3,15 +3,24 @@ from __future__ import annotations
 import csv
 import json
 from pathlib import Path
-
+import sys
 
 REPO_ROOT = Path("/data1/qujh/work/sram_layoutgen_step45_clean")
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+from sram_layoutgen.openyield_adapter.top_level_validation import (  # noqa: E402
+    L3_REQUIRED_MODULES,
+    normalize_top_gds_module_reference,
+)
+
 OUT_DIR = REPO_ROOT / "outputs/openyield_validation/current_supported_config"
 REPORT_JSON = REPO_ROOT / "docs/openyield_L5_validation_report.json"
 REPORT_MD = REPO_ROOT / "docs/openyield_L5_validation_report.md"
 MATRIX_CSV = REPO_ROOT / "docs/mapping/openyield_L5_validation_matrix.csv"
 MATRIX_MD = REPO_ROOT / "docs/mapping/openyield_L5_validation_matrix.md"
 TOP_GDS_SANITY_JSON = OUT_DIR / "top_gds_sanity_report.json"
+MODULE_COMPLETENESS_JSON = OUT_DIR / "module_completeness_report.json"
 
 
 def _read_json(path: Path) -> dict:
@@ -107,11 +116,34 @@ def test_top_gds_sanity_report_passed_with_real_parser() -> None:
     assert any(attempt["success"] for attempt in report["parser_attempts"])
 
 
+def test_module_reference_normalization_rules() -> None:
+    required = set(L3_REQUIRED_MODULES)
+    assert normalize_top_gds_module_reference("bitcell_array__bitcell_array", required) == "bitcell_array"
+    assert normalize_top_gds_module_reference("CONTROL_LOGIC__CONTROL_LOGIC", required) == "CONTROL_LOGIC"
+    assert normalize_top_gds_module_reference("bitcell_array__leaf_cell", required) == "bitcell_array"
+    assert normalize_top_gds_module_reference("not_a_required_module__leaf_cell", required) is None
+
+
+def test_module_completeness_report_normalizes_prefixed_top_refs() -> None:
+    report = _read_json(MODULE_COMPLETENESS_JSON)
+    required = set(L3_REQUIRED_MODULES)
+    assert report["module_completeness_status"] == "PASSED"
+    assert report["required_modules_missing_from_top_gds_references"] == []
+    assert set(report["required_modules_present_in_top_gds_references"]) == required
+    assert "bitcell_array__bitcell_array" in report["module_references_seen_raw"]
+    assert "CONTROL_LOGIC__CONTROL_LOGIC" in report["module_references_seen_raw"]
+    assert "bitcell_array" in report["module_references_normalized"]
+    assert "CONTROL_LOGIC" in report["module_references_normalized"]
+    assert set(report["module_references_normalized"]) == required
+
+
 def main() -> None:
     test_L5_reports_exist()
     test_L5_summary_contains_required_gates()
     test_L5_matrix_has_all_checks()
     test_top_gds_sanity_report_passed_with_real_parser()
+    test_module_reference_normalization_rules()
+    test_module_completeness_report_normalizes_prefixed_top_refs()
     print("OpenYield L5 validation tests passed.")
 
 

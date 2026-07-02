@@ -13,13 +13,16 @@
 - optional LVS feasibility audit
 - timing metadata consistency audit
 
-## First-Round Blocker
+## Hierarchy Repair Status
 
-- The only first-round L5 basic-validation blocker was `top_gds_sanity`.
-- First-round parser failures were consistent across tools:
-  - `gdstk`: missing referenced cells and unstable parse failure
-  - `gdspy`: recursive dependency overflow
-  - `KLayout`: hierarchy/topological sort failure
+- The top-level GDS hierarchy/export issue is repaired and `top_gds_sanity_status=PASSED`.
+- The repaired top-level candidate parses successfully and exposes 20 direct top-level module references.
+
+## Module Completeness Root Cause
+
+- After hierarchy repair, `module_completeness` initially failed even though the top-level GDS already contained all 20 required L3 module instances.
+- The failing evidence showed raw top-level references in prefixed form such as `bitcell_array__bitcell_array` and `CONTROL_LOGIC__CONTROL_LOGIC`.
+- Root cause was the L5 module completeness checker comparing unprefixed required module names against prefixed top-level GDS direct references without normalization.
 
 ## Passed
 
@@ -34,29 +37,27 @@
 
 ## Skipped
 
-- No basic-validation check is currently skipped.
-- LVS remains a feasibility audit only; it is not a clean-LVS claim.
+- No basic-validation check is skipped in the current pass.
+- LVS remains a feasibility audit only, not an LVS-clean signoff claim.
 
-## Root Cause And Repair
+## Module Completeness Repair
 
-- Root cause was a top-level GDS hierarchy/export defect, not an L5 validator false negative.
-- The original integrated GDS omitted dependent leaf cells under imported module hierarchies, so the written library contained top cells with missing references.
-- The original assembly also allowed name collisions between wrapper cells and imported source cells, which created self-reference / cycle risk for modules such as `sense_amp` and `write_driver`.
-- The repair was implemented in the L4 assembly/export path by switching to complete hierarchical import with per-module namespace prefixing.
-- Each imported module now carries a module-local prefix, internal references are rewritten into the prefixed namespace, and self-referential wrapper collisions are redirected to the correct external source hierarchy when needed.
-- Post-repair diagnosis reports `missing_referenced_cells_count=0`, `self_reference_count=0`, and `cycle_count=0`.
-- The repaired top-level candidate GDS is now parsed successfully by `gdstk`, and `top_gds_sanity_status=PASSED`.
+- The L5 checker now normalizes top-level direct references back to required module names.
+- It records both `module_references_seen_raw` and `module_references_normalized` in `module_completeness_report.json`.
+- For the current top-level GDS, all 20 required modules are now recognized after normalization.
+- `required_modules_missing_from_top_gds_references=[]`
+- `module_completeness_status=PASSED`
 
 ## Candidate Geometry And Contract Pin Impact
 
 - Candidate geometry and contract pins do not necessarily block first-pass L5 basic validation.
 - They still block any claim of full validated GDS, DRC clean, LVS clean, and timing closure.
 
-## DRC Smoke Status
+## Current DRC / LVS Limits
 
-- `drc_smoke_status=DRC_SMOKE_RAN_WITH_MARKERS`
-- The current DRC smoke result is no longer a GDS parse failure side effect.
-- KLayout DRC now runs on the repaired top-level GDS and reports markers that need later triage before any DRC-clean claim.
+- `drc_smoke_status=DRC_SMOKE_RAN_WITH_MARKERS`, so DRC clean cannot be claimed.
+- `lvs_feasibility_status=LVS_BLOCKED_BY_MISSING_NETLIST`, so LVS clean cannot be claimed.
+- Candidate geometry and contract-pin scope still block any full validated GDS claim.
 
 ## Current Gate
 
@@ -74,10 +75,9 @@
 
 - Candidate-geometry modules remain in the integrated top-level candidate.
 - Contract-pin modules still need geometry-backed accessibility/LVS proof.
-- DRC smoke still reports markers, so `can_claim_drc_clean_now=False`.
-- LVS remains blocked by missing top-level netlist/pin-mapping export, so `can_claim_lvs_clean_now=False`.
-- Timing metadata is still metadata-consistency only, not timing closure, so `can_claim_timing_closure_now=False`.
-- Because those downstream signoff conditions remain open, `can_claim_validated_full_openyield_gds_now=False`.
+- DRC smoke still reports markers.
+- LVS is blocked by missing top-level netlist export.
+- Timing evidence remains metadata consistency only and is not timing closure.
 
 ## Next Priority
 
