@@ -1,0 +1,154 @@
+{
+  "artifacts": [
+    {
+      "artifact_name": "L0 semantic contract report",
+      "artifact_category": "L0",
+      "path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_L0_semantic_gap_closure_report.json",
+      "exists": true,
+      "why_it_matters": "证明 OpenYield SRAM 语义合同已经冻结到当前支持范围。",
+      "used_for_claims": [
+        "OpenYield semantic mapping established"
+      ]
+    },
+    {
+      "artifact_name": "L1 primitive closure report",
+      "artifact_category": "L1",
+      "path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_physical_primitive_gap_closure_report.json",
+      "exists": true,
+      "why_it_matters": "证明 L1 primitive physical source 缺口已关闭到当前 scope 可继续的程度。",
+      "used_for_claims": [
+        "primitive closure completed"
+      ]
+    },
+    {
+      "artifact_name": "L2 placement/abutment/rail rule report",
+      "artifact_category": "L2",
+      "path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_L2_placement_abutment_rule_closure_report.json",
+      "exists": true,
+      "why_it_matters": "证明 L2 placement/abutment/rail 规则已经冻结。",
+      "used_for_claims": [
+        "L2 placement rules closed"
+      ]
+    },
+    {
+      "artifact_name": "L3 module GDS generation report",
+      "artifact_category": "L3",
+      "path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_L3_module_generator_gds_generation_report.json",
+      "exists": true,
+      "why_it_matters": "证明 20 个目标模块的 standalone GDS 生成已完成。",
+      "used_for_claims": [
+        "20 standalone module GDS generated"
+      ]
+    },
+    {
+      "artifact_name": "L3 sanity report",
+      "artifact_category": "L3",
+      "path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/mapping/openyield_module_gds_inventory.csv",
+      "exists": true,
+      "why_it_matters": "证明 module GDS inventory、pins、bbox、rail metadata 已记录。",
+      "used_for_claims": [
+        "module metadata available"
+      ]
+    },
+    {
+      "artifact_name": "L4 top-level assembly report",
+      "artifact_category": "L4",
+      "path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_L4_top_level_assembly_report.json",
+      "exists": true,
+      "why_it_matters": "证明 top-level candidate GDS assembly 已生成。",
+      "used_for_claims": [
+        "top-level candidate GDS assembled"
+      ]
+    },
+    {
+      "artifact_name": "L5 validation report",
+      "artifact_category": "L5",
+      "path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_L5_validation_report.json",
+      "exists": true,
+      "why_it_matters": "证明 basic validation 已通过且 false claims 保持 false。",
+      "used_for_claims": [
+        "L5 basic validation passed"
+      ]
+    },
+    {
+      "artifact_name": "L6 DRC marker triage report",
+      "artifact_category": "L6",
+      "path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_L6_drc_marker_triage_report.json",
+      "exists": true,
+      "why_it_matters": "证明 24687 个 DRC markers 已完成 100% 分类。",
+      "used_for_claims": [
+        "L6 DRC triage completed"
+      ]
+    },
+    {
+      "artifact_name": "Step 7 final repair planning report",
+      "artifact_category": "Step7",
+      "path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_step7_final_repair_planning_report.json",
+      "exists": true,
+      "why_it_matters": "证明 project v1 closure ready 与 repair priority 已冻结。",
+      "used_for_claims": [
+        "project v1 closure ready"
+      ]
+    },
+    {
+      "artifact_name": "Top-level candidate GDS",
+      "artifact_category": "Deliverable",
+      "path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_top_level_assembly/current_supported_config/openyield_top_level_candidate.gds",
+      "exists": true,
+      "why_it_matters": "这是当前 v1.0 核心交付物。",
+      "used_for_claims": [
+        "OpenYield-driven top-level candidate GDS generated"
+      ]
+    },
+    {
+      "artifact_name": "Final repair plan",
+      "artifact_category": "Closure",
+      "path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_project_closure/current_supported_config/final_repair_plan.md",
+      "exists": true,
+      "why_it_matters": "记录后续继续推进时的优先级顺序。",
+      "used_for_claims": [
+        "repair priorities defined"
+      ]
+    },
+    {
+      "artifact_name": "Capability statement",
+      "artifact_category": "Closure",
+      "path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_project_closure/current_supported_config/project_v1_capability_statement.md",
+      "exists": true,
+      "why_it_matters": "界定当前可以 claim 的成果。",
+      "used_for_claims": [
+        "supported claims bounded"
+      ]
+    },
+    {
+      "artifact_name": "Limitation statement",
+      "artifact_category": "Closure",
+      "path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_project_closure/current_supported_config/project_v1_limitation_statement.md",
+      "exists": true,
+      "why_it_matters": "界定当前不能 claim 的成果。",
+      "used_for_claims": [
+        "false claims avoided"
+      ]
+    },
+    {
+      "artifact_name": "Future work roadmap",
+      "artifact_category": "Closure",
+      "path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_project_closure/current_supported_config/future_work_roadmap.md",
+      "exists": true,
+      "why_it_matters": "记录超出 Step 8 终点后的后续推进路线。",
+      "used_for_claims": [
+        "future work sequenced"
+      ]
+    },
+    {
+      "artifact_name": "Final handoff checklist",
+      "artifact_category": "Closure",
+      "path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_project_closure/current_supported_config/final_handoff_checklist.md",
+      "exists": true,
+      "why_it_matters": "证明 Step 7 closure handoff prerequisites 已存在。",
+      "used_for_claims": [
+        "handoff prerequisites documented"
+      ]
+    }
+  ]
+}
