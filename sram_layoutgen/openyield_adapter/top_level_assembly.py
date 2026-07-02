@@ -10,6 +10,14 @@ from typing import Any
 import gdstk
 import gdspy
 
+from sram_layoutgen.openyield_adapter.gds_hierarchy_export import (
+    TopCellImportPlan,
+    build_top_level_library,
+    collect_search_paths,
+    diagnose_gds_hierarchy,
+    write_hierarchy_diagnosis,
+)
+
 
 L3_REQUIRED_MODULES = [
     "bitcell_array",
@@ -343,6 +351,9 @@ class OpenYieldTopLevelAssembler:
             )
         return loaded
 
+    def load_module_gds_inventory_rows(self) -> list[dict[str, str]]:
+        return _load_csv_list(self.module_gds_inventory)
+
     def load_module_metadata(self) -> dict[str, Any]:
         return {
             "l0_contract": _load_json(self.l0_contract_json),
@@ -580,28 +591,27 @@ class OpenYieldTopLevelAssembler:
     def emit_top_level_gds(self, placement_plan: TopLevelPlacementPlan, out_dir: Path) -> tuple[Path, str]:
         out_dir.mkdir(parents=True, exist_ok=True)
         gds_path = out_dir / "openyield_top_level_candidate.gds"
-        lib = gdstk.Library()
-        top = lib.new_cell("openyield_top_level_candidate")
-        imported_by_path: dict[Path, str] = {}
-        imported_by_name: dict[str, gdstk.Cell] = {str(top.name): top}
-        for instance in placement_plan.instances:
-            if instance.gds_path not in imported_by_path:
-                source_lib = gdstk.read_gds(instance.gds_path)
-                for cell in source_lib.cells:
-                    if str(cell.name) not in imported_by_name:
-                        lib.add(cell)
-                        imported_by_name[str(cell.name)] = cell
-                source_top = source_lib.top_level()[0] if source_lib.top_level() else source_lib.cells[0]
-                imported_by_path[instance.gds_path] = str(source_top.name)
-            source_cell = imported_by_name[imported_by_path[instance.gds_path]]
-            top.add(
-                gdstk.Reference(
-                    source_cell,
-                    origin=(instance.origin_x, instance.origin_y),
-                )
+        import_plans = [
+            TopCellImportPlan(
+                module_name=instance.module_name,
+                module_gds_path=instance.gds_path,
+                root_cell_name=instance.module_name,
+                instance_name=instance.instance_name,
+                origin_x=instance.origin_x,
+                origin_y=instance.origin_y,
+                orientation=instance.orientation,
             )
+            for instance in placement_plan.instances
+        ]
+        search_paths = collect_search_paths(
+            [item.gds_path for item in placement_plan.instances],
+            self.repo_root / "technology/freepdk45/gds_lib",
+        )
+        lib, hierarchy_manifest = build_top_level_library(import_plans, search_paths, top_cell_name="openyield_top_level_candidate")
         lib.write_gds(gds_path)
-        return gds_path, top.name
+        self._last_hierarchy_manifest = hierarchy_manifest
+        self._last_hierarchy_search_paths = search_paths
+        return gds_path, "openyield_top_level_candidate"
 
     def emit_top_level_metadata(
         self,
@@ -687,6 +697,7 @@ class OpenYieldTopLevelAssembler:
                     str(self.out_report),
                 ],
                 "determinism_contract": "L4 top-level GDS is produced by deterministic module ordering, fixed floorplan zones, and frozen L3 standalone module metadata.",
+                "hierarchy_export": getattr(self, "_last_hierarchy_manifest", {}),
                 "validation_summary": validation,
             },
         )
@@ -722,22 +733,43 @@ class OpenYieldTopLevelAssembler:
                 "layer_summary": {},
                 "module_references": [],
             }
-        lib = gdspy.GdsLibrary(infile=str(top_gds_path))
+        lib = gdstk.read_gds(top_gds_path)
+        cell_names = {str(cell.name) for cell in lib.cells}
+        refs_by_cell = {str(cell.name): [str(ref.cell_name) for ref in cell.references] for cell in lib.cells}
+        missing_refs = sorted({ref for refs in refs_by_cell.values() for ref in refs if ref not in cell_names})
+        self_refs = sorted(cell for cell, refs in refs_by_cell.items() if cell in refs)
+        cycles = self._find_cycles(refs_by_cell, cell_names)
         top_cells = list(lib.top_level())
-        top = top_cells[0] if top_cells else next(iter(lib.cells.values()))
-        bbox_dict = fallback_bbox
+        top = top_cells[0] if top_cells else (lib.cells[0] if lib.cells else None)
+        bbox = top.bounding_box() if top is not None else None
+        bbox_dict = (
+            {
+                "x0": float(bbox[0][0]),
+                "y0": float(bbox[0][1]),
+                "x1": float(bbox[1][0]),
+                "y1": float(bbox[1][1]),
+                "width": float(bbox[1][0] - bbox[0][0]),
+                "height": float(bbox[1][1] - bbox[0][1]),
+            }
+            if bbox is not None
+            else fallback_bbox
+        )
+        status = "GDS_PARSED_SANITY_PASSED" if top is not None and not missing_refs and not self_refs and not cycles else "SANITY_FAILED"
         return {
             "top_gds_exists": True,
             "top_gds_non_empty": True,
-            "top_gds_sanity_status": "GDS_PARSED_SANITY_PASSED" if bbox_dict is not None else "SANITY_FAILED",
+            "top_gds_sanity_status": status,
             "top_gds_size_bytes": size,
-            "top_cell_name": str(top.name),
+            "top_cell_name": str(top.name) if top is not None else None,
             "top_bbox": bbox_dict,
             "top_instance_count": fallback_instance_count if fallback_instance_count is not None else len(getattr(top, "references", [])),
             "cell_count": len(lib.cells),
-            "layer_summary": self._gdspy_layer_summary(lib),
-            "module_references": sorted(str(ref.ref_cell.name) for ref in getattr(top, "references", [])),
-            "top_bbox_source": "deterministic_placement_plan",
+            "layer_summary": self._layer_summary(lib),
+            "module_references": sorted(str(ref.cell_name) for ref in getattr(top, "references", [])),
+            "top_bbox_source": "parsed_gds_hierarchy" if status == "GDS_PARSED_SANITY_PASSED" else "deterministic_placement_plan",
+            "missing_references": missing_refs,
+            "self_references": self_refs,
+            "cycles": cycles,
         }
 
     def emit_top_level_assembly_inventory(self, csv_path: Path, md_path: Path, rows: list[dict[str, Any]]) -> None:
@@ -764,6 +796,18 @@ class OpenYieldTopLevelAssembler:
         rail_stitch_plan = TopLevelRailStitchPlan(entries=tuple(self._build_rail_stitch_plan(modules)))
         placement_plan = self.place_l3_modules(modules, floorplan, routing_handoff, rail_stitch_plan)
         top_gds_path, top_cell_name = self.emit_top_level_gds(placement_plan, self.out_dir)
+        diagnosis = diagnose_gds_hierarchy(
+            top_gds_path,
+            {item.module_name: item.gds_path for item in placement_plan.instances},
+            self.repo_root / "technology/freepdk45/gds_lib",
+            self.load_module_gds_inventory_rows(),
+        )
+        validation_dir = self.repo_root / "outputs/openyield_validation/current_supported_config"
+        write_hierarchy_diagnosis(
+            diagnosis,
+            validation_dir / "top_gds_hierarchy_diagnosis.json",
+            validation_dir / "top_gds_hierarchy_diagnosis.md",
+        )
         validation = self.validate_top_level_assembly(
             top_gds_path,
             fallback_bbox=placement_plan.floorplan_bbox,
@@ -1187,6 +1231,9 @@ class OpenYieldTopLevelAssembler:
             "top_cell_count": validation["cell_count"],
             "top_gds_layer_summary": validation["layer_summary"],
             "module_references": validation["module_references"],
+            "top_gds_missing_references": validation.get("missing_references", []),
+            "top_gds_self_references": validation.get("self_references", []),
+            "top_gds_cycles": validation.get("cycles", []),
             "modules_instantiated_with_candidate_geometry": candidate_modules,
             "modules_instantiated_with_contract_pins": contract_pin_modules,
             "remaining_L4_blockers": blockers,
@@ -1221,6 +1268,9 @@ class OpenYieldTopLevelAssembler:
             f"- top_cell_name: `{report['top_cell_name']}`",
             f"- top_bbox: `{report['top_bbox']}`",
             f"- top_instance_count: `{report['top_instance_count']}`",
+            f"- top_gds_missing_references: `{report.get('top_gds_missing_references', [])}`",
+            f"- top_gds_self_references: `{report.get('top_gds_self_references', [])}`",
+            f"- top_gds_cycles: `{report.get('top_gds_cycles', [])}`",
             f"- remaining_L4_blockers_count: `{report['remaining_L4_blockers_count']}`",
             f"- can_claim_L4_top_level_candidate_gds_generated_now: `{report['can_claim_L4_top_level_candidate_gds_generated_now']}`",
             f"- can_enter_L5_validation: `{report['can_enter_L5_validation']}`",
@@ -1362,6 +1412,31 @@ class OpenYieldTopLevelAssembler:
                 key = f"{label.layer}/{label.texttype}"
                 counts[key] = counts.get(key, 0) + 1
         return dict(sorted(counts.items()))
+
+    def _find_cycles(self, refs_by_cell: dict[str, list[str]], cell_names: set[str]) -> list[list[str]]:
+        visited: dict[str, int] = {}
+        stack: list[str] = []
+        cycles: list[list[str]] = []
+
+        def dfs(node: str) -> None:
+            visited[node] = 1
+            stack.append(node)
+            for ref_name in refs_by_cell.get(node, []):
+                if ref_name not in cell_names:
+                    continue
+                state = visited.get(ref_name, 0)
+                if state == 1:
+                    index = stack.index(ref_name)
+                    cycles.append(stack[index:] + [ref_name])
+                elif state == 0:
+                    dfs(ref_name)
+            stack.pop()
+            visited[node] = 2
+
+        for cell_name in sorted(cell_names):
+            if visited.get(cell_name, 0) == 0:
+                dfs(cell_name)
+        return cycles
 
     def _gdspy_layer_summary(self, lib: gdspy.GdsLibrary) -> dict[str, int]:
         counts: dict[str, int] = {}

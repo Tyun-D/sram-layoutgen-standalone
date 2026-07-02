@@ -1,37 +1,41 @@
 {
   "top_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_top_level_assembly/current_supported_config/openyield_top_level_candidate.gds",
   "gds_exists": true,
-  "gds_size_bytes": 96668,
+  "gds_size_bytes": 349062,
   "parser_attempts": [
     {
       "parser": "gdstk",
       "available": true,
-      "success": false,
-      "returncode": -11,
-      "stdout": "",
-      "stderr": "enced cell sram_1rw_32x16_freepdk45_contact_12\n[GDSTK] Missing referenced cell sram_1rw_32x16_freepdk45_contact_13\n[GDSTK] Missing referenced cell sram_1rw_32x16_freepdk45_contact_14\n[GDSTK] Missing referenced cell sram_1rw_32x16_freepdk45_contact_14\n[GDSTK] Missing referenced cell sram_1rw_32x16_freepdk45_pnand2\n[GDSTK] Missing referenced cell sram_1rw_32x16_freepdk45_pinv_0\n[GDSTK] Missing referenced cell sram_1rw_32x16_freepdk45_pmos_m1_w0_270_sm1_dm1_da_p\n[GDSTK] Missing referenced cell sram_1rw_32x16_freepdk45_nmos_m1_w0_090_sm1_dm1_da_p\n[GDSTK] Missing referenced cell sram_1rw_32x16_freepdk45_contact_12\n[GDSTK] Missing referenced cell sram_1rw_32x16_freepdk45_contact_13\n[GDSTK] Missing referenced cell sram_1rw_32x16_freepdk45_contact_14\n<string>:9: RuntimeWarning: Missing reference.\n"
-    },
-    {
-      "parser": "gdspy",
-      "available": true,
-      "success": false,
-      "returncode": 1,
-      "stdout": "",
-      "stderr": "endencies(True))\n  File \"/data1/qujh/.venv/lib/python3.10/site-packages/gdspy/library.py\", line 798, in get_dependencies\n    dependencies.update(reference.ref_cell.get_dependencies(True))\n  File \"/data1/qujh/.venv/lib/python3.10/site-packages/gdspy/library.py\", line 798, in get_dependencies\n    dependencies.update(reference.ref_cell.get_dependencies(True))\n  File \"/data1/qujh/.venv/lib/python3.10/site-packages/gdspy/library.py\", line 798, in get_dependencies\n    dependencies.update(reference.ref_cell.get_dependencies(True))\n  [Previous line repeated 994 more times]\n  File \"/data1/qujh/.venv/lib/python3.10/site-packages/gdspy/library.py\", line 796, in get_dependencies\n    if isinstance(reference.ref_cell, Cell):\nRecursionError: maximum recursion depth exceeded while calling a Python object\n"
-    },
-    {
-      "parser": "klayout_cli",
-      "available": true,
-      "success": false,
-      "returncode": 1,
-      "stdout": "",
-      "stderr": "ERROR: ../../../src/db/db/dbLayout.cc,1865,topological_sort ()\nERROR: RuntimeError: Internal error: ../../../src/db/db/dbLayout.cc:1865 topological_sort () was not true in Layout::read\n  /tmp/openyield_l5_openyield_top_level_candidate/klayout_parse.rb:4:in `read'\n  /tmp/openyield_l5_openyield_top_level_candidate/klayout_parse.rb:4:in `<main>'\n"
+      "success": true,
+      "returncode": 0,
+      "stdout": "{\"available\": true, \"success\": true, \"top_cell_name\": \"openyield_top_level_candidate\", \"top_bbox\": {\"x0\": 0.025, \"y0\": 0.0, \"x1\": 43.716, \"y1\": 25.259999999999998, \"width\": 43.691, \"height\": 25.259999999999998}, \"top_instance_count\": 20, \"top_cell_count\": 203, \"layer_summary\": {\"1/0\": 622, \"10/0\": 570, \"11/0\": 1103, \"12/0\": 201, \"13/0\": 272, \"2/0\": 141, \"239/0\": 197, \"3/0\": 133, \"4/0\": 161, \"5/0\": 150, \"6/0\": 152, \"9/0\": 614}}\n",
+      "stderr": ""
     }
   ],
-  "top_cell_name": null,
-  "top_bbox": {},
-  "top_instance_count": 0,
-  "top_cell_count": 0,
-  "layer_summary": {},
-  "top_gds_sanity_status": "FAILED"
+  "top_cell_name": "openyield_top_level_candidate",
+  "top_bbox": {
+    "x0": 0.025,
+    "y0": 0.0,
+    "x1": 43.716,
+    "y1": 25.259999999999998,
+    "width": 43.691,
+    "height": 25.259999999999998
+  },
+  "top_instance_count": 20,
+  "top_cell_count": 203,
+  "layer_summary": {
+    "1/0": 622,
+    "10/0": 570,
+    "11/0": 1103,
+    "12/0": 201,
+    "13/0": 272,
+    "2/0": 141,
+    "239/0": 197,
+    "3/0": 133,
+    "4/0": 161,
+    "5/0": 150,
+    "6/0": 152,
+    "9/0": 614
+  },
+  "top_gds_sanity_status": "PASSED"
 }

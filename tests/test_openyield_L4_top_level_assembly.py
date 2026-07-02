@@ -4,6 +4,8 @@ import csv
 import json
 from pathlib import Path
 
+import gdstk
+
 
 REPO_ROOT = Path("/data1/qujh/work/sram_layoutgen_step45_clean")
 OUT_DIR = REPO_ROOT / "outputs/openyield_top_level_assembly/current_supported_config"
@@ -15,6 +17,7 @@ RAIL_JSON = OUT_DIR / "top_level_rail_stitch_plan.json"
 ROUTING_JSON = OUT_DIR / "top_level_routing_handoff.json"
 MANIFEST_JSON = OUT_DIR / "top_level_generator_manifest.json"
 GDS_PATH = OUT_DIR / "openyield_top_level_candidate.gds"
+DIAGNOSIS_JSON = REPO_ROOT / "outputs/openyield_validation/current_supported_config/top_gds_hierarchy_diagnosis.json"
 L3_REQUIRED_MODULES = [
     "bitcell_array",
     "dummy_array",
@@ -103,6 +106,26 @@ def test_required_metadata_files_exist() -> None:
     assert RAIL_JSON.exists()
     assert ROUTING_JSON.exists()
     assert MANIFEST_JSON.exists()
+    assert DIAGNOSIS_JSON.exists()
+
+
+def test_top_level_gds_has_no_missing_refs_self_refs_or_cycles() -> None:
+    report = _read_json(REPORT_JSON)
+    assert report["top_gds_missing_references"] == []
+    assert report["top_gds_self_references"] == []
+    assert report["top_gds_cycles"] == []
+
+    diagnosis = _read_json(DIAGNOSIS_JSON)
+    assert diagnosis["missing_referenced_cells"] == []
+    assert diagnosis["self_references"] == []
+    assert diagnosis["cycles"] == []
+
+    lib = gdstk.read_gds(GDS_PATH)
+    cell_names = {cell.name for cell in lib.cells}
+    missing = sorted({ref.cell_name for cell in lib.cells for ref in cell.references if ref.cell_name not in cell_names})
+    self_refs = sorted({cell.name for cell in lib.cells for ref in cell.references if ref.cell_name == cell.name})
+    assert missing == []
+    assert self_refs == []
 
 
 def test_report_contains_required_gates_and_false_signoff_claims() -> None:
@@ -133,6 +156,7 @@ def main() -> None:
     test_all_required_modules_appear_in_module_placement()
     test_all_required_modules_are_instantiated_or_explicitly_not_required()
     test_required_metadata_files_exist()
+    test_top_level_gds_has_no_missing_refs_self_refs_or_cycles()
     test_report_contains_required_gates_and_false_signoff_claims()
     print("OpenYield L4 top-level assembly tests passed.")
 

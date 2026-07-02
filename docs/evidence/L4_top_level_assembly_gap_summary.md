@@ -4,7 +4,18 @@
 
 - Generated top-level candidate: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_top_level_assembly/current_supported_config/openyield_top_level_candidate.gds`
 - Top-level GDS sanity: `GDS_PARSED_SANITY_PASSED`
-- Top-level bbox: `{'x0': 0.0, 'y0': 0.0, 'x1': 43.715, 'y1': 25.26, 'width': 43.715, 'height': 25.26}`
+- Top-level bbox: `{'x0': 0.025, 'y0': 0.0, 'x1': 43.716, 'y1': 25.259999999999998, 'width': 43.691, 'height': 25.259999999999998}`
+
+## Hierarchy Export Repair
+
+- The first L4 top-level candidate was not a complete hierarchy export: integrated module tops could still reference missing leaf cells, and same-name wrapper/source cells could collapse into self-reference.
+- The repaired L4 exporter now performs complete hierarchical import into the top-level GDS library instead of only writing direct module references.
+- Imported module hierarchies are namespaced with module-local prefixes so that same-name leaf cells from different module GDS files cannot overwrite each other.
+- Wrapper/source self-reference collisions are redirected to the correct external hierarchy during import.
+- Current hierarchy diagnosis for the repaired top-level GDS reports:
+  - `missing_referenced_cells_count=0`
+  - `self_reference_count=0`
+  - `cycle_count=0`
 
 ## Instantiated L3 Modules
 

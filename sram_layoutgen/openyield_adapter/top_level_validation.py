@@ -153,6 +153,15 @@ def _bbox_inside(inner: dict[str, Any], outer: dict[str, Any], tol: float = 1e-6
     )
 
 
+def _normalize_top_module_reference(name: str) -> str:
+    text = str(name)
+    if "__" in text:
+        prefix = text.split("__", 1)[0]
+        if prefix in L3_REQUIRED_MODULES:
+            return prefix
+    return text
+
+
 def _bboxes_overlap(a: dict[str, Any], b: dict[str, Any], tol: float = 1e-9) -> bool:
     return not (
         float(a["x1"]) <= float(b["x0"]) + tol
@@ -306,9 +315,8 @@ bbox = top.bounding_box()
 layer_summary = {}
 for cell in lib.cells:
     for polygon in cell.polygons:
-        for layer, datatype in zip(polygon.layers, polygon.datatypes):
-            key = f"{layer}/{datatype}"
-            layer_summary[key] = layer_summary.get(key, 0) + 1
+        key = f"{polygon.layer}/{polygon.datatype}"
+        layer_summary[key] = layer_summary.get(key, 0) + 1
 print(json.dumps({
     "available": True,
     "success": True,
@@ -438,9 +446,9 @@ class ModuleCompletenessValidator(BaseValidator):
         required = set(L3_REQUIRED_MODULES)
         placement_missing = sorted(required - present)
         placement_extra = sorted(present - required)
-        top_refs = set(self.context["gds_sanity_result"].details.get("module_references", []))
+        top_refs = {_normalize_top_module_reference(name) for name in self.context["gds_sanity_result"].details.get("module_references", [])}
         if not top_refs:
-            top_refs = set(l4_report.get("module_references", []))
+            top_refs = {_normalize_top_module_reference(name) for name in l4_report.get("module_references", [])}
         top_missing = sorted(required - top_refs)
         inventory_required = {
             row["module"]

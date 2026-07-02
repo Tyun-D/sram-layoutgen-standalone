@@ -11,6 +11,7 @@ REPORT_JSON = REPO_ROOT / "docs/openyield_L5_validation_report.json"
 REPORT_MD = REPO_ROOT / "docs/openyield_L5_validation_report.md"
 MATRIX_CSV = REPO_ROOT / "docs/mapping/openyield_L5_validation_matrix.csv"
 MATRIX_MD = REPO_ROOT / "docs/mapping/openyield_L5_validation_matrix.md"
+TOP_GDS_SANITY_JSON = OUT_DIR / "top_gds_sanity_report.json"
 
 
 def _read_json(path: Path) -> dict:
@@ -70,6 +71,9 @@ def test_L5_summary_contains_required_gates() -> None:
     ]
     for key in required_keys:
         assert key in report, f"Missing report key: {key}"
+    assert report["top_gds_sanity_status"] == "PASSED"
+    assert report["remaining_L5_basic_validation_blockers_count"] == 0
+    assert report["can_claim_L5_basic_validation_passed_now"] is True
     assert report["can_claim_validated_full_openyield_gds_now"] is False
     assert report["can_claim_drc_clean_now"] is False
     assert report["can_claim_lvs_clean_now"] is False
@@ -93,10 +97,21 @@ def test_L5_matrix_has_all_checks() -> None:
     }
 
 
+def test_top_gds_sanity_report_passed_with_real_parser() -> None:
+    report = _read_json(TOP_GDS_SANITY_JSON)
+    assert report["top_gds_sanity_status"] == "PASSED"
+    assert report["gds_exists"] is True
+    assert report["gds_size_bytes"] > 0
+    assert report["top_cell_name"] == "openyield_top_level_candidate"
+    assert report["top_instance_count"] == 20
+    assert any(attempt["success"] for attempt in report["parser_attempts"])
+
+
 def main() -> None:
     test_L5_reports_exist()
     test_L5_summary_contains_required_gates()
     test_L5_matrix_has_all_checks()
+    test_top_gds_sanity_report_passed_with_real_parser()
     print("OpenYield L5 validation tests passed.")
 
 
