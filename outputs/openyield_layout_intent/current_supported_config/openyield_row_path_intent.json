@@ -1,0 +1,35 @@
+{
+  "physical_role": "ROW_PATH",
+  "modules": [
+    "row_decoder",
+    "wordline_decoder",
+    "decoder_gate_cells",
+    "wordline_driver",
+    "wordline_driver_gate_cells"
+  ],
+  "address_relation": {
+    "row_decoder_and_wordline_decoder": "Consume row_address_width bits and expand into decoded row-select intent.",
+    "row_address_width": 2,
+    "evidence_file": "docs/mapping/openyield_decoder_wordline_semantic_contract.json"
+  },
+  "wordline_driver_relation": {
+    "value": "Wordline driver fanout must match num_rows and every WL[i] must map one-to-one onto a bitcell row.",
+    "evidence_file": "docs/mapping/openyield_decoder_wordline_semantic_contract.json;docs/openram_gds_generation_audit_report.json"
+  },
+  "pitch_alignment_expectation": "Row path geometry must align to bitcell array row pitch before structure-complete SRAM GDS can exist.",
+  "routing_expectation": "decoder output -> WL driver input -> WL[i] should remain an explicit R3/R4 routing chain with row-pitch alignment.",
+  "current_candidate_geometry_modules": [
+    "row_decoder",
+    "wordline_decoder",
+    "decoder_gate_cells",
+    "wordline_driver_gate_cells"
+  ],
+  "current_hardmacro_reference_modules": [
+    "wordline_driver"
+  ],
+  "r3_r4_required_work": [
+    "R3 must define a real row-path generator boundary for decoder stages and WL driver composition.",
+    "R3 must define row-pitch-owned placement anchors relative to ARRAY_CORE.",
+    "R4 must define decoder-to-driver and driver-to-WL routing implementation rather than contract-only handoff."
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "intent_name": "openyield_sram_layout_intent",
+  "canonical_parameters": {
+    "parameters": [
+      {
+        "parameter_name": "word_size",
+        "value": 4,
+        "source": "DEFAULT_FOR_CURRENT_SUPPORTED_SCOPE",
+        "evidence_file": "docs/mapping/openyield_canonical_sram_semantic_contract.json;docs/mapping/openyield_module_gds_inventory.csv",
+        "why_it_matters": "Defines data width and column-path bit count for the frozen current-supported layout intent baseline."
+      },
+      {
+        "parameter_name": "num_words",
+        "value": 4,
+        "source": "DEFAULT_FOR_CURRENT_SUPPORTED_SCOPE",
+        "evidence_file": "docs/mapping/openyield_canonical_sram_semantic_contract.json",
+        "why_it_matters": "Defines logical depth for the frozen current-supported layout intent baseline."
+      },
+      {
+        "parameter_name": "words_per_row",
+        "value": 1,
+        "source": "DEFAULT_FOR_CURRENT_SUPPORTED_SCOPE",
+        "evidence_file": "docs/mapping/openyield_canonical_sram_semantic_contract.json;docs/mapping/openyield_logical_to_openyield_parameter_map.csv",
+        "why_it_matters": "Controls whether column muxing is required in the current-supported layout intent baseline."
+      },
+      {
+        "parameter_name": "num_rows",
+        "value": 4,
+        "source": "DERIVED_FROM_CONTRACT",
+        "evidence_file": "docs/mapping/openyield_logical_to_openyield_parameter_map.csv",
+        "why_it_matters": "Determines wordline count and row-path pitch alignment requirements."
+      },
+      {
+        "parameter_name": "num_cols",
+        "value": 4,
+        "source": "DERIVED_FROM_CONTRACT",
+        "evidence_file": "docs/mapping/openyield_logical_to_openyield_parameter_map.csv",
+        "why_it_matters": "Determines BL/BR count and column-path pitch alignment requirements."
+      },
+      {
+        "parameter_name": "column_mux_ratio",
+        "value": 1,
+        "source": "DERIVED_FROM_CONTRACT",
+        "evidence_file": "docs/mapping/openyield_logical_to_openyield_parameter_map.csv",
+        "why_it_matters": "Determines whether column_mux is structurally required in the current-supported layout intent baseline."
+      },
+      {
+        "parameter_name": "num_banks",
+        "value": 1,
+        "source": "DERIVED_FROM_CONTRACT",
+        "evidence_file": "docs/mapping/openyield_canonical_sram_semantic_contract.json;docs/mapping/openyield_top_bank_semantic_contract.json",
+        "why_it_matters": "Current layout intent stays inside the single-bank semantic scope."
+      },
+      {
+        "parameter_name": "num_ports",
+        "value": 1,
+        "source": "DERIVED_FROM_CONTRACT",
+        "evidence_file": "docs/mapping/openyield_canonical_sram_semantic_contract.json",
+        "why_it_matters": "Current layout intent stays inside the single-port semantic scope."
+      },
+      {
+        "parameter_name": "port_type",
+        "value": "single_implicit_readwrite",
+        "source": "DERIVED_FROM_CONTRACT",
+        "evidence_file": "docs/mapping/openyield_canonical_sram_semantic_contract.json;docs/mapping/openyield_top_bank_semantic_contract.json",
+        "why_it_matters": "Explains that a shared csb/web-controlled read/write port model is assumed."
+      },
+      {
+        "parameter_name": "write_mask_supported",
+        "value": false,
+        "source": "DERIVED_FROM_CONTRACT",
+        "evidence_file": "docs/mapping/openyield_canonical_sram_semantic_contract.json",
+        "why_it_matters": "Keeps layout intent inside the current supported scope and avoids unsupported write-mask claims."
+      },
+      {
+        "parameter_name": "address_width",
+        "value": 2,
+        "source": "DERIVED_FROM_CONTRACT",
+        "evidence_file": "docs/mapping/openyield_logical_to_openyield_parameter_map.csv",
+        "why_it_matters": "Defines top-level address pin count for the current-supported baseline."
+      },
+      {
+        "parameter_name": "row_address_width",
+        "value": 2,
+        "source": "DERIVED_FROM_CONTRACT",
+        "evidence_file": "docs/mapping/openyield_logical_to_openyield_parameter_map.csv",
+        "why_it_matters": "Defines row decoder input width and wordline expansion intent."
+      },
+      {
+        "parameter_name": "column_address_width",
+        "value": 0,
+        "source": "DERIVED_FROM_CONTRACT",
+        "evidence_file": "docs/mapping/openyield_logical_to_openyield_parameter_map.csv",
+        "why_it_matters": "Defines column mux select width in the current-supported scope."
+      },
+      {
+        "parameter_name": "data_width",
+        "value": 4,
+        "source": "DERIVED_FROM_CONTRACT",
+        "evidence_file": "docs/mapping/openyield_canonical_sram_semantic_contract.json",
+        "why_it_matters": "Defines top-level write and read data bus width."
+      },
+      {
+        "parameter_name": "supported_scope",
+        "value": {
+          "single_bank": true,
+          "single_implicit_readwrite_port": true,
+          "num_ports_supported": 1,
+          "write_mask_supported": false,
+          "words_per_row_supported_values": [
+            1,
+            2
+          ],
+          "column_mux_ratio_supported_values": [
+            1,
+            2
+          ],
+          "multi_bank_supported": false,
+          "multi_port_supported": false
+        },
+        "source": "DERIVED_FROM_CONTRACT",
+        "evidence_file": "docs/mapping/openyield_canonical_sram_semantic_contract.json;docs/openyield_layout_generator_architecture_proposal.json",
+        "why_it_matters": "Captures the exact boundary of what R1 is defining and what remains out of scope."
+      }
+    ],
+    "supported_scope": {
+      "single_bank": true,
+      "single_implicit_readwrite_port": true,
+      "num_ports_supported": 1,
+      "write_mask_supported": false,
+      "words_per_row_supported_values": [
+        1,
+        2
+      ],
+      "column_mux_ratio_supported_values": [
+        1,
+        2
+      ],
+      "multi_bank_supported": false,
+      "multi_port_supported": false
+    }
+  },
+  "top_level_goal": "Define a self-developed OpenYield SRAM layout intent that future R2/R3 generator stages can consume.",
+  "layout_boundary": "This intent defines structure, roles, alignment expectations, power and pin contracts. It does not claim a structure-complete SRAM GDS, DRC clean, LVS clean, timing closure, or signoff readiness.",
+  "source_artifacts": [
+    "docs/openram_gds_generation_audit_report.json",
+    "docs/mapping/openram_to_openyield_layoutgen_reuse_matrix.csv",
+    "docs/mapping/openyield_canonical_sram_semantic_contract.json",
+    "docs/mapping/openyield_module_connection_matrix.csv",
+    "docs/mapping/openyield_decoder_wordline_semantic_contract.json",
+    "docs/mapping/openyield_time_control_decomposition_contract.json",
+    "docs/mapping/openyield_control_path_semantic_contracts.csv",
+    "docs/mapping/openyield_module_gds_inventory.csv"
+  ]
+}

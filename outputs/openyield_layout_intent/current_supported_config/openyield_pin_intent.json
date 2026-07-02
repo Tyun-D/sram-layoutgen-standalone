@@ -1,0 +1,70 @@
+{
+  "top_level_address_pins": [
+    "A[i]"
+  ],
+  "top_level_data_input_pins": [
+    "DIN[i]"
+  ],
+  "top_level_data_output_pins": [
+    "DOUT[i]"
+  ],
+  "clock_and_control_pins": [
+    "clk",
+    "csb",
+    "web"
+  ],
+  "power_pins": [
+    "VDD",
+    "GND",
+    "VSS"
+  ],
+  "internal_module_pins": {
+    "wordline": [
+      "WL[i]",
+      "DEC_WL[i]",
+      "wl_en"
+    ],
+    "bitline": [
+      "BL[i]",
+      "BLB[i]",
+      "BL_out[i]",
+      "BR_out[i]"
+    ],
+    "control": [
+      "precharge_en",
+      "sense_en",
+      "write_en",
+      "gated_clk",
+      "rbl_delay"
+    ]
+  },
+  "geometry_backed_pin_modules": [
+    "wordline_driver",
+    "column_mux",
+    "sense_amp",
+    "write_driver"
+  ],
+  "contract_pin_modules": [
+    "bitcell_array",
+    "dummy_array",
+    "replica_array",
+    "row_decoder",
+    "wordline_decoder",
+    "decoder_gate_cells",
+    "wordline_driver_gate_cells",
+    "precharge",
+    "DELAY_CHAIN",
+    "PRECHARGE_ENABLE_PATH",
+    "SENSE_ENABLE_PATH",
+    "WRITE_ENABLE_PATH",
+    "WORDLINE_ENABLE_PATH",
+    "GATED_CLOCK_PATH",
+    "DFF_ROW",
+    "CONTROL_LOGIC"
+  ],
+  "r4_r5_validation_plan": [
+    "R4 validates pin placement ownership and routing reachability",
+    "R5 validates exported top-level pins against GDS/LEF/SPICE naming consistency"
+  ],
+  "naming_consistency_rule": "Pin naming must stay consistent with OpenYield netlist semantics and the canonical semantic contracts."
+}

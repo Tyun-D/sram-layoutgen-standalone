@@ -1,0 +1,59 @@
+{
+  "bitcell_array_role": "SRAM main storage array",
+  "dummy_array_role": "Array edge/dummy placeholder used to represent non-active boundary storage context, not final complete boundary proof.",
+  "replica_array_role": "Replica timing/reference array feeding timing/control semantics and later replica routing intent.",
+  "num_rows_to_wl_relation": "Each physical wordline WL[i] must correspond to exactly one bitcell row in the supported scope.",
+  "num_cols_to_bl_relation": "Each physical column contributes one BL and one BR rail; total BL/BR pair count follows num_cols.",
+  "row_pitch_source": {
+    "value": "existing bitcell_array reference geometry and future R3 array generator pitch model",
+    "classification": "already_available_from_existing_metadata",
+    "evidence_file": "outputs/openyield_module_gds/bitcell_array/rail_report.json"
+  },
+  "column_pitch_source": {
+    "value": "existing bitcell_array reference geometry and future R3 array generator pitch model",
+    "classification": "already_available_from_existing_metadata",
+    "evidence_file": "outputs/openyield_module_gds/bitcell_array/rail_report.json"
+  },
+  "bitline_direction_expectation": {
+    "value": "BL/BR vertical along array columns",
+    "classification": "learned_from_openram_audit",
+    "evidence_file": "docs/openram_gds_generation_audit_report.json"
+  },
+  "wordline_direction_expectation": {
+    "value": "WL horizontal across array rows",
+    "classification": "learned_from_openram_audit",
+    "evidence_file": "docs/openram_gds_generation_audit_report.json"
+  },
+  "rail_direction_expectation": {
+    "value": "Array rails must be exported as top/bottom or side rail handoff metadata first, then proven by real geometry in R4.",
+    "classification": "derived_from_openyield_semantics",
+    "evidence_file": "outputs/openyield_module_gds/bitcell_array/rail_report.json;docs/openyield_layout_generator_architecture_proposal.json"
+  },
+  "dummy_replica_boundary_completeness": {
+    "dummy_complete_now": false,
+    "replica_complete_now": false,
+    "boundary_complete_now": false,
+    "classification": "missing_requires_R3_generator_design",
+    "why_it_matters": "Current standalone metadata is sufficient for intent definition, but not proof of a complete structure-grade SRAM array wrapper."
+  },
+  "already_available_from_existing_metadata": [
+    "bitcell_array standalone GDS exists",
+    "dummy_array standalone GDS exists",
+    "replica_array standalone GDS exists",
+    "pins/bbox/rail metadata exist for all three array-related modules"
+  ],
+  "derived_from_openyield_semantics": [
+    "single-bank single-port storage model",
+    "num_rows defines WL cardinality",
+    "num_cols defines BL/BR cardinality"
+  ],
+  "learned_from_openram_audit": [
+    "Array wrapper needs main array + replica + dummy/boundary semantics",
+    "Row pitch and column pitch must be real array-generator outputs in R3"
+  ],
+  "missing_requires_R3_generator_design": [
+    "Real array wrapper generator for complete main/dummy/replica/boundary composition",
+    "Real pitch-owned geometry rather than standalone candidate references",
+    "Explicit boundary/tap/well implementation policy"
+  ]
+}

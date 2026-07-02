@@ -1,0 +1,56 @@
+{
+  "physical_role": "CONTROL_PATH",
+  "modules": [
+    "CONTROL_LOGIC",
+    "DELAY_CHAIN",
+    "PRECHARGE_ENABLE_PATH",
+    "SENSE_ENABLE_PATH",
+    "WRITE_ENABLE_PATH",
+    "WORDLINE_ENABLE_PATH",
+    "GATED_CLOCK_PATH",
+    "DFF_ROW"
+  ],
+  "control_outputs": [
+    "precharge_en",
+    "sense_en",
+    "write_en",
+    "wordline_en",
+    "gated_clk",
+    "delay / replica timing signals"
+  ],
+  "downstream_expectations": {
+    "precharge_en": "precharge",
+    "sense_en": "sense_amp",
+    "write_en": "write_driver",
+    "wordline_en": "wordline_driver",
+    "gated_clk": "DFF_ROW and internal enable paths",
+    "delay_replica": "PRECHARGE_ENABLE_PATH;SENSE_ENABLE_PATH;WRITE_ENABLE_PATH"
+  },
+  "delay_chain_layout_expectation": "delay chain and replica timing path remain periphery control-path objects and must preserve causal order before final routing.",
+  "current_candidate_geometry_modules": [
+    "DELAY_CHAIN",
+    "PRECHARGE_ENABLE_PATH",
+    "SENSE_ENABLE_PATH",
+    "WRITE_ENABLE_PATH",
+    "WORDLINE_ENABLE_PATH",
+    "GATED_CLOCK_PATH",
+    "DFF_ROW",
+    "CONTROL_LOGIC"
+  ],
+  "contract_pin_modules": [
+    "DELAY_CHAIN",
+    "PRECHARGE_ENABLE_PATH",
+    "SENSE_ENABLE_PATH",
+    "WRITE_ENABLE_PATH",
+    "WORDLINE_ENABLE_PATH",
+    "GATED_CLOCK_PATH",
+    "DFF_ROW",
+    "CONTROL_LOGIC"
+  ],
+  "r4_router_requirements": [
+    "control router must connect control outputs into row/column/periphery modules through stable bus ownership",
+    "control router must preserve clock/control separation from power stitching",
+    "control router must preserve replica timing signals as dedicated semantic routes rather than collapsing them into generic nets"
+  ],
+  "evidence_file": "docs/mapping/openyield_time_control_decomposition_contract.json;docs/mapping/openyield_control_path_semantic_contracts.csv"
+}

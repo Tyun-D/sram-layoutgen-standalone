@@ -1,0 +1,225 @@
+{
+  "vdd_net_names": [
+    "VDD"
+  ],
+  "gnd_net_names": [
+    "GND",
+    "VSS"
+  ],
+  "module_power_summary": [
+    {
+      "module_name": "bitcell_array",
+      "has_power_pins": true,
+      "power_pin_names": [
+        "GND",
+        "VDD"
+      ],
+      "rail_status": "module_boundary_rails_exported",
+      "uses_candidate_geometry": false
+    },
+    {
+      "module_name": "dummy_array",
+      "has_power_pins": true,
+      "power_pin_names": [
+        "GND",
+        "VDD"
+      ],
+      "rail_status": "module_boundary_rails_exported",
+      "uses_candidate_geometry": false
+    },
+    {
+      "module_name": "replica_array",
+      "has_power_pins": true,
+      "power_pin_names": [
+        "GND",
+        "VDD"
+      ],
+      "rail_status": "module_boundary_rails_exported",
+      "uses_candidate_geometry": false
+    },
+    {
+      "module_name": "row_decoder",
+      "has_power_pins": true,
+      "power_pin_names": [
+        "GND",
+        "VDD"
+      ],
+      "rail_status": "candidate_row_rail_metadata_exported",
+      "uses_candidate_geometry": true
+    },
+    {
+      "module_name": "wordline_decoder",
+      "has_power_pins": true,
+      "power_pin_names": [
+        "GND",
+        "VDD"
+      ],
+      "rail_status": "candidate_row_rail_metadata_exported",
+      "uses_candidate_geometry": true
+    },
+    {
+      "module_name": "decoder_gate_cells",
+      "has_power_pins": true,
+      "power_pin_names": [
+        "GND",
+        "VDD"
+      ],
+      "rail_status": "candidate_row_rail_metadata_exported",
+      "uses_candidate_geometry": true
+    },
+    {
+      "module_name": "wordline_driver",
+      "has_power_pins": true,
+      "power_pin_names": [
+        "GND",
+        "VDD"
+      ],
+      "rail_status": "hardmacro_wrapper_rail_metadata_exported",
+      "uses_candidate_geometry": false
+    },
+    {
+      "module_name": "wordline_driver_gate_cells",
+      "has_power_pins": true,
+      "power_pin_names": [
+        "GND",
+        "VDD"
+      ],
+      "rail_status": "candidate_row_rail_metadata_exported",
+      "uses_candidate_geometry": true
+    },
+    {
+      "module_name": "column_mux",
+      "has_power_pins": true,
+      "power_pin_names": [
+        "GND",
+        "VDD"
+      ],
+      "rail_status": "hardmacro_wrapper_rail_metadata_exported",
+      "uses_candidate_geometry": false
+    },
+    {
+      "module_name": "sense_amp",
+      "has_power_pins": true,
+      "power_pin_names": [
+        "GND",
+        "VDD"
+      ],
+      "rail_status": "hardmacro_wrapper_rail_metadata_exported",
+      "uses_candidate_geometry": false
+    },
+    {
+      "module_name": "write_driver",
+      "has_power_pins": true,
+      "power_pin_names": [
+        "GND",
+        "VDD"
+      ],
+      "rail_status": "hardmacro_wrapper_rail_metadata_exported",
+      "uses_candidate_geometry": false
+    },
+    {
+      "module_name": "precharge",
+      "has_power_pins": true,
+      "power_pin_names": [
+        "VDD"
+      ],
+      "rail_status": "hardmacro_wrapper_rail_metadata_exported",
+      "uses_candidate_geometry": false
+    },
+    {
+      "module_name": "DELAY_CHAIN",
+      "has_power_pins": true,
+      "power_pin_names": [
+        "GND",
+        "VDD"
+      ],
+      "rail_status": "candidate_row_rail_metadata_exported",
+      "uses_candidate_geometry": true
+    },
+    {
+      "module_name": "PRECHARGE_ENABLE_PATH",
+      "has_power_pins": true,
+      "power_pin_names": [
+        "GND",
+        "VDD"
+      ],
+      "rail_status": "candidate_row_rail_metadata_exported",
+      "uses_candidate_geometry": true
+    },
+    {
+      "module_name": "SENSE_ENABLE_PATH",
+      "has_power_pins": true,
+      "power_pin_names": [
+        "GND",
+        "VDD"
+      ],
+      "rail_status": "candidate_row_rail_metadata_exported",
+      "uses_candidate_geometry": true
+    },
+    {
+      "module_name": "WRITE_ENABLE_PATH",
+      "has_power_pins": true,
+      "power_pin_names": [
+        "GND",
+        "VDD"
+      ],
+      "rail_status": "candidate_row_rail_metadata_exported",
+      "uses_candidate_geometry": true
+    },
+    {
+      "module_name": "WORDLINE_ENABLE_PATH",
+      "has_power_pins": true,
+      "power_pin_names": [
+        "GND",
+        "VDD"
+      ],
+      "rail_status": "candidate_row_rail_metadata_exported",
+      "uses_candidate_geometry": true
+    },
+    {
+      "module_name": "GATED_CLOCK_PATH",
+      "has_power_pins": true,
+      "power_pin_names": [
+        "GND",
+        "VDD"
+      ],
+      "rail_status": "candidate_row_rail_metadata_exported",
+      "uses_candidate_geometry": true
+    },
+    {
+      "module_name": "DFF_ROW",
+      "has_power_pins": true,
+      "power_pin_names": [
+        "GND",
+        "VDD"
+      ],
+      "rail_status": "candidate_row_rail_metadata_exported",
+      "uses_candidate_geometry": true
+    },
+    {
+      "module_name": "CONTROL_LOGIC",
+      "has_power_pins": true,
+      "power_pin_names": [
+        "GND",
+        "VDD"
+      ],
+      "rail_status": "candidate_row_rail_metadata_exported",
+      "uses_candidate_geometry": true
+    }
+  ],
+  "array_rail_expectation": "ARRAY_CORE, ARRAY_DUMMY, and ARRAY_REPLICA must expose rail directions compatible with later top-level stitching.",
+  "row_path_rail_expectation": "ROW_PATH modules need rail continuity aligned with array-facing side placement.",
+  "column_path_rail_expectation": "COLUMN_PATH modules need rail continuity aligned with array-facing column pitch placement.",
+  "control_path_rail_expectation": "CONTROL_PATH rails remain periphery-distributed and must later stitch into top-level VDD/GND export.",
+  "top_level_power_pin_export_expectation": "Top-level VDD/GND pins must be exported by a future R4 power planner using real geometry proof.",
+  "power_stitching_owned_by_R4": true,
+  "metadata_only_now": [
+    "module boundary rails",
+    "rail_status fields from standalone module metadata"
+  ],
+  "requires_real_geometry_proof": [
+    "array-to-row-path power continuity",
+    "array-to-column-path power continuity",
+    "top-level VDD/GND export geometry"
+  ]
+}
