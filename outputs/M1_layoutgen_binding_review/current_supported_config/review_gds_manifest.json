@@ -1,0 +1,20 @@
+{
+  "review_gds_path": "outputs/M1_layoutgen_binding_review/current_supported_config/physical_cell_binding_review.gds",
+  "top_cell_name": "physical_cell_binding_review",
+  "what_to_check_in_klayout": [
+    "Which first-round modules already look like real reusable arrays/hardmacros.",
+    "Which row/control modules are only candidate composites and must be regenerated.",
+    "Whether selected bindings visually align with layoutgen-style real physical modules."
+  ],
+  "expected_visual_features": [
+    "Array/hardmacro modules should look denser and more physically grounded.",
+    "Row/control candidate modules may look smaller or more abstract/composite.",
+    "Labels above each module should match the binding class and chosen generator path."
+  ],
+  "known_risks": [
+    "This review GDS is a module binding review canvas, not a top SRAM macro.",
+    "It does not prove final assembly legality."
+  ],
+  "human_klayout_review_required": true,
+  "can_enter_M2_before_human_review": false
+}

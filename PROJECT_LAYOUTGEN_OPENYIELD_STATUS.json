@@ -8,8 +8,8 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "S0",
-  "next_stage": "L0",
+  "current_stage": "M1",
+  "next_stage": "M2",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": true,
@@ -113,6 +113,15 @@
       "can_reuse": true,
       "reuse_scope": "Review/reference only",
       "risk": "Must be explicitly downgraded."
+    },
+    {
+      "result_name": "M1 layoutgen path audit and OpenYield binding",
+      "path": "docs/M1_layoutgen_openyield_binding_report.json;docs/mapping/M1_*;outputs/M1_layoutgen_binding_review/current_supported_config/",
+      "what_is_valid": "Layoutgen generator inventory, first-round module physical audit, module binding table, and net-to-pin semantic binding are established.",
+      "what_is_not_valid": "No final SRAM top GDS is generated in M1 and no complete/DRC/LVS/signoff claim is made.",
+      "can_reuse": true,
+      "reuse_scope": "M2 regeneration planning",
+      "risk": "Bindings for row/control candidates still require real layoutgen regeneration rather than direct reuse."
     }
   ],
   "reusable_artifacts": [
@@ -179,6 +188,14 @@
       "why_reusable": "Direct hook into first-round OpenYield module GDS generation.",
       "reuse_scope": "L0-L2",
       "risk": "Must re-audit generated modules before trust."
+    },
+    {
+      "artifact_name": "M1_binding_tables",
+      "path": "docs/mapping/M1_openyield_to_layoutgen_binding.csv;docs/mapping/M1_openyield_net_to_layoutgen_pin_binding.csv",
+      "artifact_type": "binding_spec",
+      "why_reusable": "These tables are the bridge from OpenYield semantics to layoutgen-based module regeneration.",
+      "reuse_scope": "M2+",
+      "risk": "Must be validated by human KLayout review before use."
     }
   ],
   "deprecated_artifacts": [
@@ -226,7 +243,7 @@
     "signoff-ready",
     "tapeout-ready"
   ],
-  "last_user_correction": "C6 openyield_complete_sram.gds 不能再 claim 为真实完整 SRAM GDS，必须降级为 OpenYield-connected access-view GDS prototype，并将路线重置为 layoutgen-based OpenYield route。",
-  "current_wrong_route_to_avoid": "不要继续把 *_access_module / floorplan_proxy / access-view route or power stitch 当作真实 SRAM physical implementation 主体，也不要说以旧 GDS 为底座。",
-  "next_task_summary": "S0 完成后进入 L0：layoutgen 原生成路径与第一轮 OpenYield module GDS 审计，但必须先经过人工 KLayout review 确认。"
+  "last_user_correction": "M1 must audit layoutgen original generation path and bind OpenYield modules/nets to real generator or explicit gap; do not auto-enter M2 before human review.",
+  "current_wrong_route_to_avoid": "Do not directly promote first-round row/control candidate GDS or access-view modules to final physical modules.",
+  "next_task_summary": "M1 completed: layoutgen generator inventory, first-round module physical audit, and OpenYield-to-layoutgen binding are ready. Wait for human KLayout review of physical_cell_binding_review.gds before entering M2."
 }

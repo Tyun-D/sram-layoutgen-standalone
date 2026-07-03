@@ -7,11 +7,8 @@
 ## 2. Current Route
 
 - S0：全部成果整理与路线重置
-- L0：layoutgen 原生成路径与第一轮 OpenYield 模块 GDS 审计
-- L1：OpenYield module/net → layoutgen generator 绑定
-- L2：重新生成 OpenYield real module GDS
-- L3：layoutgen-based OpenYield SRAM top GDS 生成
-- L4：真实连接、电源、验证与最终交付
+- M1：layoutgen 原生成路径审计 + OpenYield 模块绑定
+- M2：等待人工 review 后定义并执行真实模块重生/接线主干
 
 ## 3. Important Results So Far
 
@@ -28,19 +25,11 @@
 | C4 signal routing | outputs/openyield_complete_signal_routing/current_supported_config/ | Geometry-backed semantic routing prototype and validation schema. | Based on access-view modules, not final physical module hierarchy. | True | L0-L4 evidence/reference | Do not reuse as final physical routing implementation. |
 | C5 power stitching | outputs/openyield_complete_power_network/current_supported_config/ | Geometry-backed semantic power connectivity prototype and validation schema. | Still layered on access-view hierarchy. | True | L0-L4 evidence/reference | Do not reuse as final physical power implementation. |
 | C6 final access-view GDS | outputs/openyield_complete_sram/current_supported_config/openyield_complete_sram.gds | A parseable OpenYield-connected access-view GDS prototype with report bundle. | Cannot be claimed as real complete SRAM GDS anymore. | True | Review/reference only | Must be explicitly downgraded. |
+| M1 layoutgen path audit and OpenYield binding | docs/M1_layoutgen_openyield_binding_report.json;docs/mapping/M1_*;outputs/M1_layoutgen_binding_review/current_supported_config/ | Layoutgen generator inventory, first-round module physical audit, module binding table, and net-to-pin semantic binding are established. | No final SRAM top GDS is generated in M1 and no complete/DRC/LVS/signoff claim is made. | True | M2 regeneration planning | Bindings for row/control candidates still require real layoutgen regeneration rather than direct reuse. |
 
 ## 4. Reclassified / Downgraded Results
 
-`outputs/openyield_complete_sram/current_supported_config/openyield_complete_sram.gds` 从 complete SRAM GDS 降级为 access-view prototype。
-
-原因：
-- top hierarchy 主要是 `*_access_module`。
-- 没有真实 bitcell array 主体。
-- 没有达到 layoutgen/OpenRAM 的物理完整度。
-- 视觉上不像真实 SRAM macro。
-- `DRC marker_count = 431`。
-- LVS 未运行。
-- 不能 claim DRC/LVS/signoff。
+`outputs/openyield_complete_sram/current_supported_config/openyield_complete_sram.gds` 仍然只应视为 access-view prototype。
 
 ## 5. Reusable Artifacts
 
@@ -54,6 +43,7 @@
 | openram_source_and_reference_gds | /data1/qujh/OpenRAM + outputs/layout_prototype/baseline_legacy/ | reference_rule_sample | Useful as rule/sample/visual reference only. | L0-L4 | Must not be mistaken for final OpenYield GDS. |
 | layoutgen_baseline_reference_gds | outputs/layout_prototype/baseline_legacy/sram_8x64_wpr4_fd45.complete.gds | visual_reference_sample | Useful as review baseline and visual/structural comparator. | L0-L4 review | Do not use as final OpenYield output. |
 | module_gds_generators_py | sram_layoutgen/openyield_adapter/module_gds_generators.py | module_generator | Direct hook into first-round OpenYield module GDS generation. | L0-L2 | Must re-audit generated modules before trust. |
+| M1_binding_tables | docs/mapping/M1_openyield_to_layoutgen_binding.csv;docs/mapping/M1_openyield_net_to_layoutgen_pin_binding.csv | binding_spec | These tables are the bridge from OpenYield semantics to layoutgen-based module regeneration. | M2+ | Must be validated by human KLayout review before use. |
 
 ## 6. Deprecated / Do-Not-Use-As-Final Artifacts
 
@@ -72,11 +62,9 @@
 
 ## 8. GDS Review Requirements
 
-| review_name | status | source_path | copied_path | top_cell_name | what_to_check_in_klayout | expected_visual_features | known_risks | can_enter_next_stage_after_user_confirmation |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| previous_access_view_final | COPIED | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_complete_sram/current_supported_config/openyield_complete_sram.gds | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/project_status_reset_review/current_supported_config/previous_access_view_final.gds | openyield_complete_sram | Confirm this looks like access-view/proxy assembly rather than a real SRAM macro. | Access-view style hierarchy, abstract connectivity, smaller GDS footprint. | Cannot be used as final physical SRAM GDS. | True |
-| layoutgen_reference | COPIED | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/layout_prototype/baseline_legacy/sram_8x64_wpr4_fd45.complete.gds | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/project_status_reset_review/current_supported_config/layoutgen_reference.gds | sram_8x64_wpr4_fd45 | Use as visual/structural comparator for what a real SRAM macro should resemble. | Dense array-centric macro, real periphery organization, more SRAM-like visual structure. | Reference only; not final OpenYield output. | True |
-| first_round_openyield_candidate | COPIED | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_top_level_assembly/current_supported_config/openyield_top_level_candidate.gds | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/project_status_reset_review/current_supported_config/first_round_openyield_candidate.gds | openyield_top_level_candidate | Assess whether first-round top candidate is closer to real physical assembly than the access-view final. | May expose earlier top-level assembly direction and generator limitations. | Candidate only; may not be structurally valid final macro. | True |
+| review_gds_path | top_cell_name | what_to_check_in_klayout | expected_visual_features | known_risks | human_klayout_review_required | can_enter_M2_before_human_review |
+| --- | --- | --- | --- | --- | --- | --- |
+| outputs/M1_layoutgen_binding_review/current_supported_config/physical_cell_binding_review.gds | physical_cell_binding_review | ["Which first-round modules already look like real reusable arrays/hardmacros.", "Which row/control modules are only candidate composites and must be regenerated.", "Whether selected bindings visually align with layoutgen-style real physical modules."] | ["Array/hardmacro modules should look denser and more physically grounded.", "Row/control candidate modules may look smaller or more abstract/composite.", "Labels above each module should match the binding class and chosen generator path."] | ["This review GDS is a module binding review canvas, not a top SRAM macro.", "It does not prove final assembly legality."] | True | False |
 
 ## 9. Cannot Claim
 
@@ -86,8 +74,6 @@
 - signoff-ready
 - tapeout-ready
 
-除非有真实工具证据。
-
 ## 10. Next Immediate Task
 
-S0 完成后进入 L0：layoutgen 原生成路径与第一轮 OpenYield module GDS 审计。
+等待人工 KLayout review `outputs/M1_layoutgen_binding_review/current_supported_config/physical_cell_binding_review.gds`。未经人工确认，不进入 M2。
