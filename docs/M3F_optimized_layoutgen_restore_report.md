@@ -1,0 +1,32 @@
+# M3F Optimized Layoutgen Restore Report
+
+- status_file_read: `True`
+- status_file_updated: `True`
+- m3r_review_failure_recorded: `True`
+- optimized_layoutgen_flow_found: `True`
+- optimized_layoutgen_reference_gds_found: `True`
+- optimized_layoutgen_code_found: `True`
+- optimized_power_rail_stitch_flow_used: `True`
+- baseline_only_layoutgen_flow_used: `False`
+- full_sram_review_gds_generated: `True`
+- full_sram_review_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M3F_optimized_layoutgen_restore/current_supported_config/openyield_optimized_layoutgen_sram.gds`
+- full_sram_review_gds_size_bytes: `223892`
+- top_cell_name: `openyield_optimized_layoutgen_sram`
+- gds_sanity_status: `GDS_PARSED_SANITY_PASSED`
+- bitcell_array_is_dense_body: `True`
+- row_path_present: `True`
+- column_path_present: `True`
+- control_region_present: `True`
+- access_module_as_primary_count: `0`
+- floorplan_proxy_count: `0`
+- large_region_overlay_as_primary_count: `0`
+- power_rail_stitch_restored: `True`
+- rail_overlap_or_abutment_evidence_count: `15`
+- module_power_rail_connected_count: `20`
+- openyield_semantic_binding_present: `True`
+- openyield_label_only_binding_count: `0`
+- openyield_physical_binding_count: `20`
+- human_klayout_review_required: `True`
+- can_enter_next_stage_before_human_review: `False`
+- remaining_M3F_blockers: `[]`
+- remaining_M3F_blockers_count: `0`

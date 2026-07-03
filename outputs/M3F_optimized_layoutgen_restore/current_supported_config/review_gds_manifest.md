@@ -1,0 +1,8 @@
+# M3F Review GDS Manifest
+
+- review_gds: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M3F_optimized_layoutgen_restore/current_supported_config/openyield_optimized_layoutgen_sram.gds`
+- review_complete_gds: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M3F_optimized_layoutgen_restore/current_supported_config/openyield_optimized_layoutgen_sram.complete.gds`
+- top_cell_name: `openyield_optimized_layoutgen_sram`
+- optimized_reference_gds: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds`
+- power_restore_report_json: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M3F_optimized_layoutgen_restore/current_supported_config/M3F_power_rail_stitch_restore_report.json`
+- semantic_binding_report_json: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M3F_optimized_layoutgen_restore/current_supported_config/M3F_openyield_semantic_binding_report.json`
