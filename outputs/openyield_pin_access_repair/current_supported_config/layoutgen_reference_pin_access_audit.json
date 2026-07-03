@@ -1,0 +1,59 @@
+{
+  "layoutgen_reference_used": true,
+  "reference_basis": "C2 uses old layoutgen outputs and scripts only as mechanism references, not as final deliverables.",
+  "current_openyield_contract_route_count": 43,
+  "current_openyield_contract_power_count": 10,
+  "current_openyield_blocker_count": 165,
+  "reference_reuse_decisions": [
+    {
+      "reference_item": "baseline_complete_gds",
+      "source_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/layout_prototype/baseline_legacy/sram_8x64_wpr4_fd45.complete.gds",
+      "what_it_solves": "Shows a visually SRAM-like macro with dense array body and periphery organization closer to final pin access expectations.",
+      "can_reuse_directly": false,
+      "needs_adaptation": true,
+      "do_not_reuse_reason": "Old baseline GDS is not OpenYield-driven and cannot be shipped as the final complete SRAM GDS.",
+      "mapped_stage": "C2/C3/C4/C5",
+      "expected_effect_on_complete_gds": "Improves edge-access synthesis, floorplan anchoring, and route ownership decisions.",
+      "risk_if_reused_wrongly": "Would regress to legacy/non-OpenYield ownership."
+    },
+    {
+      "reference_item": "storage_aggregation_compare",
+      "source_path": "/data1/qujh/work/sram_layoutgen_step45_clean/scripts/openyield_storage_aggregation_compare.py",
+      "what_it_solves": "Documents legacy storage-array placement and dummy/replica grouping logic that is closer to real SRAM structure than the R5 overlay.",
+      "can_reuse_directly": false,
+      "needs_adaptation": true,
+      "do_not_reuse_reason": "Legacy script still leaves peripheral placement and routing on the old path.",
+      "mapped_stage": "C2/C3",
+      "expected_effect_on_complete_gds": "Helps align array-owned BL/BR/WL access synthesis with prior row/column ownership conventions.",
+      "risk_if_reused_wrongly": "Could reintroduce legacy placement assumptions without OpenYield module mapping."
+    },
+    {
+      "reference_item": "wordline_driver_standalone_smoke",
+      "source_path": "/data1/qujh/work/sram_layoutgen_step45_clean/scripts/openyield_wordlinedriver_standalone_smoke.py",
+      "what_it_solves": "Captures prior wordline-driver pin-label verification and local macro checks.",
+      "can_reuse_directly": true,
+      "needs_adaptation": true,
+      "do_not_reuse_reason": "Needs translation from standalone smoke metrics into current module access views.",
+      "mapped_stage": "C2/C4",
+      "expected_effect_on_complete_gds": "Improves WL driver output/access confidence and later route landing.",
+      "risk_if_reused_wrongly": "Could preserve label-only assumptions instead of geometry-backed access."
+    },
+    {
+      "reference_item": "rail_overlap_and_abutment_reports",
+      "source_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/layout_prototype/hybrid_openyield_rail_overlap",
+      "what_it_solves": "Shows prior rail overlap/abutment investigations that are directly relevant to synthesized VDD/GND access ownership.",
+      "can_reuse_directly": false,
+      "needs_adaptation": true,
+      "do_not_reuse_reason": "Old overlap proofs do not equal final power continuity on current OpenYield module composition.",
+      "mapped_stage": "C2/C5",
+      "expected_effect_on_complete_gds": "Improves power access edge planning and future rail stitch decisions.",
+      "risk_if_reused_wrongly": "Could hide rail-intersection-not-connected defects."
+    }
+  ],
+  "carry_forward_risks": [
+    "Do not import legacy address-short defects into new routing.",
+    "Do not rely on legacy WL driver power connectivity without current module pin proof.",
+    "Do not reuse top-level power straps as final continuity evidence.",
+    "Do not reuse dummy/replica/tap/cap placement blindly without OpenYield net/module ownership mapping."
+  ]
+}
