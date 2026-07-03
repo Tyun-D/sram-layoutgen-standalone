@@ -8,8 +8,8 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M2R",
-  "next_stage": "M3",
+  "current_stage": "M3R",
+  "next_stage": "M4",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": true,
@@ -243,9 +243,9 @@
     "signoff-ready",
     "tapeout-ready"
   ],
-  "last_user_correction": "M2 physical review failed because modules were freely scattered, SRAM spec was not locked, layoutgen top-level generation rules were not followed, and the result did not resemble a complete SRAM macro.",
-  "current_wrong_route_to_avoid": "Do not freely scatter modules or use large region-guide overlays as the primary SRAM physical body; reuse the original layoutgen top-level SRAM flow.",
-  "next_task_summary": "Wait for human KLayout review of /data1/qujh/work/sram_layoutgen_step45_clean/outputs/test_M2R_full_sram_regen/current_supported_config/openyield_layoutgen_full_sram_M2R.gds before entering the next stage.",
+  "last_user_correction": "M2R physical review: layout is SRAM-like and uses layoutgen top flow, but it still uses layoutgen original cells/modules rather than OpenYield module semantics. first_round_openyield_gds_used_count = 0. Next step must bind OpenYield module/net semantics onto the layoutgen physical SRAM backbone.",
+  "current_wrong_route_to_avoid": "Do not replace the restored M2R SRAM backbone with arbitrary module scatter, access_module, floorplan_proxy, or empty semantic wrappers. Bind OpenYield semantics onto the preserved layoutgen hierarchy.",
+  "next_task_summary": "Wait for human KLayout review of /data1/qujh/work/sram_layoutgen_step45_clean/outputs/M3R_openyield_semantic_bound/current_supported_config/openyield_semantic_bound_full_sram.gds before any further stage transition.",
   "last_M2_report": {
     "full_sram_review_gds_generated": true,
     "full_sram_review_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/test_M2_layoutgen_full_trial/current_supported_config/openyield_layoutgen_full_trial_sram.gds",
@@ -262,6 +262,19 @@
     "full_sram_review_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/test_M2R_full_sram_regen/current_supported_config/openyield_layoutgen_full_sram_M2R.gds",
     "top_cell_name": "openyield_layoutgen_full_sram_M2R",
     "temporary_wrapper_count": 0,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false
+  },
+  "last_M3R_report": {
+    "semantic_bound_gds_generated": true,
+    "semantic_bound_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M3R_openyield_semantic_bound/current_supported_config/openyield_semantic_bound_full_sram.gds",
+    "top_cell_name": "openyield_semantic_bound_full_sram",
+    "gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "m2r_physical_backbone_preserved": true,
+    "layoutgen_top_flow_preserved": true,
+    "openyield_modules_bound_count": 20,
+    "openyield_net_bound_count": 34,
+    "first_round_openyield_gds_reused_count": 0,
     "human_klayout_review_required": true,
     "can_enter_next_stage_before_human_review": false
   }

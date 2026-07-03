@@ -9,38 +9,39 @@
 - S0：全部成果整理与路线重置
 - M1：layoutgen 原生成路径审计 + OpenYield 模块绑定
 - M2R：按锁定 SRAM 规格复用 layoutgen 原 SRAM top flow 重做 review GDS
-- M3：等待人工 KLayout review 后再决定下一阶段
+- M3R：在 M2R 物理 backbone 上绑定 OpenYield module/net semantics
+- M4：等待人工 KLayout review 后再决定下一阶段
 
 ## 3. Current Stage
 
-- current_stage: `M2R`
-- next_stage: `M3`
+- current_stage: `M3R`
+- next_stage: `M4`
 - human_klayout_review_required_every_stage: `True`
 - can_enter_next_stage_without_human_review: `False`
 
-## 4. Latest User Correction
+## 4. Latest User Review
 
-- M2 physical review failed because modules were freely scattered, SRAM spec was not locked, layoutgen top-level generation rules were not followed, and the result did not resemble a complete SRAM macro.
+- M2R physical review: layout is SRAM-like and uses layoutgen top flow, but it still uses layoutgen original cells/modules rather than OpenYield module semantics. first_round_openyield_gds_used_count = 0. Next step must bind OpenYield module/net semantics onto the layoutgen physical SRAM backbone.
 
-## 5. M2R Result
+## 5. M3R Result
 
-- locked_sram_spec_available: `True`
-- layoutgen_top_flow_trace_available: `True`
-- layoutgen_top_flow_used: `True`
-- arbitrary_module_scatter_used: `False`
-- full_sram_review_gds_generated: `True`
-- full_sram_review_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/test_M2R_full_sram_regen/current_supported_config/openyield_layoutgen_full_sram_M2R.gds`
-- top_cell_name: `openyield_layoutgen_full_sram_M2R`
+- semantic_bound_gds_generated: `True`
+- semantic_bound_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M3R_openyield_semantic_bound/current_supported_config/openyield_semantic_bound_full_sram.gds`
+- top_cell_name: `openyield_semantic_bound_full_sram`
 - gds_sanity_status: `GDS_PARSED_SANITY_PASSED`
+- m2r_physical_backbone_preserved: `True`
+- layoutgen_top_flow_preserved: `True`
+- openyield_modules_bound_count: `20`
+- openyield_net_bound_count: `34`
 
 ## 6. Review Gate
 
-- This M2R GDS is for human KLayout review only.
+- This M3R GDS is for human KLayout review only.
 - Do not claim DRC clean.
 - Do not claim LVS clean.
 - Do not claim signoff-ready.
-- Do not auto-enter M3 before user review.
+- Do not auto-enter the next stage before user review.
 
 ## 7. Next Immediate Task
 
-等待人工 KLayout review `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/test_M2R_full_sram_regen/current_supported_config/openyield_layoutgen_full_sram_M2R.gds`。未经用户确认，不进入下一阶段。
+等待人工 KLayout review `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M3R_openyield_semantic_bound/current_supported_config/openyield_semantic_bound_full_sram.gds`，确认 OpenYield 语义绑定是否符合预期。未经用户确认，不进入下一阶段。
