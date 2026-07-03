@@ -1,0 +1,36 @@
+{
+  "route_reset_summary": "以 layoutgen 原版图生成器代码能力为底座，以第一轮 OpenYield module GDS 生成成果为重要输入，以 OpenYield layout intent / net semantics 为驱动，重新接入真实 SRAM GDS 生成主干。",
+  "next_phases": [
+    {
+      "next_stage": "L0",
+      "depends_on": "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.* + review GDS + module GDS inventory + generator code inventory",
+      "why_needed": "Audit real generator path and first-round module validity before any new physical generation.",
+      "human_review_required": true
+    },
+    {
+      "next_stage": "L1",
+      "depends_on": "L0 audit results + OpenYield semantics + layoutgen capability map",
+      "why_needed": "Bind OpenYield module/net semantics onto real layoutgen generator hooks.",
+      "human_review_required": true
+    },
+    {
+      "next_stage": "L2",
+      "depends_on": "L1 bindings + first-round module replacement decisions",
+      "why_needed": "Regenerate OpenYield real module GDS through layoutgen-based path.",
+      "human_review_required": true
+    },
+    {
+      "next_stage": "L3",
+      "depends_on": "L2 real module GDS + layoutgen top-level assembly path",
+      "why_needed": "Generate layoutgen-based OpenYield SRAM top GDS.",
+      "human_review_required": true
+    },
+    {
+      "next_stage": "L4",
+      "depends_on": "L3 top GDS + real signal/power integration",
+      "why_needed": "Do final real connection, power, validation, and delivery.",
+      "human_review_required": true
+    }
+  ],
+  "must_wait_for_human_review_before_L0": true
+}

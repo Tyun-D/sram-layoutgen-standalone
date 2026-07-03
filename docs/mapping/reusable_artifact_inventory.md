@@ -1,0 +1,10 @@
+| artifact_name | path | artifact_type | why_reusable | reuse_scope | risk |
+| --- | --- | --- | --- | --- | --- |
+| layoutgen_generator_code | sram_layoutgen/ | generator_codebase | This is the correct底座 for real SRAM GDS generation. | L0-L4 | Must be re-bound to OpenYield semantics carefully. |
+| first_round_openyield_module_gds | outputs/openyield_module_gds/ | module_gds_input | Important input candidates and metadata source. | L0-L2 | Not all modules are guaranteed final physical implementations. |
+| R1_layout_intent | docs/ + outputs/openyield_layout_intent/current_supported_config/ | semantic_intent | Carries OpenYield layout intent and role mapping. | L0-L4 | Intent must be mapped onto real layoutgen generation flow. |
+| R2_generator_architecture | docs/ + scripts/openyield_R2_generator_architecture_design.py | architecture | Defines OpenYield-driven architecture concepts. | L0-L4 | Architecture must not be confused with final physical proof. |
+| C0_to_C6_validation_framework | docs/ + scripts/ + tests/ + outputs/openyield_* | audit_and_validation | Provides reusable report schema and regression hooks. | L0-L4 | Some report conclusions must be downgraded/reclassified. |
+| openram_source_and_reference_gds | /data1/qujh/OpenRAM + outputs/layout_prototype/baseline_legacy/ | reference_rule_sample | Useful as rule/sample/visual reference only. | L0-L4 | Must not be mistaken for final OpenYield GDS. |
+| layoutgen_baseline_reference_gds | outputs/layout_prototype/baseline_legacy/sram_8x64_wpr4_fd45.complete.gds | visual_reference_sample | Useful as review baseline and visual/structural comparator. | L0-L4 review | Do not use as final OpenYield output. |
+| module_gds_generators_py | sram_layoutgen/openyield_adapter/module_gds_generators.py | module_generator | Direct hook into first-round OpenYield module GDS generation. | L0-L2 | Must re-audit generated modules before trust. |

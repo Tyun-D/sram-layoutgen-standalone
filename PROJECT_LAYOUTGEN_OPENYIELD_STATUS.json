@@ -1,0 +1,232 @@
+{
+  "project_goal": "基于原 layoutgen 版图生成器，将 OpenYield 的模块、网表语义和连接关系接入真实 SRAM GDS 生成主干，生成 OpenYield-driven layoutgen-based SRAM GDS。",
+  "current_route": [
+    "S0：全部成果整理与路线重置",
+    "L0：layoutgen 原生成路径与第一轮 OpenYield 模块 GDS 审计",
+    "L1：OpenYield module/net → layoutgen generator 绑定",
+    "L2：重新生成 OpenYield real module GDS",
+    "L3：layoutgen-based OpenYield SRAM top GDS 生成",
+    "L4：真实连接、电源、验证与最终交付"
+  ],
+  "current_stage": "S0",
+  "next_stage": "L0",
+  "must_read_this_file_before_every_task": true,
+  "must_update_this_file_after_every_task": true,
+  "human_klayout_review_required_every_stage": true,
+  "can_enter_next_stage_without_human_review": false,
+  "important_results": [
+    {
+      "result_name": "First-round OpenYield module GDS generation",
+      "path": "outputs/openyield_module_gds/",
+      "what_is_valid": "Module GDS files, pins/bbox/rail metadata, and generator manifests exist for 20 modules.",
+      "what_is_not_valid": "Not yet proven that every module is the right physical implementation for final SRAM assembly.",
+      "can_reuse": true,
+      "reuse_scope": "L0-L2 input audit and regeneration",
+      "risk": "Must distinguish real module vs candidate vs replaceable artifact."
+    },
+    {
+      "result_name": "R0 OpenRAM audit",
+      "path": "docs/ and OpenRAM source audit artifacts",
+      "what_is_valid": "Rule/reference understanding of SRAM physical organization.",
+      "what_is_not_valid": "OpenRAM output is not final OpenYield output.",
+      "can_reuse": true,
+      "reuse_scope": "L0-L4 reference only",
+      "risk": "Do not regress into OpenRAM black-box flow."
+    },
+    {
+      "result_name": "R1 layout intent",
+      "path": "outputs/openyield_layout_intent/current_supported_config/",
+      "what_is_valid": "OpenYield module/net semantics and intent mapping.",
+      "what_is_not_valid": "Intent alone is not physical proof.",
+      "can_reuse": true,
+      "reuse_scope": "L0-L4 semantic driver",
+      "risk": "Must be bound to real layoutgen generation path."
+    },
+    {
+      "result_name": "R2 generator architecture",
+      "path": "scripts/openyield_R2_generator_architecture_design.py + reports",
+      "what_is_valid": "Architecture decomposition and generator boundary planning.",
+      "what_is_not_valid": "Does not prove final GDS implementation quality.",
+      "can_reuse": true,
+      "reuse_scope": "L0-L4 planning",
+      "risk": "Must reconnect to real layoutgen assembly path."
+    },
+    {
+      "result_name": "C0 gap audit",
+      "path": "outputs/openyield_complete_gds_gap_audit/current_supported_config/",
+      "what_is_valid": "Accurate evidence for contract/approximate/missing pin gaps in old prototype route.",
+      "what_is_not_valid": "Its closure results must be reinterpreted after route reset.",
+      "can_reuse": true,
+      "reuse_scope": "L0-L4 risk baseline",
+      "risk": "Do not treat old closure counts as sufficient physical completeness proof."
+    },
+    {
+      "result_name": "C1 physical rule extraction",
+      "path": "outputs/openyield_complete_gds_rule_extraction/current_supported_config/",
+      "what_is_valid": "Useful rulebook and comparison baseline.",
+      "what_is_not_valid": "Not a substitute for real layoutgen generation.",
+      "can_reuse": true,
+      "reuse_scope": "L0-L4 rule reference",
+      "risk": "Must not drift into source-only mimicry."
+    },
+    {
+      "result_name": "C2 pin access repair",
+      "path": "outputs/openyield_pin_access_repair/current_supported_config/",
+      "what_is_valid": "Repaired/synthesized pin access metadata and access views.",
+      "what_is_not_valid": "Synthesized pin access cannot alone justify physical-complete claim.",
+      "can_reuse": true,
+      "reuse_scope": "L0-L2 audit input and optional metadata hints",
+      "risk": "Must be re-audited against real layoutgen module generation."
+    },
+    {
+      "result_name": "C3 floorplan reconstruction",
+      "path": "outputs/openyield_complete_floorplan/current_supported_config/",
+      "what_is_valid": "Useful placement/floorplan intent and review evidence.",
+      "what_is_not_valid": "Proxy-floorplan GDS is not final real macro assembly.",
+      "can_reuse": true,
+      "reuse_scope": "L0-L4 review/reference",
+      "risk": "Do not keep floorplan_proxy as implementation hierarchy."
+    },
+    {
+      "result_name": "C4 signal routing",
+      "path": "outputs/openyield_complete_signal_routing/current_supported_config/",
+      "what_is_valid": "Geometry-backed semantic routing prototype and validation schema.",
+      "what_is_not_valid": "Based on access-view modules, not final physical module hierarchy.",
+      "can_reuse": true,
+      "reuse_scope": "L0-L4 evidence/reference",
+      "risk": "Do not reuse as final physical routing implementation."
+    },
+    {
+      "result_name": "C5 power stitching",
+      "path": "outputs/openyield_complete_power_network/current_supported_config/",
+      "what_is_valid": "Geometry-backed semantic power connectivity prototype and validation schema.",
+      "what_is_not_valid": "Still layered on access-view hierarchy.",
+      "can_reuse": true,
+      "reuse_scope": "L0-L4 evidence/reference",
+      "risk": "Do not reuse as final physical power implementation."
+    },
+    {
+      "result_name": "C6 final access-view GDS",
+      "path": "outputs/openyield_complete_sram/current_supported_config/openyield_complete_sram.gds",
+      "what_is_valid": "A parseable OpenYield-connected access-view GDS prototype with report bundle.",
+      "what_is_not_valid": "Cannot be claimed as real complete SRAM GDS anymore.",
+      "can_reuse": true,
+      "reuse_scope": "Review/reference only",
+      "risk": "Must be explicitly downgraded."
+    }
+  ],
+  "reusable_artifacts": [
+    {
+      "artifact_name": "layoutgen_generator_code",
+      "path": "sram_layoutgen/",
+      "artifact_type": "generator_codebase",
+      "why_reusable": "This is the correct底座 for real SRAM GDS generation.",
+      "reuse_scope": "L0-L4",
+      "risk": "Must be re-bound to OpenYield semantics carefully."
+    },
+    {
+      "artifact_name": "first_round_openyield_module_gds",
+      "path": "outputs/openyield_module_gds/",
+      "artifact_type": "module_gds_input",
+      "why_reusable": "Important input candidates and metadata source.",
+      "reuse_scope": "L0-L2",
+      "risk": "Not all modules are guaranteed final physical implementations."
+    },
+    {
+      "artifact_name": "R1_layout_intent",
+      "path": "docs/ + outputs/openyield_layout_intent/current_supported_config/",
+      "artifact_type": "semantic_intent",
+      "why_reusable": "Carries OpenYield layout intent and role mapping.",
+      "reuse_scope": "L0-L4",
+      "risk": "Intent must be mapped onto real layoutgen generation flow."
+    },
+    {
+      "artifact_name": "R2_generator_architecture",
+      "path": "docs/ + scripts/openyield_R2_generator_architecture_design.py",
+      "artifact_type": "architecture",
+      "why_reusable": "Defines OpenYield-driven architecture concepts.",
+      "reuse_scope": "L0-L4",
+      "risk": "Architecture must not be confused with final physical proof."
+    },
+    {
+      "artifact_name": "C0_to_C6_validation_framework",
+      "path": "docs/ + scripts/ + tests/ + outputs/openyield_*",
+      "artifact_type": "audit_and_validation",
+      "why_reusable": "Provides reusable report schema and regression hooks.",
+      "reuse_scope": "L0-L4",
+      "risk": "Some report conclusions must be downgraded/reclassified."
+    },
+    {
+      "artifact_name": "openram_source_and_reference_gds",
+      "path": "/data1/qujh/OpenRAM + outputs/layout_prototype/baseline_legacy/",
+      "artifact_type": "reference_rule_sample",
+      "why_reusable": "Useful as rule/sample/visual reference only.",
+      "reuse_scope": "L0-L4",
+      "risk": "Must not be mistaken for final OpenYield GDS."
+    },
+    {
+      "artifact_name": "layoutgen_baseline_reference_gds",
+      "path": "outputs/layout_prototype/baseline_legacy/sram_8x64_wpr4_fd45.complete.gds",
+      "artifact_type": "visual_reference_sample",
+      "why_reusable": "Useful as review baseline and visual/structural comparator.",
+      "reuse_scope": "L0-L4 review",
+      "risk": "Do not use as final OpenYield output."
+    },
+    {
+      "artifact_name": "module_gds_generators_py",
+      "path": "sram_layoutgen/openyield_adapter/module_gds_generators.py",
+      "artifact_type": "module_generator",
+      "why_reusable": "Direct hook into first-round OpenYield module GDS generation.",
+      "reuse_scope": "L0-L2",
+      "risk": "Must re-audit generated modules before trust."
+    }
+  ],
+  "deprecated_artifacts": [
+    {
+      "artifact_name": "openyield_complete_sram_gds_claim",
+      "path": "outputs/openyield_complete_sram/current_supported_config/openyield_complete_sram.gds",
+      "deprecated_reason": "Reclassified as OpenYield-connected access-view GDS prototype, not real complete SRAM GDS.",
+      "do_not_use_as_final": true
+    },
+    {
+      "artifact_name": "access_module_cells",
+      "path": "*_access_module",
+      "deprecated_reason": "Cannot serve as SRAM physical implementation主体.",
+      "do_not_use_as_final": true
+    },
+    {
+      "artifact_name": "floorplan_proxy_cells",
+      "path": "floorplan_proxy*",
+      "deprecated_reason": "Only acceptable for review/floorplan proof, not final physical module hierarchy.",
+      "do_not_use_as_final": true
+    },
+    {
+      "artifact_name": "access_view_route",
+      "path": "C4 access-view signal route shapes",
+      "deprecated_reason": "Useful as semantic/prototype evidence, not sufficient as physical complete claim basis.",
+      "do_not_use_as_final": true
+    },
+    {
+      "artifact_name": "access_view_power_stitch",
+      "path": "C5 access-view power stitch shapes",
+      "deprecated_reason": "Useful as prototype geometry evidence, not final physical implementation proof.",
+      "do_not_use_as_final": true
+    },
+    {
+      "artifact_name": "synthesized_pin_complete_claim_support",
+      "path": "C2 synthesized pin access",
+      "deprecated_reason": "Cannot alone support physical complete claim.",
+      "do_not_use_as_final": true
+    }
+  ],
+  "cannot_claim": [
+    "DRC clean",
+    "LVS clean",
+    "timing closure",
+    "signoff-ready",
+    "tapeout-ready"
+  ],
+  "last_user_correction": "C6 openyield_complete_sram.gds 不能再 claim 为真实完整 SRAM GDS，必须降级为 OpenYield-connected access-view GDS prototype，并将路线重置为 layoutgen-based OpenYield route。",
+  "current_wrong_route_to_avoid": "不要继续把 *_access_module / floorplan_proxy / access-view route or power stitch 当作真实 SRAM physical implementation 主体，也不要说以旧 GDS 为底座。",
+  "next_task_summary": "S0 完成后进入 L0：layoutgen 原生成路径与第一轮 OpenYield module GDS 审计，但必须先经过人工 KLayout review 确认。"
+}
