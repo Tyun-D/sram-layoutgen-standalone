@@ -1,0 +1,165 @@
+{
+  "routes": [
+    {
+      "route_id": "ROUTE_0041",
+      "net_name": "precharge_en",
+      "source_instance": "CONTROL_LOGIC",
+      "source_pin": "precharge_en",
+      "target_instance": "precharge",
+      "target_pin": "precharge_en",
+      "route_shape_id": "SHAPE_0041",
+      "route_shape_bbox": {
+        "x0": 12.3583,
+        "y0": 5.796667,
+        "x1": 17.11375,
+        "y1": 22.4632,
+        "width": 4.75545,
+        "height": 16.666533
+      },
+      "route_status": "SYNTHESIZED_PIN_ACCESS_ROUTE",
+      "uses_synthesized_pin_access": true,
+      "is_geometry_backed_route": true,
+      "guide_only": false,
+      "blocking_reason": "",
+      "next_required_action": "Carry this route into C5/C6; do not replace with contract mapping."
+    },
+    {
+      "route_id": "ROUTE_0042",
+      "net_name": "sense_en",
+      "source_instance": "CONTROL_LOGIC",
+      "source_pin": "sense_en",
+      "target_instance": "sense_amp",
+      "target_pin": "en",
+      "route_shape_id": "SHAPE_0042",
+      "route_shape_bbox": {
+        "x0": 12.3583,
+        "y0": 6.5025,
+        "x1": 20.58625,
+        "y1": 26.9595,
+        "width": 8.22795,
+        "height": 20.457
+      },
+      "route_status": "SYNTHESIZED_PIN_ACCESS_ROUTE",
+      "uses_synthesized_pin_access": true,
+      "is_geometry_backed_route": true,
+      "guide_only": false,
+      "blocking_reason": "",
+      "next_required_action": "Carry this route into C5/C6; do not replace with contract mapping."
+    },
+    {
+      "route_id": "ROUTE_0043",
+      "net_name": "write_en",
+      "source_instance": "CONTROL_LOGIC",
+      "source_pin": "write_en",
+      "target_instance": "write_driver",
+      "target_pin": "en",
+      "route_shape_id": "SHAPE_0043",
+      "route_shape_bbox": {
+        "x0": 12.3583,
+        "y0": 7.208333,
+        "x1": 22.43875,
+        "y1": 21.3995,
+        "width": 10.08045,
+        "height": 14.191167
+      },
+      "route_status": "SYNTHESIZED_PIN_ACCESS_ROUTE",
+      "uses_synthesized_pin_access": true,
+      "is_geometry_backed_route": true,
+      "guide_only": false,
+      "blocking_reason": "",
+      "next_required_action": "Carry this route into C5/C6; do not replace with contract mapping."
+    },
+    {
+      "route_id": "ROUTE_0044",
+      "net_name": "wordline_en",
+      "source_instance": "CONTROL_LOGIC",
+      "source_pin": "wl_en",
+      "target_instance": "wordline_driver",
+      "target_pin": "B",
+      "route_shape_id": "SHAPE_0044",
+      "route_shape_bbox": {
+        "x0": 8.025,
+        "y0": 5.090833,
+        "x1": 12.3583,
+        "y1": 21.288,
+        "width": 4.3333,
+        "height": 16.197167
+      },
+      "route_status": "SYNTHESIZED_PIN_ACCESS_ROUTE",
+      "uses_synthesized_pin_access": true,
+      "is_geometry_backed_route": true,
+      "guide_only": false,
+      "blocking_reason": "",
+      "next_required_action": "Carry this route into C5/C6; do not replace with contract mapping."
+    },
+    {
+      "route_id": "ROUTE_0045",
+      "net_name": "clk",
+      "source_instance": "CONTROL_LOGIC",
+      "source_pin": "clk",
+      "target_instance": "DFF_ROW",
+      "target_pin": "clk",
+      "route_shape_id": "SHAPE_0045",
+      "route_shape_bbox": {
+        "x0": 8.412,
+        "y0": 5.452,
+        "x1": 44.187,
+        "y1": 5.532,
+        "width": 35.775,
+        "height": 0.08
+      },
+      "route_status": "GEOMETRY_PIN_TO_PIN_ROUTE",
+      "uses_synthesized_pin_access": false,
+      "is_geometry_backed_route": true,
+      "guide_only": false,
+      "blocking_reason": "",
+      "next_required_action": "Carry this route into C5/C6; do not replace with contract mapping."
+    },
+    {
+      "route_id": "ROUTE_0046",
+      "net_name": "gated_clk",
+      "source_instance": "CONTROL_LOGIC",
+      "source_pin": "gated_clk",
+      "target_instance": "GATED_CLOCK_PATH",
+      "target_pin": "gated_clk",
+      "route_shape_id": "SHAPE_0046",
+      "route_shape_bbox": {
+        "x0": 12.3583,
+        "y0": 5.865,
+        "x1": 40.7452,
+        "y1": 7.994167,
+        "width": 28.3869,
+        "height": 2.129167
+      },
+      "route_status": "SYNTHESIZED_PIN_ACCESS_ROUTE",
+      "uses_synthesized_pin_access": true,
+      "is_geometry_backed_route": true,
+      "guide_only": false,
+      "blocking_reason": "",
+      "next_required_action": "Carry this route into C5/C6; do not replace with contract mapping."
+    },
+    {
+      "route_id": "ROUTE_0047",
+      "net_name": "rbl_delay",
+      "source_instance": "DELAY_CHAIN",
+      "source_pin": "delay_out",
+      "target_instance": "replica_array",
+      "target_pin": "RBL",
+      "route_shape_id": "SHAPE_0047",
+      "route_shape_bbox": {
+        "x0": 17.2609,
+        "y0": 5.6775,
+        "x1": 24.12945,
+        "y1": 17.13,
+        "width": 6.86855,
+        "height": 11.4525
+      },
+      "route_status": "SYNTHESIZED_PIN_ACCESS_ROUTE",
+      "uses_synthesized_pin_access": true,
+      "is_geometry_backed_route": true,
+      "guide_only": false,
+      "blocking_reason": "",
+      "next_required_action": "Carry this route into C5/C6; do not replace with contract mapping."
+    }
+  ]
+}
