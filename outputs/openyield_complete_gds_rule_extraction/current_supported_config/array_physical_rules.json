@@ -1,0 +1,58 @@
+{
+  "rules": [
+    {
+      "rule_name": "ArrayMainBody",
+      "source_evidence": "OpenRAM bitcell_array/replica_bitcell_array source; reference GDS dense bitcell region",
+      "rule_description": "Bitcell array must be the dominant physical core of the macro and own row/column pitch, BL/BR access, and WL access.",
+      "required_geometry": "Real bitcell-array boundary plus per-column BL/BR shapes and per-row WL shapes.",
+      "required_metadata": "row_pitch, column_pitch, bitcell orientation parity, array bbox.",
+      "c0_blockers_addressed": "FLOORPLAN_NOT_SRAM_LIKE,CONTRACT_ROUTE,MISSING_PIN_GEOMETRY",
+      "implemented_in_stage": "C2/C3"
+    },
+    {
+      "rule_name": "ArrayPitchSource",
+      "source_evidence": "bitcell_base_array.place_array; reference dense region spacing",
+      "rule_description": "Row pitch and column pitch must derive from placed bitcell geometry, not top-level heuristic spacing.",
+      "required_geometry": "Measured bitcell width/height and instance placement lattice.",
+      "required_metadata": "row_pitch_source, column_pitch_source, array origin.",
+      "c0_blockers_addressed": "PLACEHOLDER_VISUAL_GEOMETRY,FLOORPLAN_NOT_SRAM_LIKE",
+      "implemented_in_stage": "C3"
+    },
+    {
+      "rule_name": "ArrayBLBRAccess",
+      "source_evidence": "bitcell_base_array.add_bitline_pins; replica_bitcell_array.add_layout_pins",
+      "rule_description": "BL/BR access must be geometry-backed full-height array pins tied to real child pin layers.",
+      "required_geometry": "Vertical BL/BR pin rectangles aligned to bitcell access points.",
+      "required_metadata": "per-column net naming and source-target access ownership.",
+      "c0_blockers_addressed": "CONTRACT_ROUTE,MISSING_PIN_GEOMETRY",
+      "implemented_in_stage": "C2"
+    },
+    {
+      "rule_name": "ArrayWLAccess",
+      "source_evidence": "bitcell_base_array.add_wl_pins; local_bitcell_array.route",
+      "rule_description": "Each WL must have row-specific geometry-backed access aligned to row pitch.",
+      "required_geometry": "Per-row WL pin rectangles and driver landing shapes.",
+      "required_metadata": "row index to wl net map and row-order parity.",
+      "c0_blockers_addressed": "CONTRACT_ROUTE,MISSING_PIN_GEOMETRY",
+      "implemented_in_stage": "C2/C4"
+    },
+    {
+      "rule_name": "ArrayDummyReplicaBoundary",
+      "source_evidence": "replica_bitcell_array/capped_replica_bitcell_array",
+      "rule_description": "Dummy, replica, and cap structures must sit on array boundaries with defined timing/edge roles.",
+      "required_geometry": "Replica columns left/right, dummy rows top/bottom, optional cap cells around perimeter.",
+      "required_metadata": "which edges host replica or dummy structures and why.",
+      "c0_blockers_addressed": "FLOORPLAN_NOT_SRAM_LIKE,PLACEHOLDER_VISUAL_GEOMETRY",
+      "implemented_in_stage": "C3"
+    },
+    {
+      "rule_name": "ArraySupplyAccess",
+      "source_evidence": "bitcell_base_array.route_supplies; replica_bitcell_array.route_supplies",
+      "rule_description": "VDD/GND array access must be copied from real child rails before any top-level strap stitching.",
+      "required_geometry": "Per-instance supply pins or continuous rail shapes at the array edge.",
+      "required_metadata": "supply-layer ownership and tap candidates.",
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH,APPROXIMATE_POWER_GEOMETRY",
+      "implemented_in_stage": "C2/C5"
+    }
+  ]
+}

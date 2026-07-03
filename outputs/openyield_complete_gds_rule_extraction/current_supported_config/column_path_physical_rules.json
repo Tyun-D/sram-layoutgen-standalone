@@ -1,0 +1,58 @@
+{
+  "rules": [
+    {
+      "rule_name": "PrechargePlacement",
+      "source_evidence": "port_data.add_modules; precharge_array.place_insts",
+      "rule_description": "Precharge cells align to raw bitline pitch at the array column edge, including optional replica-bitline extra column.",
+      "required_geometry": "Per-column precharge cell placement and BL/BR pin shapes.",
+      "required_metadata": "column offsets, column mirror parity, has_rbl side.",
+      "c0_blockers_addressed": "MISSING_PIN_GEOMETRY,CONTRACT_ROUTE",
+      "implemented_in_stage": "C2/C3"
+    },
+    {
+      "rule_name": "ColumnMuxPlacement",
+      "source_evidence": "column_mux_array.setup_layout_constants/place_array",
+      "rule_description": "Column mux sits between raw BL/BR and word-owned read/write stages, with reserved select/output routing height.",
+      "required_geometry": "Mux bbox, select rail channels, output join rails.",
+      "required_metadata": "words_per_row, select-layer pitch, mux grouping.",
+      "c0_blockers_addressed": "PLACEHOLDER_VISUAL_GEOMETRY,CONTRACT_ROUTE",
+      "implemented_in_stage": "C3/C4"
+    },
+    {
+      "rule_name": "SenseAmpPlacement",
+      "source_evidence": "sense_amp_array.place_sense_amp_array",
+      "rule_description": "Sense amps align to word outputs, not every raw column, so words-per-row controls their x ownership.",
+      "required_geometry": "Word-level sense amp positions and output pin geometry.",
+      "required_metadata": "words_per_row to column ownership map.",
+      "c0_blockers_addressed": "CONTRACT_ROUTE,FLOORPLAN_NOT_SRAM_LIKE",
+      "implemented_in_stage": "C3/C4"
+    },
+    {
+      "rule_name": "WriteDriverPlacement",
+      "source_evidence": "write_driver_array.place_write_array",
+      "rule_description": "Write drivers align to word outputs and handle spare columns separately from regular word lanes.",
+      "required_geometry": "Per-word write-driver geometry and enable rails.",
+      "required_metadata": "write_size, words_per_row, spare column ownership.",
+      "c0_blockers_addressed": "CONTRACT_ROUTE,FLOORPLAN_NOT_SRAM_LIKE",
+      "implemented_in_stage": "C3/C4"
+    },
+    {
+      "rule_name": "BLBRConnectivityChain",
+      "source_evidence": "port_data.route_data_lines",
+      "rule_description": "BL/BR must connect through a physical chain: array <-> precharge <-> mux/sense/write, depending on mode and words-per-row.",
+      "required_geometry": "Distinct pin-to-pin routes for each consumer stage.",
+      "required_metadata": "mode-aware chain ownership and net aliases.",
+      "c0_blockers_addressed": "CONTRACT_ROUTE",
+      "implemented_in_stage": "C4"
+    },
+    {
+      "rule_name": "ColumnPathPower",
+      "source_evidence": "precharge_array.route_supplies; sense_amp_array.route_supplies; write_driver_array.route_supplies",
+      "rule_description": "Each column path stage exports local VDD/GND rails that must be stitched to top-level power with real taps.",
+      "required_geometry": "Stage-local rail shapes and tap landing points.",
+      "required_metadata": "supply layer, edge orientation, top strap targets.",
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH,APPROXIMATE_POWER_GEOMETRY",
+      "implemented_in_stage": "C2/C5"
+    }
+  ]
+}
