@@ -1,0 +1,160 @@
+{
+  "modules": [
+    {
+      "module_name": "precharge",
+      "physical_role": "COLUMN_PRECHARGE",
+      "region": "COLUMN_PERIPHERY_REGION",
+      "instance_name": "precharge_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/precharge/precharge.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 0.785,
+        "y1": 1.42,
+        "width": 0.785,
+        "height": 1.42,
+        "shape_count": 1
+      },
+      "placed_origin": {
+        "x": 12.0,
+        "y": 15.825
+      },
+      "placed_bbox": {
+        "x0": 12.0,
+        "y0": 15.825,
+        "x1": 12.785,
+        "y1": 17.245,
+        "width": 0.785,
+        "height": 1.42
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Refine per-column ownership when BL/BR and optional mux routing are implemented in R4."
+    },
+    {
+      "module_name": "column_mux",
+      "physical_role": "COLUMN_MUX",
+      "region": "COLUMN_PERIPHERY_REGION",
+      "instance_name": "column_mux_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/column_mux/column_mux.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 0.8175,
+        "y1": 1.88,
+        "width": 0.8175,
+        "height": 1.88,
+        "shape_count": 1
+      },
+      "placed_origin": {
+        "x": 12.895,
+        "y": 15.825
+      },
+      "placed_bbox": {
+        "x0": 12.895,
+        "y0": 15.825,
+        "x1": 13.7125,
+        "y1": 17.705,
+        "width": 0.8175,
+        "height": 1.88
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": false,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Refine per-column ownership when BL/BR and optional mux routing are implemented in R4."
+    },
+    {
+      "module_name": "sense_amp",
+      "physical_role": "SENSE_AMP",
+      "region": "COLUMN_PERIPHERY_REGION",
+      "instance_name": "sense_amp_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/sense_amp/sense_amp.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 0.775,
+        "y1": 6.01,
+        "width": 0.775,
+        "height": 6.01,
+        "shape_count": 1
+      },
+      "placed_origin": {
+        "x": 13.79,
+        "y": 15.825
+      },
+      "placed_bbox": {
+        "x0": 13.79,
+        "y0": 15.825,
+        "x1": 14.565,
+        "y1": 21.835,
+        "width": 0.775,
+        "height": 6.01
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": false,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Refine per-column ownership when BL/BR and optional mux routing are implemented in R4."
+    },
+    {
+      "module_name": "write_driver",
+      "physical_role": "WRITE_DRIVER",
+      "region": "COLUMN_PERIPHERY_REGION",
+      "instance_name": "write_driver_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/write_driver/write_driver.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 0.84,
+        "y1": 4.175,
+        "width": 0.84,
+        "height": 4.175,
+        "shape_count": 1
+      },
+      "placed_origin": {
+        "x": 14.685,
+        "y": 15.825
+      },
+      "placed_bbox": {
+        "x0": 14.685,
+        "y0": 15.825,
+        "x1": 15.525,
+        "y1": 20.0,
+        "width": 0.84,
+        "height": 4.175
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": false,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Refine per-column ownership when BL/BR and optional mux routing are implemented in R4."
+    }
+  ]
+}

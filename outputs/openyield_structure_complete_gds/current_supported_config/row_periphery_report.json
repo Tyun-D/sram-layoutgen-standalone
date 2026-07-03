@@ -1,0 +1,199 @@
+{
+  "modules": [
+    {
+      "module_name": "row_decoder",
+      "physical_role": "ROW_DECODER",
+      "region": "ROW_PERIPHERY_REGION",
+      "instance_name": "row_decoder_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/row_decoder/row_decoder.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 4.245,
+        "y1": 3.13,
+        "width": 4.245,
+        "height": 3.13,
+        "shape_count": 6
+      },
+      "placed_origin": {
+        "x": 0.79,
+        "y": 8.0
+      },
+      "placed_bbox": {
+        "x0": 0.79,
+        "y0": 8.0,
+        "x1": 5.035,
+        "y1": 11.13,
+        "width": 4.245,
+        "height": 3.13
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Refine row-pitch ownership with explicit WL routing and tighter abutment proof in R4."
+    },
+    {
+      "module_name": "wordline_decoder",
+      "physical_role": "ROW_DECODER",
+      "region": "ROW_PERIPHERY_REGION",
+      "instance_name": "wordline_decoder_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_decoder/wordline_decoder.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 4.245,
+        "y1": 3.045,
+        "width": 4.245,
+        "height": 3.045,
+        "shape_count": 6
+      },
+      "placed_origin": {
+        "x": 0.79,
+        "y": 11.13
+      },
+      "placed_bbox": {
+        "x0": 0.79,
+        "y0": 11.13,
+        "x1": 5.035,
+        "y1": 14.175,
+        "width": 4.245,
+        "height": 3.045
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Refine row-pitch ownership with explicit WL routing and tighter abutment proof in R4."
+    },
+    {
+      "module_name": "decoder_gate_cells",
+      "physical_role": "ROW_DECODER",
+      "region": "ROW_PERIPHERY_REGION",
+      "instance_name": "decoder_gate_cells_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/decoder_gate_cells/decoder_gate_cells.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 5.2825,
+        "y1": 3.045,
+        "width": 5.2825,
+        "height": 3.045,
+        "shape_count": 7
+      },
+      "placed_origin": {
+        "x": 0.79,
+        "y": 14.26
+      },
+      "placed_bbox": {
+        "x0": 0.79,
+        "y0": 14.26,
+        "x1": 6.0725,
+        "y1": 17.305,
+        "width": 5.2825,
+        "height": 3.045
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Refine row-pitch ownership with explicit WL routing and tighter abutment proof in R4."
+    },
+    {
+      "module_name": "wordline_driver",
+      "physical_role": "WORDLINE_DRIVER",
+      "region": "ROW_PERIPHERY_REGION",
+      "instance_name": "wordline_driver_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_driver/wordline_driver.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 3.045,
+        "y1": 1.505,
+        "width": 3.045,
+        "height": 1.505,
+        "shape_count": 1
+      },
+      "placed_origin": {
+        "x": 0.79,
+        "y": 17.39
+      },
+      "placed_bbox": {
+        "x0": 0.79,
+        "y0": 17.39,
+        "x1": 3.835,
+        "y1": 18.895,
+        "width": 3.045,
+        "height": 1.505
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "ALIGNED",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": false,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Refine row-pitch ownership with explicit WL routing and tighter abutment proof in R4."
+    },
+    {
+      "module_name": "wordline_driver_gate_cells",
+      "physical_role": "WORDLINE_DRIVER",
+      "region": "ROW_PERIPHERY_REGION",
+      "instance_name": "wordline_driver_gate_cells_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_driver_gate_cells/wordline_driver_gate_cells.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 2.8975,
+        "y1": 2.96,
+        "width": 2.8975,
+        "height": 2.96,
+        "shape_count": 5
+      },
+      "placed_origin": {
+        "x": 0.79,
+        "y": 20.52
+      },
+      "placed_bbox": {
+        "x0": 0.79,
+        "y0": 20.52,
+        "x1": 3.6875,
+        "y1": 23.48,
+        "width": 2.8975,
+        "height": 2.96
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Refine row-pitch ownership with explicit WL routing and tighter abutment proof in R4."
+    }
+  ]
+}

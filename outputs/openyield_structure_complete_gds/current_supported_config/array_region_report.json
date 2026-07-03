@@ -1,0 +1,121 @@
+{
+  "modules": [
+    {
+      "module_name": "bitcell_array",
+      "physical_role": "ARRAY_CORE",
+      "region": "ARRAY_CORE_REGION",
+      "instance_name": "bitcell_array_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/bitcell_array/bitcell_array.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 3.58,
+        "y1": 6.26,
+        "width": 3.58,
+        "height": 6.26,
+        "shape_count": 16
+      },
+      "placed_origin": {
+        "x": 12.0,
+        "y": 8.0
+      },
+      "placed_bbox": {
+        "x0": 12.0,
+        "y0": 8.0,
+        "x1": 15.58,
+        "y1": 14.26,
+        "width": 3.58,
+        "height": 6.26
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "ALIGNED",
+      "column_pitch_alignment_status": "ALIGNED",
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Use ARRAY_CORE as the placement and routing anchor for R4."
+    },
+    {
+      "module_name": "dummy_array",
+      "physical_role": "ARRAY_DUMMY",
+      "region": "ARRAY_DUMMY_REGION",
+      "instance_name": "dummy_array_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/dummy_array/dummy_array.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 3.58,
+        "y1": 6.26,
+        "width": 3.58,
+        "height": 6.26,
+        "shape_count": 16
+      },
+      "placed_origin": {
+        "x": 7.24625,
+        "y": 8.0
+      },
+      "placed_bbox": {
+        "x0": 7.24625,
+        "y0": 8.0,
+        "x1": 10.82625,
+        "y1": 14.26,
+        "width": 3.58,
+        "height": 6.26
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "ALIGNED",
+      "column_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": false,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Tighten dummy-boundary ownership when the array wrapper is upgraded in R4/R5."
+    },
+    {
+      "module_name": "replica_array",
+      "physical_role": "ARRAY_REPLICA",
+      "region": "ARRAY_REPLICA_REGION",
+      "instance_name": "replica_array_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/replica_array/replica_array.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 1.79,
+        "y1": 7.68,
+        "width": 1.79,
+        "height": 7.68,
+        "shape_count": 9
+      },
+      "placed_origin": {
+        "x": 12.0,
+        "y": 23.00875
+      },
+      "placed_bbox": {
+        "x0": 12.0,
+        "y0": 23.00875,
+        "x1": 13.79,
+        "y1": 30.68875,
+        "width": 1.79,
+        "height": 7.68
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "column_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Preserve replica timing semantics and add explicit coupling routes in R4."
+    }
+  ]
+}
