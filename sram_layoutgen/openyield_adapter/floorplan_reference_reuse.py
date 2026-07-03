@@ -1,0 +1,80 @@
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Any
+
+
+def build_layoutgen_reference_reuse_decisions(repo_root: Path) -> list[dict[str, Any]]:
+    candidates = [
+        {
+            "reference_item": "baseline_legacy_complete_gds",
+            "source_path": repo_root / "outputs/layout_prototype/baseline_legacy/sram_8x64_wpr4_fd45.complete.gds",
+            "what_it_solves": "Provides a known SRAM-like macro silhouette with dense array core, row side periphery, and column side periphery.",
+            "can_reuse_directly": False,
+            "needs_adaptation": True,
+            "do_not_reuse_reason": "Legacy GDS is not OpenYield-driven final ownership and cannot become the new complete SRAM GDS.",
+            "mapped_stage": "C3",
+            "expected_effect_on_complete_gds": "Improves region proportions and macro-side organization.",
+            "risk_if_reused_wrongly": "Would regress ownership to old layoutgen output instead of current OpenYield module/pin mapping.",
+            "actual_C3_decision": "REFERENCE_USED_FOR_REGION_PROPORTION_AND_SIDE_ASSIGNMENT",
+        },
+        {
+            "reference_item": "storage_aggregation_compare_script",
+            "source_path": repo_root / "scripts/openyield_storage_aggregation_compare.py",
+            "what_it_solves": "Captures old array/dummy/replica organization and aggregate storage placement logic.",
+            "can_reuse_directly": False,
+            "needs_adaptation": True,
+            "do_not_reuse_reason": "Old script only partially modernizes array aggregation and does not map to repaired C2 access views by itself.",
+            "mapped_stage": "C3",
+            "expected_effect_on_complete_gds": "Helps keep array, dummy, and replica physically meaningful.",
+            "risk_if_reused_wrongly": "Could preserve outdated peripheral assumptions.",
+            "actual_C3_decision": "REFERENCE_USED_FOR_ARRAY_DUMMY_REPLICA_ADJACENCY",
+        },
+        {
+            "reference_item": "wordline_driver_reference_reports",
+            "source_path": repo_root / "scripts/openyield_wordlinedriver_standalone_smoke.py",
+            "what_it_solves": "Documents previous wordline-driver local pin verification and placement sanity.",
+            "can_reuse_directly": False,
+            "needs_adaptation": True,
+            "do_not_reuse_reason": "Standalone smoke is not a full floorplan generator and still assumes old composition context.",
+            "mapped_stage": "C3",
+            "expected_effect_on_complete_gds": "Improves row-side region placement and array-facing access orientation.",
+            "risk_if_reused_wrongly": "Could overfit to standalone local placement instead of bank-level context.",
+            "actual_C3_decision": "REFERENCE_USED_FOR_ROW_SIDE_REGION_ORIENTATION",
+        },
+        {
+            "reference_item": "rail_overlap_and_abutment_reports",
+            "source_path": repo_root / "outputs/layout_prototype/hybrid_openyield_rail_overlap",
+            "what_it_solves": "Captures prior rail overlap and abutment observations relevant to power strap reservation.",
+            "can_reuse_directly": False,
+            "needs_adaptation": True,
+            "do_not_reuse_reason": "Those reports are not proof of final power continuity for the current OpenYield bank.",
+            "mapped_stage": "C3/C5",
+            "expected_effect_on_complete_gds": "Improves reserved strap landing zones and rail-facing region planning.",
+            "risk_if_reused_wrongly": "Could confuse overlap eligibility with actual stitched continuity.",
+            "actual_C3_decision": "REFERENCE_USED_FOR_POWER_STRAP_REGION_RESERVATION_ONLY",
+        },
+        {
+            "reference_item": "old_gds_writer_pin_label_experience",
+            "source_path": repo_root / "README.md",
+            "what_it_solves": "Summarizes prior pin label reading and GDS ownership constraints across the earlier layoutgen flow.",
+            "can_reuse_directly": False,
+            "needs_adaptation": True,
+            "do_not_reuse_reason": "Pin labels alone are insufficient after C2; C3 must consume repaired geometry-backed or synthesized access.",
+            "mapped_stage": "C3/C4/C6",
+            "expected_effect_on_complete_gds": "Keeps guide layers isolated and prevents placeholder overlays from being miscounted as routes.",
+            "risk_if_reused_wrongly": "Could reintroduce label-only or overlay-only semantics.",
+            "actual_C3_decision": "REFERENCE_USED_FOR_GUIDE_ISOLATION_POLICY",
+        },
+    ]
+    decisions: list[dict[str, Any]] = []
+    for item in candidates:
+        source_path = Path(item["source_path"])
+        row = dict(item)
+        if not source_path.exists():
+            row["source_path"] = "NOT_FOUND"
+            row["actual_C3_decision"] = "NOT_FOUND"
+        else:
+            row["source_path"] = str(source_path)
+        decisions.append(row)
+    return decisions

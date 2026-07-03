@@ -1,0 +1,123 @@
+{
+  "row_alignment": [
+    {
+      "alignment_target": "WL[0]",
+      "module_name": "wordline_driver",
+      "access_owner": "bitcell_array",
+      "array_access_y": 0.6925,
+      "alignment_status": "EXACT_BY_PIN_ACCESS",
+      "notes": "Array WL ownership rows are preserved and row-path region faces the array side."
+    },
+    {
+      "alignment_target": "WL[1]",
+      "module_name": "wordline_driver",
+      "access_owner": "bitcell_array",
+      "array_access_y": 0.6925,
+      "alignment_status": "EXACT_BY_PIN_ACCESS",
+      "notes": "Array WL ownership rows are preserved and row-path region faces the array side."
+    },
+    {
+      "alignment_target": "WL[2]",
+      "module_name": "wordline_driver",
+      "access_owner": "bitcell_array",
+      "array_access_y": 0.6925,
+      "alignment_status": "EXACT_BY_PIN_ACCESS",
+      "notes": "Array WL ownership rows are preserved and row-path region faces the array side."
+    },
+    {
+      "alignment_target": "WL[3]",
+      "module_name": "wordline_driver",
+      "access_owner": "bitcell_array",
+      "array_access_y": 0.6925,
+      "alignment_status": "EXACT_BY_PIN_ACCESS",
+      "notes": "Array WL ownership rows are preserved and row-path region faces the array side."
+    }
+  ],
+  "column_alignment": [
+    {
+      "alignment_target": "COL[0]",
+      "bitline_x": 0.1845,
+      "bitline_bar_x": 0.521,
+      "alignment_status": "EXACT_BY_PIN_ACCESS",
+      "notes": "Column-path region sits directly above the array and reserves BL/BR ownership lanes."
+    },
+    {
+      "alignment_target": "COL[1]",
+      "bitline_x": 0.1845,
+      "bitline_bar_x": 0.521,
+      "alignment_status": "EXACT_BY_PIN_ACCESS",
+      "notes": "Column-path region sits directly above the array and reserves BL/BR ownership lanes."
+    },
+    {
+      "alignment_target": "COL[2]",
+      "bitline_x": 0.1845,
+      "bitline_bar_x": 0.521,
+      "alignment_status": "EXACT_BY_PIN_ACCESS",
+      "notes": "Column-path region sits directly above the array and reserves BL/BR ownership lanes."
+    },
+    {
+      "alignment_target": "COL[3]",
+      "bitline_x": 0.1845,
+      "bitline_bar_x": 0.521,
+      "alignment_status": "EXACT_BY_PIN_ACCESS",
+      "notes": "Column-path region sits directly above the array and reserves BL/BR ownership lanes."
+    }
+  ],
+  "control_alignment": [
+    {
+      "control_channel": "address",
+      "planned_top_edge": "left",
+      "planned_layer": "M4",
+      "alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "notes": "source_internal_access=DFF_ROW:D[0]"
+    },
+    {
+      "control_channel": "din",
+      "planned_top_edge": "left",
+      "planned_layer": "M4",
+      "alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "notes": "source_internal_access=write_driver:din"
+    },
+    {
+      "control_channel": "dout",
+      "planned_top_edge": "right",
+      "planned_layer": "M4",
+      "alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "notes": "source_internal_access=sense_amp:dout"
+    },
+    {
+      "control_channel": "clk",
+      "planned_top_edge": "top",
+      "planned_layer": "M4",
+      "alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "notes": "source_internal_access=CONTROL_LOGIC:clk"
+    },
+    {
+      "control_channel": "control",
+      "planned_top_edge": "top",
+      "planned_layer": "M4",
+      "alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "notes": "source_internal_access=CONTROL_LOGIC:precharge_en"
+    },
+    {
+      "control_channel": "VDD",
+      "planned_top_edge": "top",
+      "planned_layer": "M5",
+      "alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "notes": "source_internal_access=bitcell_array:VDD"
+    },
+    {
+      "control_channel": "GND",
+      "planned_top_edge": "bottom",
+      "planned_layer": "M5",
+      "alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "notes": "source_internal_access=bitcell_array:GND"
+    }
+  ],
+  "row_alignment_blocked_count": 0,
+  "column_alignment_blocked_count": 0,
+  "control_access_blocked_count": 0,
+  "power_access_blocked_count": 0,
+  "exact_or_synthesized_row_alignment_count": 4,
+  "exact_or_synthesized_column_alignment_count": 4
+}
