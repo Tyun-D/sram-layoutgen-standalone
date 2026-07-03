@@ -297,7 +297,7 @@ class GDSWriter:
     @staticmethod
     def _clean_name(name: str) -> str:
         cleaned = "".join(ch if ch.isalnum() or ch in "_$?" else "_" for ch in name)
-        return cleaned[:32] or "SRAM_TOP"
+        return cleaned or "SRAM_TOP"
 
     @staticmethod
     def _gds_real8(value: float) -> bytes:

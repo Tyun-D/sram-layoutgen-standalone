@@ -1,0 +1,106 @@
+{
+  "layoutgen_top_flow_trace_available": true,
+  "layoutgen_top_flow_used": true,
+  "arbitrary_module_scatter_used": false,
+  "locked_spec": {
+    "word_size": 8,
+    "num_words": 64,
+    "words_per_row": 4,
+    "num_rows": 16,
+    "num_cols": 32,
+    "num_banks": 1,
+    "num_ports": 1,
+    "tech": "freepdk45",
+    "bitcell_pitch_x": 0.705,
+    "bitcell_pitch_y": 1.365,
+    "array_width": 22.75,
+    "array_height": 22.04,
+    "row_path_side": "left",
+    "column_path_side": "bottom",
+    "control_region_side": "left_bottom_periphery",
+    "power_rail_strategy": "write_standalone_bundled_freepdk45_power_rails",
+    "top_pin_strategy": "write_standalone_perimeter_pins",
+    "evidence_sources": [
+      "sram_layoutgen/openyield_adapter/layout_prototype.py::DEFAULT_LAYOUT_CASE",
+      "outputs/layout_prototype/baseline_legacy/prototype_result.json",
+      "outputs/layout_prototype/baseline_legacy/sram_8x64_wpr4_fd45.report.json",
+      "outputs/layout_prototype/baseline_legacy/sram_8x64_wpr4_fd45.layout.json",
+      "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/layout_prototype/baseline_legacy/sram_8x64_wpr4_fd45.complete.gds"
+    ]
+  },
+  "original_layoutgen_complete_sram_entry_script": "scripts/openyield_generate_layout_prototype.py",
+  "original_layoutgen_complete_sram_entry_function": "sram_layoutgen.openyield_adapter.layout_prototype.generate_layout_prototype",
+  "original_layoutgen_top_generator_function": "sram_layoutgen.standalone.write_standalone",
+  "original_layoutgen_layout_builder_function": "sram_layoutgen.standalone.build_layout",
+  "original_layoutgen_gds_writer_function": "sram_layoutgen.gds_writer.GDSWriter.write",
+  "parameters_used": {
+    "word_size": 8,
+    "num_words": 64,
+    "words_per_row": 4,
+    "name": "openyield_layoutgen_full_sram_M2R",
+    "perimeter_pins": true,
+    "enable_openyield_array_aggregation": false,
+    "enable_openyield_senseamp_adapter": false,
+    "enable_openyield_columnmux_adapter": false,
+    "enable_openyield_writedriver_adapter": false,
+    "enable_openyield_wordlinedriver_adapter": false
+  },
+  "bitcell_array_generation": "build_layout creates bitcell_array/dummy_left_array/dummy_right_array/replica_bitline_array CellArray objects from the locked num_rows/num_cols and bitcell pitch.",
+  "row_path_generation": "build_layout generates decoder and wordline-driver structures from the locked row count and row-address width on the array-adjacent side.",
+  "column_path_generation": "build_layout generates precharge/column mux/sense amp/write driver stacks from num_cols, word_size, and words_per_row on the column side.",
+  "power_rail_generation": "write_standalone emits normal and complete GDS through GDSWriter with bundled FreePDK45 rail layers and routing metadata.",
+  "top_cell_writeout": "write_standalone writes <name>.gds and <name>.complete.gds using layout.top_name derived from StandaloneSpec.name.",
+  "direct_reuse": [
+    "write_standalone",
+    "build_layout",
+    "GDSWriter.write",
+    "baseline 8x64 wpr4 placement and hierarchy conventions"
+  ],
+  "openyield_adaptation_needed": [
+    "Map M1 OpenYield module roles onto baseline layoutgen roles for review reporting.",
+    "Keep OpenYield module/net binding as evidence/input, not as arbitrary coordinate placement."
+  ],
+  "generated_metrics_snapshot": {
+    "gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M2R_full_sram_regen/current_supported_config/openyield_layoutgen_full_sram_M2R.gds",
+    "complete_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M2R_full_sram_regen/current_supported_config/openyield_layoutgen_full_sram_M2R.complete.gds",
+    "layout_json": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M2R_full_sram_regen/current_supported_config/openyield_layoutgen_full_sram_M2R.layout.json",
+    "report_md": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M2R_full_sram_regen/current_supported_config/openyield_layoutgen_full_sram_M2R.report.md"
+  },
+  "steps": [
+    {
+      "step": 1,
+      "component": "scripts/openyield_generate_layout_prototype.py",
+      "function": "main",
+      "role": "CLI entry for legacy_baseline / hybrid prototype generation.",
+      "reused_for_M2R": "evidence_only"
+    },
+    {
+      "step": 2,
+      "component": "sram_layoutgen/openyield_adapter/layout_prototype.py",
+      "function": "generate_layout_prototype",
+      "role": "Build guarded prototype config and call the original SRAM macro generator via write_standalone.",
+      "reused_for_M2R": "spec_and_flow_evidence"
+    },
+    {
+      "step": 3,
+      "component": "sram_layoutgen/standalone.py",
+      "function": "write_standalone",
+      "role": "Original SRAM top-level generation driver: creates GDS, complete.gds, LEF, SPICE, layout JSON, and metrics.",
+      "reused_for_M2R": "direct"
+    },
+    {
+      "step": 4,
+      "component": "sram_layoutgen/standalone.py",
+      "function": "build_layout",
+      "role": "Deterministic SRAM physical assembly: bitcell/dummy/replica arrays, row path, column path, control region, routing guides, and pin export.",
+      "reused_for_M2R": "direct"
+    },
+    {
+      "step": 5,
+      "component": "sram_layoutgen/gds_writer.py",
+      "function": "GDSWriter.write",
+      "role": "Write top cell and hierarchy to GDS using layout DB objects from write_standalone/build_layout.",
+      "reused_for_M2R": "direct"
+    }
+  ]
+}

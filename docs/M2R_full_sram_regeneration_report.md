@@ -1,0 +1,56 @@
+# M2R Full SRAM Regeneration Report
+
+- status_file_read: `True`
+- status_file_updated: `True`
+- locked_sram_spec_available: `True`
+- layoutgen_top_flow_trace_available: `True`
+- layoutgen_top_flow_used: `True`
+- arbitrary_module_scatter_used: `False`
+- full_sram_review_gds_generated: `True`
+- full_sram_review_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M2R_full_sram_regen/current_supported_config/openyield_layoutgen_full_sram_M2R.gds`
+- full_sram_review_gds_size_bytes: `226768`
+- top_cell_name: `openyield_layoutgen_full_sram_M2R`
+- gds_sanity_status: `GDS_PARSED_SANITY_PASSED`
+- word_size: `8`
+- num_words: `64`
+- words_per_row: `4`
+- num_rows: `16`
+- num_cols: `32`
+- tech: `freepdk45`
+- bitcell_array_present: `True`
+- bitcell_array_is_dense主体: `True`
+- dummy_or_replica_present: `True`
+- row_path_present: `True`
+- column_path_present: `True`
+- control_region_present: `True`
+- large_region_overlay_as_primary_count: `0`
+- access_module_as_primary_count: `0`
+- floorplan_proxy_count: `0`
+- temporary_wrapper_count: `0`
+- layoutgen_real_generator_used_count: `20`
+- first_round_openyield_gds_used_count: `0`
+- human_klayout_review_required: `True`
+- can_enter_next_stage_before_human_review: `False`
+- remaining_M2R_blockers: `[]`
+- remaining_M2R_blockers_count: `0`
+
+## Locked SRAM Spec
+
+- word_size: `8`
+- num_words: `64`
+- words_per_row: `4`
+- num_rows: `16`
+- num_cols: `32`
+- num_banks: `1`
+- num_ports: `1`
+- tech: `freepdk45`
+- bitcell_pitch_x: `0.705`
+- bitcell_pitch_y: `1.365`
+- array_width: `22.75`
+- array_height: `22.04`
+- row_path_side: `left`
+- column_path_side: `bottom`
+- control_region_side: `left_bottom_periphery`
+- power_rail_strategy: `write_standalone_bundled_freepdk45_power_rails`
+- top_pin_strategy: `write_standalone_perimeter_pins`
+- evidence_sources: `['sram_layoutgen/openyield_adapter/layout_prototype.py::DEFAULT_LAYOUT_CASE', 'outputs/layout_prototype/baseline_legacy/prototype_result.json', 'outputs/layout_prototype/baseline_legacy/sram_8x64_wpr4_fd45.report.json', 'outputs/layout_prototype/baseline_legacy/sram_8x64_wpr4_fd45.layout.json', '/data1/qujh/work/sram_layoutgen_step45_clean/outputs/layout_prototype/baseline_legacy/sram_8x64_wpr4_fd45.complete.gds']`

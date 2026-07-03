@@ -1,0 +1,229 @@
+{
+  "layoutgen_real_generator_used_count": 20,
+  "first_round_openyield_gds_used_count": 0,
+  "temporary_wrapper_count": 0,
+  "module_usage_rows": [
+    {
+      "openyield_module": "CONTROL_LOGIC",
+      "physical_role": "CONTROL_LOGIC",
+      "binding_status": "CONTROL_COMPOSITE_NEEDS_LAYOUTGEN_REGEN",
+      "layoutgen_role": "control_logic",
+      "layoutgen_role_instance_count": 10,
+      "physical_source_class": "layoutgen_top_flow_role",
+      "implementation": "control DFF array / control glue",
+      "uses_first_round_openyield_gds": false,
+      "temporary_wrapper": false
+    },
+    {
+      "openyield_module": "DELAY_CHAIN",
+      "physical_role": "DELAY_CHAIN",
+      "binding_status": "CONTROL_COMPOSITE_NEEDS_LAYOUTGEN_REGEN",
+      "layoutgen_role": "delay_chain",
+      "layoutgen_role_instance_count": 6,
+      "physical_source_class": "layoutgen_top_flow_role",
+      "implementation": "gen_delay_inv chain",
+      "uses_first_round_openyield_gds": false,
+      "temporary_wrapper": false
+    },
+    {
+      "openyield_module": "DFF_ROW",
+      "physical_role": "DFF_ROW",
+      "binding_status": "STD_CELL_ROW_NEEDS_LAYOUTGEN_REGEN",
+      "layoutgen_role": "data_dff",
+      "layoutgen_role_instance_count": 8,
+      "physical_source_class": "layoutgen_top_flow_role",
+      "implementation": "data DFF array",
+      "uses_first_round_openyield_gds": false,
+      "temporary_wrapper": false
+    },
+    {
+      "openyield_module": "GATED_CLOCK_PATH",
+      "physical_role": "CLOCK_PATH",
+      "binding_status": "CLOCK_PATH_NEEDS_LAYOUTGEN_REGEN",
+      "layoutgen_role": "control_glue",
+      "layoutgen_role_instance_count": 4,
+      "physical_source_class": "layoutgen_top_flow_role",
+      "implementation": "control glue",
+      "uses_first_round_openyield_gds": false,
+      "temporary_wrapper": false
+    },
+    {
+      "openyield_module": "PRECHARGE_ENABLE_PATH",
+      "physical_role": "ENABLE_PATH",
+      "binding_status": "ENABLE_PATH_NEEDS_LAYOUTGEN_REGEN",
+      "layoutgen_role": "control_glue",
+      "layoutgen_role_instance_count": 4,
+      "physical_source_class": "layoutgen_top_flow_role",
+      "implementation": "control glue",
+      "uses_first_round_openyield_gds": false,
+      "temporary_wrapper": false
+    },
+    {
+      "openyield_module": "SENSE_ENABLE_PATH",
+      "physical_role": "ENABLE_PATH",
+      "binding_status": "ENABLE_PATH_NEEDS_LAYOUTGEN_REGEN",
+      "layoutgen_role": "control_glue",
+      "layoutgen_role_instance_count": 4,
+      "physical_source_class": "layoutgen_top_flow_role",
+      "implementation": "control glue",
+      "uses_first_round_openyield_gds": false,
+      "temporary_wrapper": false
+    },
+    {
+      "openyield_module": "WORDLINE_ENABLE_PATH",
+      "physical_role": "ENABLE_PATH",
+      "binding_status": "ENABLE_PATH_NEEDS_LAYOUTGEN_REGEN",
+      "layoutgen_role": "control_glue",
+      "layoutgen_role_instance_count": 4,
+      "physical_source_class": "layoutgen_top_flow_role",
+      "implementation": "control glue",
+      "uses_first_round_openyield_gds": false,
+      "temporary_wrapper": false
+    },
+    {
+      "openyield_module": "WRITE_ENABLE_PATH",
+      "physical_role": "ENABLE_PATH",
+      "binding_status": "ENABLE_PATH_NEEDS_LAYOUTGEN_REGEN",
+      "layoutgen_role": "control_glue",
+      "layoutgen_role_instance_count": 4,
+      "physical_source_class": "layoutgen_top_flow_role",
+      "implementation": "control glue",
+      "uses_first_round_openyield_gds": false,
+      "temporary_wrapper": false
+    },
+    {
+      "openyield_module": "bitcell_array",
+      "physical_role": "ARRAY_CORE",
+      "binding_status": "REAL_ARRAY_BASE_REUSABLE",
+      "layoutgen_role": "bitcell_array",
+      "layoutgen_role_instance_count": 512,
+      "physical_source_class": "layoutgen_top_flow_role",
+      "implementation": "cell_1rw array",
+      "uses_first_round_openyield_gds": false,
+      "temporary_wrapper": false
+    },
+    {
+      "openyield_module": "column_mux",
+      "physical_role": "COLUMN_MUX",
+      "binding_status": "REAL_HARDMACRO_WRAPPER_REUSABLE_WITH_REPAIRED_SOURCE",
+      "layoutgen_role": "column_mux",
+      "layoutgen_role_instance_count": 32,
+      "physical_source_class": "layoutgen_top_flow_role",
+      "implementation": "gen_col_mux column path",
+      "uses_first_round_openyield_gds": false,
+      "temporary_wrapper": false
+    },
+    {
+      "openyield_module": "decoder_gate_cells",
+      "physical_role": "ROW_DECODER",
+      "binding_status": "CANDIDATE_ROW_COMPOSITE_NEEDS_LAYOUTGEN_REGEN",
+      "layoutgen_role": "row_decoder",
+      "layoutgen_role_instance_count": 16,
+      "physical_source_class": "layoutgen_top_flow_role",
+      "implementation": "layoutgen generated decoder logic",
+      "uses_first_round_openyield_gds": false,
+      "temporary_wrapper": false
+    },
+    {
+      "openyield_module": "dummy_array",
+      "physical_role": "ARRAY_DUMMY",
+      "binding_status": "REAL_ARRAY_BASE_REUSABLE",
+      "layoutgen_role": "dummy_bitcell",
+      "layoutgen_role_instance_count": 32,
+      "physical_source_class": "layoutgen_top_flow_role",
+      "implementation": "dummy_cell_1rw boundary arrays",
+      "uses_first_round_openyield_gds": false,
+      "temporary_wrapper": false
+    },
+    {
+      "openyield_module": "precharge",
+      "physical_role": "COLUMN_PRECHARGE",
+      "binding_status": "REAL_HARDMACRO_WRAPPER_REUSABLE",
+      "layoutgen_role": "precharge",
+      "layoutgen_role_instance_count": 32,
+      "physical_source_class": "layoutgen_top_flow_role",
+      "implementation": "gen_precharge column path",
+      "uses_first_round_openyield_gds": false,
+      "temporary_wrapper": false
+    },
+    {
+      "openyield_module": "replica_array",
+      "physical_role": "ARRAY_REPLICA",
+      "binding_status": "REAL_ARRAY_BASE_REUSABLE_WITH_REPLICA_RULES",
+      "layoutgen_role": "replica_bitline",
+      "layoutgen_role_instance_count": 16,
+      "physical_source_class": "layoutgen_top_flow_role",
+      "implementation": "replica_cell_1rw array plus replica precharge",
+      "uses_first_round_openyield_gds": false,
+      "temporary_wrapper": false
+    },
+    {
+      "openyield_module": "row_decoder",
+      "physical_role": "ROW_DECODER",
+      "binding_status": "CANDIDATE_ROW_COMPOSITE_NEEDS_LAYOUTGEN_REGEN",
+      "layoutgen_role": "row_decoder",
+      "layoutgen_role_instance_count": 16,
+      "physical_source_class": "layoutgen_top_flow_role",
+      "implementation": "layoutgen generated decoder chain",
+      "uses_first_round_openyield_gds": false,
+      "temporary_wrapper": false
+    },
+    {
+      "openyield_module": "sense_amp",
+      "physical_role": "SENSE_AMP",
+      "binding_status": "REAL_HARDMACRO_WRAPPER_REUSABLE",
+      "layoutgen_role": "sense_amp",
+      "layoutgen_role_instance_count": 8,
+      "physical_source_class": "layoutgen_top_flow_role",
+      "implementation": "sense_amp array",
+      "uses_first_round_openyield_gds": false,
+      "temporary_wrapper": false
+    },
+    {
+      "openyield_module": "wordline_decoder",
+      "physical_role": "ROW_DECODER",
+      "binding_status": "CANDIDATE_ROW_COMPOSITE_NEEDS_LAYOUTGEN_REGEN",
+      "layoutgen_role": "row_decoder",
+      "layoutgen_role_instance_count": 16,
+      "physical_source_class": "layoutgen_top_flow_role",
+      "implementation": "layoutgen generated decoder chain",
+      "uses_first_round_openyield_gds": false,
+      "temporary_wrapper": false
+    },
+    {
+      "openyield_module": "wordline_driver",
+      "physical_role": "WORDLINE_DRIVER",
+      "binding_status": "REAL_HARDMACRO_WRAPPER_REUSABLE",
+      "layoutgen_role": "wordline_driver",
+      "layoutgen_role_instance_count": 16,
+      "physical_source_class": "layoutgen_top_flow_role",
+      "implementation": "gen_wl_driver row path",
+      "uses_first_round_openyield_gds": false,
+      "temporary_wrapper": false
+    },
+    {
+      "openyield_module": "wordline_driver_gate_cells",
+      "physical_role": "WORDLINE_DRIVER",
+      "binding_status": "CANDIDATE_ROW_COMPOSITE_NEEDS_LAYOUTGEN_REGEN",
+      "layoutgen_role": "wordline_driver",
+      "layoutgen_role_instance_count": 16,
+      "physical_source_class": "layoutgen_top_flow_role",
+      "implementation": "gen_wl_driver row path",
+      "uses_first_round_openyield_gds": false,
+      "temporary_wrapper": false
+    },
+    {
+      "openyield_module": "write_driver",
+      "physical_role": "WRITE_DRIVER",
+      "binding_status": "REAL_HARDMACRO_WRAPPER_REUSABLE",
+      "layoutgen_role": "write_driver",
+      "layoutgen_role_instance_count": 8,
+      "physical_source_class": "layoutgen_top_flow_role",
+      "implementation": "write_driver array",
+      "uses_first_round_openyield_gds": false,
+      "temporary_wrapper": false
+    }
+  ],
+  "openyield_module_gds_dir_read": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds",
+  "adaptation_strategy": "Use M1 OpenYield bindings as role-mapping evidence while the physical GDS is regenerated entirely by the original layoutgen top flow."
+}
