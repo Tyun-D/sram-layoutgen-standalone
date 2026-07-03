@@ -1,0 +1,13 @@
+# Final Power Continuity Audit
+
+- power_continuity_audit_status: `PASSED`
+- power_route_count: `10`
+- blocked_power_route_count: `0`
+- vdd_present: `True`
+- gnd_present: `True`
+- modules_participating_in_power_plan_count: `20`
+- missing_modules_from_power_plan: `[]`
+- geometry_power_stitch_for_r4_count: `0`
+- contract_rail_based_stitch_count: `8`
+- approximate_power_geometry_for_r4_count: `2`
+- signoff_boundary: `Approximate and contract-backed power stitching remain; power network signoff is not claimed.`

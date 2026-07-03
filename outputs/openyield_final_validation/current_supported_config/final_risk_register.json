@@ -1,0 +1,115 @@
+{
+  "risks": [
+    {
+      "risk_id": "RISK_01",
+      "risk_name": "approximate_alignment_count=10",
+      "evidence": "outputs/openyield_structure_complete_gds/current_supported_config/pitch_alignment_report.json",
+      "why_it_matters": "Pitch ownership is not fully proven at signoff granularity.",
+      "blocks_drc_clean": false,
+      "blocks_lvs_clean": false,
+      "blocks_timing_closure": true,
+      "recommended_future_action": "Replace approximate placements with exact pitch-closed module assemblies."
+    },
+    {
+      "risk_id": "RISK_02",
+      "risk_name": "contract-pin-based routes remain",
+      "evidence": "outputs/openyield_routing_power_pin/current_supported_config/wordline_routing_report.json;bitline_routing_report.json;control_routing_report.json",
+      "why_it_matters": "Some routes still terminate on semantic contract pins rather than extracted signoff pin access shapes.",
+      "blocks_drc_clean": false,
+      "blocks_lvs_clean": true,
+      "blocks_timing_closure": false,
+      "recommended_future_action": "Replace contract-backed route handoff with exact module pin geometry and LVS-aware naming."
+    },
+    {
+      "risk_id": "RISK_03",
+      "risk_name": "approximate power geometry remains",
+      "evidence": "outputs/openyield_routing_power_pin/current_supported_config/power_routing_report.json",
+      "why_it_matters": "Top-level straps are prototype geometry rather than verified signoff power distribution.",
+      "blocks_drc_clean": false,
+      "blocks_lvs_clean": true,
+      "blocks_timing_closure": false,
+      "recommended_future_action": "Build explicit rail taps and continuity checks across all regions."
+    },
+    {
+      "risk_id": "RISK_04",
+      "risk_name": "detailed routing not complete",
+      "evidence": "docs/openyield_R4_routing_power_pin_report.json",
+      "why_it_matters": "Prototype mapping evidence exists, but full detailed route closure is not demonstrated.",
+      "blocks_drc_clean": true,
+      "blocks_lvs_clean": true,
+      "blocks_timing_closure": true,
+      "recommended_future_action": "Add detailed via, enclosure, spacing, and obstruction-aware routing closure."
+    },
+    {
+      "risk_id": "RISK_05",
+      "risk_name": "power network not signoff verified",
+      "evidence": "outputs/openyield_final_validation/current_supported_config/final_power_continuity_audit.json",
+      "why_it_matters": "Current power audit validates participation and prototype stitching only.",
+      "blocks_drc_clean": false,
+      "blocks_lvs_clean": true,
+      "blocks_timing_closure": false,
+      "recommended_future_action": "Run real IR/EM-ready power verification after exact rail synthesis."
+    },
+    {
+      "risk_id": "RISK_06",
+      "risk_name": "DRC clean not claimed",
+      "evidence": "docs/openyield_R5_final_validation_handoff_report.json",
+      "why_it_matters": "Geometry may still violate spacing or enclosure rules.",
+      "blocks_drc_clean": true,
+      "blocks_lvs_clean": false,
+      "blocks_timing_closure": false,
+      "recommended_future_action": "Run DRC and feed violations into layout closure work rather than prototype assembly work."
+    },
+    {
+      "risk_id": "RISK_07",
+      "risk_name": "LVS clean not claimed",
+      "evidence": "outputs/openyield_routing_power_pin/current_supported_config/net_to_shape_map.json",
+      "why_it_matters": "Net-to-shape mapping evidence is not yet equivalent to extraction-verified LVS closure.",
+      "blocks_drc_clean": false,
+      "blocks_lvs_clean": true,
+      "blocks_timing_closure": false,
+      "recommended_future_action": "Implement extractor-aligned net naming and compare against OpenYield semantic netlist."
+    },
+    {
+      "risk_id": "RISK_08",
+      "risk_name": "timing closure not claimed",
+      "evidence": "docs/openyield_R5_final_validation_handoff_report.json",
+      "why_it_matters": "Replica, WL, BL, and control path delays are not timing-closed.",
+      "blocks_drc_clean": false,
+      "blocks_lvs_clean": false,
+      "blocks_timing_closure": true,
+      "recommended_future_action": "Add parasitic-aware timing characterization and close timing against SRAM specs."
+    },
+    {
+      "risk_id": "RISK_09",
+      "risk_name": "baseline config remains small (word_size=4, num_words=4)",
+      "evidence": "outputs/openyield_structure_complete_gds/current_supported_config/structure_complete_config.json",
+      "why_it_matters": "Parameterization exists, but implementation evidence is only for a minimal 4x4 baseline.",
+      "blocks_drc_clean": false,
+      "blocks_lvs_clean": false,
+      "blocks_timing_closure": false,
+      "recommended_future_action": "Re-run R3/R4/R5 on larger configs such as word_size=16 and num_words=32."
+    },
+    {
+      "risk_id": "RISK_10",
+      "risk_name": "multi-bank / multi-port / write mask unsupported",
+      "evidence": "outputs/openyield_layout_intent/current_supported_config/openyield_sram_layout_intent.json",
+      "why_it_matters": "Current generator intent and prototype are scoped to single-bank single-port without write mask.",
+      "blocks_drc_clean": false,
+      "blocks_lvs_clean": false,
+      "blocks_timing_closure": false,
+      "recommended_future_action": "Extend canonical intent, topology, and routing architecture before expanding feature scope."
+    },
+    {
+      "risk_id": "RISK_11",
+      "risk_name": "OpenYield netlist-to-LVS extraction remains future work",
+      "evidence": "outputs/openyield_final_validation/current_supported_config/final_net_mapping_audit.json",
+      "why_it_matters": "Current mapping is audit evidence, not an extraction-ready LVS flow.",
+      "blocks_drc_clean": false,
+      "blocks_lvs_clean": true,
+      "blocks_timing_closure": false,
+      "recommended_future_action": "Build a formal extraction handoff from GDS geometry to OpenYield semantic nets."
+    }
+  ],
+  "residual_risk_count": 11
+}

@@ -1,0 +1,12 @@
+# Final Hierarchy Validation Report
+
+- hierarchy_validation_status: `PASSED`
+- hierarchy_mode: `WRAPPER_PLUS_RECURSIVE_MODULES`
+- required_module_count: `20`
+- required_modules_found_in_mapping_count: `20`
+- required_modules_found_in_recursive_gds_count: `20`
+- required_modules_missing_from_mapping: `[]`
+- required_modules_missing_from_recursive_gds: `[]`
+- recursive_required_modules_found: `['CONTROL_LOGIC', 'DELAY_CHAIN', 'DFF_ROW', 'GATED_CLOCK_PATH', 'PRECHARGE_ENABLE_PATH', 'SENSE_ENABLE_PATH', 'WORDLINE_ENABLE_PATH', 'WRITE_ENABLE_PATH', 'bitcell_array', 'column_mux', 'decoder_gate_cells', 'dummy_array', 'precharge', 'replica_array', 'row_decoder', 'sense_amp', 'wordline_decoder', 'wordline_driver', 'wordline_driver_gate_cells', 'write_driver']`
+- module_reference_normalization_mode: `supports module__module and module__subcell prefixes`
+- source_r3_structure_hierarchy_preserved: `True`
