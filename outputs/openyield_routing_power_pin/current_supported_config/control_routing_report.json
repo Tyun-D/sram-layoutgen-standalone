@@ -1,0 +1,132 @@
+{
+  "route_count": 7,
+  "blocked_route_count": 0,
+  "entries": [
+    {
+      "net_name": "precharge_en",
+      "source_module": "CONTROL_LOGIC_inst",
+      "target_module": "precharge_inst",
+      "source_pin": "precharge_en",
+      "target_pin": "precharge_en",
+      "route_geometry_bbox": {
+        "x0": 12.3925,
+        "y0": 10.0075,
+        "x1": 24.6325,
+        "y1": 16.645,
+        "width": 12.24,
+        "height": 6.6375
+      },
+      "routing_status": "CONTRACT_PIN_BASED_ROUTE",
+      "uses_contract_pin": true,
+      "next_required_action": "Tighten control fanout and exact landing vias during R5 detailed connectivity review."
+    },
+    {
+      "net_name": "sense_en",
+      "source_module": "CONTROL_LOGIC_inst",
+      "target_module": "sense_amp_inst",
+      "source_pin": "sense_en",
+      "target_pin": "en",
+      "route_geometry_bbox": {
+        "x0": 14.1775,
+        "y0": 10.0075,
+        "x1": 24.6325,
+        "y1": 18.94,
+        "width": 10.455,
+        "height": 8.9325
+      },
+      "routing_status": "CONTRACT_PIN_BASED_ROUTE",
+      "uses_contract_pin": true,
+      "next_required_action": "Tighten control fanout and exact landing vias during R5 detailed connectivity review."
+    },
+    {
+      "net_name": "write_en",
+      "source_module": "CONTROL_LOGIC_inst",
+      "target_module": "write_driver_inst",
+      "source_pin": "write_en",
+      "target_pin": "en",
+      "route_geometry_bbox": {
+        "x0": 15.105,
+        "y0": 10.0075,
+        "x1": 24.6325,
+        "y1": 18.0225,
+        "width": 9.5275,
+        "height": 8.015
+      },
+      "routing_status": "CONTRACT_PIN_BASED_ROUTE",
+      "uses_contract_pin": true,
+      "next_required_action": "Tighten control fanout and exact landing vias during R5 detailed connectivity review."
+    },
+    {
+      "net_name": "wordline_en",
+      "source_module": "CONTROL_LOGIC_inst",
+      "target_module": "wordline_driver_inst",
+      "source_pin": "wl_en",
+      "target_pin": "B",
+      "route_geometry_bbox": {
+        "x0": 2.3125,
+        "y0": 10.0075,
+        "x1": 24.6325,
+        "y1": 18.2525,
+        "width": 22.32,
+        "height": 8.245
+      },
+      "routing_status": "CONTRACT_PIN_BASED_ROUTE",
+      "uses_contract_pin": true,
+      "next_required_action": "Tighten control fanout and exact landing vias during R5 detailed connectivity review."
+    },
+    {
+      "net_name": "clk",
+      "source_module": "CONTROL_LOGIC_inst",
+      "target_module": "DFF_ROW_inst",
+      "source_pin": "clk",
+      "target_pin": "clk",
+      "route_geometry_bbox": {
+        "x0": 24.6325,
+        "y0": 10.0075,
+        "x1": 31.1825,
+        "y1": 30.415,
+        "width": 6.55,
+        "height": 20.4075
+      },
+      "routing_status": "CONTRACT_PIN_BASED_ROUTE",
+      "uses_contract_pin": true,
+      "next_required_action": "Tighten control fanout and exact landing vias during R5 detailed connectivity review."
+    },
+    {
+      "net_name": "gated_clk",
+      "source_module": "GATED_CLOCK_PATH_inst",
+      "target_module": "DFF_ROW_inst",
+      "source_pin": "gated_clk",
+      "target_pin": "clk",
+      "route_geometry_bbox": {
+        "x0": 22.92125,
+        "y0": 30.34,
+        "x1": 31.1825,
+        "y1": 30.415,
+        "width": 8.26125,
+        "height": 0.075
+      },
+      "routing_status": "CONTRACT_PIN_BASED_ROUTE",
+      "uses_contract_pin": true,
+      "next_required_action": "Tighten control fanout and exact landing vias during R5 detailed connectivity review."
+    },
+    {
+      "net_name": "rbl_delay",
+      "source_module": "DELAY_CHAIN_inst",
+      "target_module": "replica_array_inst",
+      "source_pin": "delay_out",
+      "target_pin": "RBL",
+      "route_geometry_bbox": {
+        "x0": 12.895,
+        "y0": 9.1825,
+        "x1": 30.53,
+        "y1": 26.95875,
+        "width": 17.635,
+        "height": 17.77625
+      },
+      "routing_status": "CONTRACT_PIN_BASED_ROUTE",
+      "uses_contract_pin": true,
+      "next_required_action": "Tighten control fanout and exact landing vias during R5 detailed connectivity review."
+    }
+  ]
+}

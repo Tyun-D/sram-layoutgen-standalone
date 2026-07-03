@@ -1,0 +1,24 @@
+# Instance Mapping
+
+| openyield_module_name | layout_instance_name | physical_role | region | source_gds | r4_routing_participation | r4_power_participation | r4_pin_participation | net_mapping_available | future_lvs_mapping_required |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| bitcell_array | bitcell_array_inst | ARRAY_CORE | ARRAY_CORE_REGION | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/bitcell_array/bitcell_array.gds | True | True | True | True | True |
+| dummy_array | dummy_array_inst | ARRAY_DUMMY | ARRAY_DUMMY_REGION | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/dummy_array/dummy_array.gds | False | True | True | True | True |
+| replica_array | replica_array_inst | ARRAY_REPLICA | ARRAY_REPLICA_REGION | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/replica_array/replica_array.gds | True | True | True | True | True |
+| row_decoder | row_decoder_inst | ROW_DECODER | ROW_PERIPHERY_REGION | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/row_decoder/row_decoder.gds | True | True | True | True | True |
+| wordline_decoder | wordline_decoder_inst | ROW_DECODER | ROW_PERIPHERY_REGION | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_decoder/wordline_decoder.gds | True | True | True | True | True |
+| decoder_gate_cells | decoder_gate_cells_inst | ROW_DECODER | ROW_PERIPHERY_REGION | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/decoder_gate_cells/decoder_gate_cells.gds | True | True | True | True | True |
+| wordline_driver | wordline_driver_inst | WORDLINE_DRIVER | ROW_PERIPHERY_REGION | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_driver/wordline_driver.gds | True | True | True | True | True |
+| wordline_driver_gate_cells | wordline_driver_gate_cells_inst | WORDLINE_DRIVER | ROW_PERIPHERY_REGION | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_driver_gate_cells/wordline_driver_gate_cells.gds | True | True | True | True | True |
+| precharge | precharge_inst | COLUMN_PRECHARGE | COLUMN_PERIPHERY_REGION | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/precharge/precharge.gds | True | True | True | True | True |
+| column_mux | column_mux_inst | COLUMN_MUX | COLUMN_PERIPHERY_REGION | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/column_mux/column_mux.gds | True | True | True | True | True |
+| sense_amp | sense_amp_inst | SENSE_AMP | COLUMN_PERIPHERY_REGION | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/sense_amp/sense_amp.gds | True | True | True | True | True |
+| write_driver | write_driver_inst | WRITE_DRIVER | COLUMN_PERIPHERY_REGION | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/write_driver/write_driver.gds | True | True | True | True | True |
+| CONTROL_LOGIC | CONTROL_LOGIC_inst | CONTROL_LOGIC | CONTROL_PERIPHERY_REGION | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/CONTROL_LOGIC/CONTROL_LOGIC.gds | True | True | True | True | True |
+| DELAY_CHAIN | DELAY_CHAIN_inst | DELAY_CHAIN | CONTROL_PERIPHERY_REGION | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/DELAY_CHAIN/DELAY_CHAIN.gds | True | True | True | True | True |
+| PRECHARGE_ENABLE_PATH | PRECHARGE_ENABLE_PATH_inst | ENABLE_PATH | CONTROL_PERIPHERY_REGION | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/PRECHARGE_ENABLE_PATH/PRECHARGE_ENABLE_PATH.gds | True | True | True | True | True |
+| SENSE_ENABLE_PATH | SENSE_ENABLE_PATH_inst | ENABLE_PATH | CONTROL_PERIPHERY_REGION | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/SENSE_ENABLE_PATH/SENSE_ENABLE_PATH.gds | True | True | True | True | True |
+| WRITE_ENABLE_PATH | WRITE_ENABLE_PATH_inst | ENABLE_PATH | CONTROL_PERIPHERY_REGION | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/WRITE_ENABLE_PATH/WRITE_ENABLE_PATH.gds | True | True | True | True | True |
+| WORDLINE_ENABLE_PATH | WORDLINE_ENABLE_PATH_inst | ENABLE_PATH | CONTROL_PERIPHERY_REGION | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/WORDLINE_ENABLE_PATH/WORDLINE_ENABLE_PATH.gds | True | True | True | True | True |
+| GATED_CLOCK_PATH | GATED_CLOCK_PATH_inst | CLOCK_PATH | CONTROL_PERIPHERY_REGION | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/GATED_CLOCK_PATH/GATED_CLOCK_PATH.gds | True | True | True | True | True |
+| DFF_ROW | DFF_ROW_inst | DFF_ROW | CONTROL_PERIPHERY_REGION | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/DFF_ROW/DFF_ROW.gds | True | True | True | True | True |
