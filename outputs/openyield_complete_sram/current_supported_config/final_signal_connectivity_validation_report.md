@@ -1,0 +1,3 @@
+| wordline_route_count | geometry_wordline_route_count | contract_wordline_route_count | blocked_wordline_route_count | bitline_connection_count | geometry_bitline_connection_count | contract_bitline_route_count | blocked_bitline_route_count | control_route_count | geometry_control_route_count | contract_control_route_count | blocked_control_route_count | top_signal_io_route_count | contract_top_io_route_count | blocked_top_io_route_count | signal_net_to_shape_entry_count | shape_verified_signal_route_count | placeholder_signal_overlay_count | validation_status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 4 | 4 | 0 | 0 | 32 | 32 | 0 | 0 | 7 | 7 | 0 | 0 | 15 | 0 | 0 | 62 | 62 | 0 | PASSED |

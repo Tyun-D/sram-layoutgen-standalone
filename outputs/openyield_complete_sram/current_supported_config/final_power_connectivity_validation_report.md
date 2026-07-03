@@ -1,0 +1,3 @@
+| module_power_connected_count | module_vdd_connected_count | module_gnd_connected_count | blocked_module_power_connection_count | contract_module_power_connection_count | vdd_graph_connected | gnd_graph_connected | power_graph_blocked_edge_count | power_graph_contract_edge_count | power_net_to_shape_entry_count | shape_verified_power_entry_count | real_power_shape_count | geometry_power_stitch_count | contract_rail_based_stitch_count | approximate_power_geometry_count | placeholder_power_overlay_count | validation_status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 20 | 20 | 20 | 0 | 0 | True | True | 0 | 0 | 58 | 58 | 58 | 40 | 0 | 0 | 0 | PASSED |

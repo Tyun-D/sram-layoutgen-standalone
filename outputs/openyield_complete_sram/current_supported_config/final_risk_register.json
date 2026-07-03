@@ -1,0 +1,94 @@
+{
+  "risks": [
+    {
+      "risk_id": "R1",
+      "risk_category": "CONFIG_SCOPE",
+      "description": "Current supported config remains a small baseline and is not generalized to broader SRAM families.",
+      "evidence": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_complete_gds_rule_extraction/current_supported_config/complete_gds_physical_requirements.json",
+      "severity": "medium",
+      "affects_claim": "config scope",
+      "recommended_next_action": "Expand the flow to more sizes/ports after C6."
+    },
+    {
+      "risk_id": "R2",
+      "risk_category": "PIN_SYNTHESIS",
+      "description": "Some pin accesses were synthesized in C2 rather than extracted from original hardmacro pin geometry.",
+      "evidence": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_C2_pin_geometry_access_repair_report.json",
+      "severity": "medium",
+      "affects_claim": "LVS/debug confidence",
+      "recommended_next_action": "Replace synthesized pins with tech-extracted pin shapes where possible."
+    },
+    {
+      "risk_id": "R3",
+      "risk_category": "ROUTING_QUALITY",
+      "description": "C4/C5 routing is geometry-backed prototype routing, not a signoff detailed router result.",
+      "evidence": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_C4_complete_signal_routing_report.json",
+      "severity": "high",
+      "affects_claim": "DRC/signoff",
+      "recommended_next_action": "Refine routing/via/contact stacks with technology-aware detailed routing."
+    },
+    {
+      "risk_id": "R4",
+      "risk_category": "DRC",
+      "description": "DRC is not guaranteed clean unless the smoke run returns zero markers with valid deck/tool evidence.",
+      "evidence": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_complete_sram/current_supported_config/final_drc_smoke_report.json",
+      "severity": "high",
+      "affects_claim": "can_claim_drc_clean_now",
+      "recommended_next_action": "Fix markers or improve layer mapping until DRC smoke is clean."
+    },
+    {
+      "risk_id": "R5",
+      "risk_category": "LVS",
+      "description": "LVS is not yet proven because final top-level netlist/deck/pin mapping remains incomplete.",
+      "evidence": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_complete_sram/current_supported_config/final_lvs_feasibility_report.json",
+      "severity": "high",
+      "affects_claim": "can_claim_lvs_clean_now",
+      "recommended_next_action": "Generate final SRAM CDL/SPICE and top-level mapping, then run actual LVS."
+    },
+    {
+      "risk_id": "R6",
+      "risk_category": "TIMING",
+      "description": "Timing closure, RC extraction, and PEX were not performed.",
+      "evidence": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_C6_complete_sram_gds_final_report.json",
+      "severity": "high",
+      "affects_claim": "timing/signoff",
+      "recommended_next_action": "Add extracted parasitics and timing analysis flow."
+    },
+    {
+      "risk_id": "R7",
+      "risk_category": "FEATURE_SCOPE",
+      "description": "Multi-bank, multi-port, and write-mask support are not covered by this final supported config flow.",
+      "evidence": "/data1/qujh/work/sram_layoutgen_step45_clean",
+      "severity": "medium",
+      "affects_claim": "feature scope",
+      "recommended_next_action": "Extend the generator and validation plan per configuration dimension."
+    },
+    {
+      "risk_id": "R8",
+      "risk_category": "TECH_REFINEMENT",
+      "description": "Layer/via/contact stack assumptions may still require tech-specific refinement for production-quality layout.",
+      "evidence": "/data1/qujh/work/sram_layoutgen_step45_clean/technology/freepdk45/tech/freepdk45.lydrc",
+      "severity": "medium",
+      "affects_claim": "signoff",
+      "recommended_next_action": "Refine geometry to match technology deck expectations."
+    },
+    {
+      "risk_id": "R9",
+      "risk_category": "NETLIST_ALIGNMENT",
+      "description": "OpenYield logical net mapping to LVS-ready top-level SPICE/CDL still needs explicit closure.",
+      "evidence": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_complete_sram/current_supported_config/final_lvs_run_report.json",
+      "severity": "high",
+      "affects_claim": "lvs/signoff",
+      "recommended_next_action": "Emit final top-level netlist and pin-order contract for LVS."
+    },
+    {
+      "risk_id": "R10",
+      "risk_category": "CLAIM_BOUNDARY",
+      "description": "The final deliverable is complete only in the sense of geometry-backed connectivity for the current supported config, not tapeout readiness.",
+      "evidence": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_C6_complete_sram_gds_final_report.md",
+      "severity": "high",
+      "affects_claim": "signoff/tapeout",
+      "recommended_next_action": "Keep final claim boundary explicit in handoff materials."
+    }
+  ]
+}
