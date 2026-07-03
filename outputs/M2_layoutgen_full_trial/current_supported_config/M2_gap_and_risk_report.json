@@ -1,0 +1,31 @@
+{
+  "unresolved_gap_count": 3,
+  "unresolved_gaps": [
+    {
+      "gap_id": "GAP_ROUTE_001",
+      "category": "signal_routing",
+      "scope": "inter_module_connections",
+      "severity": "review_only",
+      "description": "Wordline/data/control nets are not fully geometry-routed in M2; placement and hierarchy are provided for visual review first.",
+      "blocking_M2_review": false
+    },
+    {
+      "gap_id": "GAP_POWER_001",
+      "category": "power_network",
+      "scope": "top_level_power_stitch",
+      "severity": "review_only",
+      "description": "Top-level VDD/VSS straps and final rail stitching are not fully closed in M2.",
+      "blocking_M2_review": false
+    },
+    {
+      "gap_id": "GAP_REALNESS_001",
+      "category": "module_realness",
+      "scope": "row_and_control_candidates",
+      "severity": "review_only",
+      "description": "Row/control candidates remain explicit TEMP_WRAPPER_FOR_M2_REVIEW wrappers until true layoutgen-owned replacements are available.",
+      "blocking_M2_review": false
+    }
+  ],
+  "human_klayout_review_required": true,
+  "can_enter_M3_before_human_review": false
+}

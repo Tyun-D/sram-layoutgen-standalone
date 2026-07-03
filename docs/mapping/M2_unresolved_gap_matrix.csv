@@ -1,0 +1,4 @@
+gap_id,category,scope,severity,description,blocking_M2_review
+GAP_ROUTE_001,signal_routing,inter_module_connections,review_only,Wordline/data/control nets are not fully geometry-routed in M2; placement and hierarchy are provided for visual review first.,False
+GAP_POWER_001,power_network,top_level_power_stitch,review_only,Top-level VDD/VSS straps and final rail stitching are not fully closed in M2.,False
+GAP_REALNESS_001,module_realness,row_and_control_candidates,review_only,Row/control candidates remain explicit TEMP_WRAPPER_FOR_M2_REVIEW wrappers until true layoutgen-owned replacements are available.,False

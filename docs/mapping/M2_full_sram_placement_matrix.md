@@ -1,0 +1,24 @@
+# M2 Full SRAM Placement Matrix
+
+| module_name | physical_role | source_class | instance_name | region | x | y | width | height | bbox |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| bitcell_array | ARRAY_CORE | first_round_openyield_gds | u_bitcell_array | ARRAY_CORE_REGION | 16.0 | 12.0 | 3.58 | 6.26 | {'x0': 16.0, 'y0': 12.0, 'x1': 19.58, 'y1': 18.26, 'width': 3.58, 'height': 6.26} |
+| dummy_array | ARRAY_DUMMY | first_round_openyield_gds | u_dummy_array | ARRAY_DUMMY_REGION | 10.42 | 12.0 | 3.58 | 6.26 | {'x0': 10.42, 'y0': 12.0, 'x1': 14.0, 'y1': 18.26, 'width': 3.58, 'height': 6.26} |
+| replica_array | ARRAY_REPLICA | first_round_openyield_gds | u_replica_array | ARRAY_REPLICA_REGION | 21.58 | 12.0 | 1.79 | 7.68 | {'x0': 21.58, 'y0': 12.0, 'x1': 23.37, 'y1': 19.68, 'width': 1.79, 'height': 7.68} |
+| row_decoder | ROW_DECODER | temporary_wrapper | u_row_decoder | ROW_PATH_REGION | 9.754999999999999 | 12.0 | 4.245 | 3.13 | {'x0': 9.755, 'y0': 12.0, 'x1': 14.0, 'y1': 15.13, 'width': 4.245, 'height': 3.13} |
+| wordline_decoder | ROW_DECODER | temporary_wrapper | u_wordline_decoder | ROW_PATH_REGION | 9.754999999999999 | 15.93 | 4.245 | 3.045 | {'x0': 9.755, 'y0': 15.93, 'x1': 14.0, 'y1': 18.975, 'width': 4.245, 'height': 3.045} |
+| decoder_gate_cells | ROW_DECODER | temporary_wrapper | u_decoder_gate_cells | ROW_PATH_REGION | 8.717500000000001 | 19.775 | 5.2825 | 3.045 | {'x0': 8.7175, 'y0': 19.775, 'x1': 14.0, 'y1': 22.82, 'width': 5.2825, 'height': 3.045} |
+| wordline_driver | WORDLINE_DRIVER | first_round_openyield_gds | u_wordline_driver | ROW_PATH_REGION | 10.955 | 23.619999999999997 | 3.045 | 1.505 | {'x0': 10.955, 'y0': 23.62, 'x1': 14.0, 'y1': 25.125, 'width': 3.045, 'height': 1.505} |
+| wordline_driver_gate_cells | WORDLINE_DRIVER | temporary_wrapper | u_wordline_driver_gate_cells | ROW_PATH_REGION | 11.1025 | 25.924999999999997 | 2.8975 | 2.96 | {'x0': 11.1025, 'y0': 25.925, 'x1': 14.0, 'y1': 28.885, 'width': 2.8975, 'height': 2.96} |
+| precharge | COLUMN_PRECHARGE | first_round_openyield_gds | u_precharge | COLUMN_PATH_REGION | 16.0 | 20.259999999999998 | 0.785 | 1.42 | {'x0': 16.0, 'y0': 20.26, 'x1': 16.785, 'y1': 21.68, 'width': 0.785, 'height': 1.42} |
+| column_mux | COLUMN_MUX | first_round_openyield_gds | u_column_mux | COLUMN_PATH_REGION | 17.785 | 20.259999999999998 | 0.8175 | 1.88 | {'x0': 17.785, 'y0': 20.26, 'x1': 18.6025, 'y1': 22.14, 'width': 0.8175, 'height': 1.88} |
+| sense_amp | SENSE_AMP | first_round_openyield_gds | u_sense_amp | COLUMN_PATH_REGION | 19.6025 | 20.259999999999998 | 0.775 | 6.01 | {'x0': 19.6025, 'y0': 20.26, 'x1': 20.3775, 'y1': 26.27, 'width': 0.775, 'height': 6.01} |
+| write_driver | WRITE_DRIVER | first_round_openyield_gds | u_write_driver | COLUMN_PATH_REGION | 21.377499999999998 | 20.259999999999998 | 0.84 | 4.175 | {'x0': 21.3775, 'y0': 20.26, 'x1': 22.2175, 'y1': 24.435, 'width': 0.84, 'height': 4.175} |
+| CONTROL_LOGIC | CONTROL_LOGIC | temporary_wrapper | u_CONTROL_LOGIC | CONTROL_REGION | 26.369999999999997 | 20.259999999999998 | 6.105 | 4.235 | {'x0': 26.37, 'y0': 20.26, 'x1': 32.475, 'y1': 24.495, 'width': 6.105, 'height': 4.235} |
+| DELAY_CHAIN | DELAY_CHAIN | temporary_wrapper | u_DELAY_CHAIN | CONTROL_REGION | 26.369999999999997 | 25.294999999999998 | 3.29 | 2.585 | {'x0': 26.37, 'y0': 25.295, 'x1': 29.66, 'y1': 27.88, 'width': 3.29, 'height': 2.585} |
+| PRECHARGE_ENABLE_PATH | ENABLE_PATH | temporary_wrapper | u_PRECHARGE_ENABLE_PATH | CONTROL_REGION | 26.369999999999997 | 28.68 | 4.245 | 4.065 | {'x0': 26.37, 'y0': 28.68, 'x1': 30.615, 'y1': 32.745, 'width': 4.245, 'height': 4.065} |
+| SENSE_ENABLE_PATH | ENABLE_PATH | temporary_wrapper | u_SENSE_ENABLE_PATH | CONTROL_REGION | 26.369999999999997 | 33.545 | 3.4225 | 7.575 | {'x0': 26.37, 'y0': 33.545, 'x1': 29.7925, 'y1': 41.12, 'width': 3.4225, 'height': 7.575} |
+| WRITE_ENABLE_PATH | ENABLE_PATH | temporary_wrapper | u_WRITE_ENABLE_PATH | CONTROL_REGION | 31.369999999999997 | 20.259999999999998 | 1.6625 | 6.76 | {'x0': 31.37, 'y0': 20.26, 'x1': 33.0325, 'y1': 27.02, 'width': 1.6625, 'height': 6.76} |
+| WORDLINE_ENABLE_PATH | ENABLE_PATH | temporary_wrapper | u_WORDLINE_ENABLE_PATH | CONTROL_REGION | 31.369999999999997 | 27.819999999999997 | 3.8675 | 3.07 | {'x0': 31.37, 'y0': 27.82, 'x1': 35.2375, 'y1': 30.89, 'width': 3.8675, 'height': 3.07} |
+| GATED_CLOCK_PATH | CLOCK_PATH | temporary_wrapper | u_GATED_CLOCK_PATH | CONTROL_REGION | 31.369999999999997 | 31.689999999999998 | 2.6825 | 2.96 | {'x0': 31.37, 'y0': 31.69, 'x1': 34.0525, 'y1': 34.65, 'width': 2.6825, 'height': 2.96} |
+| DFF_ROW | DFF_ROW | temporary_wrapper | u_DFF_ROW | CONTROL_REGION | 31.369999999999997 | 35.449999999999996 | 11.44 | 2.67 | {'x0': 31.37, 'y0': 35.45, 'x1': 42.81, 'y1': 38.12, 'width': 11.44, 'height': 2.67} |
