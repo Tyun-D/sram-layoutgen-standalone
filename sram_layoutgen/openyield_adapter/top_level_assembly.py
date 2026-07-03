@@ -1495,3 +1495,7 @@ def run_top_level_assembly(
         reproducible_command=reproducible_command,
     )
     return assembler.run()
+
+
+def canonicalize_layout_handoff_signal(text: str) -> str:
+    return _canonical_token(text)

@@ -1,0 +1,193 @@
+{
+  "status_file_read": true,
+  "status_file_updated": true,
+  "m4e_decision_loaded": true,
+  "no_more_evaluation_performed": true,
+  "integrated_gds_generated": true,
+  "integrated_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M5_openyield_layoutgen_integration/current_supported_config/openyield_layoutgen_integrated_sram.gds",
+  "integrated_gds_size_bytes": 310208,
+  "top_cell_name": "openyield_layoutgen_integrated_sram",
+  "gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+  "optimized_layoutgen_flow_preserved": true,
+  "optimized_power_rail_stitch_preserved": true,
+  "arbitrary_module_scatter_used": false,
+  "openyield_module_count": 20,
+  "openyield_modules_implemented_count": 20,
+  "openyield_modules_unimplemented_count": 0,
+  "direct_generator_binding_implemented_count": 3,
+  "parameterized_generator_binding_implemented_count": 6,
+  "real_cell_wrapper_implemented_count": 5,
+  "layoutgen_fallback_with_openyield_semantics_implemented_count": 6,
+  "not_implementable_now_count": 0,
+  "openyield_net_count": 34,
+  "openyield_nets_implemented_count": 34,
+  "openyield_nets_unimplemented_count": 0,
+  "floorplan_code_modified": true,
+  "placement_code_modified": true,
+  "routing_code_modified": true,
+  "power_code_modified": true,
+  "bitcell_array_is_dense_body": true,
+  "row_path_present": true,
+  "column_path_present": true,
+  "control_region_present": true,
+  "module_power_rail_connected_count": 20,
+  "rail_overlap_or_abutment_evidence_count": 15,
+  "access_module_as_primary_count": 0,
+  "floorplan_proxy_count": 0,
+  "label_only_binding_as_implementation_count": 0,
+  "temporary_empty_wrapper_count": 0,
+  "large_region_overlay_as_primary_count": 0,
+  "human_klayout_review_required": true,
+  "can_enter_next_stage_before_human_review": false,
+  "remaining_M5_blockers": [],
+  "remaining_M5_blockers_count": 0,
+  "hierarchy_report": {
+    "source_top_name": "openyield_layoutgen_integrated_sram__source_generated",
+    "route_cell_name": "openyield_layoutgen_integrated_sram__routes_and_pins",
+    "support_cell_name": "openyield_layoutgen_integrated_sram__support_backbone",
+    "physical_group_rows": [
+      {
+        "group_name": "bitcell_array",
+        "role_name": "bitcell_array",
+        "hierarchy_cell_name": "openyield_layoutgen_integrated_sram__phys__bitcell_array",
+        "reference_count": 512
+      },
+      {
+        "group_name": "dummy_array",
+        "role_name": "dummy_array",
+        "hierarchy_cell_name": "openyield_layoutgen_integrated_sram__phys__dummy_array",
+        "reference_count": 32
+      },
+      {
+        "group_name": "replica_array",
+        "role_name": "replica_array",
+        "hierarchy_cell_name": "openyield_layoutgen_integrated_sram__phys__replica_array",
+        "reference_count": 16
+      },
+      {
+        "group_name": "row_decoder",
+        "role_name": "row_decoder",
+        "hierarchy_cell_name": "openyield_layoutgen_integrated_sram__phys__row_decoder",
+        "reference_count": 8
+      },
+      {
+        "group_name": "wordline_driver",
+        "role_name": "wordline_driver",
+        "hierarchy_cell_name": "openyield_layoutgen_integrated_sram__phys__wordline_driver",
+        "reference_count": 8
+      },
+      {
+        "group_name": "column_mux",
+        "role_name": "column_mux",
+        "hierarchy_cell_name": "openyield_layoutgen_integrated_sram__phys__column_mux",
+        "reference_count": 0
+      },
+      {
+        "group_name": "precharge",
+        "role_name": "precharge",
+        "hierarchy_cell_name": "openyield_layoutgen_integrated_sram__phys__precharge",
+        "reference_count": 0
+      },
+      {
+        "group_name": "sense_amp",
+        "role_name": "sense_amp",
+        "hierarchy_cell_name": "openyield_layoutgen_integrated_sram__phys__sense_amp",
+        "reference_count": 8
+      },
+      {
+        "group_name": "write_driver",
+        "role_name": "write_driver",
+        "hierarchy_cell_name": "openyield_layoutgen_integrated_sram__phys__write_driver",
+        "reference_count": 8
+      },
+      {
+        "group_name": "delay_chain",
+        "role_name": "delay_chain",
+        "hierarchy_cell_name": "openyield_layoutgen_integrated_sram__phys__delay_chain",
+        "reference_count": 3
+      },
+      {
+        "group_name": "dff_row",
+        "role_name": "data_dff",
+        "hierarchy_cell_name": "openyield_layoutgen_integrated_sram__phys__dff_row",
+        "reference_count": 8
+      },
+      {
+        "group_name": "control_backbone",
+        "role_name": "control_logic",
+        "hierarchy_cell_name": "openyield_layoutgen_integrated_sram__phys__control_backbone",
+        "reference_count": 10
+      }
+    ],
+    "wrapper_cells": {
+      "bitcell_array": "openyield_layoutgen_integrated_sram__phys__bitcell_array",
+      "dummy_array": "openyield_layoutgen_integrated_sram__phys__dummy_array",
+      "replica_array": "openyield_layoutgen_integrated_sram__phys__replica_array",
+      "row_decoder": "openyield_layoutgen_integrated_sram__phys__row_decoder",
+      "wordline_driver": "openyield_layoutgen_integrated_sram__phys__wordline_driver",
+      "column_mux": "openyield_layoutgen_integrated_sram__phys__column_mux",
+      "precharge": "openyield_layoutgen_integrated_sram__phys__precharge",
+      "sense_amp": "openyield_layoutgen_integrated_sram__phys__sense_amp",
+      "write_driver": "openyield_layoutgen_integrated_sram__phys__write_driver",
+      "delay_chain": "openyield_layoutgen_integrated_sram__phys__delay_chain",
+      "dff_row": "openyield_layoutgen_integrated_sram__phys__dff_row",
+      "control_backbone": "openyield_layoutgen_integrated_sram__phys__control_backbone"
+    },
+    "support_reference_count": 68,
+    "route_polygon_count": 724,
+    "route_label_count": 27
+  },
+  "semantic_report": {
+    "semantic_module_cell_count": 20,
+    "semantic_module_cells": [
+      "openyield_layoutgen_integrated_sram__sem__bitcell_array",
+      "openyield_layoutgen_integrated_sram__sem__dummy_array",
+      "openyield_layoutgen_integrated_sram__sem__replica_array",
+      "openyield_layoutgen_integrated_sram__sem__row_decoder",
+      "openyield_layoutgen_integrated_sram__sem__wordline_decoder",
+      "openyield_layoutgen_integrated_sram__sem__decoder_gate_cells",
+      "openyield_layoutgen_integrated_sram__sem__wordline_driver",
+      "openyield_layoutgen_integrated_sram__sem__wordline_driver_gate_cells",
+      "openyield_layoutgen_integrated_sram__sem__column_mux",
+      "openyield_layoutgen_integrated_sram__sem__sense_amp",
+      "openyield_layoutgen_integrated_sram__sem__write_driver",
+      "openyield_layoutgen_integrated_sram__sem__precharge",
+      "openyield_layoutgen_integrated_sram__sem__DELAY_CHAIN",
+      "openyield_layoutgen_integrated_sram__sem__DFF_ROW",
+      "openyield_layoutgen_integrated_sram__sem__CONTROL_LOGIC",
+      "openyield_layoutgen_integrated_sram__sem__GATED_CLOCK_PATH",
+      "openyield_layoutgen_integrated_sram__sem__PRECHARGE_ENABLE_PATH",
+      "openyield_layoutgen_integrated_sram__sem__SENSE_ENABLE_PATH",
+      "openyield_layoutgen_integrated_sram__sem__WRITE_ENABLE_PATH",
+      "openyield_layoutgen_integrated_sram__sem__WORDLINE_ENABLE_PATH"
+    ],
+    "semantic_net_cell_name": "openyield_layoutgen_integrated_sram__semantic_nets",
+    "semantic_net_label_count": 34
+  },
+  "wrapper_power_gate_rows": [
+    {
+      "module": "column_mux",
+      "shared_rail_enabled": false,
+      "gate_reason": "shared rail remains disabled; preserve M3F optimized non-shared wrapper power policy"
+    },
+    {
+      "module": "write_driver",
+      "shared_rail_enabled": false,
+      "gate_reason": "shared rail remains disabled; preserve M3F optimized non-shared wrapper power policy"
+    },
+    {
+      "module": "wordline_driver",
+      "shared_rail_enabled": false,
+      "gate_reason": "shared rail remains disabled; preserve M3F optimized non-shared wrapper power policy"
+    },
+    {
+      "module": "precharge",
+      "shared_rail_enabled": false,
+      "gate_reason": "shared rail remains disabled; preserve M3F optimized non-shared wrapper power policy"
+    }
+  ],
+  "intent_parameter_mismatch": "intent(word_size=4,num_words=4,words_per_row=1) vs optimized(word_size=8,num_words=64,words_per_row=4)",
+  "layout_intent_source": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_layout_intent/current_supported_config/openyield_sram_layout_intent.json",
+  "m4e_eval_dir": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M4E_openyield_integration_eval/current_supported_config",
+  "m4e_review_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M4E_openyield_integration_eval/current_supported_config/openyield_integration_feasibility_review.gds"
+}

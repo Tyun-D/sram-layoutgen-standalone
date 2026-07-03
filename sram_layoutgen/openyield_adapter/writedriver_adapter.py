@@ -206,3 +206,14 @@ def _parse_spice_subckt_pins(path: Path) -> tuple[str, ...]:
             parts = stripped.split()
             return tuple(parts[2:])
     return ()
+
+
+def build_writedriver_m5_net_bindings() -> list[dict[str, str]]:
+    return [
+        {"openyield_net": "DIN_dff[i]", "openyield_pin": "DIN", "local_pin": "din", "physical_role": "column_path"},
+        {"openyield_net": "w_en", "openyield_pin": "EN", "local_pin": "write_enable", "physical_role": "column_path"},
+        {"openyield_net": "BL[i]", "openyield_pin": "BL", "local_pin": "bl", "physical_role": "bitline"},
+        {"openyield_net": "BLB[i]", "openyield_pin": "BLB", "local_pin": "br", "physical_role": "bitline"},
+        {"openyield_net": "VDD", "openyield_pin": "VDD", "local_pin": "vdd", "physical_role": "power"},
+        {"openyield_net": "VSS", "openyield_pin": "VSS", "local_pin": "gnd", "physical_role": "power"},
+    ]

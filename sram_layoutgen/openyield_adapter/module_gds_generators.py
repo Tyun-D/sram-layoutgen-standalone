@@ -1366,3 +1366,38 @@ def _format_gap_summary_md(report: dict[str, Any]) -> str:
         "",
     ]
     return "\n".join(lines)
+
+
+def build_m5_parameterized_module_catalog() -> list[dict[str, str]]:
+    return [
+        {
+            "openyield_module": "row_decoder",
+            "generator_family": "gate_row_packer",
+            "physical_source": "layoutgen row_decoder role instances",
+        },
+        {
+            "openyield_module": "wordline_decoder",
+            "generator_family": "gate_row_packer",
+            "physical_source": "layoutgen row_decoder role instances with OpenYield semantic split",
+        },
+        {
+            "openyield_module": "decoder_gate_cells",
+            "generator_family": "gate_row_packer",
+            "physical_source": "layoutgen decoder gate row packing",
+        },
+        {
+            "openyield_module": "wordline_driver_gate_cells",
+            "generator_family": "gate_row_packer_plus_wordline_driver",
+            "physical_source": "layoutgen row-path gate ownership around gen_wl_driver",
+        },
+        {
+            "openyield_module": "DELAY_CHAIN",
+            "generator_family": "delay_chain_row",
+            "physical_source": "gen_delay_inv chain instances",
+        },
+        {
+            "openyield_module": "DFF_ROW",
+            "generator_family": "data_dff_packing",
+            "physical_source": "dff array instances",
+        },
+    ]

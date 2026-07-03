@@ -209,6 +209,33 @@ def load_bundled_freepdk45() -> Tech:
     return Tech.freepdk45(package_root())
 
 
+def build_openyield_optimized_standalone_spec(
+    *,
+    name: str,
+    word_size: int,
+    num_words: int,
+    words_per_row: int,
+) -> StandaloneSpec:
+    return StandaloneSpec(
+        word_size=word_size,
+        num_words=num_words,
+        words_per_row=words_per_row,
+        name=name,
+        enable_openyield_array_aggregation=True,
+        enable_openyield_senseamp_adapter=True,
+        enable_openyield_columnmux_adapter=True,
+        enable_openyield_writedriver_adapter=True,
+        enable_openyield_wordlinedriver_adapter=True,
+        enable_openyield_gate_row_packing=True,
+        enable_openyield_gate_row_vertical_abutment=False,
+        enable_openyield_rail_to_rail_abutment=True,
+        enable_openyield_power_rail_overlap_packing=True,
+        enable_openyield_dff_row_packing=True,
+        exclude_dff_vertical_overlap=True,
+        openyield_storage_row_orientation_policy="alternating_mx",
+    )
+
+
 def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     name = spec.resolved_name()
     wpr = spec.resolved_words_per_row()

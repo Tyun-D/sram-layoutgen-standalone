@@ -14,7 +14,7 @@ from sram_layoutgen.openyield_adapter.layout_prototype import (
     build_module_coverage,
     load_support_bundle,
 )
-from sram_layoutgen.standalone import StandaloneSpec, write_standalone
+from sram_layoutgen.standalone import build_openyield_optimized_standalone_spec, write_standalone
 
 
 USER_REVIEW = """M3R review failed/partially failed:
@@ -371,23 +371,11 @@ def run_m3f_optimized_layoutgen_restore(
     _read_json(openyield_intent_dir / "openyield_sram_layout_intent.json")
     m1_binding_rows = _read_csv(repo_root / "docs/mapping/M1_openyield_to_layoutgen_binding.csv")
 
-    spec = StandaloneSpec(
+    spec = build_openyield_optimized_standalone_spec(
         word_size=int(locked_spec["word_size"]),
         num_words=int(locked_spec["num_words"]),
         words_per_row=int(locked_spec["words_per_row"]),
         name=M3F_NAME,
-        enable_openyield_array_aggregation=True,
-        enable_openyield_senseamp_adapter=True,
-        enable_openyield_columnmux_adapter=True,
-        enable_openyield_writedriver_adapter=True,
-        enable_openyield_wordlinedriver_adapter=True,
-        enable_openyield_gate_row_packing=True,
-        enable_openyield_gate_row_vertical_abutment=False,
-        enable_openyield_rail_to_rail_abutment=True,
-        enable_openyield_power_rail_overlap_packing=True,
-        enable_openyield_dff_row_packing=True,
-        exclude_dff_vertical_overlap=True,
-        openyield_storage_row_orientation_policy="alternating_mx",
     )
 
     out_dir.mkdir(parents=True, exist_ok=True)

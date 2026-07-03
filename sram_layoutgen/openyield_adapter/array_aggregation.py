@@ -286,6 +286,28 @@ def build_standalone_storage_array_aggregation(
     )
 
 
+def summarize_m5_openyield_array_bindings(result: StandaloneStorageArrayAggregationResult) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for plan in result.plans:
+        rows.append(
+            {
+                "array_name": plan.array_name,
+                "role": plan.role,
+                "cell_macro": plan.cell_macro,
+                "rows": plan.rows,
+                "cols": plan.cols,
+                "origin_x": round(plan.origin_x, 6),
+                "origin_y": round(plan.origin_y, 6),
+                "width": round(plan.width, 6),
+                "height": round(plan.height, 6),
+                "row_orientation_policy": plan.row_orientation_policy,
+                "power_rail_policy": plan.power_rail_policy,
+                "notes": "; ".join(plan.notes),
+            }
+        )
+    return rows
+
+
 def _build_bitcell_plan(
     rows: int,
     cols: int,

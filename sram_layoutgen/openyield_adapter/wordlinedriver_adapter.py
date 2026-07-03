@@ -312,3 +312,13 @@ def _parse_spice_subckt_pins(path: Path) -> tuple[str, ...]:
             parts = stripped.split()
             return tuple(parts[2:])
     return ()
+
+
+def build_wordlinedriver_m5_net_bindings() -> list[dict[str, str]]:
+    return [
+        {"openyield_net": "DEC_WL[i]", "openyield_pin": "A", "local_pin": "decoder_input", "physical_role": "row_path"},
+        {"openyield_net": "WL_EN", "openyield_pin": "B", "local_pin": "wordline_enable", "physical_role": "row_path"},
+        {"openyield_net": "WL[i]", "openyield_pin": "Z", "local_pin": "wl", "physical_role": "array_interface"},
+        {"openyield_net": "VDD", "openyield_pin": "VDD", "local_pin": "vdd", "physical_role": "power"},
+        {"openyield_net": "VSS", "openyield_pin": "VSS", "local_pin": "gnd", "physical_role": "power"},
+    ]

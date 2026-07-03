@@ -119,3 +119,18 @@ def _senseamp_pin_adaptations(qb_required_downstream: bool) -> tuple[PinAdaptati
         PinAdaptation("Q", "dout", "dout", ADAPT_DIRECT, True),
         PinAdaptation("QB", None, "dout_b", qb_type, False, qb_notes),
     )
+
+
+def build_senseamp_m5_net_bindings(qb_required_downstream: bool = False) -> list[dict[str, str]]:
+    strategy = recommended_senseamp_strategy(qb_required_downstream)
+    rows = [
+        {"openyield_net": "SA_IN[*]", "openyield_pin": "IN", "local_pin": "bl", "physical_role": "column_path", "strategy": strategy},
+        {"openyield_net": "SA_INB[*]", "openyield_pin": "INB", "local_pin": "br", "physical_role": "column_path", "strategy": strategy},
+        {"openyield_net": "s_en", "openyield_pin": "EN", "local_pin": "en", "physical_role": "control", "strategy": strategy},
+        {"openyield_net": "SA_Q[*]", "openyield_pin": "Q", "local_pin": "dout", "physical_role": "read_data", "strategy": strategy},
+        {"openyield_net": "VDD", "openyield_pin": "VDD", "local_pin": "vdd", "physical_role": "power", "strategy": strategy},
+        {"openyield_net": "VSS", "openyield_pin": "VSS", "local_pin": "gnd", "physical_role": "power", "strategy": strategy},
+    ]
+    if qb_required_downstream:
+        rows.append({"openyield_net": "SA_QB[*]", "openyield_pin": "QB", "local_pin": "dout_b_required_unimplemented", "physical_role": "read_data", "strategy": strategy})
+    return rows

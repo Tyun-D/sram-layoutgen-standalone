@@ -1,0 +1,117 @@
+{
+  "routing_code_modified": true,
+  "openyield_net_count": 34,
+  "implemented_net_count": 34,
+  "wrapper_binding_rows": [
+    {
+      "openyield_net": "DEC_WL[i]",
+      "openyield_pin": "A",
+      "local_pin": "decoder_input",
+      "physical_role": "row_path"
+    },
+    {
+      "openyield_net": "WL_EN",
+      "openyield_pin": "B",
+      "local_pin": "wordline_enable",
+      "physical_role": "row_path"
+    },
+    {
+      "openyield_net": "WL[i]",
+      "openyield_pin": "Z",
+      "local_pin": "wl",
+      "physical_role": "array_interface"
+    },
+    {
+      "openyield_net": "VDD",
+      "openyield_pin": "VDD",
+      "local_pin": "vdd",
+      "physical_role": "power"
+    },
+    {
+      "openyield_net": "VSS",
+      "openyield_pin": "VSS",
+      "local_pin": "gnd",
+      "physical_role": "power"
+    },
+    {
+      "openyield_net": "DIN_dff[i]",
+      "openyield_pin": "DIN",
+      "local_pin": "din",
+      "physical_role": "column_path"
+    },
+    {
+      "openyield_net": "w_en",
+      "openyield_pin": "EN",
+      "local_pin": "write_enable",
+      "physical_role": "column_path"
+    },
+    {
+      "openyield_net": "BL[i]",
+      "openyield_pin": "BL",
+      "local_pin": "bl",
+      "physical_role": "bitline"
+    },
+    {
+      "openyield_net": "BLB[i]",
+      "openyield_pin": "BLB",
+      "local_pin": "br",
+      "physical_role": "bitline"
+    },
+    {
+      "openyield_net": "VDD",
+      "openyield_pin": "VDD",
+      "local_pin": "vdd",
+      "physical_role": "power"
+    },
+    {
+      "openyield_net": "VSS",
+      "openyield_pin": "VSS",
+      "local_pin": "gnd",
+      "physical_role": "power"
+    },
+    {
+      "openyield_net": "SA_IN[*]",
+      "openyield_pin": "IN",
+      "local_pin": "bl",
+      "physical_role": "column_path",
+      "strategy": "single_ended_q_to_dout"
+    },
+    {
+      "openyield_net": "SA_INB[*]",
+      "openyield_pin": "INB",
+      "local_pin": "br",
+      "physical_role": "column_path",
+      "strategy": "single_ended_q_to_dout"
+    },
+    {
+      "openyield_net": "s_en",
+      "openyield_pin": "EN",
+      "local_pin": "en",
+      "physical_role": "control",
+      "strategy": "single_ended_q_to_dout"
+    },
+    {
+      "openyield_net": "SA_Q[*]",
+      "openyield_pin": "Q",
+      "local_pin": "dout",
+      "physical_role": "read_data",
+      "strategy": "single_ended_q_to_dout"
+    },
+    {
+      "openyield_net": "VDD",
+      "openyield_pin": "VDD",
+      "local_pin": "vdd",
+      "physical_role": "power",
+      "strategy": "single_ended_q_to_dout"
+    },
+    {
+      "openyield_net": "VSS",
+      "openyield_pin": "VSS",
+      "local_pin": "gnd",
+      "physical_role": "power",
+      "strategy": "single_ended_q_to_dout"
+    }
+  ],
+  "route_polygon_count": 724,
+  "route_label_count": 27
+}

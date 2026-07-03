@@ -775,3 +775,19 @@ def _load_json(path: Path) -> dict[str, Any]:
     if not path.exists():
         return {}
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def build_m5_wrapper_power_gate_rows(readonly_report: dict[str, Any]) -> list[dict[str, Any]]:
+    decision = readonly_report.get("rail_continuity_decision", {})
+    shared_rail_safe = bool(decision.get("shared_rail_safe"))
+    reason = (
+        "shared rail may be enabled"
+        if shared_rail_safe
+        else "shared rail remains disabled; preserve M3F optimized non-shared wrapper power policy"
+    )
+    return [
+        {"module": "column_mux", "shared_rail_enabled": shared_rail_safe, "gate_reason": reason},
+        {"module": "write_driver", "shared_rail_enabled": shared_rail_safe, "gate_reason": reason},
+        {"module": "wordline_driver", "shared_rail_enabled": shared_rail_safe, "gate_reason": reason},
+        {"module": "precharge", "shared_rail_enabled": shared_rail_safe, "gate_reason": reason},
+    ]
