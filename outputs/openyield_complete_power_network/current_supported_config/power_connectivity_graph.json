@@ -1,0 +1,1238 @@
+{
+  "nodes": [
+    {
+      "node_name": "top_vdd_pin",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "top_gnd_pin",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "vdd_strap",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "gnd_strap",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "array_vdd_rail",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "array_gnd_rail",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "row_vdd_rail",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "row_gnd_rail",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "column_vdd_rail",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "column_gnd_rail",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "control_vdd_rail",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "control_gnd_rail",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "bitcell_array:VDD",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "bitcell_array:GND",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "dummy_array:VDD",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "dummy_array:GND",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "replica_array:VDD",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "replica_array:GND",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "row_decoder:VDD",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "row_decoder:GND",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "wordline_decoder:VDD",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "wordline_decoder:GND",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "decoder_gate_cells:VDD",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "decoder_gate_cells:GND",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "wordline_driver:VDD",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "wordline_driver:GND",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "wordline_driver_gate_cells:VDD",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "wordline_driver_gate_cells:GND",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "precharge:VDD",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "precharge:GND",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "column_mux:VDD",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "column_mux:GND",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "sense_amp:VDD",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "sense_amp:GND",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "write_driver:VDD",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "write_driver:GND",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "CONTROL_LOGIC:VDD",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "CONTROL_LOGIC:GND",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "DELAY_CHAIN:VDD",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "DELAY_CHAIN:GND",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "PRECHARGE_ENABLE_PATH:VDD",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "PRECHARGE_ENABLE_PATH:GND",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "SENSE_ENABLE_PATH:VDD",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "SENSE_ENABLE_PATH:GND",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "WRITE_ENABLE_PATH:VDD",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "WRITE_ENABLE_PATH:GND",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "WORDLINE_ENABLE_PATH:VDD",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "WORDLINE_ENABLE_PATH:GND",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "GATED_CLOCK_PATH:VDD",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "GATED_CLOCK_PATH:GND",
+      "net_name": "GND"
+    },
+    {
+      "node_name": "DFF_ROW:VDD",
+      "net_name": "VDD"
+    },
+    {
+      "node_name": "DFF_ROW:GND",
+      "net_name": "GND"
+    }
+  ],
+  "edges": [
+    {
+      "edge_id": "EDGE_0001",
+      "net_name": "VDD",
+      "source_node": "vdd_strap",
+      "target_node": "vdd_strap",
+      "shape_id": "POWER_SHAPE_0001",
+      "shape_bbox": {
+        "x0": 2.5375,
+        "y0": 31.27,
+        "x1": 57.7525,
+        "y1": 31.77,
+        "width": 55.215,
+        "height": 0.5
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_STRAP"
+    },
+    {
+      "edge_id": "EDGE_0002",
+      "net_name": "GND",
+      "source_node": "gnd_strap",
+      "target_node": "gnd_strap",
+      "shape_id": "POWER_SHAPE_0002",
+      "shape_bbox": {
+        "x0": 2.5375,
+        "y0": 0.725,
+        "x1": 57.7525,
+        "y1": 1.225,
+        "width": 55.215,
+        "height": 0.5
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_STRAP"
+    },
+    {
+      "edge_id": "EDGE_0003",
+      "net_name": "VDD",
+      "source_node": "vdd_strap",
+      "target_node": "array_vdd_rail",
+      "shape_id": "POWER_SHAPE_0003",
+      "shape_bbox": {
+        "x0": 13.62,
+        "y0": 20.7524,
+        "x1": 24.17,
+        "y1": 20.9324,
+        "width": 10.55,
+        "height": 0.18
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_RAIL"
+    },
+    {
+      "edge_id": "EDGE_0004",
+      "net_name": "GND",
+      "source_node": "gnd_strap",
+      "target_node": "array_gnd_rail",
+      "shape_id": "POWER_SHAPE_0004",
+      "shape_bbox": {
+        "x0": 13.62,
+        "y0": 13.3276,
+        "x1": 24.17,
+        "y1": 13.5076,
+        "width": 10.55,
+        "height": 0.18
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_RAIL"
+    },
+    {
+      "edge_id": "EDGE_0005",
+      "net_name": "VDD",
+      "source_node": "vdd_strap",
+      "target_node": "array_vdd_rail",
+      "shape_id": "POWER_SHAPE_0005",
+      "shape_bbox": {
+        "x0": 18.845,
+        "y0": 20.7524,
+        "x1": 18.945,
+        "y1": 31.27,
+        "width": 0.1,
+        "height": 10.5176
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_GRAPH_CONNECTED"
+    },
+    {
+      "edge_id": "EDGE_0006",
+      "net_name": "GND",
+      "source_node": "gnd_strap",
+      "target_node": "array_gnd_rail",
+      "shape_id": "POWER_SHAPE_0006",
+      "shape_bbox": {
+        "x0": 18.845,
+        "y0": 1.225,
+        "x1": 18.945,
+        "y1": 13.5076,
+        "width": 0.1,
+        "height": 12.2826
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_GRAPH_CONNECTED"
+    },
+    {
+      "edge_id": "EDGE_0007",
+      "net_name": "VDD",
+      "source_node": "vdd_strap",
+      "target_node": "row_vdd_rail",
+      "shape_id": "POWER_SHAPE_0007",
+      "shape_bbox": {
+        "x0": 7.5375,
+        "y0": 25.7385,
+        "x1": 12.82,
+        "y1": 25.9185,
+        "width": 5.2825,
+        "height": 0.18
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_RAIL"
+    },
+    {
+      "edge_id": "EDGE_0008",
+      "net_name": "GND",
+      "source_node": "gnd_strap",
+      "target_node": "row_gnd_rail",
+      "shape_id": "POWER_SHAPE_0008",
+      "shape_bbox": {
+        "x0": 7.5375,
+        "y0": 8.3415,
+        "x1": 12.82,
+        "y1": 8.5215,
+        "width": 5.2825,
+        "height": 0.18
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_RAIL"
+    },
+    {
+      "edge_id": "EDGE_0009",
+      "net_name": "VDD",
+      "source_node": "vdd_strap",
+      "target_node": "row_vdd_rail",
+      "shape_id": "POWER_SHAPE_0009",
+      "shape_bbox": {
+        "x0": 10.12875,
+        "y0": 25.7385,
+        "x1": 10.22875,
+        "y1": 31.27,
+        "width": 0.1,
+        "height": 5.5315
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_GRAPH_CONNECTED"
+    },
+    {
+      "edge_id": "EDGE_0010",
+      "net_name": "GND",
+      "source_node": "gnd_strap",
+      "target_node": "row_gnd_rail",
+      "shape_id": "POWER_SHAPE_0010",
+      "shape_bbox": {
+        "x0": 10.12875,
+        "y0": 1.225,
+        "x1": 10.22875,
+        "y1": 8.5215,
+        "width": 0.1,
+        "height": 7.2965
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_GRAPH_CONNECTED"
+    },
+    {
+      "edge_id": "EDGE_0011",
+      "net_name": "VDD",
+      "source_node": "vdd_strap",
+      "target_node": "column_vdd_rail",
+      "shape_id": "POWER_SHAPE_0011",
+      "shape_bbox": {
+        "x0": 16.68125,
+        "y0": 26.8299,
+        "x1": 22.89875,
+        "y1": 27.0099,
+        "width": 6.2175,
+        "height": 0.18
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_RAIL"
+    },
+    {
+      "edge_id": "EDGE_0012",
+      "net_name": "GND",
+      "source_node": "gnd_strap",
+      "target_node": "column_gnd_rail",
+      "shape_id": "POWER_SHAPE_0012",
+      "shape_bbox": {
+        "x0": 16.68125,
+        "y0": 21.1201,
+        "x1": 22.89875,
+        "y1": 21.3001,
+        "width": 6.2175,
+        "height": 0.18
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_RAIL"
+    },
+    {
+      "edge_id": "EDGE_0013",
+      "net_name": "VDD",
+      "source_node": "vdd_strap",
+      "target_node": "column_vdd_rail",
+      "shape_id": "POWER_SHAPE_0013",
+      "shape_bbox": {
+        "x0": 19.74,
+        "y0": 26.8299,
+        "x1": 19.84,
+        "y1": 31.27,
+        "width": 0.1,
+        "height": 4.4401
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_GRAPH_CONNECTED"
+    },
+    {
+      "edge_id": "EDGE_0014",
+      "net_name": "GND",
+      "source_node": "gnd_strap",
+      "target_node": "column_gnd_rail",
+      "shape_id": "POWER_SHAPE_0014",
+      "shape_bbox": {
+        "x0": 19.74,
+        "y0": 1.225,
+        "x1": 19.84,
+        "y1": 21.3001,
+        "width": 0.1,
+        "height": 20.0751
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_GRAPH_CONNECTED"
+    },
+    {
+      "edge_id": "EDGE_0015",
+      "net_name": "VDD",
+      "source_node": "vdd_strap",
+      "target_node": "control_vdd_rail",
+      "shape_id": "POWER_SHAPE_0015",
+      "shape_bbox": {
+        "x0": 6.5375,
+        "y0": 11.74425,
+        "x1": 53.7525,
+        "y1": 11.92425,
+        "width": 47.215,
+        "height": 0.18
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_RAIL"
+    },
+    {
+      "edge_id": "EDGE_0016",
+      "net_name": "GND",
+      "source_node": "gnd_strap",
+      "target_node": "control_gnd_rail",
+      "shape_id": "POWER_SHAPE_0016",
+      "shape_bbox": {
+        "x0": 6.5375,
+        "y0": 4.50075,
+        "x1": 53.7525,
+        "y1": 4.68075,
+        "width": 47.215,
+        "height": 0.18
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_RAIL"
+    },
+    {
+      "edge_id": "EDGE_0017",
+      "net_name": "VDD",
+      "source_node": "vdd_strap",
+      "target_node": "control_vdd_rail",
+      "shape_id": "POWER_SHAPE_0017",
+      "shape_bbox": {
+        "x0": 30.095,
+        "y0": 11.74425,
+        "x1": 30.195,
+        "y1": 31.27,
+        "width": 0.1,
+        "height": 19.52575
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_GRAPH_CONNECTED"
+    },
+    {
+      "edge_id": "EDGE_0018",
+      "net_name": "GND",
+      "source_node": "gnd_strap",
+      "target_node": "control_gnd_rail",
+      "shape_id": "POWER_SHAPE_0018",
+      "shape_bbox": {
+        "x0": 30.095,
+        "y0": 1.225,
+        "x1": 30.195,
+        "y1": 4.68075,
+        "width": 0.1,
+        "height": 3.45575
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_GRAPH_CONNECTED"
+    },
+    {
+      "edge_id": "EDGE_0019",
+      "net_name": "VDD",
+      "source_node": "top_vdd_pin",
+      "target_node": "vdd_strap",
+      "shape_id": "TOP_POWER_PIN_0001",
+      "shape_bbox": {
+        "x0": 2.9375,
+        "y0": 31.27,
+        "x1": 4.5375,
+        "y1": 31.77,
+        "width": 1.6,
+        "height": 0.5
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_TOP_POWER_PIN"
+    },
+    {
+      "edge_id": "EDGE_0020",
+      "net_name": "GND",
+      "source_node": "top_gnd_pin",
+      "target_node": "gnd_strap",
+      "shape_id": "TOP_POWER_PIN_0002",
+      "shape_bbox": {
+        "x0": 55.7525,
+        "y0": 0.725,
+        "x1": 57.3525,
+        "y1": 1.225,
+        "width": 1.6,
+        "height": 0.5
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_TOP_POWER_PIN"
+    },
+    {
+      "edge_id": "EDGE_0021",
+      "net_name": "VDD",
+      "source_node": "bitcell_array:VDD",
+      "target_node": "array_vdd_rail",
+      "shape_id": "POWER_SHAPE_0019",
+      "shape_bbox": {
+        "x0": 18.3025,
+        "y0": 15.3645,
+        "x1": 18.945,
+        "y1": 20.8424,
+        "width": 0.6425,
+        "height": 5.4779
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0022",
+      "net_name": "GND",
+      "source_node": "bitcell_array:GND",
+      "target_node": "array_gnd_rail",
+      "shape_id": "POWER_SHAPE_0020",
+      "shape_bbox": {
+        "x0": 18.3025,
+        "y0": 13.4176,
+        "x1": 18.945,
+        "y1": 14.0,
+        "width": 0.6425,
+        "height": 0.5824
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0023",
+      "net_name": "VDD",
+      "source_node": "dummy_array:VDD",
+      "target_node": "array_vdd_rail",
+      "shape_id": "POWER_SHAPE_0021",
+      "shape_bbox": {
+        "x0": 13.9225,
+        "y0": 15.3645,
+        "x1": 18.945,
+        "y1": 20.8424,
+        "width": 5.0225,
+        "height": 5.4779
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0024",
+      "net_name": "GND",
+      "source_node": "dummy_array:GND",
+      "target_node": "array_gnd_rail",
+      "shape_id": "POWER_SHAPE_0022",
+      "shape_bbox": {
+        "x0": 13.9225,
+        "y0": 13.4176,
+        "x1": 18.945,
+        "y1": 14.0,
+        "width": 5.0225,
+        "height": 0.5824
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0025",
+      "net_name": "VDD",
+      "source_node": "replica_array:VDD",
+      "target_node": "array_vdd_rail",
+      "shape_id": "POWER_SHAPE_0023",
+      "shape_bbox": {
+        "x0": 18.845,
+        "y0": 14.4355,
+        "x1": 22.8025,
+        "y1": 20.8424,
+        "width": 3.9575,
+        "height": 6.4069
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0026",
+      "net_name": "GND",
+      "source_node": "replica_array:GND",
+      "target_node": "array_gnd_rail",
+      "shape_id": "POWER_SHAPE_0024",
+      "shape_bbox": {
+        "x0": 18.845,
+        "y0": 13.2375,
+        "x1": 22.7825,
+        "y1": 13.4176,
+        "width": 3.9375,
+        "height": 0.1801
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0027",
+      "net_name": "VDD",
+      "source_node": "row_decoder:VDD",
+      "target_node": "row_vdd_rail",
+      "shape_id": "POWER_SHAPE_0025",
+      "shape_bbox": {
+        "x0": 7.831,
+        "y0": 9.586,
+        "x1": 10.22875,
+        "y1": 25.8285,
+        "width": 2.39775,
+        "height": 16.2425
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0028",
+      "net_name": "GND",
+      "source_node": "row_decoder:GND",
+      "target_node": "row_gnd_rail",
+      "shape_id": "POWER_SHAPE_0026",
+      "shape_bbox": {
+        "x0": 7.831,
+        "y0": 8.2215,
+        "x1": 10.22875,
+        "y1": 8.4315,
+        "width": 2.39775,
+        "height": 0.21
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0029",
+      "net_name": "VDD",
+      "source_node": "wordline_decoder:VDD",
+      "target_node": "row_vdd_rail",
+      "shape_id": "POWER_SHAPE_0027",
+      "shape_bbox": {
+        "x0": 7.831,
+        "y0": 13.749,
+        "x1": 10.22875,
+        "y1": 25.8285,
+        "width": 2.39775,
+        "height": 12.0795
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0030",
+      "net_name": "GND",
+      "source_node": "wordline_decoder:GND",
+      "target_node": "row_gnd_rail",
+      "shape_id": "POWER_SHAPE_0028",
+      "shape_bbox": {
+        "x0": 7.831,
+        "y0": 8.4315,
+        "x1": 10.22875,
+        "y1": 12.3845,
+        "width": 2.39775,
+        "height": 3.953
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0031",
+      "net_name": "VDD",
+      "source_node": "decoder_gate_cells:VDD",
+      "target_node": "row_vdd_rail",
+      "shape_id": "POWER_SHAPE_0029",
+      "shape_bbox": {
+        "x0": 7.831,
+        "y0": 17.827,
+        "x1": 10.22875,
+        "y1": 25.8285,
+        "width": 2.39775,
+        "height": 8.0015
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0032",
+      "net_name": "GND",
+      "source_node": "decoder_gate_cells:GND",
+      "target_node": "row_gnd_rail",
+      "shape_id": "POWER_SHAPE_0030",
+      "shape_bbox": {
+        "x0": 7.831,
+        "y0": 8.4315,
+        "x1": 10.22875,
+        "y1": 16.4625,
+        "width": 2.39775,
+        "height": 8.031
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0033",
+      "net_name": "VDD",
+      "source_node": "wordline_driver:VDD",
+      "target_node": "row_vdd_rail",
+      "shape_id": "POWER_SHAPE_0031",
+      "shape_bbox": {
+        "x0": 8.97,
+        "y0": 21.905,
+        "x1": 10.22875,
+        "y1": 25.8285,
+        "width": 1.25875,
+        "height": 3.9235
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0034",
+      "net_name": "GND",
+      "source_node": "wordline_driver:GND",
+      "target_node": "row_gnd_rail",
+      "shape_id": "POWER_SHAPE_0032",
+      "shape_bbox": {
+        "x0": 8.97,
+        "y0": 8.4315,
+        "x1": 10.22875,
+        "y1": 20.5405,
+        "width": 1.25875,
+        "height": 12.109
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0035",
+      "net_name": "VDD",
+      "source_node": "wordline_driver_gate_cells:VDD",
+      "target_node": "row_vdd_rail",
+      "shape_id": "POWER_SHAPE_0033",
+      "shape_bbox": {
+        "x0": 7.831,
+        "y0": 24.41,
+        "x1": 10.22875,
+        "y1": 25.8285,
+        "width": 2.39775,
+        "height": 1.4185
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0036",
+      "net_name": "GND",
+      "source_node": "wordline_driver_gate_cells:GND",
+      "target_node": "row_gnd_rail",
+      "shape_id": "POWER_SHAPE_0034",
+      "shape_bbox": {
+        "x0": 7.831,
+        "y0": 8.4315,
+        "x1": 10.22875,
+        "y1": 23.0455,
+        "width": 2.39775,
+        "height": 14.614
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0037",
+      "net_name": "VDD",
+      "source_node": "precharge:VDD",
+      "target_node": "column_vdd_rail",
+      "shape_id": "POWER_SHAPE_0035",
+      "shape_bbox": {
+        "x0": 17.00375,
+        "y0": 22.2455,
+        "x1": 19.84,
+        "y1": 26.9199,
+        "width": 2.83625,
+        "height": 4.6744
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0038",
+      "net_name": "GND",
+      "source_node": "precharge:GND",
+      "target_node": "column_gnd_rail",
+      "shape_id": "POWER_SHAPE_0036",
+      "shape_bbox": {
+        "x0": 16.98375,
+        "y0": 21.0475,
+        "x1": 19.84,
+        "y1": 21.2101,
+        "width": 2.85625,
+        "height": 0.1626
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0039",
+      "net_name": "VDD",
+      "source_node": "column_mux:VDD",
+      "target_node": "column_vdd_rail",
+      "shape_id": "POWER_SHAPE_0037",
+      "shape_bbox": {
+        "x0": 18.71625,
+        "y0": 22.72,
+        "x1": 19.84,
+        "y1": 26.9199,
+        "width": 1.12375,
+        "height": 4.1999
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0040",
+      "net_name": "GND",
+      "source_node": "column_mux:GND",
+      "target_node": "column_gnd_rail",
+      "shape_id": "POWER_SHAPE_0038",
+      "shape_bbox": {
+        "x0": 19.12125,
+        "y0": 21.2101,
+        "x1": 19.84,
+        "y1": 21.9295,
+        "width": 0.71875,
+        "height": 0.7194
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0041",
+      "net_name": "VDD",
+      "source_node": "sense_amp:VDD",
+      "target_node": "column_vdd_rail",
+      "shape_id": "POWER_SHAPE_0039",
+      "shape_bbox": {
+        "x0": 19.74,
+        "y0": 24.8625,
+        "x1": 20.68575,
+        "y1": 26.9199,
+        "width": 0.94575,
+        "height": 2.0574
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0042",
+      "net_name": "GND",
+      "source_node": "sense_amp:GND",
+      "target_node": "column_gnd_rail",
+      "shape_id": "POWER_SHAPE_0040",
+      "shape_bbox": {
+        "x0": 19.74,
+        "y0": 21.1595,
+        "x1": 20.99825,
+        "y1": 21.2501,
+        "width": 1.25825,
+        "height": 0.0906
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0043",
+      "net_name": "VDD",
+      "source_node": "write_driver:VDD",
+      "target_node": "column_vdd_rail",
+      "shape_id": "POWER_SHAPE_0041",
+      "shape_bbox": {
+        "x0": 19.74,
+        "y0": 21.49,
+        "x1": 22.28125,
+        "y1": 26.9199,
+        "width": 2.54125,
+        "height": 5.4299
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0044",
+      "net_name": "GND",
+      "source_node": "write_driver:GND",
+      "target_node": "column_gnd_rail",
+      "shape_id": "POWER_SHAPE_0042",
+      "shape_bbox": {
+        "x0": 19.74,
+        "y0": 21.2101,
+        "x1": 22.10875,
+        "y1": 23.5395,
+        "width": 2.36875,
+        "height": 2.3294
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0045",
+      "net_name": "VDD",
+      "source_node": "CONTROL_LOGIC:VDD",
+      "target_node": "control_vdd_rail",
+      "shape_id": "POWER_SHAPE_0043",
+      "shape_bbox": {
+        "x0": 6.831,
+        "y0": 5.7895,
+        "x1": 30.195,
+        "y1": 11.83425,
+        "width": 23.364,
+        "height": 6.04475
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0046",
+      "net_name": "GND",
+      "source_node": "CONTROL_LOGIC:GND",
+      "target_node": "control_gnd_rail",
+      "shape_id": "POWER_SHAPE_0044",
+      "shape_bbox": {
+        "x0": 6.831,
+        "y0": 4.425,
+        "x1": 30.195,
+        "y1": 4.59075,
+        "width": 23.364,
+        "height": 0.16575
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0047",
+      "net_name": "VDD",
+      "source_node": "DELAY_CHAIN:VDD",
+      "target_node": "control_vdd_rail",
+      "shape_id": "POWER_SHAPE_0045",
+      "shape_bbox": {
+        "x0": 14.436,
+        "y0": 6.8945,
+        "x1": 30.195,
+        "y1": 11.83425,
+        "width": 15.759,
+        "height": 4.93975
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0048",
+      "net_name": "GND",
+      "source_node": "DELAY_CHAIN:GND",
+      "target_node": "control_gnd_rail",
+      "shape_id": "POWER_SHAPE_0046",
+      "shape_bbox": {
+        "x0": 14.436,
+        "y0": 4.425,
+        "x1": 30.195,
+        "y1": 4.59075,
+        "width": 15.759,
+        "height": 0.16575
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0049",
+      "net_name": "VDD",
+      "source_node": "PRECHARGE_ENABLE_PATH:VDD",
+      "target_node": "control_vdd_rail",
+      "shape_id": "POWER_SHAPE_0047",
+      "shape_bbox": {
+        "x0": 19.255,
+        "y0": 5.6145,
+        "x1": 30.195,
+        "y1": 11.83425,
+        "width": 10.94,
+        "height": 6.21975
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0050",
+      "net_name": "GND",
+      "source_node": "PRECHARGE_ENABLE_PATH:GND",
+      "target_node": "control_gnd_rail",
+      "shape_id": "POWER_SHAPE_0048",
+      "shape_bbox": {
+        "x0": 19.226,
+        "y0": 4.425,
+        "x1": 30.195,
+        "y1": 4.59075,
+        "width": 10.969,
+        "height": 0.16575
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0051",
+      "net_name": "VDD",
+      "source_node": "SENSE_ENABLE_PATH:VDD",
+      "target_node": "control_vdd_rail",
+      "shape_id": "POWER_SHAPE_0049",
+      "shape_bbox": {
+        "x0": 24.98,
+        "y0": 8.2275,
+        "x1": 30.195,
+        "y1": 11.83425,
+        "width": 5.215,
+        "height": 3.60675
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0052",
+      "net_name": "GND",
+      "source_node": "SENSE_ENABLE_PATH:GND",
+      "target_node": "control_gnd_rail",
+      "shape_id": "POWER_SHAPE_0050",
+      "shape_bbox": {
+        "x0": 25.332,
+        "y0": 4.59075,
+        "x1": 30.195,
+        "y1": 10.1195,
+        "width": 4.863,
+        "height": 5.52875
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0053",
+      "net_name": "VDD",
+      "source_node": "WRITE_ENABLE_PATH:VDD",
+      "target_node": "control_vdd_rail",
+      "shape_id": "POWER_SHAPE_0051",
+      "shape_bbox": {
+        "x0": 29.7225,
+        "y0": 4.8545,
+        "x1": 30.195,
+        "y1": 11.83425,
+        "width": 0.4725,
+        "height": 6.97975
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0054",
+      "net_name": "GND",
+      "source_node": "WRITE_ENABLE_PATH:GND",
+      "target_node": "control_gnd_rail",
+      "shape_id": "POWER_SHAPE_0052",
+      "shape_bbox": {
+        "x0": 29.8935,
+        "y0": 4.425,
+        "x1": 30.195,
+        "y1": 4.59075,
+        "width": 0.3015,
+        "height": 0.16575
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0055",
+      "net_name": "VDD",
+      "source_node": "WORDLINE_ENABLE_PATH:VDD",
+      "target_node": "control_vdd_rail",
+      "shape_id": "POWER_SHAPE_0053",
+      "shape_bbox": {
+        "x0": 30.095,
+        "y0": 5.7895,
+        "x1": 33.156,
+        "y1": 11.83425,
+        "width": 3.061,
+        "height": 6.04475
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0056",
+      "net_name": "GND",
+      "source_node": "WORDLINE_ENABLE_PATH:GND",
+      "target_node": "control_gnd_rail",
+      "shape_id": "POWER_SHAPE_0054",
+      "shape_bbox": {
+        "x0": 30.095,
+        "y0": 4.425,
+        "x1": 33.156,
+        "y1": 4.59075,
+        "width": 3.061,
+        "height": 0.16575
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0057",
+      "net_name": "VDD",
+      "source_node": "GATED_CLOCK_PATH:VDD",
+      "target_node": "control_vdd_rail",
+      "shape_id": "POWER_SHAPE_0055",
+      "shape_bbox": {
+        "x0": 30.095,
+        "y0": 5.7895,
+        "x1": 38.5235,
+        "y1": 11.83425,
+        "width": 8.4285,
+        "height": 6.04475
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0058",
+      "net_name": "GND",
+      "source_node": "GATED_CLOCK_PATH:GND",
+      "target_node": "control_gnd_rail",
+      "shape_id": "POWER_SHAPE_0056",
+      "shape_bbox": {
+        "x0": 30.095,
+        "y0": 4.425,
+        "x1": 38.5235,
+        "y1": 4.59075,
+        "width": 8.4285,
+        "height": 0.16575
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0059",
+      "net_name": "VDD",
+      "source_node": "DFF_ROW:VDD",
+      "target_node": "control_vdd_rail",
+      "shape_id": "POWER_SHAPE_0057",
+      "shape_bbox": {
+        "x0": 30.095,
+        "y0": 6.895,
+        "x1": 43.7425,
+        "y1": 11.83425,
+        "width": 13.6475,
+        "height": 4.93925
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    },
+    {
+      "edge_id": "EDGE_0060",
+      "net_name": "GND",
+      "source_node": "DFF_ROW:GND",
+      "target_node": "control_gnd_rail",
+      "shape_id": "POWER_SHAPE_0058",
+      "shape_bbox": {
+        "x0": 30.095,
+        "y0": 4.425,
+        "x1": 43.7925,
+        "y1": 4.59075,
+        "width": 13.6975,
+        "height": 0.16575
+      },
+      "shape_verified_in_gds": true,
+      "edge_status": "GEOMETRY_POWER_PIN_TO_STRAP_STITCH"
+    }
+  ],
+  "vdd_graph_connected": true,
+  "gnd_graph_connected": true,
+  "power_graph_blocked_edge_count": 0,
+  "power_graph_contract_edge_count": 0
+}

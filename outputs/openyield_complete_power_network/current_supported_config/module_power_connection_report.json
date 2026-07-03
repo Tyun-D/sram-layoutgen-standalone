@@ -1,0 +1,984 @@
+{
+  "modules": [
+    {
+      "module_name": "bitcell_array",
+      "instance_name": "bitcell_array",
+      "physical_role": "ARRAY_CORE",
+      "vdd_pin_name": "VDD",
+      "vdd_pin_status": "GEOMETRY_BACKED_PIN",
+      "vdd_pin_bbox_top": {
+        "x0": 17.91,
+        "y0": 15.332,
+        "x1": 18.795,
+        "y1": 15.397,
+        "width": 0.885,
+        "height": 0.065
+      },
+      "vdd_stitch_shape_id": "POWER_SHAPE_0019",
+      "vdd_stitch_bbox": {
+        "x0": 18.3025,
+        "y0": 15.3645,
+        "x1": 18.945,
+        "y1": 20.8424,
+        "width": 0.6425,
+        "height": 5.4779
+      },
+      "vdd_connected_to_graph": true,
+      "gnd_pin_name": "GND",
+      "gnd_pin_status": "GEOMETRY_BACKED_PIN",
+      "gnd_pin_bbox_top": {
+        "x0": 17.91,
+        "y0": 13.967,
+        "x1": 18.795,
+        "y1": 14.033,
+        "width": 0.885,
+        "height": 0.066
+      },
+      "gnd_stitch_shape_id": "POWER_SHAPE_0020",
+      "gnd_stitch_bbox": {
+        "x0": 18.3025,
+        "y0": 13.4176,
+        "x1": 18.945,
+        "y1": 14.0,
+        "width": 0.6425,
+        "height": 0.5824
+      },
+      "gnd_connected_to_graph": true,
+      "uses_synthesized_pin_access": false,
+      "power_connection_status": "GEOMETRY_POWER_GRAPH_CONNECTED",
+      "blocking_reason": "",
+      "next_required_action": "Carry this module power connection into C6 validation."
+    },
+    {
+      "module_name": "dummy_array",
+      "instance_name": "dummy_array",
+      "physical_role": "ARRAY_DUMMY",
+      "vdd_pin_name": "VDD",
+      "vdd_pin_status": "GEOMETRY_BACKED_PIN",
+      "vdd_pin_bbox_top": {
+        "x0": 13.53,
+        "y0": 15.332,
+        "x1": 14.415,
+        "y1": 15.397,
+        "width": 0.885,
+        "height": 0.065
+      },
+      "vdd_stitch_shape_id": "POWER_SHAPE_0021",
+      "vdd_stitch_bbox": {
+        "x0": 13.9225,
+        "y0": 15.3645,
+        "x1": 18.945,
+        "y1": 20.8424,
+        "width": 5.0225,
+        "height": 5.4779
+      },
+      "vdd_connected_to_graph": true,
+      "gnd_pin_name": "GND",
+      "gnd_pin_status": "GEOMETRY_BACKED_PIN",
+      "gnd_pin_bbox_top": {
+        "x0": 13.905,
+        "y0": 13.968,
+        "x1": 14.04,
+        "y1": 14.032,
+        "width": 0.135,
+        "height": 0.064
+      },
+      "gnd_stitch_shape_id": "POWER_SHAPE_0022",
+      "gnd_stitch_bbox": {
+        "x0": 13.9225,
+        "y0": 13.4176,
+        "x1": 18.945,
+        "y1": 14.0,
+        "width": 5.0225,
+        "height": 0.5824
+      },
+      "gnd_connected_to_graph": true,
+      "uses_synthesized_pin_access": false,
+      "power_connection_status": "GEOMETRY_POWER_GRAPH_CONNECTED",
+      "blocking_reason": "",
+      "next_required_action": "Carry this module power connection into C6 validation."
+    },
+    {
+      "module_name": "replica_array",
+      "instance_name": "replica_array",
+      "physical_role": "ARRAY_REPLICA",
+      "vdd_pin_name": "VDD",
+      "vdd_pin_status": "GEOMETRY_BACKED_PIN",
+      "vdd_pin_bbox_top": {
+        "x0": 22.72,
+        "y0": 14.403,
+        "x1": 22.785,
+        "y1": 14.468,
+        "width": 0.065,
+        "height": 0.065
+      },
+      "vdd_stitch_shape_id": "POWER_SHAPE_0023",
+      "vdd_stitch_bbox": {
+        "x0": 18.845,
+        "y0": 14.4355,
+        "x1": 22.8025,
+        "y1": 20.8424,
+        "width": 3.9575,
+        "height": 6.4069
+      },
+      "vdd_connected_to_graph": true,
+      "gnd_pin_name": "GND",
+      "gnd_pin_status": "GEOMETRY_BACKED_PIN",
+      "gnd_pin_bbox_top": {
+        "x0": 22.38,
+        "y0": 13.205,
+        "x1": 23.085,
+        "y1": 13.27,
+        "width": 0.705,
+        "height": 0.065
+      },
+      "gnd_stitch_shape_id": "POWER_SHAPE_0024",
+      "gnd_stitch_bbox": {
+        "x0": 18.845,
+        "y0": 13.2375,
+        "x1": 22.7825,
+        "y1": 13.4176,
+        "width": 3.9375,
+        "height": 0.1801
+      },
+      "gnd_connected_to_graph": true,
+      "uses_synthesized_pin_access": false,
+      "power_connection_status": "GEOMETRY_POWER_GRAPH_CONNECTED",
+      "blocking_reason": "",
+      "next_required_action": "Carry this module power connection into C6 validation."
+    },
+    {
+      "module_name": "row_decoder",
+      "instance_name": "row_decoder",
+      "physical_role": "ROW_DECODER",
+      "vdd_pin_name": "VDD",
+      "vdd_pin_status": "GEOMETRY_BACKED_PIN",
+      "vdd_pin_bbox_top": {
+        "x0": 7.5375,
+        "y0": 9.5535,
+        "x1": 8.2245,
+        "y1": 9.6185,
+        "width": 0.687,
+        "height": 0.065
+      },
+      "vdd_stitch_shape_id": "POWER_SHAPE_0025",
+      "vdd_stitch_bbox": {
+        "x0": 7.831,
+        "y0": 9.586,
+        "x1": 10.22875,
+        "y1": 25.8285,
+        "width": 2.39775,
+        "height": 16.2425
+      },
+      "vdd_connected_to_graph": true,
+      "gnd_pin_name": "GND",
+      "gnd_pin_status": "GEOMETRY_BACKED_PIN",
+      "gnd_pin_bbox_top": {
+        "x0": 7.5375,
+        "y0": 8.1885,
+        "x1": 8.2245,
+        "y1": 8.2545,
+        "width": 0.687,
+        "height": 0.066
+      },
+      "gnd_stitch_shape_id": "POWER_SHAPE_0026",
+      "gnd_stitch_bbox": {
+        "x0": 7.831,
+        "y0": 8.2215,
+        "x1": 10.22875,
+        "y1": 8.4315,
+        "width": 2.39775,
+        "height": 0.21
+      },
+      "gnd_connected_to_graph": true,
+      "uses_synthesized_pin_access": false,
+      "power_connection_status": "GEOMETRY_POWER_GRAPH_CONNECTED",
+      "blocking_reason": "",
+      "next_required_action": "Carry this module power connection into C6 validation."
+    },
+    {
+      "module_name": "wordline_decoder",
+      "instance_name": "wordline_decoder",
+      "physical_role": "ROW_DECODER",
+      "vdd_pin_name": "VDD",
+      "vdd_pin_status": "GEOMETRY_BACKED_PIN",
+      "vdd_pin_bbox_top": {
+        "x0": 7.5375,
+        "y0": 13.7165,
+        "x1": 8.2245,
+        "y1": 13.7815,
+        "width": 0.687,
+        "height": 0.065
+      },
+      "vdd_stitch_shape_id": "POWER_SHAPE_0027",
+      "vdd_stitch_bbox": {
+        "x0": 7.831,
+        "y0": 13.749,
+        "x1": 10.22875,
+        "y1": 25.8285,
+        "width": 2.39775,
+        "height": 12.0795
+      },
+      "vdd_connected_to_graph": true,
+      "gnd_pin_name": "GND",
+      "gnd_pin_status": "GEOMETRY_BACKED_PIN",
+      "gnd_pin_bbox_top": {
+        "x0": 7.5375,
+        "y0": 12.3515,
+        "x1": 8.2245,
+        "y1": 12.4175,
+        "width": 0.687,
+        "height": 0.066
+      },
+      "gnd_stitch_shape_id": "POWER_SHAPE_0028",
+      "gnd_stitch_bbox": {
+        "x0": 7.831,
+        "y0": 8.4315,
+        "x1": 10.22875,
+        "y1": 12.3845,
+        "width": 2.39775,
+        "height": 3.953
+      },
+      "gnd_connected_to_graph": true,
+      "uses_synthesized_pin_access": false,
+      "power_connection_status": "GEOMETRY_POWER_GRAPH_CONNECTED",
+      "blocking_reason": "",
+      "next_required_action": "Carry this module power connection into C6 validation."
+    },
+    {
+      "module_name": "decoder_gate_cells",
+      "instance_name": "decoder_gate_cells",
+      "physical_role": "ROW_DECODER",
+      "vdd_pin_name": "VDD",
+      "vdd_pin_status": "GEOMETRY_BACKED_PIN",
+      "vdd_pin_bbox_top": {
+        "x0": 7.5375,
+        "y0": 17.7945,
+        "x1": 8.2245,
+        "y1": 17.8595,
+        "width": 0.687,
+        "height": 0.065
+      },
+      "vdd_stitch_shape_id": "POWER_SHAPE_0029",
+      "vdd_stitch_bbox": {
+        "x0": 7.831,
+        "y0": 17.827,
+        "x1": 10.22875,
+        "y1": 25.8285,
+        "width": 2.39775,
+        "height": 8.0015
+      },
+      "vdd_connected_to_graph": true,
+      "gnd_pin_name": "GND",
+      "gnd_pin_status": "GEOMETRY_BACKED_PIN",
+      "gnd_pin_bbox_top": {
+        "x0": 7.5375,
+        "y0": 16.4295,
+        "x1": 8.2245,
+        "y1": 16.4955,
+        "width": 0.687,
+        "height": 0.066
+      },
+      "gnd_stitch_shape_id": "POWER_SHAPE_0030",
+      "gnd_stitch_bbox": {
+        "x0": 7.831,
+        "y0": 8.4315,
+        "x1": 10.22875,
+        "y1": 16.4625,
+        "width": 2.39775,
+        "height": 8.031
+      },
+      "gnd_connected_to_graph": true,
+      "uses_synthesized_pin_access": false,
+      "power_connection_status": "GEOMETRY_POWER_GRAPH_CONNECTED",
+      "blocking_reason": "",
+      "next_required_action": "Carry this module power connection into C6 validation."
+    },
+    {
+      "module_name": "wordline_driver",
+      "instance_name": "wordline_driver",
+      "physical_role": "WORDLINE_DRIVER",
+      "vdd_pin_name": "VDD",
+      "vdd_pin_status": "GEOMETRY_BACKED_PIN",
+      "vdd_pin_bbox_top": {
+        "x0": 7.5375,
+        "y0": 21.8725,
+        "x1": 10.5025,
+        "y1": 21.9375,
+        "width": 2.965,
+        "height": 0.065
+      },
+      "vdd_stitch_shape_id": "POWER_SHAPE_0031",
+      "vdd_stitch_bbox": {
+        "x0": 8.97,
+        "y0": 21.905,
+        "x1": 10.22875,
+        "y1": 25.8285,
+        "width": 1.25875,
+        "height": 3.9235
+      },
+      "vdd_connected_to_graph": true,
+      "gnd_pin_name": "GND",
+      "gnd_pin_status": "GEOMETRY_BACKED_PIN",
+      "gnd_pin_bbox_top": {
+        "x0": 7.5375,
+        "y0": 20.5075,
+        "x1": 10.5025,
+        "y1": 20.5735,
+        "width": 2.965,
+        "height": 0.066
+      },
+      "gnd_stitch_shape_id": "POWER_SHAPE_0032",
+      "gnd_stitch_bbox": {
+        "x0": 8.97,
+        "y0": 8.4315,
+        "x1": 10.22875,
+        "y1": 20.5405,
+        "width": 1.25875,
+        "height": 12.109
+      },
+      "gnd_connected_to_graph": true,
+      "uses_synthesized_pin_access": false,
+      "power_connection_status": "GEOMETRY_POWER_GRAPH_CONNECTED",
+      "blocking_reason": "",
+      "next_required_action": "Carry this module power connection into C6 validation."
+    },
+    {
+      "module_name": "wordline_driver_gate_cells",
+      "instance_name": "wordline_driver_gate_cells",
+      "physical_role": "WORDLINE_DRIVER",
+      "vdd_pin_name": "VDD",
+      "vdd_pin_status": "GEOMETRY_BACKED_PIN",
+      "vdd_pin_bbox_top": {
+        "x0": 7.5375,
+        "y0": 24.3775,
+        "x1": 8.2245,
+        "y1": 24.4425,
+        "width": 0.687,
+        "height": 0.065
+      },
+      "vdd_stitch_shape_id": "POWER_SHAPE_0033",
+      "vdd_stitch_bbox": {
+        "x0": 7.831,
+        "y0": 24.41,
+        "x1": 10.22875,
+        "y1": 25.8285,
+        "width": 2.39775,
+        "height": 1.4185
+      },
+      "vdd_connected_to_graph": true,
+      "gnd_pin_name": "GND",
+      "gnd_pin_status": "GEOMETRY_BACKED_PIN",
+      "gnd_pin_bbox_top": {
+        "x0": 7.5375,
+        "y0": 23.0125,
+        "x1": 8.2245,
+        "y1": 23.0785,
+        "width": 0.687,
+        "height": 0.066
+      },
+      "gnd_stitch_shape_id": "POWER_SHAPE_0034",
+      "gnd_stitch_bbox": {
+        "x0": 7.831,
+        "y0": 8.4315,
+        "x1": 10.22875,
+        "y1": 23.0455,
+        "width": 2.39775,
+        "height": 14.614
+      },
+      "gnd_connected_to_graph": true,
+      "uses_synthesized_pin_access": false,
+      "power_connection_status": "GEOMETRY_POWER_GRAPH_CONNECTED",
+      "blocking_reason": "",
+      "next_required_action": "Carry this module power connection into C6 validation."
+    },
+    {
+      "module_name": "precharge",
+      "instance_name": "precharge",
+      "physical_role": "COLUMN_PRECHARGE",
+      "vdd_pin_name": "VDD",
+      "vdd_pin_status": "GEOMETRY_BACKED_PIN",
+      "vdd_pin_bbox_top": {
+        "x0": 17.02125,
+        "y0": 22.213,
+        "x1": 17.08625,
+        "y1": 22.278,
+        "width": 0.065,
+        "height": 0.065
+      },
+      "vdd_stitch_shape_id": "POWER_SHAPE_0035",
+      "vdd_stitch_bbox": {
+        "x0": 17.00375,
+        "y0": 22.2455,
+        "x1": 19.84,
+        "y1": 26.9199,
+        "width": 2.83625,
+        "height": 4.6744
+      },
+      "vdd_connected_to_graph": true,
+      "gnd_pin_name": "GND",
+      "gnd_pin_status": "GEOMETRY_BACKED_PIN",
+      "gnd_pin_bbox_top": {
+        "x0": 16.68125,
+        "y0": 21.015,
+        "x1": 17.38625,
+        "y1": 21.08,
+        "width": 0.705,
+        "height": 0.065
+      },
+      "gnd_stitch_shape_id": "POWER_SHAPE_0036",
+      "gnd_stitch_bbox": {
+        "x0": 16.98375,
+        "y0": 21.0475,
+        "x1": 19.84,
+        "y1": 21.2101,
+        "width": 2.85625,
+        "height": 0.1626
+      },
+      "gnd_connected_to_graph": true,
+      "uses_synthesized_pin_access": false,
+      "power_connection_status": "GEOMETRY_POWER_GRAPH_CONNECTED",
+      "blocking_reason": "",
+      "next_required_action": "Carry this module power connection into C6 validation."
+    },
+    {
+      "module_name": "column_mux",
+      "instance_name": "column_mux",
+      "physical_role": "COLUMN_MUX",
+      "vdd_pin_name": "VDD",
+      "vdd_pin_status": "GEOMETRY_BACKED_PIN",
+      "vdd_pin_bbox_top": {
+        "x0": 18.60625,
+        "y0": 22.687,
+        "x1": 18.92625,
+        "y1": 22.753,
+        "width": 0.32,
+        "height": 0.066
+      },
+      "vdd_stitch_shape_id": "POWER_SHAPE_0037",
+      "vdd_stitch_bbox": {
+        "x0": 18.71625,
+        "y0": 22.72,
+        "x1": 19.84,
+        "y1": 26.9199,
+        "width": 1.12375,
+        "height": 4.1999
+      },
+      "vdd_connected_to_graph": true,
+      "gnd_pin_name": "GND",
+      "gnd_pin_status": "GEOMETRY_BACKED_PIN",
+      "gnd_pin_bbox_top": {
+        "x0": 19.13825,
+        "y0": 21.897,
+        "x1": 19.20425,
+        "y1": 21.962,
+        "width": 0.066,
+        "height": 0.065
+      },
+      "gnd_stitch_shape_id": "POWER_SHAPE_0038",
+      "gnd_stitch_bbox": {
+        "x0": 19.12125,
+        "y0": 21.2101,
+        "x1": 19.84,
+        "y1": 21.9295,
+        "width": 0.71875,
+        "height": 0.7194
+      },
+      "gnd_connected_to_graph": true,
+      "uses_synthesized_pin_access": false,
+      "power_connection_status": "GEOMETRY_POWER_GRAPH_CONNECTED",
+      "blocking_reason": "",
+      "next_required_action": "Carry this module power connection into C6 validation."
+    },
+    {
+      "module_name": "sense_amp",
+      "instance_name": "sense_amp",
+      "physical_role": "SENSE_AMP",
+      "vdd_pin_name": "VDD",
+      "vdd_pin_status": "GEOMETRY_BACKED_PIN",
+      "vdd_pin_bbox_top": {
+        "x0": 20.60075,
+        "y0": 24.795,
+        "x1": 20.67075,
+        "y1": 24.93,
+        "width": 0.07,
+        "height": 0.135
+      },
+      "vdd_stitch_shape_id": "POWER_SHAPE_0039",
+      "vdd_stitch_bbox": {
+        "x0": 19.74,
+        "y0": 24.8625,
+        "x1": 20.68575,
+        "y1": 26.9199,
+        "width": 0.94575,
+        "height": 2.0574
+      },
+      "vdd_connected_to_graph": true,
+      "gnd_pin_name": "GND",
+      "gnd_pin_status": "GEOMETRY_BACKED_PIN",
+      "gnd_pin_bbox_top": {
+        "x0": 20.91075,
+        "y0": 21.162,
+        "x1": 20.98575,
+        "y1": 21.237,
+        "width": 0.075,
+        "height": 0.075
+      },
+      "gnd_stitch_shape_id": "POWER_SHAPE_0040",
+      "gnd_stitch_bbox": {
+        "x0": 19.74,
+        "y0": 21.1595,
+        "x1": 20.99825,
+        "y1": 21.2501,
+        "width": 1.25825,
+        "height": 0.0906
+      },
+      "gnd_connected_to_graph": true,
+      "uses_synthesized_pin_access": false,
+      "power_connection_status": "GEOMETRY_POWER_GRAPH_CONNECTED",
+      "blocking_reason": "",
+      "next_required_action": "Carry this module power connection into C6 validation."
+    },
+    {
+      "module_name": "write_driver",
+      "instance_name": "write_driver",
+      "physical_role": "WRITE_DRIVER",
+      "vdd_pin_name": "VDD",
+      "vdd_pin_status": "GEOMETRY_BACKED_PIN",
+      "vdd_pin_bbox_top": {
+        "x0": 22.16375,
+        "y0": 21.455,
+        "x1": 22.29875,
+        "y1": 21.525,
+        "width": 0.135,
+        "height": 0.07
+      },
+      "vdd_stitch_shape_id": "POWER_SHAPE_0041",
+      "vdd_stitch_bbox": {
+        "x0": 19.74,
+        "y0": 21.49,
+        "x1": 22.28125,
+        "y1": 26.9199,
+        "width": 2.54125,
+        "height": 5.4299
+      },
+      "vdd_connected_to_graph": true,
+      "gnd_pin_name": "GND",
+      "gnd_pin_status": "GEOMETRY_BACKED_PIN",
+      "gnd_pin_bbox_top": {
+        "x0": 22.02375,
+        "y0": 22.222,
+        "x1": 22.09375,
+        "y1": 24.857,
+        "width": 0.07,
+        "height": 2.635
+      },
+      "gnd_stitch_shape_id": "POWER_SHAPE_0042",
+      "gnd_stitch_bbox": {
+        "x0": 19.74,
+        "y0": 21.2101,
+        "x1": 22.10875,
+        "y1": 23.5395,
+        "width": 2.36875,
+        "height": 2.3294
+      },
+      "gnd_connected_to_graph": true,
+      "uses_synthesized_pin_access": false,
+      "power_connection_status": "GEOMETRY_POWER_GRAPH_CONNECTED",
+      "blocking_reason": "",
+      "next_required_action": "Carry this module power connection into C6 validation."
+    },
+    {
+      "module_name": "CONTROL_LOGIC",
+      "instance_name": "CONTROL_LOGIC",
+      "physical_role": "CONTROL_LOGIC",
+      "vdd_pin_name": "VDD",
+      "vdd_pin_status": "GEOMETRY_BACKED_PIN",
+      "vdd_pin_bbox_top": {
+        "x0": 6.5375,
+        "y0": 5.757,
+        "x1": 7.2245,
+        "y1": 5.822,
+        "width": 0.687,
+        "height": 0.065
+      },
+      "vdd_stitch_shape_id": "POWER_SHAPE_0043",
+      "vdd_stitch_bbox": {
+        "x0": 6.831,
+        "y0": 5.7895,
+        "x1": 30.195,
+        "y1": 11.83425,
+        "width": 23.364,
+        "height": 6.04475
+      },
+      "vdd_connected_to_graph": true,
+      "gnd_pin_name": "GND",
+      "gnd_pin_status": "GEOMETRY_BACKED_PIN",
+      "gnd_pin_bbox_top": {
+        "x0": 6.5375,
+        "y0": 4.392,
+        "x1": 7.2245,
+        "y1": 4.458,
+        "width": 0.687,
+        "height": 0.066
+      },
+      "gnd_stitch_shape_id": "POWER_SHAPE_0044",
+      "gnd_stitch_bbox": {
+        "x0": 6.831,
+        "y0": 4.425,
+        "x1": 30.195,
+        "y1": 4.59075,
+        "width": 23.364,
+        "height": 0.16575
+      },
+      "gnd_connected_to_graph": true,
+      "uses_synthesized_pin_access": false,
+      "power_connection_status": "GEOMETRY_POWER_GRAPH_CONNECTED",
+      "blocking_reason": "",
+      "next_required_action": "Carry this module power connection into C6 validation."
+    },
+    {
+      "module_name": "DELAY_CHAIN",
+      "instance_name": "DELAY_CHAIN",
+      "physical_role": "DELAY_CHAIN",
+      "vdd_pin_name": "VDD",
+      "vdd_pin_status": "GEOMETRY_BACKED_PIN",
+      "vdd_pin_bbox_top": {
+        "x0": 14.1425,
+        "y0": 6.862,
+        "x1": 14.8295,
+        "y1": 6.927,
+        "width": 0.687,
+        "height": 0.065
+      },
+      "vdd_stitch_shape_id": "POWER_SHAPE_0045",
+      "vdd_stitch_bbox": {
+        "x0": 14.436,
+        "y0": 6.8945,
+        "x1": 30.195,
+        "y1": 11.83425,
+        "width": 15.759,
+        "height": 4.93975
+      },
+      "vdd_connected_to_graph": true,
+      "gnd_pin_name": "GND",
+      "gnd_pin_status": "GEOMETRY_BACKED_PIN",
+      "gnd_pin_bbox_top": {
+        "x0": 14.1425,
+        "y0": 4.392,
+        "x1": 14.8295,
+        "y1": 4.458,
+        "width": 0.687,
+        "height": 0.066
+      },
+      "gnd_stitch_shape_id": "POWER_SHAPE_0046",
+      "gnd_stitch_bbox": {
+        "x0": 14.436,
+        "y0": 4.425,
+        "x1": 30.195,
+        "y1": 4.59075,
+        "width": 15.759,
+        "height": 0.16575
+      },
+      "gnd_connected_to_graph": true,
+      "uses_synthesized_pin_access": false,
+      "power_connection_status": "GEOMETRY_POWER_GRAPH_CONNECTED",
+      "blocking_reason": "",
+      "next_required_action": "Carry this module power connection into C6 validation."
+    },
+    {
+      "module_name": "PRECHARGE_ENABLE_PATH",
+      "instance_name": "PRECHARGE_ENABLE_PATH",
+      "physical_role": "ENABLE_PATH",
+      "vdd_pin_name": "VDD",
+      "vdd_pin_status": "GEOMETRY_BACKED_PIN",
+      "vdd_pin_bbox_top": {
+        "x0": 19.2725,
+        "y0": 5.582,
+        "x1": 19.3375,
+        "y1": 5.647,
+        "width": 0.065,
+        "height": 0.065
+      },
+      "vdd_stitch_shape_id": "POWER_SHAPE_0047",
+      "vdd_stitch_bbox": {
+        "x0": 19.255,
+        "y0": 5.6145,
+        "x1": 30.195,
+        "y1": 11.83425,
+        "width": 10.94,
+        "height": 6.21975
+      },
+      "vdd_connected_to_graph": true,
+      "gnd_pin_name": "GND",
+      "gnd_pin_status": "GEOMETRY_BACKED_PIN",
+      "gnd_pin_bbox_top": {
+        "x0": 18.9325,
+        "y0": 4.392,
+        "x1": 19.6195,
+        "y1": 4.458,
+        "width": 0.687,
+        "height": 0.066
+      },
+      "gnd_stitch_shape_id": "POWER_SHAPE_0048",
+      "gnd_stitch_bbox": {
+        "x0": 19.226,
+        "y0": 4.425,
+        "x1": 30.195,
+        "y1": 4.59075,
+        "width": 10.969,
+        "height": 0.16575
+      },
+      "gnd_connected_to_graph": true,
+      "uses_synthesized_pin_access": false,
+      "power_connection_status": "GEOMETRY_POWER_GRAPH_CONNECTED",
+      "blocking_reason": "",
+      "next_required_action": "Carry this module power connection into C6 validation."
+    },
+    {
+      "module_name": "SENSE_ENABLE_PATH",
+      "instance_name": "SENSE_ENABLE_PATH",
+      "physical_role": "ENABLE_PATH",
+      "vdd_pin_name": "VDD",
+      "vdd_pin_status": "GEOMETRY_BACKED_PIN",
+      "vdd_pin_bbox_top": {
+        "x0": 24.9975,
+        "y0": 8.16,
+        "x1": 25.0625,
+        "y1": 8.295,
+        "width": 0.065,
+        "height": 0.135
+      },
+      "vdd_stitch_shape_id": "POWER_SHAPE_0049",
+      "vdd_stitch_bbox": {
+        "x0": 24.98,
+        "y0": 8.2275,
+        "x1": 30.195,
+        "y1": 11.83425,
+        "width": 5.215,
+        "height": 3.60675
+      },
+      "vdd_connected_to_graph": true,
+      "gnd_pin_name": "GND",
+      "gnd_pin_status": "GEOMETRY_BACKED_PIN",
+      "gnd_pin_bbox_top": {
+        "x0": 25.3495,
+        "y0": 10.052,
+        "x1": 25.4145,
+        "y1": 10.187,
+        "width": 0.065,
+        "height": 0.135
+      },
+      "gnd_stitch_shape_id": "POWER_SHAPE_0050",
+      "gnd_stitch_bbox": {
+        "x0": 25.332,
+        "y0": 4.59075,
+        "x1": 30.195,
+        "y1": 10.1195,
+        "width": 4.863,
+        "height": 5.52875
+      },
+      "gnd_connected_to_graph": true,
+      "uses_synthesized_pin_access": false,
+      "power_connection_status": "GEOMETRY_POWER_GRAPH_CONNECTED",
+      "blocking_reason": "",
+      "next_required_action": "Carry this module power connection into C6 validation."
+    },
+    {
+      "module_name": "WRITE_ENABLE_PATH",
+      "instance_name": "WRITE_ENABLE_PATH",
+      "physical_role": "ENABLE_PATH",
+      "vdd_pin_name": "VDD",
+      "vdd_pin_status": "GEOMETRY_BACKED_PIN",
+      "vdd_pin_bbox_top": {
+        "x0": 29.705,
+        "y0": 4.822,
+        "x1": 29.84,
+        "y1": 4.887,
+        "width": 0.135,
+        "height": 0.065
+      },
+      "vdd_stitch_shape_id": "POWER_SHAPE_0051",
+      "vdd_stitch_bbox": {
+        "x0": 29.7225,
+        "y0": 4.8545,
+        "x1": 30.195,
+        "y1": 11.83425,
+        "width": 0.4725,
+        "height": 6.97975
+      },
+      "vdd_connected_to_graph": true,
+      "gnd_pin_name": "GND",
+      "gnd_pin_status": "GEOMETRY_BACKED_PIN",
+      "gnd_pin_bbox_top": {
+        "x0": 29.6,
+        "y0": 4.392,
+        "x1": 30.287,
+        "y1": 4.458,
+        "width": 0.687,
+        "height": 0.066
+      },
+      "gnd_stitch_shape_id": "POWER_SHAPE_0052",
+      "gnd_stitch_bbox": {
+        "x0": 29.8935,
+        "y0": 4.425,
+        "x1": 30.195,
+        "y1": 4.59075,
+        "width": 0.3015,
+        "height": 0.16575
+      },
+      "gnd_connected_to_graph": true,
+      "uses_synthesized_pin_access": false,
+      "power_connection_status": "GEOMETRY_POWER_GRAPH_CONNECTED",
+      "blocking_reason": "",
+      "next_required_action": "Carry this module power connection into C6 validation."
+    },
+    {
+      "module_name": "WORDLINE_ENABLE_PATH",
+      "instance_name": "WORDLINE_ENABLE_PATH",
+      "physical_role": "ENABLE_PATH",
+      "vdd_pin_name": "VDD",
+      "vdd_pin_status": "GEOMETRY_BACKED_PIN",
+      "vdd_pin_bbox_top": {
+        "x0": 32.7625,
+        "y0": 5.757,
+        "x1": 33.4495,
+        "y1": 5.822,
+        "width": 0.687,
+        "height": 0.065
+      },
+      "vdd_stitch_shape_id": "POWER_SHAPE_0053",
+      "vdd_stitch_bbox": {
+        "x0": 30.095,
+        "y0": 5.7895,
+        "x1": 33.156,
+        "y1": 11.83425,
+        "width": 3.061,
+        "height": 6.04475
+      },
+      "vdd_connected_to_graph": true,
+      "gnd_pin_name": "GND",
+      "gnd_pin_status": "GEOMETRY_BACKED_PIN",
+      "gnd_pin_bbox_top": {
+        "x0": 32.7625,
+        "y0": 4.392,
+        "x1": 33.4495,
+        "y1": 4.458,
+        "width": 0.687,
+        "height": 0.066
+      },
+      "gnd_stitch_shape_id": "POWER_SHAPE_0054",
+      "gnd_stitch_bbox": {
+        "x0": 30.095,
+        "y0": 4.425,
+        "x1": 33.156,
+        "y1": 4.59075,
+        "width": 3.061,
+        "height": 0.16575
+      },
+      "gnd_connected_to_graph": true,
+      "uses_synthesized_pin_access": false,
+      "power_connection_status": "GEOMETRY_POWER_GRAPH_CONNECTED",
+      "blocking_reason": "",
+      "next_required_action": "Carry this module power connection into C6 validation."
+    },
+    {
+      "module_name": "GATED_CLOCK_PATH",
+      "instance_name": "GATED_CLOCK_PATH",
+      "physical_role": "CLOCK_PATH",
+      "vdd_pin_name": "VDD",
+      "vdd_pin_status": "GEOMETRY_BACKED_PIN",
+      "vdd_pin_bbox_top": {
+        "x0": 38.13,
+        "y0": 5.757,
+        "x1": 38.817,
+        "y1": 5.822,
+        "width": 0.687,
+        "height": 0.065
+      },
+      "vdd_stitch_shape_id": "POWER_SHAPE_0055",
+      "vdd_stitch_bbox": {
+        "x0": 30.095,
+        "y0": 5.7895,
+        "x1": 38.5235,
+        "y1": 11.83425,
+        "width": 8.4285,
+        "height": 6.04475
+      },
+      "vdd_connected_to_graph": true,
+      "gnd_pin_name": "GND",
+      "gnd_pin_status": "GEOMETRY_BACKED_PIN",
+      "gnd_pin_bbox_top": {
+        "x0": 38.13,
+        "y0": 4.392,
+        "x1": 38.817,
+        "y1": 4.458,
+        "width": 0.687,
+        "height": 0.066
+      },
+      "gnd_stitch_shape_id": "POWER_SHAPE_0056",
+      "gnd_stitch_bbox": {
+        "x0": 30.095,
+        "y0": 4.425,
+        "x1": 38.5235,
+        "y1": 4.59075,
+        "width": 8.4285,
+        "height": 0.16575
+      },
+      "gnd_connected_to_graph": true,
+      "uses_synthesized_pin_access": false,
+      "power_connection_status": "GEOMETRY_POWER_GRAPH_CONNECTED",
+      "blocking_reason": "",
+      "next_required_action": "Carry this module power connection into C6 validation."
+    },
+    {
+      "module_name": "DFF_ROW",
+      "instance_name": "DFF_ROW",
+      "physical_role": "DFF_ROW",
+      "vdd_pin_name": "VDD",
+      "vdd_pin_status": "GEOMETRY_BACKED_PIN",
+      "vdd_pin_bbox_top": {
+        "x0": 42.3125,
+        "y0": 6.83,
+        "x1": 45.0725,
+        "y1": 6.96,
+        "width": 2.76,
+        "height": 0.13
+      },
+      "vdd_stitch_shape_id": "POWER_SHAPE_0057",
+      "vdd_stitch_bbox": {
+        "x0": 30.095,
+        "y0": 6.895,
+        "x1": 43.7425,
+        "y1": 11.83425,
+        "width": 13.6475,
+        "height": 4.93925
+      },
+      "vdd_connected_to_graph": true,
+      "gnd_pin_name": "GND",
+      "gnd_pin_status": "GEOMETRY_BACKED_PIN",
+      "gnd_pin_bbox_top": {
+        "x0": 42.3125,
+        "y0": 4.36,
+        "x1": 45.1725,
+        "y1": 4.49,
+        "width": 2.86,
+        "height": 0.13
+      },
+      "gnd_stitch_shape_id": "POWER_SHAPE_0058",
+      "gnd_stitch_bbox": {
+        "x0": 30.095,
+        "y0": 4.425,
+        "x1": 43.7925,
+        "y1": 4.59075,
+        "width": 13.6975,
+        "height": 0.16575
+      },
+      "gnd_connected_to_graph": true,
+      "uses_synthesized_pin_access": false,
+      "power_connection_status": "GEOMETRY_POWER_GRAPH_CONNECTED",
+      "blocking_reason": "",
+      "next_required_action": "Carry this module power connection into C6 validation."
+    }
+  ]
+}
