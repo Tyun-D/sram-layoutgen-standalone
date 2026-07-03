@@ -8,8 +8,8 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M3F",
-  "next_stage": "M4",
+  "current_stage": "M4E",
+  "next_stage": "M5_IMPLEMENT_OPENYIELD_LAYOUTGEN_INTEGRATION",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": true,
@@ -243,9 +243,9 @@
     "signoff-ready",
     "tapeout-ready"
   ],
-  "last_user_correction": "M3R review failed/partially failed:\n- OpenYield semantics were mostly exported as text labels.\n- Physical cells remained layoutgen original cells.\n- first_round_openyield_gds_reused_count = 0.\n- Optimized layoutgen rail-overlap / power-rail stitching flow was not restored.\n- Do not proceed to final validation before restoring optimized layoutgen generation flow.",
-  "current_wrong_route_to_avoid": "Do not proceed with baseline-only layoutgen or label-only OpenYield binding. Restore optimized rail-overlap / abutment flow and keep access_module/floorplan_proxy out of the physical backbone.",
-  "next_task_summary": "Wait for human KLayout review of /data1/qujh/work/sram_layoutgen_step45_clean/outputs/M3F_optimized_layoutgen_restore/current_supported_config/openyield_optimized_layoutgen_sram.gds before any final validation stage.",
+  "last_user_correction": "M3F review:\n- optimized layoutgen flow has been restored;\n- power rail stitching / rail overlap flow has been recovered;\n- current GDS has reached the previous layoutgen optimization level;\n- but it still mainly uses original layoutgen modules;\n- next goal is to integrate OpenYield netlist-defined modules into the layoutgen physical generator;\n- because OpenYield module count/type/pin/connection may differ from layoutgen baseline, floorplan / placement / routing / power code may need modification;\n- only one feasibility evaluation is allowed before direct implementation.",
+  "current_wrong_route_to_avoid": "Do not add another evaluation stage after M4E. Move directly into the defined implementation scope, or stop if blockers are explicit.",
+  "next_task_summary": "After human KLayout review of /data1/qujh/work/sram_layoutgen_step45_clean/outputs/M4E_openyield_integration_eval/current_supported_config/openyield_integration_feasibility_review.gds, proceed only to M5_IMPLEMENT_OPENYIELD_LAYOUTGEN_INTEGRATION.",
   "last_M2_report": {
     "full_sram_review_gds_generated": true,
     "full_sram_review_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/test_M2_layoutgen_full_trial/current_supported_config/openyield_layoutgen_full_trial_sram.gds",
@@ -286,6 +286,22 @@
     "full_sram_review_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M3F_optimized_layoutgen_restore/current_supported_config/openyield_optimized_layoutgen_sram.gds",
     "top_cell_name": "openyield_optimized_layoutgen_sram",
     "openyield_physical_binding_count": 20,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false
+  },
+  "evaluation_only_once_enforced": true,
+  "no_more_evaluation_allowed_after_M4E": true,
+  "last_M4E_report": {
+    "go_nogo_decision": "PARTIAL_GO_WITH_DEFINED_SCOPE",
+    "allowed_next_stage": "M5_IMPLEMENT_OPENYIELD_LAYOUTGEN_INTEGRATION",
+    "review_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M4E_openyield_integration_eval/current_supported_config/openyield_integration_feasibility_review.gds",
+    "review_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "openyield_module_count": 20,
+    "direct_generator_binding_count": 3,
+    "parameterized_generator_binding_count": 6,
+    "real_cell_wrapper_count": 5,
+    "layoutgen_fallback_with_openyield_semantics_count": 6,
+    "not_implementable_now_count": 0,
     "human_klayout_review_required": true,
     "can_enter_next_stage_before_human_review": false
   }

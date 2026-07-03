@@ -1,0 +1,4 @@
+go_nogo_decision,selected,reason,allowed_next_stage
+GO_DIRECT_IMPLEMENTATION,False,Would require all 20 OpenYield modules to be implementable without fallback.,M5_IMPLEMENT_OPENYIELD_LAYOUTGEN_INTEGRATION
+PARTIAL_GO_WITH_DEFINED_SCOPE,True,"A full one-shot replacement is not ready because six control/time modules still require layoutgen fallback semantics, even though fourteen modules can enter direct implementation now. The current intent JSON is still frozen at 4x4 / words_per_row=1 while the restored optimized backbone is 8x64 / words_per_row=4.",M5_IMPLEMENT_OPENYIELD_LAYOUTGEN_INTEGRATION
+NO_GO_WITH_BLOCKERS,False,Use only when optimized flow or binding evidence is insufficient for any direct implementation.,STOP_DUE_TO_BLOCKERS
