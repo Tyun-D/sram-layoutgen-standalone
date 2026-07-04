@@ -1,0 +1,23 @@
+{
+  "reference_config_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/layout_prototype/hybrid_openyield_rail_overlap/prototype_result.json",
+  "reference_complete_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+  "true_generation_entry_identified": true,
+  "generator_entry_script": "/data1/qujh/work/sram_layoutgen_step45_clean/scripts/openyield_generate_layout_prototype.py",
+  "generator_function": "sram_layoutgen.openyield_adapter.layout_prototype.generate_layout_prototype",
+  "mode": "hybrid_openyield_prototype",
+  "arguments": {
+    "word_size": 8,
+    "num_words": 64,
+    "words_per_row": 4,
+    "enable_openyield_gate_row_packing": true,
+    "enable_openyield_gate_row_vertical_abutment": false,
+    "enable_openyield_rail_to_rail_abutment": true,
+    "enable_openyield_power_rail_overlap_packing": true,
+    "enable_openyield_dff_row_packing": true,
+    "exclude_dff_vertical_overlap": true
+  },
+  "generated_complete_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6R_reference_locked_reproduce/current_supported_config/hybrid_openyield_rail_overlap.complete.gds",
+  "generated_review_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6R_reference_locked_reproduce/current_supported_config/layoutgen_hybrid_reproduced_M6R.gds",
+  "byte_identical_to_reference_complete_gds": true,
+  "m6_wrong_artifact_reason": "M6 reported against regenerated metrics and compared/handed off the primary .gds artifact instead of the reference-locked .complete.gds visual-routing artifact."
+}

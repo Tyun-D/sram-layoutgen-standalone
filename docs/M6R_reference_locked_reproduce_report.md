@@ -1,0 +1,14 @@
+# M6R Reference Locked Reproduce Report
+
+- status_file_read: `True`
+- status_file_updated: `True`
+- reference_copy_for_review_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6R_reference_locked_reproduce/current_supported_config/reference_copy_for_review.gds`
+- m6_previous_output_for_review_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6R_reference_locked_reproduce/current_supported_config/m6_previous_output_for_review.gds`
+- layoutgen_hybrid_reproduced_M6R_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6R_reference_locked_reproduce/current_supported_config/layoutgen_hybrid_reproduced_M6R.gds`
+- layoutgen_hybrid_reproduced_M6R_clean_review_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6R_reference_locked_reproduce/current_supported_config/layoutgen_hybrid_reproduced_M6R_clean_review.gds`
+- true_generation_entry_identified: `True`
+- m6_previous_matches_reference: `False`
+- reproduced_matches_reference: `True`
+- byte_identical_reference_vs_reproduced_complete: `True`
+- human_klayout_review_required: `True`
+- can_enter_next_stage_before_human_review: `False`
