@@ -4,41 +4,33 @@
 
 基于原 layoutgen 版图生成器，将 OpenYield 的模块、网表语义和连接关系接入真实 SRAM GDS 生成主干，生成 OpenYield-driven layoutgen-based SRAM GDS。
 
-## 2. Current Route
+## 2. Current Stage
 
-- S0：全部成果整理与路线重置
-- M1：layoutgen 原生成路径审计 + OpenYield 模块绑定
-- M2R：按锁定 SRAM 规格复用 layoutgen 原 SRAM top flow 重做 review GDS
-- M3R：在 M2R 物理 backbone 上绑定 OpenYield module/net semantics
-- M3F：恢复优化版 layoutgen 主干并接入 OpenYield 语义
-- M4E：唯一一次 OpenYield integration feasibility evaluation
-- M5：OpenYield integration into optimized layoutgen flow
-
-## 3. Current Stage
-
-- current_stage: `M5`
+- current_stage: `T1`
 - next_stage: `WAIT_HUMAN_KLAYOUT_REVIEW`
 - human_klayout_review_required_every_stage: `True`
 - can_enter_next_stage_without_human_review: `False`
-- no_more_evaluation_allowed_after_M4E: `True`
 
-## 4. M5 Result
+## 3. M5 Human Review
 
-- integrated_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M5_openyield_layoutgen_integration/current_supported_config/openyield_layoutgen_integrated_sram.gds`
-- top_cell_name: `openyield_layoutgen_integrated_sram`
-- gds_sanity_status: `GDS_PARSED_SANITY_PASSED`
-- openyield_modules_implemented_count: `20`
-- openyield_nets_implemented_count: `34`
-- optimized_power_rail_stitch_preserved: `True`
+- Current GDS is visually cluttered by OpenYield/M5 debug text labels.
+- The physical hierarchy still mainly uses layoutgen cells.
+- Current evidence does not yet prove the final GDS is truly generated from the OpenYield netlist.
+- OpenYield-to-layoutgen integration must be proven by a netlist-to-layout trace, not by text labels.
+- Bitcell power rail merging / rail continuity appears not fully restored in the generated GDS.
+- Next immediate work is cleanup + complete OpenYield file inventory, not another integration attempt.
 
-## 5. Review Gate
+## 4. T1 Result
 
-- This M5 GDS is for human KLayout review only.
-- No more feasibility/evaluation stage is allowed after M4E.
-- Do not claim DRC clean.
-- Do not claim LVS clean.
-- Do not claim signoff-ready.
+- clean_review_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/T1_clean_m5_review/current_supported_config/openyield_layoutgen_integrated_sram_clean_review.gds`
+- clean_gds_sanity_status: `GDS_PARSED_SANITY_PASSED`
+- removed_text_count: `74`
+- physical_shape_preserved: `True`
+- cell_hierarchy_preserved: `True`
+- openyield_file_count_total: `130`
+- openyield_source_file_count: `94`
+- openyield_netlist_candidate_file_count: `37`
 
-## 6. Next Immediate Task
+## 5. Next Immediate Task
 
-等待人工 KLayout review `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M5_openyield_layoutgen_integration/current_supported_config/openyield_layoutgen_integrated_sram.gds`，确认 OpenYield module/net 实施接入 optimized layoutgen backbone 的整体方向。未经用户确认，不进入下一阶段。
+先对 clean review GDS 做人工 KLayout 复核，再进入 netlist-to-layout translator 设计；在此之前不进入下一阶段。详见 `/data1/qujh/work/sram_layoutgen_step45_clean/docs/T1_openyield_full_file_report.md`。

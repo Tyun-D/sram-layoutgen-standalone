@@ -8,7 +8,7 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M5",
+  "current_stage": "T1",
   "next_stage": "WAIT_HUMAN_KLAYOUT_REVIEW",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
@@ -245,7 +245,7 @@
   ],
   "last_user_correction": "M3F review:\n- optimized layoutgen flow has been restored;\n- power rail stitching / rail overlap flow has been recovered;\n- current GDS has reached the previous layoutgen optimization level;\n- but it still mainly uses original layoutgen modules;\n- next goal is to integrate OpenYield netlist-defined modules into the layoutgen physical generator;\n- because OpenYield module count/type/pin/connection may differ from layoutgen baseline, floorplan / placement / routing / power code may need modification;\n- only one feasibility evaluation is allowed before direct implementation.",
   "current_wrong_route_to_avoid": "Do not add another evaluation stage after M4E. Move directly into the defined implementation scope, or stop if blockers are explicit.",
-  "next_task_summary": "Wait for human KLayout review of /data1/qujh/work/sram_layoutgen_step45_clean/outputs/M5_openyield_layoutgen_integration/current_supported_config/openyield_layoutgen_integrated_sram.gds before any post-M5 stage.",
+  "next_task_summary": "Human KLayout review of /data1/qujh/work/sram_layoutgen_step45_clean/outputs/T1_clean_m5_review/current_supported_config/openyield_layoutgen_integrated_sram_clean_review.gds is required before any next-stage netlist-to-layout translator work.",
   "last_M2_report": {
     "full_sram_review_gds_generated": true,
     "full_sram_review_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/test_M2_layoutgen_full_trial/current_supported_config/openyield_layoutgen_full_trial_sram.gds",
@@ -315,6 +315,27 @@
     "optimized_power_rail_stitch_preserved": true,
     "module_power_rail_connected_count": 20,
     "rail_overlap_or_abutment_evidence_count": 15,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false
+  },
+  "last_M5_human_review": {
+    "current_gds_visually_cluttered_by_debug_text_labels": true,
+    "physical_hierarchy_still_mainly_uses_layoutgen_cells": true,
+    "final_gds_proven_openyield_netlist_driven": false,
+    "must_prove_integration_via_netlist_to_layout_trace_not_text_labels": true,
+    "bitcell_power_rail_merging_fully_restored": false,
+    "next_immediate_work": "cleanup + complete OpenYield file inventory"
+  },
+  "last_T1_report": {
+    "clean_review_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/T1_clean_m5_review/current_supported_config/openyield_layoutgen_integrated_sram_clean_review.gds",
+    "clean_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "removed_text_count": 74,
+    "physical_shape_preserved": true,
+    "cell_hierarchy_preserved": true,
+    "openyield_file_count_total": 130,
+    "openyield_source_file_count": 94,
+    "openyield_netlist_candidate_file_count": 37,
+    "next_stage_should_be_netlist_to_layout_translator": true,
     "human_klayout_review_required": true,
     "can_enter_next_stage_before_human_review": false
   }

@@ -1,0 +1,134 @@
+# OpenYield/Layoutgen Relevance Matrix
+
+| relative_path | relevance_category | relevance_to_sram_layoutgen | can_drive_layout_generation | can_provide_netlist_semantics | can_provide_module_definition | can_be_used_in_next_stage |
+| --- | --- | --- | --- | --- | --- | --- |
+| .gitignore | UNKNOWN | UNKNOWN | False | False | False | False |
+| LICENSE | DOCUMENTATION | Documentation or license material; informative for understanding the project but not a layout driver. | False | False | False | False |
+| README.md | DOCUMENTATION | Documentation or license material; informative for understanding the project but not a layout driver. | False | False | False | False |
+| conda | UTILITY | Project-level utility or environment helper with indirect integration relevance only. | False | False | False | False |
+| config.py | CONFIG | Central OpenYield YAML configuration loader that materializes SRAM/global/module semantics used by netlist-generation flows. | False | True | False | True |
+| demo_run_a_testbench.py | SCRIPT_ENTRYPOINT | Script entrypoint for optimization or estimation flows, useful for locating execution roots but not direct GDS generation. | False | False | False | False |
+| environment.yml | UTILITY | Project-level utility or environment helper with indirect integration relevance only. | False | False | False | False |
+| equivalent_modeling/main_sram.py | UTILITY | Equivalent-model experiments for simulation acceleration, not a direct physical-layout source. | False | False | False | False |
+| equivalent_modeling/run.sh | UTILITY | Equivalent-model experiments for simulation acceleration, not a direct physical-layout source. | False | False | False | False |
+| equivalent_modeling/test.ipynb | UTILITY | Equivalent-model experiments for simulation acceleration, not a direct physical-layout source. | False | False | False | False |
+| img/logo-cut-openyield.jpg | DOCUMENTATION | Documentation image asset with no layout-generation semantics. | False | False | False | False |
+| img/openyield_all-overall.drawio.png | DOCUMENTATION | Documentation image asset with no layout-generation semantics. | False | False | False | False |
+| main_estimation.py | SCRIPT_ENTRYPOINT | Script entrypoint for optimization or estimation flows, useful for locating execution roots but not direct GDS generation. | False | False | False | False |
+| main_opt.py | SCRIPT_ENTRYPOINT | Script entrypoint for optimization or estimation flows, useful for locating execution roots but not direct GDS generation. | False | False | False | False |
+| main_sram.py | NETLIST_SOURCE | Top-level OpenYield SRAM netlist generator entrypoint; useful as a trace source for future netlist-to-layout translation. | True | True | False | True |
+| plot_data.py | UTILITY | Project-level utility or environment helper with indirect integration relevance only. | False | False | False | False |
+| readme_compiler.md | DOCUMENTATION | Documentation or license material; informative for understanding the project but not a layout driver. | False | False | False | False |
+| refreshenv | UTILITY | Project-level utility or environment helper with indirect integration relevance only. | False | False | False | False |
+| size_optimization/MOBO/README.md | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/MOBO/__init__.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/MOBO/acquisition.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/MOBO/bayesian_optimizer.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/MOBO/individual.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/MOBO/main.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/MOBO/population.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/MOBO/problem.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/NSGA-II/Readme.md | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/NSGA-II/__init__.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/NSGA-II/evolution.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/NSGA-II/individual.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/NSGA-II/main.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/NSGA-II/nsga2_utils.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/NSGA-II/population.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/NSGA-II/problem.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/README.md | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/borl_model/actor_critic.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/borl_model/actor_net.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/borl_model/buffer.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/borl_model/critic_net.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/borl_model/ppo.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/config_sram.yaml | CONFIG | Optimization configuration, not physical layout source; may guide future translator inputs indirectly. | False | False | False | False |
+| size_optimization/demo_cbo.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/demo_cmaes.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/demo_cpn.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/demo_mobo.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/demo_moead.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/demo_nsgaii.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/demo_pso.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/demo_random.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/demo_roseopt.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/demo_sa.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/demo_smac.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/demo_tssbo.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/exp_utils.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/experiment.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/model_lib/models.spice | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/moead/__init__.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/moead/ga_utils.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/moead/individual.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/moead/mean_vector.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/moead/optimizer.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/moead/population.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/moead/problem.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/moead/utils.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/run_all_algos_test.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/run_experiments.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/sram_lef_generator.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/tongji.py | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/vector_csv_file/sram_joint_4obj_h17.csv | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| size_optimization/vector_csv_file/sram_joint_4obj_h2.csv | OPTIMIZATION_ALGORITHM | Optimization-side code for sizing/search, not a physical GDS implementation source. | False | False | False | False |
+| sram_compiler/config_yaml/config.py | CONFIG | Provides module parameters, array dimensions, device choices, and configuration semantics that can annotate layoutgen inputs. | False | True | False | True |
+| sram_compiler/config_yaml/decoder.yaml | CONFIG | Provides module parameters, array dimensions, device choices, and configuration semantics that can annotate layoutgen inputs. | False | True | False | True |
+| sram_compiler/config_yaml/global.yaml | CONFIG | Provides module parameters, array dimensions, device choices, and configuration semantics that can annotate layoutgen inputs. | False | True | False | True |
+| sram_compiler/config_yaml/mux.yaml | CONFIG | Provides module parameters, array dimensions, device choices, and configuration semantics that can annotate layoutgen inputs. | False | True | False | True |
+| sram_compiler/config_yaml/precharge.yaml | CONFIG | Provides module parameters, array dimensions, device choices, and configuration semantics that can annotate layoutgen inputs. | False | True | False | True |
+| sram_compiler/config_yaml/sa.yaml | CONFIG | Provides module parameters, array dimensions, device choices, and configuration semantics that can annotate layoutgen inputs. | False | True | False | True |
+| sram_compiler/config_yaml/sram_10t_cell.yaml | CONFIG | Provides module parameters, array dimensions, device choices, and configuration semantics that can annotate layoutgen inputs. | False | True | False | True |
+| sram_compiler/config_yaml/sram_6t_cell.yaml | CONFIG | Provides module parameters, array dimensions, device choices, and configuration semantics that can annotate layoutgen inputs. | False | True | False | True |
+| sram_compiler/config_yaml/sweep_config.py | CONFIG | Provides module parameters, array dimensions, device choices, and configuration semantics that can annotate layoutgen inputs. | False | True | False | True |
+| sram_compiler/config_yaml/wordline_driver.yaml | CONFIG | Provides module parameters, array dimensions, device choices, and configuration semantics that can annotate layoutgen inputs. | False | True | False | True |
+| sram_compiler/config_yaml/write_driver.yaml | CONFIG | Provides module parameters, array dimensions, device choices, and configuration semantics that can annotate layoutgen inputs. | False | True | False | True |
+| sram_compiler/subcircuits/base_subcircuit.py | MODULE_DEFINITION | Defines SRAM module/peripheral netlist structure and therefore provides module semantics relevant to layoutgen mapping. | False | True | True | True |
+| sram_compiler/subcircuits/decoder.py | MODULE_DEFINITION | Defines SRAM module/peripheral netlist structure and therefore provides module semantics relevant to layoutgen mapping. | False | True | True | True |
+| sram_compiler/subcircuits/dummy_row_or_column.py | MODULE_DEFINITION | Defines SRAM module/peripheral netlist structure and therefore provides module semantics relevant to layoutgen mapping. | False | True | True | True |
+| sram_compiler/subcircuits/mux_and_sa.py | MODULE_DEFINITION | Defines SRAM module/peripheral netlist structure and therefore provides module semantics relevant to layoutgen mapping. | False | True | True | True |
+| sram_compiler/subcircuits/precharge_and_write_driver.py | MODULE_DEFINITION | Defines SRAM module/peripheral netlist structure and therefore provides module semantics relevant to layoutgen mapping. | False | True | True | True |
+| sram_compiler/subcircuits/replica_column.py | MODULE_DEFINITION | Defines SRAM module/peripheral netlist structure and therefore provides module semantics relevant to layoutgen mapping. | False | True | True | True |
+| sram_compiler/subcircuits/sram_10t_core.py | MODULE_DEFINITION | Defines SRAM module/peripheral netlist structure and therefore provides module semantics relevant to layoutgen mapping. | False | True | True | True |
+| sram_compiler/subcircuits/sram_6t_core.py | MODULE_DEFINITION | Defines SRAM module/peripheral netlist structure and therefore provides module semantics relevant to layoutgen mapping. | False | True | True | True |
+| sram_compiler/subcircuits/sram_cell_add_equivalent.py | MODULE_DEFINITION | Defines SRAM module/peripheral netlist structure and therefore provides module semantics relevant to layoutgen mapping. | False | True | True | True |
+| sram_compiler/subcircuits/standard_cell.py | MODULE_DEFINITION | Defines SRAM module/peripheral netlist structure and therefore provides module semantics relevant to layoutgen mapping. | False | True | True | True |
+| sram_compiler/subcircuits/time_generate.py | MODULE_DEFINITION | Defines SRAM module/peripheral netlist structure and therefore provides module semantics relevant to layoutgen mapping. | False | True | True | True |
+| sram_compiler/subcircuits/wordline_driver.py | MODULE_DEFINITION | Defines SRAM module/peripheral netlist structure and therefore provides module semantics relevant to layoutgen mapping. | False | True | True | True |
+| sram_compiler/testbenches/base_testbench.py | NETLIST_SOURCE | Builds executable SRAM testbench/netlist contexts; relevant for tracing how OpenYield instantiates and connects modules. | False | True | False | True |
+| sram_compiler/testbenches/parameter_factor.py | NETLIST_SOURCE | Builds executable SRAM testbench/netlist contexts; relevant for tracing how OpenYield instantiates and connects modules. | False | True | False | True |
+| sram_compiler/testbenches/snm.py | NETLIST_SOURCE | Builds executable SRAM testbench/netlist contexts; relevant for tracing how OpenYield instantiates and connects modules. | False | True | False | True |
+| sram_compiler/testbenches/sram_6t_core_MC_testbench.py | NETLIST_SOURCE | Builds executable SRAM testbench/netlist contexts; relevant for tracing how OpenYield instantiates and connects modules. | False | True | False | True |
+| sram_compiler/testbenches/sram_6t_core_testbench.py | NETLIST_SOURCE | Builds executable SRAM testbench/netlist contexts; relevant for tracing how OpenYield instantiates and connects modules. | False | True | False | True |
+| sram_compiler/testbenches/yaml_change.py | NETLIST_SOURCE | Builds executable SRAM testbench/netlist contexts; relevant for tracing how OpenYield instantiates and connects modules. | False | True | False | True |
+| tran_models/models_FF.spice | DATASET | PDK transistor model deck for SPICE simulation; required for simulation fidelity but not a GDS layout source. | False | False | False | False |
+| tran_models/models_FS.spice | DATASET | PDK transistor model deck for SPICE simulation; required for simulation fidelity but not a GDS layout source. | False | False | False | False |
+| tran_models/models_SF.spice | DATASET | PDK transistor model deck for SPICE simulation; required for simulation fidelity but not a GDS layout source. | False | False | False | False |
+| tran_models/models_SS.spice | DATASET | PDK transistor model deck for SPICE simulation; required for simulation fidelity but not a GDS layout source. | False | False | False | False |
+| tran_models/models_TT.spice | DATASET | PDK transistor model deck for SPICE simulation; required for simulation fidelity but not a GDS layout source. | False | False | False | False |
+| utils.py | UTILITY | Project-level utility or environment helper with indirect integration relevance only. | False | False | False | False |
+| yield_estimation/README.md | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/__init__.py | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/bound_lib/model_108_bound.txt | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/bound_lib/model_1152_bound3.txt | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/bound_lib/model_18_bound.txt | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/bound_lib/model_bound_576.txt | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/demo_6tstamTestbench.py | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/model_lib/ACS.py | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/model_lib/AIS.py | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/model_lib/HSCS.py | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/model_lib/MC.py | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/model_lib/MNIS.py | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/model_lib/__init__.py | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/tool/Distribution/__init__.py | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/tool/Distribution/gmm_v1.py | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/tool/Distribution/gmm_v2.py | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/tool/Distribution/guassian_distribution.py | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/tool/Distribution/multi_cone_cluster.py | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/tool/Distribution/normal_v1.py | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/tool/Distribution/utils.py | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/tool/__init__.py | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/tool/delete.py | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| yield_estimation/tool/util.py | OPTIMIZATION_ALGORITHM | Yield-estimation/statistical code, largely orthogonal to physical layout generation. | False | False | False | False |
+| 电路算法说明文档.md | DOCUMENTATION | Documentation or license material; informative for understanding the project but not a layout driver. | False | False | False | False |
+| 等效电路说明文档.md | DOCUMENTATION | Documentation or license material; informative for understanding the project but not a layout driver. | False | False | False | False |
