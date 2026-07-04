@@ -1,0 +1,1234 @@
+{
+  "hybrid_openyield_rail_overlap_is_golden": false,
+  "new_uploaded_reference_is_golden": true,
+  "artifacts_compared": [
+    "new_golden_reference",
+    "historical_hybrid_openyield_complete",
+    "M6R_reproduced",
+    "M6_primary_output",
+    "M3F_complete",
+    "M5_integrated"
+  ],
+  "diffs_against_new_golden": {
+    "historical_hybrid_openyield_complete": [
+      {
+        "metric": "file_size_bytes",
+        "new_golden_reference": 389826,
+        "historical_hybrid_openyield_complete": 286992,
+        "match": false
+      },
+      {
+        "metric": "top_cell",
+        "new_golden_reference": "sram_8x64_wpr4_fd45",
+        "historical_hybrid_openyield_complete": "hybrid_openyield_rail_overlap",
+        "match": false
+      },
+      {
+        "metric": "cell_count",
+        "new_golden_reference": 33,
+        "historical_hybrid_openyield_complete": 30,
+        "match": false
+      },
+      {
+        "metric": "sref_count",
+        "new_golden_reference": 788,
+        "historical_hybrid_openyield_complete": 746,
+        "match": false
+      },
+      {
+        "metric": "boundary_count",
+        "new_golden_reference": 5418,
+        "historical_hybrid_openyield_complete": 3854,
+        "match": false
+      },
+      {
+        "metric": "path_count",
+        "new_golden_reference": 0,
+        "historical_hybrid_openyield_complete": 0,
+        "match": true
+      },
+      {
+        "metric": "bbox",
+        "new_golden_reference": {
+          "x0": -0.1,
+          "y0": -0.105,
+          "x1": 36.6225,
+          "y1": 44.145,
+          "width": 36.722500000000004,
+          "height": 44.25,
+          "shape_count": 5418
+        },
+        "historical_hybrid_openyield_complete": {
+          "x0": -0.1,
+          "y0": -0.105,
+          "x1": 42.7725,
+          "y1": 47.345,
+          "width": 42.8725,
+          "height": 47.449999999999996,
+          "shape_count": 3854
+        },
+        "match": false
+      },
+      {
+        "metric": "layer_datatype_summary",
+        "new_golden_reference": {
+          "1/0": 358,
+          "10/0": 284,
+          "11/0": 1083,
+          "12/0": 389,
+          "13/0": 1446,
+          "13/2": 11,
+          "14/0": 356,
+          "15/0": 552,
+          "15/2": 14,
+          "16/0": 176,
+          "17/0": 73,
+          "17/2": 2,
+          "2/0": 57,
+          "239/0": 38,
+          "3/0": 45,
+          "4/0": 67,
+          "5/0": 58,
+          "6/0": 64,
+          "9/0": 345
+        },
+        "historical_hybrid_openyield_complete": {
+          "1/0": 356,
+          "10/0": 283,
+          "11/0": 802,
+          "12/0": 229,
+          "13/0": 991,
+          "13/2": 11,
+          "14/0": 156,
+          "15/0": 329,
+          "15/2": 14,
+          "17/0": 20,
+          "17/2": 2,
+          "2/0": 54,
+          "239/0": 35,
+          "3/0": 45,
+          "4/0": 66,
+          "5/0": 57,
+          "6/0": 63,
+          "9/0": 341
+        },
+        "match": false
+      },
+      {
+        "metric": "per_layer_shape_count",
+        "new_golden_reference": {
+          "1/0": 358,
+          "10/0": 284,
+          "11/0": 1083,
+          "12/0": 389,
+          "13/0": 1446,
+          "13/2": 11,
+          "14/0": 356,
+          "15/0": 552,
+          "15/2": 14,
+          "16/0": 176,
+          "17/0": 73,
+          "17/2": 2,
+          "2/0": 57,
+          "239/0": 38,
+          "3/0": 45,
+          "4/0": 67,
+          "5/0": 58,
+          "6/0": 64,
+          "9/0": 345
+        },
+        "historical_hybrid_openyield_complete": {
+          "1/0": 356,
+          "10/0": 283,
+          "11/0": 802,
+          "12/0": 229,
+          "13/0": 991,
+          "13/2": 11,
+          "14/0": 156,
+          "15/0": 329,
+          "15/2": 14,
+          "17/0": 20,
+          "17/2": 2,
+          "2/0": 54,
+          "239/0": 35,
+          "3/0": 45,
+          "4/0": 66,
+          "5/0": 57,
+          "6/0": 63,
+          "9/0": 341
+        },
+        "match": false
+      },
+      {
+        "metric": "gen_col_mux_hierarchy_presence",
+        "new_golden_reference": {
+          "exact_instance_count": 32,
+          "wrapper_instance_count": 32,
+          "wrapper_cell_names": [
+            "gen_col_mux"
+          ],
+          "present_in_top_hierarchy": true
+        },
+        "historical_hybrid_openyield_complete": {
+          "exact_instance_count": 0,
+          "wrapper_instance_count": 0,
+          "wrapper_cell_names": [],
+          "present_in_top_hierarchy": false
+        },
+        "match": false
+      },
+      {
+        "metric": "tri_gate_hierarchy_presence",
+        "new_golden_reference": {
+          "exact_instance_count": 8,
+          "wrapper_instance_count": 8,
+          "wrapper_cell_names": [
+            "tri_gate"
+          ],
+          "present_in_top_hierarchy": true
+        },
+        "historical_hybrid_openyield_complete": {
+          "exact_instance_count": 8,
+          "wrapper_instance_count": 8,
+          "wrapper_cell_names": [
+            "tri_gate"
+          ],
+          "present_in_top_hierarchy": true
+        },
+        "match": true
+      },
+      {
+        "metric": "visible_structure_summary",
+        "new_golden_reference": {
+          "bitcell_array_present": true,
+          "dummy_present": true,
+          "replica_present": true,
+          "precharge_present": true,
+          "mux_present": true,
+          "sense_amp_present": true,
+          "write_driver_present": true,
+          "wl_driver_present": true
+        },
+        "historical_hybrid_openyield_complete": {
+          "bitcell_array_present": true,
+          "dummy_present": true,
+          "replica_present": true,
+          "precharge_present": true,
+          "mux_present": true,
+          "sense_amp_present": true,
+          "write_driver_present": true,
+          "wl_driver_present": true
+        },
+        "match": true
+      },
+      {
+        "metric": "power_summary.power_rail_overlap_positive_count",
+        "new_golden_reference": null,
+        "historical_hybrid_openyield_complete": 33,
+        "match": false
+      },
+      {
+        "metric": "power_summary.same_net_power_overlap_pass",
+        "new_golden_reference": null,
+        "historical_hybrid_openyield_complete": true,
+        "match": false
+      },
+      {
+        "metric": "power_summary.bitcell_rail_continuity_visible",
+        "new_golden_reference": "UNKNOWN",
+        "historical_hybrid_openyield_complete": true,
+        "match": false
+      },
+      {
+        "metric": "power_summary.rail_stitch_visible",
+        "new_golden_reference": "UNKNOWN",
+        "historical_hybrid_openyield_complete": true,
+        "match": false
+      },
+      {
+        "metric": "cell_hierarchy",
+        "new_golden_reference": "DIFF",
+        "historical_hybrid_openyield_complete": "DIFF",
+        "match": false
+      }
+    ],
+    "M6R_reproduced": [
+      {
+        "metric": "file_size_bytes",
+        "new_golden_reference": 389826,
+        "M6R_reproduced": 286992,
+        "match": false
+      },
+      {
+        "metric": "top_cell",
+        "new_golden_reference": "sram_8x64_wpr4_fd45",
+        "M6R_reproduced": "hybrid_openyield_rail_overlap",
+        "match": false
+      },
+      {
+        "metric": "cell_count",
+        "new_golden_reference": 33,
+        "M6R_reproduced": 30,
+        "match": false
+      },
+      {
+        "metric": "sref_count",
+        "new_golden_reference": 788,
+        "M6R_reproduced": 746,
+        "match": false
+      },
+      {
+        "metric": "boundary_count",
+        "new_golden_reference": 5418,
+        "M6R_reproduced": 3854,
+        "match": false
+      },
+      {
+        "metric": "path_count",
+        "new_golden_reference": 0,
+        "M6R_reproduced": 0,
+        "match": true
+      },
+      {
+        "metric": "bbox",
+        "new_golden_reference": {
+          "x0": -0.1,
+          "y0": -0.105,
+          "x1": 36.6225,
+          "y1": 44.145,
+          "width": 36.722500000000004,
+          "height": 44.25,
+          "shape_count": 5418
+        },
+        "M6R_reproduced": {
+          "x0": -0.1,
+          "y0": -0.105,
+          "x1": 42.7725,
+          "y1": 47.345,
+          "width": 42.8725,
+          "height": 47.449999999999996,
+          "shape_count": 3854
+        },
+        "match": false
+      },
+      {
+        "metric": "layer_datatype_summary",
+        "new_golden_reference": {
+          "1/0": 358,
+          "10/0": 284,
+          "11/0": 1083,
+          "12/0": 389,
+          "13/0": 1446,
+          "13/2": 11,
+          "14/0": 356,
+          "15/0": 552,
+          "15/2": 14,
+          "16/0": 176,
+          "17/0": 73,
+          "17/2": 2,
+          "2/0": 57,
+          "239/0": 38,
+          "3/0": 45,
+          "4/0": 67,
+          "5/0": 58,
+          "6/0": 64,
+          "9/0": 345
+        },
+        "M6R_reproduced": {
+          "1/0": 356,
+          "10/0": 283,
+          "11/0": 802,
+          "12/0": 229,
+          "13/0": 991,
+          "13/2": 11,
+          "14/0": 156,
+          "15/0": 329,
+          "15/2": 14,
+          "17/0": 20,
+          "17/2": 2,
+          "2/0": 54,
+          "239/0": 35,
+          "3/0": 45,
+          "4/0": 66,
+          "5/0": 57,
+          "6/0": 63,
+          "9/0": 341
+        },
+        "match": false
+      },
+      {
+        "metric": "per_layer_shape_count",
+        "new_golden_reference": {
+          "1/0": 358,
+          "10/0": 284,
+          "11/0": 1083,
+          "12/0": 389,
+          "13/0": 1446,
+          "13/2": 11,
+          "14/0": 356,
+          "15/0": 552,
+          "15/2": 14,
+          "16/0": 176,
+          "17/0": 73,
+          "17/2": 2,
+          "2/0": 57,
+          "239/0": 38,
+          "3/0": 45,
+          "4/0": 67,
+          "5/0": 58,
+          "6/0": 64,
+          "9/0": 345
+        },
+        "M6R_reproduced": {
+          "1/0": 356,
+          "10/0": 283,
+          "11/0": 802,
+          "12/0": 229,
+          "13/0": 991,
+          "13/2": 11,
+          "14/0": 156,
+          "15/0": 329,
+          "15/2": 14,
+          "17/0": 20,
+          "17/2": 2,
+          "2/0": 54,
+          "239/0": 35,
+          "3/0": 45,
+          "4/0": 66,
+          "5/0": 57,
+          "6/0": 63,
+          "9/0": 341
+        },
+        "match": false
+      },
+      {
+        "metric": "gen_col_mux_hierarchy_presence",
+        "new_golden_reference": {
+          "exact_instance_count": 32,
+          "wrapper_instance_count": 32,
+          "wrapper_cell_names": [
+            "gen_col_mux"
+          ],
+          "present_in_top_hierarchy": true
+        },
+        "M6R_reproduced": {
+          "exact_instance_count": 0,
+          "wrapper_instance_count": 0,
+          "wrapper_cell_names": [],
+          "present_in_top_hierarchy": false
+        },
+        "match": false
+      },
+      {
+        "metric": "tri_gate_hierarchy_presence",
+        "new_golden_reference": {
+          "exact_instance_count": 8,
+          "wrapper_instance_count": 8,
+          "wrapper_cell_names": [
+            "tri_gate"
+          ],
+          "present_in_top_hierarchy": true
+        },
+        "M6R_reproduced": {
+          "exact_instance_count": 8,
+          "wrapper_instance_count": 8,
+          "wrapper_cell_names": [
+            "tri_gate"
+          ],
+          "present_in_top_hierarchy": true
+        },
+        "match": true
+      },
+      {
+        "metric": "visible_structure_summary",
+        "new_golden_reference": {
+          "bitcell_array_present": true,
+          "dummy_present": true,
+          "replica_present": true,
+          "precharge_present": true,
+          "mux_present": true,
+          "sense_amp_present": true,
+          "write_driver_present": true,
+          "wl_driver_present": true
+        },
+        "M6R_reproduced": {
+          "bitcell_array_present": true,
+          "dummy_present": true,
+          "replica_present": true,
+          "precharge_present": true,
+          "mux_present": true,
+          "sense_amp_present": true,
+          "write_driver_present": true,
+          "wl_driver_present": true
+        },
+        "match": true
+      },
+      {
+        "metric": "power_summary.power_rail_overlap_positive_count",
+        "new_golden_reference": null,
+        "M6R_reproduced": null,
+        "match": true
+      },
+      {
+        "metric": "power_summary.same_net_power_overlap_pass",
+        "new_golden_reference": null,
+        "M6R_reproduced": null,
+        "match": true
+      },
+      {
+        "metric": "power_summary.bitcell_rail_continuity_visible",
+        "new_golden_reference": "UNKNOWN",
+        "M6R_reproduced": "UNKNOWN",
+        "match": true
+      },
+      {
+        "metric": "power_summary.rail_stitch_visible",
+        "new_golden_reference": "UNKNOWN",
+        "M6R_reproduced": "UNKNOWN",
+        "match": true
+      },
+      {
+        "metric": "cell_hierarchy",
+        "new_golden_reference": "DIFF",
+        "M6R_reproduced": "DIFF",
+        "match": false
+      }
+    ],
+    "M6_primary_output": [
+      {
+        "metric": "file_size_bytes",
+        "new_golden_reference": 389826,
+        "M6_primary_output": 223894,
+        "match": false
+      },
+      {
+        "metric": "top_cell",
+        "new_golden_reference": "sram_8x64_wpr4_fd45",
+        "M6_primary_output": "layoutgen_optimized_reproduced_sram",
+        "match": false
+      },
+      {
+        "metric": "cell_count",
+        "new_golden_reference": 33,
+        "M6_primary_output": 30,
+        "match": false
+      },
+      {
+        "metric": "sref_count",
+        "new_golden_reference": 788,
+        "M6_primary_output": 746,
+        "match": false
+      },
+      {
+        "metric": "boundary_count",
+        "new_golden_reference": 5418,
+        "M6_primary_output": 2868,
+        "match": false
+      },
+      {
+        "metric": "path_count",
+        "new_golden_reference": 0,
+        "M6_primary_output": 0,
+        "match": true
+      },
+      {
+        "metric": "bbox",
+        "new_golden_reference": {
+          "x0": -0.1,
+          "y0": -0.105,
+          "x1": 36.6225,
+          "y1": 44.145,
+          "width": 36.722500000000004,
+          "height": 44.25,
+          "shape_count": 5418
+        },
+        "M6_primary_output": {
+          "x0": -0.1,
+          "y0": -0.105,
+          "x1": 42.7725,
+          "y1": 47.345,
+          "width": 42.8725,
+          "height": 47.449999999999996,
+          "shape_count": 2868
+        },
+        "match": false
+      },
+      {
+        "metric": "layer_datatype_summary",
+        "new_golden_reference": {
+          "1/0": 358,
+          "10/0": 284,
+          "11/0": 1083,
+          "12/0": 389,
+          "13/0": 1446,
+          "13/2": 11,
+          "14/0": 356,
+          "15/0": 552,
+          "15/2": 14,
+          "16/0": 176,
+          "17/0": 73,
+          "17/2": 2,
+          "2/0": 57,
+          "239/0": 38,
+          "3/0": 45,
+          "4/0": 67,
+          "5/0": 58,
+          "6/0": 64,
+          "9/0": 345
+        },
+        "M6_primary_output": {
+          "1/0": 356,
+          "10/0": 283,
+          "11/0": 736,
+          "12/0": 195,
+          "13/0": 483,
+          "13/2": 11,
+          "14/0": 32,
+          "15/0": 88,
+          "15/2": 14,
+          "17/0": 7,
+          "17/2": 2,
+          "2/0": 54,
+          "239/0": 35,
+          "3/0": 45,
+          "4/0": 66,
+          "5/0": 57,
+          "6/0": 63,
+          "9/0": 341
+        },
+        "match": false
+      },
+      {
+        "metric": "per_layer_shape_count",
+        "new_golden_reference": {
+          "1/0": 358,
+          "10/0": 284,
+          "11/0": 1083,
+          "12/0": 389,
+          "13/0": 1446,
+          "13/2": 11,
+          "14/0": 356,
+          "15/0": 552,
+          "15/2": 14,
+          "16/0": 176,
+          "17/0": 73,
+          "17/2": 2,
+          "2/0": 57,
+          "239/0": 38,
+          "3/0": 45,
+          "4/0": 67,
+          "5/0": 58,
+          "6/0": 64,
+          "9/0": 345
+        },
+        "M6_primary_output": {
+          "1/0": 356,
+          "10/0": 283,
+          "11/0": 736,
+          "12/0": 195,
+          "13/0": 483,
+          "13/2": 11,
+          "14/0": 32,
+          "15/0": 88,
+          "15/2": 14,
+          "17/0": 7,
+          "17/2": 2,
+          "2/0": 54,
+          "239/0": 35,
+          "3/0": 45,
+          "4/0": 66,
+          "5/0": 57,
+          "6/0": 63,
+          "9/0": 341
+        },
+        "match": false
+      },
+      {
+        "metric": "gen_col_mux_hierarchy_presence",
+        "new_golden_reference": {
+          "exact_instance_count": 32,
+          "wrapper_instance_count": 32,
+          "wrapper_cell_names": [
+            "gen_col_mux"
+          ],
+          "present_in_top_hierarchy": true
+        },
+        "M6_primary_output": {
+          "exact_instance_count": 0,
+          "wrapper_instance_count": 0,
+          "wrapper_cell_names": [],
+          "present_in_top_hierarchy": false
+        },
+        "match": false
+      },
+      {
+        "metric": "tri_gate_hierarchy_presence",
+        "new_golden_reference": {
+          "exact_instance_count": 8,
+          "wrapper_instance_count": 8,
+          "wrapper_cell_names": [
+            "tri_gate"
+          ],
+          "present_in_top_hierarchy": true
+        },
+        "M6_primary_output": {
+          "exact_instance_count": 8,
+          "wrapper_instance_count": 8,
+          "wrapper_cell_names": [
+            "tri_gate"
+          ],
+          "present_in_top_hierarchy": true
+        },
+        "match": true
+      },
+      {
+        "metric": "visible_structure_summary",
+        "new_golden_reference": {
+          "bitcell_array_present": true,
+          "dummy_present": true,
+          "replica_present": true,
+          "precharge_present": true,
+          "mux_present": true,
+          "sense_amp_present": true,
+          "write_driver_present": true,
+          "wl_driver_present": true
+        },
+        "M6_primary_output": {
+          "bitcell_array_present": true,
+          "dummy_present": true,
+          "replica_present": true,
+          "precharge_present": true,
+          "mux_present": true,
+          "sense_amp_present": true,
+          "write_driver_present": true,
+          "wl_driver_present": true
+        },
+        "match": true
+      },
+      {
+        "metric": "power_summary.power_rail_overlap_positive_count",
+        "new_golden_reference": null,
+        "M6_primary_output": 33,
+        "match": false
+      },
+      {
+        "metric": "power_summary.same_net_power_overlap_pass",
+        "new_golden_reference": null,
+        "M6_primary_output": true,
+        "match": false
+      },
+      {
+        "metric": "power_summary.bitcell_rail_continuity_visible",
+        "new_golden_reference": "UNKNOWN",
+        "M6_primary_output": true,
+        "match": false
+      },
+      {
+        "metric": "power_summary.rail_stitch_visible",
+        "new_golden_reference": "UNKNOWN",
+        "M6_primary_output": true,
+        "match": false
+      },
+      {
+        "metric": "cell_hierarchy",
+        "new_golden_reference": "DIFF",
+        "M6_primary_output": "DIFF",
+        "match": false
+      }
+    ],
+    "M3F_complete": [
+      {
+        "metric": "file_size_bytes",
+        "new_golden_reference": 389826,
+        "M3F_complete": 286996,
+        "match": false
+      },
+      {
+        "metric": "top_cell",
+        "new_golden_reference": "sram_8x64_wpr4_fd45",
+        "M3F_complete": "openyield_optimized_layoutgen_sram",
+        "match": false
+      },
+      {
+        "metric": "cell_count",
+        "new_golden_reference": 33,
+        "M3F_complete": 30,
+        "match": false
+      },
+      {
+        "metric": "sref_count",
+        "new_golden_reference": 788,
+        "M3F_complete": 746,
+        "match": false
+      },
+      {
+        "metric": "boundary_count",
+        "new_golden_reference": 5418,
+        "M3F_complete": 3854,
+        "match": false
+      },
+      {
+        "metric": "path_count",
+        "new_golden_reference": 0,
+        "M3F_complete": 0,
+        "match": true
+      },
+      {
+        "metric": "bbox",
+        "new_golden_reference": {
+          "x0": -0.1,
+          "y0": -0.105,
+          "x1": 36.6225,
+          "y1": 44.145,
+          "width": 36.722500000000004,
+          "height": 44.25,
+          "shape_count": 5418
+        },
+        "M3F_complete": {
+          "x0": -0.1,
+          "y0": -0.105,
+          "x1": 42.7725,
+          "y1": 47.345,
+          "width": 42.8725,
+          "height": 47.449999999999996,
+          "shape_count": 3854
+        },
+        "match": false
+      },
+      {
+        "metric": "layer_datatype_summary",
+        "new_golden_reference": {
+          "1/0": 358,
+          "10/0": 284,
+          "11/0": 1083,
+          "12/0": 389,
+          "13/0": 1446,
+          "13/2": 11,
+          "14/0": 356,
+          "15/0": 552,
+          "15/2": 14,
+          "16/0": 176,
+          "17/0": 73,
+          "17/2": 2,
+          "2/0": 57,
+          "239/0": 38,
+          "3/0": 45,
+          "4/0": 67,
+          "5/0": 58,
+          "6/0": 64,
+          "9/0": 345
+        },
+        "M3F_complete": {
+          "1/0": 356,
+          "10/0": 283,
+          "11/0": 802,
+          "12/0": 229,
+          "13/0": 991,
+          "13/2": 11,
+          "14/0": 156,
+          "15/0": 329,
+          "15/2": 14,
+          "17/0": 20,
+          "17/2": 2,
+          "2/0": 54,
+          "239/0": 35,
+          "3/0": 45,
+          "4/0": 66,
+          "5/0": 57,
+          "6/0": 63,
+          "9/0": 341
+        },
+        "match": false
+      },
+      {
+        "metric": "per_layer_shape_count",
+        "new_golden_reference": {
+          "1/0": 358,
+          "10/0": 284,
+          "11/0": 1083,
+          "12/0": 389,
+          "13/0": 1446,
+          "13/2": 11,
+          "14/0": 356,
+          "15/0": 552,
+          "15/2": 14,
+          "16/0": 176,
+          "17/0": 73,
+          "17/2": 2,
+          "2/0": 57,
+          "239/0": 38,
+          "3/0": 45,
+          "4/0": 67,
+          "5/0": 58,
+          "6/0": 64,
+          "9/0": 345
+        },
+        "M3F_complete": {
+          "1/0": 356,
+          "10/0": 283,
+          "11/0": 802,
+          "12/0": 229,
+          "13/0": 991,
+          "13/2": 11,
+          "14/0": 156,
+          "15/0": 329,
+          "15/2": 14,
+          "17/0": 20,
+          "17/2": 2,
+          "2/0": 54,
+          "239/0": 35,
+          "3/0": 45,
+          "4/0": 66,
+          "5/0": 57,
+          "6/0": 63,
+          "9/0": 341
+        },
+        "match": false
+      },
+      {
+        "metric": "gen_col_mux_hierarchy_presence",
+        "new_golden_reference": {
+          "exact_instance_count": 32,
+          "wrapper_instance_count": 32,
+          "wrapper_cell_names": [
+            "gen_col_mux"
+          ],
+          "present_in_top_hierarchy": true
+        },
+        "M3F_complete": {
+          "exact_instance_count": 0,
+          "wrapper_instance_count": 0,
+          "wrapper_cell_names": [],
+          "present_in_top_hierarchy": false
+        },
+        "match": false
+      },
+      {
+        "metric": "tri_gate_hierarchy_presence",
+        "new_golden_reference": {
+          "exact_instance_count": 8,
+          "wrapper_instance_count": 8,
+          "wrapper_cell_names": [
+            "tri_gate"
+          ],
+          "present_in_top_hierarchy": true
+        },
+        "M3F_complete": {
+          "exact_instance_count": 8,
+          "wrapper_instance_count": 8,
+          "wrapper_cell_names": [
+            "tri_gate"
+          ],
+          "present_in_top_hierarchy": true
+        },
+        "match": true
+      },
+      {
+        "metric": "visible_structure_summary",
+        "new_golden_reference": {
+          "bitcell_array_present": true,
+          "dummy_present": true,
+          "replica_present": true,
+          "precharge_present": true,
+          "mux_present": true,
+          "sense_amp_present": true,
+          "write_driver_present": true,
+          "wl_driver_present": true
+        },
+        "M3F_complete": {
+          "bitcell_array_present": true,
+          "dummy_present": true,
+          "replica_present": true,
+          "precharge_present": true,
+          "mux_present": true,
+          "sense_amp_present": true,
+          "write_driver_present": true,
+          "wl_driver_present": true
+        },
+        "match": true
+      },
+      {
+        "metric": "power_summary.power_rail_overlap_positive_count",
+        "new_golden_reference": null,
+        "M3F_complete": 33,
+        "match": false
+      },
+      {
+        "metric": "power_summary.same_net_power_overlap_pass",
+        "new_golden_reference": null,
+        "M3F_complete": true,
+        "match": false
+      },
+      {
+        "metric": "power_summary.bitcell_rail_continuity_visible",
+        "new_golden_reference": "UNKNOWN",
+        "M3F_complete": true,
+        "match": false
+      },
+      {
+        "metric": "power_summary.rail_stitch_visible",
+        "new_golden_reference": "UNKNOWN",
+        "M3F_complete": true,
+        "match": false
+      },
+      {
+        "metric": "cell_hierarchy",
+        "new_golden_reference": "DIFF",
+        "M3F_complete": "DIFF",
+        "match": false
+      }
+    ],
+    "M5_integrated": [
+      {
+        "metric": "file_size_bytes",
+        "new_golden_reference": 389826,
+        "M5_integrated": 310208,
+        "match": false
+      },
+      {
+        "metric": "top_cell",
+        "new_golden_reference": "sram_8x64_wpr4_fd45",
+        "M5_integrated": "openyield_layoutgen_integrated_sram__source_generated",
+        "match": false
+      },
+      {
+        "metric": "cell_count",
+        "new_golden_reference": 33,
+        "M5_integrated": 66,
+        "match": false
+      },
+      {
+        "metric": "sref_count",
+        "new_golden_reference": 788,
+        "M5_integrated": 1462,
+        "match": false
+      },
+      {
+        "metric": "boundary_count",
+        "new_golden_reference": 5418,
+        "M5_integrated": 3646,
+        "match": false
+      },
+      {
+        "metric": "path_count",
+        "new_golden_reference": 0,
+        "M5_integrated": 0,
+        "match": true
+      },
+      {
+        "metric": "bbox",
+        "new_golden_reference": {
+          "x0": -0.1,
+          "y0": -0.105,
+          "x1": 36.6225,
+          "y1": 44.145,
+          "width": 36.722500000000004,
+          "height": 44.25,
+          "shape_count": 5418
+        },
+        "M5_integrated": {
+          "x0": -0.1,
+          "y0": -0.105,
+          "x1": 42.7725,
+          "y1": 47.4,
+          "width": 42.8725,
+          "height": 47.504999999999995,
+          "shape_count": 3646
+        },
+        "match": false
+      },
+      {
+        "metric": "layer_datatype_summary",
+        "new_golden_reference": {
+          "1/0": 358,
+          "10/0": 284,
+          "11/0": 1083,
+          "12/0": 389,
+          "13/0": 1446,
+          "13/2": 11,
+          "14/0": 356,
+          "15/0": 552,
+          "15/2": 14,
+          "16/0": 176,
+          "17/0": 73,
+          "17/2": 2,
+          "2/0": 57,
+          "239/0": 38,
+          "3/0": 45,
+          "4/0": 67,
+          "5/0": 58,
+          "6/0": 64,
+          "9/0": 345
+        },
+        "M5_integrated": {
+          "1/0": 356,
+          "10/0": 283,
+          "11/0": 964,
+          "12/0": 227,
+          "13/0": 760,
+          "13/2": 22,
+          "14/0": 64,
+          "15/0": 176,
+          "15/2": 28,
+          "17/0": 14,
+          "17/2": 4,
+          "2/0": 54,
+          "239/0": 36,
+          "260/0": 3,
+          "261/0": 6,
+          "262/0": 5,
+          "263/0": 6,
+          "265/0": 34,
+          "3/0": 45,
+          "4/0": 66,
+          "5/0": 57,
+          "6/0": 63,
+          "9/0": 373
+        },
+        "match": false
+      },
+      {
+        "metric": "per_layer_shape_count",
+        "new_golden_reference": {
+          "1/0": 358,
+          "10/0": 284,
+          "11/0": 1083,
+          "12/0": 389,
+          "13/0": 1446,
+          "13/2": 11,
+          "14/0": 356,
+          "15/0": 552,
+          "15/2": 14,
+          "16/0": 176,
+          "17/0": 73,
+          "17/2": 2,
+          "2/0": 57,
+          "239/0": 38,
+          "3/0": 45,
+          "4/0": 67,
+          "5/0": 58,
+          "6/0": 64,
+          "9/0": 345
+        },
+        "M5_integrated": {
+          "1/0": 356,
+          "10/0": 283,
+          "11/0": 964,
+          "12/0": 227,
+          "13/0": 760,
+          "13/2": 22,
+          "14/0": 64,
+          "15/0": 176,
+          "15/2": 28,
+          "17/0": 14,
+          "17/2": 4,
+          "2/0": 54,
+          "239/0": 36,
+          "260/0": 3,
+          "261/0": 6,
+          "262/0": 5,
+          "263/0": 6,
+          "265/0": 34,
+          "3/0": 45,
+          "4/0": 66,
+          "5/0": 57,
+          "6/0": 63,
+          "9/0": 373
+        },
+        "match": false
+      },
+      {
+        "metric": "gen_col_mux_hierarchy_presence",
+        "new_golden_reference": {
+          "exact_instance_count": 32,
+          "wrapper_instance_count": 32,
+          "wrapper_cell_names": [
+            "gen_col_mux"
+          ],
+          "present_in_top_hierarchy": true
+        },
+        "M5_integrated": {
+          "exact_instance_count": 0,
+          "wrapper_instance_count": 0,
+          "wrapper_cell_names": [],
+          "present_in_top_hierarchy": false
+        },
+        "match": false
+      },
+      {
+        "metric": "tri_gate_hierarchy_presence",
+        "new_golden_reference": {
+          "exact_instance_count": 8,
+          "wrapper_instance_count": 8,
+          "wrapper_cell_names": [
+            "tri_gate"
+          ],
+          "present_in_top_hierarchy": true
+        },
+        "M5_integrated": {
+          "exact_instance_count": 16,
+          "wrapper_instance_count": 16,
+          "wrapper_cell_names": [
+            "tri_gate"
+          ],
+          "present_in_top_hierarchy": true
+        },
+        "match": false
+      },
+      {
+        "metric": "visible_structure_summary",
+        "new_golden_reference": {
+          "bitcell_array_present": true,
+          "dummy_present": true,
+          "replica_present": true,
+          "precharge_present": true,
+          "mux_present": true,
+          "sense_amp_present": true,
+          "write_driver_present": true,
+          "wl_driver_present": true
+        },
+        "M5_integrated": {
+          "bitcell_array_present": true,
+          "dummy_present": true,
+          "replica_present": true,
+          "precharge_present": true,
+          "mux_present": true,
+          "sense_amp_present": true,
+          "write_driver_present": true,
+          "wl_driver_present": true
+        },
+        "match": true
+      },
+      {
+        "metric": "power_summary.power_rail_overlap_positive_count",
+        "new_golden_reference": null,
+        "M5_integrated": 33,
+        "match": false
+      },
+      {
+        "metric": "power_summary.same_net_power_overlap_pass",
+        "new_golden_reference": null,
+        "M5_integrated": true,
+        "match": false
+      },
+      {
+        "metric": "power_summary.bitcell_rail_continuity_visible",
+        "new_golden_reference": "UNKNOWN",
+        "M5_integrated": true,
+        "match": false
+      },
+      {
+        "metric": "power_summary.rail_stitch_visible",
+        "new_golden_reference": "UNKNOWN",
+        "M5_integrated": true,
+        "match": false
+      },
+      {
+        "metric": "cell_hierarchy",
+        "new_golden_reference": "DIFF",
+        "M5_integrated": "DIFF",
+        "match": false
+      }
+    ]
+  }
+}

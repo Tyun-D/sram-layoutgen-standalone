@@ -1,0 +1,118 @@
+VERSION 5.4 ;
+NAMESCASESENSITIVE ON ;
+BUSBITCHARS "[]" ;
+DIVIDERCHAR "/" ;
+UNITS
+  DATABASE MICRONS 2000 ;
+END UNITS
+MACRO sram_2x16_wpr1_fd45
+   CLASS BLOCK ;
+   SIZE 15.2025 BY 47.0150 ;
+   SYMMETRY X Y R90 ;
+   PIN addr[0]
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal3 ;
+         RECT 0.0000 23.0175 0.1600 23.5175 ;
+      END
+   END addr[0]
+   PIN addr[1]
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal3 ;
+         RECT 0.0000 24.3825 0.1600 24.8825 ;
+      END
+   END addr[1]
+   PIN addr[2]
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal3 ;
+         RECT 0.0000 25.7475 0.1600 26.2475 ;
+      END
+   END addr[2]
+   PIN addr[3]
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal3 ;
+         RECT 0.0000 27.1125 0.1600 27.6125 ;
+      END
+   END addr[3]
+   PIN clk
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal2 ;
+         RECT 0.0000 0.2425 0.1600 0.7425 ;
+      END
+   END clk
+   PIN csb
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal2 ;
+         RECT 0.0000 0.9925 0.1600 1.4925 ;
+      END
+   END csb
+   PIN din[0]
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal2 ;
+         RECT 12.7033 0.0000 13.2033 0.1600 ;
+      END
+   END din[0]
+   PIN din[1]
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal2 ;
+         RECT 13.6567 0.0000 14.1567 0.1600 ;
+      END
+   END din[1]
+   PIN dout[0]
+      DIRECTION OUTPUT ;
+      PORT
+         LAYER metal3 ;
+         RECT 15.0425 5.8000 15.2025 6.3000 ;
+      END
+   END dout[0]
+   PIN dout[1]
+      DIRECTION OUTPUT ;
+      PORT
+         LAYER metal3 ;
+         RECT 15.0425 6.3700 15.2025 6.8700 ;
+      END
+   END dout[1]
+   PIN gnd
+      DIRECTION INOUT ;
+      USE GROUND ;
+      SHAPE ABUTMENT ;
+      PORT
+         LAYER metal4 ;
+         RECT 0.0000 0.0500 15.2025 0.2000 ;
+      END
+   END gnd
+   PIN vdd
+      DIRECTION INOUT ;
+      USE POWER ;
+      SHAPE ABUTMENT ;
+      PORT
+         LAYER metal4 ;
+         RECT 0.0000 46.8150 15.2025 46.9650 ;
+      END
+   END vdd
+   PIN web
+      DIRECTION INPUT ;
+      PORT
+         LAYER metal2 ;
+         RECT 0.0000 1.7425 0.1600 2.2425 ;
+      END
+   END web
+   OBS
+      LAYER metal1 ;
+         RECT 0.8000 0.8000 14.4025 46.2150 ;
+      LAYER metal2 ;
+         RECT 0.8000 0.8000 14.4025 46.2150 ;
+      LAYER metal3 ;
+         RECT 0.8000 0.8000 14.4025 46.2150 ;
+      LAYER metal4 ;
+         RECT 1.1200 1.1200 14.0825 45.8950 ;
+   END
+END sram_2x16_wpr1_fd45
+END LIBRARY

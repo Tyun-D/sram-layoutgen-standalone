@@ -1,0 +1,4 @@
+step_order,repair_target,required_input,reason
+1,Reproduce uploaded golden_reference.gds exactly,/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds,This is now the only trusted physical target.
+2,Diff every regenerated GDS against new golden reference,/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds,Historical hybrid_openyield_rail_overlap reference is explicitly downgraded.
+3,Resume OpenYield integration only after golden reproduction is visually confirmed,/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M7_correct_golden_reference/current_supported_config/golden_reference_clean_review.gds,Human KLayout review remains mandatory before next stage.
