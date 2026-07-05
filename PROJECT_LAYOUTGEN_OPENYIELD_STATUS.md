@@ -2,14 +2,14 @@
 
 ## 1. Current Correct Goal
 
-在已锁定并经人工确认的 reproducible golden layoutgen flow 上，实现真正的 OpenYield netlist/module semantics 到 layoutgen physical generation translator，并输出新的 OpenYield-driven SRAM GDS 供人工 KLayout review。
+在已锁定并经人工确认的 reproducible golden layoutgen flow 上，确认 M9 translator clean review 已通过，并基于该 translator v1 进入下一步 raw OpenYield netlist trace / translator hardening。
 
 ## 2. Current Stage
 
-- current_stage: `M9`
-- next_stage: `WAIT_HUMAN_KLAYOUT_REVIEW`
+- current_stage: `M9H`
+- next_stage: `M10_HARDEN_RAW_OPENYIELD_NETLIST_TRACE_OR_TRANSLATOR_REFINEMENT`
 - human_klayout_review_required_every_stage: `True`
-- can_enter_next_stage_without_human_review: `False`
+- can_enter_next_stage_without_human_review: `True`
 
 ## 3. M9 Translator Result
 
@@ -30,4 +30,13 @@
 - m9_trace_available: `True`
 - commit_required: `True`
 - push_required: `True`
-- remaining_M9C_blockers_count: `1`
+- remaining_M9C_blockers_count: `0`
+
+## 5. M9H Human Review Confirmation
+
+- m9_clean_gds_user_review_passed: `True`
+- m9_translator_v1_confirmed: `True`
+- m9_is_raw_openyield_netlist_compiler: `False`
+- m9_uses_openyield_intent_binding: `True`
+- next_stage_allowed: `M10_HARDEN_RAW_OPENYIELD_NETLIST_TRACE_OR_TRANSLATOR_REFINEMENT`
+- can_enter_next_stage_after_this_gate: `True`
