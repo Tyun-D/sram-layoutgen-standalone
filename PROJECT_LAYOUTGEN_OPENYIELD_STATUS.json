@@ -8,8 +8,8 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M7",
-  "next_stage": "WAIT_HUMAN_KLAYOUT_REVIEW",
+  "current_stage": "M7C",
+  "next_stage": "M8_REPRODUCE_UPLOADED_GOLDEN_REFERENCE",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": true,
@@ -245,7 +245,7 @@
   ],
   "last_user_correction": "M3F review:\n- optimized layoutgen flow has been restored;\n- power rail stitching / rail overlap flow has been recovered;\n- current GDS has reached the previous layoutgen optimization level;\n- but it still mainly uses original layoutgen modules;\n- next goal is to integrate OpenYield netlist-defined modules into the layoutgen physical generator;\n- because OpenYield module count/type/pin/connection may differ from layoutgen baseline, floorplan / placement / routing / power code may need modification;\n- only one feasibility evaluation is allowed before direct implementation.",
   "current_wrong_route_to_avoid": "Do not add another evaluation stage after M4E. Move directly into the defined implementation scope, or stop if blockers are explicit.",
-  "next_task_summary": "Human KLayout review of /data1/qujh/work/sram_layoutgen_step45_clean/outputs/M7_correct_golden_reference/current_supported_config/golden_reference_clean_review.gds is required before attempting reproduction of the new uploaded golden reference.",
+  "next_task_summary": "Proceed to M8 by reproducing the uploaded golden reference first; any M8-generated GDS still requires human KLayout review.",
   "last_M2_report": {
     "full_sram_review_gds_generated": true,
     "full_sram_review_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/test_M2_layoutgen_full_trial/current_supported_config/openyield_layoutgen_full_trial_sram.gds",
@@ -339,7 +339,7 @@
     "human_klayout_review_required": true,
     "can_enter_next_stage_before_human_review": false
   },
-  "last_human_review": "M6R correction:\n- hybrid_openyield_rail_overlap.complete.gds was proven reproducible, but user confirmed it is still not the correct layoutgen result.\n- The true correct layoutgen result is local to the user's Windows machine:\n  E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_standalone\\build\\full_layout_collection.zip\n- After upload, the server-side golden reference zip is:\n  external_references/full_layout_collection.zip\n- From now on, hybrid_openyield_rail_overlap.complete.gds must be treated as historical wrong reference, not golden reference.",
+  "last_human_review": "M7C confirmation:\n- User confirmed outputs/M7_correct_golden_reference/current_supported_config/golden_reference_clean_review.gds is the correct uploaded golden reference.\n- outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds remains a historical wrong reference and is not golden.\n- Next allowed stage is M8_REPRODUCE_UPLOADED_GOLDEN_REFERENCE, which must reproduce the uploaded golden reference first.\n- M8-generated GDS still requires human KLayout review before any later stage transition.",
   "last_M6_report": {
     "sram_spec_json_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6_layoutgen_spec_reproduce/current_supported_config/SRAM_SPEC.json",
     "layoutgen_optimized_reproduced_sram_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6_layoutgen_spec_reproduce/current_supported_config/layoutgen_optimized_reproduced_sram.gds",
@@ -362,7 +362,7 @@
     "can_enter_next_stage_before_human_review": false
   },
   "current_golden_reference": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
-  "historical_wrong_reference": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+  "historical_wrong_reference": "outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
   "next_route_constraint": "Next stage must reproduce the uploaded golden_reference.gds first, then compare any generated GDS against it before resuming OpenYield integration.",
   "last_M7_report": {
     "uploaded_zip_path": "/data1/qujh/work/sram_layoutgen_step45_clean/external_references/full_layout_collection.zip",
@@ -372,7 +372,37 @@
     "hybrid_openyield_rail_overlap_is_golden": false,
     "new_uploaded_reference_is_golden": true,
     "next_repair_target_defined": true,
-    "human_klayout_review_required": true,
-    "can_enter_next_stage_before_human_review": false
+    "human_klayout_review_required": false,
+    "can_enter_next_stage_before_human_review": true,
+    "remaining_M7_blockers": [],
+    "remaining_M7_blockers_count": 0
+  },
+  "next_stage_allowed": "M8_REPRODUCE_UPLOADED_GOLDEN_REFERENCE",
+  "golden_reference_user_confirmed": true,
+  "golden_reference_is_now_locked": true,
+  "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+  "current_golden_reference_clean_review_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference_clean_review.gds",
+  "hybrid_openyield_rail_overlap_is_golden": false,
+  "new_uploaded_reference_is_golden": true,
+  "next_stage_must_reproduce_uploaded_golden_reference": true,
+  "last_M7C_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "golden_reference_user_confirmed": true,
+    "golden_reference_is_now_locked": true,
+    "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+    "current_golden_reference_clean_review_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference_clean_review.gds",
+    "hybrid_openyield_rail_overlap_is_golden": false,
+    "new_uploaded_reference_is_golden": true,
+    "m7_blockers_before_count": 2,
+    "m7_blockers_after_count": 0,
+    "m7_blockers_cleared": [
+      "Human KLayout review of uploaded golden reference is required.",
+      "Next repair stage must reproduce the new uploaded golden reference instead of historical hybrid reference."
+    ],
+    "next_stage_allowed": "M8_REPRODUCE_UPLOADED_GOLDEN_REFERENCE",
+    "can_enter_M8_after_this_gate": true,
+    "human_klayout_review_required_for_M8_output": true,
+    "can_enter_next_stage_without_human_review": false
   }
 }
