@@ -8,12 +8,12 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M8R",
-  "next_stage": "WAIT_HUMAN_KLAYOUT_REVIEW",
+  "current_stage": "M8RC",
+  "next_stage": "M9_OPENYIELD_NETLIST_TO_LAYOUT_TRANSLATOR",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": true,
-  "can_enter_next_stage_without_human_review": false,
+  "can_enter_next_stage_without_human_review": true,
   "important_results": [
     {
       "result_name": "First-round OpenYield module GDS generation",
@@ -245,7 +245,7 @@
   ],
   "last_user_correction": "M3F review:\n- optimized layoutgen flow has been restored;\n- power rail stitching / rail overlap flow has been recovered;\n- current GDS has reached the previous layoutgen optimization level;\n- but it still mainly uses original layoutgen modules;\n- next goal is to integrate OpenYield netlist-defined modules into the layoutgen physical generator;\n- because OpenYield module count/type/pin/connection may differ from layoutgen baseline, floorplan / placement / routing / power code may need modification;\n- only one feasibility evaluation is allowed before direct implementation.",
   "current_wrong_route_to_avoid": "Do not add another evaluation stage after M4E. Move directly into the defined implementation scope, or stop if blockers are explicit.",
-  "next_task_summary": "Human KLayout review must compare outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed_clean_review.gds against outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds before any next-stage work.",
+  "next_task_summary": "Proceed to M9_OPENYIELD_NETLIST_TO_LAYOUT_TRANSLATOR using the locked reproducible layoutgen golden flow rooted at outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds.",
   "last_M2_report": {
     "full_sram_review_gds_generated": true,
     "full_sram_review_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/test_M2_layoutgen_full_trial/current_supported_config/openyield_layoutgen_full_trial_sram.gds",
@@ -339,7 +339,7 @@
     "human_klayout_review_required": true,
     "can_enter_next_stage_before_human_review": false
   },
-  "last_human_review": "M7C confirmation:\n- User confirmed outputs/M7_correct_golden_reference/current_supported_config/golden_reference_clean_review.gds is the correct uploaded golden reference.\n- outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds remains a historical wrong reference and is not golden.\n- Next allowed stage is M8_REPRODUCE_UPLOADED_GOLDEN_REFERENCE, which must reproduce the uploaded golden reference first.\n- M8-generated GDS still requires human KLayout review before any later stage transition.",
+  "last_human_review": "M8RC confirmation:\n- User confirmed outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed_clean_review.gds passed human KLayout review.\n- M8R fixed GDS and outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds are confirmed EXACT_MATCH.\n- The current reproducible layoutgen golden flow is now locked.\n- This flow can be used for the next netlist translator stage.\n- Next allowed stage is M9_OPENYIELD_NETLIST_TO_LAYOUT_TRANSLATOR.",
   "last_M6_report": {
     "sram_spec_json_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6_layoutgen_spec_reproduce/current_supported_config/SRAM_SPEC.json",
     "layoutgen_optimized_reproduced_sram_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6_layoutgen_spec_reproduce/current_supported_config/layoutgen_optimized_reproduced_sram.gds",
@@ -540,5 +540,24 @@
       "Human KLayout review is still required before any next-stage work."
     ],
     "remaining_M8R_blockers_count": 1
-  }
+  },
+  "current_reproducible_golden_gds_path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+  "current_reproducible_golden_clean_review_gds_path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed_clean_review.gds",
+  "current_reproducible_layoutgen_golden_flow_locked": true,
+  "m8r_exact_match_confirmed": true,
+  "m8r_user_klayout_review_passed": true,
+  "last_M8RC_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "m8r_exact_match_confirmed": true,
+    "m8r_user_klayout_review_passed": true,
+    "current_reproducible_golden_gds_path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+    "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+    "can_use_this_flow_for_next_netlist_translator": true,
+    "m8r_blockers_before_count": 1,
+    "m8r_blockers_after_count": 0,
+    "next_stage_allowed": "M9_OPENYIELD_NETLIST_TO_LAYOUT_TRANSLATOR",
+    "can_enter_M9_after_this_gate": true
+  },
+  "next_stage_allowed": "M9_OPENYIELD_NETLIST_TO_LAYOUT_TRANSLATOR"
 }
