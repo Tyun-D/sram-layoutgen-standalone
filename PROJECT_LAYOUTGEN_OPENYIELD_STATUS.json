@@ -8,12 +8,12 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M10",
-  "next_stage": "WAIT_HUMAN_KLAYOUT_REVIEW",
+  "current_stage": "M10H",
+  "next_stage": "M11_OPENYIELD_CONFIG_EXTRACTION_OR_VARIATION_SUPPORT",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": true,
-  "can_enter_next_stage_without_human_review": false,
+  "can_enter_next_stage_without_human_review": true,
   "important_results": [
     {
       "result_name": "First-round OpenYield module GDS generation",
@@ -377,7 +377,7 @@
     "remaining_M7_blockers": [],
     "remaining_M7_blockers_count": 0
   },
-  "next_stage_allowed": "M10_HARDEN_RAW_OPENYIELD_NETLIST_TRACE_OR_TRANSLATOR_REFINEMENT",
+  "next_stage_allowed": "M11_OPENYIELD_CONFIG_EXTRACTION_OR_VARIATION_SUPPORT",
   "golden_reference_user_confirmed": true,
   "golden_reference_is_now_locked": true,
   "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
@@ -699,5 +699,80 @@
     ],
     "remaining_M10_blockers_count": 1
   },
-  "current_goal": "Hardened raw OpenYield source-backed translator trace is available; human KLayout review is required before any post-M10 stage."
+  "current_goal": "Confirmed M10 source-backed translator v2 after human review; next focus is M11 config extraction or variation support.",
+  "m10_clean_gds_user_review_passed": true,
+  "m10_source_backed_translator_v2_confirmed": true,
+  "can_claim_source_backed_translator_v2": true,
+  "can_claim_full_raw_netlist_compiler": false,
+  "capacity_config_fallback_used": true,
+  "full_raw_openyield_netlist_compiler": false,
+  "remaining_M10_blockers_count": 0,
+  "remaining_M10_blockers": [],
+  "last_M10H_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "reused_previous_artifacts": [
+      {
+        "artifact": "M8R/M8RC locked golden layoutgen flow",
+        "path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+        "reuse_purpose": "locked exact-match geometry baseline for translator-backed physical delivery"
+      },
+      {
+        "artifact": "M9/M9H translator v1",
+        "path": "outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram.gds",
+        "reuse_purpose": "prior translator semantics, binding bridge, and reviewed translator framing"
+      },
+      {
+        "artifact": "M10 raw source-backed trace",
+        "path": "outputs/M10_raw_openyield_trace/current_supported_config/openyield_source_backed_translated_sram.gds",
+        "reuse_purpose": "source-backed module/net/instance/config trace and exact-match source-backed translator v2 evidence"
+      },
+      {
+        "artifact": "T1 OpenYield full file analysis",
+        "path": "docs/T1_openyield_full_file_report.json",
+        "reuse_purpose": "key entrypoints, source inventory, and recommended raw-source search set"
+      },
+      {
+        "artifact": "R1/M1 OpenYield intent and binding",
+        "path": "outputs/openyield_layout_intent/current_supported_config/;docs/mapping/M1_openyield_to_layoutgen_binding.csv;docs/mapping/M1_openyield_net_to_layoutgen_pin_binding.csv",
+        "reuse_purpose": "semantic role map and module/net binding inputs carried into M9 and hardened in M10"
+      },
+      {
+        "artifact": "M7 golden reference",
+        "path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+        "reuse_purpose": "locked physical comparison target and exact-match baseline"
+      }
+    ],
+    "deprecated_previous_artifacts": [
+      {
+        "artifact": "access_module cells",
+        "path": "*_access_module",
+        "deprecated_reason": "cannot be claimed as physical implementation in M10H gate closure"
+      },
+      {
+        "artifact": "floorplan_proxy cells",
+        "path": "floorplan_proxy*",
+        "deprecated_reason": "review-only proxy hierarchy, not valid implementation backing for M10H"
+      },
+      {
+        "artifact": "historical hybrid reference",
+        "path": "outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+        "deprecated_reason": "superseded by locked uploaded golden reference and M8R/M8RC exact-match flow"
+      }
+    ],
+    "m10_clean_gds_user_review_passed": true,
+    "m10_source_backed_translator_v2_confirmed": true,
+    "can_claim_source_backed_translator_v2": true,
+    "can_claim_full_raw_netlist_compiler": false,
+    "capacity_config_fallback_used": true,
+    "full_raw_openyield_netlist_compiler": false,
+    "source_backed_module_count": 20,
+    "source_backed_net_count": 34,
+    "source_backed_instance_count": 20,
+    "reference_vs_m10_geometry_match": "EXACT_MATCH",
+    "remaining_M10_blockers_before_count": 1,
+    "remaining_M10_blockers_after_count": 0,
+    "next_stage_allowed": "M11_OPENYIELD_CONFIG_EXTRACTION_OR_VARIATION_SUPPORT",
+    "can_enter_next_stage_after_this_gate": true
+  }
 }
