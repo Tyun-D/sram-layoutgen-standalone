@@ -8,12 +8,12 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M8RC",
-  "next_stage": "M9_OPENYIELD_NETLIST_TO_LAYOUT_TRANSLATOR",
+  "current_stage": "M9",
+  "next_stage": "WAIT_HUMAN_KLAYOUT_REVIEW",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": true,
-  "can_enter_next_stage_without_human_review": true,
+  "can_enter_next_stage_without_human_review": false,
   "important_results": [
     {
       "result_name": "First-round OpenYield module GDS generation",
@@ -245,7 +245,7 @@
   ],
   "last_user_correction": "M3F review:\n- optimized layoutgen flow has been restored;\n- power rail stitching / rail overlap flow has been recovered;\n- current GDS has reached the previous layoutgen optimization level;\n- but it still mainly uses original layoutgen modules;\n- next goal is to integrate OpenYield netlist-defined modules into the layoutgen physical generator;\n- because OpenYield module count/type/pin/connection may differ from layoutgen baseline, floorplan / placement / routing / power code may need modification;\n- only one feasibility evaluation is allowed before direct implementation.",
   "current_wrong_route_to_avoid": "Do not add another evaluation stage after M4E. Move directly into the defined implementation scope, or stop if blockers are explicit.",
-  "next_task_summary": "Proceed to M9_OPENYIELD_NETLIST_TO_LAYOUT_TRANSLATOR using the locked reproducible layoutgen golden flow rooted at outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds.",
+  "next_task_summary": "Human KLayout review must compare outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram_clean_review.gds before any post-M9 stage.",
   "last_M2_report": {
     "full_sram_review_gds_generated": true,
     "full_sram_review_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/test_M2_layoutgen_full_trial/current_supported_config/openyield_layoutgen_full_trial_sram.gds",
@@ -377,7 +377,7 @@
     "remaining_M7_blockers": [],
     "remaining_M7_blockers_count": 0
   },
-  "next_stage_allowed": "M8_REPRODUCE_UPLOADED_GOLDEN_REFERENCE",
+  "next_stage_allowed": "M9_OPENYIELD_NETLIST_TO_LAYOUT_TRANSLATOR",
   "golden_reference_user_confirmed": true,
   "golden_reference_is_now_locked": true,
   "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
@@ -559,5 +559,66 @@
     "next_stage_allowed": "M9_OPENYIELD_NETLIST_TO_LAYOUT_TRANSLATOR",
     "can_enter_M9_after_this_gate": true
   },
-  "next_stage_allowed": "M9_OPENYIELD_NETLIST_TO_LAYOUT_TRANSLATOR"
+  "last_M9_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "m8rc_confirmation_loaded": true,
+    "golden_reference_user_confirmed": true,
+    "golden_reference_is_now_locked": true,
+    "m8r_exact_match_confirmed": true,
+    "m8r_user_klayout_review_passed": true,
+    "can_use_this_flow_for_next_netlist_translator": true,
+    "locked_golden_flow_used": true,
+    "generated_from_layoutgen_source": true,
+    "reference_file_copied_as_output": false,
+    "uses_access_module": false,
+    "uses_floorplan_proxy": false,
+    "arbitrary_module_scatter_used": false,
+    "label_only_binding_as_implementation_count": 0,
+    "openyield_module_binding_count": 20,
+    "openyield_net_binding_count": 34,
+    "translated_gds_path": "outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram.gds",
+    "clean_review_gds_path": "outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram_clean_review.gds",
+    "annotated_debug_gds_path": "outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram_annotated_debug.gds",
+    "translated_top_cell_name": "openyield_netlist_translated_sram",
+    "translated_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "annotated_debug_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "clean_review_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "translated_backbone_boundary_count": 5540,
+    "translated_backbone_sref_count": 1515,
+    "semantic_wrapper_group_count": 12,
+    "semantic_debug_module_cell_count": 20,
+    "semantic_debug_net_label_count": 34,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false,
+    "remaining_M9_blockers": [
+      "Human KLayout review is required for openyield_netlist_translated_sram_clean_review.gds before any post-M9 stage."
+    ],
+    "remaining_M9_blockers_count": 1
+  },
+  "last_M9C_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "m9_outputs_found": true,
+    "m9_trace_available": true,
+    "m9_clean_review_gds_found": true,
+    "m9_annotated_debug_gds_found": true,
+    "gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "generated_from_layoutgen_source": true,
+    "reference_file_copied_as_output": false,
+    "openyield_module_binding_count": 20,
+    "openyield_net_binding_count": 34,
+    "label_only_binding_as_implementation_count": 0,
+    "access_module_as_primary_count": 0,
+    "floorplan_proxy_count": 0,
+    "arbitrary_module_scatter_used": false,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false,
+    "commit_required": true,
+    "push_required": true,
+    "remaining_M9C_blockers": [
+      "Human KLayout review is still required before any post-M9 stage."
+    ],
+    "remaining_M9C_blockers_count": 1
+  }
 }

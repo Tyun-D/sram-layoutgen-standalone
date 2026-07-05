@@ -1,0 +1,8 @@
+# M9 Review GDS Manifest
+
+- translated_gds: `outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram.gds`
+- clean_review_gds: `outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram_clean_review.gds`
+- annotated_debug_gds: `outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram_annotated_debug.gds`
+- translated_gds_sha256: `36720c9810c577e18398a92726334a6ffeb3ebee5b429cdb6ceb5affbc798a44`
+- clean_review_gds_sha256: `fa88064664f8bbd734a87b221db5911f2d0913da3b19476cbb4e49c51bd4c38a`
+- annotated_debug_gds_sha256: `8c20a7a35309aa6ec1770d7c67b06e136d6c97c1d883e61c5bdfc8d67fba6438`

@@ -2,27 +2,32 @@
 
 ## 1. Current Correct Goal
 
-继续以用户锁定的 uploaded golden reference 作为唯一物理目标，并以已确认通过人工 KLayout review 的可复现 layoutgen golden flow 作为后续 M9 OpenYield netlist-to-layout translator 的唯一物理基线。
+在已锁定并经人工确认的 reproducible golden layoutgen flow 上，实现真正的 OpenYield netlist/module semantics 到 layoutgen physical generation translator，并输出新的 OpenYield-driven SRAM GDS 供人工 KLayout review。
 
 ## 2. Current Stage
 
-- current_stage: `M8RC`
-- next_stage: `M9_OPENYIELD_NETLIST_TO_LAYOUT_TRANSLATOR`
+- current_stage: `M9`
+- next_stage: `WAIT_HUMAN_KLAYOUT_REVIEW`
 - human_klayout_review_required_every_stage: `True`
-- can_enter_next_stage_without_human_review: `True`
+- can_enter_next_stage_without_human_review: `False`
 
-## 3. M8RC Confirmation
+## 3. M9 Translator Result
 
-- m8r_reproduced_fixed_clean_review_passed: `True`
-- m8r_fixed_gds_vs_golden_reference: `EXACT_MATCH`
-- current_reproducible_layoutgen_golden_flow_locked: `True`
-- can_use_this_flow_for_next_netlist_translator: `True`
-- next_stage_allowed: `M9_OPENYIELD_NETLIST_TO_LAYOUT_TRANSLATOR`
+- translated_gds_path: `outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram.gds`
+- clean_review_gds_path: `outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram_clean_review.gds`
+- annotated_debug_gds_path: `outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram_annotated_debug.gds`
+- generated_from_layoutgen_source: `True`
+- reference_file_copied_as_output: `False`
+- uses_access_module: `False`
+- uses_floorplan_proxy: `False`
+- arbitrary_module_scatter_used: `False`
+- label_only_binding_as_implementation_count: `0`
+- human_klayout_review_required: `True`
 
-## 4. Locked Reproducible Golden Flow
+## 4. M9C Delivery Gate
 
-- fixed_reproduced_gds_path: `outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds`
-- fixed_clean_review_gds_path: `outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed_clean_review.gds`
-- reference_vs_m8r_geometry_match: `EXACT_MATCH`
-- can_use_this_flow_for_next_netlist_translator: `True`
-- can_enter_M9_after_this_gate: `True`
+- m9_outputs_found: `True`
+- m9_trace_available: `True`
+- commit_required: `True`
+- push_required: `True`
+- remaining_M9C_blockers_count: `1`

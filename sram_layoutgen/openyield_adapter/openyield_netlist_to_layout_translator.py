@@ -1,0 +1,5 @@
+from __future__ import annotations
+
+from sram_layoutgen.openyield_adapter.M9_openyield_netlist_translator import run_m9_openyield_netlist_translator
+
+__all__ = ["run_m9_openyield_netlist_translator"]
