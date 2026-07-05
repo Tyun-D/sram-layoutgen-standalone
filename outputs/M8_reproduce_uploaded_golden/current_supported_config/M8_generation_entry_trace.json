@@ -1,0 +1,29 @@
+{
+  "generation_entry_found": true,
+  "generator_entry_script": "sram_layoutgen/standalone.py",
+  "generator_function": "write_standalone",
+  "generator_arguments_available": true,
+  "generator_arguments": {
+    "word_size": 8,
+    "num_words": 64,
+    "words_per_row": 4,
+    "name": "sram_8x64_wpr4_fd45",
+    "enable_openyield_gate_row_packing": true,
+    "enable_openyield_power_rail_overlap_packing": true
+  },
+  "zip_record_backend": "standalone",
+  "zip_record_name": "sram_8x64_wpr4_fd45",
+  "zip_record_word_size": 8,
+  "zip_record_num_words": 64,
+  "zip_record_words_per_row": 4,
+  "zip_record_consistent_with_selected_flow": true,
+  "selected_flow_reason": "Chosen flow matches golden top-cell name, width, height, bitcell pitch, cell count, gen_col_mux presence, and column-mux placement more closely than the current optimized helper.",
+  "calls_real_layoutgen_generator": true,
+  "generated_new_gds": true,
+  "reference_file_copied_as_output": false,
+  "alternative_flows_considered": [
+    "build_openyield_optimized_standalone_spec -> geometry drifted in width/height and switched column mux cell",
+    "StandaloneSpec base only -> matched width but not height",
+    "StandaloneSpec + gate_row_packing + power_rail_overlap -> best structural match"
+  ]
+}

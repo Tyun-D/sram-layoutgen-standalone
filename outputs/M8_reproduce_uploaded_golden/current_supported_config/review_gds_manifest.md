@@ -1,0 +1,10 @@
+# M8 Review GDS Manifest
+
+- golden_reference_copy_for_comparison_gds: `outputs/M8_reproduce_uploaded_golden/current_supported_config/golden_reference_copy_for_comparison.gds`
+- reproduced_gds: `outputs/M8_reproduce_uploaded_golden/current_supported_config/layoutgen_reproduced_from_uploaded_golden.gds`
+- clean_review_gds: `outputs/M8_reproduce_uploaded_golden/current_supported_config/layoutgen_reproduced_from_uploaded_golden_clean_review.gds`
+- spec_annotated_gds: `outputs/M8_reproduce_uploaded_golden/current_supported_config/layoutgen_reproduced_from_uploaded_golden_spec_annotated.gds`
+- golden_sha256: `713cc2b87ec3a2b0239b7a1015a5eb5dd94d65c482f88e145dd69a7dcd058bcd`
+- reproduced_sha256: `8420d26d3f9fd801d9977eaed4758f31f10626c3eb43b5df0260e759845dc658`
+- clean_review_sha256: `3e60e2555e65ac159555303ef1f7416cbec99941cdde966e89c509068818c35b`
+- spec_annotated_sha256: `2bf3d5a6c0388fbadab8f3dcf986f8c012b2eb24fc37c9e19c03eb4b5cf517e2`
