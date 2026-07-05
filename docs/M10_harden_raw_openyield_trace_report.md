@@ -1,19 +1,7 @@
-# OpenYield SRAM LayoutGen Project Status
+# M10 Harden Raw OpenYield Trace Report
 
-## 1. Current Correct Goal
-
-在已锁定的 reproducible golden layoutgen flow 上，把 M9 translator 的 intent/module-net binding 继续追溯回 OpenYield 原始源码与配置文件，形成 source-backed trace，同时保持 golden-style 物理生成结果。
-
-## 2. Current Stage
-
-- current_stage: `M10`
-- next_stage: `WAIT_HUMAN_KLAYOUT_REVIEW`
-- human_klayout_review_required_every_stage: `True`
-- can_enter_next_stage_without_human_review: `False`
-
-## 3. Latest M10 Result
-
-- raw_source_trace_generated: `True`
+- openyield_root_found: `True`
+- openyield_source_file_count_loaded: `94`
 - source_backed_module_count: `20` / `20`
 - source_backed_net_count: `34` / `34`
 - capacity_config_fallback_used: `True`
@@ -22,6 +10,8 @@
 - gds_path: `outputs/M10_raw_openyield_trace/current_supported_config/openyield_source_backed_translated_sram.gds`
 - clean_review_gds_path: `outputs/M10_raw_openyield_trace/current_supported_config/openyield_source_backed_translated_sram_clean_review.gds`
 - annotated_debug_gds_path: `outputs/M10_raw_openyield_trace/current_supported_config/openyield_source_backed_translated_sram_annotated_debug.gds`
+- gds_sanity_status: `GDS_PARSED_SANITY_PASSED`
 - reference_vs_m10_geometry_match: `EXACT_MATCH`
 - can_claim_source_backed_translator_v2: `True`
-- human_klayout_review_required: `True`
+- can_claim_full_raw_netlist_compiler: `False`
+- remaining_M10_blockers_count: `1`

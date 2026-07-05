@@ -1,0 +1,6 @@
+# M10 Review GDS Manifest
+
+- `outputs/M10_raw_openyield_trace/current_supported_config/openyield_source_backed_translated_sram.gds` size=389934 sha256=`2e128ee51bf0c0be6cf12312d8902a4767e9625523e2e4e1e9b9fadbc350a75a`
+- `outputs/M10_raw_openyield_trace/current_supported_config/openyield_source_backed_translated_sram_clean_review.gds` size=381784 sha256=`eefe0ecaead7d89415de15f10b322ce8217d6520a14367e220d9f9adf73ed0ab`
+- `outputs/M10_raw_openyield_trace/current_supported_config/openyield_source_backed_translated_sram_annotated_debug.gds` size=390474 sha256=`56591f1fc61c94726a51ed5b2f82b6635c62061cd77eda739981d6cdda6aec8c`
+- `outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds` size=389826 sha256=`713cc2b87ec3a2b0239b7a1015a5eb5dd94d65c482f88e145dd69a7dcd058bcd`
