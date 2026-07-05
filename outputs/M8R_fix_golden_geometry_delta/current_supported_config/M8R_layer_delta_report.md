@@ -1,0 +1,21 @@
+# M8R Layer Delta Report
+
+- 1/0: before=`0` after=`0`
+- 10/0: before=`0` after=`0`
+- 11/0: before=`303` after=`0`
+- 12/0: before=`160` after=`0`
+- 13/0: before=`441` after=`0`
+- 13/2: before=`0` after=`0`
+- 14/0: before=`200` after=`0`
+- 15/0: before=`223` after=`0`
+- 15/2: before=`0` after=`0`
+- 16/0: before=`176` after=`0`
+- 17/0: before=`53` after=`0`
+- 17/2: before=`0` after=`0`
+- 2/0: before=`0` after=`0`
+- 239/0: before=`0` after=`0`
+- 3/0: before=`0` after=`0`
+- 4/0: before=`0` after=`0`
+- 5/0: before=`0` after=`0`
+- 6/0: before=`0` after=`0`
+- 9/0: before=`0` after=`0`

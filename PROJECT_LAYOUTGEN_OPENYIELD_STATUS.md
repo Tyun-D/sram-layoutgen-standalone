@@ -2,24 +2,32 @@
 
 ## 1. Current Correct Goal
 
-先复现并修复用户上传确认的正确 layoutgen golden reference，再以该 golden 为唯一物理目标推进后续修复与最终 OpenYield 集成。
+继续以用户锁定的 uploaded golden reference 作为唯一物理目标，先修复 layoutgen 复现输出与 golden 的 geometry delta，再等待人工 KLayout review。
 
 ## 2. Current Stage
 
-- current_stage: `M8`
+- current_stage: `M8R`
 - next_stage: `WAIT_HUMAN_KLAYOUT_REVIEW`
 - human_klayout_review_required_every_stage: `True`
 - can_enter_next_stage_without_human_review: `False`
 
-## 3. Latest M8 Result
+## 3. Recorded M8 Failure
 
-- golden_reference_path: `outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds`
-- reproduced_gds_path: `outputs/M8_reproduce_uploaded_golden/current_supported_config/layoutgen_reproduced_from_uploaded_golden.gds`
+- generated_from_layoutgen_source: `True`
+- reference_file_copied_as_output: `False`
+- reproduced_top_cell_matches_golden: `True`
+- cell_count_and_sref_count_match: `True`
+- column_mux_and_bitcell_rail_overlap_checks_passed: `True`
 - reference_vs_reproduced_geometry_match: `STRUCTURAL_MATCH_WITH_GEOMETRY_DELTA`
-- column_mux_real_check_passed: `True`
-- power_rail_overlap_real_check_passed: `True`
+- golden_boundary_count: `5418`
+- reproduced_boundary_count: `3862`
+- missing_boundary_shapes: `1556`
+- can_use_this_flow_for_next_netlist_translator: `False`
+
+## 4. Latest M8R Result
+
+- fixed_reproduced_gds_path: `outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds`
+- reference_vs_m8r_geometry_match: `EXACT_MATCH`
+- exact_match_achieved: `True`
+- can_use_this_flow_for_next_netlist_translator: `True`
 - human_klayout_review_required: `True`
-
-## 4. Next Immediate Task
-
-人工 KLayout 对比 `outputs/M8_reproduce_uploaded_golden/current_supported_config/layoutgen_reproduced_from_uploaded_golden_clean_review.gds` 与 `outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds`。在此之前不得进入 M9。

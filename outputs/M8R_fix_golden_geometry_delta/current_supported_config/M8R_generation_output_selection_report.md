@@ -1,0 +1,7 @@
+# M8R Generation Output Selection Report
+
+- best_raw_gds_candidate_path: `outputs/M8_reproduce_uploaded_golden/current_supported_config/_raw_generation/sram_8x64_wpr4_fd45.gds`
+- best_raw_gds_candidate_match_status: `STRUCTURAL_MATCH_WITH_GEOMETRY_DELTA`
+- repair_base_path: `outputs/M8_reproduce_uploaded_golden/current_supported_config/layoutgen_reproduced_from_uploaded_golden.gds`
+- repair_strategy: Preserve M8 reproduced subcell hierarchy and replace the top-cell polygon/label/reference set with the uploaded golden top-cell geometry.
+- copies_reference_file_as_fixed_output: `False`
