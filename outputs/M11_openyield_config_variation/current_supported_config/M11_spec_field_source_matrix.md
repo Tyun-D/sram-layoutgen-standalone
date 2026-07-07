@@ -1,0 +1,23 @@
+# M11 Spec Field Source Matrix
+
+- `word_size` = `8` source_type=`LOCKED_GOLDEN_FALLBACK` raw_backed=`False` fallback=`True`
+- `num_words` = `64` source_type=`LOCKED_GOLDEN_FALLBACK` raw_backed=`False` fallback=`True`
+- `words_per_row` = `4` source_type=`LOCKED_GOLDEN_FALLBACK` raw_backed=`False` fallback=`True`
+- `num_rows` = `16` source_type=`RAW_OPENYIELD_CONFIG` raw_backed=`True` fallback=`False`
+- `num_cols` = `16` source_type=`RAW_OPENYIELD_CONFIG` raw_backed=`True` fallback=`False`
+- `num_banks` = `1` source_type=`LOCKED_GOLDEN_FALLBACK` raw_backed=`False` fallback=`True`
+- `num_ports` = `1` source_type=`LOCKED_GOLDEN_FALLBACK` raw_backed=`False` fallback=`True`
+- `tech` = `freepdk45` source_type=`LOCKED_GOLDEN_FALLBACK` raw_backed=`False` fallback=`True`
+- `top_cell_name` = `sram_8x64_wpr4_fd45` source_type=`LOCKED_GOLDEN_FALLBACK` raw_backed=`False` fallback=`True`
+- `column_mux_ratio` = `1` source_type=`DERIVED_FROM_RAW_SOURCE` raw_backed=`True` fallback=`False`
+- `mux_enabled` = `False` source_type=`RAW_OPENYIELD_CONFIG` raw_backed=`True` fallback=`False`
+- `dummy_enabled` = `True` source_type=`LOCKED_GOLDEN_FALLBACK` raw_backed=`False` fallback=`True`
+- `replica_enabled` = `True` source_type=`LOCKED_GOLDEN_FALLBACK` raw_backed=`False` fallback=`True`
+- `precharge_enabled` = `True` source_type=`LOCKED_GOLDEN_FALLBACK` raw_backed=`False` fallback=`True`
+- `sense_amp_enabled` = `True` source_type=`LOCKED_GOLDEN_FALLBACK` raw_backed=`False` fallback=`True`
+- `write_driver_enabled` = `True` source_type=`LOCKED_GOLDEN_FALLBACK` raw_backed=`False` fallback=`True`
+- `wordline_driver_enabled` = `True` source_type=`LOCKED_GOLDEN_FALLBACK` raw_backed=`False` fallback=`True`
+- `decoder_enabled` = `True` source_type=`LOCKED_GOLDEN_FALLBACK` raw_backed=`False` fallback=`True`
+- `power_rail_overlap_enabled` = `True` source_type=`LAYOUTGEN_DEFAULT` raw_backed=`False` fallback=`False`
+- `power_stitch_enabled` = `True` source_type=`LAYOUTGEN_DEFAULT` raw_backed=`False` fallback=`False`
+- `rail_abutment_enabled` = `False` source_type=`LAYOUTGEN_DEFAULT` raw_backed=`False` fallback=`False`

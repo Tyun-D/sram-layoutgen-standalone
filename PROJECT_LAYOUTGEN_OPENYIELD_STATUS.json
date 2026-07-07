@@ -8,12 +8,12 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M10H",
-  "next_stage": "M11_OPENYIELD_CONFIG_EXTRACTION_OR_VARIATION_SUPPORT",
+  "current_stage": "M11",
+  "next_stage": "WAIT_HUMAN_KLAYOUT_REVIEW",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": true,
-  "can_enter_next_stage_without_human_review": true,
+  "can_enter_next_stage_without_human_review": false,
   "important_results": [
     {
       "result_name": "First-round OpenYield module GDS generation",
@@ -699,7 +699,7 @@
     ],
     "remaining_M10_blockers_count": 1
   },
-  "current_goal": "Confirmed M10 source-backed translator v2 after human review; next focus is M11 config extraction or variation support.",
+  "current_goal": "M11 config extraction and variation support completed; human KLayout review is still required before any post-M11 stage.",
   "m10_clean_gds_user_review_passed": true,
   "m10_source_backed_translator_v2_confirmed": true,
   "can_claim_source_backed_translator_v2": true,
@@ -774,5 +774,121 @@
     "remaining_M10_blockers_after_count": 0,
     "next_stage_allowed": "M11_OPENYIELD_CONFIG_EXTRACTION_OR_VARIATION_SUPPORT",
     "can_enter_next_stage_after_this_gate": true
+  },
+  "last_M11_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "reused_previous_artifacts": [
+      {
+        "artifact": "M8R/M8RC locked golden layoutgen flow",
+        "path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+        "reuse_purpose": "locked exact-match geometry baseline for translator-backed physical delivery"
+      },
+      {
+        "artifact": "M9/M9H translator v1",
+        "path": "outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram.gds",
+        "reuse_purpose": "prior translator semantics, binding bridge, and reviewed translator framing"
+      },
+      {
+        "artifact": "M10 raw source-backed trace",
+        "path": "outputs/M10_raw_openyield_trace/current_supported_config/openyield_source_backed_translated_sram.gds",
+        "reuse_purpose": "source-backed module/net/instance/config trace and exact-match source-backed translator v2 evidence"
+      },
+      {
+        "artifact": "T1 OpenYield full file analysis",
+        "path": "docs/T1_openyield_full_file_report.json",
+        "reuse_purpose": "key entrypoints, source inventory, and recommended raw-source search set"
+      },
+      {
+        "artifact": "R1/M1 OpenYield intent and binding",
+        "path": "outputs/openyield_layout_intent/current_supported_config/;docs/mapping/M1_openyield_to_layoutgen_binding.csv;docs/mapping/M1_openyield_net_to_layoutgen_pin_binding.csv",
+        "reuse_purpose": "semantic role map and module/net binding inputs carried into M9 and hardened in M10"
+      },
+      {
+        "artifact": "M7 golden reference",
+        "path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+        "reuse_purpose": "locked physical comparison target and exact-match baseline"
+      }
+    ],
+    "deprecated_previous_artifacts": [
+      {
+        "artifact": "access_module cells",
+        "path": "*_access_module",
+        "deprecated_reason": "cannot be claimed as physical implementation in M10H gate closure"
+      },
+      {
+        "artifact": "floorplan_proxy cells",
+        "path": "floorplan_proxy*",
+        "deprecated_reason": "review-only proxy hierarchy, not valid implementation backing for M10H"
+      },
+      {
+        "artifact": "historical hybrid reference",
+        "path": "outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+        "deprecated_reason": "superseded by locked uploaded golden reference and M8R/M8RC exact-match flow"
+      }
+    ],
+    "current_stage_inputs": [
+      "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md",
+      "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json",
+      "docs/M10H_confirm_source_backed_translator_report.json",
+      "docs/M10_harden_raw_openyield_trace_report.json",
+      "outputs/M10_raw_openyield_trace/current_supported_config/",
+      "docs/M9H_confirm_translator_review_report.json",
+      "docs/M8RC_confirm_reproducible_golden_flow_report.json",
+      "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+      "outputs/T1_openyield_file_inventory/current_supported_config/openyield_full_file_inventory.csv",
+      "/data1/qujh/work/external/OpenYield"
+    ],
+    "current_stage_delta_from_M10": [
+      "M10 proved module/net/instance source backing but left capacity_config_fallback_used=True.",
+      "M11 scans raw OpenYield config/script/doc/optimization files and separates raw-backed architecture knobs from locked logical fallback fields.",
+      "M11 adds variation-aware translator input support and emits an OpenYield-config-derived SRAM spec plus source matrix."
+    ],
+    "why_this_task_advances_beyond_M10": "M10 stopped at source-backed semantics with locked logical capacity. M11 advances the route by proving which SRAM capacity/variation fields are actually present in raw OpenYield, which are only derivable, and which still require locked fallback.",
+    "m10h_gate_loaded": true,
+    "m10_source_backed_translator_v2_confirmed": true,
+    "openyield_root_found": true,
+    "config_candidate_count": 105,
+    "raw_config_file_count": 14,
+    "script_argument_config_count": 5,
+    "netlist_config_evidence_count": 1,
+    "openyield_capacity_config_found": true,
+    "word_size_source_backed": false,
+    "num_words_source_backed": false,
+    "words_per_row_source_backed": false,
+    "num_rows_source_backed": true,
+    "num_cols_source_backed": true,
+    "capacity_config_fallback_used_before_M11": true,
+    "capacity_config_fallback_used_after_M11": true,
+    "fallback_reduced_by_M11": true,
+    "fallback_eliminated_by_M11": false,
+    "openyield_config_derived_sram_spec_available": true,
+    "spec_field_source_matrix_available": true,
+    "variation_support_added": true,
+    "variation_count_supported": 3,
+    "supported_variations": [
+      "8x64_wpr4",
+      "4x32_wpr2",
+      "16x16_wpr1"
+    ],
+    "layoutgen_golden_flow_used": true,
+    "reference_file_copied_as_output": false,
+    "gds_generated": true,
+    "gds_path": "outputs/M11_openyield_config_variation/current_supported_config/openyield_config_derived_sram.gds",
+    "clean_review_gds_path": "outputs/M11_openyield_config_variation/current_supported_config/openyield_config_derived_sram_clean_review.gds",
+    "annotated_debug_gds_path": "outputs/M11_openyield_config_variation/current_supported_config/openyield_config_derived_sram_annotated_debug.gds",
+    "gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "top_cell_name": "sram_8x64_wpr4_fd45",
+    "reference_vs_m11_geometry_match": "EXACT_MATCH",
+    "can_claim_config_aware_translator_v3": true,
+    "can_claim_full_raw_netlist_compiler": false,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false,
+    "remaining_M11_blockers": [
+      "Human KLayout review is required for openyield_config_derived_sram_clean_review.gds before any post-M11 stage.",
+      "Fallback still required for: word_size, num_words, words_per_row, num_banks, num_ports, tech, top_cell_name, dummy_enabled, replica_enabled, precharge_enabled, sense_amp_enabled, write_driver_enabled, wordline_driver_enabled, decoder_enabled",
+      "OpenYield raw source exposes num_rows/num_cols/choose_columnmux and architecture variations, but current supported delivery still relies on locked 8x64_wpr4 logical capacity fallback."
+    ],
+    "remaining_M11_blockers_count": 3
   }
 }

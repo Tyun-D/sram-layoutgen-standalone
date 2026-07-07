@@ -1,0 +1,47 @@
+spec_field,value,source_type,raw_source_file,raw_source_line_start,raw_source_line_end,raw_source_snippet,source_hash,is_raw_source_backed,is_fallback,fallback_source,fallback_reason,used_by_translator
+word_size,8,LOCKED_GOLDEN_FALLBACK,,,,,,False,True,outputs/M8_reproduce_uploaded_golden/current_supported_config/SRAM_SPEC.json,"OpenYield raw source exposes num_cols, not a first-class logical word_size parameter.",True
+num_words,64,LOCKED_GOLDEN_FALLBACK,,,,,,False,True,outputs/M8_reproduce_uploaded_golden/current_supported_config/SRAM_SPEC.json,"OpenYield raw source exposes num_rows/num_cols and capacity goals, not a first-class logical num_words parameter.",True
+words_per_row,4,LOCKED_GOLDEN_FALLBACK,,,,,,False,True,outputs/M8_reproduce_uploaded_golden/current_supported_config/SRAM_SPEC.json,Current translator current_supported_config keeps locked golden 8x64_wpr4; raw OpenYield only proves choose_columnmux -> ratio 1 or 2.,True
+num_rows,16,RAW_OPENYIELD_CONFIG,/data1/qujh/work/external/OpenYield/sram_compiler/config_yaml/global.yaml,12,17,"11: sram_cell_type: ""SRAM_6T_CELL""      # 可选: ""SRAM_6T_CELL"" / ""SRAM_10T_CELL""
+12: TOTAL_capacity_KB: 32
+13: num_rows: 16                      # SRAM行数 / Number of SRAM rows
+14: num_cols: 16                        # SRAM列数 / Number of SRAM columns
+15: monte_carlo_runs: 1               # 蒙特卡洛仿真次数 / Monte Carlo simulation runs/设计参数有几行就改成几
+16: timeout: 120                      # 仿真超时时间(秒) / Simulation timeout (seconds)
+17: choose_columnmux: false             # 是否选择列复用器 / Whether to choose column mux
+18: pdk_path_TT: ""tran_models/models_TT.spice"" # PDK路径 / PDK path",cf9b12faa04e22ee7738c4e2df24f50df00e6cd68c521298a94c08c5ca90aa6c,True,False,,,True
+num_cols,16,RAW_OPENYIELD_CONFIG,/data1/qujh/work/external/OpenYield/sram_compiler/config_yaml/global.yaml,12,17,"11: sram_cell_type: ""SRAM_6T_CELL""      # 可选: ""SRAM_6T_CELL"" / ""SRAM_10T_CELL""
+12: TOTAL_capacity_KB: 32
+13: num_rows: 16                      # SRAM行数 / Number of SRAM rows
+14: num_cols: 16                        # SRAM列数 / Number of SRAM columns
+15: monte_carlo_runs: 1               # 蒙特卡洛仿真次数 / Monte Carlo simulation runs/设计参数有几行就改成几
+16: timeout: 120                      # 仿真超时时间(秒) / Simulation timeout (seconds)
+17: choose_columnmux: false             # 是否选择列复用器 / Whether to choose column mux
+18: pdk_path_TT: ""tran_models/models_TT.spice"" # PDK路径 / PDK path",cf9b12faa04e22ee7738c4e2df24f50df00e6cd68c521298a94c08c5ca90aa6c,True,False,,,True
+num_banks,1,LOCKED_GOLDEN_FALLBACK,,,,,,False,True,locked single-bank project scope,OpenYield current source uses one implicit bank but does not expose a first-class num_banks config object.,True
+num_ports,1,LOCKED_GOLDEN_FALLBACK,,,,,,False,True,locked single-port project scope,OpenYield current source models one shared read/write port but does not expose a first-class num_ports config object.,True
+tech,freepdk45,LOCKED_GOLDEN_FALLBACK,,,,,,False,True,outputs/M8_reproduce_uploaded_golden/current_supported_config/SRAM_SPEC.json,OpenYield config tracks PDK paths but current translator locks delivery to the freepdk45 layoutgen flow.,True
+top_cell_name,sram_8x64_wpr4_fd45,LOCKED_GOLDEN_FALLBACK,,,,,,False,True,outputs/M8_reproduce_uploaded_golden/current_supported_config/SRAM_SPEC.json,Current supported config preserves the locked golden top-cell name for exact-match physical delivery.,True
+column_mux_ratio,1,DERIVED_FROM_RAW_SOURCE,/data1/qujh/work/external/OpenYield/sram_compiler/testbenches/sram_6t_core_testbench.py,475,477,"474: 
+475:         if self.choose_columnmux:
+476:         # we temporarily fix this to 2  固定为2路复用
+477:             self.mux_in = 2
+478: ",f38a0c440715d5c087aaf8ee5b7a7c910d4b349f4dda9c648f8f31480df5ad0d,True,False,,,True
+mux_enabled,False,RAW_OPENYIELD_CONFIG,/data1/qujh/work/external/OpenYield/sram_compiler/config_yaml/global.yaml,12,17,"11: sram_cell_type: ""SRAM_6T_CELL""      # 可选: ""SRAM_6T_CELL"" / ""SRAM_10T_CELL""
+12: TOTAL_capacity_KB: 32
+13: num_rows: 16                      # SRAM行数 / Number of SRAM rows
+14: num_cols: 16                        # SRAM列数 / Number of SRAM columns
+15: monte_carlo_runs: 1               # 蒙特卡洛仿真次数 / Monte Carlo simulation runs/设计参数有几行就改成几
+16: timeout: 120                      # 仿真超时时间(秒) / Simulation timeout (seconds)
+17: choose_columnmux: false             # 是否选择列复用器 / Whether to choose column mux
+18: pdk_path_TT: ""tran_models/models_TT.spice"" # PDK路径 / PDK path",cf9b12faa04e22ee7738c4e2df24f50df00e6cd68c521298a94c08c5ca90aa6c,True,False,,,True
+dummy_enabled,True,LOCKED_GOLDEN_FALLBACK,,,,,,False,True,outputs/M8_reproduce_uploaded_golden/current_supported_config/SRAM_SPEC.json,M11 preserves the M10/M8R physical feature set; no first-class raw OpenYield physical-feature toggle is consumed by the translator for this field.,True
+replica_enabled,True,LOCKED_GOLDEN_FALLBACK,,,,,,False,True,outputs/M8_reproduce_uploaded_golden/current_supported_config/SRAM_SPEC.json,M11 preserves the M10/M8R physical feature set; no first-class raw OpenYield physical-feature toggle is consumed by the translator for this field.,True
+precharge_enabled,True,LOCKED_GOLDEN_FALLBACK,,,,,,False,True,outputs/M8_reproduce_uploaded_golden/current_supported_config/SRAM_SPEC.json,M11 preserves the M10/M8R physical feature set; no first-class raw OpenYield physical-feature toggle is consumed by the translator for this field.,True
+sense_amp_enabled,True,LOCKED_GOLDEN_FALLBACK,,,,,,False,True,outputs/M8_reproduce_uploaded_golden/current_supported_config/SRAM_SPEC.json,M11 preserves the M10/M8R physical feature set; no first-class raw OpenYield physical-feature toggle is consumed by the translator for this field.,True
+write_driver_enabled,True,LOCKED_GOLDEN_FALLBACK,,,,,,False,True,outputs/M8_reproduce_uploaded_golden/current_supported_config/SRAM_SPEC.json,M11 preserves the M10/M8R physical feature set; no first-class raw OpenYield physical-feature toggle is consumed by the translator for this field.,True
+wordline_driver_enabled,True,LOCKED_GOLDEN_FALLBACK,,,,,,False,True,outputs/M8_reproduce_uploaded_golden/current_supported_config/SRAM_SPEC.json,M11 preserves the M10/M8R physical feature set; no first-class raw OpenYield physical-feature toggle is consumed by the translator for this field.,True
+decoder_enabled,True,LOCKED_GOLDEN_FALLBACK,,,,,,False,True,outputs/M8_reproduce_uploaded_golden/current_supported_config/SRAM_SPEC.json,M11 preserves the M10/M8R physical feature set; no first-class raw OpenYield physical-feature toggle is consumed by the translator for this field.,True
+power_rail_overlap_enabled,True,LAYOUTGEN_DEFAULT,,,,,,False,False,,,True
+power_stitch_enabled,True,LAYOUTGEN_DEFAULT,,,,,,False,False,,,True
+rail_abutment_enabled,False,LAYOUTGEN_DEFAULT,,,,,,False,False,,,True
