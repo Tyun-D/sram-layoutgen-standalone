@@ -1,0 +1,8 @@
+sequence,stage_id,why_now,depends_on,blocks_assets,entry_condition
+1,M11H,Clear the config-aware translator claim gate before expanding substitution work.,M11 outputs,SRAM_CONFIGURATION;VERIFICATION_AND_TRACE,docs/M11H_confirm_config_aware_translator_report.json missing
+2,M11A,Qualify OpenYield module GDS before treating them as hardmacro candidates.,M11H or accepted M11 claim boundary,PHYSICAL_IMPLEMENTATION_LIBRARY,Need per-module qualification and replacement boundary
+3,M11B,Only qualified modules should feed pin/bbox/rail extraction.,M11A,PIN_BBOX_RAIL_METADATA;POWER_PLAN,Qualified module GDS list available
+4,M11C,Selective hardmacro substitution smoke proves floorplan and placement compatibility.,M11A;M11B,FLOORPLAN_RULES;PLACEMENT_RULES,Qualified modules plus verified metadata available
+5,M12A,Generate variation GDS for 4x32_wpr2 and 16x16_wpr1.,M11H;M11C,SRAM_CONFIGURATION;ROUTING_RULES,Variation-aware inputs can be driven through the locked flow extensions
+6,M12B,Adapt routing and power policy to variation and substitution outputs.,M12A,ROUTING_RULES;POWER_PLAN,Variation GDS evidence exists
+7,M13,Only after physical qualification and variation proof should DRC/LVS feasibility and equivalence trace run.,M11A;M11B;M11C;M12A;M12B,VERIFICATION_AND_TRACE,Physical and routing/power deltas materially closed

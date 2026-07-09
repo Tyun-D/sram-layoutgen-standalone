@@ -1,0 +1,69 @@
+{
+  "status_file_read": true,
+  "status_file_updated": true,
+  "reused_previous_artifacts_available": true,
+  "deprecated_previous_artifacts_recorded": true,
+  "ten_required_assets_added_to_goal": true,
+  "ten_required_assets_added_to_progress": true,
+  "workdir_scan_completed": true,
+  "workdir_root": "/data1/qujh/work/sram_layoutgen_step45_clean",
+  "openyield_root_checked": "/data1/qujh/work/external/OpenYield",
+  "asset_count_total": 10,
+  "asset_complete_count": 2,
+  "asset_partial_count": 8,
+  "asset_missing_count": 0,
+  "asset_invalidated_count": 0,
+  "asset_needs_review_count": 0,
+  "blocking_asset_count": 8,
+  "missing_or_partial_assets": [
+    "PHYSICAL_IMPLEMENTATION_LIBRARY",
+    "PIN_BBOX_RAIL_METADATA",
+    "SRAM_CONFIGURATION",
+    "FLOORPLAN_RULES",
+    "PLACEMENT_RULES",
+    "ROUTING_RULES",
+    "POWER_PLAN",
+    "VERIFICATION_AND_TRACE"
+  ],
+  "next_assets_to_fill_in_order": [
+    "M11H",
+    "M11A",
+    "M11B",
+    "M11C",
+    "M12A",
+    "M12B",
+    "M13"
+  ],
+  "recommended_next_stage": "M11H",
+  "can_claim_source_backed_translator_v2": true,
+  "can_claim_config_aware_translator_v3": false,
+  "can_claim_full_raw_openyield_netlist_compiler": false,
+  "can_claim_openyield_module_gds_hardmacro_substitution": false,
+  "can_claim_drc_clean": false,
+  "can_claim_lvs_clean": false,
+  "can_claim_signoff_ready": false,
+  "human_klayout_review_required": true,
+  "can_enter_next_stage_before_human_review": false,
+  "remaining_M12_blockers": [
+    "Human KLayout review remains required before entering any next stage.",
+    "M11H confirmation file is missing; config-aware v3 claim stays below gate.",
+    "OpenYield module GDS hardmacro substitution is still unqualified.",
+    "DRC/LVS/signoff claims remain unavailable."
+  ],
+  "remaining_M12_blockers_count": 4,
+  "goal_files": [
+    "PROJECT_NETLIST_TO_LAYOUT_GOAL.md"
+  ],
+  "progress_files": [
+    "PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md"
+  ],
+  "workdir_scan_file_count_by_root": {
+    "sram_layoutgen": 184,
+    "scripts": 153,
+    "tests": 57,
+    "docs": 672,
+    "outputs": 1716,
+    "external_references": 1
+  },
+  "m11h_present": false
+}
