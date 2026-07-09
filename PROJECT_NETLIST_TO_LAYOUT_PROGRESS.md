@@ -16,7 +16,7 @@
 - status_level: `PARTIAL`
 - evidence_paths: `outputs/openyield_module_gds/; docs/mapping/openyield_module_gds_inventory.csv; outputs/M9_openyield_netlist_translator/current_supported_config/M9_module_binding_matrix.csv`
 - blocking_for_next_stage: `True`
-- next_action: `M11C_SELECTIVE_HARDMACRO_SUBSTITUTION_SMOKE_FOR_READY_MODULES after M11B machine verification; ready candidates are sense_amp, and blocked candidates are wordline_driver.`
+- next_action: `M11C_SENSE_AMP_ONLY_SMOKE_SUBSTITUTION after M11BH human review; only sense_amp is allowed to enter M11C and wordline_driver stays excluded.`
 
 ### PIN_BBOX_RAIL_METADATA
 
@@ -24,7 +24,7 @@
 - status_level: `PARTIAL`
 - evidence_paths: `outputs/openyield_module_gds/; docs/mapping/openyield_rail_rule_matrix.csv; outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json`
 - blocking_for_next_stage: `True`
-- next_action: `M11C_SELECTIVE_HARDMACRO_SUBSTITUTION_SMOKE_FOR_READY_MODULES`
+- next_action: `M11C_SENSE_AMP_ONLY_SMOKE_SUBSTITUTION`
 
 ### SRAM_CONFIGURATION
 
@@ -127,3 +127,11 @@
 - ready_for_M11C_modules: `sense_amp`
 - not_ready_modules: `wordline_driver`
 - note: `M11B remains machine-first; visual completeness and annotation readability stay in human review scope.`
+
+## M11BH Human Review
+
+- m11b_human_review_completed: `True`
+- ready_for_M11C_modules_after_human_review: `sense_amp`
+- not_ready_modules_after_human_review: `wordline_driver`
+- M11C_scope: `sense_amp_only`
+- note: `wordline_driver remains a wrapper and pin-resolution follow-up item; it must not enter M11C.`
