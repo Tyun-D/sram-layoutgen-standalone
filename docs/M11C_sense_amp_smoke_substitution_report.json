@@ -1,0 +1,166 @@
+{
+  "status_file_read": true,
+  "status_file_updated": true,
+  "progress_file_updated": true,
+  "reused_previous_artifacts": [
+    {
+      "artifact": "M11BH scope lock",
+      "path": "docs/M11BH_confirm_M11B_human_review_report.json",
+      "reuse_purpose": "locks M11C to sense_amp-only substitution scope"
+    },
+    {
+      "artifact": "M11BH scope mapping",
+      "path": "docs/mapping/M11BH_M11C_scope_lock.csv",
+      "reuse_purpose": "provides the allowed/excluded module list for this smoke substitution"
+    },
+    {
+      "artifact": "M11B deep sense_amp metadata",
+      "path": "docs/mapping/M11B_deep_pin_bbox_rail_metadata.csv",
+      "reuse_purpose": "supplies aligned pin and rail metadata for the replacement leaf"
+    },
+    {
+      "artifact": "M11B readiness matrix",
+      "path": "docs/mapping/M11B_substitution_readiness_matrix.csv",
+      "reuse_purpose": "proves sense_amp is the only ready candidate for smoke substitution"
+    },
+    {
+      "artifact": "M8R exact-match baseline",
+      "path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+      "reuse_purpose": "serves as the immutable baseline top for one-cell substitution"
+    },
+    {
+      "artifact": "M7 golden reference",
+      "path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+      "reuse_purpose": "provides the locked golden sense_amp target bbox and reference geometry"
+    },
+    {
+      "artifact": "OpenYield sense_amp module GDS",
+      "path": "outputs/openyield_module_gds/sense_amp/sense_amp.gds",
+      "reuse_purpose": "provides the replacement leaf cell geometry"
+    },
+    {
+      "artifact": "M10 source-backed translator trace",
+      "path": "outputs/M10_raw_openyield_trace/current_supported_config/",
+      "reuse_purpose": "retains the source-backed top-level trace context while M11C stays a local smoke substitution"
+    }
+  ],
+  "deprecated_previous_artifacts": [
+    {
+      "artifact": "wordline_driver in M11C scope",
+      "path": "docs/mapping/M11BH_M11C_scope_lock.csv",
+      "deprecated_reason": "explicitly excluded by M11BH and must not be substituted here"
+    },
+    {
+      "artifact": "column_mux/write_driver/CONTROL_LOGIC substitution in M11C",
+      "path": "user-prohibited module set for this stage",
+      "deprecated_reason": "M11C is a sense_amp-only smoke test and cannot expand candidate scope"
+    },
+    {
+      "artifact": "access_module cells",
+      "path": "*_access_module",
+      "deprecated_reason": "forbidden implementation route for this smoke substitution"
+    },
+    {
+      "artifact": "floorplan_proxy cells",
+      "path": "floorplan_proxy*",
+      "deprecated_reason": "review-only proxies that cannot be used as substitution targets"
+    }
+  ],
+  "current_stage_inputs": [
+    "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md",
+    "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json",
+    "PROJECT_NETLIST_TO_LAYOUT_GOAL.md",
+    "PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md",
+    "docs/M11BH_confirm_M11B_human_review_report.json",
+    "docs/mapping/M11BH_M11C_scope_lock.csv",
+    "docs/M11B_pin_bbox_rail_metadata_report.json",
+    "docs/mapping/M11B_deep_pin_bbox_rail_metadata.csv",
+    "docs/mapping/M11B_golden_alignment_matrix.csv",
+    "docs/mapping/M11B_substitution_readiness_matrix.csv",
+    "docs/mapping/M11B_wrapper_requirement_matrix.csv",
+    "outputs/openyield_module_gds/",
+    "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+    "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+    "outputs/M10_raw_openyield_trace/current_supported_config/",
+    "outputs/M11B_pin_bbox_rail_metadata/current_supported_config/"
+  ],
+  "current_stage_delta_from_M11BH": [
+    "M11BH cleared the human-review gate and locked the scope to sense_amp-only; M11C turns that locked scope into one actual substitution attempt.",
+    "M11C does not broaden the candidate set and does not perform a final SRAM implementation; it only swaps the sense_amp leaf cell inside the existing baseline top.",
+    "M11C introduces a generated SRAM_SPEC, substitution manifest, and top-level before/after smoke checks while keeping DRC/LVS/signoff claims closed."
+  ],
+  "why_M11C_is_sense_amp_only": "M11BH explicitly locked M11C to sense_amp_only because M11B showed that sense_amp had machine-verified ALIGNED pins and rails, while wordline_driver still lacked machine-resolved D/G/S wrapper pins. M11C therefore must attempt only the sense_amp substitution and must keep every other module excluded.",
+  "m11bh_gate_loaded": true,
+  "m11c_scope_from_M11BH": "sense_amp_only",
+  "allowed_modules_from_M11BH": [
+    "sense_amp"
+  ],
+  "excluded_modules_from_M11BH": [
+    "wordline_driver"
+  ],
+  "sram_spec_generated": true,
+  "sram_spec_path": "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/SRAM_SPEC.json",
+  "sense_amp_openyield_gds_found": true,
+  "sense_amp_openyield_gds_parsed": true,
+  "sense_amp_metadata_loaded_from_M11B": true,
+  "sense_amp_golden_target_found": true,
+  "substitution_attempted": true,
+  "substitution_scope": [
+    "sense_amp"
+  ],
+  "substituted_modules": [
+    "sense_amp"
+  ],
+  "excluded_modules_confirmed": true,
+  "baseline_gds_loaded": true,
+  "baseline_top_cell": "sram_8x64_wpr4_fd45",
+  "output_gds_generated": true,
+  "output_gds_path": "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram.gds",
+  "clean_review_gds_path": "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram_clean_review.gds",
+  "annotated_debug_gds_path": "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram_annotated_debug.gds",
+  "output_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+  "top_bbox_before": [
+    0.0,
+    0.0,
+    36.6225,
+    44.145
+  ],
+  "top_bbox_after": [
+    0.0,
+    0.0,
+    36.6225,
+    44.145
+  ],
+  "top_bbox_match_status": "EXACT_MATCH",
+  "access_module_used": false,
+  "floorplan_proxy_used": false,
+  "arbitrary_scatter_used": false,
+  "wordline_driver_substituted": false,
+  "column_mux_substituted": false,
+  "write_driver_substituted": false,
+  "control_logic_substituted": false,
+  "sense_amp_substitution_smoke_status": "SMOKE_SUBSTITUTION_PASS",
+  "ready_for_human_klayout_review": true,
+  "machine_verified_item_count": 22,
+  "human_review_required_item_count": 3,
+  "human_review_required_items": [
+    "KLayout must confirm that the substituted sense_amp instances still look visually complete in the top context.",
+    "KLayout must confirm that the debug annotation around the 8 substituted sense_amp instances is readable and non-misleading.",
+    "KLayout must confirm that no visual power or routing damage was introduced around the substituted sense_amp row."
+  ],
+  "can_claim_sense_amp_smoke_substitution_attempted": true,
+  "can_claim_sense_amp_smoke_substitution_passed": true,
+  "can_claim_openyield_module_gds_hardmacro_substitution": false,
+  "can_claim_drc_clean": false,
+  "can_claim_lvs_clean": false,
+  "can_claim_signoff_ready": false,
+  "remaining_M11C_blockers": [
+    "Human KLayout review is required for the substituted_sram clean/annotated outputs.",
+    "This is only a sense_amp smoke substitution; broader module substitution remains unqualified.",
+    "DRC/LVS/signoff claims remain unavailable."
+  ],
+  "remaining_M11C_blockers_count": 3,
+  "human_klayout_review_required": true,
+  "can_enter_next_stage_before_human_review": false,
+  "next_stage_allowed": "M11CH_CONFIRM_M11C_HUMAN_REVIEW"
+}

@@ -16,7 +16,7 @@
 - status_level: `PARTIAL`
 - evidence_paths: `outputs/openyield_module_gds/; docs/mapping/openyield_module_gds_inventory.csv; outputs/M9_openyield_netlist_translator/current_supported_config/M9_module_binding_matrix.csv`
 - blocking_for_next_stage: `True`
-- next_action: `M11C_SENSE_AMP_ONLY_SMOKE_SUBSTITUTION after M11BH human review; only sense_amp is allowed to enter M11C and wordline_driver stays excluded.`
+- next_action: `M11CH_CONFIRM_M11C_HUMAN_REVIEW after the sense_amp-only smoke substitution output is visually checked.`
 
 ### PIN_BBOX_RAIL_METADATA
 
@@ -24,7 +24,7 @@
 - status_level: `PARTIAL`
 - evidence_paths: `outputs/openyield_module_gds/; docs/mapping/openyield_rail_rule_matrix.csv; outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json`
 - blocking_for_next_stage: `True`
-- next_action: `M11C_SENSE_AMP_ONLY_SMOKE_SUBSTITUTION`
+- next_action: `M11CH_CONFIRM_M11C_HUMAN_REVIEW`
 
 ### SRAM_CONFIGURATION
 
@@ -135,3 +135,9 @@
 - not_ready_modules_after_human_review: `wordline_driver`
 - M11C_scope: `sense_amp_only`
 - note: `wordline_driver remains a wrapper and pin-resolution follow-up item; it must not enter M11C.`
+
+## M11C Smoke Substitution
+
+- substitution_scope: `sense_amp`
+- excluded_modules_confirmed: `wordline_driver, column_mux, write_driver, CONTROL_LOGIC`
+- note: `This is a smoke substitution only. Human KLayout review remains mandatory before any follow-on stage.`

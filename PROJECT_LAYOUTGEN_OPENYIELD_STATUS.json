@@ -8,12 +8,12 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M11BH",
-  "next_stage": "M11C_SENSE_AMP_ONLY_SMOKE_SUBSTITUTION",
+  "current_stage": "M11C",
+  "next_stage": "WAIT_HUMAN_KLAYOUT_REVIEW",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": true,
-  "can_enter_next_stage_without_human_review": true,
+  "can_enter_next_stage_without_human_review": false,
   "important_results": [
     {
       "result_name": "First-round OpenYield module GDS generation",
@@ -377,7 +377,7 @@
     "remaining_M7_blockers": [],
     "remaining_M7_blockers_count": 0
   },
-  "next_stage_allowed": "M11C_SENSE_AMP_ONLY_SMOKE_SUBSTITUTION",
+  "next_stage_allowed": "M11CH_CONFIRM_M11C_HUMAN_REVIEW",
   "golden_reference_user_confirmed": true,
   "golden_reference_is_now_locked": true,
   "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
@@ -699,7 +699,7 @@
     ],
     "remaining_M10_blockers_count": 1
   },
-  "current_goal": "M11BH completed the human review gate for M11B, confirmed sense_amp-only M11C scope, and excluded wordline_driver from substitution smoke until later wrapper/pin-resolution follow-up.",
+  "current_goal": "M11C completed a sense_amp-only OpenYield hardmacro smoke substitution attempt on the locked baseline flow and is awaiting human KLayout review before any follow-on step.",
   "m10_clean_gds_user_review_passed": true,
   "m10_source_backed_translator_v2_confirmed": true,
   "can_claim_source_backed_translator_v2": true,
@@ -916,12 +916,12 @@
       "asset_name": "模块物理实现库，包括 layoutgen cell、OpenYield module GDS、hardmacro 候选",
       "status_level": "PARTIAL",
       "evidence_paths": [
-        "docs/mapping/M11B_substitution_readiness_matrix.csv",
-        "docs/mapping/M11B_wrapper_requirement_matrix.csv",
-        "outputs/M11B_pin_bbox_rail_metadata/current_supported_config/M11B_substitution_readiness_report.json"
+        "docs/mapping/M11C_sense_amp_substitution_manifest.csv",
+        "docs/mapping/M11C_sense_amp_smoke_check_matrix.csv",
+        "docs/mapping/M11C_sense_amp_diff_matrix.csv"
       ],
       "blocking_for_next_stage": false,
-      "next_action": "M11C_SENSE_AMP_ONLY_SMOKE_SUBSTITUTION"
+      "next_action": "M11CH_CONFIRM_M11C_HUMAN_REVIEW"
     },
     {
       "asset_id": "PIN_BBOX_RAIL_METADATA",
@@ -929,11 +929,11 @@
       "status_level": "PARTIAL",
       "evidence_paths": [
         "docs/mapping/M11B_deep_pin_bbox_rail_metadata.csv",
-        "docs/mapping/M11B_golden_alignment_matrix.csv",
-        "outputs/M11B_pin_bbox_rail_metadata/current_supported_config/M11B_machine_verification_report.json"
+        "docs/mapping/M11C_sense_amp_smoke_check_matrix.csv",
+        "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_smoke_check_report.json"
       ],
       "blocking_for_next_stage": false,
-      "next_action": "M11C_SENSE_AMP_ONLY_SMOKE_SUBSTITUTION"
+      "next_action": "M11CH_CONFIRM_M11C_HUMAN_REVIEW"
     },
     {
       "asset_id": "SRAM_CONFIGURATION",
@@ -1475,5 +1475,83 @@
     "remaining_M11B_blockers_before_count": 3,
     "remaining_M11B_blockers_after_count": 0,
     "next_stage_allowed": "M11C_SENSE_AMP_ONLY_SMOKE_SUBSTITUTION"
+  },
+  "last_M11C_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "progress_file_updated": true,
+    "m11bh_gate_loaded": true,
+    "m11c_scope_from_M11BH": "sense_amp_only",
+    "allowed_modules_from_M11BH": [
+      "sense_amp"
+    ],
+    "excluded_modules_from_M11BH": [
+      "wordline_driver"
+    ],
+    "sram_spec_generated": true,
+    "sram_spec_path": "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/SRAM_SPEC.json",
+    "sense_amp_openyield_gds_found": true,
+    "sense_amp_openyield_gds_parsed": true,
+    "sense_amp_metadata_loaded_from_M11B": true,
+    "sense_amp_golden_target_found": true,
+    "substitution_attempted": true,
+    "substitution_scope": [
+      "sense_amp"
+    ],
+    "substituted_modules": [
+      "sense_amp"
+    ],
+    "excluded_modules_confirmed": true,
+    "baseline_gds_loaded": true,
+    "baseline_top_cell": "sram_8x64_wpr4_fd45",
+    "output_gds_generated": true,
+    "output_gds_path": "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram.gds",
+    "clean_review_gds_path": "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram_clean_review.gds",
+    "annotated_debug_gds_path": "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram_annotated_debug.gds",
+    "output_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "top_bbox_before": [
+      0.0,
+      0.0,
+      36.6225,
+      44.145
+    ],
+    "top_bbox_after": [
+      0.0,
+      0.0,
+      36.6225,
+      44.145
+    ],
+    "top_bbox_match_status": "EXACT_MATCH",
+    "access_module_used": false,
+    "floorplan_proxy_used": false,
+    "arbitrary_scatter_used": false,
+    "wordline_driver_substituted": false,
+    "column_mux_substituted": false,
+    "write_driver_substituted": false,
+    "control_logic_substituted": false,
+    "sense_amp_substitution_smoke_status": "SMOKE_SUBSTITUTION_PASS",
+    "ready_for_human_klayout_review": true,
+    "machine_verified_item_count": 22,
+    "human_review_required_item_count": 3,
+    "human_review_required_items": [
+      "KLayout must confirm that the substituted sense_amp instances still look visually complete in the top context.",
+      "KLayout must confirm that the debug annotation around the 8 substituted sense_amp instances is readable and non-misleading.",
+      "KLayout must confirm that no visual power or routing damage was introduced around the substituted sense_amp row."
+    ],
+    "can_claim_sense_amp_smoke_substitution_attempted": true,
+    "can_claim_sense_amp_smoke_substitution_passed": true,
+    "can_claim_openyield_module_gds_hardmacro_substitution": false,
+    "can_claim_drc_clean": false,
+    "can_claim_lvs_clean": false,
+    "can_claim_signoff_ready": false,
+    "remaining_M11C_blockers": [
+      "Human KLayout review is required for the substituted_sram clean/annotated outputs.",
+      "This is only a sense_amp smoke substitution; broader module substitution remains unqualified.",
+      "DRC/LVS/signoff claims remain unavailable."
+    ],
+    "remaining_M11C_blockers_count": 3,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false,
+    "next_stage_allowed": "M11CH_CONFIRM_M11C_HUMAN_REVIEW"
   }
 }

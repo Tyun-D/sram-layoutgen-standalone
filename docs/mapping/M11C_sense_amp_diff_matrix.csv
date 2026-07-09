@@ -1,0 +1,5 @@
+metric,before,after,status,notes
+top_bbox_before,"[0.0, 0.0, 36.6225, 44.145]","[0.0, 0.0, 36.6225, 44.145]",EXACT_MATCH,Top bbox is expected to stay exact because the replacement cell was translated to the golden sense_amp bbox.
+sense_amp_cell_bbox,"[-0.035, 0.0, 0.74, 6.01]","[-0.035, 0.0, 0.74, 6.01]",UPDATED,Leaf bbox now comes from the OpenYield sense_amp macro translated onto the golden target origin.
+cell_count,33,33,UNCHANGED,Smoke substitution replaces one cell definition without changing total cell count.
+sense_amp_instance_count,8,8,UNCHANGED,Top-level sense_amp reference count must remain 8.

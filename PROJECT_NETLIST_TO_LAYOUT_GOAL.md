@@ -31,3 +31,8 @@
 - M11A 正在对 `outputs/openyield_module_gds/` 的 20 个模块做 hardmacro 资格审查。
 - 本阶段只确认 DIRECT_HARDMACRO_REPLACE / CONSTRAINT_EXTRACTION_ONLY / SEMANTIC_REFERENCE_ONLY / REJECTED 分类，不做完整 SRAM top 替换。
 - 下一阶段需要先做 `M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION`，之后才允许尝试 selective substitution。
+## Current Smoke Substitution Stage
+
+- M11C 只允许做 `sense_amp` 的一次 hardmacro smoke substitution。
+- 本阶段不替换 `wordline_driver`、`column_mux`、`write_driver`、`CONTROL_LOGIC` 或任何其他模块。
+- 本阶段只验证替换尝试是否能保持 layoutgen golden flow 的顶层 GDS 可生成、可解析且无明显结构破坏。

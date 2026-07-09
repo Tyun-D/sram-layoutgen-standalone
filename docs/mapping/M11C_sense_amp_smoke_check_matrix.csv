@@ -1,0 +1,23 @@
+check,status,notes
+m11bh_gate_loaded,True,M11BH report and scope lock were loaded.
+m11c_scope_from_M11BH,True,sense_amp_only
+allowed_modules_from_M11BH,True,sense_amp
+sense_amp_openyield_gds_found,True,outputs/openyield_module_gds/sense_amp/sense_amp.gds
+sense_amp_openyield_gds_parsed,True,sense_amp
+sense_amp_metadata_loaded_from_M11B,True,rows=6
+sense_amp_golden_target_found,True,sense_amp
+replacement_target_not_unknown,True,Golden target is the concrete sense_amp leaf cell.
+output_gds_generated,True,outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram.gds
+output_gds_parsed,True,GDS_PARSED_SANITY_PASSED
+top_cell_exists,True,sram_8x64_wpr4_fd45
+top_bbox_checked,True,EXACT_MATCH
+no_access_module,True,False
+no_floorplan_proxy,True,False
+no_arbitrary_scatter,True,False
+no_wordline_driver_substitution,True,False
+no_column_mux_substitution,True,False
+no_write_driver_substitution,True,False
+only_sense_amp_substituted,True,All explicitly excluded modules remained unchanged.
+sense_amp_instance_count,True,8
+vdd_gnd_rail_identifiable,True,Inherited from M11B ALIGNED rail rows.
+pin_alignment_inherited_from_M11B,True,All sense_amp signal pins in M11B remained ALIGNED.
