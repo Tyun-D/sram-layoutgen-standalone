@@ -1,0 +1,28 @@
+[
+  {
+    "openyield_module": "sense_amp",
+    "golden_target_cell": "sense_amp",
+    "bbox_verified": true,
+    "pin_metadata_verified": true,
+    "rail_metadata_verified": true,
+    "golden_alignment_verified": true,
+    "signal_pin_alignment_verified": true,
+    "placement_safe": true,
+    "routing_safe": true,
+    "power_safe": true,
+    "notes": "Module and golden target align well enough for a guarded smoke substitution check."
+  },
+  {
+    "openyield_module": "wordline_driver",
+    "golden_target_cell": "gen_wl_driver",
+    "bbox_verified": true,
+    "pin_metadata_verified": false,
+    "rail_metadata_verified": true,
+    "golden_alignment_verified": false,
+    "signal_pin_alignment_verified": false,
+    "placement_safe": true,
+    "routing_safe": false,
+    "power_safe": true,
+    "notes": "Wrapper pins D/G/S are not machine-resolved in the parsed candidate GDS, so golden signal alignment cannot be fully verified."
+  }
+]

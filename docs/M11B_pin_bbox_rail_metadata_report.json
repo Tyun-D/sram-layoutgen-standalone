@@ -1,0 +1,140 @@
+{
+  "status_file_read": true,
+  "status_file_updated": true,
+  "progress_file_updated": true,
+  "reused_previous_artifacts": [
+    {
+      "artifact": "M11AR corrected candidate gate",
+      "path": "docs/M11AR_human_review_correction_report.json",
+      "reuse_purpose": "locks the candidate scope to sense_amp and wordline_driver only"
+    },
+    {
+      "artifact": "M11AR corrected decision matrix",
+      "path": "docs/mapping/M11AR_corrected_hardmacro_substitution_decision.csv",
+      "reuse_purpose": "reuses human-reviewed candidate classification and wrapper notes"
+    },
+    {
+      "artifact": "M11A pin metadata seed",
+      "path": "docs/mapping/M11A_pin_bbox_rail_metadata.csv",
+      "reuse_purpose": "provides the previously exported point-based pin metadata baseline"
+    },
+    {
+      "artifact": "M11A golden comparison seed",
+      "path": "docs/mapping/M11A_module_vs_golden_leaf_comparison.csv",
+      "reuse_purpose": "reuses the golden target mapping from qualification stage"
+    },
+    {
+      "artifact": "OpenYield module GDS",
+      "path": "outputs/openyield_module_gds/",
+      "reuse_purpose": "source for deep pin/bbox/rail extraction on the two narrowed candidates"
+    },
+    {
+      "artifact": "M7 golden reference",
+      "path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+      "reuse_purpose": "golden hardmacro target for machine alignment checks"
+    },
+    {
+      "artifact": "M8R exact-match layoutgen flow",
+      "path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+      "reuse_purpose": "locked physical baseline proving the golden flow remains untouched"
+    },
+    {
+      "artifact": "M10 source-backed trace bundle",
+      "path": "outputs/M10_raw_openyield_trace/current_supported_config/",
+      "reuse_purpose": "keeps the source-backed translator trace in scope while M11B stays purely metadata-oriented"
+    }
+  ],
+  "deprecated_previous_artifacts": [
+    {
+      "artifact": "access_module cells",
+      "path": "*_access_module",
+      "deprecated_reason": "forbidden for M11B machine verification and substitution readiness claims"
+    },
+    {
+      "artifact": "floorplan_proxy cells",
+      "path": "floorplan_proxy*",
+      "deprecated_reason": "review-only artifacts that cannot satisfy deep metadata verification"
+    },
+    {
+      "artifact": "column_mux and write_driver as active substitution candidates",
+      "path": "docs/M11AR_human_review_correction_report.json",
+      "deprecated_reason": "M11AR already downgraded them; M11B cannot re-expand the candidate set"
+    },
+    {
+      "artifact": "contract pins as verified physical pins",
+      "path": "docs/mapping/M11A_pin_bbox_rail_metadata.csv",
+      "deprecated_reason": "M11B must distinguish script-exported points from machine-verified physical polygons"
+    }
+  ],
+  "current_stage_inputs": [
+    "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md",
+    "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json",
+    "PROJECT_NETLIST_TO_LAYOUT_GOAL.md",
+    "PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md",
+    "docs/M11AR_human_review_correction_report.json",
+    "docs/M11AR_human_review_correction_report.md",
+    "docs/mapping/M11AR_corrected_hardmacro_substitution_decision.csv",
+    "docs/mapping/M11AR_corrected_first_substitution_plan.csv",
+    "docs/M11A_module_gds_qualification_report.json",
+    "docs/mapping/M11A_pin_bbox_rail_metadata.csv",
+    "docs/mapping/M11A_module_vs_golden_leaf_comparison.csv",
+    "outputs/openyield_module_gds/",
+    "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+    "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+    "outputs/M10_raw_openyield_trace/current_supported_config/",
+    "outputs/M11A_module_gds_qualification/current_supported_config/"
+  ],
+  "current_stage_delta_from_M11AR": [
+    "M11AR narrowed the candidate list by human review; M11B converts that narrowed list into machine-verified pin, bbox, rail, and golden-alignment evidence.",
+    "M11B does not change the hardmacro claim boundary and does not perform substitution; it only measures readiness for a later smoke test.",
+    "M11B explicitly separates machine_verified_items from human_review_required_items so that unresolved issues are script-detected whenever possible."
+  ],
+  "why_M11B_is_needed": "M11AR left only sense_amp and wordline_driver in scope, but that gate still relied on human visual review. M11B is needed to turn those two candidate modules into machine-checked pin/bbox/rail metadata and to decide whether either candidate is actually ready for a guarded M11C smoke substitution.",
+  "m11ar_gate_loaded": true,
+  "candidate_modules_from_M11AR": [
+    "sense_amp",
+    "wordline_driver"
+  ],
+  "candidate_modules_processed": [
+    "sense_amp",
+    "wordline_driver"
+  ],
+  "sense_amp_metadata_extracted": true,
+  "wordline_driver_metadata_extracted": true,
+  "module_count_processed": 2,
+  "pin_metadata_entry_count": 14,
+  "rail_metadata_entry_count": 4,
+  "machine_verified_item_count": 42,
+  "human_review_required_item_count": 3,
+  "human_review_required_items": [
+    "Visual completeness of the sense_amp macro still requires KLayout confirmation even after machine pin/rail extraction.",
+    "Visual completeness of the wordline_driver wrapper shape remains a human review item because D/G/S pins are not machine-resolved in the parsed GDS.",
+    "Annotated debug readability in M11B_pin_bbox_rail_metadata_annotated_debug.gds still requires human KLayout review."
+  ],
+  "sense_amp_ready_for_M11C": true,
+  "wordline_driver_ready_for_M11C": false,
+  "ready_for_M11C_modules": [
+    "sense_amp"
+  ],
+  "not_ready_modules": [
+    "wordline_driver"
+  ],
+  "requires_wrapper_count": 1,
+  "contract_pin_count": 0,
+  "verified_physical_pin_count": 11,
+  "review_gds_generated": true,
+  "review_gds_path": "outputs/M11B_pin_bbox_rail_metadata/current_supported_config/M11B_pin_bbox_rail_metadata_review.gds",
+  "clean_review_gds_path": "outputs/M11B_pin_bbox_rail_metadata/current_supported_config/M11B_pin_bbox_rail_metadata_clean_review.gds",
+  "annotated_debug_gds_path": "outputs/M11B_pin_bbox_rail_metadata/current_supported_config/M11B_pin_bbox_rail_metadata_annotated_debug.gds",
+  "review_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+  "can_claim_openyield_module_gds_hardmacro_substitution": false,
+  "can_enter_M11C_after_this_gate": true,
+  "human_klayout_review_required": true,
+  "can_enter_next_stage_before_human_review": false,
+  "remaining_M11B_blockers": [
+    "Human KLayout review remains required for the M11B review GDS outputs.",
+    "wordline_driver is not ready because wrapper pins D/G/S are not machine-resolved in the parsed candidate GDS.",
+    "OpenYield module GDS hardmacro substitution still cannot be claimed complete at M11B."
+  ],
+  "remaining_M11B_blockers_count": 3
+}

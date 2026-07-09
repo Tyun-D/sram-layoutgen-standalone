@@ -16,7 +16,7 @@
 - status_level: `PARTIAL`
 - evidence_paths: `outputs/openyield_module_gds/; docs/mapping/openyield_module_gds_inventory.csv; outputs/M9_openyield_netlist_translator/current_supported_config/M9_module_binding_matrix.csv`
 - blocking_for_next_stage: `True`
-- next_action: `M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION_FOR_SENSE_AMP_AND_WORDLINE_DRIVER after M11AR correction; only sense_amp and wordline_driver remain guarded substitution candidates.`
+- next_action: `M11C_SELECTIVE_HARDMACRO_SUBSTITUTION_SMOKE_FOR_READY_MODULES after M11B machine verification; ready candidates are sense_amp, and blocked candidates are wordline_driver.`
 
 ### PIN_BBOX_RAIL_METADATA
 
@@ -24,7 +24,7 @@
 - status_level: `PARTIAL`
 - evidence_paths: `outputs/openyield_module_gds/; docs/mapping/openyield_rail_rule_matrix.csv; outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json`
 - blocking_for_next_stage: `True`
-- next_action: `M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION_FOR_SENSE_AMP_AND_WORDLINE_DRIVER`
+- next_action: `M11C_SELECTIVE_HARDMACRO_SUBSTITUTION_SMOKE_FOR_READY_MODULES`
 
 ### SRAM_CONFIGURATION
 
@@ -90,7 +90,7 @@
 
 ## Next Assets To Fill In Order
 
-- next_assets_to_fill_in_order: `M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION_FOR_SENSE_AMP_AND_WORDLINE_DRIVER, M11C_SELECTIVE_HARDMACRO_SUBSTITUTION_SMOKE, M12A_VARIATION_GDS_GENERATION, M12B_ROUTING_POWER_ADAPTATION, M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE`
+- next_assets_to_fill_in_order: `M11C_SELECTIVE_HARDMACRO_SUBSTITUTION_SMOKE_FOR_READY_MODULES, M11C_SELECTIVE_HARDMACRO_SUBSTITUTION_SMOKE, M12A_VARIATION_GDS_GENERATION, M12B_ROUTING_POWER_ADAPTATION, M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE`
 
 ## Claim Boundary
 
@@ -121,3 +121,9 @@
 - first_substitution_candidates_after: `sense_amp, wordline_driver`
 - downgraded_modules: `column_mux, write_driver`
 - note: `M11B is limited to deep pin/bbox/rail validation for sense_amp and wordline_driver only.`
+
+## M11B Deep Metadata
+
+- ready_for_M11C_modules: `sense_amp`
+- not_ready_modules: `wordline_driver`
+- note: `M11B remains machine-first; visual completeness and annotation readability stay in human review scope.`

@@ -8,7 +8,7 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M11AR",
+  "current_stage": "M11B",
   "next_stage": "WAIT_HUMAN_KLAYOUT_REVIEW",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
@@ -377,7 +377,7 @@
     "remaining_M7_blockers": [],
     "remaining_M7_blockers_count": 0
   },
-  "next_stage_allowed": "M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION_FOR_SENSE_AMP_AND_WORDLINE_DRIVER",
+  "next_stage_allowed": "M11C_SELECTIVE_HARDMACRO_SUBSTITUTION_SMOKE_FOR_READY_MODULES",
   "golden_reference_user_confirmed": true,
   "golden_reference_is_now_locked": true,
   "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
@@ -699,7 +699,7 @@
     ],
     "remaining_M10_blockers_count": 1
   },
-  "current_goal": "M11AR applied the human review correction to M11A and narrowed the only allowed M11B deep metadata verification scope to sense_amp and wordline_driver.",
+  "current_goal": "M11B extracted machine-verified deep pin/bbox/rail metadata for sense_amp and wordline_driver, marked only sense_amp as ready for a guarded M11C smoke substitution, and kept hardmacro substitution claims closed.",
   "m10_clean_gds_user_review_passed": true,
   "m10_source_backed_translator_v2_confirmed": true,
   "can_claim_source_backed_translator_v2": true,
@@ -916,24 +916,24 @@
       "asset_name": "模块物理实现库，包括 layoutgen cell、OpenYield module GDS、hardmacro 候选",
       "status_level": "PARTIAL",
       "evidence_paths": [
-        "docs/mapping/M11AR_corrected_hardmacro_substitution_decision.csv",
-        "docs/mapping/M11A_hardmacro_substitution_decision.csv",
-        "outputs/M11AR_human_review_correction/current_supported_config/M11AR_corrected_first_substitution_plan.csv"
+        "docs/mapping/M11B_substitution_readiness_matrix.csv",
+        "docs/mapping/M11B_wrapper_requirement_matrix.csv",
+        "outputs/M11B_pin_bbox_rail_metadata/current_supported_config/M11B_substitution_readiness_report.json"
       ],
       "blocking_for_next_stage": true,
-      "next_action": "M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION_FOR_SENSE_AMP_AND_WORDLINE_DRIVER"
+      "next_action": "M11C_SELECTIVE_HARDMACRO_SUBSTITUTION_SMOKE_FOR_READY_MODULES"
     },
     {
       "asset_id": "PIN_BBOX_RAIL_METADATA",
       "asset_name": "pin / bbox / rail / layer / access metadata",
       "status_level": "PARTIAL",
       "evidence_paths": [
-        "docs/mapping/M11A_pin_bbox_rail_metadata.csv",
-        "docs/mapping/M11AR_corrected_first_substitution_plan.csv",
-        "outputs/M11AR_human_review_correction/current_supported_config/M11AR_corrected_hardmacro_substitution_decision.csv"
+        "docs/mapping/M11B_deep_pin_bbox_rail_metadata.csv",
+        "docs/mapping/M11B_golden_alignment_matrix.csv",
+        "outputs/M11B_pin_bbox_rail_metadata/current_supported_config/M11B_machine_verification_report.json"
       ],
       "blocking_for_next_stage": true,
-      "next_action": "M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION_FOR_SENSE_AMP_AND_WORDLINE_DRIVER"
+      "next_action": "M11C_SELECTIVE_HARDMACRO_SUBSTITUTION_SMOKE_FOR_READY_MODULES"
     },
     {
       "asset_id": "SRAM_CONFIGURATION",
@@ -1310,5 +1310,121 @@
       "OpenYield module GDS hardmacro substitution still cannot be claimed complete."
     ],
     "remaining_M11AR_blockers_count": 3
+  },
+  "last_M11B_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "progress_file_updated": true,
+    "reused_previous_artifacts": [
+      {
+        "artifact": "M11AR corrected candidate gate",
+        "path": "docs/M11AR_human_review_correction_report.json",
+        "reuse_purpose": "locks the candidate scope to sense_amp and wordline_driver only"
+      },
+      {
+        "artifact": "M11AR corrected decision matrix",
+        "path": "docs/mapping/M11AR_corrected_hardmacro_substitution_decision.csv",
+        "reuse_purpose": "reuses human-reviewed candidate classification and wrapper notes"
+      },
+      {
+        "artifact": "M11A pin metadata seed",
+        "path": "docs/mapping/M11A_pin_bbox_rail_metadata.csv",
+        "reuse_purpose": "provides the previously exported point-based pin metadata baseline"
+      },
+      {
+        "artifact": "M11A golden comparison seed",
+        "path": "docs/mapping/M11A_module_vs_golden_leaf_comparison.csv",
+        "reuse_purpose": "reuses the golden target mapping from qualification stage"
+      },
+      {
+        "artifact": "OpenYield module GDS",
+        "path": "outputs/openyield_module_gds/",
+        "reuse_purpose": "source for deep pin/bbox/rail extraction on the two narrowed candidates"
+      },
+      {
+        "artifact": "M7 golden reference",
+        "path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+        "reuse_purpose": "golden hardmacro target for machine alignment checks"
+      },
+      {
+        "artifact": "M8R exact-match layoutgen flow",
+        "path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+        "reuse_purpose": "locked physical baseline proving the golden flow remains untouched"
+      },
+      {
+        "artifact": "M10 source-backed trace bundle",
+        "path": "outputs/M10_raw_openyield_trace/current_supported_config/",
+        "reuse_purpose": "keeps the source-backed translator trace in scope while M11B stays purely metadata-oriented"
+      }
+    ],
+    "deprecated_previous_artifacts": [
+      {
+        "artifact": "access_module cells",
+        "path": "*_access_module",
+        "deprecated_reason": "forbidden for M11B machine verification and substitution readiness claims"
+      },
+      {
+        "artifact": "floorplan_proxy cells",
+        "path": "floorplan_proxy*",
+        "deprecated_reason": "review-only artifacts that cannot satisfy deep metadata verification"
+      },
+      {
+        "artifact": "column_mux and write_driver as active substitution candidates",
+        "path": "docs/M11AR_human_review_correction_report.json",
+        "deprecated_reason": "M11AR already downgraded them; M11B cannot re-expand the candidate set"
+      },
+      {
+        "artifact": "contract pins as verified physical pins",
+        "path": "docs/mapping/M11A_pin_bbox_rail_metadata.csv",
+        "deprecated_reason": "M11B must distinguish script-exported points from machine-verified physical polygons"
+      }
+    ],
+    "m11ar_gate_loaded": true,
+    "candidate_modules_from_M11AR": [
+      "sense_amp",
+      "wordline_driver"
+    ],
+    "candidate_modules_processed": [
+      "sense_amp",
+      "wordline_driver"
+    ],
+    "sense_amp_metadata_extracted": true,
+    "wordline_driver_metadata_extracted": true,
+    "module_count_processed": 2,
+    "pin_metadata_entry_count": 14,
+    "rail_metadata_entry_count": 4,
+    "machine_verified_item_count": 42,
+    "human_review_required_item_count": 3,
+    "human_review_required_items": [
+      "Visual completeness of the sense_amp macro still requires KLayout confirmation even after machine pin/rail extraction.",
+      "Visual completeness of the wordline_driver wrapper shape remains a human review item because D/G/S pins are not machine-resolved in the parsed GDS.",
+      "Annotated debug readability in M11B_pin_bbox_rail_metadata_annotated_debug.gds still requires human KLayout review."
+    ],
+    "sense_amp_ready_for_M11C": true,
+    "wordline_driver_ready_for_M11C": false,
+    "ready_for_M11C_modules": [
+      "sense_amp"
+    ],
+    "not_ready_modules": [
+      "wordline_driver"
+    ],
+    "requires_wrapper_count": 1,
+    "contract_pin_count": 0,
+    "verified_physical_pin_count": 11,
+    "review_gds_generated": true,
+    "review_gds_path": "outputs/M11B_pin_bbox_rail_metadata/current_supported_config/M11B_pin_bbox_rail_metadata_review.gds",
+    "clean_review_gds_path": "outputs/M11B_pin_bbox_rail_metadata/current_supported_config/M11B_pin_bbox_rail_metadata_clean_review.gds",
+    "annotated_debug_gds_path": "outputs/M11B_pin_bbox_rail_metadata/current_supported_config/M11B_pin_bbox_rail_metadata_annotated_debug.gds",
+    "review_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "can_claim_openyield_module_gds_hardmacro_substitution": false,
+    "can_enter_M11C_after_this_gate": true,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false,
+    "remaining_M11B_blockers": [
+      "Human KLayout review remains required for the M11B review GDS outputs.",
+      "wordline_driver is not ready because wrapper pins D/G/S are not machine-resolved in the parsed candidate GDS.",
+      "OpenYield module GDS hardmacro substitution still cannot be claimed complete at M11B."
+    ],
+    "remaining_M11B_blockers_count": 3
   }
 }

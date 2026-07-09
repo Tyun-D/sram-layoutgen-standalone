@@ -2,23 +2,21 @@
 
 ## 1. Current Correct Goal
 
-M11AR 已把 M11A 的人工 review 修正收敛进 hardmacro 资格结果。当前只保留 `sense_amp` 与 `wordline_driver` 作为进入 M11B 的优先候选，`column_mux` 与 `write_driver` 已降级，不能直接进行模块替换。
+M11B 已对 `sense_amp` 和 `wordline_driver` 做深度 machine-first pin/bbox/rail metadata 提取。当前仅 `sense_amp` 具备进入受控 M11C smoke substitution 的条件，`wordline_driver` 仍需先补齐 wrapper pin 物理几何。
 
 ## 2. Current Stage
 
-- current_stage: `M11AR`
+- current_stage: `M11B`
 - next_stage: `WAIT_HUMAN_KLAYOUT_REVIEW`
 - human_klayout_review_required_every_stage: `True`
 - can_enter_next_stage_without_human_review: `False`
-- next_stage_allowed: `M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION_FOR_SENSE_AMP_AND_WORDLINE_DRIVER`
+- next_stage_allowed: `M11C_SELECTIVE_HARDMACRO_SUBSTITUTION_SMOKE_FOR_READY_MODULES`
 
-## 3. Latest M11AR Result
+## 3. Latest M11B Result
 
-- human_review_applied: `True`
-- unknown_golden_region_markers_are_real_modules: `False`
-- direct_hardmacro_replace_count_before: `4`
-- direct_hardmacro_replace_count_after: `2`
-- first_substitution_candidates_after: `sense_amp, wordline_driver`
-- downgraded_modules: `column_mux, write_driver`
+- candidate_modules_processed: `sense_amp, wordline_driver`
+- ready_for_M11C_modules: `sense_amp`
+- not_ready_modules: `wordline_driver`
+- review_gds_path: `outputs/M11B_pin_bbox_rail_metadata/current_supported_config/M11B_pin_bbox_rail_metadata_review.gds`
+- review_gds_sanity_status: `GDS_PARSED_SANITY_PASSED`
 - can_claim_openyield_module_gds_hardmacro_substitution: `False`
-- next_stage_allowed: `M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION_FOR_SENSE_AMP_AND_WORDLINE_DRIVER`
