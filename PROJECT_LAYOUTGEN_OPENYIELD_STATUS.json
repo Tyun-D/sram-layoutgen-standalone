@@ -8,7 +8,7 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M11A",
+  "current_stage": "M11AR",
   "next_stage": "WAIT_HUMAN_KLAYOUT_REVIEW",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
@@ -377,7 +377,7 @@
     "remaining_M7_blockers": [],
     "remaining_M7_blockers_count": 0
   },
-  "next_stage_allowed": "M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION",
+  "next_stage_allowed": "M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION_FOR_SENSE_AMP_AND_WORDLINE_DRIVER",
   "golden_reference_user_confirmed": true,
   "golden_reference_is_now_locked": true,
   "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
@@ -699,7 +699,7 @@
     ],
     "remaining_M10_blockers_count": 1
   },
-  "current_goal": "M11A qualified the 20 OpenYield module GDS for selective hardmacro substitution candidates and determined M11B metadata extraction is mandatory before any substitution attempt.",
+  "current_goal": "M11AR applied the human review correction to M11A and narrowed the only allowed M11B deep metadata verification scope to sense_amp and wordline_driver.",
   "m10_clean_gds_user_review_passed": true,
   "m10_source_backed_translator_v2_confirmed": true,
   "can_claim_source_backed_translator_v2": true,
@@ -916,12 +916,12 @@
       "asset_name": "模块物理实现库，包括 layoutgen cell、OpenYield module GDS、hardmacro 候选",
       "status_level": "PARTIAL",
       "evidence_paths": [
-        "outputs/openyield_module_gds/",
+        "docs/mapping/M11AR_corrected_hardmacro_substitution_decision.csv",
         "docs/mapping/M11A_hardmacro_substitution_decision.csv",
-        "docs/mapping/M11A_module_vs_golden_leaf_comparison.csv"
+        "outputs/M11AR_human_review_correction/current_supported_config/M11AR_corrected_first_substitution_plan.csv"
       ],
       "blocking_for_next_stage": true,
-      "next_action": "M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION"
+      "next_action": "M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION_FOR_SENSE_AMP_AND_WORDLINE_DRIVER"
     },
     {
       "asset_id": "PIN_BBOX_RAIL_METADATA",
@@ -929,11 +929,11 @@
       "status_level": "PARTIAL",
       "evidence_paths": [
         "docs/mapping/M11A_pin_bbox_rail_metadata.csv",
-        "outputs/M11A_module_gds_qualification/current_supported_config/M11A_pin_bbox_rail_metadata.json",
-        "docs/mapping/M11A_hardmacro_substitution_decision.csv"
+        "docs/mapping/M11AR_corrected_first_substitution_plan.csv",
+        "outputs/M11AR_human_review_correction/current_supported_config/M11AR_corrected_hardmacro_substitution_decision.csv"
       ],
       "blocking_for_next_stage": true,
-      "next_action": "M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION"
+      "next_action": "M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION_FOR_SENSE_AMP_AND_WORDLINE_DRIVER"
     },
     {
       "asset_id": "SRAM_CONFIGURATION",
@@ -1033,8 +1033,7 @@
     "VERIFICATION_AND_TRACE"
   ],
   "next_assets_to_fill_in_order": [
-    "M11A_MODULE_GDS_QUALIFICATION",
-    "M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION",
+    "M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION_FOR_SENSE_AMP_AND_WORDLINE_DRIVER",
     "M11C_SELECTIVE_HARDMACRO_SUBSTITUTION_SMOKE",
     "M12A_VARIATION_GDS_GENERATION",
     "M12B_ROUTING_POWER_ADAPTATION",
@@ -1261,5 +1260,55 @@
       "OpenYield module GDS hardmacro substitution cannot yet be claimed complete at M11A."
     ],
     "remaining_M11A_blockers_count": 3
+  },
+  "last_M11AR_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "progress_file_updated": true,
+    "m11a_report_loaded": true,
+    "m11a_decision_matrix_loaded": true,
+    "human_review_applied": true,
+    "debug_marker_layer": "295/0",
+    "debug_marker_cell": "module_gds_qualification_debug",
+    "unknown_golden_region_markers_are_real_modules": false,
+    "control_logic_human_review_result": "SEMANTIC_REFERENCE_ONLY",
+    "sense_amp_human_review_result": "DIRECT_HARDMACRO_REPLACE",
+    "wordline_driver_human_review_result": "DIRECT_HARDMACRO_REPLACE",
+    "column_mux_human_review_result": "CONSTRAINT_EXTRACTION_ONLY",
+    "write_driver_human_review_result": "CONSTRAINT_EXTRACTION_ONLY",
+    "direct_hardmacro_replace_count_before": 4,
+    "direct_hardmacro_replace_count_after": 2,
+    "first_substitution_candidates_before": [
+      "column_mux",
+      "sense_amp",
+      "wordline_driver",
+      "write_driver"
+    ],
+    "first_substitution_candidates_after": [
+      "sense_amp",
+      "wordline_driver"
+    ],
+    "downgraded_modules": [
+      "column_mux",
+      "write_driver"
+    ],
+    "downgrade_reason": "downgraded_by_human_review: visible geometry appears incomplete.",
+    "safe_to_attempt_selective_substitution": true,
+    "safe_to_attempt_selective_substitution_scope": [
+      "sense_amp",
+      "wordline_driver"
+    ],
+    "must_run_M11B_before_substitution": true,
+    "can_claim_openyield_module_gds_hardmacro_substitution": false,
+    "next_stage_allowed": "M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION_FOR_SENSE_AMP_AND_WORDLINE_DRIVER",
+    "can_enter_M11B_after_this_gate": true,
+    "human_klayout_review_required_for_M11B_output": true,
+    "can_enter_next_stage_without_human_review": false,
+    "remaining_M11AR_blockers": [
+      "M11B deep pin/bbox/rail metadata verification is limited to sense_amp and wordline_driver.",
+      "Human KLayout review is still required for any M11B output before continuing.",
+      "OpenYield module GDS hardmacro substitution still cannot be claimed complete."
+    ],
+    "remaining_M11AR_blockers_count": 3
   }
 }

@@ -1,0 +1,4 @@
+# M11AR Review GDS Manifest
+
+- `outputs/M11A_module_gds_qualification/current_supported_config/module_gds_qualification_annotated_debug.gds` size=1085316 sha256=`465f782f61d4f02fd6f4da8ae2ca0de50468cdd37efa4a0cce9272c3ffc2fe5b`
+- `outputs/M11A_module_gds_qualification/current_supported_config/module_gds_qualification_clean_review.gds` size=1046726 sha256=`8303c70d7b935044c7842c77054129ee28d28f561c1a640a11403d256746ecd3`

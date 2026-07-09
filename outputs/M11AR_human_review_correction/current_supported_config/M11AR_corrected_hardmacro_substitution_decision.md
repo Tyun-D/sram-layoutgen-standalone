@@ -1,4 +1,4 @@
-# M11A Hardmacro Substitution Decision
+# M11AR Corrected Hardmacro Substitution Decision
 
 - `CONTROL_LOGIC` => `SEMANTIC_REFERENCE_ONLY` human_review_passed=`False` reason=`Current flow still relies on layoutgen fallback or regenerated layoutgen composites for this role; module GDS remains semantic/reference evidence only. human_review: gate-like candidate geometry exists but no complete verified connection; not suitable for hardmacro replacement.`
 - `DELAY_CHAIN` => `SEMANTIC_REFERENCE_ONLY` human_review_passed=`False` reason=`Current flow still relies on layoutgen fallback or regenerated layoutgen composites for this role; module GDS remains semantic/reference evidence only.`

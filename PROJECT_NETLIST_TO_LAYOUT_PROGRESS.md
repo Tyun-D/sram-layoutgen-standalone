@@ -16,7 +16,7 @@
 - status_level: `PARTIAL`
 - evidence_paths: `outputs/openyield_module_gds/; docs/mapping/openyield_module_gds_inventory.csv; outputs/M9_openyield_netlist_translator/current_supported_config/M9_module_binding_matrix.csv`
 - blocking_for_next_stage: `True`
-- next_action: `M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION after M11A qualification; first guarded candidates are sense_amp, write_driver.`
+- next_action: `M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION_FOR_SENSE_AMP_AND_WORDLINE_DRIVER after M11AR correction; only sense_amp and wordline_driver remain guarded substitution candidates.`
 
 ### PIN_BBOX_RAIL_METADATA
 
@@ -24,7 +24,7 @@
 - status_level: `PARTIAL`
 - evidence_paths: `outputs/openyield_module_gds/; docs/mapping/openyield_rail_rule_matrix.csv; outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json`
 - blocking_for_next_stage: `True`
-- next_action: `M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION`
+- next_action: `M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION_FOR_SENSE_AMP_AND_WORDLINE_DRIVER`
 
 ### SRAM_CONFIGURATION
 
@@ -90,7 +90,7 @@
 
 ## Next Assets To Fill In Order
 
-- next_assets_to_fill_in_order: `M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION, M11C_SELECTIVE_HARDMACRO_SUBSTITUTION_SMOKE, M12A_VARIATION_GDS_GENERATION, M12B_ROUTING_POWER_ADAPTATION, M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE`
+- next_assets_to_fill_in_order: `M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION_FOR_SENSE_AMP_AND_WORDLINE_DRIVER, M11C_SELECTIVE_HARDMACRO_SUBSTITUTION_SMOKE, M12A_VARIATION_GDS_GENERATION, M12B_ROUTING_POWER_ADAPTATION, M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE`
 
 ## Claim Boundary
 
@@ -110,5 +110,14 @@
 
 ## M11A Qualification
 
-- first_substitution_candidates: `sense_amp, write_driver`
+- first_substitution_candidates: `sense_amp, wordline_driver`
 - note: `M11A does not claim module GDS hardmacro substitution complete; M11B metadata extraction is mandatory before any substitution attempt.`
+
+## M11AR Human Review Correction
+
+- human_review_applied: `True`
+- unknown_golden_region_markers_are_real_modules: `False`
+- direct_hardmacro_replace_count_after: `2`
+- first_substitution_candidates_after: `sense_amp, wordline_driver`
+- downgraded_modules: `column_mux, write_driver`
+- note: `M11B is limited to deep pin/bbox/rail validation for sense_amp and wordline_driver only.`
