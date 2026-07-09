@@ -1,0 +1,22 @@
+# M11A Hardmacro Substitution Decision
+
+- `CONTROL_LOGIC` => `SEMANTIC_REFERENCE_ONLY` reason=`Current flow still relies on layoutgen fallback or regenerated layoutgen composites for this role; module GDS remains semantic/reference evidence only.`
+- `DELAY_CHAIN` => `SEMANTIC_REFERENCE_ONLY` reason=`Current flow still relies on layoutgen fallback or regenerated layoutgen composites for this role; module GDS remains semantic/reference evidence only.`
+- `DFF_ROW` => `SEMANTIC_REFERENCE_ONLY` reason=`Current flow still relies on layoutgen fallback or regenerated layoutgen composites for this role; module GDS remains semantic/reference evidence only.`
+- `GATED_CLOCK_PATH` => `SEMANTIC_REFERENCE_ONLY` reason=`Current flow still relies on layoutgen fallback or regenerated layoutgen composites for this role; module GDS remains semantic/reference evidence only.`
+- `PRECHARGE_ENABLE_PATH` => `SEMANTIC_REFERENCE_ONLY` reason=`Current flow still relies on layoutgen fallback or regenerated layoutgen composites for this role; module GDS remains semantic/reference evidence only.`
+- `SENSE_ENABLE_PATH` => `SEMANTIC_REFERENCE_ONLY` reason=`Current flow still relies on layoutgen fallback or regenerated layoutgen composites for this role; module GDS remains semantic/reference evidence only.`
+- `WORDLINE_ENABLE_PATH` => `SEMANTIC_REFERENCE_ONLY` reason=`Current flow still relies on layoutgen fallback or regenerated layoutgen composites for this role; module GDS remains semantic/reference evidence only.`
+- `WRITE_ENABLE_PATH` => `SEMANTIC_REFERENCE_ONLY` reason=`Current flow still relies on layoutgen fallback or regenerated layoutgen composites for this role; module GDS remains semantic/reference evidence only.`
+- `bitcell_array` => `CONSTRAINT_EXTRACTION_ONLY` reason=`Module metadata is useful for bbox/pin/rail/pitch extraction, but contract pins, array sizing scope, or wrapper assumptions block direct substitution.`
+- `column_mux` => `DIRECT_HARDMACRO_REPLACE` reason=`Wrapper macro has a real golden leaf counterpart, non-contract pin geometry, and compatible rails/bbox for a guarded selective substitution trial.`
+- `decoder_gate_cells` => `SEMANTIC_REFERENCE_ONLY` reason=`Current flow still relies on layoutgen fallback or regenerated layoutgen composites for this role; module GDS remains semantic/reference evidence only.`
+- `dummy_array` => `CONSTRAINT_EXTRACTION_ONLY` reason=`Module metadata is useful for bbox/pin/rail/pitch extraction, but contract pins, array sizing scope, or wrapper assumptions block direct substitution.`
+- `precharge` => `CONSTRAINT_EXTRACTION_ONLY` reason=`Module metadata is useful for bbox/pin/rail/pitch extraction, but contract pins, array sizing scope, or wrapper assumptions block direct substitution.`
+- `replica_array` => `CONSTRAINT_EXTRACTION_ONLY` reason=`Module metadata is useful for bbox/pin/rail/pitch extraction, but contract pins, array sizing scope, or wrapper assumptions block direct substitution.`
+- `row_decoder` => `SEMANTIC_REFERENCE_ONLY` reason=`Current flow still relies on layoutgen fallback or regenerated layoutgen composites for this role; module GDS remains semantic/reference evidence only.`
+- `sense_amp` => `DIRECT_HARDMACRO_REPLACE` reason=`Wrapper macro has a real golden leaf counterpart, non-contract pin geometry, and compatible rails/bbox for a guarded selective substitution trial.`
+- `wordline_decoder` => `SEMANTIC_REFERENCE_ONLY` reason=`Current flow still relies on layoutgen fallback or regenerated layoutgen composites for this role; module GDS remains semantic/reference evidence only.`
+- `wordline_driver` => `DIRECT_HARDMACRO_REPLACE` reason=`Wrapper macro has a real golden leaf counterpart, non-contract pin geometry, and compatible rails/bbox for a guarded selective substitution trial.`
+- `wordline_driver_gate_cells` => `SEMANTIC_REFERENCE_ONLY` reason=`Current flow still relies on layoutgen fallback or regenerated layoutgen composites for this role; module GDS remains semantic/reference evidence only.`
+- `write_driver` => `DIRECT_HARDMACRO_REPLACE` reason=`Wrapper macro has a real golden leaf counterpart, non-contract pin geometry, and compatible rails/bbox for a guarded selective substitution trial.`

@@ -16,7 +16,7 @@
 - status_level: `PARTIAL`
 - evidence_paths: `outputs/openyield_module_gds/; docs/mapping/openyield_module_gds_inventory.csv; outputs/M9_openyield_netlist_translator/current_supported_config/M9_module_binding_matrix.csv`
 - blocking_for_next_stage: `True`
-- next_action: `M11A_MODULE_GDS_QUALIFICATION`
+- next_action: `M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION after M11A qualification; first guarded candidates are sense_amp, write_driver.`
 
 ### PIN_BBOX_RAIL_METADATA
 
@@ -90,7 +90,7 @@
 
 ## Next Assets To Fill In Order
 
-- next_assets_to_fill_in_order: `M11A_MODULE_GDS_QUALIFICATION, M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION, M11C_SELECTIVE_HARDMACRO_SUBSTITUTION_SMOKE, M12A_VARIATION_GDS_GENERATION, M12B_ROUTING_POWER_ADAPTATION, M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE`
+- next_assets_to_fill_in_order: `M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION, M11C_SELECTIVE_HARDMACRO_SUBSTITUTION_SMOKE, M12A_VARIATION_GDS_GENERATION, M12B_ROUTING_POWER_ADAPTATION, M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE`
 
 ## Claim Boundary
 
@@ -107,3 +107,8 @@
 - m11_clean_gds_user_review_passed: `True`
 - supported_variations: `8x64_wpr4, 4x32_wpr2, 16x16_wpr1`
 - note: `M11H is gate closure only; it does not reopen M11 or add new functionality.`
+
+## M11A Qualification
+
+- first_substitution_candidates: `sense_amp, write_driver`
+- note: `M11A does not claim module GDS hardmacro substitution complete; M11B metadata extraction is mandatory before any substitution attempt.`

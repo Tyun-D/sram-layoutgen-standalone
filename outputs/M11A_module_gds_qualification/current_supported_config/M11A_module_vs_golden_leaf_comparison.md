@@ -1,0 +1,22 @@
+# M11A Module vs Golden Leaf Comparison
+
+- `CONTROL_LOGIC` golden=`control_logic;control_glue` status=`UNKNOWN_GOLDEN_REGION` notes=`Golden flow uses a regenerated layoutgen region or role-based composite for this module, not a standalone golden hardmacro cell that can be auto-extracted.`
+- `DELAY_CHAIN` golden=`gen_delay_inv chain` status=`UNKNOWN_GOLDEN_REGION` notes=`Golden flow uses a regenerated layoutgen region or role-based composite for this module, not a standalone golden hardmacro cell that can be auto-extracted.`
+- `DFF_ROW` golden=`dff array` status=`UNKNOWN_GOLDEN_REGION` notes=`Golden flow uses a regenerated layoutgen region or role-based composite for this module, not a standalone golden hardmacro cell that can be auto-extracted.`
+- `GATED_CLOCK_PATH` golden=`control_glue` status=`UNKNOWN_GOLDEN_REGION` notes=`Golden flow uses a regenerated layoutgen region or role-based composite for this module, not a standalone golden hardmacro cell that can be auto-extracted.`
+- `PRECHARGE_ENABLE_PATH` golden=`control_glue` status=`UNKNOWN_GOLDEN_REGION` notes=`Golden flow uses a regenerated layoutgen region or role-based composite for this module, not a standalone golden hardmacro cell that can be auto-extracted.`
+- `SENSE_ENABLE_PATH` golden=`control_glue` status=`UNKNOWN_GOLDEN_REGION` notes=`Golden flow uses a regenerated layoutgen region or role-based composite for this module, not a standalone golden hardmacro cell that can be auto-extracted.`
+- `WORDLINE_ENABLE_PATH` golden=`control_glue` status=`UNKNOWN_GOLDEN_REGION` notes=`Golden flow uses a regenerated layoutgen region or role-based composite for this module, not a standalone golden hardmacro cell that can be auto-extracted.`
+- `WRITE_ENABLE_PATH` golden=`control_glue` status=`UNKNOWN_GOLDEN_REGION` notes=`Golden flow uses a regenerated layoutgen region or role-based composite for this module, not a standalone golden hardmacro cell that can be auto-extracted.`
+- `bitcell_array` golden=`cell_1rw` status=`UNKNOWN_GOLDEN_REGION` notes=`Only leaf-cell proxies are visible in golden; the corresponding assembled array region is not auto-isolated.`
+- `column_mux` golden=`gen_col_mux_vdd_labeled` status=`ALIAS_GOLDEN_CELL` notes=`Golden comparison is against the layoutgen leaf cell used by the locked flow, not a substituted SRAM top-level region.`
+- `decoder_gate_cells` golden=`row_decoder role instances` status=`UNKNOWN_GOLDEN_REGION` notes=`Golden flow uses a regenerated layoutgen region or role-based composite for this module, not a standalone golden hardmacro cell that can be auto-extracted.`
+- `dummy_array` golden=`dummy_cell_1rw` status=`UNKNOWN_GOLDEN_REGION` notes=`Only leaf-cell proxies are visible in golden; the corresponding assembled array region is not auto-isolated.`
+- `precharge` golden=`gen_precharge` status=`EXACT_GOLDEN_CELL` notes=`Golden comparison is against the layoutgen leaf cell used by the locked flow, not a substituted SRAM top-level region.`
+- `replica_array` golden=`replica_cell_1rw` status=`UNKNOWN_GOLDEN_REGION` notes=`Only leaf-cell proxies are visible in golden; the corresponding assembled array region is not auto-isolated.`
+- `row_decoder` golden=`row_decoder role instances` status=`UNKNOWN_GOLDEN_REGION` notes=`Golden flow uses a regenerated layoutgen region or role-based composite for this module, not a standalone golden hardmacro cell that can be auto-extracted.`
+- `sense_amp` golden=`sense_amp` status=`EXACT_GOLDEN_CELL` notes=`Golden comparison is against the layoutgen leaf cell used by the locked flow, not a substituted SRAM top-level region.`
+- `wordline_decoder` golden=`row_decoder role instances` status=`UNKNOWN_GOLDEN_REGION` notes=`Golden flow uses a regenerated layoutgen region or role-based composite for this module, not a standalone golden hardmacro cell that can be auto-extracted.`
+- `wordline_driver` golden=`gen_wl_driver` status=`EXACT_GOLDEN_CELL` notes=`Golden comparison is against the layoutgen leaf cell used by the locked flow, not a substituted SRAM top-level region.`
+- `wordline_driver_gate_cells` golden=`wordline_driver role instances` status=`UNKNOWN_GOLDEN_REGION` notes=`Golden flow uses a regenerated layoutgen region or role-based composite for this module, not a standalone golden hardmacro cell that can be auto-extracted.`
+- `write_driver` golden=`write_driver` status=`EXACT_GOLDEN_CELL` notes=`Golden comparison is against the layoutgen leaf cell used by the locked flow, not a substituted SRAM top-level region.`

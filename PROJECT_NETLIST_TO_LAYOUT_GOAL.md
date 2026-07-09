@@ -26,3 +26,8 @@
 - M11H 已确认 M11 config-aware translator v3。
 - 该确认不扩大 claim 边界到 full raw OpenYield netlist compiler。
 - 下一阶段允许进入 `M11A_MODULE_GDS_QUALIFICATION`。
+## Current Qualification Stage
+
+- M11A 正在对 `outputs/openyield_module_gds/` 的 20 个模块做 hardmacro 资格审查。
+- 本阶段只确认 DIRECT_HARDMACRO_REPLACE / CONSTRAINT_EXTRACTION_ONLY / SEMANTIC_REFERENCE_ONLY / REJECTED 分类，不做完整 SRAM top 替换。
+- 下一阶段需要先做 `M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION`，之后才允许尝试 selective substitution。

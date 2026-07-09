@@ -8,7 +8,7 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M11H",
+  "current_stage": "M11A",
   "next_stage": "WAIT_HUMAN_KLAYOUT_REVIEW",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
@@ -377,7 +377,7 @@
     "remaining_M7_blockers": [],
     "remaining_M7_blockers_count": 0
   },
-  "next_stage_allowed": "M11A_MODULE_GDS_QUALIFICATION",
+  "next_stage_allowed": "M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION",
   "golden_reference_user_confirmed": true,
   "golden_reference_is_now_locked": true,
   "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
@@ -699,7 +699,7 @@
     ],
     "remaining_M10_blockers_count": 1
   },
-  "current_goal": "M11H gate cleared; M11 config-aware translator v3 is confirmed and the next allowed stage is M11A module GDS qualification.",
+  "current_goal": "M11A qualified the 20 OpenYield module GDS for selective hardmacro substitution candidates and determined M11B metadata extraction is mandatory before any substitution attempt.",
   "m10_clean_gds_user_review_passed": true,
   "m10_source_backed_translator_v2_confirmed": true,
   "can_claim_source_backed_translator_v2": true,
@@ -917,20 +917,20 @@
       "status_level": "PARTIAL",
       "evidence_paths": [
         "outputs/openyield_module_gds/",
-        "docs/mapping/openyield_module_gds_inventory.csv",
-        "outputs/M9_openyield_netlist_translator/current_supported_config/M9_module_binding_matrix.csv"
+        "docs/mapping/M11A_hardmacro_substitution_decision.csv",
+        "docs/mapping/M11A_module_vs_golden_leaf_comparison.csv"
       ],
       "blocking_for_next_stage": true,
-      "next_action": "M11A_MODULE_GDS_QUALIFICATION"
+      "next_action": "M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION"
     },
     {
       "asset_id": "PIN_BBOX_RAIL_METADATA",
       "asset_name": "pin / bbox / rail / layer / access metadata",
       "status_level": "PARTIAL",
       "evidence_paths": [
-        "outputs/openyield_module_gds/",
-        "docs/mapping/openyield_rail_rule_matrix.csv",
-        "outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json"
+        "docs/mapping/M11A_pin_bbox_rail_metadata.csv",
+        "outputs/M11A_module_gds_qualification/current_supported_config/M11A_pin_bbox_rail_metadata.json",
+        "docs/mapping/M11A_hardmacro_substitution_decision.csv"
       ],
       "blocking_for_next_stage": true,
       "next_action": "M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION"
@@ -1218,5 +1218,48 @@
     "can_enter_next_stage_without_human_review": false,
     "remaining_M11H_blockers": [],
     "remaining_M11H_blockers_count": 0
+  },
+  "can_claim_openyield_module_gds_hardmacro_substitution": false,
+  "last_M11A_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "goal_file_read": true,
+    "goal_file_updated": true,
+    "progress_file_updated": true,
+    "module_gds_dir_found": true,
+    "module_gds_count": 20,
+    "expected_openyield_module_count": 20,
+    "all_expected_modules_have_gds": true,
+    "bbox_metadata_count": 20,
+    "pin_metadata_count": 20,
+    "rail_metadata_count": 20,
+    "generation_report_count": 20,
+    "direct_hardmacro_replace_count": 4,
+    "constraint_extraction_only_count": 4,
+    "semantic_reference_only_count": 12,
+    "rejected_count": 0,
+    "first_substitution_candidates": [
+      "column_mux",
+      "sense_amp",
+      "wordline_driver",
+      "write_driver"
+    ],
+    "safe_to_attempt_selective_substitution": true,
+    "must_run_M11B_before_substitution": true,
+    "review_gds_generated": true,
+    "review_gds_path": "outputs/M11A_module_gds_qualification/current_supported_config/module_gds_qualification_review.gds",
+    "clean_review_gds_path": "outputs/M11A_module_gds_qualification/current_supported_config/module_gds_qualification_clean_review.gds",
+    "annotated_debug_gds_path": "outputs/M11A_module_gds_qualification/current_supported_config/module_gds_qualification_annotated_debug.gds",
+    "review_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "can_claim_openyield_module_gds_hardmacro_substitution": false,
+    "can_enter_M11B_after_this_gate": true,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false,
+    "remaining_M11A_blockers": [
+      "M11B metadata extraction is still mandatory before any substitution attempt.",
+      "Human KLayout review of module_gds_qualification_review.gds is required.",
+      "OpenYield module GDS hardmacro substitution cannot yet be claimed complete at M11A."
+    ],
+    "remaining_M11A_blockers_count": 3
   }
 }

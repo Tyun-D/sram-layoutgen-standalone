@@ -1,0 +1,22 @@
+# M11A Module GDS Inventory
+
+- `CONTROL_LOGIC` decision=`SEMANTIC_REFERENCE_ONLY` top=`CONTROL_LOGIC` bbox=`6.105x4.235`
+- `DELAY_CHAIN` decision=`SEMANTIC_REFERENCE_ONLY` top=`DELAY_CHAIN` bbox=`3.29x2.585`
+- `DFF_ROW` decision=`SEMANTIC_REFERENCE_ONLY` top=`DFF_ROW` bbox=`11.44x2.67`
+- `GATED_CLOCK_PATH` decision=`SEMANTIC_REFERENCE_ONLY` top=`GATED_CLOCK_PATH` bbox=`2.6825x2.96`
+- `PRECHARGE_ENABLE_PATH` decision=`SEMANTIC_REFERENCE_ONLY` top=`PRECHARGE_ENABLE_PATH` bbox=`4.245x4.065`
+- `SENSE_ENABLE_PATH` decision=`SEMANTIC_REFERENCE_ONLY` top=`SENSE_ENABLE_PATH` bbox=`3.4225x7.575`
+- `WORDLINE_ENABLE_PATH` decision=`SEMANTIC_REFERENCE_ONLY` top=`WORDLINE_ENABLE_PATH` bbox=`3.8675x3.07`
+- `WRITE_ENABLE_PATH` decision=`SEMANTIC_REFERENCE_ONLY` top=`WRITE_ENABLE_PATH` bbox=`1.6625x6.76`
+- `bitcell_array` decision=`CONSTRAINT_EXTRACTION_ONLY` top=`bitcell_array` bbox=`3.58x6.26`
+- `column_mux` decision=`DIRECT_HARDMACRO_REPLACE` top=`column_mux` bbox=`0.8175x1.88`
+- `decoder_gate_cells` decision=`SEMANTIC_REFERENCE_ONLY` top=`decoder_gate_cells` bbox=`5.2825x3.045`
+- `dummy_array` decision=`CONSTRAINT_EXTRACTION_ONLY` top=`dummy_array` bbox=`3.58x6.26`
+- `precharge` decision=`CONSTRAINT_EXTRACTION_ONLY` top=`precharge` bbox=`0.785x1.42`
+- `replica_array` decision=`CONSTRAINT_EXTRACTION_ONLY` top=`replica_array` bbox=`1.79x7.68`
+- `row_decoder` decision=`SEMANTIC_REFERENCE_ONLY` top=`row_decoder` bbox=`4.245x3.13`
+- `sense_amp` decision=`DIRECT_HARDMACRO_REPLACE` top=`sense_amp` bbox=`0.775x6.01`
+- `wordline_decoder` decision=`SEMANTIC_REFERENCE_ONLY` top=`wordline_decoder` bbox=`4.245x3.045`
+- `wordline_driver` decision=`DIRECT_HARDMACRO_REPLACE` top=`wordline_driver` bbox=`3.045x1.505`
+- `wordline_driver_gate_cells` decision=`SEMANTIC_REFERENCE_ONLY` top=`wordline_driver_gate_cells` bbox=`2.8975x2.96`
+- `write_driver` decision=`DIRECT_HARDMACRO_REPLACE` top=`write_driver` bbox=`0.84x4.175`
