@@ -16,7 +16,7 @@
 - status_level: `PARTIAL`
 - evidence_paths: `outputs/openyield_module_gds/; docs/mapping/openyield_module_gds_inventory.csv; outputs/M9_openyield_netlist_translator/current_supported_config/M9_module_binding_matrix.csv`
 - blocking_for_next_stage: `True`
-- next_action: `Run M11A to qualify which OpenYield module GDS can be treated as reusable hardmacros versus fallback-only candidates.`
+- next_action: `M11A_MODULE_GDS_QUALIFICATION`
 
 ### PIN_BBOX_RAIL_METADATA
 
@@ -24,15 +24,17 @@
 - status_level: `PARTIAL`
 - evidence_paths: `outputs/openyield_module_gds/; docs/mapping/openyield_rail_rule_matrix.csv; outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json`
 - blocking_for_next_stage: `True`
-- next_action: `Run M11B on top of M11A results to extract and verify pin/bbox/rail metadata only from qualified module GDS.`
+- next_action: `M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION`
 
 ### SRAM_CONFIGURATION
 
 - asset_name: `SRAM 参数配置，包括 word_size、num_words、words_per_row、rows、cols、mux ratio`
 - status_level: `PARTIAL`
+- claim: `config-aware translator v3 confirmed`
 - evidence_paths: `docs/M11_openyield_config_variation_report.json; docs/mapping/M11_spec_field_source_matrix.csv; outputs/M11_openyield_config_variation/current_supported_config/M11_variation_support_report.json`
-- blocking_for_next_stage: `True`
-- next_action: `First clear M11H gate status, then keep narrowing fallback fields before claiming config-aware translator v3.`
+- remaining_gap: `capacity fallback still exists; word_size / num_words / words_per_row are not fully raw-source-backed`
+- blocking_for_next_stage: `False`
+- next_action: `No longer block M11A; revisit later only if full raw netlist compiler is required.`
 
 ### FLOORPLAN_RULES
 
@@ -88,14 +90,20 @@
 
 ## Next Assets To Fill In Order
 
-- next_assets_to_fill_in_order: `M11H, M11A, M11B, M11C, M12A, M12B, M13`
+- next_assets_to_fill_in_order: `M11A_MODULE_GDS_QUALIFICATION, M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION, M11C_SELECTIVE_HARDMACRO_SUBSTITUTION_SMOKE, M12A_VARIATION_GDS_GENERATION, M12B_ROUTING_POWER_ADAPTATION, M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE`
 
 ## Claim Boundary
 
 - can_claim_source_backed_translator_v2: `True`
-- can_claim_config_aware_translator_v3: `False`
+- can_claim_config_aware_translator_v3: `True`
 - can_claim_full_raw_openyield_netlist_compiler: `False`
 - can_claim_drc_clean: `False`
 - can_claim_lvs_clean: `False`
 - can_claim_signoff_ready: `False`
 - can_claim_openyield_module_gds_hardmacro_substitution: `False`
+
+## M11H Gate
+
+- m11_clean_gds_user_review_passed: `True`
+- supported_variations: `8x64_wpr4, 4x32_wpr2, 16x16_wpr1`
+- note: `M11H is gate closure only; it does not reopen M11 or add new functionality.`

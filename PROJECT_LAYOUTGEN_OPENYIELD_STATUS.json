@@ -8,7 +8,7 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M12",
+  "current_stage": "M11H",
   "next_stage": "WAIT_HUMAN_KLAYOUT_REVIEW",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
@@ -377,7 +377,7 @@
     "remaining_M7_blockers": [],
     "remaining_M7_blockers_count": 0
   },
-  "next_stage_allowed": "M11_OPENYIELD_CONFIG_EXTRACTION_OR_VARIATION_SUPPORT",
+  "next_stage_allowed": "M11A_MODULE_GDS_QUALIFICATION",
   "golden_reference_user_confirmed": true,
   "golden_reference_is_now_locked": true,
   "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
@@ -699,7 +699,7 @@
     ],
     "remaining_M10_blockers_count": 1
   },
-  "current_goal": "M11 config extraction and variation support completed; human KLayout review is still required before any post-M11 stage.",
+  "current_goal": "M11H gate cleared; M11 config-aware translator v3 is confirmed and the next allowed stage is M11A module GDS qualification.",
   "m10_clean_gds_user_review_passed": true,
   "m10_source_backed_translator_v2_confirmed": true,
   "can_claim_source_backed_translator_v2": true,
@@ -921,7 +921,7 @@
         "outputs/M9_openyield_netlist_translator/current_supported_config/M9_module_binding_matrix.csv"
       ],
       "blocking_for_next_stage": true,
-      "next_action": "Run M11A to qualify which OpenYield module GDS can be treated as reusable hardmacros versus fallback-only candidates."
+      "next_action": "M11A_MODULE_GDS_QUALIFICATION"
     },
     {
       "asset_id": "PIN_BBOX_RAIL_METADATA",
@@ -933,7 +933,7 @@
         "outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json"
       ],
       "blocking_for_next_stage": true,
-      "next_action": "Run M11B on top of M11A results to extract and verify pin/bbox/rail metadata only from qualified module GDS."
+      "next_action": "M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION"
     },
     {
       "asset_id": "SRAM_CONFIGURATION",
@@ -944,8 +944,8 @@
         "docs/mapping/M11_spec_field_source_matrix.csv",
         "outputs/M11_openyield_config_variation/current_supported_config/M11_variation_support_report.json"
       ],
-      "blocking_for_next_stage": true,
-      "next_action": "First clear M11H gate status, then keep narrowing fallback fields before claiming config-aware translator v3."
+      "blocking_for_next_stage": false,
+      "next_action": "No longer block M11A; revisit later only if full raw netlist compiler is required."
     },
     {
       "asset_id": "FLOORPLAN_RULES",
@@ -1033,13 +1033,12 @@
     "VERIFICATION_AND_TRACE"
   ],
   "next_assets_to_fill_in_order": [
-    "M11H",
-    "M11A",
-    "M11B",
-    "M11C",
-    "M12A",
-    "M12B",
-    "M13"
+    "M11A_MODULE_GDS_QUALIFICATION",
+    "M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION",
+    "M11C_SELECTIVE_HARDMACRO_SUBSTITUTION_SMOKE",
+    "M12A_VARIATION_GDS_GENERATION",
+    "M12B_ROUTING_POWER_ADAPTATION",
+    "M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE"
   ],
   "cannot_claim_until_completed": [
     "full raw OpenYield netlist compiler",
@@ -1050,7 +1049,7 @@
   ],
   "current_claim_boundary": {
     "can_claim_source_backed_translator_v2": true,
-    "can_claim_config_aware_translator_v3": false,
+    "can_claim_config_aware_translator_v3": true,
     "can_claim_full_raw_openyield_netlist_compiler": false,
     "can_claim_drc_clean": false,
     "can_claim_lvs_clean": false,
@@ -1103,5 +1102,121 @@
       "DRC/LVS/signoff claims remain unavailable."
     ],
     "remaining_M12_blockers_count": 4
+  },
+  "m11_clean_gds_user_review_passed": true,
+  "m11_config_aware_translator_v3_confirmed": true,
+  "can_claim_config_aware_translator_v3": true,
+  "can_claim_full_raw_openyield_netlist_compiler": false,
+  "capacity_config_fallback_used_after_M11": true,
+  "fallback_reduced_by_M11": true,
+  "fallback_eliminated_by_M11": false,
+  "variation_support_added": true,
+  "supported_variations": [
+    "8x64_wpr4",
+    "4x32_wpr2",
+    "16x16_wpr1"
+  ],
+  "last_M11H_report": {
+    "status_file_read": true,
+    "status_file_updated": false,
+    "goal_file_updated": false,
+    "progress_file_updated": false,
+    "reused_previous_artifacts": [
+      {
+        "artifact": "M8R/M8RC locked golden layoutgen flow",
+        "path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+        "reuse_purpose": "locked exact-match geometry baseline for translator-backed physical delivery"
+      },
+      {
+        "artifact": "M9/M9H translator v1",
+        "path": "outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram.gds",
+        "reuse_purpose": "prior translator semantics, binding bridge, and reviewed translator framing"
+      },
+      {
+        "artifact": "M10 raw source-backed trace",
+        "path": "outputs/M10_raw_openyield_trace/current_supported_config/openyield_source_backed_translated_sram.gds",
+        "reuse_purpose": "source-backed module/net/instance/config trace and exact-match source-backed translator v2 evidence"
+      },
+      {
+        "artifact": "T1 OpenYield full file analysis",
+        "path": "docs/T1_openyield_full_file_report.json",
+        "reuse_purpose": "key entrypoints, source inventory, and recommended raw-source search set"
+      },
+      {
+        "artifact": "R1/M1 OpenYield intent and binding",
+        "path": "outputs/openyield_layout_intent/current_supported_config/;docs/mapping/M1_openyield_to_layoutgen_binding.csv;docs/mapping/M1_openyield_net_to_layoutgen_pin_binding.csv",
+        "reuse_purpose": "semantic role map and module/net binding inputs carried into M9 and hardened in M10"
+      },
+      {
+        "artifact": "M7 golden reference",
+        "path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+        "reuse_purpose": "locked physical comparison target and exact-match baseline"
+      }
+    ],
+    "deprecated_previous_artifacts": [
+      {
+        "artifact": "access_module cells",
+        "path": "*_access_module",
+        "deprecated_reason": "cannot be claimed as physical implementation in M10H gate closure"
+      },
+      {
+        "artifact": "floorplan_proxy cells",
+        "path": "floorplan_proxy*",
+        "deprecated_reason": "review-only proxy hierarchy, not valid implementation backing for M10H"
+      },
+      {
+        "artifact": "historical hybrid reference",
+        "path": "outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+        "deprecated_reason": "superseded by locked uploaded golden reference and M8R/M8RC exact-match flow"
+      }
+    ],
+    "current_stage_inputs": [
+      "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md",
+      "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json",
+      "PROJECT_NETLIST_TO_LAYOUT_GOAL.md",
+      "PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md",
+      "docs/M11_openyield_config_variation_report.json",
+      "docs/M11_openyield_config_variation_report.md",
+      "docs/M12_ten_asset_audit_report.json",
+      "docs/mapping/M12_ten_required_assets_matrix.csv",
+      "docs/mapping/M12_missing_asset_backlog.csv",
+      "outputs/M11_openyield_config_variation/current_supported_config/",
+      "docs/M10H_confirm_source_backed_translator_report.json",
+      "docs/M10_harden_raw_openyield_trace_report.json",
+      "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds"
+    ],
+    "current_stage_delta_from_M11": [
+      "M11H does not add translator functionality; it converts the M11 human-review blocker into a confirmed gate state.",
+      "M11H locks can_claim_config_aware_translator_v3=True while preserving can_claim_full_raw_openyield_netlist_compiler=False.",
+      "M11H removes the M12 recommendation blocker that pointed to missing M11 confirmation."
+    ],
+    "why_M11H_is_needed": "M11 already produced the config-aware translator v3 outputs, but M12 still marked the route blocked because the dedicated confirmation gate file was missing. M11H is needed to record human KLayout review closure, lock the claim boundary, and allow M11A to start.",
+    "m11_clean_gds_user_review_passed": true,
+    "m11_config_aware_translator_v3_confirmed": true,
+    "can_claim_config_aware_translator_v3": true,
+    "can_claim_full_raw_netlist_compiler": false,
+    "capacity_config_fallback_used_after_M11": true,
+    "fallback_reduced_by_M11": true,
+    "fallback_eliminated_by_M11": false,
+    "word_size_source_backed": false,
+    "num_words_source_backed": false,
+    "words_per_row_source_backed": false,
+    "variation_support_added": true,
+    "supported_variations": [
+      "8x64_wpr4",
+      "4x32_wpr2",
+      "16x16_wpr1"
+    ],
+    "reference_vs_m11_geometry_match": "EXACT_MATCH",
+    "remaining_M11_blockers_before_count": 3,
+    "remaining_M11_blockers_after_count": 0,
+    "m12_recommended_next_stage_before": "M11H",
+    "m12_recommended_next_stage_after": "M11A_MODULE_GDS_QUALIFICATION",
+    "next_stage_allowed": "M11A_MODULE_GDS_QUALIFICATION",
+    "can_enter_M11A_after_this_gate": true,
+    "human_klayout_review_required_for_M11A_output": true,
+    "can_enter_next_stage_without_human_review": false,
+    "remaining_M11H_blockers": [],
+    "remaining_M11H_blockers_count": 0
   }
 }

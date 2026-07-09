@@ -21,3 +21,8 @@
 
 - 必须复用 M7 golden reference、M8R exact-match flow、M9 binding matrices、M10 source-backed trace、M11 config variation evidence、T1 inventory。
 - 不能把 access_module、floorplan_proxy、historical hybrid reference、access-view complete SRAM prototype 当作最终物理实现依据。
+## Current Gate State
+
+- M11H 已确认 M11 config-aware translator v3。
+- 该确认不扩大 claim 边界到 full raw OpenYield netlist compiler。
+- 下一阶段允许进入 `M11A_MODULE_GDS_QUALIFICATION`。
