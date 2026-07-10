@@ -1,0 +1,24 @@
+# M11C2H Confirm Wordline Driver Human Review Report
+
+- status_file_read: `True`
+- status_file_updated: `True`
+- progress_file_updated: `True`
+- m11c2_report_loaded: `True`
+- m11c2_human_review_completed: `True`
+- wordline_driver_visual_review_passed: `True`
+- wordline_driver_annotation_readable: `True`
+- wordline_driver_nearby_power_routing_review_status: `INCONCLUSIVE_BASELINE_ROUTING_LIMITED`
+- wordline_driver_nearby_power_routing_visually_confirmed_clean: `False`
+- no_obvious_new_break_reported_by_human: `True`
+- routing_clean_cannot_be_claimed: `True`
+- power_clean_cannot_be_claimed: `True`
+- wordline_driver_smoke_substitution_human_review_accepted_with_caveat: `True`
+- substituted_modules: `wordline_driver`
+- excluded_modules_confirmed: `True`
+- remaining_M11C2_blockers_before_count: `3`
+- remaining_M11C2_blockers_after_count: `0`
+- recommended_next_stage: `M11V_ROUTING_POWER_CONNECTIVITY_VERIFICATION_DEEPENING`
+- next_stage_allowed: `M11V_ROUTING_POWER_CONNECTIVITY_VERIFICATION_DEEPENING`
+- can_enter_M11V_after_this_gate: `True`
+- can_claim_routing_clean: `False`
+- can_claim_power_clean: `False`

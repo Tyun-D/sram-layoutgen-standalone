@@ -90,7 +90,7 @@
 
 ## Next Assets To Fill In Order
 
-- next_assets_to_fill_in_order: `M11C2H_CONFIRM_M11C2_HUMAN_REVIEW, M12A_VARIATION_GDS_GENERATION, M12B_ROUTING_POWER_ADAPTATION, M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE`
+- next_assets_to_fill_in_order: `M11V_ROUTING_POWER_CONNECTIVITY_VERIFICATION_DEEPENING, M12A_VARIATION_GDS_GENERATION, M12B_ROUTING_POWER_ADAPTATION, M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE`
 
 ## Claim Boundary
 
@@ -103,6 +103,10 @@
 - can_claim_openyield_module_gds_hardmacro_substitution: `False`
 - can_claim_sense_amp_smoke_substitution_attempted: `True`
 - can_claim_sense_amp_smoke_substitution_passed: `True`
+- can_claim_wordline_driver_smoke_substitution_attempted: `True`
+- can_claim_wordline_driver_smoke_substitution_passed: `True`
+- can_claim_routing_clean: `False`
+- can_claim_power_clean: `False`
 
 ## M11H Gate
 
@@ -184,7 +188,23 @@
 
 - substitution_scope: `wordline_driver`
 - excluded_modules_confirmed: `sense_amp, column_mux, write_driver, CONTROL_LOGIC, precharge, bitcell_array, dummy_array, replica_array`
-- human_klayout_review_required: `True`
-- can_enter_next_stage_before_human_review: `False`
-- next_stage_allowed: `M11C2H_CONFIRM_M11C2_HUMAN_REVIEW`
-- note: `M11C2 is an isolated wordline_driver smoke substitution from the M8R baseline. It does not combine with the earlier sense_amp result.`
+- human_klayout_review_required: `False`
+- can_enter_next_stage_before_human_review: `True`
+- next_stage_allowed: `M11V_ROUTING_POWER_CONNECTIVITY_VERIFICATION_DEEPENING`
+- note: `M11C2 passes human review with a routing/power caveat. The isolated smoke substitution is accepted, but nearby routing/power cleanliness remains inconclusive because the baseline layoutgen routing itself may already be limited.`
+
+## M11C2H Human Review Closure
+
+- m11c2_human_review_completed: `True`
+- m11c2_wordline_driver_visual_review_passed: `True`
+- m11c2_wordline_driver_annotation_readable: `True`
+- m11c2_wordline_driver_nearby_power_routing_review_status: `INCONCLUSIVE_BASELINE_ROUTING_LIMITED`
+- m11c2_no_obvious_new_break_reported_by_human: `True`
+- m11c2_nearby_power_routing_visually_confirmed_clean: `False`
+- remaining_M11C2_blockers_before_count: `3`
+- remaining_M11C2_blockers_after_count: `0`
+- recommended_next_stage: `M11V_ROUTING_POWER_CONNECTIVITY_VERIFICATION_DEEPENING`
+- recommended_next_stage_reason: `Because M11C2 passed isolated wordline_driver smoke substitution, but nearby routing/power cleanliness remains visually inconclusive due to baseline layoutgen routing limitations. Verification should be deepened before expanding substitution scope.`
+- next_stage_allowed: `M11V_ROUTING_POWER_CONNECTIVITY_VERIFICATION_DEEPENING`
+- can_enter_M11V_after_this_gate: `True`
+- note: `M11C2H only clears the M11C2 human-review gate with a routing/power caveat. It does not replace new modules and does not reopen routing/power/DRC/LVS/signoff claims.`
