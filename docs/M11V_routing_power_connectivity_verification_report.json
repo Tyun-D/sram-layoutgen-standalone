@@ -1,0 +1,162 @@
+{
+  "status_file_read": true,
+  "status_file_updated": true,
+  "progress_file_updated": true,
+  "m11c2h_gate_loaded": true,
+  "can_enter_M11V_from_M11C2H": true,
+  "reused_previous_artifacts": [
+    {
+      "artifact": "M11C2H human-review gate closure",
+      "path": "docs/M11C2H_confirm_wordline_driver_human_review_report.json;docs/mapping/M11C2H_*",
+      "reuse_purpose": "locks M11V to verification deepening after the accepted wordline_driver smoke substitution with caveat"
+    },
+    {
+      "artifact": "M11CH/M11D sense_amp closure and post-analysis",
+      "path": "docs/M11CH_confirm_M11C_human_review_report.json;docs/M11D_post_sense_amp_analysis_report.json",
+      "reuse_purpose": "anchors the earlier isolated sense_amp substitution proof and its cleared human gate"
+    },
+    {
+      "artifact": "M11C and M11C2 smoke substitution reports",
+      "path": "docs/M11C_sense_amp_smoke_substitution_report.json;docs/M11C2_wordline_driver_smoke_substitution_report.json",
+      "reuse_purpose": "provide the machine-locked substitution scope, diff summaries, and expected isolated-change boundaries"
+    },
+    {
+      "artifact": "M8R locked baseline GDS",
+      "path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+      "reuse_purpose": "serves as the immutable risk baseline for all incremental routing/power comparisons"
+    },
+    {
+      "artifact": "isolated substitution GDS outputs",
+      "path": "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram.gds;outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/M11C2_wordline_driver_substituted_sram.gds",
+      "reuse_purpose": "supply the post-substitution targets for incremental risk and connectivity heuristics"
+    }
+  ],
+  "deprecated_previous_artifacts": [
+    {
+      "artifact": "new module substitution in M11V",
+      "path": "user-prohibited substitution expansion set",
+      "deprecated_reason": "M11V is verification-only and must not generate any new substituted SRAM top"
+    },
+    {
+      "artifact": "combined sense_amp + wordline_driver smoke GDS in M11V",
+      "path": "future combined substitution candidate",
+      "deprecated_reason": "M11V must decide readiness for a later combined smoke step, not create it now"
+    },
+    {
+      "artifact": "access_module cells",
+      "path": "*_access_module",
+      "deprecated_reason": "forbidden implementation route and invalid proof basis for this verification stage"
+    },
+    {
+      "artifact": "floorplan_proxy cells",
+      "path": "floorplan_proxy*",
+      "deprecated_reason": "review-only proxies remain invalid for physical routing/power verification proof"
+    }
+  ],
+  "current_stage_inputs": [
+    "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md",
+    "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json",
+    "PROJECT_NETLIST_TO_LAYOUT_GOAL.md",
+    "PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md",
+    "docs/M11C2H_confirm_wordline_driver_human_review_report.json",
+    "docs/mapping/M11C2H_M11V_entry_gate.csv",
+    "docs/mapping/M11C2H_routing_power_caveat.csv",
+    "docs/M11CH_confirm_M11C_human_review_report.json",
+    "docs/M11D_post_sense_amp_analysis_report.json",
+    "docs/M11C_sense_amp_smoke_substitution_report.json",
+    "docs/M11C2_wordline_driver_smoke_substitution_report.json",
+    "docs/mapping/M11C_sense_amp_substitution_manifest.csv",
+    "docs/mapping/M11C_sense_amp_smoke_check_matrix.csv",
+    "docs/mapping/M11C_sense_amp_diff_matrix.csv",
+    "docs/mapping/M11C2_wordline_driver_substitution_manifest.csv",
+    "docs/mapping/M11C2_wordline_driver_smoke_check_matrix.csv",
+    "docs/mapping/M11C2_wordline_driver_diff_matrix.csv",
+    "docs/mapping/M11C2_real_substitution_proof.csv",
+    "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+    "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram.gds",
+    "outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/M11C2_wordline_driver_substituted_sram.gds"
+  ],
+  "current_stage_delta_from_M11C2H": [
+    "M11C2H cleared the human gate for the isolated wordline_driver smoke substitution but preserved a routing/power caveat; M11V turns that caveat into a machine-focused verification deepening pass.",
+    "M11V compares baseline, sense_amp-only, and wordline_driver-only GDS outputs side by side instead of generating any new replacement top.",
+    "M11V adds baseline-vs-incremental risk classification, power-rail heuristics, and connectivity heuristics to decide whether combination is safe or whether deeper extraction is still required."
+  ],
+  "why_M11V_is_verification_not_new_substitution": "Both isolated substitutions already exist and their human gates have been handled. M11V therefore must stay read-only: it compares the locked baseline against those two outputs, classifies incremental routing/power risk, and chooses the next verification route without modifying any substitution GDS.",
+  "baseline_gds_loaded": true,
+  "m11c_sense_amp_gds_loaded": true,
+  "m11c2_wordline_driver_gds_loaded": true,
+  "baseline_gds_parsed": true,
+  "m11c_sense_amp_gds_parsed": true,
+  "m11c2_wordline_driver_gds_parsed": true,
+  "top_bbox_baseline": [
+    0.0,
+    0.0,
+    36.6225,
+    44.145
+  ],
+  "top_bbox_m11c": [
+    0.0,
+    0.0,
+    36.6225,
+    44.145
+  ],
+  "top_bbox_m11c2": [
+    0.0,
+    0.0,
+    36.6225,
+    44.145
+  ],
+  "top_bbox_match_status": "EXACT_MATCH",
+  "baseline_power_risk_level": "MEDIUM_BASELINE_LIMITED",
+  "baseline_routing_risk_level": "HIGH_BASELINE_LIMITED",
+  "baseline_not_routing_power_clean_proven": true,
+  "sense_amp_incremental_power_risk": "NO_NEW_POWER_RISK_DETECTED",
+  "sense_amp_incremental_routing_risk": "NO_NEW_ROUTING_RISK_DETECTED",
+  "sense_amp_incremental_risk_level": "LOW_INCREMENTAL_RISK",
+  "wordline_driver_incremental_power_risk": "NO_NEW_POWER_RISK_DETECTED",
+  "wordline_driver_incremental_routing_risk": "NO_NEW_ROUTING_RISK_DETECTED_WITH_BASELINE_LIMITATION",
+  "wordline_driver_incremental_risk_level": "LOW_INCREMENTAL_RISK",
+  "sense_amp_connectivity_heuristic_status": "PASS",
+  "wordline_driver_connectivity_heuristic_status": "INCONCLUSIVE_BASELINE_LIMITED",
+  "new_power_risk_introduced_by_sense_amp": false,
+  "new_routing_risk_introduced_by_sense_amp": false,
+  "new_power_risk_introduced_by_wordline_driver": false,
+  "new_routing_risk_introduced_by_wordline_driver": false,
+  "unexpected_non_target_change_count_m11c": 0,
+  "unexpected_non_target_change_count_m11c2": 0,
+  "access_module_used": false,
+  "floorplan_proxy_used": false,
+  "arbitrary_scatter_used": false,
+  "unauthorized_module_substitution_detected": false,
+  "drc_feasibility_run": true,
+  "drc_marker_count_compared": true,
+  "drc_feasibility_not_run_reason": "",
+  "machine_verified_item_count": 31,
+  "human_review_required_item_count": 0,
+  "human_review_required_items": [],
+  "verification_status": "INCONCLUSIVE",
+  "verification_risk_level": "MEDIUM",
+  "can_claim_sense_amp_smoke_substitution_passed": true,
+  "can_claim_wordline_driver_smoke_substitution_passed": true,
+  "can_claim_openyield_module_gds_hardmacro_substitution": false,
+  "can_claim_routing_clean": false,
+  "can_claim_power_clean": false,
+  "can_claim_drc_clean": false,
+  "can_claim_lvs_clean": false,
+  "can_claim_signoff_ready": false,
+  "review_gds_generated": true,
+  "review_gds_path": "outputs/M11V_routing_power_connectivity_verification/current_supported_config/M11V_routing_power_connectivity_review.gds",
+  "clean_review_gds_path": "outputs/M11V_routing_power_connectivity_verification/current_supported_config/M11V_routing_power_connectivity_clean_review.gds",
+  "annotated_debug_gds_path": "outputs/M11V_routing_power_connectivity_verification/current_supported_config/M11V_routing_power_connectivity_annotated_debug.gds",
+  "review_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+  "recommended_next_stage": "M11V2_DEEPER_CONNECTIVITY_EXTRACTION",
+  "recommended_next_stage_reason": "Both isolated substitutions keep top bbox, hierarchy placement, and non-target geometry stable, and no new substitution-specific power/routing risk is detected. However, the baseline layoutgen routing/power cleanliness is still not proven and the wordline_driver neighborhood remains machine-inconclusive under that baseline limitation. Deeper extracted connectivity evidence is required before attempting a combined substitution.",
+  "remaining_M11V_blockers": [
+    "Baseline routing/power cleanliness is still not proven, so isolated substitution stability does not yet justify a combined substitution smoke.",
+    "wordline_driver connectivity remains machine-inconclusive under the baseline routing limitation and needs deeper extracted evidence.",
+    "Routing clean, power clean, DRC clean, LVS clean, and signoff-ready claims remain unavailable."
+  ],
+  "remaining_M11V_blockers_count": 3,
+  "human_klayout_review_required": false,
+  "can_enter_next_stage_before_human_review": true
+}

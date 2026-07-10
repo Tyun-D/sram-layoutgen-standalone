@@ -1,0 +1,10 @@
+{
+  "recommended_next_stage": "M11V2_DEEPER_CONNECTIVITY_EXTRACTION",
+  "recommended_next_stage_reason": "Both isolated substitutions keep top bbox, hierarchy placement, and non-target geometry stable, and no new substitution-specific power/routing risk is detected. However, the baseline layoutgen routing/power cleanliness is still not proven and the wordline_driver neighborhood remains machine-inconclusive under that baseline limitation. Deeper extracted connectivity evidence is required before attempting a combined substitution.",
+  "decision_basis": [
+    "Both isolated substitutions preserve top bbox and top reference placement exactly.",
+    "No unauthorized module substitution or non-target cell signature change is detected.",
+    "Baseline routing/power cleanliness is still not proven, and the wordline_driver region keeps the M11C2H baseline-limited caveat.",
+    "The available DRC deck runs, but marker counts are not comparable under this batch invocation, so the safest next step is deeper connectivity extraction rather than combined substitution."
+  ]
+}

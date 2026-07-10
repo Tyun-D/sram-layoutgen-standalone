@@ -1,0 +1,65 @@
+{
+  "baseline_power_risk_level": "MEDIUM_BASELINE_LIMITED",
+  "baseline_routing_risk_level": "HIGH_BASELINE_LIMITED",
+  "baseline_not_routing_power_clean_proven": true,
+  "baseline_known_limitations": [
+    "M8R exact-match reproduction proves geometry equivalence to the locked golden reference, but it does not prove routing clean or power clean.",
+    "M11C2H records that nearby wordline_driver routing/power cleanliness remains visually inconclusive because the baseline layoutgen routing itself may already be limited.",
+    "The FreePDK45 batch deck runs, but it does not emit comparable .lyrdb marker databases under this invocation for this stage."
+  ],
+  "baseline_shape_summary": {
+    "polygon_count": 5418,
+    "path_count": 0,
+    "label_count": 136,
+    "reference_count": 788,
+    "layer_summary": {
+      "1/0": 358,
+      "2/0": 57,
+      "3/0": 45,
+      "4/0": 67,
+      "5/0": 58,
+      "6/0": 64,
+      "9/0": 345,
+      "10/0": 284,
+      "11/0": 1083,
+      "12/0": 389,
+      "13/0": 1446,
+      "13/2": 11,
+      "14/0": 356,
+      "15/0": 552,
+      "15/2": 14,
+      "16/0": 176,
+      "17/0": 73,
+      "17/2": 2,
+      "239/0": 38
+    }
+  },
+  "baseline_power_rail_bboxes": {
+    "VDD": {
+      "label_origin": [
+        18.31,
+        44.02
+      ],
+      "rail_layer": "239/0",
+      "rail_bbox": [
+        0.0,
+        0.0,
+        36.6225,
+        44.145
+      ]
+    },
+    "GND": {
+      "label_origin": [
+        18.31,
+        0.125
+      ],
+      "rail_layer": "239/0",
+      "rail_bbox": [
+        0.0,
+        0.0,
+        36.6225,
+        44.145
+      ]
+    }
+  }
+}

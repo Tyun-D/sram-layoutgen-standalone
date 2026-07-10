@@ -90,7 +90,7 @@
 
 ## Next Assets To Fill In Order
 
-- next_assets_to_fill_in_order: `M11V_ROUTING_POWER_CONNECTIVITY_VERIFICATION_DEEPENING, M12A_VARIATION_GDS_GENERATION, M12B_ROUTING_POWER_ADAPTATION, M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE`
+- next_assets_to_fill_in_order: `M11V2_DEEPER_CONNECTIVITY_EXTRACTION, M12A_VARIATION_GDS_GENERATION, M12B_ROUTING_POWER_ADAPTATION, M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE`
 
 ## Claim Boundary
 
@@ -208,3 +208,16 @@
 - next_stage_allowed: `M11V_ROUTING_POWER_CONNECTIVITY_VERIFICATION_DEEPENING`
 - can_enter_M11V_after_this_gate: `True`
 - note: `M11C2H only clears the M11C2 human-review gate with a routing/power caveat. It does not replace new modules and does not reopen routing/power/DRC/LVS/signoff claims.`
+
+## M11V Routing Power Connectivity Verification
+
+- verification_status: `INCONCLUSIVE`
+- baseline_power_risk_level: `MEDIUM_BASELINE_LIMITED`
+- baseline_routing_risk_level: `HIGH_BASELINE_LIMITED`
+- sense_amp_incremental_risk_level: `LOW_INCREMENTAL_RISK`
+- wordline_driver_incremental_risk_level: `LOW_INCREMENTAL_RISK`
+- recommended_next_stage: `M11V2_DEEPER_CONNECTIVITY_EXTRACTION`
+- recommended_next_stage_reason: `Both isolated substitutions keep top bbox, hierarchy placement, and non-target geometry stable, and no new substitution-specific power/routing risk is detected. However, the baseline layoutgen routing/power cleanliness is still not proven and the wordline_driver neighborhood remains machine-inconclusive under that baseline limitation. Deeper extracted connectivity evidence is required before attempting a combined substitution.`
+- human_klayout_review_required: `False`
+- can_enter_next_stage_before_human_review: `True`
+- note: `M11V is a read-only verification stage. It compares baseline, sense_amp-only, and wordline_driver-only GDS outputs to judge incremental routing/power risk without generating any new substitution top.`

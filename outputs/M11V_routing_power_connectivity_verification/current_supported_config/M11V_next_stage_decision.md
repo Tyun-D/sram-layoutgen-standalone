@@ -1,0 +1,4 @@
+# M11V Next Stage Decision
+
+- recommended_next_stage: `M11V2_DEEPER_CONNECTIVITY_EXTRACTION`
+- recommended_next_stage_reason: `Both isolated substitutions keep top bbox, hierarchy placement, and non-target geometry stable, and no new substitution-specific power/routing risk is detected. However, the baseline layoutgen routing/power cleanliness is still not proven and the wordline_driver neighborhood remains machine-inconclusive under that baseline limitation. Deeper extracted connectivity evidence is required before attempting a combined substitution.`
