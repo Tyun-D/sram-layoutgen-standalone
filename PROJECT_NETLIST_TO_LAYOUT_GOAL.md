@@ -36,3 +36,8 @@
 - M11C 只允许做 `sense_amp` 的一次 hardmacro smoke substitution。
 - 本阶段不替换 `wordline_driver`、`column_mux`、`write_driver`、`CONTROL_LOGIC` 或任何其他模块。
 - 本阶段只验证替换尝试是否能保持 layoutgen golden flow 的顶层 GDS 可生成、可解析且无明显结构破坏。
+## Current Wordline Driver Smoke Substitution Stage
+
+- M11C2 只允许做 `wordline_driver` 的一次隔离 wrapper hardmacro smoke substitution。
+- 本阶段从 `M8R` locked baseline 出发，不叠加 `sense_amp` 结果，也不替换 `column_mux`、`write_driver`、`CONTROL_LOGIC` 或其他模块。
+- 本阶段只验证替换是否真实进入 SRAM hierarchy、top GDS 是否仍可生成/可解析，以及是否需要后续人工 KLayout 收口。

@@ -90,7 +90,7 @@
 
 ## Next Assets To Fill In Order
 
-- next_assets_to_fill_in_order: `M11C2_WORDLINE_DRIVER_SMOKE_SUBSTITUTION, M12A_VARIATION_GDS_GENERATION, M12B_ROUTING_POWER_ADAPTATION, M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE`
+- next_assets_to_fill_in_order: `M11C2H_CONFIRM_M11C2_HUMAN_REVIEW, M12A_VARIATION_GDS_GENERATION, M12B_ROUTING_POWER_ADAPTATION, M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE`
 
 ## Claim Boundary
 
@@ -179,3 +179,12 @@
 - human_klayout_review_required: `False`
 - can_enter_next_stage_before_human_review: `True`
 - note: `M11W only repairs wordline_driver wrapper/pin metadata. It does not perform any SRAM top substitution.`
+
+## M11C2 Wordline Driver Smoke Substitution
+
+- substitution_scope: `wordline_driver`
+- excluded_modules_confirmed: `sense_amp, column_mux, write_driver, CONTROL_LOGIC, precharge, bitcell_array, dummy_array, replica_array`
+- human_klayout_review_required: `True`
+- can_enter_next_stage_before_human_review: `False`
+- next_stage_allowed: `M11C2H_CONFIRM_M11C2_HUMAN_REVIEW`
+- note: `M11C2 is an isolated wordline_driver smoke substitution from the M8R baseline. It does not combine with the earlier sense_amp result.`

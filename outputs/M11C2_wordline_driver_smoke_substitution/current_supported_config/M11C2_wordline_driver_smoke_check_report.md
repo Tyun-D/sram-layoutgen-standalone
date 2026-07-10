@@ -1,0 +1,28 @@
+# M11C2 Wordline Driver Smoke Check Report
+
+- `m11w_gate_loaded` status=`True` notes=`M11W report loaded.`
+- `m11w_next_stage_allowed` status=`True` notes=`M11C2_WORDLINE_DRIVER_SMOKE_SUBSTITUTION`
+- `m11w_wordline_driver_ready` status=`True` notes=`True`
+- `substitution_scope_only_wordline_driver` status=`True` notes=`wordline_driver`
+- `sense_amp_not_substituted` status=`True` notes=`False`
+- `column_mux_not_substituted` status=`True` notes=`False`
+- `write_driver_not_substituted` status=`True` notes=`False`
+- `control_logic_not_substituted` status=`True` notes=`False`
+- `wordline_driver_wrapper_gds_found` status=`True` notes=`outputs/M11W_wordline_driver_wrapper_pin_repair/current_supported_config/M11W_wordline_driver_wrapper_candidate.gds`
+- `wordline_driver_wrapper_gds_parsed` status=`True` notes=`M11W_wordline_driver_wrapper_candidate`
+- `wrapper_top_cell_correct` status=`True` notes=`M11W_wordline_driver_wrapper_candidate`
+- `m11w_pin_rail_metadata_loaded` status=`True` notes=`metadata_rows=8 manifest_rows=4`
+- `wordline_driver_golden_target_found` status=`True` notes=`gen_wl_driver`
+- `replacement_target_not_unknown` status=`True` notes=`Golden target is the concrete gen_wl_driver leaf.`
+- `output_gds_parsed` status=`True` notes=`GDS_PARSED_SANITY_PASSED`
+- `top_bbox_checked` status=`True` notes=`EXACT_MATCH`
+- `no_access_module` status=`True` notes=`False`
+- `no_floorplan_proxy` status=`True` notes=`False`
+- `no_arbitrary_scatter` status=`True` notes=`False`
+- `wordline_driver_instance_count_expected` status=`True` notes=`16`
+- `openyield_wordline_driver_wrapper_fingerprint_found_in_M11C2` status=`True` notes=`D,G,S`
+- `not_label_only` status=`True` notes=`False`
+- `not_outside_placement` status=`True` notes=`False`
+- `dgs_pin_metadata_inherited_from_M11W` status=`True` notes=`All D/G/S rows remain ALIGNED from M11W.`
+- `vdd_gnd_rail_still_identifiable` status=`True` notes=`Inherited from M11W repaired metadata.`
+- `no_unexpected_non_wordline_driver_geometry_change` status=`True` notes=`0`

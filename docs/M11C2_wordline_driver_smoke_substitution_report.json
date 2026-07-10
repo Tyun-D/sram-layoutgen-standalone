@@ -1,0 +1,162 @@
+{
+  "status_file_read": true,
+  "status_file_updated": true,
+  "progress_file_updated": true,
+  "m11w_gate_loaded": true,
+  "m11w_next_stage_allowed": "M11C2_WORDLINE_DRIVER_SMOKE_SUBSTITUTION",
+  "m11w_wordline_driver_ready": true,
+  "reused_previous_artifacts": [
+    {
+      "artifact": "M11W wordline_driver wrapper repair bundle",
+      "path": "docs/M11W_wordline_driver_wrapper_pin_repair_report.json;docs/mapping/M11W_*;outputs/M11W_wordline_driver_wrapper_pin_repair/current_supported_config/",
+      "reuse_purpose": "provides the cleared gate, repaired D/G/S metadata, and wrapper candidate required for the isolated smoke substitution"
+    },
+    {
+      "artifact": "M11D next-stage planning",
+      "path": "docs/M11D_post_sense_amp_analysis_report.json",
+      "reuse_purpose": "records why wordline_driver became the next safe isolated substitution candidate"
+    },
+    {
+      "artifact": "M11C sense_amp smoke record",
+      "path": "docs/M11C_sense_amp_smoke_substitution_report.json",
+      "reuse_purpose": "keeps the earlier sense_amp smoke result frozen and excluded from this M11C2-only run"
+    },
+    {
+      "artifact": "M8R exact-match baseline",
+      "path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+      "reuse_purpose": "serves as the immutable before-image for this isolated wordline_driver substitution"
+    },
+    {
+      "artifact": "M7 golden reference",
+      "path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+      "reuse_purpose": "provides the locked target gen_wl_driver geometry and placement contract"
+    },
+    {
+      "artifact": "OpenYield module GDS library",
+      "path": "outputs/openyield_module_gds/",
+      "reuse_purpose": "retains the broader module source context while this stage substitutes only wordline_driver"
+    }
+  ],
+  "deprecated_previous_artifacts": [
+    {
+      "artifact": "combined M11C + M11C2 substitution output",
+      "path": "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/",
+      "deprecated_reason": "M11C2 must remain an isolated wordline_driver smoke substitution and must not stack on top of sense_amp"
+    },
+    {
+      "artifact": "access_module cells",
+      "path": "*_access_module",
+      "deprecated_reason": "forbidden implementation route and invalid proof basis for M11C2"
+    },
+    {
+      "artifact": "floorplan_proxy cells",
+      "path": "floorplan_proxy*",
+      "deprecated_reason": "review-only proxies remain invalid for physical replacement proof"
+    },
+    {
+      "artifact": "free-placed wrapper instances outside SRAM hierarchy",
+      "path": "manual top-level scatter",
+      "deprecated_reason": "M11C2 must replace the in-hierarchy gen_wl_driver target and may not place wrapper cells outside the SRAM top"
+    }
+  ],
+  "current_stage_inputs": [
+    "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md",
+    "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json",
+    "PROJECT_NETLIST_TO_LAYOUT_GOAL.md",
+    "PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md",
+    "docs/M11W_wordline_driver_wrapper_pin_repair_report.json",
+    "docs/M11W_wordline_driver_wrapper_pin_repair_report.md",
+    "docs/mapping/M11W_wordline_driver_repaired_metadata.csv",
+    "docs/mapping/M11W_wordline_driver_pin_alignment_matrix.csv",
+    "docs/mapping/M11W_wordline_driver_readiness_matrix.csv",
+    "docs/mapping/M11W_wordline_driver_wrapper_manifest.csv",
+    "outputs/M11W_wordline_driver_wrapper_pin_repair/current_supported_config/M11W_wordline_driver_wrapper_candidate.gds",
+    "outputs/M11W_wordline_driver_wrapper_pin_repair/current_supported_config/M11W_wordline_driver_wrapper_candidate_clean_review.gds",
+    "outputs/M11W_wordline_driver_wrapper_pin_repair/current_supported_config/M11W_wordline_driver_wrapper_candidate_annotated_debug.gds",
+    "docs/M11D_post_sense_amp_analysis_report.json",
+    "docs/M11C_sense_amp_smoke_substitution_report.json",
+    "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+    "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+    "outputs/openyield_module_gds/"
+  ],
+  "current_stage_delta_from_M11W": [
+    "M11W repaired the wordline_driver wrapper and D/G/S pin metadata but did not touch the SRAM top; M11C2 turns that cleared gate into one isolated smoke substitution attempt.",
+    "M11C2 replaces only the gen_wl_driver target inside the locked M8R top hierarchy and preserves the M11W repaired D/G/S marker geometry as the replacement fingerprint.",
+    "M11C2 adds a new full-SRAM substituted GDS, diff/proof reports, and review artifacts while still keeping DRC/LVS/signoff claims closed."
+  ],
+  "why_M11C2_is_wordline_driver_only": "M11W only cleared wordline_driver for smoke substitution, and the user explicitly prohibited substituting sense_amp, column_mux, write_driver, CONTROL_LOGIC, or any other module in this round. M11C2 therefore stays limited to the gen_wl_driver target path and confirms every other module remains excluded.",
+  "why_M11C2_uses_M8R_baseline_not_M11C_combined_result": "M11C2 must isolate the effect of the wordline_driver wrapper substitution. Starting from the locked M8R baseline avoids compounding the earlier sense_amp delta, keeps the geometry diff attributable to one module family only, and prevents any accidental claim that multiple OpenYield hardmacro substitutions were jointly validated.",
+  "sram_spec_generated": true,
+  "sram_spec_path": "outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/SRAM_SPEC.json",
+  "baseline_gds_loaded": true,
+  "baseline_top_cell": "sram_8x64_wpr4_fd45",
+  "wordline_driver_wrapper_gds_found": true,
+  "wordline_driver_wrapper_gds_parsed": true,
+  "wordline_driver_metadata_loaded_from_M11W": true,
+  "wordline_driver_golden_target_found": true,
+  "substitution_attempted": true,
+  "substitution_scope": [
+    "wordline_driver"
+  ],
+  "substituted_modules": [
+    "wordline_driver"
+  ],
+  "excluded_modules_confirmed": true,
+  "sense_amp_substituted": false,
+  "column_mux_substituted": false,
+  "write_driver_substituted": false,
+  "control_logic_substituted": false,
+  "output_gds_generated": true,
+  "output_gds_path": "outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/M11C2_wordline_driver_substituted_sram.gds",
+  "clean_review_gds_path": "outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/M11C2_wordline_driver_substituted_sram_clean_review.gds",
+  "annotated_debug_gds_path": "outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/M11C2_wordline_driver_substituted_sram_annotated_debug.gds",
+  "output_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+  "top_bbox_before": [
+    0.0,
+    0.0,
+    36.6225,
+    44.145
+  ],
+  "top_bbox_after": [
+    0.0,
+    0.0,
+    36.6225,
+    44.145
+  ],
+  "top_bbox_match_status": "EXACT_MATCH",
+  "wordline_driver_instance_count_before": 16,
+  "wordline_driver_instance_count_after": 16,
+  "real_substitution_proof_status": "PASS_WRAPPER_DGS_GEOMETRY_MATCH",
+  "openyield_wordline_driver_fingerprint_found_in_M11C2": true,
+  "label_only_substitution": false,
+  "outside_placement_substitution": false,
+  "unexpected_non_wordline_driver_change_count": 0,
+  "unexpected_non_wordline_driver_change_summary": [],
+  "access_module_used": false,
+  "floorplan_proxy_used": false,
+  "arbitrary_scatter_used": false,
+  "wordline_driver_substitution_smoke_status": "SMOKE_SUBSTITUTION_PASS",
+  "ready_for_human_klayout_review": true,
+  "machine_verified_item_count": 26,
+  "human_review_required_item_count": 3,
+  "human_review_required_items": [
+    "KLayout must confirm that the 16 substituted wordline_driver regions remain visually complete in the top SRAM context.",
+    "KLayout must confirm that the annotated debug markers around the substituted wordline_driver sites are readable and non-misleading.",
+    "KLayout must confirm that no visible power or routing damage appears around the substituted wordline_driver rows."
+  ],
+  "can_claim_wordline_driver_smoke_substitution_attempted": true,
+  "can_claim_wordline_driver_smoke_substitution_passed": true,
+  "can_claim_openyield_module_gds_hardmacro_substitution": false,
+  "can_claim_drc_clean": false,
+  "can_claim_lvs_clean": false,
+  "can_claim_signoff_ready": false,
+  "remaining_M11C2_blockers": [
+    "Human KLayout review is required for the substituted wordline_driver clean/annotated outputs.",
+    "This is only a wordline_driver smoke substitution; broader OpenYield hardmacro substitution remains unqualified.",
+    "DRC/LVS/signoff claims remain unavailable."
+  ],
+  "remaining_M11C2_blockers_count": 3,
+  "human_klayout_review_required": true,
+  "can_enter_next_stage_before_human_review": false,
+  "next_stage_allowed": "M11C2H_CONFIRM_M11C2_HUMAN_REVIEW"
+}

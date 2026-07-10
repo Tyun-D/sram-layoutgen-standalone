@@ -8,12 +8,12 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M11W",
-  "next_stage": "M11C2_WORDLINE_DRIVER_SMOKE_SUBSTITUTION",
+  "current_stage": "M11C2",
+  "next_stage": "WAIT_HUMAN_KLAYOUT_REVIEW",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": true,
-  "can_enter_next_stage_without_human_review": true,
+  "can_enter_next_stage_without_human_review": false,
   "important_results": [
     {
       "result_name": "First-round OpenYield module GDS generation",
@@ -377,7 +377,7 @@
     "remaining_M7_blockers": [],
     "remaining_M7_blockers_count": 0
   },
-  "next_stage_allowed": "M11C2_WORDLINE_DRIVER_SMOKE_SUBSTITUTION",
+  "next_stage_allowed": "M11C2H_CONFIRM_M11C2_HUMAN_REVIEW",
   "golden_reference_user_confirmed": true,
   "golden_reference_is_now_locked": true,
   "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
@@ -699,7 +699,7 @@
     ],
     "remaining_M10_blockers_count": 1
   },
-  "current_goal": "M11D completed a machine-backed post-analysis of the M11C sense_amp-only smoke substitution and selected the next safe candidate route without expanding substitution scope.",
+  "current_goal": "M11C2 completed an isolated wordline_driver-only OpenYield wrapper hardmacro smoke substitution from the locked M8R baseline and is awaiting human KLayout review.",
   "m10_clean_gds_user_review_passed": true,
   "m10_source_backed_translator_v2_confirmed": true,
   "can_claim_source_backed_translator_v2": true,
@@ -916,26 +916,25 @@
       "asset_name": "模块物理实现库，包括 layoutgen cell、OpenYield module GDS、hardmacro 候选",
       "status_level": "PARTIAL",
       "evidence_paths": [
-        "docs/mapping/M11C_sense_amp_substitution_manifest.csv",
-        "docs/mapping/M11C_sense_amp_smoke_check_matrix.csv",
-        "docs/mapping/M11C_sense_amp_diff_matrix.csv",
-        "docs/mapping/M11CH_M11D_entry_gate.csv"
+        "docs/mapping/M11C2_wordline_driver_substitution_manifest.csv",
+        "docs/mapping/M11C2_wordline_driver_smoke_check_matrix.csv",
+        "docs/mapping/M11C2_wordline_driver_diff_matrix.csv",
+        "docs/mapping/M11C2_real_substitution_proof.csv"
       ],
       "blocking_for_next_stage": false,
-      "next_action": "M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR"
+      "next_action": "M11C2H_CONFIRM_M11C2_HUMAN_REVIEW"
     },
     {
       "asset_id": "PIN_BBOX_RAIL_METADATA",
       "asset_name": "pin / bbox / rail / layer / access metadata",
       "status_level": "PARTIAL",
       "evidence_paths": [
-        "docs/mapping/M11B_deep_pin_bbox_rail_metadata.csv",
-        "docs/mapping/M11C_sense_amp_smoke_check_matrix.csv",
-        "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_smoke_check_report.json",
-        "docs/mapping/M11CH_M11D_entry_gate.csv"
+        "docs/mapping/M11W_wordline_driver_repaired_metadata.csv",
+        "docs/mapping/M11C2_wordline_driver_smoke_check_matrix.csv",
+        "outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/M11C2_wordline_driver_smoke_check_report.json"
       ],
       "blocking_for_next_stage": false,
-      "next_action": "M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR"
+      "next_action": "M11C2H_CONFIRM_M11C2_HUMAN_REVIEW"
     },
     {
       "asset_id": "SRAM_CONFIGURATION",
@@ -1630,8 +1629,8 @@
   "recommended_next_stage_reason": "M11D proves that sense_amp was a real in-hierarchy OpenYield fingerprint replacement, but it does not make any new module ready. The only previously shortlisted next candidate remains wordline_driver, and M11B still blocks it on unresolved D/G/S wrapper pin geometry.",
   "remaining_M11D_blockers": [],
   "remaining_M11D_blockers_count": 0,
-  "human_klayout_review_required": false,
-  "can_enter_next_stage_before_human_review": true,
+  "human_klayout_review_required": true,
+  "can_enter_next_stage_before_human_review": false,
   "last_M11D_report": {
     "status_file_read": true,
     "status_file_updated": true,
@@ -1940,5 +1939,88 @@
     "human_klayout_review_required": false,
     "can_enter_next_stage_before_human_review": true,
     "next_stage_allowed": "M11C2_WORDLINE_DRIVER_SMOKE_SUBSTITUTION"
+  },
+  "can_claim_wordline_driver_smoke_substitution_attempted": true,
+  "can_claim_wordline_driver_smoke_substitution_passed": true,
+  "last_M11C2_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "progress_file_updated": true,
+    "m11w_gate_loaded": true,
+    "m11w_next_stage_allowed": "M11C2_WORDLINE_DRIVER_SMOKE_SUBSTITUTION",
+    "m11w_wordline_driver_ready": true,
+    "sram_spec_generated": true,
+    "sram_spec_path": "outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/SRAM_SPEC.json",
+    "baseline_gds_loaded": true,
+    "baseline_top_cell": "sram_8x64_wpr4_fd45",
+    "wordline_driver_wrapper_gds_found": true,
+    "wordline_driver_wrapper_gds_parsed": true,
+    "wordline_driver_metadata_loaded_from_M11W": true,
+    "wordline_driver_golden_target_found": true,
+    "substitution_attempted": true,
+    "substitution_scope": [
+      "wordline_driver"
+    ],
+    "substituted_modules": [
+      "wordline_driver"
+    ],
+    "excluded_modules_confirmed": true,
+    "sense_amp_substituted": false,
+    "column_mux_substituted": false,
+    "write_driver_substituted": false,
+    "control_logic_substituted": false,
+    "output_gds_generated": true,
+    "output_gds_path": "outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/M11C2_wordline_driver_substituted_sram.gds",
+    "clean_review_gds_path": "outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/M11C2_wordline_driver_substituted_sram_clean_review.gds",
+    "annotated_debug_gds_path": "outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/M11C2_wordline_driver_substituted_sram_annotated_debug.gds",
+    "output_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "top_bbox_before": [
+      0.0,
+      0.0,
+      36.6225,
+      44.145
+    ],
+    "top_bbox_after": [
+      0.0,
+      0.0,
+      36.6225,
+      44.145
+    ],
+    "top_bbox_match_status": "EXACT_MATCH",
+    "wordline_driver_instance_count_before": 16,
+    "wordline_driver_instance_count_after": 16,
+    "real_substitution_proof_status": "PASS_WRAPPER_DGS_GEOMETRY_MATCH",
+    "openyield_wordline_driver_fingerprint_found_in_M11C2": true,
+    "label_only_substitution": false,
+    "outside_placement_substitution": false,
+    "unexpected_non_wordline_driver_change_count": 0,
+    "unexpected_non_wordline_driver_change_summary": [],
+    "access_module_used": false,
+    "floorplan_proxy_used": false,
+    "arbitrary_scatter_used": false,
+    "wordline_driver_substitution_smoke_status": "SMOKE_SUBSTITUTION_PASS",
+    "ready_for_human_klayout_review": true,
+    "machine_verified_item_count": 26,
+    "human_review_required_item_count": 3,
+    "human_review_required_items": [
+      "KLayout must confirm that the 16 substituted wordline_driver regions remain visually complete in the top SRAM context.",
+      "KLayout must confirm that the annotated debug markers around the substituted wordline_driver sites are readable and non-misleading.",
+      "KLayout must confirm that no visible power or routing damage appears around the substituted wordline_driver rows."
+    ],
+    "can_claim_wordline_driver_smoke_substitution_attempted": true,
+    "can_claim_wordline_driver_smoke_substitution_passed": true,
+    "can_claim_openyield_module_gds_hardmacro_substitution": false,
+    "can_claim_drc_clean": false,
+    "can_claim_lvs_clean": false,
+    "can_claim_signoff_ready": false,
+    "remaining_M11C2_blockers": [
+      "Human KLayout review is required for the substituted wordline_driver clean/annotated outputs.",
+      "This is only a wordline_driver smoke substitution; broader OpenYield hardmacro substitution remains unqualified.",
+      "DRC/LVS/signoff claims remain unavailable."
+    ],
+    "remaining_M11C2_blockers_count": 3,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false,
+    "next_stage_allowed": "M11C2H_CONFIRM_M11C2_HUMAN_REVIEW"
   }
 }
