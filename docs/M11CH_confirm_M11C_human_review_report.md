@@ -1,0 +1,22 @@
+# M11CH Confirm M11C Human Review Report
+
+- status_file_read: `True`
+- status_file_updated: `True`
+- progress_file_updated: `True`
+- m11c_report_loaded: `True`
+- m11c_human_review_completed: `True`
+- sense_amp_visual_review_passed: `True`
+- sense_amp_annotation_readable: `True`
+- sense_amp_nearby_power_routing_not_visually_broken: `True`
+- sense_amp_smoke_substitution_human_review_passed: `True`
+- substituted_modules: `sense_amp`
+- excluded_modules_confirmed: `True`
+- remaining_M11C_blockers_before_count: `3`
+- remaining_M11C_blockers_after_count: `0`
+- can_claim_sense_amp_smoke_substitution_passed: `True`
+- can_claim_openyield_module_gds_hardmacro_substitution: `False`
+- can_claim_drc_clean: `False`
+- can_claim_lvs_clean: `False`
+- can_claim_signoff_ready: `False`
+- next_stage_allowed: `M11D_POST_SENSE_AMP_SUBSTITUTION_ANALYSIS_OR_NEXT_SAFE_CANDIDATE_PLANNING`
+- can_enter_M11D_after_this_gate: `True`

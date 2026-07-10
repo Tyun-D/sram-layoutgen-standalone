@@ -1,0 +1,47 @@
+{
+  "status_file_read": true,
+  "status_file_updated": true,
+  "progress_file_updated": true,
+  "m11c_report_loaded": true,
+  "m11c_human_review_completed": true,
+  "human_review_items_before": [
+    "KLayout must confirm that the substituted sense_amp instances still look visually complete in the top context.",
+    "KLayout must confirm that the debug annotation around the 8 substituted sense_amp instances is readable and non-misleading.",
+    "KLayout must confirm that no visual power or routing damage was introduced around the substituted sense_amp row."
+  ],
+  "human_review_items_after": [],
+  "sense_amp_visual_review_passed": true,
+  "sense_amp_annotation_readable": true,
+  "sense_amp_nearby_power_routing_not_visually_broken": true,
+  "sense_amp_smoke_substitution_attempted": true,
+  "sense_amp_smoke_substitution_passed": true,
+  "sense_amp_smoke_substitution_human_review_passed": true,
+  "substituted_modules": [
+    "sense_amp"
+  ],
+  "excluded_modules_confirmed": true,
+  "can_claim_sense_amp_smoke_substitution_attempted": true,
+  "can_claim_sense_amp_smoke_substitution_passed": true,
+  "can_claim_openyield_module_gds_hardmacro_substitution": false,
+  "can_claim_drc_clean": false,
+  "can_claim_lvs_clean": false,
+  "can_claim_signoff_ready": false,
+  "remaining_M11C_blockers_before_count": 3,
+  "remaining_M11C_blockers_after_count": 0,
+  "next_stage_allowed": "M11D_POST_SENSE_AMP_SUBSTITUTION_ANALYSIS_OR_NEXT_SAFE_CANDIDATE_PLANNING",
+  "can_enter_M11D_after_this_gate": true,
+  "human_review_source": "M11CH gate closure records the provided human review result for the existing M11C clean-review and annotated-debug GDS artifacts.",
+  "reviewed_gds_paths": [
+    "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram_clean_review.gds",
+    "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram_annotated_debug.gds"
+  ],
+  "m11c_manifest_artifact_count": 4,
+  "m11c_smoke_check_item_count": 22,
+  "m11c_diff_item_count": 4,
+  "excluded_modules": [
+    "wordline_driver",
+    "column_mux",
+    "write_driver",
+    "CONTROL_LOGIC"
+  ]
+}

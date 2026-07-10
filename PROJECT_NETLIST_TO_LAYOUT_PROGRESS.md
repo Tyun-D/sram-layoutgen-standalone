@@ -15,16 +15,16 @@
 - asset_name: `模块物理实现库，包括 layoutgen cell、OpenYield module GDS、hardmacro 候选`
 - status_level: `PARTIAL`
 - evidence_paths: `outputs/openyield_module_gds/; docs/mapping/openyield_module_gds_inventory.csv; outputs/M9_openyield_netlist_translator/current_supported_config/M9_module_binding_matrix.csv`
-- blocking_for_next_stage: `True`
-- next_action: `M11CH_CONFIRM_M11C_HUMAN_REVIEW after the sense_amp-only smoke substitution output is visually checked.`
+- blocking_for_next_stage: `False`
+- next_action: `M11D_POST_SENSE_AMP_SUBSTITUTION_ANALYSIS_OR_NEXT_SAFE_CANDIDATE_PLANNING`
 
 ### PIN_BBOX_RAIL_METADATA
 
 - asset_name: `pin / bbox / rail / layer / access metadata`
 - status_level: `PARTIAL`
 - evidence_paths: `outputs/openyield_module_gds/; docs/mapping/openyield_rail_rule_matrix.csv; outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json`
-- blocking_for_next_stage: `True`
-- next_action: `M11CH_CONFIRM_M11C_HUMAN_REVIEW`
+- blocking_for_next_stage: `False`
+- next_action: `M11D_POST_SENSE_AMP_SUBSTITUTION_ANALYSIS_OR_NEXT_SAFE_CANDIDATE_PLANNING`
 
 ### SRAM_CONFIGURATION
 
@@ -90,7 +90,7 @@
 
 ## Next Assets To Fill In Order
 
-- next_assets_to_fill_in_order: `M11C_SELECTIVE_HARDMACRO_SUBSTITUTION_SMOKE_FOR_READY_MODULES, M11C_SELECTIVE_HARDMACRO_SUBSTITUTION_SMOKE, M12A_VARIATION_GDS_GENERATION, M12B_ROUTING_POWER_ADAPTATION, M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE`
+- next_assets_to_fill_in_order: `M11D_POST_SENSE_AMP_SUBSTITUTION_ANALYSIS_OR_NEXT_SAFE_CANDIDATE_PLANNING, M12A_VARIATION_GDS_GENERATION, M12B_ROUTING_POWER_ADAPTATION, M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE`
 
 ## Claim Boundary
 
@@ -101,6 +101,8 @@
 - can_claim_lvs_clean: `False`
 - can_claim_signoff_ready: `False`
 - can_claim_openyield_module_gds_hardmacro_substitution: `False`
+- can_claim_sense_amp_smoke_substitution_attempted: `True`
+- can_claim_sense_amp_smoke_substitution_passed: `True`
 
 ## M11H Gate
 
@@ -140,4 +142,16 @@
 
 - substitution_scope: `sense_amp`
 - excluded_modules_confirmed: `wordline_driver, column_mux, write_driver, CONTROL_LOGIC`
-- note: `This is a smoke substitution only. Human KLayout review remains mandatory before any follow-on stage.`
+- note: `This is a smoke substitution only. It passes M11C human review but still does not qualify any broader hardmacro substitution claim.`
+
+## M11CH Human Review Closure
+
+- m11c_human_review_completed: `True`
+- m11c_sense_amp_visual_review_passed: `True`
+- m11c_sense_amp_annotation_readable: `True`
+- m11c_sense_amp_nearby_power_routing_not_visually_broken: `True`
+- remaining_M11C_blockers_before_count: `3`
+- remaining_M11C_blockers_after_count: `0`
+- next_stage_allowed: `M11D_POST_SENSE_AMP_SUBSTITUTION_ANALYSIS_OR_NEXT_SAFE_CANDIDATE_PLANNING`
+- can_enter_M11D_after_this_gate: `True`
+- note: `M11CH only clears the M11C human-review gate. It does not replace new modules and does not reopen DRC/LVS/signoff claims.`
