@@ -2,15 +2,15 @@
 
 ## 1. Current Correct Goal
 
-M12O 已完成 OpenRAM full reference intake、OpenYield netlist authority audit 和 configurable SRAM generation planning。当前已确认 OpenRAM full reference 与 layoutgen golden 并不等价，而 OpenYield 仍未锁定单一权威完整 SRAM top netlist，因此后续优先级从直接进入 `M11V2` 暂时切换为先锁权威网表来源。
+M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source 锁定审计。当前已确认 OpenYield 存在可参数化的 Python SPICE/testbench generator 链，但尚未证明一个纯净、单文件或单入口的 authoritative SRAM top netlist 可直接作为 custom netlist-driven layout authority。
 
 ## 2. Current Stage
 
-- current_stage: `M12O`
-- next_stage: `M12N_LOCK_OPENYIELD_AUTHORITATIVE_NETLIST`
+- current_stage: `M12N`
+- next_stage: `M12C_CONTROL_LOGIC_GAP_DEFINITION`
 - human_klayout_review_required_every_stage: `True`
 - can_enter_next_stage_without_human_review: `True`
-- next_stage_allowed: `M12N_LOCK_OPENYIELD_AUTHORITATIVE_NETLIST`
+- next_stage_allowed: `M12C_CONTROL_LOGIC_GAP_DEFINITION`
 
 ## 3. M11V Verification Result
 
@@ -38,6 +38,21 @@ M12O 已完成 OpenRAM full reference intake、OpenYield netlist authority audit
 - recommended_next_stage: `M12N_LOCK_OPENYIELD_AUTHORITATIVE_NETLIST`
 - can_claim_custom_netlist_driven_layout_generation: `False`
 - can_claim_openyield_authoritative_netlist_locked: `False`
+- can_claim_drc_clean: `False`
+- can_claim_lvs_clean: `False`
+- can_claim_signoff_ready: `False`
+
+## 4. M12N OpenYield Authority Lock Result
+
+- authoritative_netlist_lock_status: `PARTIAL_SUBCIRCUIT_LIBRARY_ONLY`
+- authoritative_entrypoint: `sram_compiler/testbenches/sram_6t_core_testbench.py`
+- authoritative_top_class_or_function: `Sram6TCoreTestbench.create_testbench`
+- openyield_parameterized_netlist_generator_proven: `True`
+- openyield_complete_sram_top_proven: `False`
+- openyield_control_logic_source_locked: `True`
+- recommended_next_stage: `M12C_CONTROL_LOGIC_GAP_DEFINITION`
+- can_claim_openyield_authoritative_netlist_locked: `False`
+- can_claim_custom_netlist_driven_layout_generation: `False`
 - can_claim_drc_clean: `False`
 - can_claim_lvs_clean: `False`
 - can_claim_signoff_ready: `False`

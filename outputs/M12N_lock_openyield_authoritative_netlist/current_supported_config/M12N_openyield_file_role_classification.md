@@ -1,0 +1,21 @@
+# M12N OpenYield File Role Classification
+
+- sram_compiler/subcircuits/base_subcircuit.py: `SUBCIRCUIT_LIBRARY` | Reusable subcircuit primitives or arrays; not a standalone top netlist authority.
+- sram_compiler/subcircuits/decoder.py: `SUBCIRCUIT_LIBRARY` | Reusable subcircuit primitives or arrays; not a standalone top netlist authority.
+- sram_compiler/subcircuits/dummy_row_or_column.py: `SUBCIRCUIT_LIBRARY` | Reusable subcircuit primitives or arrays; not a standalone top netlist authority.
+- sram_compiler/subcircuits/mux_and_sa.py: `SUBCIRCUIT_LIBRARY` | Reusable subcircuit primitives or arrays; not a standalone top netlist authority.
+- sram_compiler/subcircuits/precharge_and_write_driver.py: `SUBCIRCUIT_LIBRARY` | Reusable subcircuit primitives or arrays; not a standalone top netlist authority.
+- sram_compiler/subcircuits/replica_column.py: `SUBCIRCUIT_LIBRARY` | Reusable subcircuit primitives or arrays; not a standalone top netlist authority.
+- sram_compiler/subcircuits/sram_10t_core.py: `SUBCIRCUIT_LIBRARY` | Reusable subcircuit primitives or arrays; not a standalone top netlist authority.
+- sram_compiler/subcircuits/sram_6t_core.py: `SUBCIRCUIT_LIBRARY` | Reusable subcircuit primitives or arrays; not a standalone top netlist authority.
+- sram_compiler/subcircuits/sram_cell_add_equivalent.py: `SUBCIRCUIT_LIBRARY` | Reusable subcircuit primitives or arrays; not a standalone top netlist authority.
+- sram_compiler/subcircuits/standard_cell.py: `SUBCIRCUIT_LIBRARY` | Reusable subcircuit primitives or arrays; not a standalone top netlist authority.
+- sram_compiler/subcircuits/time_generate.py: `CONTROL_LOGIC_SOURCE` | Defines timing/control-path subcircuits used by the SRAM testbench flow.
+- sram_compiler/subcircuits/wordline_driver.py: `SUBCIRCUIT_LIBRARY` | Reusable subcircuit primitives or arrays; not a standalone top netlist authority.
+- sram_compiler/testbenches/sram_6t_core_MC_testbench.py: `TESTBENCH_ONLY` | Builds simulation testbench circuits, not a pure authoritative SRAM top netlist.
+- sram_compiler/testbenches/sram_6t_core_testbench.py: `TESTBENCH_ONLY` | Builds simulation testbench circuits, not a pure authoritative SRAM top netlist.
+- main_sram.py: `PARAMETERIZED_NETLIST_GENERATOR` | Loads SRAM_CONFIG and instantiates Sram6TCoreMcTestbench for SRAM-related SPICE generation/simulation.
+- main_opt.py: `OPTIMIZATION_ONLY` | Optimization launcher; does not directly define an SRAM top netlist.
+- main_estimation.py: `ESTIMATION_ONLY` | Yield-estimation launcher; not an SRAM top netlist authority.
+- equivalent_modeling/main_sram.py: `PARAMETERIZED_NETLIST_GENERATOR` | Runs parameter sweeps by repeatedly instantiating Sram6TCoreMcTestbench.
+- demo_run_a_testbench.py: `TESTBENCH_ONLY` | Demo wrapper around testbench simulation flow.

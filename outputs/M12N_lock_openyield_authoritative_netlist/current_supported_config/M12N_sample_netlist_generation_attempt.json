@@ -1,0 +1,40 @@
+{
+  "sample_netlist_generation_attempted": true,
+  "sample_netlist_generation_passed": true,
+  "sample_netlist_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12N_lock_openyield_authoritative_netlist/current_supported_config/sample_openyield_sram_netlist.sp",
+  "sample_netlist_failure_reason": "",
+  "import_failures": [
+    {
+      "module": "main_sram",
+      "status": "IMPORT_FAIL",
+      "reason": "ModuleNotFoundError: No module named 'regex'"
+    },
+    {
+      "module": "equivalent_modeling.main_sram",
+      "status": "IMPORT_FAIL",
+      "reason": "ModuleNotFoundError: No module named 'regex'"
+    },
+    {
+      "module": "demo_run_a_testbench",
+      "status": "IMPORT_FAIL",
+      "reason": "ModuleNotFoundError: No module named 'torch'"
+    },
+    {
+      "module": "sram_compiler.testbenches.sram_6t_core_MC_testbench",
+      "status": "IMPORT_FAIL",
+      "reason": "ModuleNotFoundError: No module named 'regex'"
+    }
+  ],
+  "sample_netlist_title": ".title SRAM_6T_CORE_16x16_TB",
+  "sample_netlist_has_testbench_stimuli": true,
+  "sample_netlist_summary": {
+    "contains_sram_core": true,
+    "contains_replica_column": true,
+    "contains_time_control": true,
+    "contains_decoder": true,
+    "contains_wordline_driver": true,
+    "contains_precharge": true,
+    "contains_sense_amp": true,
+    "contains_write_driver": true
+  }
+}

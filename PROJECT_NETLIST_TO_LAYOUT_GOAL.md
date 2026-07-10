@@ -48,3 +48,9 @@
 - 该阶段替代直接推进 `M11V2`，因为 OpenYield 仍未锁定单一权威完整 SRAM top netlist，CONTROL_LOGIC 差异和参数映射规则也还未定稿。
 - 在 `M12N_LOCK_OPENYIELD_AUTHORITATIVE_NETLIST` 完成前，不能 claim 自研网表驱动完整 GDS 生成已完成。
 - 当前推荐下一阶段：`M12N_LOCK_OPENYIELD_AUTHORITATIVE_NETLIST`。
+
+## Current OpenYield Authority Lock Stage
+
+- M12N 负责锁定 OpenYield 中真正可代表 SRAM 网表/网表生成链的 authority source，而不是继续模块替换或继续把 testbench 当作 layout authority。
+- 当前已证明可以通过 Python generator 生成 sample SPICE/testbench netlist，但这仍不是可直接驱动 custom netlist-to-layout 的纯 SRAM top authority。
+- 当前推荐下一阶段：`M12C_CONTROL_LOGIC_GAP_DEFINITION`。

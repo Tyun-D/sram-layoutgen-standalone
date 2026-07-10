@@ -1,0 +1,22 @@
+# M12N SRAM Top Coverage Matrix
+
+- bitcell_array: `PROVEN_IN_GENERATED_TESTBENCH_GRAPH` | sample netlist contains SRAM_*_CORE subckt
+- dummy_array: `LIBRARY_ONLY_NOT_CURRENT_TOP` | present in library, not instantiated in current sample
+- replica_array: `PROVEN_IN_GENERATED_TESTBENCH_GRAPH` | True
+- precharge: `PROVEN_IN_GENERATED_TESTBENCH_GRAPH` | True
+- sense_amp: `PROVEN_IN_GENERATED_TESTBENCH_GRAPH` | True
+- write_driver: `PROVEN_IN_GENERATED_TESTBENCH_GRAPH` | True
+- column_mux: `PARTIAL_CODE_PATH_ONLY` | supported by code path but not instantiated in current sample when choose_columnmux=false
+- row_decoder: `PROVEN_IN_GENERATED_TESTBENCH_GRAPH` | True
+- wordline_decoder: `PROVEN_IN_GENERATED_TESTBENCH_GRAPH` | True
+- wordline_driver: `PROVEN_IN_GENERATED_TESTBENCH_GRAPH` | True
+- CONTROL_LOGIC: `PARTIAL_TESTBENCH_CONTROL_GRAPH` | True
+- DELAY_CHAIN: `PARTIAL_TESTBENCH_CONTROL_GRAPH` | True
+- DFF_ROW: `PARTIAL_TESTBENCH_CONTROL_GRAPH` | True
+- GATED_CLOCK_PATH: `PARTIAL_TESTBENCH_CONTROL_GRAPH` | True
+- PRECHARGE_ENABLE_PATH: `PARTIAL_TESTBENCH_CONTROL_GRAPH` | True
+- SENSE_ENABLE_PATH: `PARTIAL_TESTBENCH_CONTROL_GRAPH` | True
+- WRITE_ENABLE_PATH: `PARTIAL_TESTBENCH_CONTROL_GRAPH` | True
+- WORDLINE_ENABLE_PATH: `PARTIAL_TESTBENCH_CONTROL_GRAPH` | True
+- top-level pins: `TESTBENCH_ONLY` | present, but wrapped in testbench harness
+- VDD/GND: `TESTBENCH_ONLY` | present in sample netlist

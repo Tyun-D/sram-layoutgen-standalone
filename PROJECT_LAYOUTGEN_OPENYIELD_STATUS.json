@@ -8,8 +8,8 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M12O",
-  "next_stage": "M12N_LOCK_OPENYIELD_AUTHORITATIVE_NETLIST",
+  "current_stage": "M12N",
+  "next_stage": "M12C_CONTROL_LOGIC_GAP_DEFINITION",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": true,
@@ -377,7 +377,7 @@
     "remaining_M7_blockers": [],
     "remaining_M7_blockers_count": 0
   },
-  "next_stage_allowed": "M12N_LOCK_OPENYIELD_AUTHORITATIVE_NETLIST",
+  "next_stage_allowed": "M12C_CONTROL_LOGIC_GAP_DEFINITION",
   "golden_reference_user_confirmed": true,
   "golden_reference_is_now_locked": true,
   "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
@@ -1624,8 +1624,8 @@
   "openyield_sense_amp_fingerprint_found_in_M11C": true,
   "sense_amp_substitution_analysis_status": "PASS_REAL_SUBSTITUTION_PROVEN",
   "sense_amp_substitution_risk_level": "MEDIUM",
-  "recommended_next_stage": "M12N_LOCK_OPENYIELD_AUTHORITATIVE_NETLIST",
-  "recommended_next_stage_reason": "M12O finds a usable OpenRAM full-reference GDS and a rich OpenYield parameter/config codebase, but it does not prove a single authoritative OpenYield complete SRAM top netlist. Locking that authority is a harder blocker than directly continuing M11V2 connectivity deepening, because control-logic alignment, parameterized SRAM planning, and later combined substitution all still depend on one unambiguous netlist source of truth.",
+  "recommended_next_stage": "M12C_CONTROL_LOGIC_GAP_DEFINITION",
+  "recommended_next_stage_reason": "M12N proves that OpenYield contains a parameterized Python SPICE/testbench generator chain centered on `Sram6TCoreTestbench.create_testbench`, and it can emit a sample SRAM-related netlist. However, that emitted artifact is still a simulation testbench netlist with supplies, stimuli, and measurement scaffolding rather than a locked pure SRAM top authority. The next blocking step is to define how the traced OpenYield control logic and enable paths map onto the OpenRAM/layoutgen control-logic gap before any custom netlist-driven layout flow can be claimed.",
   "remaining_M11D_blockers": [],
   "remaining_M11D_blockers_count": 0,
   "human_klayout_review_required": false,
@@ -2258,5 +2258,13 @@
   "openyield_control_logic_physical_ready": false,
   "can_claim_custom_netlist_driven_layout_generation": false,
   "can_claim_openyield_authoritative_netlist_locked": false,
-  "can_claim_full_openyield_module_gds_hardmacro_substitution": false
+  "can_claim_full_openyield_module_gds_hardmacro_substitution": false,
+  "authoritative_netlist_lock_status": "PARTIAL_SUBCIRCUIT_LIBRARY_ONLY",
+  "authoritative_netlist_type": "TESTBENCH_BACKED_PARAMETERIZED_SPICE_GENERATOR",
+  "authoritative_entrypoint": "sram_compiler/testbenches/sram_6t_core_testbench.py",
+  "authoritative_top_class_or_function": "Sram6TCoreTestbench.create_testbench",
+  "openyield_parameterized_netlist_generator_proven": true,
+  "openyield_complete_sram_top_proven": false,
+  "openyield_control_logic_source_locked": true,
+  "can_claim_control_logic_mapping_ready": false
 }

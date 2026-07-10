@@ -1,0 +1,21 @@
+coverage_item,source_trace,evidence,coverage_status
+bitcell_array,Sram6TCore/Sram10TCore array,sample netlist contains SRAM_*_CORE subckt,PROVEN_IN_GENERATED_TESTBENCH_GRAPH
+dummy_array,DummyRowFactory/DummyColumnFactory exists but calls are commented in create_testbench,"present in library, not instantiated in current sample",LIBRARY_ONLY_NOT_CURRENT_TOP
+replica_array,create_replica_column -> ReplicaColumnFactory,True,PROVEN_IN_GENERATED_TESTBENCH_GRAPH
+precharge,create_read_periphery / create_write_periphery,True,PROVEN_IN_GENERATED_TESTBENCH_GRAPH
+sense_amp,create_read_periphery,True,PROVEN_IN_GENERATED_TESTBENCH_GRAPH
+write_driver,create_write_periphery,True,PROVEN_IN_GENERATED_TESTBENCH_GRAPH
+column_mux,conditional choose_columnmux path,supported by code path but not instantiated in current sample when choose_columnmux=false,PARTIAL_CODE_PATH_ONLY
+row_decoder,create_decoder -> DECODER_CASCADE,True,PROVEN_IN_GENERATED_TESTBENCH_GRAPH
+wordline_decoder,create_decoder -> DECODER_CASCADE,True,PROVEN_IN_GENERATED_TESTBENCH_GRAPH
+wordline_driver,create_wl_driver,True,PROVEN_IN_GENERATED_TESTBENCH_GRAPH
+CONTROL_LOGIC,TIME subckt and clock/control source chain,True,PARTIAL_TESTBENCH_CONTROL_GRAPH
+DELAY_CHAIN,time_generate.DelayChain,True,PARTIAL_TESTBENCH_CONTROL_GRAPH
+DFF_ROW,ADDR_DFF / DFF_BUF / D_latch in TIME + periphery,True,PARTIAL_TESTBENCH_CONTROL_GRAPH
+GATED_CLOCK_PATH,TIME gated_clk_bar/gated_clk_buf,True,PARTIAL_TESTBENCH_CONTROL_GRAPH
+PRECHARGE_ENABLE_PATH,TIME PRE output,True,PARTIAL_TESTBENCH_CONTROL_GRAPH
+SENSE_ENABLE_PATH,TIME s_en output,True,PARTIAL_TESTBENCH_CONTROL_GRAPH
+WRITE_ENABLE_PATH,TIME w_en output,True,PARTIAL_TESTBENCH_CONTROL_GRAPH
+WORDLINE_ENABLE_PATH,TIME wl_en output,True,PARTIAL_TESTBENCH_CONTROL_GRAPH
+top-level pins,testbench ports and top instance pins,"present, but wrapped in testbench harness",TESTBENCH_ONLY
+VDD/GND,VVDD/VVSS + subckt rails,present in sample netlist,TESTBENCH_ONLY
