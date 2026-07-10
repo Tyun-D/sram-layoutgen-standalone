@@ -16,7 +16,7 @@
 - status_level: `PARTIAL`
 - evidence_paths: `outputs/openyield_module_gds/; docs/mapping/openyield_module_gds_inventory.csv; outputs/M9_openyield_netlist_translator/current_supported_config/M9_module_binding_matrix.csv`
 - blocking_for_next_stage: `False`
-- next_action: `M11D_POST_SENSE_AMP_SUBSTITUTION_ANALYSIS_OR_NEXT_SAFE_CANDIDATE_PLANNING`
+- next_action: `M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR`
 
 ### PIN_BBOX_RAIL_METADATA
 
@@ -24,7 +24,7 @@
 - status_level: `PARTIAL`
 - evidence_paths: `outputs/openyield_module_gds/; docs/mapping/openyield_rail_rule_matrix.csv; outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json`
 - blocking_for_next_stage: `False`
-- next_action: `M11D_POST_SENSE_AMP_SUBSTITUTION_ANALYSIS_OR_NEXT_SAFE_CANDIDATE_PLANNING`
+- next_action: `M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR`
 
 ### SRAM_CONFIGURATION
 
@@ -90,7 +90,7 @@
 
 ## Next Assets To Fill In Order
 
-- next_assets_to_fill_in_order: `M11D_POST_SENSE_AMP_SUBSTITUTION_ANALYSIS_OR_NEXT_SAFE_CANDIDATE_PLANNING, M12A_VARIATION_GDS_GENERATION, M12B_ROUTING_POWER_ADAPTATION, M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE`
+- next_assets_to_fill_in_order: `M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR, M12A_VARIATION_GDS_GENERATION, M12B_ROUTING_POWER_ADAPTATION, M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE`
 
 ## Claim Boundary
 
@@ -155,3 +155,15 @@
 - next_stage_allowed: `M11D_POST_SENSE_AMP_SUBSTITUTION_ANALYSIS_OR_NEXT_SAFE_CANDIDATE_PLANNING`
 - can_enter_M11D_after_this_gate: `True`
 - note: `M11CH only clears the M11C human-review gate. It does not replace new modules and does not reopen DRC/LVS/signoff claims.`
+
+## M11D Post Analysis
+
+- real_substitution_proof_status: `PASS_GEOMETRY_FINGERPRINT_MATCH`
+- openyield_sense_amp_fingerprint_found_in_M11C: `True`
+- hierarchy_delta_status: `ONLY_SENSE_AMP_LEAF_FINGERPRINT_CHANGED`
+- unexpected_non_sense_amp_change_count: `0`
+- recommended_next_stage: `M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR`
+- recommended_next_stage_reason: `M11D proves that sense_amp was a real in-hierarchy OpenYield fingerprint replacement, but it does not make any new module ready. The only previously shortlisted next candidate remains wordline_driver, and M11B still blocks it on unresolved D/G/S wrapper pin geometry.`
+- human_klayout_review_required: `False`
+- can_enter_next_stage_before_human_review: `True`
+- note: `M11D is post-analysis and planning only. It does not perform any new module substitution.`

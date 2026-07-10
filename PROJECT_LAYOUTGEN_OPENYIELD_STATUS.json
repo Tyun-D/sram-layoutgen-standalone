@@ -8,8 +8,8 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M11CH",
-  "next_stage": "M11D_POST_SENSE_AMP_SUBSTITUTION_ANALYSIS_OR_NEXT_SAFE_CANDIDATE_PLANNING",
+  "current_stage": "M11D",
+  "next_stage": "M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": true,
@@ -377,7 +377,7 @@
     "remaining_M7_blockers": [],
     "remaining_M7_blockers_count": 0
   },
-  "next_stage_allowed": "M11D_POST_SENSE_AMP_SUBSTITUTION_ANALYSIS_OR_NEXT_SAFE_CANDIDATE_PLANNING",
+  "next_stage_allowed": "M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR",
   "golden_reference_user_confirmed": true,
   "golden_reference_is_now_locked": true,
   "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
@@ -699,7 +699,7 @@
     ],
     "remaining_M10_blockers_count": 1
   },
-  "current_goal": "M11CH completed the M11C sense_amp-only smoke substitution human review closure and cleared entry into the post-substitution analysis/planning stage.",
+  "current_goal": "M11D completed a machine-backed post-analysis of the M11C sense_amp-only smoke substitution and selected the next safe candidate route without expanding substitution scope.",
   "m10_clean_gds_user_review_passed": true,
   "m10_source_backed_translator_v2_confirmed": true,
   "can_claim_source_backed_translator_v2": true,
@@ -922,7 +922,7 @@
         "docs/mapping/M11CH_M11D_entry_gate.csv"
       ],
       "blocking_for_next_stage": false,
-      "next_action": "M11D_POST_SENSE_AMP_SUBSTITUTION_ANALYSIS_OR_NEXT_SAFE_CANDIDATE_PLANNING"
+      "next_action": "M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR"
     },
     {
       "asset_id": "PIN_BBOX_RAIL_METADATA",
@@ -935,7 +935,7 @@
         "docs/mapping/M11CH_M11D_entry_gate.csv"
       ],
       "blocking_for_next_stage": false,
-      "next_action": "M11D_POST_SENSE_AMP_SUBSTITUTION_ANALYSIS_OR_NEXT_SAFE_CANDIDATE_PLANNING"
+      "next_action": "M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR"
     },
     {
       "asset_id": "SRAM_CONFIGURATION",
@@ -1021,7 +1021,7 @@
         "outputs/M11CH_confirm_M11C_human_review/current_supported_config/M11CH_machine_vs_human_verification_summary.md"
       ],
       "blocking_for_next_stage": true,
-      "next_action": "M11D_POST_SENSE_AMP_SUBSTITUTION_ANALYSIS_OR_NEXT_SAFE_CANDIDATE_PLANNING"
+      "next_action": "M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR"
     }
   ],
   "current_missing_or_partial_assets": [
@@ -1035,7 +1035,7 @@
     "VERIFICATION_AND_TRACE"
   ],
   "next_assets_to_fill_in_order": [
-    "M11D_POST_SENSE_AMP_SUBSTITUTION_ANALYSIS_OR_NEXT_SAFE_CANDIDATE_PLANNING",
+    "M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR",
     "M12A_VARIATION_GDS_GENERATION",
     "M12B_ROUTING_POWER_ADAPTATION",
     "M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE"
@@ -1621,5 +1621,184 @@
       "write_driver",
       "CONTROL_LOGIC"
     ]
+  },
+  "real_substitution_proof_status": "PASS_GEOMETRY_FINGERPRINT_MATCH",
+  "openyield_sense_amp_fingerprint_found_in_M11C": true,
+  "sense_amp_substitution_analysis_status": "PASS_REAL_SUBSTITUTION_PROVEN",
+  "sense_amp_substitution_risk_level": "MEDIUM",
+  "recommended_next_stage": "M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR",
+  "recommended_next_stage_reason": "M11D proves that sense_amp was a real in-hierarchy OpenYield fingerprint replacement, but it does not make any new module ready. The only previously shortlisted next candidate remains wordline_driver, and M11B still blocks it on unresolved D/G/S wrapper pin geometry.",
+  "remaining_M11D_blockers": [],
+  "remaining_M11D_blockers_count": 0,
+  "human_klayout_review_required": false,
+  "can_enter_next_stage_before_human_review": true,
+  "last_M11D_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "progress_file_updated": true,
+    "m11ch_gate_loaded": true,
+    "can_enter_M11D_from_M11CH": true,
+    "reused_previous_artifacts": [
+      {
+        "artifact": "M11CH human review closure",
+        "path": "docs/M11CH_confirm_M11C_human_review_report.json",
+        "reuse_purpose": "proves the M11C gate was already cleared before post-analysis starts"
+      },
+      {
+        "artifact": "M11CH entry gate matrix",
+        "path": "docs/mapping/M11CH_M11D_entry_gate.csv",
+        "reuse_purpose": "provides the machine-readable gate contract for entering M11D"
+      },
+      {
+        "artifact": "M11C smoke substitution report bundle",
+        "path": "docs/M11C_sense_amp_smoke_substitution_report.json + docs/mapping/M11C_*",
+        "reuse_purpose": "supplies the locked substitution scope, manifest, smoke checks, and baseline-vs-M11C diff contract"
+      },
+      {
+        "artifact": "M11B readiness and wrapper matrices",
+        "path": "docs/mapping/M11B_substitution_readiness_matrix.csv + docs/mapping/M11B_wrapper_requirement_matrix.csv",
+        "reuse_purpose": "anchors next-stage planning to the last machine-verified candidate readiness state"
+      },
+      {
+        "artifact": "M11AR corrected hardmacro decision matrix",
+        "path": "docs/mapping/M11AR_corrected_hardmacro_substitution_decision.csv",
+        "reuse_purpose": "keeps downgraded modules out of the next candidate recommendation set"
+      },
+      {
+        "artifact": "M8R locked baseline GDS",
+        "path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+        "reuse_purpose": "serves as the immutable before-image for all geometry and hierarchy delta checks"
+      },
+      {
+        "artifact": "M11C substituted SRAM GDS outputs",
+        "path": "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/",
+        "reuse_purpose": "provides the post-substitution target for in-hierarchy fingerprint proof and delta analysis"
+      },
+      {
+        "artifact": "OpenYield module GDS library",
+        "path": "outputs/openyield_module_gds/",
+        "reuse_purpose": "supplies the source sense_amp fingerprint used to prove that M11C was not label-only"
+      }
+    ],
+    "deprecated_previous_artifacts": [
+      {
+        "artifact": "new module substitution in M11D",
+        "path": "user-prohibited substitution expansion set",
+        "deprecated_reason": "M11D is analysis-only and must not generate a new substituted SRAM top"
+      },
+      {
+        "artifact": "wordline_driver replacement in M11D",
+        "path": "docs/mapping/M11B_substitution_readiness_matrix.csv",
+        "deprecated_reason": "wordline_driver still fails machine readiness because wrapper pins D/G/S are unresolved"
+      },
+      {
+        "artifact": "access_module cells",
+        "path": "*_access_module",
+        "deprecated_reason": "forbidden implementation route and disallowed proof basis for this stage"
+      },
+      {
+        "artifact": "floorplan_proxy cells",
+        "path": "floorplan_proxy*",
+        "deprecated_reason": "review-only proxies remain invalid for M11D physical proof"
+      }
+    ],
+    "current_stage_inputs": [
+      "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md",
+      "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json",
+      "PROJECT_NETLIST_TO_LAYOUT_GOAL.md",
+      "PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md",
+      "docs/M11CH_confirm_M11C_human_review_report.json",
+      "docs/mapping/M11CH_M11D_entry_gate.csv",
+      "docs/M11C_sense_amp_smoke_substitution_report.json",
+      "docs/mapping/M11C_sense_amp_substitution_manifest.csv",
+      "docs/mapping/M11C_sense_amp_smoke_check_matrix.csv",
+      "docs/mapping/M11C_sense_amp_diff_matrix.csv",
+      "docs/M11B_pin_bbox_rail_metadata_report.json",
+      "docs/mapping/M11B_substitution_readiness_matrix.csv",
+      "docs/mapping/M11B_wrapper_requirement_matrix.csv",
+      "docs/mapping/M11AR_corrected_hardmacro_substitution_decision.csv",
+      "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+      "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram.gds",
+      "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram_clean_review.gds",
+      "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram_annotated_debug.gds",
+      "outputs/openyield_module_gds/"
+    ],
+    "current_stage_delta_from_M11CH": [
+      "M11CH closed the human-review gate for the existing sense_amp-only smoke substitution; M11D turns that gated result into a machine-backed post-analysis record.",
+      "M11D does not generate a new replacement top and does not broaden module scope; it re-reads baseline, M11C, and OpenYield source GDS to prove what changed and what did not.",
+      "M11D adds next-stage planning based on M11B/M11C/M11CH evidence so that the next move is selected from a bounded safe-route set rather than from open-ended expansion."
+    ],
+    "why_M11D_is_analysis_not_new_substitution": "M11C already performed the only allowed sense_amp substitution attempt and M11CH already cleared its human gate. M11D therefore must operate as a read-only proof-and-planning stage: it confirms that the existing result is a real substitution, quantifies the delta, and selects the next safe route without touching the M11C GDS.",
+    "baseline_gds_loaded": true,
+    "m11c_gds_loaded": true,
+    "baseline_gds_parsed": true,
+    "m11c_gds_parsed": true,
+    "m11c_substituted_modules": [
+      "sense_amp"
+    ],
+    "m11c_scope_confirmed_sense_amp_only": true,
+    "real_substitution_proof_status": "PASS_GEOMETRY_FINGERPRINT_MATCH",
+    "openyield_sense_amp_fingerprint_found_in_M11C": true,
+    "label_only_substitution": false,
+    "outside_placement_substitution": false,
+    "top_bbox_before": [
+      0.0,
+      0.0,
+      36.6225,
+      44.145
+    ],
+    "top_bbox_after": [
+      0.0,
+      0.0,
+      36.6225,
+      44.145
+    ],
+    "top_bbox_match_status": "EXACT_MATCH",
+    "hierarchy_delta_status": "ONLY_SENSE_AMP_LEAF_FINGERPRINT_CHANGED",
+    "sense_amp_instance_count_before": 8,
+    "sense_amp_instance_count_after": 8,
+    "unexpected_non_sense_amp_change_count": 0,
+    "unexpected_non_sense_amp_change_summary": [],
+    "access_module_used": false,
+    "floorplan_proxy_used": false,
+    "arbitrary_scatter_used": false,
+    "wordline_driver_substituted": false,
+    "column_mux_substituted": false,
+    "write_driver_substituted": false,
+    "control_logic_substituted": false,
+    "machine_verified_item_count": 28,
+    "human_review_required_item_count": 0,
+    "human_review_required_items": [],
+    "sense_amp_substitution_analysis_status": "PASS_REAL_SUBSTITUTION_PROVEN",
+    "sense_amp_substitution_risk_level": "MEDIUM",
+    "candidate_modules_ready_after_M11D": [
+      "sense_amp"
+    ],
+    "candidate_modules_blocked_after_M11D": [
+      "wordline_driver",
+      "column_mux",
+      "write_driver",
+      "precharge",
+      "CONTROL_LOGIC",
+      "bitcell_array",
+      "dummy_array",
+      "replica_array"
+    ],
+    "recommended_next_stage": "M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR",
+    "recommended_next_stage_reason": "M11D proves that sense_amp was a real in-hierarchy OpenYield fingerprint replacement, but it does not make any new module ready. The only previously shortlisted next candidate remains wordline_driver, and M11B still blocks it on unresolved D/G/S wrapper pin geometry.",
+    "can_claim_sense_amp_smoke_substitution_passed": true,
+    "can_claim_openyield_module_gds_hardmacro_substitution": false,
+    "can_claim_drc_clean": false,
+    "can_claim_lvs_clean": false,
+    "can_claim_signoff_ready": false,
+    "review_gds_generated": true,
+    "review_gds_path": "outputs/M11D_post_sense_amp_analysis/current_supported_config/M11D_post_sense_amp_analysis_review.gds",
+    "clean_review_gds_path": "outputs/M11D_post_sense_amp_analysis/current_supported_config/M11D_post_sense_amp_analysis_clean_review.gds",
+    "annotated_debug_gds_path": "outputs/M11D_post_sense_amp_analysis/current_supported_config/M11D_post_sense_amp_analysis_annotated_debug.gds",
+    "review_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "remaining_M11D_blockers": [],
+    "remaining_M11D_blockers_count": 0,
+    "human_klayout_review_required": false,
+    "can_enter_next_stage_before_human_review": true
   }
 }

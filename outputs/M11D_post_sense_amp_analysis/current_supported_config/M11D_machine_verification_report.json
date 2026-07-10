@@ -1,0 +1,142 @@
+[
+  {
+    "check": "m11ch_gate_loaded",
+    "status": true,
+    "notes": "M11CH report and entry gate CSV were loaded."
+  },
+  {
+    "check": "can_enter_M11D_from_M11CH",
+    "status": true,
+    "notes": "True"
+  },
+  {
+    "check": "m11c_substituted_modules_only_sense_amp",
+    "status": true,
+    "notes": "sense_amp"
+  },
+  {
+    "check": "baseline_gds_parsed",
+    "status": true,
+    "notes": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds"
+  },
+  {
+    "check": "m11c_gds_parsed",
+    "status": true,
+    "notes": "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram.gds"
+  },
+  {
+    "check": "baseline_top_cell",
+    "status": true,
+    "notes": "sram_8x64_wpr4_fd45"
+  },
+  {
+    "check": "m11c_top_cell",
+    "status": true,
+    "notes": "sram_8x64_wpr4_fd45"
+  },
+  {
+    "check": "top_bbox_exact_match",
+    "status": true,
+    "notes": "[0.0, 0.0, 36.6225, 44.145]"
+  },
+  {
+    "check": "hierarchy_cell_list_loaded",
+    "status": true,
+    "notes": "baseline=33 m11c=33"
+  },
+  {
+    "check": "sense_amp_instance_count_before",
+    "status": true,
+    "notes": "8"
+  },
+  {
+    "check": "sense_amp_instance_count_after",
+    "status": true,
+    "notes": "8"
+  },
+  {
+    "check": "openyield_sense_amp_fingerprint_found_in_M11C",
+    "status": true,
+    "notes": "9aba86fad2bb517b52ae17f7bae995f396d99e7d836f49f53705809843259282"
+  },
+  {
+    "check": "not_label_only_substitution",
+    "status": true,
+    "notes": "polygons=262"
+  },
+  {
+    "check": "not_outside_placement_substitution",
+    "status": true,
+    "notes": "sense_amp regions remain in top bbox and at the original origins"
+  },
+  {
+    "check": "no_access_module",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "no_floorplan_proxy",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "no_arbitrary_scatter",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "wordline_driver_not_substituted",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "column_mux_not_substituted",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "write_driver_not_substituted",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "control_logic_not_substituted",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "layer_datatype_summary_loaded",
+    "status": true,
+    "notes": "layers=19"
+  },
+  {
+    "check": "baseline_vs_M11C_shape_count_delta_loaded",
+    "status": true,
+    "notes": "{\"polygon_count\": 0, \"path_count\": 0, \"label_count\": 0, \"reference_count\": 0}"
+  },
+  {
+    "check": "sense_amp_local_region_delta_loaded",
+    "status": true,
+    "notes": "regions=8"
+  },
+  {
+    "check": "vdd_gnd_rail_continuity_risk_from_metadata",
+    "status": true,
+    "notes": "M11B readiness + wrapper matrices keep sense_amp power_safe=True"
+  },
+  {
+    "check": "m11c_smoke_check_consistent_with_m11d",
+    "status": true,
+    "notes": "M11C smoke matrix still agrees with M11D unauthorized-change checks"
+  },
+  {
+    "check": "m11b_readiness_consistent_with_plan",
+    "status": true,
+    "notes": "Next-stage recommendation stays aligned with M11B blocker"
+  },
+  {
+    "check": "real_substitution_proof_status_resolved",
+    "status": true,
+    "notes": "PASS_GEOMETRY_FINGERPRINT_MATCH"
+  }
+]
