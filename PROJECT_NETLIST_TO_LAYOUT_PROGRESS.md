@@ -90,7 +90,7 @@
 
 ## Next Assets To Fill In Order
 
-- next_assets_to_fill_in_order: `M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR, M12A_VARIATION_GDS_GENERATION, M12B_ROUTING_POWER_ADAPTATION, M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE`
+- next_assets_to_fill_in_order: `M11C2_WORDLINE_DRIVER_SMOKE_SUBSTITUTION, M12A_VARIATION_GDS_GENERATION, M12B_ROUTING_POWER_ADAPTATION, M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE`
 
 ## Claim Boundary
 
@@ -167,3 +167,15 @@
 - human_klayout_review_required: `False`
 - can_enter_next_stage_before_human_review: `True`
 - note: `M11D is post-analysis and planning only. It does not perform any new module substitution.`
+
+## M11W Wordline Driver Repair
+
+- repair_strategy_used: `STRATEGY_B_WRAPPER_PIN_EXPOSURE`
+- dgs_pins_resolved: `True`
+- unresolved_pin_count: `0`
+- wrapper_generated: `True`
+- wordline_driver_ready_for_smoke_substitution: `True`
+- next_stage_allowed: `M11C2_WORDLINE_DRIVER_SMOKE_SUBSTITUTION`
+- human_klayout_review_required: `False`
+- can_enter_next_stage_before_human_review: `True`
+- note: `M11W only repairs wordline_driver wrapper/pin metadata. It does not perform any SRAM top substitution.`

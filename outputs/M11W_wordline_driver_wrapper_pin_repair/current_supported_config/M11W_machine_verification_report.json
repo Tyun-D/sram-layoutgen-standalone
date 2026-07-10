@@ -1,0 +1,117 @@
+[
+  {
+    "check": "m11d_report_loaded",
+    "status": true,
+    "notes": "M11D report loaded."
+  },
+  {
+    "check": "m11d_recommended_next_stage",
+    "status": true,
+    "notes": "M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR"
+  },
+  {
+    "check": "wordline_driver_openyield_gds_found",
+    "status": true,
+    "notes": "outputs/openyield_module_gds/wordline_driver/wordline_driver.gds"
+  },
+  {
+    "check": "wordline_driver_openyield_gds_parsed",
+    "status": true,
+    "notes": "gdstk read_gds succeeded for wordline_driver wrapper shell"
+  },
+  {
+    "check": "golden_wordline_driver_target_found",
+    "status": true,
+    "notes": "gen_wl_driver"
+  },
+  {
+    "check": "wordline_driver_bbox_comparable",
+    "status": true,
+    "notes": "[0.0, 0.0, 3.045, 1.505]"
+  },
+  {
+    "check": "wordline_driver_vdd_gnd_rail_extractable",
+    "status": true,
+    "notes": "VDD/GND rails remain on 11/0 and align to golden with fixed offset"
+  },
+  {
+    "check": "wordline_driver_vdd_gnd_rail_aligned",
+    "status": true,
+    "notes": "ALIGNED"
+  },
+  {
+    "check": "D_pin_resolved",
+    "status": true,
+    "notes": "[0.6025, 0.2525, 0.6675, 0.3875]"
+  },
+  {
+    "check": "G_pin_resolved",
+    "status": true,
+    "notes": "[0.5025, 0.175, 0.5525, 0.465]"
+  },
+  {
+    "check": "S_pin_resolved",
+    "status": true,
+    "notes": "[0.1725, 0.2525, 0.2375, 0.3875]"
+  },
+  {
+    "check": "DGS_have_physical_bbox_and_layer",
+    "status": true,
+    "notes": "All repaired D/G/S rows carry physical bbox + layer."
+  },
+  {
+    "check": "DGS_map_to_golden",
+    "status": true,
+    "notes": "All repaired D/G/S rows have golden pin bbox and ALIGNED status."
+  },
+  {
+    "check": "unresolved_pin_count_zero",
+    "status": true,
+    "notes": "0"
+  },
+  {
+    "check": "wrapper_required_before_true",
+    "status": true,
+    "notes": "True"
+  },
+  {
+    "check": "wrapper_generated",
+    "status": true,
+    "notes": "outputs/M11W_wordline_driver_wrapper_pin_repair/current_supported_config/M11W_wordline_driver_wrapper_candidate.gds"
+  },
+  {
+    "check": "wrapper_targets_wordline_driver_only",
+    "status": true,
+    "notes": "M11W_wordline_driver_wrapper_candidate"
+  },
+  {
+    "check": "wrapper_has_no_access_module",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "wrapper_has_no_floorplan_proxy",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "wrapper_pin_bbox_rail_metadata_complete",
+    "status": true,
+    "notes": "pins=8 rails=2"
+  },
+  {
+    "check": "routing_safe_after_repair",
+    "status": true,
+    "notes": "True"
+  },
+  {
+    "check": "power_safe_after_repair",
+    "status": true,
+    "notes": "True"
+  },
+  {
+    "check": "wordline_driver_ready_for_smoke_substitution",
+    "status": true,
+    "notes": "True"
+  }
+]

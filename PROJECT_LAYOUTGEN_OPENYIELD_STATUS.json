@@ -8,8 +8,8 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M11D",
-  "next_stage": "M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR",
+  "current_stage": "M11W",
+  "next_stage": "M11C2_WORDLINE_DRIVER_SMOKE_SUBSTITUTION",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": true,
@@ -377,7 +377,7 @@
     "remaining_M7_blockers": [],
     "remaining_M7_blockers_count": 0
   },
-  "next_stage_allowed": "M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR",
+  "next_stage_allowed": "M11C2_WORDLINE_DRIVER_SMOKE_SUBSTITUTION",
   "golden_reference_user_confirmed": true,
   "golden_reference_is_now_locked": true,
   "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
@@ -1800,5 +1800,145 @@
     "remaining_M11D_blockers_count": 0,
     "human_klayout_review_required": false,
     "can_enter_next_stage_before_human_review": true
+  },
+  "wordline_driver_openyield_gds_found": true,
+  "wordline_driver_openyield_gds_parsed": true,
+  "golden_wordline_driver_target_found": true,
+  "wordline_driver_dgs_pins_resolved": true,
+  "wordline_driver_unresolved_pin_count": 0,
+  "wordline_driver_wrapper_generated": true,
+  "wordline_driver_ready_for_smoke_substitution": true,
+  "can_claim_wordline_driver_pin_repair_completed": true,
+  "can_claim_wordline_driver_smoke_substitution_ready": true,
+  "remaining_M11W_blockers": [],
+  "remaining_M11W_blockers_count": 0,
+  "last_M11W_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "progress_file_updated": true,
+    "m11d_report_loaded": true,
+    "m11d_recommended_next_stage": "M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR",
+    "m11w_scope": [
+      "wordline_driver"
+    ],
+    "reused_previous_artifacts": [
+      {
+        "artifact": "M11D next-stage decision",
+        "path": "docs/M11D_post_sense_amp_analysis_report.json;docs/mapping/M11D_next_stage_decision.csv",
+        "reuse_purpose": "locks M11W to wordline_driver-only repair work"
+      },
+      {
+        "artifact": "M11B wordline_driver metadata and readiness",
+        "path": "docs/M11B_pin_bbox_rail_metadata_report.json;docs/mapping/M11B_deep_pin_bbox_rail_metadata.csv;docs/mapping/M11B_substitution_readiness_matrix.csv;docs/mapping/M11B_wrapper_requirement_matrix.csv",
+        "reuse_purpose": "provides the failing D/G/S pin state, wrapper requirement, and pre-repair safety flags"
+      },
+      {
+        "artifact": "M11A qualification and golden comparison",
+        "path": "docs/M11A_module_gds_qualification_report.json;docs/mapping/M11A_pin_bbox_rail_metadata.csv;docs/mapping/M11A_module_vs_golden_leaf_comparison.csv",
+        "reuse_purpose": "keeps wordline_driver anchored to the exact golden target and the legacy pin-position hints"
+      },
+      {
+        "artifact": "OpenYield module GDS library",
+        "path": "outputs/openyield_module_gds/",
+        "reuse_purpose": "supplies the current wrapper shell and source metadata for wordline_driver"
+      },
+      {
+        "artifact": "OpenRAM replacement source macro",
+        "path": "technology/freepdk45/gds_lib/openram_replacements/gen_wl_driver.gds",
+        "reuse_purpose": "supplies the complete internal primitive geometry needed to resolve D/G/S pins"
+      },
+      {
+        "artifact": "Golden reference and locked baseline",
+        "path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds;outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+        "reuse_purpose": "provide the golden target cell and the untouched layoutgen baseline context"
+      }
+    ],
+    "deprecated_previous_artifacts": [
+      {
+        "artifact": "wordline_driver SRAM top substitution in M11W",
+        "path": "user-prohibited substitution expansion set",
+        "deprecated_reason": "M11W repairs metadata and wrapper exposure only; it must not produce a substituted SRAM top"
+      },
+      {
+        "artifact": "access_module cells",
+        "path": "*_access_module",
+        "deprecated_reason": "forbidden implementation route and invalid proof basis for M11W"
+      },
+      {
+        "artifact": "floorplan_proxy cells",
+        "path": "floorplan_proxy*",
+        "deprecated_reason": "review-only proxies cannot satisfy wordline_driver pin-repair proof"
+      },
+      {
+        "artifact": "fake D/G/S pins",
+        "path": "manual guess or label-only pin fabrication",
+        "deprecated_reason": "M11W must derive D/G/S from resolved internal geometry or report failure"
+      }
+    ],
+    "current_stage_inputs": [
+      "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md",
+      "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json",
+      "PROJECT_NETLIST_TO_LAYOUT_GOAL.md",
+      "PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md",
+      "docs/M11D_post_sense_amp_analysis_report.json",
+      "docs/mapping/M11D_next_stage_decision.csv",
+      "docs/M11B_pin_bbox_rail_metadata_report.json",
+      "docs/mapping/M11B_deep_pin_bbox_rail_metadata.csv",
+      "docs/mapping/M11B_substitution_readiness_matrix.csv",
+      "docs/mapping/M11B_wrapper_requirement_matrix.csv",
+      "docs/M11A_module_gds_qualification_report.json",
+      "docs/mapping/M11A_pin_bbox_rail_metadata.csv",
+      "docs/mapping/M11A_module_vs_golden_leaf_comparison.csv",
+      "docs/mapping/M11AR_corrected_hardmacro_substitution_decision.csv",
+      "outputs/openyield_module_gds/",
+      "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+      "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+      "outputs/M11B_pin_bbox_rail_metadata/current_supported_config/"
+    ],
+    "current_stage_delta_from_M11D": [
+      "M11D selected wordline_driver wrapper/pin repair as the next safe route; M11W converts that recommendation into an actual machine repair attempt on D/G/S metadata.",
+      "M11W does not touch sense_amp, does not build a substituted SRAM top, and does not broaden module scope beyond wordline_driver.",
+      "M11W reuses the existing OpenYield wrapper shell but supplements it with resolved internal primitive geometry from the source macro so that D/G/S can be exposed with real physical bboxes."
+    ],
+    "why_M11W_targets_wordline_driver_only": "M11D explicitly recommended M11W because wordline_driver was the only previously shortlisted next candidate and M11B showed that its sole blocking issue was unresolved D/G/S wrapper pins. No other module gained new readiness in M11D, so M11W must stay limited to wordline_driver.",
+    "wordline_driver_openyield_gds_found": true,
+    "wordline_driver_openyield_gds_parsed": true,
+    "golden_wordline_driver_target_found": true,
+    "repair_strategy_attempted": true,
+    "repair_strategy_used": "STRATEGY_B_WRAPPER_PIN_EXPOSURE",
+    "dgs_pins_resolved": true,
+    "unresolved_pin_count": 0,
+    "unresolved_pins": [],
+    "wrapper_required_before": true,
+    "wrapper_generated": true,
+    "wrapper_gds_path": "outputs/M11W_wordline_driver_wrapper_pin_repair/current_supported_config/M11W_wordline_driver_wrapper_candidate.gds",
+    "wrapper_gds_parsed": true,
+    "wrapper_required_after": false,
+    "pin_metadata_entry_count_before": 8,
+    "pin_metadata_entry_count_after": 8,
+    "rail_metadata_entry_count": 2,
+    "placement_safe_after_repair": true,
+    "routing_safe_after_repair": true,
+    "power_safe_after_repair": true,
+    "wordline_driver_ready_for_smoke_substitution": true,
+    "machine_verified_item_count": 23,
+    "human_review_required_item_count": 0,
+    "human_review_required_items": [],
+    "can_claim_wordline_driver_pin_repair_completed": true,
+    "can_claim_wordline_driver_smoke_substitution_ready": true,
+    "can_claim_openyield_module_gds_hardmacro_substitution": false,
+    "can_claim_drc_clean": false,
+    "can_claim_lvs_clean": false,
+    "can_claim_signoff_ready": false,
+    "review_gds_generated": true,
+    "review_gds_path": "outputs/M11W_wordline_driver_wrapper_pin_repair/current_supported_config/M11W_wordline_driver_wrapper_candidate.gds",
+    "clean_review_gds_path": "outputs/M11W_wordline_driver_wrapper_pin_repair/current_supported_config/M11W_wordline_driver_wrapper_candidate_clean_review.gds",
+    "annotated_debug_gds_path": "outputs/M11W_wordline_driver_wrapper_pin_repair/current_supported_config/M11W_wordline_driver_wrapper_candidate_annotated_debug.gds",
+    "review_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "remaining_M11W_blockers": [],
+    "remaining_M11W_blockers_count": 0,
+    "human_klayout_review_required": false,
+    "can_enter_next_stage_before_human_review": true,
+    "next_stage_allowed": "M11C2_WORDLINE_DRIVER_SMOKE_SUBSTITUTION"
   }
 }

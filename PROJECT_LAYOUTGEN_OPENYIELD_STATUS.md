@@ -2,29 +2,28 @@
 
 ## 1. Current Correct Goal
 
-M11D 已完成对 M11C `sense_amp-only` smoke substitution 的后分析。当前已机器证明这是一次真实的 leaf 指纹替换，但 claim 边界仍只允许 `sense_amp-only smoke substitution attempted/pass`，不扩大到 full OpenYield module GDS hardmacro substitution、DRC clean、LVS clean 或 signoff-ready。
+M11W 已完成 `wordline_driver` wrapper / D/G/S pin metadata 修复。当前仍不声称 full OpenYield module GDS hardmacro substitution、DRC clean、LVS clean 或 signoff-ready。
 
 ## 2. Current Stage
 
-- current_stage: `M11D`
-- next_stage: `M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR`
+- current_stage: `M11W`
+- next_stage: `M11C2_WORDLINE_DRIVER_SMOKE_SUBSTITUTION`
 - human_klayout_review_required_every_stage: `True`
 - can_enter_next_stage_without_human_review: `True`
-- next_stage_allowed: `M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR`
+- next_stage_allowed: `M11C2_WORDLINE_DRIVER_SMOKE_SUBSTITUTION`
 
-## 3. M11D Post Analysis
+## 3. M11W Wordline Driver Repair
 
-- real_substitution_proof_status: `PASS_GEOMETRY_FINGERPRINT_MATCH`
-- openyield_sense_amp_fingerprint_found_in_M11C: `True`
-- top_bbox_match_status: `EXACT_MATCH`
-- hierarchy_delta_status: `ONLY_SENSE_AMP_LEAF_FINGERPRINT_CHANGED`
-- unexpected_non_sense_amp_change_count: `0`
-- machine_verified_item_count: `28`
-- human_review_required_item_count: `0`
-- sense_amp_substitution_analysis_status: `PASS_REAL_SUBSTITUTION_PROVEN`
-- sense_amp_substitution_risk_level: `MEDIUM`
-- recommended_next_stage: `M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR`
-- can_claim_sense_amp_smoke_substitution_passed: `True`
+- repair_strategy_used: `STRATEGY_B_WRAPPER_PIN_EXPOSURE`
+- dgs_pins_resolved: `True`
+- unresolved_pin_count: `0`
+- wrapper_generated: `True`
+- wrapper_required_after: `False`
+- routing_safe_after_repair: `True`
+- wordline_driver_ready_for_smoke_substitution: `True`
+- next_stage_allowed: `M11C2_WORDLINE_DRIVER_SMOKE_SUBSTITUTION`
+- can_claim_wordline_driver_pin_repair_completed: `True`
+- can_claim_wordline_driver_smoke_substitution_ready: `True`
 - can_claim_openyield_module_gds_hardmacro_substitution: `False`
 - can_claim_drc_clean: `False`
 - can_claim_lvs_clean: `False`
