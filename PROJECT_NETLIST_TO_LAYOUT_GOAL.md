@@ -41,3 +41,10 @@
 - M11C2 只允许做 `wordline_driver` 的一次隔离 wrapper hardmacro smoke substitution。
 - 本阶段从 `M8R` locked baseline 出发，不叠加 `sense_amp` 结果，也不替换 `column_mux`、`write_driver`、`CONTROL_LOGIC` 或其他模块。
 - 本阶段只验证替换是否真实进入 SRAM hierarchy、top GDS 是否仍可生成/可解析，以及是否需要后续人工 KLayout 收口。
+
+## Current OpenRAM / OpenYield Alignment Stage
+
+- M12O 先建立 `OpenRAM full reference`、`layoutgen golden`、`OpenYield/self-netlist semantics` 的三方对齐关系，再决定是否继续 M11V2 或进入参数化实现。
+- 该阶段替代直接推进 `M11V2`，因为 OpenYield 仍未锁定单一权威完整 SRAM top netlist，CONTROL_LOGIC 差异和参数映射规则也还未定稿。
+- 在 `M12N_LOCK_OPENYIELD_AUTHORITATIVE_NETLIST` 完成前，不能 claim 自研网表驱动完整 GDS 生成已完成。
+- 当前推荐下一阶段：`M12N_LOCK_OPENYIELD_AUTHORITATIVE_NETLIST`。

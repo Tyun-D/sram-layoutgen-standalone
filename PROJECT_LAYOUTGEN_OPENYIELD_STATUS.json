@@ -8,8 +8,8 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M11V",
-  "next_stage": "M11V2_DEEPER_CONNECTIVITY_EXTRACTION",
+  "current_stage": "M12O",
+  "next_stage": "M12N_LOCK_OPENYIELD_AUTHORITATIVE_NETLIST",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": true,
@@ -377,7 +377,7 @@
     "remaining_M7_blockers": [],
     "remaining_M7_blockers_count": 0
   },
-  "next_stage_allowed": "M11V2_DEEPER_CONNECTIVITY_EXTRACTION",
+  "next_stage_allowed": "M12N_LOCK_OPENYIELD_AUTHORITATIVE_NETLIST",
   "golden_reference_user_confirmed": true,
   "golden_reference_is_now_locked": true,
   "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
@@ -1624,8 +1624,8 @@
   "openyield_sense_amp_fingerprint_found_in_M11C": true,
   "sense_amp_substitution_analysis_status": "PASS_REAL_SUBSTITUTION_PROVEN",
   "sense_amp_substitution_risk_level": "MEDIUM",
-  "recommended_next_stage": "M11V2_DEEPER_CONNECTIVITY_EXTRACTION",
-  "recommended_next_stage_reason": "Both isolated substitutions keep top bbox, hierarchy placement, and non-target geometry stable, and no new substitution-specific power/routing risk is detected. However, the baseline layoutgen routing/power cleanliness is still not proven and the wordline_driver neighborhood remains machine-inconclusive under that baseline limitation. Deeper extracted connectivity evidence is required before attempting a combined substitution.",
+  "recommended_next_stage": "M12N_LOCK_OPENYIELD_AUTHORITATIVE_NETLIST",
+  "recommended_next_stage_reason": "M12O finds a usable OpenRAM full-reference GDS and a rich OpenYield parameter/config codebase, but it does not prove a single authoritative OpenYield complete SRAM top netlist. Locking that authority is a harder blocker than directly continuing M11V2 connectivity deepening, because control-logic alignment, parameterized SRAM planning, and later combined substitution all still depend on one unambiguous netlist source of truth.",
   "remaining_M11D_blockers": [],
   "remaining_M11D_blockers_count": 0,
   "human_klayout_review_required": false,
@@ -2249,5 +2249,14 @@
     "remaining_M11V_blockers_count": 3,
     "human_klayout_review_required": false,
     "can_enter_next_stage_before_human_review": true
-  }
+  },
+  "openram_reference_gds_found": true,
+  "openyield_single_authoritative_netlist_proven": false,
+  "openyield_complete_sram_netlist_found": false,
+  "control_logic_gap_status": "OPENRAM_PRESENT_LAYOUTGEN_MISSING_OPENYIELD_PHYSICAL_UNQUALIFIED",
+  "layoutgen_missing_control_logic": true,
+  "openyield_control_logic_physical_ready": false,
+  "can_claim_custom_netlist_driven_layout_generation": false,
+  "can_claim_openyield_authoritative_netlist_locked": false,
+  "can_claim_full_openyield_module_gds_hardmacro_substitution": false
 }

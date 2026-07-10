@@ -221,3 +221,16 @@
 - human_klayout_review_required: `False`
 - can_enter_next_stage_before_human_review: `True`
 - note: `M11V is a read-only verification stage. It compares baseline, sense_amp-only, and wordline_driver-only GDS outputs to judge incremental routing/power risk without generating any new substitution top.`
+
+## M12O OpenRAM OpenYield Gap Audit
+
+- openram_reference_gds_found: `True`
+- openram_reference_top_cell: `sram_1rw_32x16_freepdk45`
+- openyield_netlist_candidate_count: `14`
+- openyield_single_authoritative_netlist_proven: `False`
+- control_logic_gap_status: `OPENRAM_PRESENT_LAYOUTGEN_MISSING_OPENYIELD_PHYSICAL_UNQUALIFIED`
+- parameterization_blockers_count: `5`
+- external_dependency_blockers_count: `6`
+- recommended_next_stage: `M12N_LOCK_OPENYIELD_AUTHORITATIVE_NETLIST`
+- recommended_next_stage_reason: `M12O finds a usable OpenRAM full-reference GDS and a rich OpenYield parameter/config codebase, but it does not prove a single authoritative OpenYield complete SRAM top netlist. Locking that authority is a harder blocker than directly continuing M11V2 connectivity deepening, because control-logic alignment, parameterized SRAM planning, and later combined substitution all still depend on one unambiguous netlist source of truth.`
+- note: `M12O is an audit/planning stage only. It does not perform any new module substitution or generate a new final SRAM top.`
