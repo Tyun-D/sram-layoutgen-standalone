@@ -54,3 +54,10 @@
 - M12N 负责锁定 OpenYield 中真正可代表 SRAM 网表/网表生成链的 authority source，而不是继续模块替换或继续把 testbench 当作 layout authority。
 - 当前已证明可以通过 Python generator 生成 sample SPICE/testbench netlist，但这仍不是可直接驱动 custom netlist-to-layout 的纯 SRAM top authority。
 - 当前推荐下一阶段：`M12C_CONTROL_LOGIC_GAP_DEFINITION`。
+
+## Current Clean Top Gate
+
+- M12N2 从 OpenYield testbench-backed generator 中提取 clean layout-facing SRAM top，并锁定可验证的参数接口 V1。
+- 本阶段只处理纯网表 / graph / 参数 contract，不生成新的最终 GDS，也不进入 CONTROL_LOGIC 物理实现。
+- 当前 TIME 角色结论：`AMBIGUOUS_REQUIRES_TEAM_CONFIRMATION`。
+- 当前推荐下一阶段：`M12N2H_REQUEST_TIME_ROLE_CONFIRMATION`。

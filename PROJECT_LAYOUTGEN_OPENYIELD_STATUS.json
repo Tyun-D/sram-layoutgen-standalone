@@ -8,12 +8,12 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M12N",
-  "next_stage": "M12C_CONTROL_LOGIC_GAP_DEFINITION",
+  "current_stage": "M12N2",
+  "next_stage": "M12N2H_REQUEST_TIME_ROLE_CONFIRMATION",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": true,
-  "can_enter_next_stage_without_human_review": true,
+  "can_enter_next_stage_without_human_review": false,
   "important_results": [
     {
       "result_name": "First-round OpenYield module GDS generation",
@@ -377,7 +377,7 @@
     "remaining_M7_blockers": [],
     "remaining_M7_blockers_count": 0
   },
-  "next_stage_allowed": "M12C_CONTROL_LOGIC_GAP_DEFINITION",
+  "next_stage_allowed": "M12N2H_REQUEST_TIME_ROLE_CONFIRMATION",
   "golden_reference_user_confirmed": true,
   "golden_reference_is_now_locked": true,
   "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
@@ -1624,12 +1624,12 @@
   "openyield_sense_amp_fingerprint_found_in_M11C": true,
   "sense_amp_substitution_analysis_status": "PASS_REAL_SUBSTITUTION_PROVEN",
   "sense_amp_substitution_risk_level": "MEDIUM",
-  "recommended_next_stage": "M12C_CONTROL_LOGIC_GAP_DEFINITION",
-  "recommended_next_stage_reason": "M12N proves that OpenYield contains a parameterized Python SPICE/testbench generator chain centered on `Sram6TCoreTestbench.create_testbench`, and it can emit a sample SRAM-related netlist. However, that emitted artifact is still a simulation testbench netlist with supplies, stimuli, and measurement scaffolding rather than a locked pure SRAM top authority. The next blocking step is to define how the traced OpenYield control logic and enable paths map onto the OpenRAM/layoutgen control-logic gap before any custom netlist-driven layout flow can be claimed.",
+  "recommended_next_stage": "M12N2H_REQUEST_TIME_ROLE_CONFIRMATION",
+  "recommended_next_stage_reason": "TIME is electrically connected to real decoder / precharge / sense-amp / write-driver / wordline-driver consumers, but the repository evidence still frames the flow as a simulation platform and does not explicitly confirm that TIME is intended for on-chip physical implementation.",
   "remaining_M11D_blockers": [],
   "remaining_M11D_blockers_count": 0,
   "human_klayout_review_required": false,
-  "can_enter_next_stage_before_human_review": true,
+  "can_enter_next_stage_before_human_review": false,
   "last_M11D_report": {
     "status_file_read": true,
     "status_file_updated": true,
@@ -2257,7 +2257,7 @@
   "layoutgen_missing_control_logic": true,
   "openyield_control_logic_physical_ready": false,
   "can_claim_custom_netlist_driven_layout_generation": false,
-  "can_claim_openyield_authoritative_netlist_locked": false,
+  "can_claim_openyield_authoritative_netlist_locked": true,
   "can_claim_full_openyield_module_gds_hardmacro_substitution": false,
   "authoritative_netlist_lock_status": "PARTIAL_SUBCIRCUIT_LIBRARY_ONLY",
   "authoritative_netlist_type": "TESTBENCH_BACKED_PARAMETERIZED_SPICE_GENERATOR",
@@ -2266,5 +2266,9 @@
   "openyield_parameterized_netlist_generator_proven": true,
   "openyield_complete_sram_top_proven": false,
   "openyield_control_logic_source_locked": true,
-  "can_claim_control_logic_mapping_ready": false
+  "can_claim_control_logic_mapping_ready": false,
+  "clean_top_locked": true,
+  "parameter_contract_v1_locked": true,
+  "time_control_role_status": "AMBIGUOUS_REQUIRES_TEAM_CONFIRMATION",
+  "can_claim_parameterized_netlist_v1": true
 }

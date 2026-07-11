@@ -246,3 +246,16 @@
 - recommended_next_stage: `M12C_CONTROL_LOGIC_GAP_DEFINITION`
 - recommended_next_stage_reason: `M12N proves that OpenYield contains a parameterized Python SPICE/testbench generator chain centered on `Sram6TCoreTestbench.create_testbench`, and it can emit a sample SRAM-related netlist. However, that emitted artifact is still a simulation testbench netlist with supplies, stimuli, and measurement scaffolding rather than a locked pure SRAM top authority. The next blocking step is to define how the traced OpenYield control logic and enable paths map onto the OpenRAM/layoutgen control-logic gap before any custom netlist-driven layout flow can be claimed.`
 - note: `M12N is a source-lock stage only. It does not generate a final SRAM GDS and does not reopen DRC/LVS/signoff claims.`
+
+## M12N2 Clean OpenYield SRAM Top
+
+- clean_top_extraction_passed: `True`
+- clean_top_spice_path: `outputs/M12N2_clean_openyield_sram_top/current_supported_config/openyield_sram_top_v1.sp`
+- parameter_contract_v1_locked: `True`
+- sample_16x16_generated: `True`
+- sample_64x8_generated: `True`
+- parameter_scaling_verified: `True`
+- time_control_role_status: `AMBIGUOUS_REQUIRES_TEAM_CONFIRMATION`
+- recommended_next_stage: `M12N2H_REQUEST_TIME_ROLE_CONFIRMATION`
+- can_enter_next_stage_before_human_review: `False`
+- note: `M12N2 is a netlist/graph extraction gate only. It does not generate final physical GDS and does not reopen DRC/LVS/signoff claims.`

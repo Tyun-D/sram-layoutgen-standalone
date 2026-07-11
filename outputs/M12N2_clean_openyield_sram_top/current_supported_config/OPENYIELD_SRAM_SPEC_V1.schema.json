@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OPENYIELD_SRAM_SPEC_V1",
+  "type": "object",
+  "required": [
+    "num_rows",
+    "num_cols",
+    "num_words",
+    "word_size",
+    "words_per_row",
+    "mux_ratio",
+    "choose_columnmux",
+    "sram_cell_type"
+  ],
+  "properties": {
+    "num_rows": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "num_cols": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "num_words": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "word_size": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "words_per_row": {
+      "type": "integer",
+      "const": 1
+    },
+    "mux_ratio": {
+      "type": "integer",
+      "const": 1
+    },
+    "choose_columnmux": {
+      "type": "boolean",
+      "const": false
+    },
+    "sram_cell_type": {
+      "type": "string",
+      "enum": [
+        "6T"
+      ]
+    },
+    "corner": {
+      "type": "string",
+      "default": "TT"
+    },
+    "temperature": {
+      "type": "number",
+      "default": 27
+    },
+    "control_timing_parameters": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Simulation-backed control timing defaults traced from BaseTestbench/TIME."
+    }
+  },
+  "additionalProperties": false
+}
