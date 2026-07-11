@@ -6,11 +6,11 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 
 ## 2. Current Stage
 
-- current_stage: `M12N2`
-- next_stage: `M12N2H_REQUEST_TIME_ROLE_CONFIRMATION`
-- human_klayout_review_required_every_stage: `True`
-- can_enter_next_stage_without_human_review: `False`
-- next_stage_allowed: `M12N2H_REQUEST_TIME_ROLE_CONFIRMATION`
+- current_stage: `M12N2R`
+- next_stage: `M12C_CONTROL_LOGIC_GAP_DEFINITION`
+- human_klayout_review_required_every_stage: `False`
+- can_enter_next_stage_without_human_review: `True`
+- next_stage_allowed: `M12C_CONTROL_LOGIC_GAP_DEFINITION`
 
 ## 3. M11V Verification Result
 
@@ -61,9 +61,15 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 
 - clean_top_locked: `True`
 - parameter_contract_v1_locked: `True`
-- time_control_role_status: `AMBIGUOUS_REQUIRES_TEAM_CONFIRMATION`
-- remaining_M12N2_blockers_count: `6`
-- recommended_next_stage: `M12N2H_REQUEST_TIME_ROLE_CONFIRMATION`
+- openyield_local_sha: `1c34428d8b913963c4971d093b1a7c2df97a2509`
+- openyield_version_match: `True`
+- openyield_worktree_clean: `True`
+- time_control_role_status: `ON_CHIP_CONTROL_LOGIC`
+- time_role_requires_team_confirmation: `False`
+- openyield_control_logic_netlist_source_locked: `True`
+- openyield_control_logic_physical_implementation_ready: `False`
+- remaining_M12N2_blockers_count: `5`
+- recommended_next_stage: `M12C_CONTROL_LOGIC_GAP_DEFINITION`
 - physical_gds_generation_not_part_of_M12N2: `True`
 - reused_M12O_review_gds: `True`
 - can_make_physical_implementation_claim: `False`

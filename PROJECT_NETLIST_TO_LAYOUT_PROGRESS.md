@@ -251,11 +251,25 @@
 
 - clean_top_extraction_passed: `True`
 - clean_top_spice_path: `outputs/M12N2_clean_openyield_sram_top/current_supported_config/openyield_sram_top_v1.sp`
-- parameter_contract_v1_locked: `True`
-- sample_16x16_generated: `True`
-- sample_64x8_generated: `True`
-- parameter_scaling_verified: `True`
-- time_control_role_status: `AMBIGUOUS_REQUIRES_TEAM_CONFIRMATION`
-- recommended_next_stage: `M12N2H_REQUEST_TIME_ROLE_CONFIRMATION`
-- can_enter_next_stage_before_human_review: `False`
-- note: `M12N2 is a netlist/graph extraction gate only. It does not generate final physical GDS and does not reopen DRC/LVS/signoff claims.`
+- openyield_local_sha: `1c34428d8b913963c4971d093b1a7c2df97a2509`
+- openyield_version_match: `True`
+- openyield_worktree_clean: `True`
+- time_control_role_status_before: `AMBIGUOUS_REQUIRES_TEAM_CONFIRMATION`
+- time_control_role_status_after: `ON_CHIP_CONTROL_LOGIC`
+- time_is_testbench_stimulus: `False`
+- time_is_design_subcircuit: `True`
+- time_is_instantiated_in_sram_design_graph: `True`
+- time_outputs_consumed_by_sram_periphery: `True`
+- openyield_control_logic_netlist_source_locked: `True`
+- openyield_control_logic_physical_implementation_ready: `False`
+- can_claim_control_logic_source_locked: `True`
+- can_claim_control_logic_mapping_ready: `False`
+- can_claim_control_logic_physical_ready: `False`
+- can_claim_custom_netlist_driven_layout_generation: `False`
+- recommended_next_stage: `M12C_CONTROL_LOGIC_GAP_DEFINITION`
+- recommended_next_stage_reason: `The latest OpenYield main source proves that TIME is a real SRAM design subcircuit containing DFFs, gated clocks, delay chains, and enable-generation logic. The control-logic netlist source is therefore locked, while its physical implementation and mapping into the layoutgen/OpenRAM floorplan remain incomplete.`
+- next_stage_allowed: `M12C_CONTROL_LOGIC_GAP_DEFINITION`
+- can_enter_M12C_after_this_gate: `True`
+- human_review_required: `False`
+- can_enter_next_stage_before_human_review: `True`
+- note: `M12N2R is evidence correction and gate closure only. It does not generate new GDS, does not start control-logic physical implementation, and does not reopen DRC/LVS/signoff claims.`

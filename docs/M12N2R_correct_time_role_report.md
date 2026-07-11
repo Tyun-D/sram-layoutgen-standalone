@@ -1,0 +1,32 @@
+# M12N2R Correct Time Role Report
+
+- stage_scope: `M12N2R evidence correction and gate closure only`
+- openyield_local_sha: `1c34428d8b913963c4971d093b1a7c2df97a2509`
+- openyield_expected_sha: `1c34428d8b913963c4971d093b1a7c2df97a2509`
+- openyield_version_match: `True`
+- openyield_worktree_clean: `True`
+- time_control_role_status_before: `AMBIGUOUS_REQUIRES_TEAM_CONFIRMATION`
+- time_control_role_status_after: `ON_CHIP_CONTROL_LOGIC`
+- time_role_requires_team_confirmation_before: `True`
+- time_role_requires_team_confirmation_after: `False`
+- time_classification_basis: `subcircuits role + BaseSubcircuit inheritance + DFF/clock/delay/enable logic + SRAM-graph instantiation + separate PulseVoltageSource stimuli`
+- openyield_control_logic_netlist_source_locked: `True`
+- openyield_control_logic_physical_implementation_ready: `False`
+- can_claim_openyield_authoritative_netlist_locked: `True`
+- can_claim_parameterized_netlist_v1: `True`
+- can_claim_control_logic_source_locked: `True`
+- can_claim_control_logic_mapping_ready: `False`
+- can_claim_control_logic_physical_ready: `False`
+- can_claim_custom_netlist_driven_layout_generation: `False`
+- can_claim_drc_clean: `False`
+- can_claim_lvs_clean: `False`
+- can_claim_signoff_ready: `False`
+- blocker_count_before: `6`
+- blocker_count_after: `5`
+- resolved_blockers: `M12N2-B01`
+- remaining_blockers: `M12N2-B02, M12N2-B03, M12N2-B04, M12N2-B05, M12N2-B07`
+- recommended_next_stage: `M12C_CONTROL_LOGIC_GAP_DEFINITION`
+- next_stage_allowed: `M12C_CONTROL_LOGIC_GAP_DEFINITION`
+- can_enter_M12C_after_this_gate: `True`
+- human_review_required: `False`
+- can_enter_next_stage_before_human_review: `True`

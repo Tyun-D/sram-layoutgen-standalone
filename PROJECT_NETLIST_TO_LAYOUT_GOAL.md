@@ -57,7 +57,9 @@
 
 ## Current Clean Top Gate
 
-- M12N2 从 OpenYield testbench-backed generator 中提取 clean layout-facing SRAM top，并锁定可验证的参数接口 V1。
-- 本阶段只处理纯网表 / graph / 参数 contract，不生成新的最终 GDS，也不进入 CONTROL_LOGIC 物理实现。
-- 当前 TIME 角色结论：`AMBIGUOUS_REQUIRES_TEAM_CONFIRMATION`。
-- 当前推荐下一阶段：`M12N2H_REQUEST_TIME_ROLE_CONFIRMATION`。
+- M12N2R 只做 TIME 角色证据修正与 gate 收口，不生成新的 GDS，不开始 CONTROL_LOGIC 物理实现，也不替换新模块。
+- OpenYield 当前锁定版本：`1c34428d8b913963c4971d093b1a7c2df97a2509`；版本匹配：`True`；worktree clean：`True`。
+- 最新 OpenYield 主源码证明 TIME 位于 `sram_compiler/subcircuits/`，属于网表设计电路，不属于独立测试激励。
+- CONTROL_LOGIC 网表来源已锁定，但 CONTROL_LOGIC 物理实现、映射、DRC/LVS/signoff 仍未完成。
+- 当前 TIME 角色结论：`ON_CHIP_CONTROL_LOGIC`。
+- 当前推荐下一阶段：`M12C_CONTROL_LOGIC_GAP_DEFINITION`。
