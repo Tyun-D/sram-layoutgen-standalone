@@ -1,0 +1,19 @@
+rule_name,value,unit,source_file,source_location,confidence,used_by_generator
+database_unit,"0.0005,1e-9","user,meter",/data1/qujh/OpenRAM/technology/freepdk45/tech/tech.py,"GDS[""unit""]",AUTHORITATIVE_TECH_FILE,True
+manufacturing_grid,0.0025,um,/data1/qujh/OpenRAM/technology/freepdk45/tech/tech.py,"drc[""grid""]",AUTHORITATIVE_TECH_FILE,True
+minimum_active_width,0.09,um,/data1/qujh/OpenRAM/technology/freepdk45/tech/tech.py,"drc.add_layer(""active"", width=0.09, spacing=0.08)",AUTHORITATIVE_TECH_FILE,True
+minimum_active_spacing,0.08,um,/data1/qujh/OpenRAM/technology/freepdk45/tech/tech.py,"drc.add_layer(""active"", width=0.09, spacing=0.08)",AUTHORITATIVE_TECH_FILE,True
+minimum_poly_width,0.05,um,/data1/qujh/OpenRAM/technology/freepdk45/tech/tech.py,"drc.add_layer(""poly"", width=0.05, spacing=0.14)",AUTHORITATIVE_TECH_FILE,True
+minimum_poly_spacing,0.14,um,/data1/qujh/OpenRAM/technology/freepdk45/tech/tech.py,"drc.add_layer(""poly"", width=0.05, spacing=0.14)",AUTHORITATIVE_TECH_FILE,True
+poly_to_active_rules,0.05,um,/data1/qujh/OpenRAM/technology/freepdk45/tech/tech.py,"drc[""poly_to_active""]",AUTHORITATIVE_TECH_FILE,True
+minimum_tx_width,0.09,um,/data1/qujh/OpenRAM/technology/freepdk45/tech/tech.py,"parameter[""min_tx_size""]",AUTHORITATIVE_TECH_FILE,True
+minimum_channel_length,0.05,um,/data1/qujh/OpenRAM/technology/freepdk45/tech/tech.py,"drc[""minlength_channel""]",AUTHORITATIVE_TECH_FILE,True
+beta_default,3,ratio,/data1/qujh/OpenRAM/technology/freepdk45/tech/tech.py,"parameter[""beta""]",AUTHORITATIVE_TECH_FILE,True
+metal1_width,0.065,um,/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/tech.py,LayerRule m1 min_width,DERIVED_FROM_EXISTING_CLEAN_CELL,True
+metal1_spacing,0.065,um,/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/tech.py,LayerRule m1 min_space,DERIVED_FROM_EXISTING_CLEAN_CELL,True
+vdd_rail_layer,m1,layer,/data1/qujh/OpenRAM/compiler/modules/pinv.py,route_supply_rails/connect_rails,DERIVED_FROM_EXISTING_CLEAN_CELL,True
+vss_rail_layer,m1,layer,/data1/qujh/OpenRAM/compiler/modules/pinv.py,route_supply_rails/connect_rails,DERIVED_FROM_EXISTING_CLEAN_CELL,True
+default_cell_height,bitcell-height driven,policy,/data1/qujh/OpenRAM/compiler/modules/pinv.py,pinv class docstring/height handling,REFERENCE_ONLY,True
+default_rail_width,minwidth_m1,policy,/data1/qujh/OpenRAM/compiler/modules/pinv.py,route_supply_rails,REFERENCE_ONLY,True
+default_nmos_region,bottom half of cell,policy,/data1/qujh/OpenRAM/compiler/modules/pinv.py,place_ptx,DERIVED_FROM_EXISTING_CLEAN_CELL,True
+default_pmos_region,top half of cell,policy,/data1/qujh/OpenRAM/compiler/modules/pinv.py,place_ptx,DERIVED_FROM_EXISTING_CLEAN_CELL,True

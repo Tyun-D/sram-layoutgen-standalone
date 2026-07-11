@@ -312,3 +312,25 @@
 - Qualified manifest entries: `7`
 - Quarantined candidates: `15`
 - Candidate cell DRC scope: `CELL_LEVEL_CANDIDATE_TOP_CELLS`
+
+## M12C3 Primitive Generator Plan
+
+- qualification_audit_complete: `True`
+- control_physical_library_reuse_ready: `False`
+- raw_candidate_drc_marker_count: `6661`
+- duplicate_drc_artifact_detected: `True`
+- unique_candidate_drc_marker_count: `3422`
+- physical_tech_contract_status: `LOCKED_FREEPDK45_V1`
+- trusted_device_generator_found: `True`
+- trusted_device_generator_path: `/data1/qujh/OpenRAM/compiler/modules/ptx.py`
+- trusted_gate_generator_found: `True`
+- contact_via_generator_found: `True`
+- parameterized_width_supported: `True`
+- parameterized_length_supported: `False`
+- can_claim_control_physical_library_qualification_audit_complete: `True`
+- can_claim_control_physical_library_reuse_ready: `False`
+- can_claim_parameterized_primitive_generator_locked: `True`
+- can_claim_parameterized_primitive_generator_implemented: `False`
+- primitive_smoke_generation_attempted: `False`
+- recommended_next_stage: `M12C3A_IMPLEMENT_PARAMETERIZED_DEVICE_AND_GATE_GENERATOR`
+- recommended_next_stage_reason: `The FreePDK45 tech contract and primitive-generator architecture are locked, but the trusted OpenRAM-backed path still lacks callable adapter implementation and channel-length parameter completeness, so the next step is to implement the bounded adapter-backed primitive generator.`

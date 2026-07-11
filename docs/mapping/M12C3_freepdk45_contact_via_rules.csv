@@ -1,0 +1,8 @@
+rule_name,value,unit,source_file,source_location,confidence,used_by_generator
+contact_size,0.065,um,/data1/qujh/OpenRAM/technology/freepdk45/tech/tech.py,"drc(""minwidth_contact"") via contact alias",AUTHORITATIVE_TECH_FILE,True
+contact_spacing,0.075,um,/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/tech.py,LayerRule contact min_space,DERIVED_FROM_EXISTING_CLEAN_CELL,True
+contact_enclosure,0.005..0.035 technology-dependent via enclosure from contact class,um,/data1/qujh/OpenRAM/compiler/base/contact.py,contact.setup_layout_constants,AUTHORITATIVE_TECH_FILE,True
+via1_size,0.065,um,/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/tech.py,ViaRule via1 size,DERIVED_FROM_EXISTING_CLEAN_CELL,True
+via1_spacing,0.075,um,/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/tech.py,LayerRule via1 min_space,DERIVED_FROM_EXISTING_CLEAN_CELL,True
+well_enclosure,0.055,um,/data1/qujh/OpenRAM/technology/freepdk45/tech/tech.py,"drc.add_enclosure(""nwell""/""pwell"", layer=""active"", enclosure=0.055)",AUTHORITATIVE_TECH_FILE,True
+implant_enclosure,0,um,/data1/qujh/OpenRAM/technology/freepdk45/tech/tech.py,"drc.add_enclosure(""implant"", layer=""active"", enclosure=0)",AUTHORITATIVE_TECH_FILE,True

@@ -6,11 +6,11 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 
 ## 2. Current Stage
 
-- current_stage: `M12C`
-- next_stage: `M12C2_CONTROL_LOGIC_PHYSICAL_LIBRARY_QUALIFICATION`
+- current_stage: `M12C3`
+- next_stage: `M12C3A_IMPLEMENT_PARAMETERIZED_DEVICE_AND_GATE_GENERATOR`
 - human_klayout_review_required_every_stage: `False`
 - can_enter_next_stage_without_human_review: `True`
-- next_stage_allowed: `M12C2_CONTROL_LOGIC_PHYSICAL_LIBRARY_QUALIFICATION`
+- next_stage_allowed: `M12C3A_IMPLEMENT_PARAMETERIZED_DEVICE_AND_GATE_GENERATOR`
 
 ## 3. M11V Verification Result
 
@@ -103,3 +103,24 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 - TRANSMISSION_GATE status: `MISSING_REQUIRES_GENERATOR`
 - DFF status: `QUALIFIED_REFERENCE_ONLY`
 - next stage: `M12C3_CONTROL_LOGIC_PRIMITIVE_LAYOUT_GENERATOR_PLAN`
+
+## M12C3 Primitive Generator Plan
+
+- M12C2 qualification audit complete: `True`
+- reusable physical library ready: `False`
+- direct reuse count: `0`
+- raw candidate DRC marker count: `6661`
+- duplicate candidate DRC artifact detected: `True`
+- unique candidate DRC marker count: `3422`
+- trusted device generator: `/data1/qujh/OpenRAM/compiler/modules/ptx.py`
+- trusted gate generator found: `True`
+- contact/via generator found: `True`
+- FreePDK45 physical tech contract status: `LOCKED_FREEPDK45_V1`
+- primitive generator architecture: `OPENRAM_FREEPDK45_DEVICE_CONTACT_ADAPTER`
+- parameterized length supported by trusted backend: `False`
+- cell naming/cache contract locked: `True`
+- TRANSMISSION_GATE route: `OpenRAM ptx-based adapter composition`
+- PINV1-4 route: `distinct parameterized inverter variants with stable cache keys`
+- smoke cells generated: `False`
+- smoke DRC passed: `False`
+- next stage: `M12C3A_IMPLEMENT_PARAMETERIZED_DEVICE_AND_GATE_GENERATOR`

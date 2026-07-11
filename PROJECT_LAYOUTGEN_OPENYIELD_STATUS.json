@@ -8,8 +8,8 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M12C2",
-  "next_stage": "M12C3_CONTROL_LOGIC_PRIMITIVE_LAYOUT_GENERATOR_PLAN",
+  "current_stage": "M12C3",
+  "next_stage": "M12C3A_IMPLEMENT_PARAMETERIZED_DEVICE_AND_GATE_GENERATOR",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": false,
@@ -2312,5 +2312,19 @@
   "missing_requires_generator_count": 1,
   "time_candidate_qualification_status": "CONNECTIVITY_UNPROVEN",
   "transmission_gate_qualification_status": "MISSING_REQUIRES_GENERATOR",
-  "dff_qualification_status": "QUALIFIED_REFERENCE_ONLY"
+  "dff_qualification_status": "QUALIFIED_REFERENCE_ONLY",
+  "openyield_sha": "1c34428d8b913963c4971d093b1a7c2df97a2509",
+  "openyield_version_verified": true,
+  "can_claim_control_physical_library_qualification_audit_complete": true,
+  "can_claim_control_physical_library_reuse_ready": false,
+  "can_claim_parameterized_primitive_generator_locked": true,
+  "can_claim_parameterized_primitive_generator_implemented": false,
+  "can_claim_primitive_smoke_drc_clean": false,
+  "raw_candidate_drc_marker_count": 6661,
+  "duplicate_drc_artifact_detected": true,
+  "unique_candidate_drc_marker_count": 3422,
+  "physical_tech_contract_status": "LOCKED_FREEPDK45_V1",
+  "generator_architecture_decision": "OPENRAM_FREEPDK45_DEVICE_CONTACT_ADAPTER",
+  "primitive_smoke_generation_allowed": false,
+  "primitive_smoke_generation_attempted": false
 }

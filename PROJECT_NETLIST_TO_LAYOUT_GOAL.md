@@ -78,3 +78,11 @@
 - Qualify only trusted reusable control-library cells.
 - Exclude device-model names, debug-only composites, and false size aliases from later assembly claims.
 - Locked next stage: `M12C3_CONTROL_LOGIC_PRIMITIVE_LAYOUT_GENERATOR_PLAN`
+
+## M12C3 Primitive Generator Architecture Goal
+
+- M12C2 只证明 qualification audit complete，不证明 reusable library ready。
+- M12C3 锁定 FreePDK45-aware primitive generator architecture、tech contract、parameter naming/cache contract 和实现顺序。
+- 当前 direct reuse count 仍为 `0`，不能 claim CONTROL_LOGIC physical ready。
+- 若 trusted backend 不支持完整 width/length 参数化，则本轮不得生成 smoke GDS。
+- 当前推荐下一阶段：`M12C3A_IMPLEMENT_PARAMETERIZED_DEVICE_AND_GATE_GENERATOR`。
