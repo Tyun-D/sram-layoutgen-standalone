@@ -86,3 +86,11 @@
 - 当前 direct reuse count 仍为 `0`，不能 claim CONTROL_LOGIC physical ready。
 - 若 trusted backend 不支持完整 width/length 参数化，则本轮不得生成 smoke GDS。
 - 当前推荐下一阶段：`M12C3A_IMPLEMENT_PARAMETERIZED_DEVICE_AND_GATE_GENERATOR`。
+
+## M12C3R Correction Gate
+
+- M12C3R 先修正 primitive dimension units、source-derived physical variants、canonical naming 和 fixed 50 nm channel-length contract，再进入 OpenRAM adapter 实现。
+- 原 M12C3 naming contract 已被 `SUPERSEDED_BY_M12C3R`。
+- 不得再把 PINV1 等 logical alias 当作 physical variant identity。
+- 当前 arbitrary channel length 不支持，但不阻塞 FreePDK45 V1，因为当前需求全部为 50 nm。
+- 当前推荐下一阶段：`M12C3A_IMPLEMENT_PARAMETERIZED_DEVICE_AND_GATE_GENERATOR`。

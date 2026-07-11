@@ -1,0 +1,6 @@
+# M12C3R Next Stage Decision
+
+- recommended_next_stage: `M12C3A_IMPLEMENT_PARAMETERIZED_DEVICE_AND_GATE_GENERATOR`
+- recommended_next_stage_reason: `Units, source-derived variants, corrected naming/cache identity, fixed-50nm policy, and OpenRAM bootstrap mode are all locked, so adapter implementation can start without reopening the naming or length contract.`
+- human_review_required: `False`
+- can_enter_next_stage_before_human_review: `True`

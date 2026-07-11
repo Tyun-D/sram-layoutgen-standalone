@@ -334,3 +334,22 @@
 - primitive_smoke_generation_attempted: `False`
 - recommended_next_stage: `M12C3A_IMPLEMENT_PARAMETERIZED_DEVICE_AND_GATE_GENERATOR`
 - recommended_next_stage_reason: `The FreePDK45 tech contract and primitive-generator architecture are locked, but the trusted OpenRAM-backed path still lacks callable adapter implementation and channel-length parameter completeness, so the next step is to implement the bounded adapter-backed primitive generator.`
+
+## M12C3R Parameter and Naming Contract Correction
+
+- original_zero_dimension_token_detected: `True`
+- original_naming_contract_superseded: `True`
+- unit_normalization_failure_count: `0`
+- source_pinv_instance_count: `19`
+- logical_names_with_multiple_parameter_sets: `['PINV', 'PINV1', 'PINV2']`
+- corrected_parameterized_cell_naming_contract_locked: `True`
+- source_derived_variant_contract_locked: `True`
+- size_alias_collision_prevented_by_corrected_contract: `True`
+- required_channel_length_values_nm: `[50]`
+- all_current_v1_lengths_equal_50nm: `True`
+- openram_import_bootstrap_passed: `True`
+- recommended_adapter_execution_mode: `IN_PROCESS_OPENRAM_BOOTSTRAP`
+- can_claim_parameterized_primitive_generator_locked: `True`
+- can_claim_parameterized_primitive_generator_implemented: `False`
+- recommended_next_stage: `M12C3A_IMPLEMENT_PARAMETERIZED_DEVICE_AND_GATE_GENERATOR`
+- recommended_next_stage_reason: `Units, source-derived variants, corrected naming/cache identity, fixed-50nm policy, and OpenRAM bootstrap mode are all locked, so adapter implementation can start without reopening the naming or length contract.`

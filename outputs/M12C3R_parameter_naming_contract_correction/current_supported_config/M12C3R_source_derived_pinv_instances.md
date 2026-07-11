@@ -1,0 +1,21 @@
+# M12C3R Source-Derived PINV Instances
+
+- pdrive:65 inv1 -> PINV1 NW(90*(max(1.0, float(drive_scale))**0.25))|PW(270*(max(1.0, float(drive_scale))**0.25))|L50
+- pdrive:66 inv2 -> PINV2 NW(270*(max(1.0, float(drive_scale))**0.5))|PW(810*(max(1.0, float(drive_scale))**0.5))|L50
+- pdrive:67 inv3 -> PINV3 NW(910*(max(1.0, float(drive_scale))**0.75))|PW(2430*(max(1.0, float(drive_scale))**0.75))|L50
+- pdrive:68 inv4 -> PINV4 NW(2430*max(1.0, float(drive_scale)))|PW(7290*max(1.0, float(drive_scale)))|L50
+- pdrive2_for_pre:125 inv1 -> PINV1 NW(90*max(1.0, (max(1.0, float(drive_scale))**0.5)))|PW(270*max(1.0, (max(1.0, float(drive_scale))**0.5)))|L50
+- pdrive2_for_pre:126 inv2 -> PINV2 NW(270*max(1.0, float(drive_scale)))|PW(810*max(1.0, float(drive_scale)))|L50
+- wl_pdrive:164 inv1 -> PINV1 NW90|PW270|L50
+- wl_pdrive:165 inv2 -> PINV2 NW450|PW1350|L50
+- dff:202 inv_dff -> PINV1 NW250|PW500|L50
+- DFF_BUF:276 inv1 -> PINV1 NW180|PW540|L50
+- DFF_BUF:277 inv2 -> PINV2 NW360|PW1080|L50
+- DelayChain:321 inv -> PINV1 NW90|PW270|L50
+- WenDelayChain:380 inv -> PINV_wen_delay NW90|PW270|L50
+- TIME:583 inv_clk_bar -> PINV NW90|PW270|L50
+- TIME:646 inv_wl_en_bar -> PINV_wl_en_bar NW90|PW270|L50
+- TIME:666 inv_rbl_delay_bar -> PINV NW90|PW270|L50
+- AND2:205 inv_driver -> PINV NW90|PW270|L50
+- AND3:275 inv_driver -> PINV NW90|PW270|L50
+- D_latch:329 inv1 -> PINV NW180|PW270|L50

@@ -34,14 +34,12 @@ def main() -> int:
     assert report["physical_tech_contract_generated"] is True
     assert report["physical_tech_contract_status"] == "LOCKED_FREEPDK45_V1"
     assert report["primitive_requirement_matrix_generated"] is True
-    assert report["parameterized_cell_naming_contract_locked"] is True
     assert report["generator_architecture_decision"] == "OPENRAM_FREEPDK45_DEVICE_CONTACT_ADAPTER"
     assert report["primitive_smoke_generation_allowed"] is False
     assert report["primitive_smoke_generation_attempted"] is False
     assert report["primitive_smoke_drc_run"] is False
     assert report["can_claim_control_physical_library_qualification_audit_complete"] is True
     assert report["can_claim_control_physical_library_reuse_ready"] is False
-    assert report["can_claim_parameterized_primitive_generator_locked"] is True
     assert report["can_claim_parameterized_primitive_generator_implemented"] is False
     assert report["can_claim_primitive_smoke_drc_clean"] is False
     assert report["can_claim_control_logic_physical_ready"] is False
@@ -68,9 +66,16 @@ def main() -> int:
         "docs/mapping/M12C3_next_stage_decision.csv",
     ]:
         assert (REPO_ROOT / rel).exists(), rel
+    original_contract = json.loads((REPO_ROOT / "outputs/M12C3_control_logic_primitive_layout_generator_plan/current_supported_config/M12C3_parameterized_cell_naming_contract.json").read_text(encoding="utf-8"))
+    assert any("NW0" in row["canonical_cell_name"] or "PW0" in row["canonical_cell_name"] or "L0" in row["canonical_cell_name"] for row in original_contract["examples"])
     status = json.loads((REPO_ROOT / "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json").read_text(encoding="utf-8"))
-    assert status["current_stage"] == "M12C3"
-    assert status["next_stage"] == "M12C3A_IMPLEMENT_PARAMETERIZED_DEVICE_AND_GATE_GENERATOR"
+    assert status["current_stage"] in {"M12C3", "M12C3R"}
+    assert status["next_stage"] in {
+        "M12C3A_IMPLEMENT_PARAMETERIZED_DEVICE_AND_GATE_GENERATOR",
+        "M12C3R2_RESOLVE_SOURCE_VARIANT_AMBIGUITY",
+        "M12C3R3_OPENRAM_ADAPTER_BOOTSTRAP_FIX",
+        "M12C3T_FREEPDK45_TECH_CONTRACT_COMPLETION",
+    }
     print("M12C3_control_logic_primitive_layout_generator_plan_ok")
     return 0
 

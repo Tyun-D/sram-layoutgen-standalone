@@ -1,0 +1,21 @@
+# M12C3R Corrected Physical Variant Matrix
+
+- PINV1 pdrive.inv1 -> PINV_7BEF9676_NW90_PW270_L50
+- PINV2 pdrive.inv2 -> PINV_4CDBED33_NW270_PW810_L50
+- PINV3 pdrive.inv3 -> PINV_459A182D_NW910_PW2430_L50
+- PINV4 pdrive.inv4 -> PINV_CA102F26_NW2430_PW7290_L50
+- PINV1 pdrive2_for_pre.inv1 -> PINV_FEDF48F1_NW90_PW270_L50
+- PINV2 pdrive2_for_pre.inv2 -> PINV_6D5778A4_NW270_PW810_L50
+- PINV1 wl_pdrive.inv1 -> PINV_NW90_PW270_L50
+- PINV2 wl_pdrive.inv2 -> PINV_NW450_PW1350_L50
+- PINV1 dff.inv_dff -> PINV_NW250_PW500_L50
+- PINV1 DFF_BUF.inv1 -> PINV_NW180_PW540_L50
+- PINV2 DFF_BUF.inv2 -> PINV_NW360_PW1080_L50
+- PINV1 DelayChain.inv -> PINV_NW90_PW270_L50
+- PINV_wen_delay WenDelayChain.inv -> PINV_NW90_PW270_L50
+- PINV TIME.inv_clk_bar -> PINV_NW90_PW270_L50
+- PINV_wl_en_bar TIME.inv_wl_en_bar -> PINV_NW90_PW270_L50
+- PINV TIME.inv_rbl_delay_bar -> PINV_NW90_PW270_L50
+- PINV AND2.inv_driver -> PINV_NW90_PW270_L50
+- PINV AND3.inv_driver -> PINV_NW90_PW270_L50
+- PINV D_latch.inv1 -> PINV_NW180_PW270_L50

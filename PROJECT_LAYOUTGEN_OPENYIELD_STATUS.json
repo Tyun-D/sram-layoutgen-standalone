@@ -8,7 +8,7 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M12C3",
+  "current_stage": "M12C3R",
   "next_stage": "M12C3A_IMPLEMENT_PARAMETERIZED_DEVICE_AND_GATE_GENERATOR",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
@@ -2326,5 +2326,12 @@
   "physical_tech_contract_status": "LOCKED_FREEPDK45_V1",
   "generator_architecture_decision": "OPENRAM_FREEPDK45_DEVICE_CONTACT_ADAPTER",
   "primitive_smoke_generation_allowed": false,
-  "primitive_smoke_generation_attempted": false
+  "primitive_smoke_generation_attempted": false,
+  "original_m12c3_naming_contract_status": "SUPERSEDED_BY_M12C3R",
+  "corrected_parameterized_cell_naming_contract_locked": true,
+  "source_derived_variant_contract_locked": true,
+  "size_alias_collision_prevented_by_corrected_contract": true,
+  "fixed_channel_length_policy": "FIXED_TECH_MINIMUM",
+  "channel_length_nm": 50,
+  "recommended_adapter_execution_mode": "IN_PROCESS_OPENRAM_BOOTSTRAP"
 }

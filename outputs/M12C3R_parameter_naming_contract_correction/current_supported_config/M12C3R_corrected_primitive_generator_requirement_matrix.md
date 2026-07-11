@@ -1,0 +1,39 @@
+# M12C3R Corrected Primitive Generator Requirement Matrix
+
+- NMOS_DEVICE  -> NMOS_NW{nmos}_L{length}
+- PMOS_DEVICE  -> PMOS_PW{pmos}_L{length}
+- CONTACT  -> CONTACT_{stack}_{dims}
+- VIA1  -> VIA1_{dims}
+- POWER_TAP  -> POWER_TAP_{well}_{dims}
+- PINV TIME.inv_clk_bar -> PINV_NW90_PW270_L50
+- PINV TIME.inv_rbl_delay_bar -> PINV_NW90_PW270_L50
+- PINV AND2.inv_driver -> PINV_NW90_PW270_L50
+- PINV AND3.inv_driver -> PINV_NW90_PW270_L50
+- PINV D_latch.inv1 -> PINV_NW180_PW270_L50
+- PINV1 pdrive.inv1 -> PINV_7BEF9676_NW90_PW270_L50
+- PINV1 pdrive2_for_pre.inv1 -> PINV_FEDF48F1_NW90_PW270_L50
+- PINV1 wl_pdrive.inv1 -> PINV_NW90_PW270_L50
+- PINV1 dff.inv_dff -> PINV_NW250_PW500_L50
+- PINV1 DFF_BUF.inv1 -> PINV_NW180_PW540_L50
+- PINV1 DelayChain.inv -> PINV_NW90_PW270_L50
+- PINV2 pdrive.inv2 -> PINV_4CDBED33_NW270_PW810_L50
+- PINV2 pdrive2_for_pre.inv2 -> PINV_6D5778A4_NW270_PW810_L50
+- PINV2 wl_pdrive.inv2 -> PINV_NW450_PW1350_L50
+- PINV2 DFF_BUF.inv2 -> PINV_NW360_PW1080_L50
+- PINV3 pdrive.inv3 -> PINV_459A182D_NW910_PW2430_L50
+- PINV4 pdrive.inv4 -> PINV_CA102F26_NW2430_PW7290_L50
+- PINV_wl_en_bar TIME.inv_wl_en_bar -> PINV_NW90_PW270_L50
+- PNAND2 sram_compiler/subcircuits/standard_cell.py -> PNAND2
+- PNAND3 sram_compiler/subcircuits/standard_cell.py -> PNAND3
+- TRANSMISSION_GATE sram_compiler/subcircuits/time_generate.py -> TRANSMISSION_GATE
+- AND2 sram_compiler/subcircuits/standard_cell.py -> AND2
+- AND3 sram_compiler/subcircuits/standard_cell.py -> AND3
+- DFF sram_compiler/subcircuits/time_generate.py -> DFF
+- DFF_BUF sram_compiler/subcircuits/time_generate.py -> DFF_BUF
+- ADDR_DFF sram_compiler/subcircuits/time_generate.py -> ADDR_DFF
+- DATA_DFF sram_compiler/subcircuits/time_generate.py -> DATA_DFF
+- pdrive sram_compiler/subcircuits/time_generate.py -> PDRIVE
+- pdrive2_for_pre sram_compiler/subcircuits/time_generate.py -> PDRIVE2_FOR_PRE
+- wl_pdrive sram_compiler/subcircuits/time_generate.py -> WL_PDRIVE
+- delay_chain sram_compiler/subcircuits/time_generate.py -> DELAY_CHAIN
+- WenDelayChain sram_compiler/subcircuits/time_generate.py -> WEN_DELAY_CHAIN_ST{stage_count}

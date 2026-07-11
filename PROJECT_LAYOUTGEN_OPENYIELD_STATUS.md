@@ -124,3 +124,22 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 - smoke cells generated: `False`
 - smoke DRC passed: `False`
 - next stage: `M12C3A_IMPLEMENT_PARAMETERIZED_DEVICE_AND_GATE_GENERATOR`
+
+## M12C3R Parameter and Naming Contract Correction
+
+- M12C3 architecture audit complete: `True`
+- original M12C3 naming contract valid: `False`
+- original naming contract superseded: `True`
+- original NW0/PW0/L0 tokens detected: `True`
+- original zero-dimension token count: `10`
+- PINV logical alias is not a physical variant identifier: `True`
+- source-derived PINV instance count: `19`
+- logical-name collision detected: `True`
+- corrected physical variant count: `19`
+- fixed FreePDK45 50 nm length policy: `True`
+- arbitrary channel length supported: `False`
+- current V1 channel-length requirement satisfied: `True`
+- OpenRAM adapter bootstrap mode: `IN_PROCESS_OPENRAM_BOOTSTRAP`
+- can_claim_parameterized_primitive_generator_locked: `True`
+- can_claim_parameterized_primitive_generator_implemented: `False`
+- next stage: `M12C3A_IMPLEMENT_PARAMETERIZED_DEVICE_AND_GATE_GENERATOR`
