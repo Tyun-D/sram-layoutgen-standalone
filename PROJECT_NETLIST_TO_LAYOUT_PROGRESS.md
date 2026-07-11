@@ -273,3 +273,35 @@
 - human_review_required: `False`
 - can_enter_next_stage_before_human_review: `True`
 - note: `M12N2R is evidence correction and gate closure only. It does not generate new GDS, does not start control-logic physical implementation, and does not reopen DRC/LVS/signoff claims.`
+
+## M12C Control Logic Gap Definition
+
+- m12n2r_gate_passed: `True`
+- openyield_version_verified: `True`
+- openyield_sha: `1c34428d8b913963c4971d093b1a7c2df97a2509`
+- time_hierarchy_extracted: `True`
+- time_module_count: `22`
+- time_primitive_count: `12`
+- time_instance_count_for_reference_config: `289`
+- operation_topology_status: `READ_WRITE_SUPERSET_CANONICAL`
+- canonical_physical_operation_topology: `READ_WRITE_SUPERSET`
+- canonical_operation_topology_locked: `True`
+- physical_module_total_count: `22`
+- physical_ready_for_qualification_count: `15`
+- physical_partial_count: `3`
+- physical_reference_only_count: `1`
+- physical_missing_count: `3`
+- parameterized_transistor_layout_required_count: `1`
+- bbox_metadata_coverage: `18/22`
+- pin_geometry_coverage: `18/22`
+- power_rail_metadata_coverage: `18/22`
+- floorplan_interface_plan_generated: `True`
+- candidate_control_region_defined: `True`
+- top_bbox_change_expected: `True`
+- review_gds_generated: `True`
+- review_gds_parsed: `True`
+- recommended_next_stage: `M12C2_CONTROL_LOGIC_PHYSICAL_LIBRARY_QUALIFICATION`
+- remaining_M12C_blockers_count: `12`
+- human_review_required: `False`
+- can_enter_next_stage_before_human_review: `True`
+- note: `M12C is definition-only. It does not complete control-logic layout, does not replace new SRAM modules, and does not reopen DRC/LVS/signoff claims.`

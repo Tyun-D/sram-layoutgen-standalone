@@ -6,11 +6,11 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 
 ## 2. Current Stage
 
-- current_stage: `M12N2R`
-- next_stage: `M12C_CONTROL_LOGIC_GAP_DEFINITION`
+- current_stage: `M12C`
+- next_stage: `M12C2_CONTROL_LOGIC_PHYSICAL_LIBRARY_QUALIFICATION`
 - human_klayout_review_required_every_stage: `False`
 - can_enter_next_stage_without_human_review: `True`
-- next_stage_allowed: `M12C_CONTROL_LOGIC_GAP_DEFINITION`
+- next_stage_allowed: `M12C2_CONTROL_LOGIC_PHYSICAL_LIBRARY_QUALIFICATION`
 
 ## 3. M11V Verification Result
 
@@ -73,3 +73,22 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 - physical_gds_generation_not_part_of_M12N2: `True`
 - reused_M12O_review_gds: `True`
 - can_make_physical_implementation_claim: `False`
+
+## 6. M12C Control Logic Gap Definition Result
+
+- m12n2r_gate_passed: `True`
+- openyield_sha: `1c34428d8b913963c4971d093b1a7c2df97a2509`
+- operation_topology_status: `READ_WRITE_SUPERSET_CANONICAL`
+- canonical_physical_operation_topology: `READ_WRITE_SUPERSET`
+- canonical_operation_topology_locked: `True`
+- physical_module_total_count: `22`
+- physical_ready_for_qualification_count: `15`
+- physical_partial_count: `3`
+- physical_reference_only_count: `1`
+- physical_missing_count: `3`
+- bbox_metadata_coverage: `18/22`
+- pin_geometry_coverage: `18/22`
+- power_rail_metadata_coverage: `18/22`
+- top_bbox_change_expected: `True`
+- recommended_next_stage: `M12C2_CONTROL_LOGIC_PHYSICAL_LIBRARY_QUALIFICATION`
+- human_review_required: `False`

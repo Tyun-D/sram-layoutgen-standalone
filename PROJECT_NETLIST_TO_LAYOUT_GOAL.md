@@ -63,3 +63,12 @@
 - CONTROL_LOGIC 网表来源已锁定，但 CONTROL_LOGIC 物理实现、映射、DRC/LVS/signoff 仍未完成。
 - 当前 TIME 角色结论：`ON_CHIP_CONTROL_LOGIC`。
 - 当前推荐下一阶段：`M12C_CONTROL_LOGIC_GAP_DEFINITION`。
+
+## Current Control Logic Gap Definition Stage
+
+- M12C 只定义 OpenYield TIME / CONTROL_LOGIC 从网表到物理实现的缺口与映射计划，不实际完成新的 CONTROL_LOGIC 版图。
+- M12N2R gate 已通过：`True`；TIME 角色：`ON_CHIP_CONTROL_LOGIC`。
+- operation 拓扑审计结果：`READ_WRITE_SUPERSET_CANONICAL`；canonical topology：`READ_WRITE_SUPERSET`。
+- 现有 physical cells 已盘点：ready=`15`，partial=`3`，reference_only=`1`，missing=`3`。
+- 当前不能 claim CONTROL_LOGIC physical ready：`False`；custom netlist-driven layout generation：`False`。
+- 当前推荐下一阶段：`M12C2_CONTROL_LOGIC_PHYSICAL_LIBRARY_QUALIFICATION`。

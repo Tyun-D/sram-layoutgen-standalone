@@ -1,0 +1,24 @@
+# M12C Control Logic Physical Mapping Matrix
+
+- ADDR_DFF: `HIERARCHICAL_PRIMITIVE_COMPOSITION` | readiness=`READY_FOR_QUALIFICATION` | layoutgen=`dff` | openyield_gds=`True`
+- AND2: `HIERARCHICAL_PRIMITIVE_COMPOSITION` | readiness=`READY_FOR_QUALIFICATION` | layoutgen=`gen_nand2` | openyield_gds=`True`
+- AND3: `HIERARCHICAL_PRIMITIVE_COMPOSITION` | readiness=`READY_FOR_QUALIFICATION` | layoutgen=`gen_nand4` | openyield_gds=`True`
+- DATA_DFF: `HIERARCHICAL_PRIMITIVE_COMPOSITION` | readiness=`READY_FOR_QUALIFICATION` | layoutgen=`dff` | openyield_gds=`True`
+- DFF: `LAYOUTGEN_REFERENCE_ONLY` | readiness=`REFERENCE_ONLY` | layoutgen=`dff` | openyield_gds=`False`
+- DFF_BUF: `HIERARCHICAL_PRIMITIVE_COMPOSITION` | readiness=`READY_FOR_QUALIFICATION` | layoutgen=`dff` | openyield_gds=`True`
+- NMOS_VTG: `UNKNOWN` | readiness=`UNKNOWN` | layoutgen=`` | openyield_gds=`False`
+- PINV: `HIERARCHICAL_PRIMITIVE_COMPOSITION` | readiness=`READY_FOR_QUALIFICATION` | layoutgen=`gen_inv` | openyield_gds=`True`
+- PINV1: `HIERARCHICAL_PRIMITIVE_COMPOSITION` | readiness=`READY_FOR_QUALIFICATION` | layoutgen=`gen_inv` | openyield_gds=`True`
+- PINV2: `HIERARCHICAL_PRIMITIVE_COMPOSITION` | readiness=`READY_FOR_QUALIFICATION` | layoutgen=`gen_inv` | openyield_gds=`True`
+- PINV3: `HIERARCHICAL_PRIMITIVE_COMPOSITION` | readiness=`READY_FOR_QUALIFICATION` | layoutgen=`gen_inv` | openyield_gds=`True`
+- PINV4: `HIERARCHICAL_PRIMITIVE_COMPOSITION` | readiness=`READY_FOR_QUALIFICATION` | layoutgen=`gen_inv` | openyield_gds=`True`
+- PINV_wl_en_bar: `HIERARCHICAL_PRIMITIVE_COMPOSITION` | readiness=`READY_FOR_QUALIFICATION` | layoutgen=`gen_inv` | openyield_gds=`True`
+- PMOS_VTG: `UNKNOWN` | readiness=`UNKNOWN` | layoutgen=`` | openyield_gds=`False`
+- PNAND2: `HIERARCHICAL_PRIMITIVE_COMPOSITION` | readiness=`READY_FOR_QUALIFICATION` | layoutgen=`gen_nand2` | openyield_gds=`True`
+- PNAND3: `HIERARCHICAL_PRIMITIVE_COMPOSITION` | readiness=`READY_FOR_QUALIFICATION` | layoutgen=`gen_nand4` | openyield_gds=`True`
+- TIME: `HIERARCHICAL_PRIMITIVE_COMPOSITION` | readiness=`PARTIAL_METADATA_ONLY` | layoutgen=`` | openyield_gds=`True`
+- TRANSMISSION_GATE: `PARAMETERIZED_TRANSISTOR_LAYOUT_REQUIRED` | readiness=`MISSING` | layoutgen=`` | openyield_gds=`False`
+- delay_chain: `HIERARCHICAL_PRIMITIVE_COMPOSITION` | readiness=`READY_FOR_QUALIFICATION` | layoutgen=`gen_delay_inv` | openyield_gds=`True`
+- pdrive: `HIERARCHICAL_PRIMITIVE_COMPOSITION` | readiness=`PARTIAL_METADATA_ONLY` | layoutgen=`` | openyield_gds=`True`
+- pdrive2_for_pre: `HIERARCHICAL_PRIMITIVE_COMPOSITION` | readiness=`PARTIAL_METADATA_ONLY` | layoutgen=`` | openyield_gds=`True`
+- wl_pdrive: `HIERARCHICAL_PRIMITIVE_COMPOSITION` | readiness=`READY_FOR_QUALIFICATION` | layoutgen=`gen_wl_driver` | openyield_gds=`True`
