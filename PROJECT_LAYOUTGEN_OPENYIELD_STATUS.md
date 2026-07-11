@@ -92,3 +92,14 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 - top_bbox_change_expected: `True`
 - recommended_next_stage: `M12C2_CONTROL_LOGIC_PHYSICAL_LIBRARY_QUALIFICATION`
 - human_review_required: `False`
+
+## M12C2 Control-Library Qualification
+
+- M12C gate reused: `True`
+- operation topology: `READ_WRITE_SUPERSET_CANONICAL`
+- MOS model names removed from missing hardmacro set: `True`
+- trusted manifest entries: `7`
+- TIME candidate status: `CONNECTIVITY_UNPROVEN`
+- TRANSMISSION_GATE status: `MISSING_REQUIRES_GENERATOR`
+- DFF status: `QUALIFIED_REFERENCE_ONLY`
+- next stage: `M12C3_CONTROL_LOGIC_PRIMITIVE_LAYOUT_GENERATOR_PLAN`

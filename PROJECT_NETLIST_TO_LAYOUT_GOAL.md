@@ -72,3 +72,9 @@
 - 现有 physical cells 已盘点：ready=`15`，partial=`3`，reference_only=`1`，missing=`3`。
 - 当前不能 claim CONTROL_LOGIC physical ready：`False`；custom netlist-driven layout generation：`False`。
 - 当前推荐下一阶段：`M12C2_CONTROL_LOGIC_PHYSICAL_LIBRARY_QUALIFICATION`。
+
+## M12C2 Qualification Goal
+
+- Qualify only trusted reusable control-library cells.
+- Exclude device-model names, debug-only composites, and false size aliases from later assembly claims.
+- Locked next stage: `M12C3_CONTROL_LOGIC_PRIMITIVE_LAYOUT_GENERATOR_PLAN`

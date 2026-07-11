@@ -305,3 +305,10 @@
 - human_review_required: `False`
 - can_enter_next_stage_before_human_review: `True`
 - note: `M12C is definition-only. It does not complete control-logic layout, does not replace new SRAM modules, and does not reopen DRC/LVS/signoff claims.`
+
+## M12C2 Progress
+
+- Reclassified NMOS_VTG/PMOS_VTG as PDK device-model references.
+- Qualified manifest entries: `7`
+- Quarantined candidates: `15`
+- Candidate cell DRC scope: `CELL_LEVEL_CANDIDATE_TOP_CELLS`
