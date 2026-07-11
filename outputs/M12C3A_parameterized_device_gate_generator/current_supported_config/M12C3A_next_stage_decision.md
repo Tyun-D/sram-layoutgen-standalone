@@ -1,0 +1,5 @@
+# M12C3A Next Stage Decision
+
+- recommended_next_stage: `M12C3AH_PRIMITIVE_SMOKE_VISUAL_REVIEW`
+- reason: The bounded OpenRAM-backed primitives now generate concrete FreePDK45 geometry and pass machine verification plus per-cell DRC, but pin accessibility, well/tap relationships, rail boundaries, and transmission-gate visual mapping still require explicit human review.
+- can_enter_next_stage_before_human_review: `False`

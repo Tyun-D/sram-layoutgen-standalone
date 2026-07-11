@@ -353,3 +353,14 @@
 - can_claim_parameterized_primitive_generator_implemented: `False`
 - recommended_next_stage: `M12C3A_IMPLEMENT_PARAMETERIZED_DEVICE_AND_GATE_GENERATOR`
 - recommended_next_stage_reason: `Units, source-derived variants, corrected naming/cache identity, fixed-50nm policy, and OpenRAM bootstrap mode are all locked, so adapter implementation can start without reopening the naming or length contract.`
+
+## M12C3A Primitive Generator
+
+- M12C3R correction gate passed and M12C3A concrete primitive generation completed.
+- concrete drive scales 16x16: `{'address_bits': 4, 'clk_dff_count': 22, 'ref_dff_count': 22, 'clk_drive_scale': 1.0, 'pre_col_scale': 0.26153846153846155, 'pre_pmos_scale': 1.0, 'pre_drive_scale': 1, 'w_en_scale': 1, 'resolved_scales': {'pdrive': 1.0, 'pdrive2_for_pre': 1, 'w_en_scale': 1}}`
+- concrete drive scales 64x8: `{'address_bits': 6, 'clk_dff_count': 16, 'ref_dff_count': 22, 'clk_drive_scale': 1.0, 'pre_col_scale': 0.13846153846153847, 'pre_pmos_scale': 4.0, 'pre_drive_scale': 1, 'w_en_scale': 1, 'resolved_scales': {'pdrive': 1.0, 'pdrive2_for_pre': 1, 'w_en_scale': 1}}`
+- generated physical variants: `10` total, `9` PINV plus `1` TRANSMISSION_GATE.
+- per-cell DRC total markers: `0`
+- deterministic regeneration verified: `True`
+- human review gate remains required: `True`
+- next stage: `M12C3AH_PRIMITIVE_SMOKE_VISUAL_REVIEW`

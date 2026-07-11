@@ -1,0 +1,15 @@
+# TRANSMISSION_GATE_NW250_PW500_L50
+
+- cell_name: `TRANSMISSION_GATE_NW250_PW500_L50`
+- nmos_logical_device_count: `1`
+- pmos_logical_device_count: `1`
+- source_drain_mapping_policy: `PHYSICAL_LEFT_TERMINAL_TO_IN_AND_RIGHT_TERMINAL_TO_OUT_FOR_BOTH_DEVICES`
+- source_drain_swapped_for_symmetry: `True`
+- nmos_gate_pin: `CTR_N`
+- pmos_gate_pin: `CTR_P`
+- shared_signal_pins: `['IN', 'OUT']`
+- power_pins: `['VDD', 'VSS']`
+- actual_nmos_width_nm: `250`
+- actual_pmos_width_nm: `500`
+- actual_length_nm: `50`
+- transmission_gate_parameter_match: `True`
