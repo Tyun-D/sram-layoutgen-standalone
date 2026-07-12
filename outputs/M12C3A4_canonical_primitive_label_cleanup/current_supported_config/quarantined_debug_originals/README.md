@@ -1,0 +1,15 @@
+# Quarantined Debug Originals
+
+These source GDS files contain duplicate wrapper/core labels, lowercase aliases, and/or leaked PTX terminal labels.
+They are retained only as debug provenance and must not be used as reusable primitive exports.
+
+- PINV_NW180_PW270_L50: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A_parameterized_device_gate_generator/current_supported_config/cells/PINV_NW180_PW270_L50/PINV_NW180_PW270_L50.gds`
+- PINV_NW180_PW540_L50: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A_parameterized_device_gate_generator/current_supported_config/cells/PINV_NW180_PW540_L50/PINV_NW180_PW540_L50.gds`
+- PINV_NW2430_PW7290_L50: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A_parameterized_device_gate_generator/current_supported_config/cells/PINV_NW2430_PW7290_L50/PINV_NW2430_PW7290_L50.gds`
+- PINV_NW250_PW500_L50: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A_parameterized_device_gate_generator/current_supported_config/cells/PINV_NW250_PW500_L50/PINV_NW250_PW500_L50.gds`
+- PINV_NW270_PW810_L50: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A_parameterized_device_gate_generator/current_supported_config/cells/PINV_NW270_PW810_L50/PINV_NW270_PW810_L50.gds`
+- PINV_NW360_PW1080_L50: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A_parameterized_device_gate_generator/current_supported_config/cells/PINV_NW360_PW1080_L50/PINV_NW360_PW1080_L50.gds`
+- PINV_NW450_PW1350_L50: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A_parameterized_device_gate_generator/current_supported_config/cells/PINV_NW450_PW1350_L50/PINV_NW450_PW1350_L50.gds`
+- PINV_NW90_PW270_L50: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A_parameterized_device_gate_generator/current_supported_config/cells/PINV_NW90_PW270_L50/PINV_NW90_PW270_L50.gds`
+- PINV_NW910_PW2430_L50: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A_parameterized_device_gate_generator/current_supported_config/cells/PINV_NW910_PW2430_L50/PINV_NW910_PW2430_L50.gds`
+- TRANSMISSION_GATE_NW250_PW500_L50: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A3_transmission_gate_adapter_repair/current_supported_config/TRANSMISSION_GATE_NW250_PW500_L50/TRANSMISSION_GATE_NW250_PW500_L50.gds`

@@ -201,6 +201,7 @@ def extract_physical_connectivity(gds_path: Path, top_name: str | None = None) -
 
     labels = []
     pin_labels: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    label_hits: list[dict[str, Any]] = []
     for label in flattened.labels:
         entry = {
             "text": str(label.text),
@@ -209,11 +210,10 @@ def extract_physical_connectivity(gds_path: Path, top_name: str | None = None) -
         }
         labels.append(entry)
         text = str(label.text)
-        if text not in {"IN", "OUT", "VDD", "VSS", "CTR_P", "CTR_N", "in", "out", "vdd", "gnd", "ctr_p", "ctr_n"}:
-            continue
         m1_hits = [rect for rect in m1_rects if _contains_point(rect, float(label.origin[0]), float(label.origin[1]))]
         poly_hits = [rect for rect in poly_rects if _contains_point(rect, float(label.origin[0]), float(label.origin[1]))]
         hit_ids = [rect.rect_id for rect in m1_hits or poly_hits]
+        label_hits.append({"text": text, "origin": entry["origin"], "shape_ids": hit_ids, "layer": entry["layer"]})
         pin_labels[text].append({"origin": entry["origin"], "shape_ids": hit_ids})
 
     components: dict[str, dict[str, Any]] = {}
@@ -263,6 +263,7 @@ def extract_physical_connectivity(gds_path: Path, top_name: str | None = None) -
         "contact_links": contact_links,
         "components": sorted(components.values(), key=lambda item: item["component_id"]),
         "pin_labels": {key: value for key, value in sorted(pin_labels.items())},
+        "label_hits": label_hits,
         "labels": labels,
         "rectangles": {
             "m1": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in m1_rects],

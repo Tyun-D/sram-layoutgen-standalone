@@ -1,0 +1,97 @@
+{
+  "word_size": 16,
+  "num_words": 16,
+  "words_per_row": 1,
+  "rows": 16,
+  "cols": 16,
+  "tech": "FreePDK45",
+  "mux": 1,
+  "power": "VDD/VSS",
+  "generator": "OPENRAM_FREEPDK45_DEVICE_CONTACT_ADAPTER_REPAIR",
+  "output": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells/TRANSMISSION_GATE_NW250_PW500_L50/TRANSMISSION_GATE_NW250_PW500_L50.gds",
+  "logical_module": "TRANSMISSION_GATE",
+  "canonical_physical_cell_name": "TRANSMISSION_GATE_NW250_PW500_L50",
+  "nmos_width_nm": 250,
+  "pmos_width_nm": 500,
+  "channel_length_nm": 50,
+  "reference_config": "16x16",
+  "reference_configs": [
+    "16x16",
+    "64x8"
+  ],
+  "reference_operation": "read&write",
+  "source_file": "time_generate.py",
+  "source_class": "TransmissionGate",
+  "source_instance_paths": [
+    "TransmissionGate"
+  ],
+  "openram_backend": "ptx+pgate composition",
+  "openram_source_fingerprint": "be15a9ec97bc467c6a9f709b",
+  "pin_order": [
+    "VDD",
+    "VSS",
+    "IN",
+    "OUT",
+    "CTR_P",
+    "CTR_N"
+  ],
+  "pin_map": {
+    "VDD": [
+      {
+        "layer": "m1",
+        "lx": 0.0,
+        "by": 1.7875,
+        "rx": 0.56,
+        "uy": 1.8525
+      }
+    ],
+    "VSS": [
+      {
+        "layer": "m1",
+        "lx": 0.0,
+        "by": -0.0325,
+        "rx": 0.56,
+        "uy": 0.0325
+      }
+    ],
+    "IN": [
+      {
+        "layer": "m1",
+        "lx": 0.0925,
+        "by": 0.2275,
+        "rx": 0.1575,
+        "uy": 1.4675
+      }
+    ],
+    "OUT": [
+      {
+        "layer": "m1",
+        "lx": 0.3075,
+        "by": 0.2275,
+        "rx": 0.3725,
+        "uy": 1.4675
+      }
+    ],
+    "CTR_P": [
+      {
+        "layer": "m1",
+        "lx": 0.5825,
+        "by": 1.025,
+        "rx": 0.7175,
+        "uy": 1.09
+      }
+    ],
+    "CTR_N": [
+      {
+        "layer": "m1",
+        "lx": 0.5825,
+        "by": 0.48,
+        "rx": 0.7175,
+        "uy": 0.545
+      }
+    ]
+  },
+  "rail_policy": "OpenRAM row rails on vdd/gnd",
+  "contact_policy": "OpenRAM default ptx contact policy with tap-only body ties",
+  "geometry_fingerprint": "b68406e28a47772360c61bc5"
+}

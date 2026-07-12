@@ -371,3 +371,10 @@
 - Replaced poly-only control exports with routable Metal1 gate pins through real poly contacts.
 - Added machine geometry connectivity extraction that does not treat MOS channels as unconditional shorts.
 - Regenerated only `TRANSMISSION_GATE_NW250_PW500_L50` and left reviewed `PINV` geometry unchanged.
+
+## M12C3A4 Label Cleanup Progress
+
+- Confirmed pre-cleanup duplicate wrapper/core labels across all 9 PINV cells and the repaired Transmission Gate.
+- Confirmed leaked PTX `G/S/D` labels in recursive hierarchy.
+- Implemented export-time reusable GDS sanitization by stripping all recursive text and re-adding only canonical top-level labels.
+- Re-ran geometry preservation, connectivity regression, deterministic export, and cell-level DRC on all 10 sanitized primitives.

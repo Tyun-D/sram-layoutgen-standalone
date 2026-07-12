@@ -8,8 +8,8 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M12C3R",
-  "next_stage": "M12C3A_IMPLEMENT_PARAMETERIZED_DEVICE_AND_GATE_GENERATOR",
+  "current_stage": "M12C3A4",
+  "next_stage": "M12C4_COMPOSITE_CONTROL_CELL_GENERATION_PLAN",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": false,
@@ -2356,5 +2356,17 @@
     "m12c3a3_repair_complete": true,
     "m12c3a3_human_review_still_required": true,
     "composite_control_logic_started": false
+  },
+  "M12C3A4": {
+    "pinv_human_review_passed": true,
+    "transmission_gate_human_review_passed": true,
+    "m12c3a3h_human_gate_passed": true,
+    "duplicate_label_visual_artifact_detected": true,
+    "duplicate_label_affects_conductive_geometry": false,
+    "sanitized_reusable_primitive_exports_generated": true,
+    "original_debug_gds_quarantined": true,
+    "all_non_text_geometry_preserved": true,
+    "all_connectivity_graphs_preserved": true,
+    "can_enter_m12c4": true
   }
 }

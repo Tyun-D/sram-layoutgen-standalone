@@ -187,3 +187,27 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 - Repaired TG DRC clean: `True`.
 - Composite CONTROL_LOGIC generation has still not started.
 - Another focused human visual review is still required for the repaired Transmission Gate.
+
+## M12C3A4 Canonical Primitive Label Cleanup
+
+- 9 `PINV` human checks are formally locked as passed.
+- Repaired `TRANSMISSION_GATE` human review is formally locked as passed.
+- Wrapper/core duplicate labels, uppercase/lowercase alias overlap, and leaked PTX `G/S/D` labels were confirmed in pre-cleanup primitive exports.
+- The issue does not change conductive geometry, but it can confuse LVS, extraction, and top-level pin recognition.
+- Sanitized reusable primitive GDS exports were generated with canonical top-level labels only.
+- Original debug GDS sources were quarantined from reusable composition outputs.
+- Non-text geometry preserved across all primitives: `False`.
+- Connectivity preserved across all primitives: `False`.
+- Composite CONTROL_LOGIC generation may proceed to planning, but CONTROL_LOGIC physical ready is still false.
+
+## M12C3A4 Canonical Primitive Label Cleanup
+
+- 9 `PINV` human checks are formally locked as passed.
+- Repaired `TRANSMISSION_GATE` human review is formally locked as passed.
+- Wrapper/core duplicate labels, uppercase/lowercase alias overlap, and leaked PTX `G/S/D` labels were confirmed in pre-cleanup primitive exports.
+- The issue does not change conductive geometry, but it can confuse LVS, extraction, and top-level pin recognition.
+- Sanitized reusable primitive GDS exports were generated with canonical top-level labels only.
+- Original debug GDS sources were quarantined from reusable composition outputs.
+- Non-text geometry preserved across all primitives: `True`.
+- Connectivity preserved across all primitives: `True`.
+- Composite CONTROL_LOGIC generation may proceed to planning, but CONTROL_LOGIC physical ready is still false.

@@ -6,7 +6,7 @@ import subprocess
 import xml.etree.ElementTree as ET
 from collections import Counter
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 import gdstk
 
@@ -23,31 +23,67 @@ def read_top_cell(gds_path: Path, top_name: str | None = None) -> tuple[gdstk.Li
     return lib, top
 
 
-def geometry_fingerprint(gds_path: Path, top_name: str | None = None) -> dict[str, Any]:
-    lib, top = read_top_cell(gds_path, top_name)
-    flattened = top.flatten()
-    polygons = flattened.polygons
-    labels = flattened.labels
-    bbox = flattened.bounding_box()
+def _normalize_polygon_payload(polygons: list[gdstk.Polygon]) -> tuple[list[tuple[int, int, tuple[tuple[float, float], ...]]], dict[str, int]]:
     layer_hist = Counter((poly.layer, poly.datatype) for poly in polygons)
     normalized = []
     for poly in polygons:
         pts = [(round(float(x), 6), round(float(y), 6)) for x, y in poly.points]
         normalized.append((poly.layer, poly.datatype, tuple(pts)))
     normalized.sort()
+    return normalized, {f"{k[0]}/{k[1]}": v for k, v in sorted(layer_hist.items())}
+
+
+def filtered_geometry_fingerprint(
+    gds_path: Path,
+    top_name: str | None = None,
+    *,
+    include_labels: bool = True,
+    polygon_filter: Callable[[gdstk.Polygon], bool] | None = None,
+    algorithm: str = "sha256_normalized_rectilinear_polygon_and_label_payload_v1",
+) -> dict[str, Any]:
+    _, top = read_top_cell(gds_path, top_name)
+    flattened = top.flatten()
+    polygons = [poly for poly in flattened.polygons if polygon_filter(poly)] if polygon_filter else list(flattened.polygons)
+    labels = list(flattened.labels) if include_labels else []
+    bbox = flattened.bounding_box()
+    normalized, layer_histogram = _normalize_polygon_payload(polygons)
     label_norm = sorted((label.text, label.layer, label.texttype, round(label.origin[0], 6), round(label.origin[1], 6)) for label in labels)
     payload = {
-        "algorithm": "sha256_normalized_rectilinear_polygon_and_label_payload_v1",
+        "algorithm": algorithm,
         "normalized_geometry_used": True,
         "top_cell": top.name,
         "bbox": [round(float(bbox[0][0]), 6), round(float(bbox[0][1]), 6), round(float(bbox[1][0]), 6), round(float(bbox[1][1]), 6)] if bbox else None,
         "polygon_count": len(polygons),
         "label_count": len(labels),
-        "layer_histogram": {f"{k[0]}/{k[1]}": v for k, v in sorted(layer_hist.items())},
+        "layer_histogram": layer_histogram,
         "labels": label_norm,
         "digest": hashlib.sha256(json.dumps({"polygons": normalized, "labels": label_norm}, sort_keys=True).encode("utf-8")).hexdigest()[:24],
     }
     return payload
+
+
+def geometry_fingerprint(gds_path: Path, top_name: str | None = None) -> dict[str, Any]:
+    return filtered_geometry_fingerprint(gds_path, top_name, include_labels=True)
+
+
+def non_text_geometry_fingerprint(gds_path: Path, top_name: str | None = None) -> dict[str, Any]:
+    return filtered_geometry_fingerprint(
+        gds_path,
+        top_name,
+        include_labels=False,
+        algorithm="sha256_normalized_non_text_polygon_payload_v1",
+    )
+
+
+def conductive_geometry_fingerprint(gds_path: Path, top_name: str | None = None) -> dict[str, Any]:
+    conductive_layers = {(1, 0), (9, 0), (10, 0), (11, 0)}
+    return filtered_geometry_fingerprint(
+        gds_path,
+        top_name,
+        include_labels=False,
+        polygon_filter=lambda poly: (poly.layer, poly.datatype) in conductive_layers,
+        algorithm="sha256_normalized_conductive_polygon_payload_v1",
+    )
 
 
 def verify_generated_cell(

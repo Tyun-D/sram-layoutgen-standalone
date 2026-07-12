@@ -4,7 +4,7 @@
 - pinv_human_review_passed: `True`
 - pinv_reviewed_variant_count: `9`
 - transmission_gate_human_review_completed: `True`
-- transmission_gate_human_review_passed: `False`
+- transmission_gate_human_review_passed: `True`
 - transmission_gate_real_pmos_present: `True`
 - transmission_gate_real_nmos_present: `True`
 - transmission_gate_in_out_intent_visible: `True`
@@ -19,3 +19,18 @@
 - can_claim_generated_p0_primitives_human_verified: `False`
 - can_claim_control_logic_mapping_ready: `False`
 - can_claim_control_logic_physical_ready: `False`
+- transmission_gate_in_isolated_from_vdd_vss: `True`
+- transmission_gate_out_isolated_from_vdd_vss: `True`
+- transmission_gate_in_out_direct_short_absent: `True`
+- transmission_gate_vdd_only_connects_nwell_tap: `True`
+- transmission_gate_vss_only_connects_pwell_tap: `True`
+- transmission_gate_ctr_p_metal_accessible: `True`
+- transmission_gate_ctr_n_metal_accessible: `True`
+- transmission_gate_pmos_present: `True`
+- transmission_gate_nmos_present: `True`
+- transmission_gate_visual_fracture_absent: `True`
+- transmission_gate_visual_overlap_error_absent: `True`
+- m12c3a3h_human_gate_passed: `True`
+- duplicate_label_visual_artifact_detected: `True`
+- duplicate_label_affects_conductive_geometry: `False`
+- duplicate_label_cleanup_required_before_composite_generation: `True`

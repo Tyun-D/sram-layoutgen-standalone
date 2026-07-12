@@ -110,3 +110,8 @@
 
 - Scope remains limited to Transmission Gate repair evidence and does not authorize DFF, PNAND, AND, delay chain, TIME, CONTROL_LOGIC, or final SRAM generation.
 - `CONTROL_LOGIC physical ready`, `LVS clean`, and `signoff ready` remain false claims.
+
+## M12C3A4 Label Cleanup Gate
+
+- Before composite generation, primitive reusable exports must present exactly one canonical top-level pin label per net and no leaked internal terminal text.
+- This stage does not change any transistor/contact/well/implant/poly/metal geometry and does not claim LVS or signoff closure.
