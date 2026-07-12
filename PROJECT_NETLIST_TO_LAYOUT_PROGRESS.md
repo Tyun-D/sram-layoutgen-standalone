@@ -422,16 +422,36 @@
 
 ## M12C4AC
 
-- M12C4A generation failed because 11 signal nets merged through Metal2 same-layer crossings.
-- D/Q short was a signal-supernet consequence, not a primitive-level short.
-- Failed DRC marker count was 88 and all markers were routing/grid related.
-- No Well/Implant primitive interface violation was detected in the failed attempt.
-- Failed DFF was quarantined and marked DO_NOT_REUSE / DO_NOT_COMPOSE / DO_NOT_HUMAN_APPROVE.
-- Canonical source topology hash unified: `True`.
+- M12C4A failed generation evidence was reproduced and quarantined.
+- The repaired DFF candidate eliminated the prior Metal2 signal supernet failure.
+- Machine verification passed: `True`.
+- Physical connectivity machine verification passed: `True`.
+- FreePDK45 DRC marker count: `0`.
+- No Well/Implant primitive interface violation was detected.
+- Canonical source topology hash was unified.
 - Repaired routing architecture: `M1_HORIZONTAL_TRACK_M2_VERTICAL_DROP`.
 - Pin access planning passed: `True`.
-- Repaired connectivity passed: `False`.
-- Repaired DRC marker count: `105`.
-- Human review open: `False`.
-- LVS remains not proven.
-- Higher-level CONTROL_LOGIC generation remains blocked.
+- Human review was still required at the end of M12C4AC.
+- Recommended next stage at that point: `M12C4ACH_DFF_REPAIRED_VISUAL_REVIEW`.
+
+## M12C4ACH
+
+- M12C4AC machine verification PASS was closed by focused human visual review PASS.
+- Human-reviewed physical cell: `DFF_TG4_INV7_FPDK45_26d9543b82b7`.
+- DFF current status: `HUMAN_REVIEWED_REUSABLE_COMPOSITE`.
+- OpenYield DFF topology extracted: `True`.
+- DFF composed from approved `PINV` / `TRANSMISSION_GATE` primitives: `True`.
+- Physical connectivity machine-verified: `True`.
+- FreePDK45 DRC clean: `True`.
+- Focused human visual review passed: `True`.
+- Reusable for controlled higher-level composition: `True`.
+- Only released clean GDS may be used as physical composition source: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4ACH_dff_reusable_release/DFF_reusable_clean.gds`.
+- Annotated GDS and review atlas remain review-only and must not be used for composition.
+- Failed M12C4A DFF remains quarantined and must not be reused.
+- LVS passed: `False`.
+- Transistor-level functional simulation passed: `False`.
+- Timing characterized: `False`.
+- Full CONTROL_LOGIC completed: `False`.
+- Signoff completed: `False`.
+- Recommended next stage: `Wave3 / DFF_BUF`.
+- Recommended next stage reason: `Per the locked M12C4 composite implementation wave plan, Wave3 is the first post-DFF wave. Within Wave3, DFF_BUF is the minimal higher-level composite because it uses exactly one approved DFF plus two approved PINV children and does not depend on PNAND, TIME, or array-style replication.`

@@ -1,15 +1,8 @@
 {
-  "project_goal": "\u57fa\u4e8e\u539f layoutgen \u7248\u56fe\u751f\u6210\u5668\uff0c\u5c06 OpenYield \u7684\u6a21\u5757\u3001\u7f51\u8868\u8bed\u4e49\u548c\u8fde\u63a5\u5173\u7cfb\u63a5\u5165\u771f\u5b9e SRAM GDS \u751f\u6210\u4e3b\u5e72\uff0c\u751f\u6210 OpenYield-driven layoutgen-based SRAM GDS\u3002",
-  "current_route": [
-    "S0\uff1a\u5168\u90e8\u6210\u679c\u6574\u7406\u4e0e\u8def\u7ebf\u91cd\u7f6e",
-    "L0\uff1alayoutgen \u539f\u751f\u6210\u8def\u5f84\u4e0e\u7b2c\u4e00\u8f6e OpenYield \u6a21\u5757 GDS \u5ba1\u8ba1",
-    "L1\uff1aOpenYield module/net \u2192 layoutgen generator \u7ed1\u5b9a",
-    "L2\uff1a\u91cd\u65b0\u751f\u6210 OpenYield real module GDS",
-    "L3\uff1alayoutgen-based OpenYield SRAM top GDS \u751f\u6210",
-    "L4\uff1a\u771f\u5b9e\u8fde\u63a5\u3001\u7535\u6e90\u3001\u9a8c\u8bc1\u4e0e\u6700\u7ec8\u4ea4\u4ed8"
-  ],
-  "current_stage": "M12C4R2",
-  "next_stage": "M12C4A_DFF_COMPOSITE_GENERATION",
+  "project_goal": "基于原 layoutgen 版图生成器，将 OpenYield 的模块、网表语义和连接关系接入真实 SRAM GDS 生成主干，生成 OpenYield-driven layoutgen-based SRAM GDS。",
+  "current_route": "M12C4ACH human review passed; repaired DFF released as the only reusable higher-composition candidate.",
+  "current_stage": "M12C4ACH_DFF_REPAIRED_VISUAL_REVIEW",
+  "next_stage": "Wave3 / DFF_BUF",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": false,
@@ -129,7 +122,7 @@
       "artifact_name": "layoutgen_generator_code",
       "path": "sram_layoutgen/",
       "artifact_type": "generator_codebase",
-      "why_reusable": "This is the correct\u5e95\u5ea7 for real SRAM GDS generation.",
+      "why_reusable": "This is the correct底座 for real SRAM GDS generation.",
       "reuse_scope": "L0-L4",
       "risk": "Must be re-bound to OpenYield semantics carefully."
     },
@@ -208,7 +201,7 @@
     {
       "artifact_name": "access_module_cells",
       "path": "*_access_module",
-      "deprecated_reason": "Cannot serve as SRAM physical implementation\u4e3b\u4f53.",
+      "deprecated_reason": "Cannot serve as SRAM physical implementation主体.",
       "do_not_use_as_final": true
     },
     {
@@ -377,7 +370,7 @@
     "remaining_M7_blockers": [],
     "remaining_M7_blockers_count": 0
   },
-  "next_stage_allowed": "M12C3_CONTROL_LOGIC_PRIMITIVE_LAYOUT_GENERATOR_PLAN",
+  "next_stage_allowed": "Wave3 / DFF_BUF",
   "golden_reference_user_confirmed": true,
   "golden_reference_is_now_locked": true,
   "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
@@ -900,7 +893,7 @@
   "ten_required_assets_for_netlist_to_layout": [
     {
       "asset_id": "NETLIST_SEMANTICS",
-      "asset_name": "\u7f51\u8868 / module / instance / net / pin \u8fde\u63a5\u8bed\u4e49",
+      "asset_name": "网表 / module / instance / net / pin 连接语义",
       "status_level": "COMPLETE",
       "evidence_paths": [
         "outputs/M10_raw_openyield_trace/current_supported_config/M10_source_backed_module_trace.csv",
@@ -913,7 +906,7 @@
     },
     {
       "asset_id": "PHYSICAL_IMPLEMENTATION_LIBRARY",
-      "asset_name": "\u6a21\u5757\u7269\u7406\u5b9e\u73b0\u5e93\uff0c\u5305\u62ec layoutgen cell\u3001OpenYield module GDS\u3001hardmacro \u5019\u9009",
+      "asset_name": "模块物理实现库，包括 layoutgen cell、OpenYield module GDS、hardmacro 候选",
       "status_level": "PARTIAL",
       "evidence_paths": [
         "docs/mapping/M11V_baseline_vs_substitution_risk_matrix.csv",
@@ -937,7 +930,7 @@
     },
     {
       "asset_id": "SRAM_CONFIGURATION",
-      "asset_name": "SRAM \u53c2\u6570\u914d\u7f6e\uff0c\u5305\u62ec word_size\u3001num_words\u3001words_per_row\u3001rows\u3001cols\u3001mux ratio",
+      "asset_name": "SRAM 参数配置，包括 word_size、num_words、words_per_row、rows、cols、mux ratio",
       "status_level": "PARTIAL",
       "evidence_paths": [
         "docs/M11_openyield_config_variation_report.json",
@@ -949,7 +942,7 @@
     },
     {
       "asset_id": "FLOORPLAN_RULES",
-      "asset_name": "floorplan \u89c4\u5219\uff0c\u5305\u62ec array\u3001row path\u3001column path\u3001control\u3001top pin \u533a\u57df",
+      "asset_name": "floorplan 规则，包括 array、row path、column path、control、top pin 区域",
       "status_level": "PARTIAL",
       "evidence_paths": [
         "outputs/M9_openyield_netlist_translator/current_supported_config/M9_placement_routing_power_intent.json",
@@ -961,7 +954,7 @@
     },
     {
       "asset_id": "PLACEMENT_RULES",
-      "asset_name": "placement / abutment / orientation / pitch \u5bf9\u9f50\u89c4\u5219",
+      "asset_name": "placement / abutment / orientation / pitch 对齐规则",
       "status_level": "PARTIAL",
       "evidence_paths": [
         "docs/mapping/openyield_placement_rule_matrix.csv",
@@ -973,7 +966,7 @@
     },
     {
       "asset_id": "ROUTING_RULES",
-      "asset_name": "WL\u3001BL/BR\u3001control\u3001data\u3001addr\u3001enable \u7b49 routing \u89c4\u5219",
+      "asset_name": "WL、BL/BR、control、data、addr、enable 等 routing 规则",
       "status_level": "PARTIAL",
       "evidence_paths": [
         "outputs/M9_openyield_netlist_translator/current_supported_config/M9_net_binding_matrix.csv",
@@ -985,7 +978,7 @@
     },
     {
       "asset_id": "POWER_PLAN",
-      "asset_name": "VDD/GND rail overlap\u3001stitch\u3001abutment\u3001top power pin \u7b56\u7565",
+      "asset_name": "VDD/GND rail overlap、stitch、abutment、top power pin 策略",
       "status_level": "PARTIAL",
       "evidence_paths": [
         "outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json",
@@ -997,7 +990,7 @@
     },
     {
       "asset_id": "GDS_GENERATION_FLOW",
-      "asset_name": "GDS generator / layoutgen golden flow / write_standalone \u5165\u53e3",
+      "asset_name": "GDS generator / layoutgen golden flow / write_standalone 入口",
       "status_level": "COMPLETE",
       "evidence_paths": [
         "sram_layoutgen/standalone.py",
@@ -1010,7 +1003,7 @@
     },
     {
       "asset_id": "VERIFICATION_AND_TRACE",
-      "asset_name": "GDS sanity\u3001golden diff\u3001module/net trace\u3001DRC/LVS feasibility\u3001\u4eba\u5de5 KLayout review",
+      "asset_name": "GDS sanity、golden diff、module/net trace、DRC/LVS feasibility、人工 KLayout review",
       "status_level": "PARTIAL",
       "evidence_paths": [
         "docs/M11V_routing_power_connectivity_verification_report.json",
@@ -1624,8 +1617,8 @@
   "openyield_sense_amp_fingerprint_found_in_M11C": true,
   "sense_amp_substitution_analysis_status": "PASS_REAL_SUBSTITUTION_PROVEN",
   "sense_amp_substitution_risk_level": "MEDIUM",
-  "recommended_next_stage": "M12C2_CONTROL_LOGIC_PHYSICAL_LIBRARY_QUALIFICATION",
-  "recommended_next_stage_reason": "The operation topology is locked and there are existing candidate primitives/composites with metadata, so the next step should qualify bbox/pin/rail realism and reuse boundaries.",
+  "recommended_next_stage": "Wave3 / DFF_BUF",
+  "recommended_next_stage_reason": "Per the locked M12C4 composite implementation wave plan, Wave3 is the first post-DFF wave. Within Wave3, DFF_BUF is the minimal higher-level composite because it uses exactly one approved DFF plus two approved PINV children and does not depend on PNAND, TIME, or array-style replication.",
   "remaining_M11D_blockers": [],
   "remaining_M11D_blockers_count": 0,
   "human_klayout_review_required": false,
@@ -2402,9 +2395,37 @@
     "recommended_next_stage": "M12C4AC_DFF_CONNECTIVITY_REPAIR"
   },
   "M12C4AC": {
+    "machine_verification_pass": true,
     "dff_generated": true,
     "dff_drc_clean": true,
+    "physical_connectivity_machine_verified": true,
     "human_review_required": true,
     "recommended_next_stage": "M12C4ACH_DFF_REPAIRED_VISUAL_REVIEW"
-  }
+  },
+  "last_M12C4ACH_report": "docs/M12C4ACH_dff_repaired_visual_review.json",
+  "M12C4ACH": {
+    "human_visual_review_pass": true,
+    "reviewed_physical_cell_name": "DFF_TG4_INV7_FPDK45_26d9543b82b7",
+    "dff_current_status": "HUMAN_REVIEWED_REUSABLE_COMPOSITE",
+    "reusable_release_clean_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4ACH_dff_reusable_release/DFF_reusable_clean.gds",
+    "can_claim_dff_human_verified": true,
+    "can_claim_dff_reusable_for_higher_composition": true,
+    "recommended_next_stage": "Wave3 / DFF_BUF",
+    "recommended_next_stage_reason": "Per the locked M12C4 composite implementation wave plan, Wave3 is the first post-DFF wave. Within Wave3, DFF_BUF is the minimal higher-level composite because it uses exactly one approved DFF plus two approved PINV children and does not depend on PNAND, TIME, or array-style replication.",
+    "remaining_blockers": [
+      "LVS remains not proven for the DFF composite.",
+      "Transistor-level functional/SPICE simulation remains not proven for the DFF composite.",
+      "Timing characterization including setup/hold and clock-to-Q remains incomplete."
+    ]
+  },
+  "dff_current_status": "HUMAN_REVIEWED_REUSABLE_COMPOSITE",
+  "current_human_reviewed_dff_reusable_clean_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4ACH_dff_reusable_release/DFF_reusable_clean.gds",
+  "can_claim_dff_human_verified": true,
+  "can_claim_dff_reusable_for_higher_composition": true,
+  "remaining_M12C4ACH_blockers_count": 3,
+  "remaining_M12C4ACH_blockers": [
+    "LVS remains not proven for the DFF composite.",
+    "Transistor-level functional/SPICE simulation remains not proven for the DFF composite.",
+    "Timing characterization including setup/hold and clock-to-Q remains incomplete."
+  ]
 }
