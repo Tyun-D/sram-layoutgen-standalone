@@ -1,0 +1,12 @@
+instance_name,child_module,source_line,parent_net_connections
+inv1_clk,PINV,216,"[""VDD"", ""VSS"", ""CLK"", ""CLKB""]"
+inv2_D,PINV,220,"[""VDD"", ""VSS"", ""D"", ""D_b""]"
+tg1,TRANSMISSION_GATE,223,"[""VDD"", ""VSS"", ""D_b"", ""z1"", ""CLK"", ""CLKB""]"
+inv3,PINV,227,"[""VDD"", ""VSS"", ""z1"", ""z2""]"
+inv4,PINV,231,"[""VDD"", ""VSS"", ""z2"", ""z3""]"
+tg2,TRANSMISSION_GATE,234,"[""VDD"", ""VSS"", ""z3"", ""z1"", ""CLKB"", ""CLK""]"
+inv5,PINV,239,"[""VDD"", ""VSS"", ""z2"", ""z4""]"
+tg3,TRANSMISSION_GATE,242,"[""VDD"", ""VSS"", ""z4"", ""z5"", ""CLKB"", ""CLK""]"
+inv6,PINV,246,"[""VDD"", ""VSS"", ""z5"", ""Q""]"
+inv7,PINV,250,"[""VDD"", ""VSS"", ""Q"", ""QB""]"
+tg4,TRANSMISSION_GATE,254,"[""VDD"", ""VSS"", ""QB"", ""z5"", ""CLK"", ""CLKB""]"

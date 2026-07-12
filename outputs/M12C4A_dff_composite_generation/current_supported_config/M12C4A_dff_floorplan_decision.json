@@ -1,0 +1,249 @@
+{
+  "floorplan_candidate_count": 3,
+  "selected_dff_floorplan_architecture": "SINGLE_ROW_SOURCE_ORDER",
+  "candidates": [
+    {
+      "architecture": "SINGLE_ROW_SOURCE_ORDER",
+      "placements": [
+        {
+          "instance_name": "inv1_clk",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv2_D",
+          "x": 1.2475,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "tg1",
+          "x": 2.495,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv3",
+          "x": 3.7425,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv4",
+          "x": 4.99,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "tg2",
+          "x": 6.237500000000001,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv5",
+          "x": 7.485,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "tg3",
+          "x": 8.7325,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv6",
+          "x": 9.98,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv7",
+          "x": 11.227500000000001,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "tg4",
+          "x": 12.475000000000001,
+          "y": 0.0,
+          "orientation": "R0"
+        }
+      ],
+      "child_overlap": 0,
+      "route_crossing_estimate": 6,
+      "estimated_wire_length": 13.7225,
+      "m2_route_count": 11,
+      "via1_count": 26,
+      "feedback_route_complexity": 2,
+      "power_rail_complexity": 1,
+      "bbox_area": 25.051844,
+      "deterministic_placement": true,
+      "well_implant_boundary_drc_risk": "LOW"
+    },
+    {
+      "architecture": "TWO_ROW_MASTER_SLAVE_MICRO_FLOORPLAN",
+      "placements": [
+        {
+          "instance_name": "inv1_clk",
+          "x": 0.0,
+          "y": 2.6875,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv2_D",
+          "x": 1.2475,
+          "y": 2.6875,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "tg1",
+          "x": 2.495,
+          "y": 2.6875,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv3",
+          "x": 3.7425,
+          "y": 2.6875,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv4",
+          "x": 4.99,
+          "y": 2.6875,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "tg2",
+          "x": 6.237500000000001,
+          "y": 2.6875,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv5",
+          "x": 2.495,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "tg3",
+          "x": 3.7425,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv6",
+          "x": 4.99,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv7",
+          "x": 6.237500000000001,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "tg4",
+          "x": 7.485,
+          "y": 0.0,
+          "orientation": "R0"
+        }
+      ],
+      "child_overlap": 0,
+      "route_crossing_estimate": 5,
+      "estimated_wire_length": 12.6247,
+      "m2_route_count": 10,
+      "via1_count": 28,
+      "feedback_route_complexity": 2,
+      "power_rail_complexity": 3,
+      "bbox_area": 39.951188,
+      "deterministic_placement": true,
+      "well_implant_boundary_drc_risk": "LOW"
+    },
+    {
+      "architecture": "THREE_ZONE_CLOCK_MASTER_SLAVE",
+      "placements": [
+        {
+          "instance_name": "inv1_clk",
+          "x": 0.0,
+          "y": 5.375,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv2_D",
+          "x": 1.2475,
+          "y": 2.6875,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "tg1",
+          "x": 2.495,
+          "y": 2.6875,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv3",
+          "x": 3.7425,
+          "y": 2.6875,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv4",
+          "x": 4.99,
+          "y": 2.6875,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "tg2",
+          "x": 6.237500000000001,
+          "y": 2.6875,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv5",
+          "x": 3.7425,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "tg3",
+          "x": 4.99,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv6",
+          "x": 6.237500000000001,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv7",
+          "x": 7.485,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "tg4",
+          "x": 8.7325,
+          "y": 0.0,
+          "orientation": "R0"
+        }
+      ],
+      "child_overlap": 0,
+      "route_crossing_estimate": 4,
+      "estimated_wire_length": 13.036375,
+      "m2_route_count": 12,
+      "via1_count": 30,
+      "feedback_route_complexity": 2,
+      "power_rail_complexity": 5,
+      "bbox_area": 72.47975,
+      "deterministic_placement": true,
+      "well_implant_boundary_drc_risk": "MEDIUM"
+    }
+  ]
+}

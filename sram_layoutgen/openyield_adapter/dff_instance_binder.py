@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import ast
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -24,9 +25,23 @@ def _parse_requested_dimensions(child_row: dict[str, Any]) -> tuple[int | None, 
         pieces = [piece.strip() for piece in arg_text.split("|") if piece.strip()]
         if len(pieces) >= 5:
             return _nm(pieces[2]), _nm(pieces[3]), _nm(pieces[4])
-    if child_row["child_logical_module"] == "TRANSMISSION_GATE":
-        return 250, 500, 50
     return None, None, None
+
+
+def parse_transmission_gate_defaults(openyield_root: Path) -> tuple[int, int, int]:
+    source_path = openyield_root / "sram_compiler/subcircuits/time_generate.py"
+    text = source_path.read_text(encoding="utf-8")
+    match = re.search(
+        r"class TransmissionGate.*?def __init__\([^)]*pmos_width=([0-9.eE+-]+), nmos_width=([0-9.eE+-]+), length=([0-9.eE+-]+)",
+        text,
+        flags=re.S,
+    )
+    if not match:
+        raise ValueError("unable to parse TransmissionGate default dimensions from source")
+    pmos_width = int(round(float(match.group(1)) * 1e9))
+    nmos_width = int(round(float(match.group(2)) * 1e9))
+    length = int(round(float(match.group(3)) * 1e9))
+    return nmos_width, pmos_width, length
 
 
 def _fingerprint_digest(cell_dir: Path) -> str:
@@ -48,12 +63,14 @@ def _connectivity_contract_passed(path: Path) -> bool:
 def build_dff_instance_binding_matrix(
     *,
     repo_root: Path,
+    openyield_root: Path | None = None,
     contract: dict[str, Any],
     dff_child_rows: list[dict[str, Any]],
 ) -> dict[str, Any]:
     approved_root = Path(contract["approved_reusable_cell_root"]).resolve()
     expected_pinv = "PINV_NW250_PW500_L50"
     expected_tg = contract["approved_transmission_gate_cell"]
+    tg_defaults = parse_transmission_gate_defaults(openyield_root) if openyield_root is not None else (250, 500, 50)
     rows: list[dict[str, Any]] = []
 
     for child_row in dff_child_rows:
@@ -61,6 +78,8 @@ def build_dff_instance_binding_matrix(
         child_module = child_row["child_logical_module"]
         expected_pins = contract["approved_canonical_pin_names"]["PINV" if child_module == "PINV" else "TRANSMISSION_GATE"]
         requested_nmos, requested_pmos, requested_length = _parse_requested_dimensions(child_row)
+        if child_module == "TRANSMISSION_GATE":
+            requested_nmos, requested_pmos, requested_length = tg_defaults
         resolved_cell = expected_pinv if child_module == "PINV" else expected_tg
         cell_dir = approved_root / resolved_cell
         gds_path = cell_dir / f"{resolved_cell}.gds"
@@ -98,6 +117,9 @@ def build_dff_instance_binding_matrix(
         elif child_module == "PINV" and (requested_nmos, requested_pmos, requested_length) != (250, 500, 50):
             binding_status = "PARAMETER_MISMATCH"
             binding_failure_reason = f"requested PINV dimensions {(requested_nmos, requested_pmos, requested_length)} do not match approved DFF inverter"
+        elif child_module == "TRANSMISSION_GATE" and (requested_nmos, requested_pmos, requested_length) != (250, 500, 50):
+            binding_status = "PARAMETER_MISMATCH"
+            binding_failure_reason = f"requested TG dimensions {(requested_nmos, requested_pmos, requested_length)} do not match approved DFF transmission gate"
 
         rows.append(
             {

@@ -279,3 +279,16 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 - Concrete expansion and DFF 11-instance approved binding are now data-derived instead of hard-coded.
 - Current next stage: `M12C4A_DFF_COMPOSITE_GENERATION`.
 - No formal DFF GDS was generated in M12C4R2.
+
+## M12C4A
+
+- M12C4R2 source/binding gate passed.
+- M12C4R2 net-role metadata defect corrected.
+- M12C4R2 diagnostic unchanged hardcoded defect corrected.
+- DFF physical cell generated: `DFF_TG4_INV7_FPDK45_3363e5e66d68`.
+- DFF child count / source connection count: `11` / `52`.
+- Selected floorplan: `SINGLE_ROW_SOURCE_ORDER`.
+- DFF DRC marker count: `1970`.
+- Deterministic regeneration verified: `True`.
+- LVS remains not proven.
+- Higher-level CONTROL_LOGIC generation remains not started.
