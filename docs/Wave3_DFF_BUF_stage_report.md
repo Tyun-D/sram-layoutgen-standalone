@@ -1,0 +1,72 @@
+- exact_stage_identifier: `Wave3 / DFF_BUF`
+- source_commit_match: `True`
+- source_commit_actual: `1c34428d8b913963c4971d093b1a7c2df97a2509`
+- source_definition_file: `/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py`
+- source_definition_function: `DFF_BUF.add_dff_buf`
+- source_topology_extraction_passed: `True`
+- source_child_instance_count: `3`
+- source_child_type_counts: `{'DFF': 1, 'PINV': 2}`
+- source_pin_net_connection_count: `13`
+- source_top_pin_list: `['VDD', 'VSS', 'D', 'Q', 'QB', 'CLK']`
+- source_internal_net_list: `['qint']`
+- canonical_topology_hash: `6058eaf43739`
+- source_topology_hash_match: `True`
+- approved_dff_source_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4ACH_dff_reusable_release/DFF_reusable_clean.gds`
+- approved_dff_sha256_match: `True`
+- approved_dff_cell_name: `DFF_TG4_INV7_FPDK45_26d9543b82b7`
+- approved_pinv_source_root: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells`
+- exact_child_binding_count: `3`
+- non_exact_child_binding_count: `0`
+- selected_floorplan_architecture: `SINGLE_ROW_SOURCE_ORDER`
+- floorplan_candidate_count: `3`
+- selected_floorplan_reason: `Selected because it minimized connectivity errors first, then DRC markers, then wirelength/via count/area.`
+- selected_routing_architecture: `M1_HORIZONTAL_TRACK_M2_VERTICAL_DROP`
+- routing_architecture_has_no_same_layer_crossovers: `True`
+- pin_access_planning_passed: `True`
+- off_grid_m1_vertex_count: `0`
+- off_grid_m2_vertex_count: `0`
+- off_grid_via1_vertex_count: `0`
+- placed_child_instance_count: `3`
+- child_geometry_modified_count: `0`
+- route_segment_count: `10`
+- m1_route_count: `5`
+- m2_route_count: `5`
+- via1_count: `10`
+- power_network_passed: `True`
+- signal_route_geometry_generated: `True`
+- signal_routing_completed: `True`
+- expected_net_count: `7`
+- actual_net_component_count: `7`
+- unexpected_net_merge_count: `0`
+- missing_expected_endpoint_count: `0`
+- unexpected_endpoint_count: `0`
+- floating_required_pin_count: `0`
+- power_signal_short_count: `0`
+- vdd_vss_short_present: `False`
+- physical_connectivity_verification_passed: `True`
+- logical_physical_structural_match: `True`
+- top_canonical_label_set_exact: `True`
+- top_canonical_label_count: `6`
+- child_label_leakage_count: `0`
+- hierarchy_closure_passed: `True`
+- missing_reference_target_count: `0`
+- reference_cycle_count: `0`
+- drc_marker_count: `0`
+- drc_passed: `True`
+- deterministic_regeneration_verified: `True`
+- source_level_functional_polarity_audit_passed: `True`
+- lvs_proven: `False`
+- spice_functional_simulation_proven: `False`
+- timing_characterized: `False`
+- can_claim_dff_buf_generated: `True`
+- can_claim_dff_buf_machine_verified: `True`
+- can_claim_dff_buf_human_verified: `False`
+- can_claim_dff_buf_reusable: `False`
+- human_review_required: `True`
+- can_enter_next_stage_before_human_review: `False`
+- clean_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_composite_generation/current_supported_config/DFF_BUF_clean.gds`
+- annotated_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_composite_generation/current_supported_config/DFF_BUF_annotated.gds`
+- review_atlas_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_composite_generation/current_supported_config/DFF_BUF_review_atlas.gds`
+- remaining_blockers: `['DFF_BUF human visual review not yet completed.', 'LVS remains not proven for DFF_BUF.', 'SPICE functional simulation remains not proven for DFF_BUF.', 'Timing characterization remains incomplete for DFF_BUF.']`
+- recommended_next_stage: `Wave3 / DFF_BUF`
+- recommended_next_stage_reason: `Machine verification passed. The same Wave3 / DFF_BUF stage now requires focused human visual review before any reusable or higher-wave claim.`

@@ -27,6 +27,14 @@ MODULE_PIN_ROLE_REGISTRY: dict[str, dict[str, str]] = {
         "Q": "SIGNAL_OUTPUT",
         "CLK": "CLOCK_INPUT",
     },
+    "DFF_BUF": {
+        "VDD": "POWER",
+        "VSS": "GROUND",
+        "D": "SIGNAL_INPUT",
+        "Q": "SIGNAL_OUTPUT",
+        "QB": "SIGNAL_OUTPUT",
+        "CLK": "CLOCK_INPUT",
+    },
 }
 
 

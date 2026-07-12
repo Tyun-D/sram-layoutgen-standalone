@@ -1,7 +1,7 @@
 {
   "project_goal": "基于原 layoutgen 版图生成器，将 OpenYield 的模块、网表语义和连接关系接入真实 SRAM GDS 生成主干，生成 OpenYield-driven layoutgen-based SRAM GDS。",
   "current_route": "M12C4ACH human review passed; repaired DFF released as the only reusable higher-composition candidate.",
-  "current_stage": "M12C4ACH_DFF_REPAIRED_VISUAL_REVIEW",
+  "current_stage": "Wave3 / DFF_BUF",
   "next_stage": "Wave3 / DFF_BUF",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
@@ -1618,7 +1618,7 @@
   "sense_amp_substitution_analysis_status": "PASS_REAL_SUBSTITUTION_PROVEN",
   "sense_amp_substitution_risk_level": "MEDIUM",
   "recommended_next_stage": "Wave3 / DFF_BUF",
-  "recommended_next_stage_reason": "Per the locked M12C4 composite implementation wave plan, Wave3 is the first post-DFF wave. Within Wave3, DFF_BUF is the minimal higher-level composite because it uses exactly one approved DFF plus two approved PINV children and does not depend on PNAND, TIME, or array-style replication.",
+  "recommended_next_stage_reason": "Machine verification passed. The same Wave3 / DFF_BUF stage now requires focused human visual review before any reusable or higher-wave claim.",
   "remaining_M11D_blockers": [],
   "remaining_M11D_blockers_count": 0,
   "human_klayout_review_required": false,
@@ -2427,5 +2427,8 @@
     "LVS remains not proven for the DFF composite.",
     "Transistor-level functional/SPICE simulation remains not proven for the DFF composite.",
     "Timing characterization including setup/hold and clock-to-Q remains incomplete."
-  ]
+  ],
+  "Wave3_DFF_BUF": {
+    "current_status": "MACHINE_VERIFIED_CANDIDATE_PENDING_HUMAN_REVIEW"
+  }
 }

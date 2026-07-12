@@ -7,21 +7,14 @@ from typing import Any
 
 
 CANONICAL_DFF_TOPOLOGY_IDENTITY_VERSION = "M12C4AC_CANONICAL_DFF_TOPOLOGY_IDENTITY_V1"
+CANONICAL_COMPOSITE_TOPOLOGY_IDENTITY_VERSION = "M12C4_COMPOSITE_TOPOLOGY_IDENTITY_V1"
 
 
 def _file_sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def build_canonical_dff_topology_payload(
-    *,
-    binding_rows: list[dict[str, Any]],
-    corrected_net_contract: dict[str, Any],
-    top_pin_order: list[str],
-    internal_net_order: list[str],
-    module_pin_role_registry: dict[str, Any],
-    openyield_files: list[Path],
-) -> dict[str, Any]:
+def _normalized_binding_rows(binding_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     ordered_rows = []
     for row in binding_rows:
         ordered_rows.append(
@@ -33,19 +26,56 @@ def build_canonical_dff_topology_payload(
                 "source_line": int(row["source_line"]),
             }
         )
-    provenance = []
-    for path in openyield_files:
-        provenance.append({"path": str(path), "sha256": _file_sha(path)})
+    return ordered_rows
+
+
+def _source_provenance(openyield_files: list[Path]) -> list[dict[str, str]]:
+    return [{"path": str(path), "sha256": _file_sha(path)} for path in openyield_files]
+
+
+def build_canonical_composite_topology_payload(
+    *,
+    module_name: str,
+    binding_rows: list[dict[str, Any]],
+    net_contract: dict[str, Any],
+    top_pin_order: list[str],
+    internal_net_order: list[str],
+    module_pin_role_registry: dict[str, Any],
+    openyield_files: list[Path],
+    schema_version: str = CANONICAL_COMPOSITE_TOPOLOGY_IDENTITY_VERSION,
+) -> dict[str, Any]:
     return {
-        "schema_version": CANONICAL_DFF_TOPOLOGY_IDENTITY_VERSION,
+        "schema_version": schema_version,
+        "logical_module": module_name,
         "top_pin_order": list(top_pin_order),
         "internal_net_order": list(internal_net_order),
-        "ordered_child_instances": ordered_rows,
+        "ordered_child_instances": _normalized_binding_rows(binding_rows),
         "module_pin_role_registry_version": module_pin_role_registry.get("schema_version", "UNKNOWN"),
-        "top_pin_contracts": corrected_net_contract["top_pin_contracts"],
-        "internal_net_contracts": {name: corrected_net_contract["internal_nets"][name] for name in internal_net_order},
-        "openyield_source_provenance": provenance,
+        "top_pin_contracts": net_contract["top_pin_contracts"],
+        "internal_net_contracts": {name: net_contract["internal_nets"][name] for name in internal_net_order},
+        "openyield_source_provenance": _source_provenance(openyield_files),
     }
+
+
+def build_canonical_dff_topology_payload(
+    *,
+    binding_rows: list[dict[str, Any]],
+    corrected_net_contract: dict[str, Any],
+    top_pin_order: list[str],
+    internal_net_order: list[str],
+    module_pin_role_registry: dict[str, Any],
+    openyield_files: list[Path],
+) -> dict[str, Any]:
+    return build_canonical_composite_topology_payload(
+        module_name="DFF",
+        binding_rows=binding_rows,
+        net_contract=corrected_net_contract,
+        top_pin_order=top_pin_order,
+        internal_net_order=internal_net_order,
+        module_pin_role_registry=module_pin_role_registry,
+        openyield_files=openyield_files,
+        schema_version=CANONICAL_DFF_TOPOLOGY_IDENTITY_VERSION,
+    )
 
 
 def canonical_dff_topology_hash(payload: dict[str, Any], length: int = 12) -> str:
@@ -58,12 +88,14 @@ def write_canonical_identity(payload: dict[str, Any], json_path: Path, md_path: 
     wrapped = {"source_topology_hash": topology_hash, "payload": payload}
     json_path.parent.mkdir(parents=True, exist_ok=True)
     json_path.write_text(json.dumps(wrapped, indent=2) + "\n", encoding="utf-8")
+    logical_module = payload.get("logical_module", "DFF")
     md_path.write_text(
         "\n".join(
             [
-                "# M12C4AC Canonical DFF Topology Identity",
+                f"# Canonical {logical_module} Topology Identity",
                 "",
                 f"- schema_version: `{payload['schema_version']}`",
+                f"- logical_module: `{logical_module}`",
                 f"- source_topology_hash: `{topology_hash}`",
                 f"- ordered_child_instance_count: `{len(payload['ordered_child_instances'])}`",
                 "",
@@ -72,4 +104,3 @@ def write_canonical_identity(payload: dict[str, Any], json_path: Path, md_path: 
         encoding="utf-8",
     )
     return topology_hash
-

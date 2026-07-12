@@ -1,0 +1,193 @@
+{
+  "candidate_count": 3,
+  "selected_architecture": "SINGLE_ROW_SOURCE_ORDER",
+  "rows": [
+    {
+      "architecture": "SINGLE_ROW_SOURCE_ORDER",
+      "placements": [
+        {
+          "instance_name": "dff",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv1",
+          "x": 14.094999999999999,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv2",
+          "x": 15.242499999999998,
+          "y": 0.0,
+          "orientation": "R0"
+        }
+      ],
+      "estimated_signal_wirelength": 16.315,
+      "expected_via_count": 10,
+      "same_layer_crossover_count": 0,
+      "power_alignment_result": "DIRECT_ROW_ALIGNMENT",
+      "routing_channel_sufficiency": "HIGH",
+      "drc_risk_score": 2,
+      "bbox_area": 69.379537,
+      "selection_reason_hint": "Keeps source order and straightforward power alignment."
+    },
+    {
+      "architecture": "STACKED_OUTPUT_BUFFER_COLUMN",
+      "placements": [
+        {
+          "instance_name": "dff",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv1",
+          "x": 12.9475,
+          "y": 4.8025,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv2",
+          "x": 12.6725,
+          "y": 6.94,
+          "orientation": "R0"
+        }
+      ],
+      "estimated_signal_wirelength": 9.1275,
+      "expected_via_count": 12,
+      "same_layer_crossover_count": 0,
+      "power_alignment_result": "REQUIRES_VERTICAL_POWER_STITCH",
+      "routing_channel_sufficiency": "MEDIUM",
+      "drc_risk_score": 4,
+      "bbox_area": 128.893737,
+      "selection_reason_hint": "Minimizes qint/QB horizontal distance but increases power stitching complexity."
+    },
+    {
+      "architecture": "STAGGERED_OUTPUT_CHAIN",
+      "placements": [
+        {
+          "instance_name": "dff",
+          "x": 0.0,
+          "y": 0.0,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv1",
+          "x": 14.094999999999999,
+          "y": 0.55,
+          "orientation": "R0"
+        },
+        {
+          "instance_name": "inv2",
+          "x": 15.242499999999998,
+          "y": 0.0,
+          "orientation": "R0"
+        }
+      ],
+      "estimated_signal_wirelength": 16.865,
+      "expected_via_count": 11,
+      "same_layer_crossover_count": 0,
+      "power_alignment_result": "DIRECT_ROW_ALIGNMENT_WITH_VERTICAL_TAP",
+      "routing_channel_sufficiency": "MEDIUM",
+      "drc_risk_score": 3,
+      "bbox_area": 69.379537,
+      "selection_reason_hint": "Creates extra local channel between inv1 and inv2 without changing source order."
+    }
+  ],
+  "trial_rows": [
+    {
+      "architecture": "SINGLE_ROW_SOURCE_ORDER",
+      "estimated_signal_wirelength": 16.315,
+      "expected_via_count": 10,
+      "same_layer_crossover_count": 0,
+      "power_alignment_result": "DIRECT_ROW_ALIGNMENT",
+      "routing_channel_sufficiency": "HIGH",
+      "drc_risk_score": 2,
+      "bbox_area": 69.379537,
+      "connectivity_passed": true,
+      "unexpected_net_merge_count": 0,
+      "missing_expected_endpoint_count": 0,
+      "floating_required_pin_count": 0,
+      "drc_marker_count": 0,
+      "via1_count": 10,
+      "reference_cycle_count": 0,
+      "selection_reason": "Selected because it minimized connectivity errors first, then DRC markers, then wirelength/via count/area."
+    },
+    {
+      "architecture": "STACKED_OUTPUT_BUFFER_COLUMN",
+      "estimated_signal_wirelength": 9.1275,
+      "expected_via_count": 12,
+      "same_layer_crossover_count": 0,
+      "power_alignment_result": "REQUIRES_VERTICAL_POWER_STITCH",
+      "routing_channel_sufficiency": "MEDIUM",
+      "drc_risk_score": 4,
+      "bbox_area": 128.893737,
+      "connectivity_passed": false,
+      "unexpected_net_merge_count": 1,
+      "missing_expected_endpoint_count": 0,
+      "floating_required_pin_count": 0,
+      "drc_marker_count": 10,
+      "via1_count": 14,
+      "reference_cycle_count": 0,
+      "selection_reason": "candidate retained only for comparison"
+    },
+    {
+      "architecture": "STAGGERED_OUTPUT_CHAIN",
+      "estimated_signal_wirelength": 16.865,
+      "expected_via_count": 11,
+      "same_layer_crossover_count": 0,
+      "power_alignment_result": "DIRECT_ROW_ALIGNMENT_WITH_VERTICAL_TAP",
+      "routing_channel_sufficiency": "MEDIUM",
+      "drc_risk_score": 3,
+      "bbox_area": 69.379537,
+      "connectivity_passed": false,
+      "unexpected_net_merge_count": 1,
+      "missing_expected_endpoint_count": 0,
+      "floating_required_pin_count": 0,
+      "drc_marker_count": 16,
+      "via1_count": 14,
+      "reference_cycle_count": 0,
+      "selection_reason": "candidate retained only for comparison"
+    }
+  ],
+  "selected_trial": {
+    "architecture": "SINGLE_ROW_SOURCE_ORDER",
+    "estimated_signal_wirelength": 16.315,
+    "expected_via_count": 10,
+    "same_layer_crossover_count": 0,
+    "power_alignment_result": "DIRECT_ROW_ALIGNMENT",
+    "routing_channel_sufficiency": "HIGH",
+    "drc_risk_score": 2,
+    "bbox_area": 69.379537,
+    "connectivity_passed": true,
+    "unexpected_net_merge_count": 0,
+    "missing_expected_endpoint_count": 0,
+    "floating_required_pin_count": 0,
+    "drc_marker_count": 0,
+    "via1_count": 10,
+    "reference_cycle_count": 0,
+    "selection_reason": "Selected because it minimized connectivity errors first, then DRC markers, then wirelength/via count/area."
+  },
+  "selected_placements": [
+    {
+      "instance_name": "dff",
+      "x": 0.0,
+      "y": 0.0,
+      "orientation": "R0"
+    },
+    {
+      "instance_name": "inv1",
+      "x": 14.094999999999999,
+      "y": 0.0,
+      "orientation": "R0"
+    },
+    {
+      "instance_name": "inv2",
+      "x": 15.242499999999998,
+      "y": 0.0,
+      "orientation": "R0"
+    }
+  ]
+}

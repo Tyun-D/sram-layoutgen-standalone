@@ -328,3 +328,13 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 - Signoff completed: `False`.
 - Recommended next stage: `Wave3 / DFF_BUF`.
 - Recommended next stage reason: `Per the locked M12C4 composite implementation wave plan, Wave3 is the first post-DFF wave. Within Wave3, DFF_BUF is the minimal higher-level composite because it uses exactly one approved DFF plus two approved PINV children and does not depend on PNAND, TIME, or array-style replication.`
+
+## Wave3 / DFF_BUF
+
+- current_status: `MACHINE_VERIFIED_CANDIDATE_PENDING_HUMAN_REVIEW`.
+- DFF reusable input remains `HUMAN_REVIEWED_REUSABLE_COMPOSITE`.
+- DFF_BUF topology is extracted directly from current OpenYield `DFF_BUF.add_dff_buf` source.
+- DFF child source remains the released clean DFF only; annotated/atlas and quarantined sources remain forbidden.
+- No claim is made for LVS, SPICE functional simulation, timing characterization, full CONTROL_LOGIC completion, or signoff.
+- Recommended next stage: `Wave3 / DFF_BUF`.
+- Recommended next stage reason: `Machine verification passed. The same Wave3 / DFF_BUF stage now requires focused human visual review before any reusable or higher-wave claim.`

@@ -104,6 +104,15 @@ def _escape_geometry_from_column(
     return m1_landing, escape, via_center
 
 
+def _row_geometry_from_planner(row: dict[str, Any]) -> tuple[dict[str, float], dict[str, float], dict[str, float], tuple[float, float]]:
+    return (
+        ast.literal_eval(row["m1_landing_bbox"]),
+        ast.literal_eval(row["m2_landing_bbox"]),
+        ast.literal_eval(row["escape_segment_bbox"]),
+        tuple(ast.literal_eval(row["selected_via_center"])),
+    )
+
+
 def _via_dict(net_name: str, x: float, y: float, size: float, landing: float, route_order: int, via_role: str) -> dict[str, Any]:
     return {
         "net_name": net_name,
@@ -124,6 +133,15 @@ def _pin_direction_counts(decision_rows: list[dict[str, Any]]) -> dict[str, int]
     return counts
 
 
+def _bboxes_overlap(a: dict[str, float], b: dict[str, float]) -> bool:
+    return not (
+        a["rx"] <= b["lx"]
+        or b["rx"] <= a["lx"]
+        or a["uy"] <= b["by"]
+        or b["uy"] <= a["by"]
+    )
+
+
 def generate_dff_signal_routes(
     *,
     top: gdstk.Cell,
@@ -132,6 +150,7 @@ def generate_dff_signal_routes(
     top_pin_anchors: dict[str, float],
     routing_channel_base_y: float,
     routing_channel_right_x: float,
+    net_names: list[str] | None = None,
 ) -> dict[str, Any]:
     via_rule = tech.via_between("m1", "m2")
     assert via_rule is not None
@@ -141,7 +160,7 @@ def generate_dff_signal_routes(
     landing = round(via_rule.size + 2 * via_rule.enclosure, 6)
     track_pitch = max(landing + m1_rule.min_space, 0.21)
     column_pitch = max(landing + m2_rule.min_space, 0.21)
-    net_names = ["CLK", "CLKB", "D", "D_b", "z1", "z2", "z3", "z4", "z5", "Q", "QB"]
+    net_names = list(net_names) if net_names is not None else ["CLK", "CLKB", "D", "D_b", "z1", "z2", "z3", "z4", "z5", "Q", "QB"]
 
     endpoint_rows = _flatten_endpoint_rows({name: endpoints_by_net[name] for name in net_names})
     obstacle_rows = _build_endpoint_obstacles(endpoint_rows)
@@ -180,58 +199,36 @@ def generate_dff_signal_routes(
         track = track_by_net[net_name]
         track_y = float(track["track_y"])
         xs = []
+        pending_columns: list[dict[str, Any]] = []
         for endpoint in endpoints:
             selected = column_by_endpoint[endpoint["endpoint_name"]]
             direction = selected["selected_candidate"]
-            m1_landing, escape_bbox, via_center = _escape_geometry_from_column(
-                pin_bbox=endpoint["bbox"],
-                direction=direction,
-                column_x=float(selected["vertical_column_x"]),
-                landing_size=landing,
-                grid=grid,
-            )
-            m2_landing = snap_rect_with_legal_width(cx=via_center[0], cy=via_center[1], width=landing, height=landing, grid=grid)
+            if "selected_via_center" in selected and "m1_landing_bbox" in selected and "escape_segment_bbox" in selected:
+                m1_landing, m2_landing, escape_bbox, via_center = _row_geometry_from_planner(selected)
+            else:
+                m1_landing, escape_bbox, via_center = _escape_geometry_from_column(
+                    pin_bbox=endpoint["bbox"],
+                    direction=direction,
+                    column_x=float(selected["vertical_column_x"]),
+                    landing_size=landing,
+                    grid=grid,
+                )
+                m2_landing = snap_rect_with_legal_width(cx=via_center[0], cy=via_center[1], width=landing, height=landing, grid=grid)
             via_bbox = snap_rect_with_legal_width(cx=via_center[0], cy=via_center[1], width=via_rule.size, height=via_rule.size, grid=grid)
             _add_rect(top, m1_landing, 11, 0)
             _add_rect(top, escape_bbox, 11, 0)
-            _add_rect(top, via_bbox, 12, 0)
-            _add_rect(top, m2_landing, 13, 0)
             m1_rects.extend([m1_landing, escape_bbox])
-            via_rects.append(via_bbox)
-            m2_rects.append(m2_landing)
-            vias.append(_via_dict(net_name, via_center[0], via_center[1], via_rule.size, landing, order, "pin_access"))
-
-            lower_y = via_center[1] + landing * 0.5
-            upper_y = track_y - landing * 0.5
-            vertical_bbox = rect_from_segment((via_center[0], lower_y), (via_center[0], upper_y), m2_rule.min_width, grid)
-            _add_rect(top, vertical_bbox, 13, 0)
-            m2_rects.append(vertical_bbox)
-            route_segments.append(
+            xs.append(via_center[0])
+            pending_columns.append(
                 {
-                    "net_name": net_name,
-                    "layer": "m2",
-                    "start": [via_center[0], lower_y],
-                    "end": [via_center[0], upper_y],
-                    "width": m2_rule.min_width,
-                    "source_pin": endpoint["endpoint_name"],
-                    "destination_pin": f"{net_name}_TRACK",
-                    "obstacle_clearance": m2_rule.min_space,
-                    "route_order": order,
-                    "geometry_id": f"{net_name}_column_{endpoint['endpoint_name']}",
+                    "endpoint": endpoint,
+                    "via_center": via_center,
+                    "escape_bbox": escape_bbox,
+                    "m2_landing": m2_landing,
+                    "via_bbox": via_bbox,
+                    "m1_landing": m1_landing,
                 }
             )
-            xs.append(via_center[0])
-
-            track_via_bbox = snap_rect_with_legal_width(cx=via_center[0], cy=track_y, width=via_rule.size, height=via_rule.size, grid=grid)
-            track_m1_landing = snap_rect_with_legal_width(cx=via_center[0], cy=track_y, width=landing, height=landing, grid=grid)
-            track_m2_landing = snap_rect_with_legal_width(cx=via_center[0], cy=track_y, width=landing, height=landing, grid=grid)
-            _add_rect(top, track_m1_landing, 11, 0)
-            _add_rect(top, track_via_bbox, 12, 0)
-            _add_rect(top, track_m2_landing, 13, 0)
-            m1_rects.append(track_m1_landing)
-            via_rects.append(track_via_bbox)
-            m2_rects.append(track_m2_landing)
-            vias.append(_via_dict(net_name, via_center[0], track_y, via_rule.size, landing, order, "track_drop"))
 
         if net_name in top_pin_anchors:
             pin_cx = float(top_pin_anchors[net_name])
@@ -266,6 +263,47 @@ def generate_dff_signal_routes(
                 "geometry_id": f"{net_name}_track",
             }
         )
+        for pending in pending_columns:
+            if _bboxes_overlap(pending["escape_bbox"], track_bbox):
+                continue
+            via_center = pending["via_center"]
+            endpoint = pending["endpoint"]
+            _add_rect(top, pending["via_bbox"], 12, 0)
+            _add_rect(top, pending["m2_landing"], 13, 0)
+            via_rects.append(pending["via_bbox"])
+            m2_rects.append(pending["m2_landing"])
+            vias.append(_via_dict(net_name, via_center[0], via_center[1], via_rule.size, landing, order, "pin_access"))
+
+            lower_y = via_center[1] + landing * 0.5
+            upper_y = track_y - landing * 0.5
+            vertical_bbox = rect_from_segment((via_center[0], lower_y), (via_center[0], upper_y), m2_rule.min_width, grid)
+            _add_rect(top, vertical_bbox, 13, 0)
+            m2_rects.append(vertical_bbox)
+            route_segments.append(
+                {
+                    "net_name": net_name,
+                    "layer": "m2",
+                    "start": [via_center[0], lower_y],
+                    "end": [via_center[0], upper_y],
+                    "width": m2_rule.min_width,
+                    "source_pin": endpoint["endpoint_name"],
+                    "destination_pin": f"{net_name}_TRACK",
+                    "obstacle_clearance": m2_rule.min_space,
+                    "route_order": order,
+                    "geometry_id": f"{net_name}_column_{endpoint['endpoint_name']}",
+                }
+            )
+
+            track_via_bbox = snap_rect_with_legal_width(cx=via_center[0], cy=track_y, width=via_rule.size, height=via_rule.size, grid=grid)
+            track_m1_landing = snap_rect_with_legal_width(cx=via_center[0], cy=track_y, width=landing, height=landing, grid=grid)
+            track_m2_landing = snap_rect_with_legal_width(cx=via_center[0], cy=track_y, width=landing, height=landing, grid=grid)
+            _add_rect(top, track_m1_landing, 11, 0)
+            _add_rect(top, track_via_bbox, 12, 0)
+            _add_rect(top, track_m2_landing, 13, 0)
+            m1_rects.append(track_m1_landing)
+            via_rects.append(track_via_bbox)
+            m2_rects.append(track_m2_landing)
+            vias.append(_via_dict(net_name, via_center[0], track_y, via_rule.size, landing, order, "track_drop"))
         route_graph_nets.append(
             {
                 "net_name": net_name,

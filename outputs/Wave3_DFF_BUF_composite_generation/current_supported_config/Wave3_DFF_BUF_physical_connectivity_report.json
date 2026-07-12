@@ -1,0 +1,130 @@
+{
+  "per_net": [
+    {
+      "net_name": "VDD",
+      "expected_endpoint_set": [
+        "TOP.VDD",
+        "dff.VDD",
+        "inv1.VDD",
+        "inv2.VDD"
+      ],
+      "actual_endpoint_set": [
+        "TOP.VDD",
+        "dff.VDD",
+        "inv1.VDD",
+        "inv2.VDD"
+      ],
+      "missing_endpoints": [],
+      "unexpected_endpoints": [],
+      "component_id": "contact_1411",
+      "net_match_status": "MATCH"
+    },
+    {
+      "net_name": "VSS",
+      "expected_endpoint_set": [
+        "TOP.VSS",
+        "dff.VSS",
+        "inv1.VSS",
+        "inv2.VSS"
+      ],
+      "actual_endpoint_set": [
+        "TOP.VSS",
+        "dff.VSS",
+        "inv1.VSS",
+        "inv2.VSS"
+      ],
+      "missing_endpoints": [],
+      "unexpected_endpoints": [],
+      "component_id": "contact_1417",
+      "net_match_status": "MATCH"
+    },
+    {
+      "net_name": "D",
+      "expected_endpoint_set": [
+        "TOP.D",
+        "dff.D"
+      ],
+      "actual_endpoint_set": [
+        "TOP.D",
+        "dff.D"
+      ],
+      "missing_endpoints": [],
+      "unexpected_endpoints": [],
+      "component_id": "via1_168",
+      "net_match_status": "MATCH"
+    },
+    {
+      "net_name": "Q",
+      "expected_endpoint_set": [
+        "TOP.Q",
+        "inv2.Z"
+      ],
+      "actual_endpoint_set": [
+        "TOP.Q",
+        "inv2.Z"
+      ],
+      "missing_endpoints": [],
+      "unexpected_endpoints": [],
+      "component_id": "via1_55",
+      "net_match_status": "MATCH"
+    },
+    {
+      "net_name": "QB",
+      "expected_endpoint_set": [
+        "TOP.QB",
+        "inv1.Z",
+        "inv2.A"
+      ],
+      "actual_endpoint_set": [
+        "TOP.QB",
+        "inv1.Z",
+        "inv2.A"
+      ],
+      "missing_endpoints": [],
+      "unexpected_endpoints": [],
+      "component_id": "via1_45",
+      "net_match_status": "MATCH"
+    },
+    {
+      "net_name": "CLK",
+      "expected_endpoint_set": [
+        "TOP.CLK",
+        "dff.CLK"
+      ],
+      "actual_endpoint_set": [
+        "TOP.CLK",
+        "dff.CLK"
+      ],
+      "missing_endpoints": [],
+      "unexpected_endpoints": [],
+      "component_id": "via1_159",
+      "net_match_status": "MATCH"
+    },
+    {
+      "net_name": "qint",
+      "expected_endpoint_set": [
+        "dff.Q",
+        "inv1.A"
+      ],
+      "actual_endpoint_set": [
+        "dff.Q",
+        "inv1.A"
+      ],
+      "missing_endpoints": [],
+      "unexpected_endpoints": [],
+      "component_id": "via1_330",
+      "net_match_status": "MATCH"
+    }
+  ],
+  "expected_net_count": 7,
+  "actual_net_component_count": 7,
+  "unexpected_net_merges": {},
+  "unexpected_net_merge_count": 0,
+  "missing_expected_endpoint_count": 0,
+  "unexpected_endpoint_count": 0,
+  "floating_required_pin_count": 0,
+  "power_signal_short_count": 0,
+  "vdd_vss_short_present": false,
+  "d_q_direct_short_present": false,
+  "physical_connectivity_verification_passed": true
+}

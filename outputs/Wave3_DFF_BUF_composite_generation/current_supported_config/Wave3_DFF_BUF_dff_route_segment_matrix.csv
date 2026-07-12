@@ -1,0 +1,11 @@
+net_name,layer,start,end,width,source_pin,destination_pin,obstacle_clearance,route_order,geometry_id
+CLK,m1,"[6.7075, 2.29]","[17.165, 2.29]",0.065,CLK_TRACK_START,CLK_TRACK_END,0.065,0,CLK_track
+D,m1,"[-0.45, 2.5]","[16.715, 2.5]",0.065,D_TRACK_START,D_TRACK_END,0.065,1,D_track
+qint,m1,"[13.095, 2.71]","[16.715, 2.71]",0.065,qint_TRACK_START,qint_TRACK_END,0.065,2,qint_track
+qint,m2,"[13.095, 4.2425]","[13.095, 2.6425]",0.07,dff.Q,qint_TRACK,0.07,2,qint_column_dff.Q
+qint,m2,"[14.09, 0.92]","[14.09, 2.6425]",0.07,inv1.A,qint_TRACK,0.07,2,qint_column_inv1.A
+QB,m1,"[14.6875, 2.92]","[17.515, 2.92]",0.065,QB_TRACK_START,QB_TRACK_END,0.065,3,QB_track
+QB,m2,"[14.6875, 0.92]","[14.6875, 2.8525]",0.07,inv1.Z,QB_TRACK,0.07,3,QB_column_inv1.Z
+QB,m2,"[15.2375, 0.92]","[15.2375, 2.8525]",0.07,inv2.A,QB_TRACK,0.07,3,QB_column_inv2.A
+Q,m1,"[15.865, 3.13]","[17.865, 3.13]",0.065,Q_TRACK_START,Q_TRACK_END,0.065,4,Q_track
+Q,m2,"[15.865, 0.92]","[15.865, 3.0625]",0.07,inv2.Z,Q_TRACK,0.07,4,Q_column_inv2.Z
