@@ -1,0 +1,27 @@
+# M12C4R2 Source Coverage
+
+- source_child_instance_call_count: `53`
+- declared_connection_argument_count: `260`
+- all_branch_net_connection_row_count: `260`
+- previous_filtered_net_connection_row_count: `232`
+- connection_row_difference_count: `28`
+- data_dff_module_net_rows_restored: `True`
+- time_data_dff_branch_rows_restored: `True`
+- wen_delay_chain_declared_rows_preserved: `True`
+- all_branch_source_coverage_complete: `True`
+- default_environment_matrix_generated: `True`
+- config_16x16_matrix_generated: `True`
+- config_64x8_matrix_generated: `True`
+- config_16x16_active_child_instance_count: `50`
+- config_16x16_active_net_connection_count: `248`
+- config_64x8_active_child_instance_count: `50`
+- config_64x8_active_net_connection_count: `248`
+- unresolved_constructor_alias_count: `0`
+- unresolved_child_module_count: `0`
+- unresolved_child_pin_order_count: `0`
+- pin_connection_count_mismatch_count: `0`
+- unresolved_parent_net_expression_count: `0`
+- unresolved_loop_bound_count: `0`
+- unresolved_branch_condition_count: `0`
+- unresolved_parameter_expression_count: `0`
+- unresolved_source_topology_count: `0`

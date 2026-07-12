@@ -1,0 +1,336 @@
+{
+  "top_pins": [
+    "VDD",
+    "VSS",
+    "D",
+    "Q",
+    "CLK"
+  ],
+  "internal_nets": {
+    "CLKB": {
+      "net_name": "CLKB",
+      "drivers_or_output_terminals": [
+        "inv1_clk.Z"
+      ],
+      "loads_or_input_terminals": [
+        "tg1.CTR_N",
+        "tg2.CTR_P",
+        "tg3.CTR_P",
+        "tg4.CTR_N"
+      ],
+      "connected_child_pins": [
+        "inv1_clk.Z",
+        "tg1.CTR_N",
+        "tg2.CTR_P",
+        "tg3.CTR_P",
+        "tg4.CTR_N"
+      ],
+      "source_lines": [
+        216,
+        223,
+        234,
+        242,
+        254
+      ],
+      "net_role": "INTERNAL"
+    },
+    "D_b": {
+      "net_name": "D_b",
+      "drivers_or_output_terminals": [
+        "inv2_D.Z",
+        "tg1.IN"
+      ],
+      "loads_or_input_terminals": [
+        "tg1.IN"
+      ],
+      "connected_child_pins": [
+        "inv2_D.Z",
+        "tg1.IN"
+      ],
+      "source_lines": [
+        220,
+        223
+      ],
+      "net_role": "BIDIRECTIONAL_SWITCH_NET"
+    },
+    "z1": {
+      "net_name": "z1",
+      "drivers_or_output_terminals": [
+        "tg1.OUT",
+        "tg2.OUT"
+      ],
+      "loads_or_input_terminals": [
+        "inv3.A",
+        "tg1.OUT",
+        "tg2.OUT"
+      ],
+      "connected_child_pins": [
+        "inv3.A",
+        "tg1.OUT",
+        "tg2.OUT"
+      ],
+      "source_lines": [
+        223,
+        227,
+        234
+      ],
+      "net_role": "BIDIRECTIONAL_SWITCH_NET"
+    },
+    "z2": {
+      "net_name": "z2",
+      "drivers_or_output_terminals": [
+        "inv3.Z"
+      ],
+      "loads_or_input_terminals": [
+        "inv4.A",
+        "inv5.A"
+      ],
+      "connected_child_pins": [
+        "inv3.Z",
+        "inv4.A",
+        "inv5.A"
+      ],
+      "source_lines": [
+        227,
+        231,
+        239
+      ],
+      "net_role": "INTERNAL"
+    },
+    "z3": {
+      "net_name": "z3",
+      "drivers_or_output_terminals": [
+        "inv4.Z",
+        "tg2.IN"
+      ],
+      "loads_or_input_terminals": [
+        "tg2.IN"
+      ],
+      "connected_child_pins": [
+        "inv4.Z",
+        "tg2.IN"
+      ],
+      "source_lines": [
+        231,
+        234
+      ],
+      "net_role": "BIDIRECTIONAL_SWITCH_NET"
+    },
+    "z4": {
+      "net_name": "z4",
+      "drivers_or_output_terminals": [
+        "inv5.Z",
+        "tg3.IN"
+      ],
+      "loads_or_input_terminals": [
+        "tg3.IN"
+      ],
+      "connected_child_pins": [
+        "inv5.Z",
+        "tg3.IN"
+      ],
+      "source_lines": [
+        239,
+        242
+      ],
+      "net_role": "BIDIRECTIONAL_SWITCH_NET"
+    },
+    "z5": {
+      "net_name": "z5",
+      "drivers_or_output_terminals": [
+        "tg3.OUT",
+        "tg4.OUT"
+      ],
+      "loads_or_input_terminals": [
+        "inv6.A",
+        "tg3.OUT",
+        "tg4.OUT"
+      ],
+      "connected_child_pins": [
+        "inv6.A",
+        "tg3.OUT",
+        "tg4.OUT"
+      ],
+      "source_lines": [
+        242,
+        246,
+        254
+      ],
+      "net_role": "BIDIRECTIONAL_SWITCH_NET"
+    },
+    "QB": {
+      "net_name": "QB",
+      "drivers_or_output_terminals": [
+        "inv7.Z",
+        "tg4.IN"
+      ],
+      "loads_or_input_terminals": [
+        "tg4.IN"
+      ],
+      "connected_child_pins": [
+        "inv7.Z",
+        "tg4.IN"
+      ],
+      "source_lines": [
+        250,
+        254
+      ],
+      "net_role": "BIDIRECTIONAL_SWITCH_NET"
+    }
+  },
+  "top_pin_contracts": {
+    "VDD": {
+      "net_name": "VDD",
+      "drivers_or_output_terminals": [
+        "inv1_clk.VDD",
+        "inv2_D.VDD",
+        "inv3.VDD",
+        "inv4.VDD",
+        "inv5.VDD",
+        "inv6.VDD",
+        "inv7.VDD"
+      ],
+      "loads_or_input_terminals": [
+        "tg1.VDD",
+        "tg2.VDD",
+        "tg3.VDD",
+        "tg4.VDD"
+      ],
+      "connected_child_pins": [
+        "inv1_clk.VDD",
+        "inv2_D.VDD",
+        "inv3.VDD",
+        "inv4.VDD",
+        "inv5.VDD",
+        "inv6.VDD",
+        "inv7.VDD",
+        "tg1.VDD",
+        "tg2.VDD",
+        "tg3.VDD",
+        "tg4.VDD"
+      ],
+      "source_lines": [
+        216,
+        220,
+        223,
+        227,
+        231,
+        234,
+        239,
+        242,
+        246,
+        250,
+        254
+      ],
+      "net_role": "TOP_PIN"
+    },
+    "VSS": {
+      "net_name": "VSS",
+      "drivers_or_output_terminals": [
+        "inv1_clk.VSS",
+        "inv2_D.VSS",
+        "inv3.VSS",
+        "inv4.VSS",
+        "inv5.VSS",
+        "inv6.VSS",
+        "inv7.VSS"
+      ],
+      "loads_or_input_terminals": [
+        "tg1.VSS",
+        "tg2.VSS",
+        "tg3.VSS",
+        "tg4.VSS"
+      ],
+      "connected_child_pins": [
+        "inv1_clk.VSS",
+        "inv2_D.VSS",
+        "inv3.VSS",
+        "inv4.VSS",
+        "inv5.VSS",
+        "inv6.VSS",
+        "inv7.VSS",
+        "tg1.VSS",
+        "tg2.VSS",
+        "tg3.VSS",
+        "tg4.VSS"
+      ],
+      "source_lines": [
+        216,
+        220,
+        223,
+        227,
+        231,
+        234,
+        239,
+        242,
+        246,
+        250,
+        254
+      ],
+      "net_role": "TOP_PIN"
+    },
+    "D": {
+      "net_name": "D",
+      "drivers_or_output_terminals": [],
+      "loads_or_input_terminals": [
+        "inv2_D.A"
+      ],
+      "connected_child_pins": [
+        "inv2_D.A"
+      ],
+      "source_lines": [
+        220
+      ],
+      "net_role": "TOP_PIN"
+    },
+    "Q": {
+      "net_name": "Q",
+      "drivers_or_output_terminals": [
+        "inv6.Z"
+      ],
+      "loads_or_input_terminals": [
+        "inv7.A"
+      ],
+      "connected_child_pins": [
+        "inv6.Z",
+        "inv7.A"
+      ],
+      "source_lines": [
+        246,
+        250
+      ],
+      "net_role": "TOP_PIN"
+    },
+    "CLK": {
+      "net_name": "CLK",
+      "drivers_or_output_terminals": [],
+      "loads_or_input_terminals": [
+        "inv1_clk.A",
+        "tg1.CTR_P",
+        "tg2.CTR_N",
+        "tg3.CTR_N",
+        "tg4.CTR_P"
+      ],
+      "connected_child_pins": [
+        "inv1_clk.A",
+        "tg1.CTR_P",
+        "tg2.CTR_N",
+        "tg3.CTR_N",
+        "tg4.CTR_P"
+      ],
+      "source_lines": [
+        216,
+        223,
+        234,
+        242,
+        254
+      ],
+      "net_role": "TOP_PIN"
+    }
+  },
+  "dff_top_pin_count": 5,
+  "dff_internal_net_count": 8,
+  "dff_unknown_net_count": 0,
+  "dff_unconnected_required_child_pin_count": 0,
+  "dff_duplicate_instance_name_count": 0
+}

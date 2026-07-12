@@ -129,3 +129,7 @@
 ## M12C4R Correction Goal
 
 - M12C4R corrects source extraction, interface qualification, and routing qualification before any DFF generation.
+
+## M12C4R2 Binding Goal
+
+- Close the final source coverage, config expansion, and DFF approved-binding gate before DFF smoke GDS generation.

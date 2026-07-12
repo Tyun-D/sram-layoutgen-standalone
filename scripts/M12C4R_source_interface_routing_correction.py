@@ -133,7 +133,11 @@ def main() -> int:
     unresolved_child_module_count = sum(1 for row in source_child_rows if row["topology_resolution_status"].startswith("UNRESOLVED") and not row["child_logical_module"])
     unresolved_child_pin_order_count = sum(1 for row in source_child_rows if row["child_logical_module"] and not row["child_pin_order"])
     unresolved_parent_net_expression_count = sum(1 for row in source_net_rows if not row["normalized_parent_net"])
-    unresolved_parameter_expression_count = 0
+    unresolved_parameter_expression_count = sum(
+        1
+        for row in source_child_rows
+        if "drive_scale" in str(row.get("parameter_expression", "")) and row["module_name"] not in {"TIME", "pdrive", "pdrive2_for_pre"}
+    )
     unresolved_source_topology_count = sum(
         1
         for row in source_inventory["inventory_rows"]
@@ -218,7 +222,7 @@ def main() -> int:
 
     dff_source_topology_locked = connection_coverage["dff_child_instance_call_count"] == 11 and connection_coverage["dff_net_connection_row_count"] == 52
     dff_child_dependencies_complete = connection_coverage["dff_pinv_instance_count"] == 7 and connection_coverage["dff_transmission_gate_instance_count"] == 4
-    dff_concrete_binding_complete = True
+    dff_concrete_binding_complete = dff_source_topology_locked and dff_child_dependencies_complete
     dff_interface_ready = not interface_diag["summary"]["primitive_geometry_normalization_required"] and interface_diag["summary"]["interface_compatibility_status"] in {"LOCKED_COMPOSITION_COMPATIBLE_V1", "COMPATIBLE_WITH_SPACER_AND_RAIL_STITCH"}
     dff_routing_ready = routing_exec["summary"]["routing_backend_execution_test_passed"] and routing_exec["summary"]["route_drc_marker_count"] == 0
     dff_ready_for_smoke_generation = dff_source_topology_locked and dff_child_dependencies_complete and dff_concrete_binding_complete and dff_interface_ready and dff_routing_ready

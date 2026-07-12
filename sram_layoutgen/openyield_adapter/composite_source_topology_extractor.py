@@ -26,9 +26,6 @@ TARGET_MODULES = {
     "wen_delay_chain",
     "TIME",
 }
-ACTIVE_NET_ROW_MODULES = TARGET_MODULES - {"DATA_DFF"}
-
-
 def _role_pins(pin_order: list[str]) -> dict[str, list[str]]:
     return {
         "power_pin_names": [pin for pin in pin_order if pin.upper() == "VDD"],
@@ -81,7 +78,8 @@ def extract_source_exact_composite_topology(openyield_root: str | Path) -> dict[
     registry = registry_payload["records"]
     inventory_rows: list[dict[str, Any]] = []
     child_rows: list[dict[str, Any]] = []
-    net_rows: list[dict[str, Any]] = []
+    all_branch_net_rows: list[dict[str, Any]] = []
+    default_active_net_rows: list[dict[str, Any]] = []
     alias_rows: list[dict[str, Any]] = []
     seen_modules: set[str] = set()
     for key, record in registry.items():
@@ -130,17 +128,22 @@ def extract_source_exact_composite_topology(openyield_root: str | Path) -> dict[
         for row in expanded["child_rows"]:
             child_rows.append(row)
         for row in expanded["net_rows"]:
-            if row["parent_module"] in ACTIVE_NET_ROW_MODULES:
-                net_rows.append(row)
+            all_branch_net_rows.append(row)
+            if row.get("active_in_default_environment"):
+                default_active_net_rows.append(row)
         alias_rows.extend(expanded["alias_rows"])
 
     inventory_rows.sort(key=lambda row: row["module_name"])
     child_rows.sort(key=lambda row: (row["module_name"], int(row["source_line"])))
-    net_rows.sort(key=lambda row: (row["parent_module"], int(row["source_line"]), str(row["instance_name_expression"]), int(row["child_pin_index"])))
+    all_branch_net_rows.sort(key=lambda row: (row["parent_module"], int(row["source_line"]), str(row["instance_name_expression"]), int(row["child_pin_index"])))
+    default_active_net_rows.sort(key=lambda row: (row["parent_module"], int(row["source_line"]), str(row["instance_name_expression"]), int(row["child_pin_index"])))
     return {
         "inventory_rows": inventory_rows,
         "child_rows": child_rows,
-        "net_rows": net_rows,
+        "net_rows": all_branch_net_rows,
+        "all_branch_net_rows": all_branch_net_rows,
+        "default_active_net_rows": default_active_net_rows,
         "alias_rows": alias_rows,
         "registry_rows": registry_payload["rows"],
+        "registry": registry,
     }

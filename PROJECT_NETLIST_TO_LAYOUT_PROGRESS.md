@@ -399,3 +399,10 @@
 - Proved DFF has 11 child instances with 52 resolved pin-net connections.
 - Replaced height-only interface risk with pairwise diagnostic placement and DRC evidence.
 - Replaced routing capability guesses with executable M1/Via1/M2 diagnostic evidence.
+
+## M12C4R2 Binding Progress
+
+- Separated 260 all-branch source rows from the historical 232 filtered rows.
+- Restored DATA_DFF and conditional TIME branches into explicit coverage matrices.
+- Rebuilt source-derived concrete expansion and non-empty active leaf parent-net bindings.
+- Verified all 11 DFF child instances against the approved reusable primitive contract.

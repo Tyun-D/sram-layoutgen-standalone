@@ -268,3 +268,14 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 - M12C4R re-qualified the routing backend with an executable M1/Via1/M2 diagnostic.
 - Current next stage: `M12C4A_DFF_COMPOSITE_GENERATION`.
 - No formal composite control cell was generated in M12C4R.
+
+## M12C4R2 Final Binding Gate
+
+- M12C4R's 52 DFF source pin-net connections remain valid.
+- M12C4R's direct-abutment and routing diagnostics remain DRC-clean and unchanged.
+- The old 232-row matrix was only the filtered default-environment view, not all-branch source coverage.
+- All-branch declared source coverage is now recorded separately from default/config-active matrices.
+- DATA_DFF and conditional branches are restored into the source-exact evidence model.
+- Concrete expansion and DFF 11-instance approved binding are now data-derived instead of hard-coded.
+- Current next stage: `M12C4A_DFF_COMPOSITE_GENERATION`.
+- No formal DFF GDS was generated in M12C4R2.

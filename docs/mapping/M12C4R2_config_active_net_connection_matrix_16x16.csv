@@ -1,0 +1,253 @@
+parent_module,source_line,source_loop_context,instance_name_expression,child_module,child_pin_index,child_pin_name,parent_net_expression,normalized_parent_net,branch_condition,active_for_config,condition_evaluation,condition_input_values,condition_evaluation_source
+TIME,536,,'dff_buf_addr',ADDR_DFF,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,536,,'dff_buf_addr',ADDR_DFF,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,536,,'dff_buf_addr',ADDR_DFF,2,CLK,clk_buf,clk_buf,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,536,,'dff_buf_addr',ADDR_DFF,3,A0,A0,A0,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,536,,'dff_buf_addr',ADDR_DFF,4,A1,A1,A1,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,536,,'dff_buf_addr',ADDR_DFF,5,A2,A2,A2,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,536,,'dff_buf_addr',ADDR_DFF,6,A3,A3,A3,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,536,,'dff_buf_addr',ADDR_DFF,7,A_dff0,A_dff0,A_dff0,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,536,,'dff_buf_addr',ADDR_DFF,8,A_dff1,A_dff1,A_dff1,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,536,,'dff_buf_addr',ADDR_DFF,9,A_dff2,A_dff2,A_dff2,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,536,,'dff_buf_addr',ADDR_DFF,10,A_dff3,A_dff3,A_dff3,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+ADDR_DFF,440,i in range(n_bits),f'dff_{i}',DFF,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",ADDR_DFF
+ADDR_DFF,440,i in range(n_bits),f'dff_{i}',DFF,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",ADDR_DFF
+ADDR_DFF,440,i in range(n_bits),f'dff_{i}',DFF,2,D,A{i},A{i},,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",ADDR_DFF
+ADDR_DFF,440,i in range(n_bits),f'dff_{i}',DFF,3,Q,A_dff{i},A_dff{i},,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",ADDR_DFF
+ADDR_DFF,440,i in range(n_bits),f'dff_{i}',DFF,4,CLK,CLK,CLK,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",ADDR_DFF
+DFF,216,,'inv1_clk',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,216,,'inv1_clk',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,216,,'inv1_clk',PINV,2,A,CLK,CLK,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,216,,'inv1_clk',PINV,3,Z,CLKB,CLKB,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,220,,'inv2_D',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,220,,'inv2_D',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,220,,'inv2_D',PINV,2,A,D,D,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,220,,'inv2_D',PINV,3,Z,D_b,D_b,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,223,,'tg1',TRANSMISSION_GATE,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,223,,'tg1',TRANSMISSION_GATE,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,223,,'tg1',TRANSMISSION_GATE,2,IN,D_b,D_b,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,223,,'tg1',TRANSMISSION_GATE,3,OUT,z1,z1,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,223,,'tg1',TRANSMISSION_GATE,4,CTR_P,CLK,CLK,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,223,,'tg1',TRANSMISSION_GATE,5,CTR_N,CLKB,CLKB,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,227,,'inv3',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,227,,'inv3',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,227,,'inv3',PINV,2,A,z1,z1,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,227,,'inv3',PINV,3,Z,z2,z2,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,231,,'inv4',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,231,,'inv4',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,231,,'inv4',PINV,2,A,z2,z2,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,231,,'inv4',PINV,3,Z,z3,z3,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,234,,'tg2',TRANSMISSION_GATE,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,234,,'tg2',TRANSMISSION_GATE,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,234,,'tg2',TRANSMISSION_GATE,2,IN,z3,z3,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,234,,'tg2',TRANSMISSION_GATE,3,OUT,z1,z1,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,234,,'tg2',TRANSMISSION_GATE,4,CTR_P,CLKB,CLKB,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,234,,'tg2',TRANSMISSION_GATE,5,CTR_N,CLK,CLK,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,239,,'inv5',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,239,,'inv5',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,239,,'inv5',PINV,2,A,z2,z2,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,239,,'inv5',PINV,3,Z,z4,z4,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,242,,'tg3',TRANSMISSION_GATE,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,242,,'tg3',TRANSMISSION_GATE,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,242,,'tg3',TRANSMISSION_GATE,2,IN,z4,z4,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,242,,'tg3',TRANSMISSION_GATE,3,OUT,z5,z5,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,242,,'tg3',TRANSMISSION_GATE,4,CTR_P,CLKB,CLKB,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,242,,'tg3',TRANSMISSION_GATE,5,CTR_N,CLK,CLK,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,246,,'inv6',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,246,,'inv6',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,246,,'inv6',PINV,2,A,z5,z5,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,246,,'inv6',PINV,3,Z,Q,Q,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,250,,'inv7',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,250,,'inv7',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,250,,'inv7',PINV,2,A,Q,Q,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,250,,'inv7',PINV,3,Z,QB,QB,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,254,,'tg4',TRANSMISSION_GATE,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,254,,'tg4',TRANSMISSION_GATE,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,254,,'tg4',TRANSMISSION_GATE,2,IN,QB,QB,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,254,,'tg4',TRANSMISSION_GATE,3,OUT,z5,z5,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,254,,'tg4',TRANSMISSION_GATE,4,CTR_P,CLK,CLK,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+DFF,254,,'tg4',TRANSMISSION_GATE,5,CTR_N,CLKB,CLKB,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF
+TIME,554,,'dff_buf_data',DATA_DFF,0,VDD,VDD,VDD,operation == 'write' or operation == 'read&write',True,ACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,554,,'dff_buf_data',DATA_DFF,1,VSS,VSS,VSS,operation == 'write' or operation == 'read&write',True,ACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,554,,'dff_buf_data',DATA_DFF,2,CLK,clk_buf,clk_buf,operation == 'write' or operation == 'read&write',True,ACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,554,,'dff_buf_data',DATA_DFF,3,DIN0,DIN0,DIN0,operation == 'write' or operation == 'read&write',True,ACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,554,,'dff_buf_data',DATA_DFF,4,DIN1,DIN1,DIN1,operation == 'write' or operation == 'read&write',True,ACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,554,,'dff_buf_data',DATA_DFF,5,DIN2,DIN2,DIN2,operation == 'write' or operation == 'read&write',True,ACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,554,,'dff_buf_data',DATA_DFF,6,DIN3,DIN3,DIN3,operation == 'write' or operation == 'read&write',True,ACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,554,,'dff_buf_data',DATA_DFF,7,DIN4,DIN4,DIN4,operation == 'write' or operation == 'read&write',True,ACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,554,,'dff_buf_data',DATA_DFF,8,DIN5,DIN5,DIN5,operation == 'write' or operation == 'read&write',True,ACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,554,,'dff_buf_data',DATA_DFF,9,DIN6,DIN6,DIN6,operation == 'write' or operation == 'read&write',True,ACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,554,,'dff_buf_data',DATA_DFF,10,DIN7,DIN7,DIN7,operation == 'write' or operation == 'read&write',True,ACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,554,,'dff_buf_data',DATA_DFF,11,DIN_dff0,DIN8,DIN8,operation == 'write' or operation == 'read&write',True,ACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,554,,'dff_buf_data',DATA_DFF,12,DIN_dff1,DIN9,DIN9,operation == 'write' or operation == 'read&write',True,ACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,554,,'dff_buf_data',DATA_DFF,13,DIN_dff2,DIN10,DIN10,operation == 'write' or operation == 'read&write',True,ACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,554,,'dff_buf_data',DATA_DFF,14,DIN_dff3,DIN11,DIN11,operation == 'write' or operation == 'read&write',True,ACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,554,,'dff_buf_data',DATA_DFF,15,DIN_dff4,DIN12,DIN12,operation == 'write' or operation == 'read&write',True,ACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,554,,'dff_buf_data',DATA_DFF,16,DIN_dff5,DIN13,DIN13,operation == 'write' or operation == 'read&write',True,ACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,554,,'dff_buf_data',DATA_DFF,17,DIN_dff6,DIN14,DIN14,operation == 'write' or operation == 'read&write',True,ACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,554,,'dff_buf_data',DATA_DFF,18,DIN_dff7,DIN15,DIN15,operation == 'write' or operation == 'read&write',True,ACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+DATA_DFF,479,i in range(num_cols),f'dff_{i}',DFF,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DATA_DFF
+DATA_DFF,479,i in range(num_cols),f'dff_{i}',DFF,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DATA_DFF
+DATA_DFF,479,i in range(num_cols),f'dff_{i}',DFF,2,D,DIN{i},DIN{i},,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DATA_DFF
+DATA_DFF,479,i in range(num_cols),f'dff_{i}',DFF,3,Q,DIN_dff{i},DIN_dff{i},,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DATA_DFF
+DATA_DFF,479,i in range(num_cols),f'dff_{i}',DFF,4,CLK,CLK,CLK,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DATA_DFF
+TIME,579,,'clkbuf',pdrive,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,579,,'clkbuf',pdrive,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,579,,'clkbuf',pdrive,2,A,clk,clk,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,579,,'clkbuf',pdrive,3,Z,clk_buf,clk_buf,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+pdrive,87,,'buf_inv1',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive
+pdrive,87,,'buf_inv1',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive
+pdrive,87,,'buf_inv1',PINV,2,A,A,A,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive
+pdrive,87,,'buf_inv1',PINV,3,Z,zb1_node,zb1_node,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive
+pdrive,91,,'buf_inv2',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive
+pdrive,91,,'buf_inv2',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive
+pdrive,91,,'buf_inv2',PINV,2,A,zb1_node,zb1_node,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive
+pdrive,91,,'buf_inv2',PINV,3,Z,zb2_node,zb2_node,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive
+pdrive,95,,'buf_inv3',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive
+pdrive,95,,'buf_inv3',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive
+pdrive,95,,'buf_inv3',PINV,2,A,zb2_node,zb2_node,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive
+pdrive,95,,'buf_inv3',PINV,3,Z,zb3_node,zb3_node,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive
+pdrive,99,,'buf_inv4',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive
+pdrive,99,,'buf_inv4',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive
+pdrive,99,,'buf_inv4',PINV,2,A,zb3_node,zb3_node,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive
+pdrive,99,,'buf_inv4',PINV,3,Z,Z,Z,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive
+TIME,591,,'inv_clk_bar',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,591,,'inv_clk_bar',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,591,,'inv_clk_bar',PINV,2,A,clk_buf,clk_buf,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,591,,'inv_clk_bar',PINV,3,Z,clk_bar,clk_bar,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,598,,'dff_buf',DFF_BUF,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,598,,'dff_buf',DFF_BUF,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,598,,'dff_buf',DFF_BUF,2,D,csb,csb,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,598,,'dff_buf',DFF_BUF,3,Q,cs_bar,cs_bar,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,598,,'dff_buf',DFF_BUF,4,QB,cs,cs,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,598,,'dff_buf',DFF_BUF,5,CLK,clk_buf,clk_buf,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+DFF_BUF,288,,'dff',DFF,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF_BUF
+DFF_BUF,288,,'dff',DFF,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF_BUF
+DFF_BUF,288,,'dff',DFF,2,D,D,D,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF_BUF
+DFF_BUF,288,,'dff',DFF,3,Q,qint,qint,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF_BUF
+DFF_BUF,288,,'dff',DFF,4,CLK,CLK,CLK,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF_BUF
+DFF_BUF,292,,'inv1',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF_BUF
+DFF_BUF,292,,'inv1',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF_BUF
+DFF_BUF,292,,'inv1',PINV,2,A,qint,qint,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF_BUF
+DFF_BUF,292,,'inv1',PINV,3,Z,QB,QB,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF_BUF
+DFF_BUF,296,,'inv2',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF_BUF
+DFF_BUF,296,,'inv2',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF_BUF
+DFF_BUF,296,,'inv2',PINV,2,A,QB,QB,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF_BUF
+DFF_BUF,296,,'inv2',PINV,3,Z,Q,Q,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",DFF_BUF
+TIME,605,,'dff_buf1',DFF_BUF,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,605,,'dff_buf1',DFF_BUF,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,605,,'dff_buf1',DFF_BUF,2,D,web,web,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,605,,'dff_buf1',DFF_BUF,3,Q,we_bar,we_bar,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,605,,'dff_buf1',DFF_BUF,4,QB,we,we,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,605,,'dff_buf1',DFF_BUF,5,CLK,clk_buf,clk_buf,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,621,,'and2_gated_clk_bar',AND2,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,621,,'and2_gated_clk_bar',AND2,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,621,,'and2_gated_clk_bar',AND2,2,A,cs,cs,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,621,,'and2_gated_clk_bar',AND2,3,B,clk_bar,clk_bar,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,621,,'and2_gated_clk_bar',AND2,4,Z,gated_clk_bar,gated_clk_bar,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+AND2,227,,f'PNAND3',PNAND2,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",AND2
+AND2,227,,f'PNAND3',PNAND2,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",AND2
+AND2,227,,f'PNAND3',PNAND2,2,A,a_node,a_node,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",AND2
+AND2,227,,f'PNAND3',PNAND2,3,B,b_node,b_node,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",AND2
+AND2,227,,f'PNAND3',PNAND2,4,Z,zb_node,zb_node,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",AND2
+AND2,229,,f'PINV',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",AND2
+AND2,229,,f'PINV',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",AND2
+AND2,229,,f'PINV',PINV,2,A,zb_node,zb_node,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",AND2
+AND2,229,,f'PINV',PINV,3,Z,z_node,z_node,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",AND2
+TIME,637,,'and2_gated_clk_buf',AND2,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,637,,'and2_gated_clk_buf',AND2,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,637,,'and2_gated_clk_buf',AND2,2,A,cs,cs,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,637,,'and2_gated_clk_buf',AND2,3,B,clk_buf,clk_buf,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,637,,'and2_gated_clk_buf',AND2,4,Z,gated_clk_buf,gated_clk_buf,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,643,,'wl_en',wl_pdrive,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,643,,'wl_en',wl_pdrive,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,643,,'wl_en',wl_pdrive,2,A,gated_clk_bar,gated_clk_bar,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,643,,'wl_en',wl_pdrive,3,Z,wl_en,wl_en,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+wl_pdrive,177,,'buf_inv1',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",wl_pdrive
+wl_pdrive,177,,'buf_inv1',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",wl_pdrive
+wl_pdrive,177,,'buf_inv1',PINV,2,A,A,A,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",wl_pdrive
+wl_pdrive,177,,'buf_inv1',PINV,3,Z,zb1_node,zb1_node,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",wl_pdrive
+wl_pdrive,181,,'buf_inv2',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",wl_pdrive
+wl_pdrive,181,,'buf_inv2',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",wl_pdrive
+wl_pdrive,181,,'buf_inv2',PINV,2,A,zb1_node,zb1_node,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",wl_pdrive
+wl_pdrive,181,,'buf_inv2',PINV,3,Z,Z,Z,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",wl_pdrive
+TIME,655,,'inv_wl_en_bar',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,655,,'inv_wl_en_bar',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,655,,'inv_wl_en_bar',PINV,2,A,wl_en,wl_en,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,655,,'inv_wl_en_bar',PINV,3,Z,wl_en_bar,wl_en_bar,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,662,,'delaychain',delay_chain,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,662,,'delaychain',delay_chain,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,662,,'delaychain',delay_chain,2,in,rbl,rbl,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,662,,'delaychain',delay_chain,3,out,rbl_delay,rbl_delay,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+delay_chain,333,,'dinv0',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,333,,'dinv0',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,333,,'dinv0',PINV,2,A,in,in,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,333,,'dinv0',PINV,3,Z,dout_1,dout_1,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,337,j in range(4),f'dload_0_{j}',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,337,j in range(4),f'dload_0_{j}',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,337,j in range(4),f'dload_0_{j}',PINV,2,A,dout_1,dout_1,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,337,j in range(4),f'dload_0_{j}',PINV,3,Z,n_0_{j},n_0_{j},,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,343,"i in range(1, 8)",f'dinv{i}',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,343,"i in range(1, 8)",f'dinv{i}',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,343,"i in range(1, 8)",f'dinv{i}',PINV,2,A,dout_{i},dout_{i},,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,343,"i in range(1, 8)",f'dinv{i}',PINV,3,Z,dout_i + 1,dout_i + 1,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,348,"i in range(1, 8) | j in range(4)",f'dload_{i}_{j}',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,348,"i in range(1, 8) | j in range(4)",f'dload_{i}_{j}',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,348,"i in range(1, 8) | j in range(4)",f'dload_{i}_{j}',PINV,2,A,dout_i + 1,dout_i + 1,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,348,"i in range(1, 8) | j in range(4)",f'dload_{i}_{j}',PINV,3,Z,n_{i}_{j},n_{i}_{j},,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,352,,'dinv8',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,352,,'dinv8',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,352,,'dinv8',PINV,2,A,dout_8,dout_8,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,352,,'dinv8',PINV,3,Z,out,out,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,356,j in range(4),f'dload_8_{j}',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,356,j in range(4),f'dload_8_{j}',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,356,j in range(4),f'dload_8_{j}',PINV,2,A,out,out,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+delay_chain,356,j in range(4),f'dload_8_{j}',PINV,3,Z,n_8_{j},n_8_{j},,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",delay_chain
+TIME,674,,'inv_rbl_delay_bar',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,674,,'inv_rbl_delay_bar',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,674,,'inv_rbl_delay_bar',PINV,2,A,rbl_delay,rbl_delay,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,674,,'inv_rbl_delay_bar',PINV,3,Z,rbl_delay_bar,rbl_delay_bar,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,683,,'wen_delaychain',wen_delay_chain,0,VDD,VDD,VDD,operation == 'write' and self.num_rows == 16 and (self.num_cols == 512),False,INACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,683,,'wen_delaychain',wen_delay_chain,1,VSS,VSS,VSS,operation == 'write' and self.num_rows == 16 and (self.num_cols == 512),False,INACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,683,,'wen_delaychain',wen_delay_chain,2,in,rbl_delay_bar,rbl_delay_bar,operation == 'write' and self.num_rows == 16 and (self.num_cols == 512),False,INACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,683,,'wen_delaychain',wen_delay_chain,3,out,rbl_delay_bar_wen,rbl_delay_bar_wen,operation == 'write' and self.num_rows == 16 and (self.num_cols == 512),False,INACTIVE_FOR_CONFIG,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,702,,'w_en',AND3,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,702,,'w_en',AND3,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,702,,'w_en',AND3,2,A,w_en_rbl_input,w_en_rbl_input,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,702,,'w_en',AND3,3,B,gated_clk_bar,gated_clk_bar,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,702,,'w_en',AND3,4,C,we,we,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,702,,'w_en',AND3,5,Z,w_en,w_en,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+AND3,287,,'PNAND3',PNAND3,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",AND3
+AND3,287,,'PNAND3',PNAND3,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",AND3
+AND3,287,,'PNAND3',PNAND3,2,A,A,A,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",AND3
+AND3,287,,'PNAND3',PNAND3,3,B,B,B,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",AND3
+AND3,287,,'PNAND3',PNAND3,4,C,C,C,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",AND3
+AND3,287,,'PNAND3',PNAND3,5,Z,zb_int,zb_int,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",AND3
+AND3,289,,'PINV',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",AND3
+AND3,289,,'PINV',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",AND3
+AND3,289,,'PINV',PINV,2,A,zb_int,zb_int,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",AND3
+AND3,289,,'PINV',PINV,3,Z,Z,Z,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",AND3
+TIME,718,,'s_en',AND3,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,718,,'s_en',AND3,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,718,,'s_en',AND3,2,A,rbl_delay,rbl_delay,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,718,,'s_en',AND3,3,B,gated_clk_bar,gated_clk_bar,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,718,,'s_en',AND3,4,C,we_bar,we_bar,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,718,,'s_en',AND3,5,Z,s_en,s_en,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,743,,'pre_unbuf',PNAND3,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,743,,'pre_unbuf',PNAND3,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,743,,'pre_unbuf',PNAND3,2,A,gated_clk_buf,gated_clk_buf,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,743,,'pre_unbuf',PNAND3,3,B,rbl_delay,rbl_delay,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,743,,'pre_unbuf',PNAND3,4,C,wl_en_bar,wl_en_bar,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,743,,'pre_unbuf',PNAND3,5,Z,PRE_UNBUF,PRE_UNBUF,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,754,,'pre',pdrive2_for_pre,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,754,,'pre',pdrive2_for_pre,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,754,,'pre',pdrive2_for_pre,2,A,PRE_UNBUF,PRE_UNBUF,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+TIME,754,,'pre',pdrive2_for_pre,3,Z,PRE,PRE,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",TIME
+pdrive2_for_pre,138,,'buf_inv1',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive2_for_pre
+pdrive2_for_pre,138,,'buf_inv1',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive2_for_pre
+pdrive2_for_pre,138,,'buf_inv1',PINV,2,A,A,A,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive2_for_pre
+pdrive2_for_pre,138,,'buf_inv1',PINV,3,Z,zb1_node,zb1_node,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive2_for_pre
+pdrive2_for_pre,142,,'buf_inv2',PINV,0,VDD,VDD,VDD,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive2_for_pre
+pdrive2_for_pre,142,,'buf_inv2',PINV,1,VSS,VSS,VSS,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive2_for_pre
+pdrive2_for_pre,142,,'buf_inv2',PINV,2,A,zb1_node,zb1_node,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive2_for_pre
+pdrive2_for_pre,142,,'buf_inv2',PINV,3,Z,Z,Z,,True,ALWAYS_ACTIVE,"{""num_cols"": 16, ""num_rows"": 16, ""operation"": ""read&write""}",pdrive2_for_pre

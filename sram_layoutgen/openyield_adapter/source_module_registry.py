@@ -40,6 +40,7 @@ class SourceClassRecord:
     failure_reason: str
     source_line: int
     constructor_defaults: dict[str, Any]
+    init_arg_names: list[str]
     init_function: ast.FunctionDef | None
     methods: dict[str, ast.FunctionDef]
     ast_class: ast.ClassDef
@@ -329,6 +330,7 @@ def build_source_registry(openyield_root: str | Path) -> dict[str, Any]:
                 failure_reason="" if resolved_nodes else "NODES not recovered from source",
                 source_line=node.lineno,
                 constructor_defaults=defaults,
+                init_arg_names=[arg.arg for arg in init_func.args.args[1:]] if init_func is not None else [],
                 init_function=init_func,
                 methods=methods,
                 ast_class=node,
@@ -342,6 +344,7 @@ def build_source_registry(openyield_root: str | Path) -> dict[str, Any]:
                     "canonical_module_name": canonical_name,
                     "source_nodes": "|".join(record.source_nodes),
                     "normalized_pin_order": "|".join(record.normalized_pin_order),
+                    "init_arg_names": "|".join(record.init_arg_names),
                     "resolution_method": record.resolution_method,
                     "hardcoded_crosscheck_result": record.hardcoded_crosscheck_result,
                     "resolution_status": record.resolution_status,

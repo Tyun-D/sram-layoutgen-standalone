@@ -32,6 +32,18 @@ def _call_parameter_map(node: ast.Call) -> dict[str, str]:
     return payload
 
 
+def _named_call_parameter_map(node: ast.Call, arg_names: list[str]) -> dict[str, str]:
+    payload = {kw.arg or f"kw_{index}": _safe_unparse(kw.value) for index, kw in enumerate(node.keywords)}
+    for index, arg in enumerate(node.args):
+        if index < len(arg_names):
+            payload[arg_names[index]] = _safe_unparse(arg)
+        else:
+            payload[f"arg_{index}"] = _safe_unparse(arg)
+    if node.args:
+        payload["__args__"] = "|".join(_safe_unparse(arg) for arg in node.args)
+    return payload
+
+
 def _resolve_alias_value(node: ast.AST, aliases: dict[str, AliasInfo]) -> AliasInfo | None:
     if isinstance(node, ast.Attribute) and node.attr in {"NAME", "name"}:
         base = node.value
@@ -56,23 +68,60 @@ def _clone_env(env: dict[str, Any]) -> dict[str, Any]:
     return cloned
 
 
-def _default_env(record: SourceClassRecord) -> tuple[dict[str, Any], dict[str, Any]]:
+def build_module_environment(record: SourceClassRecord, overrides: dict[str, Any] | None = None) -> tuple[dict[str, Any], dict[str, Any]]:
     vars_env = dict(record.constructor_defaults)
+    if overrides:
+        vars_env.update(overrides)
     self_env: dict[str, Any] = {}
     init_func = record.init_function
     if init_func is None:
         return vars_env, self_env
-    for stmt in init_func.body:
-        if isinstance(stmt, ast.Assign) and len(stmt.targets) == 1:
-            target = stmt.targets[0]
-            if isinstance(target, ast.Attribute) and isinstance(target.value, ast.Name) and target.value.id == "self":
-                self_env[target.attr] = _evaluate_numeric_expr(stmt.value, vars_env, self_env)
-            elif isinstance(target, ast.Name):
-                if isinstance(stmt.value, ast.List):
-                    vars_env[target.id] = [_format_template(item, vars_env, self_env) for item in stmt.value.elts]
-                else:
-                    vars_env[target.id] = _evaluate_numeric_expr(stmt.value, vars_env, self_env)
+
+    def process_statements(statements: list[ast.stmt]) -> None:
+        for stmt in statements:
+            if isinstance(stmt, ast.Assign) and len(stmt.targets) == 1:
+                target = stmt.targets[0]
+                if isinstance(target, ast.Attribute) and isinstance(target.value, ast.Name) and target.value.id == "self":
+                    self_env[target.attr] = _evaluate_numeric_expr(stmt.value, vars_env, self_env)
+                elif isinstance(target, ast.Name):
+                    if isinstance(stmt.value, ast.List):
+                        vars_env[target.id] = [_format_template(item, vars_env, self_env) for item in stmt.value.elts]
+                    else:
+                        vars_env[target.id] = _evaluate_numeric_expr(stmt.value, vars_env, self_env)
+                continue
+            if isinstance(stmt, ast.Expr) and isinstance(stmt.value, ast.Call):
+                call = stmt.value
+                if isinstance(call.func, ast.Attribute) and isinstance(call.func.value, ast.Name) and call.func.value.id in vars_env:
+                    if call.func.attr == "extend" and call.args:
+                        existing = list(vars_env.get(call.func.value.id, []))
+                        existing.extend(_expand_list_expr(call.args[0], vars_env, self_env))
+                        vars_env[call.func.value.id] = existing
+                    elif call.func.attr == "append" and call.args:
+                        existing = list(vars_env.get(call.func.value.id, []))
+                        existing.append(_format_template(call.args[0], vars_env, self_env))
+                        vars_env[call.func.value.id] = existing
+                continue
+            if isinstance(stmt, ast.For):
+                target_name = _safe_unparse(stmt.target)
+                iter_values = _evaluate_range_expr(stmt.iter, vars_env, self_env)
+                for value in iter_values:
+                    vars_env[target_name] = value
+                    process_statements(stmt.body)
+                continue
+            if isinstance(stmt, ast.If):
+                condition_value = _evaluate_condition(stmt.test, vars_env, self_env)
+                if condition_value is True:
+                    process_statements(stmt.body)
+                elif condition_value is False:
+                    process_statements(stmt.orelse)
+                continue
+
+    process_statements(init_func.body)
     return vars_env, self_env
+
+
+def _default_env(record: SourceClassRecord) -> tuple[dict[str, Any], dict[str, Any]]:
+    return build_module_environment(record)
 
 
 def _collect_aliases(record: SourceClassRecord, registry: dict[str, SourceClassRecord]) -> dict[str, AliasInfo]:
@@ -102,10 +151,26 @@ def _collect_aliases(record: SourceClassRecord, registry: dict[str, SourceClassR
                 constructor_expression=_safe_unparse(stmt.value),
                 child_source_class=child_record.class_name,
                 child_canonical_module=child_record.canonical_module_name,
-                parameter_expression=_call_parameter_map(stmt.value),
+                parameter_expression=_named_call_parameter_map(stmt.value, child_record.init_arg_names),
                 source_line=stmt.lineno,
             )
     return aliases
+
+
+def _normalize_connection_expr(node: ast.AST, vars_env: dict[str, Any], self_env: dict[str, Any]) -> str:
+    if isinstance(node, ast.Constant) and isinstance(node.value, str):
+        return node.value
+    if isinstance(node, ast.JoinedStr):
+        return _safe_unparse(node)
+    if isinstance(node, ast.Name):
+        value = vars_env.get(node.id)
+        if isinstance(value, str):
+            return value.strip("'\"")
+    if isinstance(node, ast.Attribute) and isinstance(node.value, ast.Name) and node.value.id == "self":
+        value = self_env.get(node.attr)
+        if isinstance(value, str):
+            return value.strip("'\"")
+    return _safe_unparse(node).strip("'\"")
 
 
 def expand_source_connections(record: SourceClassRecord, registry: dict[str, SourceClassRecord]) -> dict[str, Any]:
@@ -152,12 +217,15 @@ def expand_source_connections(record: SourceClassRecord, registry: dict[str, Sou
                         child_record = registry.get(child_canonical) or registry.get(child_canonical.upper())
                         pin_order = child_record.normalized_pin_order if child_record else []
                         parent_connections: list[str] = []
+                        parent_connection_expressions: list[str] = []
                         for arg in args[2:]:
                             if isinstance(arg, ast.Starred):
+                                parent_connection_expressions.append(f"*{_safe_unparse(arg.value)}")
                                 expanded = _expand_list_expr(arg.value, vars_env, self_env)
                                 parent_connections.extend(str(item).strip("'\"") for item in expanded)
                             else:
-                                parent_connections.append(str(_format_template(arg, vars_env, self_env)).strip("'\""))
+                                parent_connection_expressions.append(_safe_unparse(arg))
+                                parent_connections.append(_normalize_connection_expr(arg, vars_env, self_env))
                         topology_status = "SOURCE_EXACT_RESOLVED"
                         if not child_record:
                             topology_status = "UNRESOLVED_SYMBOLIC"
@@ -176,6 +244,7 @@ def expand_source_connections(record: SourceClassRecord, registry: dict[str, Sou
                             "child_source_class": alias_info.child_source_class if alias_info else "",
                             "child_logical_module": child_canonical,
                             "child_pin_order": pin_order,
+                            "parent_net_connection_expressions": parent_connection_expressions,
                             "parent_net_connections": parent_connections,
                             "pin_count": len(pin_order),
                             "connection_count": len(parent_connections),
@@ -183,27 +252,31 @@ def expand_source_connections(record: SourceClassRecord, registry: dict[str, Sou
                             "parameter_expression": alias_info.parameter_expression if alias_info else {},
                             "topology_resolution_status": topology_status,
                             "branch_condition": " and ".join(branch_conditions),
+                            "active_in_default_environment": branch_active,
+                            "condition_evaluation_status": "ALWAYS_ACTIVE" if not branch_conditions else ("ACTIVE_IN_DEFAULT_ENVIRONMENT" if branch_active else "INACTIVE_FOR_CONFIG"),
                             "method_name": method_name,
                         }
                         child_rows.append(child_row)
-                        if branch_active:
-                            for index, pin_name in enumerate(pin_order):
-                                net_rows.append(
-                                    {
-                                        "parent_module": record.canonical_module_name,
-                                        "instance_name_expression": _safe_unparse(args[0]),
-                                        "child_module": child_canonical,
-                                        "child_pin_index": index,
-                                        "child_pin_name": pin_name,
-                                        "parent_net_expression": parent_connections[index] if index < len(parent_connections) else "",
-                                        "normalized_parent_net": parent_connections[index] if index < len(parent_connections) else "",
-                                        "source_line": stmt.lineno,
-                                        "loop_variables": " | ".join(loop_contexts),
-                                        "branch_condition": " and ".join(branch_conditions),
-                                        "operation_condition": " and ".join(branch_conditions),
-                                        "configuration_condition": " and ".join(branch_conditions),
-                                    }
-                                )
+                        for index, pin_name in enumerate(pin_order):
+                            net_rows.append(
+                                {
+                                    "parent_module": record.canonical_module_name,
+                                    "instance_name_expression": _safe_unparse(args[0]),
+                                    "child_module": child_canonical,
+                                    "child_pin_index": index,
+                                    "child_pin_name": pin_name,
+                                    "parent_net_expression": parent_connections[index] if index < len(parent_connections) else "",
+                                    "normalized_parent_net": parent_connections[index] if index < len(parent_connections) else "",
+                                    "source_line": stmt.lineno,
+                                    "loop_variables": " | ".join(loop_contexts),
+                                    "branch_condition": " and ".join(branch_conditions),
+                                    "operation_condition": " and ".join(branch_conditions),
+                                    "configuration_condition": " and ".join(branch_conditions),
+                                    "declaration_status": "DECLARED_IN_SOURCE",
+                                    "active_in_default_environment": branch_active,
+                                    "condition_evaluation_status": "ALWAYS_ACTIVE" if not branch_conditions else ("ACTIVE_IN_DEFAULT_ENVIRONMENT" if branch_active else "INACTIVE_FOR_CONFIG"),
+                                }
+                            )
                         continue
                     if call.func.value.id in vars_env:
                         if call.func.attr == "extend" and call.args:
@@ -226,18 +299,15 @@ def expand_source_connections(record: SourceClassRecord, registry: dict[str, Sou
                         vars_env[target_name] = value
                         process_statements(stmt.body, method_name, vars_env, self_env, loop_vars, list(branch_conditions), branch_active)
                 else:
-                    scoped_env = vars_env
-                    if iter_values:
-                        scoped_env[target_name] = iter_values[0]
-                    else:
-                        scoped_env[target_name] = _safe_unparse(stmt.iter)
+                    scoped_env = _clone_env(vars_env)
+                    scoped_env[target_name] = target_name
                     process_statements(stmt.body, method_name, scoped_env, self_env, loop_vars, list(branch_conditions), branch_active)
                 continue
             if isinstance(stmt, ast.If):
                 condition = _safe_unparse(stmt.test)
                 condition_value = _evaluate_condition(stmt.test, vars_env, self_env)
                 then_active = branch_active and bool(condition_value) if isinstance(condition_value, bool) else False
-                else_active = branch_active and (not bool(condition_value)) if isinstance(condition_value, bool) else branch_active
+                else_active = branch_active and (not bool(condition_value)) if isinstance(condition_value, bool) else False
                 process_statements(stmt.body, method_name, _clone_env(vars_env), _clone_env(self_env), list(loop_contexts), [*branch_conditions, condition], then_active)
                 if stmt.orelse:
                     process_statements(stmt.orelse, method_name, _clone_env(vars_env), _clone_env(self_env), list(loop_contexts), [*branch_conditions, f"not ({condition})"], else_active)
