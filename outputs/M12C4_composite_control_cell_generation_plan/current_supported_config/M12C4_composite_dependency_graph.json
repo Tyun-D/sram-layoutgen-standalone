@@ -1,0 +1,612 @@
+{
+  "nodes": [
+    {
+      "module_name": "ADDR_DFF",
+      "source_file": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+      "node_kind": "COMPOSITE_PARAMETERIZED_READY"
+    },
+    {
+      "module_name": "AND2",
+      "source_file": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/standard_cell.py",
+      "node_kind": "COMPOSITE_BLOCKED"
+    },
+    {
+      "module_name": "AND3",
+      "source_file": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/standard_cell.py",
+      "node_kind": "COMPOSITE_BLOCKED"
+    },
+    {
+      "module_name": "DATA_DFF",
+      "source_file": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+      "node_kind": "COMPOSITE_PARAMETERIZED_READY"
+    },
+    {
+      "module_name": "DFF",
+      "source_file": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+      "node_kind": "COMPOSITE_PARAMETERIZED_READY"
+    },
+    {
+      "module_name": "DFF_BUF",
+      "source_file": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+      "node_kind": "COMPOSITE_PARAMETERIZED_READY"
+    },
+    {
+      "module_name": "PNAND2",
+      "source_file": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/standard_cell.py",
+      "node_kind": "PRIMITIVE_GENERATOR_REQUIRED"
+    },
+    {
+      "module_name": "PNAND3",
+      "source_file": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/standard_cell.py",
+      "node_kind": "PRIMITIVE_GENERATOR_REQUIRED"
+    },
+    {
+      "module_name": "Pinv",
+      "source_file": "",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL"
+    },
+    {
+      "module_name": "TIME",
+      "source_file": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+      "node_kind": "TOP_LEVEL_ONLY"
+    },
+    {
+      "module_name": "TRANSMISSION_GATE",
+      "source_file": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+      "node_kind": "APPROVED_REUSABLE_PRIMITIVE"
+    },
+    {
+      "module_name": "TransmissionGate",
+      "source_file": "",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL"
+    },
+    {
+      "module_name": "and2_gated_clk_bar.NAME",
+      "source_file": "",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL"
+    },
+    {
+      "module_name": "and2_gated_clk_buf.NAME",
+      "source_file": "",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL"
+    },
+    {
+      "module_name": "clkbuf.NAME",
+      "source_file": "",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL"
+    },
+    {
+      "module_name": "delay_chain",
+      "source_file": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+      "node_kind": "COMPOSITE_PARAMETERIZED_READY"
+    },
+    {
+      "module_name": "delaychain.NAME",
+      "source_file": "",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL"
+    },
+    {
+      "module_name": "dff",
+      "source_file": "",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL"
+    },
+    {
+      "module_name": "dff_buf.NAME",
+      "source_file": "",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL"
+    },
+    {
+      "module_name": "dff_buf1.NAME",
+      "source_file": "",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL"
+    },
+    {
+      "module_name": "dff_buf_addr.NAME",
+      "source_file": "",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL"
+    },
+    {
+      "module_name": "dff_buf_data.NAME",
+      "source_file": "",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL"
+    },
+    {
+      "module_name": "inv_clk_bar.NAME",
+      "source_file": "",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL"
+    },
+    {
+      "module_name": "inv_rbl_delay_bar.NAME",
+      "source_file": "",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL"
+    },
+    {
+      "module_name": "inv_wl_en_bar.NAME",
+      "source_file": "",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL"
+    },
+    {
+      "module_name": "pdrive",
+      "source_file": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+      "node_kind": "COMPOSITE_PARAMETERIZED_READY"
+    },
+    {
+      "module_name": "pdrive2_for_pre",
+      "source_file": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+      "node_kind": "COMPOSITE_PARAMETERIZED_READY"
+    },
+    {
+      "module_name": "pre.NAME",
+      "source_file": "",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL"
+    },
+    {
+      "module_name": "pre_unbuf.NAME",
+      "source_file": "",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL"
+    },
+    {
+      "module_name": "s_en.NAME",
+      "source_file": "",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL"
+    },
+    {
+      "module_name": "w_en.NAME",
+      "source_file": "",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL"
+    },
+    {
+      "module_name": "wen_delay_chain",
+      "source_file": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+      "node_kind": "COMPOSITE_PARAMETERIZED_READY"
+    },
+    {
+      "module_name": "wen_delaychain.NAME",
+      "source_file": "",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL"
+    },
+    {
+      "module_name": "wl_en.NAME",
+      "source_file": "",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL"
+    },
+    {
+      "module_name": "wl_pdrive",
+      "source_file": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+      "node_kind": "COMPOSITE_PARAMETERIZED_READY"
+    }
+  ],
+  "edges": [
+    {
+      "from": "ADDR_DFF",
+      "to": "dff"
+    },
+    {
+      "from": "AND2",
+      "to": "PNAND2"
+    },
+    {
+      "from": "AND2",
+      "to": "Pinv"
+    },
+    {
+      "from": "AND3",
+      "to": "PNAND3"
+    },
+    {
+      "from": "AND3",
+      "to": "Pinv"
+    },
+    {
+      "from": "DATA_DFF",
+      "to": "dff"
+    },
+    {
+      "from": "DFF",
+      "to": "Pinv"
+    },
+    {
+      "from": "DFF",
+      "to": "Pinv"
+    },
+    {
+      "from": "DFF",
+      "to": "Pinv"
+    },
+    {
+      "from": "DFF",
+      "to": "Pinv"
+    },
+    {
+      "from": "DFF",
+      "to": "Pinv"
+    },
+    {
+      "from": "DFF",
+      "to": "Pinv"
+    },
+    {
+      "from": "DFF",
+      "to": "Pinv"
+    },
+    {
+      "from": "DFF",
+      "to": "TransmissionGate"
+    },
+    {
+      "from": "DFF",
+      "to": "TransmissionGate"
+    },
+    {
+      "from": "DFF",
+      "to": "TransmissionGate"
+    },
+    {
+      "from": "DFF",
+      "to": "TransmissionGate"
+    },
+    {
+      "from": "DFF_BUF",
+      "to": "Pinv"
+    },
+    {
+      "from": "DFF_BUF",
+      "to": "Pinv"
+    },
+    {
+      "from": "DFF_BUF",
+      "to": "dff"
+    },
+    {
+      "from": "TIME",
+      "to": "and2_gated_clk_bar.NAME"
+    },
+    {
+      "from": "TIME",
+      "to": "and2_gated_clk_buf.NAME"
+    },
+    {
+      "from": "TIME",
+      "to": "clkbuf.NAME"
+    },
+    {
+      "from": "TIME",
+      "to": "delaychain.NAME"
+    },
+    {
+      "from": "TIME",
+      "to": "dff_buf.NAME"
+    },
+    {
+      "from": "TIME",
+      "to": "dff_buf1.NAME"
+    },
+    {
+      "from": "TIME",
+      "to": "dff_buf_addr.NAME"
+    },
+    {
+      "from": "TIME",
+      "to": "dff_buf_data.NAME"
+    },
+    {
+      "from": "TIME",
+      "to": "inv_clk_bar.NAME"
+    },
+    {
+      "from": "TIME",
+      "to": "inv_rbl_delay_bar.NAME"
+    },
+    {
+      "from": "TIME",
+      "to": "inv_wl_en_bar.NAME"
+    },
+    {
+      "from": "TIME",
+      "to": "pre.NAME"
+    },
+    {
+      "from": "TIME",
+      "to": "pre_unbuf.NAME"
+    },
+    {
+      "from": "TIME",
+      "to": "s_en.NAME"
+    },
+    {
+      "from": "TIME",
+      "to": "w_en.NAME"
+    },
+    {
+      "from": "TIME",
+      "to": "wen_delaychain.NAME"
+    },
+    {
+      "from": "TIME",
+      "to": "wl_en.NAME"
+    },
+    {
+      "from": "delay_chain",
+      "to": "Pinv"
+    },
+    {
+      "from": "delay_chain",
+      "to": "Pinv"
+    },
+    {
+      "from": "delay_chain",
+      "to": "Pinv"
+    },
+    {
+      "from": "delay_chain",
+      "to": "Pinv"
+    },
+    {
+      "from": "delay_chain",
+      "to": "Pinv"
+    },
+    {
+      "from": "delay_chain",
+      "to": "Pinv"
+    },
+    {
+      "from": "pdrive",
+      "to": "Pinv"
+    },
+    {
+      "from": "pdrive",
+      "to": "Pinv"
+    },
+    {
+      "from": "pdrive",
+      "to": "Pinv"
+    },
+    {
+      "from": "pdrive",
+      "to": "Pinv"
+    },
+    {
+      "from": "pdrive2_for_pre",
+      "to": "Pinv"
+    },
+    {
+      "from": "pdrive2_for_pre",
+      "to": "Pinv"
+    },
+    {
+      "from": "wen_delay_chain",
+      "to": "Pinv"
+    },
+    {
+      "from": "wen_delay_chain",
+      "to": "Pinv"
+    },
+    {
+      "from": "wl_pdrive",
+      "to": "Pinv"
+    },
+    {
+      "from": "wl_pdrive",
+      "to": "Pinv"
+    }
+  ],
+  "matrix_rows": [
+    {
+      "module_name": "ADDR_DFF",
+      "node_kind": "COMPOSITE_PARAMETERIZED_READY",
+      "dependency_children": "dff",
+      "dependency_count": 1
+    },
+    {
+      "module_name": "AND2",
+      "node_kind": "COMPOSITE_BLOCKED",
+      "dependency_children": "PNAND2|Pinv",
+      "dependency_count": 2
+    },
+    {
+      "module_name": "AND3",
+      "node_kind": "COMPOSITE_BLOCKED",
+      "dependency_children": "PNAND3|Pinv",
+      "dependency_count": 2
+    },
+    {
+      "module_name": "DATA_DFF",
+      "node_kind": "COMPOSITE_PARAMETERIZED_READY",
+      "dependency_children": "dff",
+      "dependency_count": 1
+    },
+    {
+      "module_name": "DFF",
+      "node_kind": "COMPOSITE_PARAMETERIZED_READY",
+      "dependency_children": "Pinv|TransmissionGate",
+      "dependency_count": 2
+    },
+    {
+      "module_name": "DFF_BUF",
+      "node_kind": "COMPOSITE_PARAMETERIZED_READY",
+      "dependency_children": "Pinv|dff",
+      "dependency_count": 2
+    },
+    {
+      "module_name": "PNAND2",
+      "node_kind": "PRIMITIVE_GENERATOR_REQUIRED",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "PNAND3",
+      "node_kind": "PRIMITIVE_GENERATOR_REQUIRED",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "Pinv",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "TIME",
+      "node_kind": "TOP_LEVEL_ONLY",
+      "dependency_children": "and2_gated_clk_bar.NAME|and2_gated_clk_buf.NAME|clkbuf.NAME|delaychain.NAME|dff_buf.NAME|dff_buf1.NAME|dff_buf_addr.NAME|dff_buf_data.NAME|inv_clk_bar.NAME|inv_rbl_delay_bar.NAME|inv_wl_en_bar.NAME|pre.NAME|pre_unbuf.NAME|s_en.NAME|w_en.NAME|wen_delaychain.NAME|wl_en.NAME",
+      "dependency_count": 17
+    },
+    {
+      "module_name": "TRANSMISSION_GATE",
+      "node_kind": "APPROVED_REUSABLE_PRIMITIVE",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "TransmissionGate",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "and2_gated_clk_bar.NAME",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "and2_gated_clk_buf.NAME",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "clkbuf.NAME",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "delay_chain",
+      "node_kind": "COMPOSITE_PARAMETERIZED_READY",
+      "dependency_children": "Pinv",
+      "dependency_count": 1
+    },
+    {
+      "module_name": "delaychain.NAME",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "dff",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "dff_buf.NAME",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "dff_buf1.NAME",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "dff_buf_addr.NAME",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "dff_buf_data.NAME",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "inv_clk_bar.NAME",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "inv_rbl_delay_bar.NAME",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "inv_wl_en_bar.NAME",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "pdrive",
+      "node_kind": "COMPOSITE_PARAMETERIZED_READY",
+      "dependency_children": "Pinv",
+      "dependency_count": 1
+    },
+    {
+      "module_name": "pdrive2_for_pre",
+      "node_kind": "COMPOSITE_PARAMETERIZED_READY",
+      "dependency_children": "Pinv",
+      "dependency_count": 1
+    },
+    {
+      "module_name": "pre.NAME",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "pre_unbuf.NAME",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "s_en.NAME",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "w_en.NAME",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "wen_delay_chain",
+      "node_kind": "COMPOSITE_PARAMETERIZED_READY",
+      "dependency_children": "Pinv",
+      "dependency_count": 1
+    },
+    {
+      "module_name": "wen_delaychain.NAME",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "wl_en.NAME",
+      "node_kind": "DEVICE_MODEL_NOT_PHYSICAL_CELL",
+      "dependency_children": "",
+      "dependency_count": 0
+    },
+    {
+      "module_name": "wl_pdrive",
+      "node_kind": "COMPOSITE_PARAMETERIZED_READY",
+      "dependency_children": "Pinv",
+      "dependency_count": 1
+    }
+  ],
+  "summary": {
+    "dependency_graph_generated": true,
+    "dependency_graph_node_count": 35,
+    "dependency_graph_edge_count": 53,
+    "dependency_graph_cycle_count": 0,
+    "dependency_graph_acyclic": true
+  }
+}

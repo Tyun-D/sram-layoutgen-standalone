@@ -8,8 +8,8 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M12C3A4R",
-  "next_stage": "M12C4_COMPOSITE_CONTROL_CELL_GENERATION_PLAN",
+  "current_stage": "M12C4",
+  "next_stage": "M12C4T_PRIMITIVE_INTERFACE_NORMALIZATION",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": false,
@@ -2376,5 +2376,13 @@
     "approved_reusable_cell_root": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells",
     "can_claim_generated_p0_primitives_human_verified": true,
     "can_claim_p0_primitives_reusable_for_composition": true
+  },
+  "M12C4": {
+    "approved_reusable_cell_count": 10,
+    "source_topology_extraction_completed": true,
+    "dependency_graph_acyclic": true,
+    "interface_compatibility_status": "PARTIAL_REQUIRES_INTERFACE_NORMALIZATION",
+    "routing_contract_status": "LOCKED_COMPOSITE_ROUTING_V1",
+    "gds_generated_in_M12C4": false
   }
 }

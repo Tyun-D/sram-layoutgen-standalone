@@ -385,3 +385,10 @@
 - Rebuilt a self-contained review atlas with deterministic DEBUG_BEFORE and REUSABLE_AFTER hierarchies.
 - Separated historical failure evidence from current qualified primitive state.
 - Verified all reusable outputs, DRC artifacts, and prior geometry/connectivity regressions remained unchanged.
+
+## M12C4 Composite Planning Progress
+
+- Verified the approved reusable primitive contract and forbidden source roots.
+- Extracted source-exact hierarchy for DFF/DFF_BUF/ADDR_DFF/DATA_DFF/AND/PNAND/pdrive/delay_chain/TIME from the latest OpenYield source.
+- Built the composite dependency DAG and concrete 16x16/64x8 instance expansions.
+- Locked primitive binding, interface audit, placement architecture, routing contract, naming/cache contract, implementation waves, and verification gates.

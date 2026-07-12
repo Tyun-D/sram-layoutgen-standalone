@@ -120,3 +120,8 @@
 
 - Composite generation remains blocked until review atlas evidence is self-contained and current qualification state is unambiguous.
 - This stage does not modify reusable primitive conductive geometry or canonical pin labels.
+
+## M12C4 Composite Planning Gate
+
+- M12C4 locks source-exact topology, physical primitive binding, interface, placement, and routing contracts before any composite control-cell GDS generation.
+- No GDS is generated in M12C4.

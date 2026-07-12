@@ -1,0 +1,7 @@
+wave_id,module,reason,dependency_modules,approved_children_complete,source_topology_complete,parameter_resolution_complete,interface_compatible,routing_backend_ready,generator_work_required,expected_human_review,entry_gate,exit_gate,next_wave_dependency
+Wave0,Approved primitive input gate,"lock reusable primitive root, interface audit, and routing contract",,True,True,True,False,True,False,False,M12C3A4R passed,M12C4 planning contracts locked,Wave1
+Wave1,DFF,first dependency-closed smoke composite using approved PINV and Transmission Gate only,PINV|TRANSMISSION_GATE,True,True,True,False,True,True,True,DFF contract locked,single DFF smoke GDS + DRC + human review,Wave2
+Wave2,PNAND2/PNAND3 and AND2/AND3,requires NAND primitive generation path closure,PINV|PNAND2|PNAND3,False,True,False,False,True,True,True,Wave1 closed,qualified NAND and AND composites,Wave3
+Wave3,"DFF_BUF, delay_chain, pdrive family",composite chains after DFF and routing proof,DFF|PINV,True,True,True,False,True,True,True,Wave1 closed,buffer and delay-chain composites qualified,Wave4
+Wave4,ADDR_DFF / DATA_DFF,array-style hierarchical composition after DFF proof,DFF,True,True,True,False,True,True,True,Wave1 closed,qualified DFF row arrays,Wave5
+Wave5,TIME,full control region composition only after all child composites qualify,ADDR_DFF|DATA_DFF|DFF_BUF|AND2|AND3|delay_chain|pdrive|wl_pdrive|pdrive2_for_pre,False,True,True,False,True,True,True,Waves 1-4 closed,TIME region qualified,

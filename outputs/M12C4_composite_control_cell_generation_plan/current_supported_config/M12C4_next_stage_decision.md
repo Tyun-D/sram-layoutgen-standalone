@@ -1,0 +1,5 @@
+# M12C4 Next Stage Decision
+
+- recommended_next_stage: `M12C4T_PRIMITIVE_INTERFACE_NORMALIZATION`
+- recommended_next_stage_reason: `Approved PINV and Transmission Gate rails align on M1, but their cell heights/boundary envelopes do not yet match exactly, so DFF row composition must normalize the primitive interface before smoke GDS generation.`
+- can_enter_next_stage_before_human_review: `True`

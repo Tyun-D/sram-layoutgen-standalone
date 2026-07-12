@@ -1,0 +1,4 @@
+architecture,advantages,risks,rail_compatibility,well_compatibility,routing_complexity,determinism,reuse_of_approved_geometry,recommended_modules,rejected_reason
+STANDARD_CELL_ROW_ABUTMENT,maximum reuse and shortest rails,current TG/PINV height mismatch blocks direct abutment,True,False,medium,high,high,future normalized DFF row,requires interface normalization first
+SPACED_HIERARCHICAL_ROW_WITH_POWER_STITCH,tolerates slight height mismatch and isolates well edges,extra area and explicit rail stitch steps,True,True,medium,high,high,first DFF smoke after interface normalization,
+MODULE_SPECIFIC_MICRO_FLOORPLAN,adapts to DFF feedback and TG control asymmetry,higher implementation complexity and less generic reuse,True,True,high,medium,high,DFF and delay-chain local composites,reserved as fallback if spaced row still fails

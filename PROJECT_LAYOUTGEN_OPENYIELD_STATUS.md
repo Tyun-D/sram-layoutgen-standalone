@@ -224,3 +224,14 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 - All 10 reusable primitives remained byte-identical during evidence closure.
 - The only approved primitive composition root for M12C4 is `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells`.
 - CONTROL_LOGIC physical ready, LVS clean, and signoff ready remain false.
+
+## M12C4 Composite Planning
+
+- M12C3A4R evidence gate is passed.
+- The 10 reusable primitives under `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells` are the only approved physical inputs.
+- Historical and current primitive qualification states remain separated.
+- Source-exact composite hierarchy extraction was re-derived from the latest OpenYield code.
+- Concrete 16x16 and 64x8 expansions were generated without any GDS output.
+- Approved child binding, primitive interface compatibility, placement architecture, routing contract, and implementation waves were locked as planning artifacts.
+- The first actual composite GDS stage is `M12C4T_PRIMITIVE_INTERFACE_NORMALIZATION`.
+- CONTROL_LOGIC physical ready, LVS clean, and signoff ready remain false.

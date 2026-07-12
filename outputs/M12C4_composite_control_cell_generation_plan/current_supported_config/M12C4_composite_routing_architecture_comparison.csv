@@ -1,0 +1,4 @@
+architecture,advantages,risks,m1_pin_escape_supported,m2_intercell_routing_supported,via1_supported,recommended
+LOCAL_M1_ONLY,simplest implementation,cannot guarantee crossover-free DFF feedback and clock crossings,True,False,False,False
+M1_SIGNAL_WITH_M2_CROSSOVER,supports DFF internal crossings with limited layer stack,needs deterministic via insertion discipline,True,True,True,True
+M1_PIN_ESCAPE_M2_COMPOSITE_ROUTING,clean intercell contract with explicit crossover layer,requires obstacle normalization for larger composite blocks,True,True,True,False
