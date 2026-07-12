@@ -235,3 +235,36 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 - Approved child binding, primitive interface compatibility, placement architecture, routing contract, and implementation waves were locked as planning artifacts.
 - The first actual composite GDS stage is `M12C4T_PRIMITIVE_INTERFACE_NORMALIZATION`.
 - CONTROL_LOGIC physical ready, LVS clean, and signoff ready remain false.
+
+## M12C4R Correction Gate
+
+- M12C4 planning framework is preserved, but the original source-exact claim is corrected.
+- The original source net matrix only covered 11/232 rows and DFF coverage was 0/52.
+- The original unresolved=0 claim is withdrawn.
+- The original interface risk was inferred from a 2.5nm height delta despite aligned rails.
+- M12C4R re-qualified the PINV/TG interface with diagnostic GDS and DRC instead of bbox heuristics.
+- M12C4R re-qualified the routing backend with an executable M1/Via1/M2 diagnostic.
+- Current next stage: `M12C4T_PRIMITIVE_INTERFACE_NORMALIZATION`.
+- No formal composite control cell was generated in M12C4R.
+
+## M12C4R Correction Gate
+
+- M12C4 planning framework is preserved, but the original source-exact claim is corrected.
+- The original source net matrix only covered 11/232 rows and DFF coverage was 0/52.
+- The original unresolved=0 claim is withdrawn.
+- The original interface risk was inferred from a 2.5nm height delta despite aligned rails.
+- M12C4R re-qualified the PINV/TG interface with diagnostic GDS and DRC instead of bbox heuristics.
+- M12C4R re-qualified the routing backend with an executable M1/Via1/M2 diagnostic.
+- Current next stage: `M12C4P_COMPOSITE_ROUTING_BACKEND_PREPARATION`.
+- No formal composite control cell was generated in M12C4R.
+
+## M12C4R Correction Gate
+
+- M12C4 planning framework is preserved, but the original source-exact claim is corrected.
+- The original source net matrix only covered 11/232 rows and DFF coverage was 0/52.
+- The original unresolved=0 claim is withdrawn.
+- The original interface risk was inferred from a 2.5nm height delta despite aligned rails.
+- M12C4R re-qualified the PINV/TG interface with diagnostic GDS and DRC instead of bbox heuristics.
+- M12C4R re-qualified the routing backend with an executable M1/Via1/M2 diagnostic.
+- Current next stage: `M12C4A_DFF_COMPOSITE_GENERATION`.
+- No formal composite control cell was generated in M12C4R.

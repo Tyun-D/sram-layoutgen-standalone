@@ -125,3 +125,7 @@
 
 - M12C4 locks source-exact topology, physical primitive binding, interface, placement, and routing contracts before any composite control-cell GDS generation.
 - No GDS is generated in M12C4.
+
+## M12C4R Correction Goal
+
+- M12C4R corrects source extraction, interface qualification, and routing qualification before any DFF generation.

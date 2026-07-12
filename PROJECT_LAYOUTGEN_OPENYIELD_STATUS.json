@@ -8,8 +8,8 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M12C4",
-  "next_stage": "M12C4T_PRIMITIVE_INTERFACE_NORMALIZATION",
+  "current_stage": "M12C4R",
+  "next_stage": "M12C4A_DFF_COMPOSITE_GENERATION",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": false,
@@ -2384,5 +2384,10 @@
     "interface_compatibility_status": "PARTIAL_REQUIRES_INTERFACE_NORMALIZATION",
     "routing_contract_status": "LOCKED_COMPOSITE_ROUTING_V1",
     "gds_generated_in_M12C4": false
+  },
+  "M12C4R": {
+    "dff_ready_for_smoke_generation": true,
+    "recommended_next_stage": "M12C4A_DFF_COMPOSITE_GENERATION",
+    "routing_contract_status": "LOCKED_COMPOSITE_ROUTING_V1"
   }
 }

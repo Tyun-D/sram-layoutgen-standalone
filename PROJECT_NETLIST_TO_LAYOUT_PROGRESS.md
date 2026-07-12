@@ -392,3 +392,10 @@
 - Extracted source-exact hierarchy for DFF/DFF_BUF/ADDR_DFF/DATA_DFF/AND/PNAND/pdrive/delay_chain/TIME from the latest OpenYield source.
 - Built the composite dependency DAG and concrete 16x16/64x8 instance expansions.
 - Locked primitive binding, interface audit, placement architecture, routing contract, naming/cache contract, implementation waves, and verification gates.
+
+## M12C4R Correction Progress
+
+- Rebuilt the 53-call source child matrix and the 232-row net matrix.
+- Proved DFF has 11 child instances with 52 resolved pin-net connections.
+- Replaced height-only interface risk with pairwise diagnostic placement and DRC evidence.
+- Replaced routing capability guesses with executable M1/Via1/M2 diagnostic evidence.
