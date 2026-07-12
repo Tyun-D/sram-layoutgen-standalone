@@ -103,11 +103,41 @@ def build_dff_floorplan_candidates(
         }
     )
 
-    selected = candidate_rows[0]
     return {
         "candidate_count": len(candidate_rows),
-        "selected_architecture": selected["architecture"],
+        "selected_architecture": None,
         "rows": candidate_rows,
+    }
+
+
+def select_dff_floorplan_from_trials(
+    *,
+    candidate_payload: dict[str, Any],
+    trial_rows: list[dict[str, Any]],
+) -> dict[str, Any]:
+    by_arch = {row["architecture"]: row for row in trial_rows}
+
+    def sort_key(row: dict[str, Any]) -> tuple[int, int, int, int, float, int, float]:
+        return (
+            0 if row["connectivity_passed"] else 1,
+            int(row["missing_expected_endpoint_count"]),
+            int(row["unexpected_net_merge_count"]),
+            int(row["drc_marker_count"]),
+            float(row["estimated_wire_length"]),
+            int(row["via1_count"]),
+            float(row["bbox_area"]),
+        )
+
+    selected_trial = sorted(trial_rows, key=sort_key)[0]
+    selected_arch = selected_trial["architecture"]
+    selected = next(row for row in candidate_payload["rows"] if row["architecture"] == selected_arch)
+    return {
+        "candidate_count": candidate_payload["candidate_count"],
+        "selected_architecture": selected_arch,
+        "rows": candidate_payload["rows"],
+        "trial_rows": trial_rows,
+        "selected_trial": by_arch[selected_arch],
+        "selected_placements": selected["placements"],
     }
 
 
@@ -145,6 +175,7 @@ def write_dff_floorplan_reports(
         "floorplan_candidate_count": candidate_payload["candidate_count"],
         "selected_dff_floorplan_architecture": candidate_payload["selected_architecture"],
         "candidates": candidate_payload["rows"],
+        "trial_rows": candidate_payload.get("trial_rows", []),
     }
     decision_json_path.write_text(json.dumps(decision, indent=2) + "\n", encoding="utf-8")
     decision_md_path.write_text(

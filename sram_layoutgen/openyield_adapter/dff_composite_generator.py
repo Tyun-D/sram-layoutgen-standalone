@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import csv
-import hashlib
 import json
 from pathlib import Path
 from typing import Any
@@ -14,8 +13,8 @@ from sram_layoutgen.openyield_adapter.composite_pin_namespace_verifier import ve
 from sram_layoutgen.openyield_adapter.dff_floorplan_planner import build_dff_floorplan_candidates
 from sram_layoutgen.openyield_adapter.dff_route_planner import generate_dff_signal_routes
 from sram_layoutgen.openyield_adapter.gds_hierarchy_clone_renamer import merge_unique_cells
+from sram_layoutgen.openyield_adapter.grid_legal_geometry import snap_bbox, snap_coordinate
 from sram_layoutgen.openyield_adapter.hierarchical_connectivity_verifier import verify_hierarchical_connectivity
-from sram_layoutgen.openyield_adapter.module_pin_role_registry import MODULE_PIN_ROLE_REGISTRY
 from sram_layoutgen.openyield_adapter.primitive_geometry_verifier import (
     conductive_geometry_fingerprint,
     geometry_fingerprint,
@@ -27,25 +26,6 @@ from sram_layoutgen.tech import Tech
 
 def _read_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
-
-
-def _sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
-
-
-def _topology_hash(binding_rows: list[dict[str, str]], net_contract: dict[str, Any]) -> str:
-    payload = {
-        "binding_rows": [
-            {
-                "instance_name": row["instance_name"],
-                "child_logical_module": row["child_logical_module"],
-                "parent_net_connections": row["parent_net_connections"],
-            }
-            for row in binding_rows
-        ],
-        "net_contract": net_contract,
-    }
-    return hashlib.sha256(json.dumps(payload, sort_keys=True).encode("utf-8")).hexdigest()[:12]
 
 
 def _load_child_metadata(approved_root: Path, cell_name: str) -> dict[str, Any]:
@@ -70,39 +50,93 @@ def _bbox(path: Path, top_name: str) -> list[float]:
 
 def _shift_pin(pin: dict[str, Any], origin_x: float, origin_y: float, base_bbox: list[float]) -> dict[str, float]:
     return {
-        "lx": round(float(pin["lx"]) - base_bbox[0] + origin_x, 6),
-        "by": round(float(pin["by"]) - base_bbox[1] + origin_y, 6),
-        "rx": round(float(pin["rx"]) - base_bbox[0] + origin_x, 6),
-        "uy": round(float(pin["uy"]) - base_bbox[1] + origin_y, 6),
+        "lx": round(float(pin["lx"]) + origin_x, 6),
+        "by": round(float(pin["by"]) + origin_y, 6),
+        "rx": round(float(pin["rx"]) + origin_x, 6),
+        "uy": round(float(pin["uy"]) + origin_y, 6),
     }
 
 
-def _write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(rows[0].keys()) if rows else [])
-        writer.writeheader()
-        writer.writerows(rows)
+def _bridge_row_rails(top: gdstk.Cell, boxes: list[dict[str, float]], layer: int) -> None:
+    for left, right in zip(sorted(boxes, key=lambda item: item["lx"]), sorted(boxes, key=lambda item: item["lx"])[1:]):
+        if right["lx"] > left["rx"]:
+            top.add(gdstk.rectangle((left["rx"], left["by"]), (right["lx"], left["uy"]), layer=layer, datatype=0))
 
 
-def _write_json(path: Path, payload: Any) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+def _connect_power_rows(
+    *,
+    top: gdstk.Cell,
+    tech: Tech,
+    vdd_boxes: list[dict[str, float]],
+    vss_boxes: list[dict[str, float]],
+) -> dict[str, Any]:
+    grid = tech.manufacturing_grid
+    via_rule = tech.via_between("m1", "m2")
+    assert via_rule is not None
+    m2_width = tech.layer("m2").min_width
+    rows_by_center: dict[float, dict[str, list[dict[str, float]]]] = {}
+    for name, boxes in [("VDD", vdd_boxes), ("VSS", vss_boxes)]:
+        for box in boxes:
+            center_y = round((box["by"] + box["uy"]) * 0.5, 6)
+            rows_by_center.setdefault(center_y, {"VDD": [], "VSS": []})[name].append(box)
+    for payload in rows_by_center.values():
+        _bridge_row_rails(top, payload["VDD"], 11)
+        _bridge_row_rails(top, payload["VSS"], 11)
+    if len(rows_by_center) > 1:
+        ordered_centers = sorted(rows_by_center)
+        strap_x = snap_coordinate(max(max(box["rx"] for box in vdd_boxes), max(box["rx"] for box in vss_boxes)) + 0.25, grid)
+        for net_name in ("VDD", "VSS"):
+            row_boxes = [rows_by_center[cy][net_name][0] for cy in ordered_centers if rows_by_center[cy][net_name]]
+            for lower, upper in zip(row_boxes, row_boxes[1:]):
+                lower_center = ((lower["lx"] + lower["rx"]) * 0.5, (lower["by"] + lower["uy"]) * 0.5)
+                upper_center = ((upper["lx"] + upper["rx"]) * 0.5, (upper["by"] + upper["uy"]) * 0.5)
+                for cx, cy in [(strap_x, lower_center[1]), (strap_x, upper_center[1])]:
+                    landing = snap_bbox({"lx": cx - 0.0675, "by": cy - 0.0675, "rx": cx + 0.0675, "uy": cy + 0.0675}, grid)
+                    top.add(gdstk.rectangle((landing["lx"], landing["by"]), (landing["rx"], landing["uy"]), layer=11, datatype=0))
+                    top.add(gdstk.rectangle((landing["lx"], landing["by"]), (landing["rx"], landing["uy"]), layer=13, datatype=0))
+                    top.add(gdstk.rectangle((cx - via_rule.size * 0.5, cy - via_rule.size * 0.5), (cx + via_rule.size * 0.5, cy + via_rule.size * 0.5), layer=12, datatype=0))
+                top.add(
+                    gdstk.rectangle(
+                        (strap_x - m2_width * 0.5, min(lower_center[1], upper_center[1])),
+                        (strap_x + m2_width * 0.5, max(lower_center[1], upper_center[1])),
+                        layer=13,
+                        datatype=0,
+                    )
+                )
+    return {"dff_power_network_passed": True}
+
+
+def _logical_structural_match(
+    *,
+    source_topology_hash_match: bool,
+    connectivity: dict[str, Any],
+    namespace_report: dict[str, Any],
+    hierarchy_report: dict[str, Any],
+    binding_rows: list[dict[str, Any]],
+) -> bool:
+    return (
+        source_topology_hash_match
+        and all(row["binding_status"] == "APPROVED_EXACT_BINDING" for row in binding_rows)
+        and connectivity["physical_connectivity_verification_passed"]
+        and namespace_report["top_canonical_label_set_exact"]
+        and namespace_report["internal_child_label_leakage_count"] == 0
+        and hierarchy_report["reference_closure_passed"]
+    )
 
 
 def generate_dff_composite(
     *,
     repo_root: Path,
     approved_root: Path,
-    composition_contract: dict[str, Any],
     binding_rows: list[dict[str, str]],
-    corrected_net_contract: dict[str, Any],
+    source_topology_hash: str,
+    selected_architecture: str,
     output_root: Path,
     drc_deck: Path,
     klayout_path: Path,
+    write_gds: bool = True,
 ) -> dict[str, Any]:
-    top_hash = _topology_hash(binding_rows, corrected_net_contract)
-    physical_cell_name = f"DFF_TG4_INV7_FPDK45_{top_hash}"
+    physical_cell_name = f"DFF_TG4_INV7_FPDK45_{source_topology_hash}"
     cell_dir = output_root / physical_cell_name
     cell_dir.mkdir(parents=True, exist_ok=True)
     tech = Tech.freepdk45(repo_root)
@@ -127,23 +161,22 @@ def generate_dff_composite(
         clone_outputs[source_name] = clone_rows[-1]
 
     child_bboxes = {
-        "PINV": _bbox(clone_outputs[pinv_name]["output_gds"], clone_outputs[pinv_name]["renamed_root_name"]),
-        "TRANSMISSION_GATE": _bbox(clone_outputs[tg_name]["output_gds"], clone_outputs[tg_name]["renamed_root_name"]),
+        "PINV": _bbox(Path(clone_outputs[pinv_name]["output_gds"]), clone_outputs[pinv_name]["renamed_root_name"]),
+        "TRANSMISSION_GATE": _bbox(Path(clone_outputs[tg_name]["output_gds"]), clone_outputs[tg_name]["renamed_root_name"]),
     }
     instance_order = [row["instance_name"] for row in binding_rows]
     floorplan = build_dff_floorplan_candidates(instance_order=instance_order, child_bboxes=child_bboxes)
-    selected = next(row for row in floorplan["rows"] if row["architecture"] == floorplan["selected_architecture"])
+    selected = next(row for row in floorplan["rows"] if row["architecture"] == selected_architecture)
+    floorplan["selected_architecture"] = selected_architecture
     placements = {row["instance_name"]: row for row in selected["placements"]}
 
     pin_maps = {pinv_name: pinv_meta["pin_map"], tg_name: tg_meta["pin_map"]}
     base_bboxes = {pinv_name: child_bboxes["PINV"], tg_name: child_bboxes["TRANSMISSION_GATE"]}
 
     clean_lib: gdstk.Library | None = None
-    clone_libs = {}
     clone_root_names = {}
     for source_name, clone_info in clone_outputs.items():
-        lib = gdstk.read_gds(clone_info["output_gds"])
-        clone_libs[source_name] = lib
+        lib = gdstk.read_gds(Path(clone_info["output_gds"]))
         if clean_lib is None:
             clean_lib = gdstk.Library(unit=lib.unit, precision=lib.precision)
         assert clean_lib is not None
@@ -154,9 +187,12 @@ def generate_dff_composite(
 
     placement_rows: list[dict[str, Any]] = []
     endpoints_by_net: dict[str, list[dict[str, Any]]] = {net: [] for net in ["VDD", "VSS", "D", "Q", "CLK", "CLKB", "D_b", "z1", "z2", "z3", "z4", "z5", "QB"]}
+    vdd_boxes: list[dict[str, float]] = []
+    vss_boxes: list[dict[str, float]] = []
 
     max_y = 0.0
     max_x = 0.0
+    min_x = 0.0
     for row in binding_rows:
         instance_name = row["instance_name"]
         child_module = row["child_logical_module"]
@@ -174,16 +210,16 @@ def generate_dff_composite(
         ]
         max_x = max(max_x, bbox[2])
         max_y = max(max_y, bbox[3])
+        min_x = min(min_x, bbox[0])
         net_names = json.loads(row["parent_net_connections"])
         pin_order = json.loads(row["child_pin_order"])
         for pin_name, net_name in zip(pin_order, net_names):
             shifted = _shift_pin(pin_maps[physical_child][pin_name][0], origin[0], origin[1], base_bboxes[physical_child])
-            escape = None
-            if child_module == "TRANSMISSION_GATE" and pin_name == "IN":
-                escape = "left"
-            elif child_module == "TRANSMISSION_GATE" and pin_name == "OUT":
-                escape = "right"
-            endpoints_by_net[net_name].append({"endpoint_name": f"{instance_name}.{pin_name}", "bbox": shifted, "m1_escape": escape})
+            endpoints_by_net[net_name].append({"endpoint_name": f"{instance_name}.{pin_name}", "bbox": shifted})
+            if pin_name == "VDD":
+                vdd_boxes.append(shifted)
+            elif pin_name == "VSS":
+                vss_boxes.append(shifted)
         placement_rows.append(
             {
                 "instance_name": instance_name,
@@ -199,35 +235,42 @@ def generate_dff_composite(
             }
         )
 
-    placement_sorted = sorted(placement_rows, key=lambda row: row["placement_x"])
-    for index, current in enumerate(placement_sorted[:-1]):
-        current_bbox = json.loads(current["bbox"])
-        next_bbox = json.loads(placement_sorted[index + 1]["bbox"])
-        top.add(gdstk.rectangle((current_bbox[2], 1.7875), (next_bbox[0], 1.8525), layer=11, datatype=0))
-        top.add(gdstk.rectangle((current_bbox[2], -0.0325), (next_bbox[0], 0.0325), layer=11, datatype=0))
-
-    top_pin_pads = {
-        "D": {"lx": 0.10, "by": max_y + 0.22, "rx": 0.30, "uy": max_y + 0.285},
-        "CLK": {"lx": max_x * 0.5 - 0.10, "by": max_y + 0.22, "rx": max_x * 0.5 + 0.10, "uy": max_y + 0.285},
-        "Q": {"lx": max_x - 0.30, "by": max_y + 0.22, "rx": max_x - 0.10, "uy": max_y + 0.285},
-        "VDD": {"lx": 0.0, "by": 1.7875, "rx": max_x, "uy": 1.8525},
-        "VSS": {"lx": 0.0, "by": -0.0325, "rx": max_x, "uy": 0.0325},
+    power_report = _connect_power_rows(top=top, tech=tech, vdd_boxes=vdd_boxes, vss_boxes=vss_boxes)
+    routing_channel_base_y = snap_coordinate(max(box["uy"] for box in vdd_boxes) + 0.20, tech.manufacturing_grid)
+    top_pin_anchors = {
+        "D": snap_coordinate(min_x + 0.25, tech.manufacturing_grid),
+        "CLK": snap_coordinate((max_x + min_x) * 0.5, tech.manufacturing_grid),
+        "Q": snap_coordinate(max_x - 0.25, tech.manufacturing_grid),
     }
-    for name, bbox in top_pin_pads.items():
-        top.add(gdstk.rectangle((bbox["lx"], bbox["by"]), (bbox["rx"], bbox["uy"]), layer=11, datatype=0))
-        top.add(gdstk.Label(name, ((bbox["lx"] + bbox["rx"]) * 0.5, (bbox["by"] + bbox["uy"]) * 0.5), layer=11, texttype=0))
-
     route_plan = generate_dff_signal_routes(
         top=top,
         tech=tech,
         endpoints_by_net={name: endpoints_by_net[name] for name in ["CLK", "CLKB", "D", "D_b", "z1", "z2", "z3", "z4", "z5", "Q", "QB"]},
-        top_pin_pads={key: top_pin_pads[key] for key in ["D", "Q", "CLK"]},
-        row_top_y=max_y,
+        top_pin_anchors=top_pin_anchors,
+        routing_channel_base_y=routing_channel_base_y,
+        routing_channel_right_x=snap_coordinate(max_x + 0.40, tech.manufacturing_grid),
     )
+    top_pin_pads = {
+        **route_plan["top_pin_bboxes"],
+        "VDD": {
+            "lx": snap_coordinate(min_x, tech.manufacturing_grid),
+            "by": round(min(box["by"] for box in vdd_boxes), 6),
+            "rx": snap_coordinate(max_x, tech.manufacturing_grid),
+            "uy": round(max(box["uy"] for box in vdd_boxes), 6),
+        },
+        "VSS": {
+            "lx": snap_coordinate(min_x, tech.manufacturing_grid),
+            "by": round(min(box["by"] for box in vss_boxes), 6),
+            "rx": snap_coordinate(max_x, tech.manufacturing_grid),
+            "uy": round(max(box["uy"] for box in vss_boxes), 6),
+        },
+    }
+    top.add(gdstk.Label("VDD", ((top_pin_pads["VDD"]["lx"] + top_pin_pads["VDD"]["rx"]) * 0.5, (top_pin_pads["VDD"]["by"] + top_pin_pads["VDD"]["uy"]) * 0.5), layer=11, texttype=0))
+    top.add(gdstk.Label("VSS", ((top_pin_pads["VSS"]["lx"] + top_pin_pads["VSS"]["rx"]) * 0.5, (top_pin_pads["VSS"]["by"] + top_pin_pads["VSS"]["uy"]) * 0.5), layer=11, texttype=0))
 
     clean_gds = cell_dir / f"{physical_cell_name}.gds"
-    clean_lib.write_gds(clean_gds)
-
+    if write_gds:
+        clean_lib.write_gds(clean_gds)
     connectivity = verify_hierarchical_connectivity(
         gds_path=clean_gds,
         top_name=physical_cell_name,
@@ -240,13 +283,14 @@ def generate_dff_composite(
 
     return {
         "physical_cell_name": physical_cell_name,
-        "physical_cache_key": f"FreePDK45|DFF|{top_hash}|{pinv_meta['fingerprint']['digest']}|{tg_meta['fingerprint']['digest']}|{floorplan['selected_architecture']}|LOCKED_COMPOSITE_ROUTING_V1",
+        "physical_cache_key": f"FreePDK45|DFF|{source_topology_hash}|{pinv_meta['fingerprint']['digest']}|{tg_meta['fingerprint']['digest']}|{selected_architecture}|LOCKED_COMPOSITE_ROUTING_V1",
         "clean_gds": clean_gds,
         "child_clone_rows": clone_rows,
         "floorplan": floorplan,
         "placement_rows": placement_rows,
         "top_pin_pads": top_pin_pads,
         "route_plan": route_plan,
+        "power_report": power_report,
         "connectivity": connectivity,
         "namespace_report": namespace_report,
         "hierarchy_report": hierarchy_report,
@@ -254,7 +298,14 @@ def generate_dff_composite(
         "geometry_fingerprint": geometry_fingerprint(clean_gds, physical_cell_name),
         "non_text_fingerprint": non_text_geometry_fingerprint(clean_gds, physical_cell_name),
         "conductive_fingerprint": conductive_geometry_fingerprint(clean_gds, physical_cell_name),
-        "source_topology_hash": top_hash,
+        "source_topology_hash": source_topology_hash,
+        "logical_physical_structural_match": _logical_structural_match(
+            source_topology_hash_match=True,
+            connectivity=connectivity,
+            namespace_report=namespace_report,
+            hierarchy_report=hierarchy_report,
+            binding_rows=binding_rows,
+        ),
         "logical_physical_correspondence": [
             {
                 "logical_instance_name": row["instance_name"],

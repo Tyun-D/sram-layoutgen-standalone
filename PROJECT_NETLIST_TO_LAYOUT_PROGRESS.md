@@ -419,3 +419,19 @@
 - Deterministic regeneration verified: `True`.
 - LVS remains not proven.
 - Higher-level CONTROL_LOGIC generation remains not started.
+
+## M12C4AC
+
+- M12C4A generation failed because 11 signal nets merged through Metal2 same-layer crossings.
+- D/Q short was a signal-supernet consequence, not a primitive-level short.
+- Failed DRC marker count was 88 and all markers were routing/grid related.
+- No Well/Implant primitive interface violation was detected in the failed attempt.
+- Failed DFF was quarantined and marked DO_NOT_REUSE / DO_NOT_COMPOSE / DO_NOT_HUMAN_APPROVE.
+- Canonical source topology hash unified: `True`.
+- Repaired routing architecture: `M1_HORIZONTAL_TRACK_M2_VERTICAL_DROP`.
+- Pin access planning passed: `True`.
+- Repaired connectivity passed: `False`.
+- Repaired DRC marker count: `105`.
+- Human review open: `False`.
+- LVS remains not proven.
+- Higher-level CONTROL_LOGIC generation remains blocked.

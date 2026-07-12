@@ -173,6 +173,8 @@ def parse_lyrdb_categories(path: Path) -> dict[str, int]:
         return {}
     counts: Counter[str] = Counter()
     for item in root.findall(".//item"):
-        category = item.get("category") or item.get("name") or "UNKNOWN"
+        category = item.findtext("category")
+        if category is None:
+            category = item.get("category") or item.get("name") or "UNKNOWN"
         counts[category] += 1
     return dict(sorted(counts.items()))
