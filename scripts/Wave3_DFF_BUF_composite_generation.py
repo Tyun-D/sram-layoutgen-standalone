@@ -26,6 +26,11 @@ from sram_layoutgen.openyield_adapter.canonical_dff_topology_identity import (
 from sram_layoutgen.openyield_adapter.composite_hierarchy_closure import write_composite_hierarchy_outputs
 from sram_layoutgen.openyield_adapter.composite_pin_namespace_verifier import write_pin_namespace_outputs
 from sram_layoutgen.openyield_adapter.dff_buf_composite_generator import generate_dff_buf_composite
+from sram_layoutgen.openyield_adapter.dff_buf_verification_gate import (
+    compute_machine_gate_outcome,
+    compute_machine_pass,
+    compute_source_level_polarity_audit,
+)
 from sram_layoutgen.openyield_adapter.dff_buf_floorplan_planner import (
     build_dff_buf_floorplan_candidates,
     select_dff_buf_floorplan_from_trials,
@@ -498,6 +503,8 @@ def main() -> None:
             approved_primitive_root=approved_root,
             binding_rows=binding_rows,
             source_topology_hash=topology_hash,
+            canonical_extracted_topology_hash=topology_hash,
+            requested_source_topology_hash=topology_hash,
             selected_architecture=candidate["architecture"],
             placements=candidate["placements"],
             output_root=trial_root / candidate["architecture"],
@@ -543,6 +550,8 @@ def main() -> None:
         approved_primitive_root=approved_root,
         binding_rows=binding_rows,
         source_topology_hash=topology_hash,
+        canonical_extracted_topology_hash=topology_hash,
+        requested_source_topology_hash=topology_hash,
         selected_architecture=selected["selected_architecture"],
         placements=selected["selected_placements"],
         output_root=out_dir / "candidate",
@@ -673,6 +682,8 @@ def main() -> None:
         approved_primitive_root=approved_root,
         binding_rows=binding_rows,
         source_topology_hash=topology_hash,
+        canonical_extracted_topology_hash=topology_hash,
+        requested_source_topology_hash=topology_hash,
         selected_architecture=selected["selected_architecture"],
         placements=selected["selected_placements"],
         output_root=second_root,
@@ -713,18 +724,29 @@ def main() -> None:
         and generated["connectivity"]["floating_required_pin_count"] == 0
         and generated["connectivity"]["power_signal_short_count"] == 0
     )
-    machine_pass = (
-        source_commit_match
-        and release_ok
-        and all(row["binding_status"] == "APPROVED_EXACT_BINDING" for row in binding_rows)
-        and generated["route_plan"]["routing_architecture_has_no_same_layer_crossovers"]
-        and generated["route_plan"]["pin_access_planning_passed"]
-        and generated["connectivity"]["physical_connectivity_verification_passed"]
-        and generated["namespace_report"]["top_canonical_label_set_exact"]
-        and generated["namespace_report"]["internal_child_label_leakage_count"] == 0
-        and generated["hierarchy_report"]["reference_closure_passed"]
-        and generated["drc"]["marker_count"] == 0
-        and determinism["deterministic_regeneration_verified"]
+    polarity_audit = compute_source_level_polarity_audit(_load_csv(repo_root / "docs/Wave3_DFF_BUF_instance_connection_table.csv"))
+    machine_pass = compute_machine_pass(
+        {
+            "source_commit_match": source_commit_match and release_ok,
+            "source_topology_extraction_passed": True,
+            "source_topology_hash_match": generated["source_topology_hash_match"],
+            "exact_child_binding_count": sum(1 for row in binding_rows if row["binding_status"] == "APPROVED_EXACT_BINDING"),
+            "non_exact_child_binding_count": sum(1 for row in binding_rows if row["binding_status"] != "APPROVED_EXACT_BINDING"),
+            "child_geometry_modified_count": generated["child_geometry_immutability"]["child_geometry_modified_count"],
+            "pin_access_planning_passed": generated["route_plan"]["pin_access_planning_passed"],
+            "routing_architecture_has_no_same_layer_crossovers": generated["route_plan"]["routing_architecture_has_no_same_layer_crossovers"],
+            "signal_routing_completed": signal_routing_completed,
+            "physical_connectivity_verification_passed": generated["connectivity"]["physical_connectivity_verification_passed"],
+            "logical_physical_structural_match": generated["logical_physical_structural_match"],
+            "top_canonical_label_set_exact": generated["namespace_report"]["top_canonical_label_set_exact"],
+            "child_label_leakage_count": generated["namespace_report"]["internal_child_label_leakage_count"],
+            "hierarchy_closure_passed": generated["hierarchy_report"]["reference_closure_passed"],
+            "missing_reference_target_count": generated["hierarchy_report"]["missing_reference_target_count"],
+            "reference_cycle_count": generated["hierarchy_report"]["reference_cycle_count"],
+            "drc_marker_count": generated["drc"]["marker_count"],
+            "deterministic_regeneration_verified": determinism["deterministic_regeneration_verified"],
+            "source_level_functional_polarity_audit_passed": polarity_audit["source_level_functional_polarity_audit_passed"],
+        }
     )
 
     human_review_required_items = [
@@ -740,14 +762,10 @@ def main() -> None:
         "Inspect for dangling references, empty cells, or abnormal whitespace.",
     ]
 
-    if machine_pass:
-        recommended_next_stage = exact_stage_identifier
-        recommended_next_stage_reason = "Machine verification passed. The same Wave3 / DFF_BUF stage now requires focused human visual review before any reusable or higher-wave claim."
-        stage_status = "MACHINE_VERIFIED_CANDIDATE_PENDING_HUMAN_REVIEW"
-    else:
-        recommended_next_stage = "Wave3 / DFF_BUF repair"
-        recommended_next_stage_reason = "Machine verification did not fully pass; repair is required before any human review or Wave4 progression."
-        stage_status = "QUALIFICATION_FAILED_MACHINE"
+    gate_outcome = compute_machine_gate_outcome(machine_pass)
+    recommended_next_stage = gate_outcome["recommended_next_stage"]
+    recommended_next_stage_reason = gate_outcome["recommended_next_stage_reason"]
+    stage_status = gate_outcome["stage_status"]
 
     report = {
         "exact_stage_identifier": exact_stage_identifier,
@@ -762,7 +780,7 @@ def main() -> None:
         "source_top_pin_list": topology["source_top_pin_list"],
         "source_internal_net_list": topology["source_internal_net_list"],
         "canonical_topology_hash": topology_hash,
-        "source_topology_hash_match": generated["source_topology_hash"] == topology_hash,
+        "source_topology_hash_match": generated["source_topology_hash_match"],
         "approved_dff_source_path": manifest["released_clean_gds_path"],
         "approved_dff_sha256_match": manifest["clean_gds_sha256"] == EXPECTED_DFF_RELEASE_SHA,
         "approved_dff_cell_name": manifest["physical_cell_name"],
@@ -779,7 +797,7 @@ def main() -> None:
         "off_grid_m2_vertex_count": generated["route_plan"]["off_grid_m2_vertex_count"],
         "off_grid_via1_vertex_count": generated["route_plan"]["off_grid_via1_vertex_count"],
         "placed_child_instance_count": len(generated["placement_rows"]),
-        "child_geometry_modified_count": 0,
+        "child_geometry_modified_count": generated["child_geometry_immutability"]["child_geometry_modified_count"],
         "route_segment_count": len(generated["route_plan"]["route_segments"]),
         "m1_route_count": generated["route_plan"]["m1_route_count"],
         "m2_route_count": generated["route_plan"]["m2_route_count"],
@@ -806,17 +824,17 @@ def main() -> None:
         "drc_marker_count": generated["drc"]["marker_count"],
         "drc_passed": generated["drc"]["drc_passed"],
         "deterministic_regeneration_verified": determinism["deterministic_regeneration_verified"],
-        "source_level_functional_polarity_audit_passed": True,
+        "source_level_functional_polarity_audit_passed": polarity_audit["source_level_functional_polarity_audit_passed"],
         "lvs_proven": False,
         "spice_functional_simulation_proven": False,
         "timing_characterized": False,
         "can_claim_dff_buf_generated": True,
-        "can_claim_dff_buf_machine_verified": machine_pass,
-        "can_claim_dff_buf_human_verified": False,
-        "can_claim_dff_buf_reusable": False,
-        "human_review_required": machine_pass,
-        "human_review_required_items": human_review_required_items if machine_pass else [],
-        "can_enter_next_stage_before_human_review": False if machine_pass else True,
+        "can_claim_dff_buf_machine_verified": gate_outcome["can_claim_dff_buf_machine_verified"],
+        "can_claim_dff_buf_human_verified": gate_outcome["can_claim_dff_buf_human_verified"],
+        "can_claim_dff_buf_reusable": gate_outcome["can_claim_dff_buf_reusable"],
+        "human_review_required": gate_outcome["human_review_required"],
+        "human_review_required_items": human_review_required_items if gate_outcome["human_review_required"] else [],
+        "can_enter_next_stage_before_human_review": gate_outcome["can_enter_next_stage_before_human_review"],
         "clean_gds_path": str(clean_gds.resolve()),
         "annotated_gds_path": str(annotated_gds.resolve()),
         "review_atlas_gds_path": str(atlas_gds.resolve()),

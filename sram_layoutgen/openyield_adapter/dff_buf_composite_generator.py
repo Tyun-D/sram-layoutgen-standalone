@@ -11,6 +11,11 @@ from sram_layoutgen.openyield_adapter.composite_child_geometry_cloner import clo
 from sram_layoutgen.openyield_adapter.composite_hierarchy_closure import verify_composite_hierarchy_closure
 from sram_layoutgen.openyield_adapter.composite_pin_namespace_verifier import verify_composite_pin_namespace
 from sram_layoutgen.openyield_adapter.dff_route_planner import generate_dff_signal_routes
+from sram_layoutgen.openyield_adapter.dff_buf_verification_gate import (
+    compute_child_geometry_immutability,
+    compute_logical_physical_structural_match,
+    compute_source_topology_hash_match,
+)
 from sram_layoutgen.openyield_adapter.gds_hierarchy_clone_renamer import merge_unique_cells
 from sram_layoutgen.openyield_adapter.grid_legal_geometry import snap_bbox, snap_coordinate
 from sram_layoutgen.openyield_adapter.hierarchical_connectivity_verifier import verify_hierarchical_connectivity
@@ -128,21 +133,17 @@ def _logical_structural_match(
     expected_child_types: dict[str, str],
     child_geometry_modified_count: int,
 ) -> bool:
-    if [row["instance_name"] for row in binding_rows] != expected_instance_order:
-        return False
-    if any(row["child_logical_module"] != expected_child_types[row["instance_name"]] for row in binding_rows):
-        return False
-    return (
-        source_topology_hash_match
-        and all(row["binding_status"] == "APPROVED_EXACT_BINDING" for row in binding_rows)
-        and connectivity["physical_connectivity_verification_passed"]
-        and namespace_report["top_canonical_label_set_exact"]
-        and namespace_report["internal_child_label_leakage_count"] == 0
-        and hierarchy_report["reference_closure_passed"]
-        and connectivity["unexpected_net_merge_count"] == 0
-        and connectivity["missing_expected_endpoint_count"] == 0
-        and connectivity["unexpected_endpoint_count"] == 0
-        and child_geometry_modified_count == 0
+    return compute_logical_physical_structural_match(
+        source_topology_hash_match=source_topology_hash_match,
+        exact_child_binding_count=sum(1 for row in binding_rows if row["binding_status"] == "APPROVED_EXACT_BINDING"),
+        non_exact_child_binding_count=sum(1 for row in binding_rows if row["binding_status"] != "APPROVED_EXACT_BINDING"),
+        child_geometry_modified_count=child_geometry_modified_count,
+        binding_rows=binding_rows,
+        expected_instance_order=expected_instance_order,
+        expected_child_types=expected_child_types,
+        connectivity=connectivity,
+        namespace_report=namespace_report,
+        hierarchy_report=hierarchy_report,
     )
 
 
@@ -156,7 +157,8 @@ def generate_dff_buf_composite(
     approved_primitive_root: Path,
     binding_rows: list[dict[str, str]],
     source_topology_hash: str,
-    source_topology_hash_match: bool = True,
+    canonical_extracted_topology_hash: str,
+    requested_source_topology_hash: str,
     selected_architecture: str,
     placements: list[dict[str, Any]],
     output_root: Path,
@@ -338,6 +340,41 @@ def generate_dff_buf_composite(
     namespace_report = verify_composite_pin_namespace(clean_gds, physical_cell_name, ["VDD", "VSS", "D", "Q", "QB", "CLK"])
     hierarchy_report = verify_composite_hierarchy_closure(clean_gds, physical_cell_name)
     drc = run_cell_drc(klayout_path, drc_deck, clean_gds, physical_cell_name, output_root)
+    child_geometry_result = compute_child_geometry_immutability(
+        [
+            {
+                "instance": "dff",
+                "approved_path": child_metas["DFF"]["gds_path"],
+                "approved_top_name": child_metas["DFF"]["cell_name"],
+                "cloned_path": clone_outputs["DFF"]["output_gds"],
+                "cloned_top_name": clone_root_names["DFF"],
+                "hierarchy_path": clean_gds,
+                "hierarchy_top_name": clone_root_names["DFF"],
+            },
+            {
+                "instance": "inv1",
+                "approved_path": child_metas["PINV_NW180_PW540_L50"]["gds_path"],
+                "approved_top_name": child_metas["PINV_NW180_PW540_L50"]["cell_name"],
+                "cloned_path": clone_outputs["PINV_NW180_PW540_L50"]["output_gds"],
+                "cloned_top_name": clone_root_names["PINV_NW180_PW540_L50"],
+                "hierarchy_path": clean_gds,
+                "hierarchy_top_name": clone_root_names["PINV_NW180_PW540_L50"],
+            },
+            {
+                "instance": "inv2",
+                "approved_path": child_metas["PINV_NW360_PW1080_L50"]["gds_path"],
+                "approved_top_name": child_metas["PINV_NW360_PW1080_L50"]["cell_name"],
+                "cloned_path": clone_outputs["PINV_NW360_PW1080_L50"]["output_gds"],
+                "cloned_top_name": clone_root_names["PINV_NW360_PW1080_L50"],
+                "hierarchy_path": clean_gds,
+                "hierarchy_top_name": clone_root_names["PINV_NW360_PW1080_L50"],
+            },
+        ]
+    )
+    source_topology_hash_match = compute_source_topology_hash_match(
+        canonical_extracted_topology_hash=canonical_extracted_topology_hash,
+        requested_source_topology_hash=requested_source_topology_hash,
+    )
 
     expected_instance_order = ["dff", "inv1", "inv2"]
     expected_child_types = {"dff": "DFF", "inv1": "PINV", "inv2": "PINV"}
@@ -349,7 +386,7 @@ def generate_dff_buf_composite(
         binding_rows=binding_rows,
         expected_instance_order=expected_instance_order,
         expected_child_types=expected_child_types,
-        child_geometry_modified_count=0,
+        child_geometry_modified_count=child_geometry_result["child_geometry_modified_count"],
     )
 
     geometry_payload = geometry_fingerprint(clean_gds, physical_cell_name)
@@ -448,6 +485,7 @@ def generate_dff_buf_composite(
         "physical_cache_key": f"FreePDK45|DFF_BUF|{source_topology_hash}|{child_metas['DFF']['fingerprint']['digest']}|{child_metas['PINV_NW180_PW540_L50']['fingerprint']['digest']}|{child_metas['PINV_NW360_PW1080_L50']['fingerprint']['digest']}|{selected_architecture}|LOCKED_COMPOSITE_ROUTING_V1",
         "clean_gds": clean_gds,
         "child_clone_rows": clone_rows,
+        "child_geometry_immutability": child_geometry_result,
         "placement_rows": placement_rows,
         "top_pin_pads": top_pin_pads,
         "route_plan": route_plan,
@@ -460,6 +498,7 @@ def generate_dff_buf_composite(
         "non_text_fingerprint": non_text_payload,
         "conductive_fingerprint": conductive_payload,
         "source_topology_hash": source_topology_hash,
+        "source_topology_hash_match": source_topology_hash_match,
         "logical_physical_structural_match": structural_match,
         "expected_net_count": len(all_nets),
     }

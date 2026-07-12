@@ -332,8 +332,8 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 ## Wave3 / DFF_BUF
 
 - current_status: `MACHINE_VERIFIED_CANDIDATE_PENDING_HUMAN_REVIEW`.
-- Verification hardening now computes topology-hash match, child geometry immutability, and source-level polarity audit instead of hardcoding them.
-- Review atlas has been regenerated as `WAVE3_DFF_BUF_REVIEW_ATLAS` with 8 dedicated review panels.
-- Clean GDS remained byte-identical during hardening.
+- Verification hardening closure removed remaining production defaults for topology-hash match and child-geometry immutability.
+- Production generator, hardening recheck, and final machine gate now use the same shared verification functions.
+- Clean GDS remained byte-identical during closure and remains pending focused human visual review.
 - Recommended next stage: `Wave3 / DFF_BUF human visual review`.
 - Recommended next stage reason: `Machine verification hardened successfully. The candidate now requires focused human visual review before any reusable or higher-wave claim.`

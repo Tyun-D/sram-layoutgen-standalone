@@ -20,6 +20,13 @@ from sram_layoutgen.openyield_adapter.canonical_dff_topology_identity import bui
 from sram_layoutgen.openyield_adapter.composite_hierarchy_closure import verify_composite_hierarchy_closure, write_composite_hierarchy_outputs
 from sram_layoutgen.openyield_adapter.composite_pin_namespace_verifier import verify_composite_pin_namespace, write_pin_namespace_outputs
 from sram_layoutgen.openyield_adapter.dff_buf_composite_generator import _logical_structural_match
+from sram_layoutgen.openyield_adapter.dff_buf_verification_gate import (
+    compute_child_geometry_immutability,
+    compute_machine_gate_outcome,
+    compute_machine_pass,
+    compute_source_level_polarity_audit,
+    compute_source_topology_hash_match,
+)
 from sram_layoutgen.openyield_adapter.gds_hierarchy_clone_renamer import clone_hierarchy_with_renamed_cells, merge_unique_cells
 from sram_layoutgen.openyield_adapter.hierarchical_connectivity_verifier import verify_hierarchical_connectivity, write_connectivity_outputs
 from sram_layoutgen.openyield_adapter.module_pin_role_registry import MODULE_PIN_ROLE_REGISTRY
@@ -112,7 +119,10 @@ def _topology_hash_report(binding_rows: list[dict[str, str]], net_contract: dict
     payload = _canonical_payload(binding_rows, net_contract)
     computed = canonical_dff_topology_hash(payload)
     report_hash = _read_json(REPO_ROOT / "docs/Wave3_DFF_BUF_stage_report.json")["canonical_topology_hash"]
-    return computed, computed == report_hash
+    return computed, compute_source_topology_hash_match(
+        canonical_extracted_topology_hash=computed,
+        requested_source_topology_hash=report_hash,
+    )
 
 
 def _topology_negative_test(binding_rows: list[dict[str, str]], net_contract: dict[str, Any]) -> dict[str, Any]:
@@ -169,29 +179,27 @@ def _child_geometry_immutability(binding_rows: list[dict[str, str]], physical_ce
         "inv1": clone_dir / "COMPOSE_CHILD__PINV_NW180_PW540_L50.gds",
         "inv2": clone_dir / "COMPOSE_CHILD__PINV_NW360_PW1080_L50.gds",
     }
-    rows: list[dict[str, Any]] = []
-    modified = 0
+    records: list[dict[str, Any]] = []
     for row in binding_rows:
         instance = row["instance_name"]
         approved_path = Path(row["approved_physical_source_path"])
         approved_top = row["resolved_physical_cell_name"]
         clone_path = clone_path_by_instance[instance]
         clone_top = _cell_top_name(clone_path)
-        approved_digest = non_text_geometry_fingerprint(approved_path, approved_top)["digest"]
-        cloned_digest = non_text_geometry_fingerprint(clone_path, clone_top)["digest"]
-        hierarchy_digest = non_text_geometry_fingerprint(OUT_DIR / "DFF_BUF_clean.gds", clone_top)["digest"]
-        match = approved_digest == cloned_digest == hierarchy_digest
-        if not match:
-            modified += 1
-        rows.append(
+        records.append(
             {
                 "instance": instance,
-                "approved_digest": approved_digest,
-                "cloned_digest": cloned_digest,
-                "hierarchy_digest": hierarchy_digest,
-                "match": match,
+                "approved_path": approved_path,
+                "approved_top_name": approved_top,
+                "cloned_path": clone_path,
+                "cloned_top_name": clone_top,
+                "hierarchy_path": OUT_DIR / "DFF_BUF_clean.gds",
+                "hierarchy_top_name": clone_top,
             }
         )
+    result = compute_child_geometry_immutability(records)
+    rows = result["rows"]
+    modified = result["child_geometry_modified_count"]
 
     negative_dir = OUT_DIR / "_hardening_negative_tests"
     negative_dir.mkdir(parents=True, exist_ok=True)
@@ -215,56 +223,7 @@ def _pin_role(module_name: str, pin_name: str) -> str:
 
 
 def _polarity_audit_from_instance_table(rows: list[dict[str, str]]) -> dict[str, Any]:
-    pin_to_net = {(row["instance"], row["child_pin"]): row["parent_net"] for row in rows}
-    inverter_edges = []
-    for row in rows:
-        if row["type"] == "PINV" and row["child_pin"] == "A":
-            instance = row["instance"]
-            src = row["parent_net"]
-            dst = pin_to_net[(instance, "Z")]
-            inverter_edges.append({"instance": instance, "input_net": src, "output_net": dst})
-    edge_by_input = {edge["input_net"]: edge for edge in inverter_edges}
-    path = []
-    current = "qint"
-    visited_inputs: set[str] = set()
-    cycle_detected = False
-    while current in edge_by_input:
-        if current in visited_inputs:
-            cycle_detected = True
-            break
-        visited_inputs.add(current)
-        edge = edge_by_input[current]
-        path.append(edge)
-        current = edge["output_net"]
-    qint_to_qb = len([edge for edge in path if edge["output_net"] == "QB"])
-    qb_to_q = 1 if any(edge["input_net"] == "QB" and edge["output_net"] == "Q" for edge in path) else 0
-    qint_to_q = len(path) if path and path[-1]["output_net"] == "Q" else None
-    d_extra = any(edge["input_net"] == "D" for edge in inverter_edges)
-    clk_extra = any(edge["input_net"] == "CLK" for edge in inverter_edges)
-    passed = (
-        qint_to_qb == 1
-        and qb_to_q == 1
-        and qint_to_q == 2
-        and not d_extra
-        and not clk_extra
-        and len(path) == 2
-        and path[0]["output_net"] == "QB"
-        and path[1]["output_net"] == "Q"
-        and not cycle_detected
-    )
-    return {
-        "inverter_edges": inverter_edges,
-        "path_from_qint": path,
-        "cycle_detected": cycle_detected,
-        "qint_to_qb_inverter_count": qint_to_qb,
-        "qb_to_q_inverter_count": qb_to_q,
-        "qint_to_q_inverter_count": qint_to_q,
-        "final_q_same_polarity_as_dff_q": qint_to_q == 2,
-        "final_qb_inverted_from_dff_q": qint_to_qb == 1,
-        "d_has_no_parent_level_inverter": not d_extra,
-        "clk_has_no_parent_level_inverter": not clk_extra,
-        "source_level_functional_polarity_audit_passed": passed,
-    }
+    return compute_source_level_polarity_audit(rows)
 
 
 def _polarity_negative_test(rows: list[dict[str, str]]) -> dict[str, Any]:
@@ -712,25 +671,28 @@ def main() -> None:
         and connectivity["floating_required_pin_count"] == 0
         and connectivity["power_signal_short_count"] == 0
     )
-    machine_pass = (
-        stage_report["source_commit_match"]
-        and actual_source_topology_hash_match
-        and exact_child_binding_count == 3
-        and non_exact_child_binding_count == 0
-        and child_geometry_modified_count == 0
-        and stage_report["pin_access_planning_passed"]
-        and stage_report["routing_architecture_has_no_same_layer_crossovers"]
-        and signal_routing_completed
-        and connectivity["physical_connectivity_verification_passed"]
-        and logical_physical_structural_match
-        and namespace_report["top_canonical_label_set_exact"]
-        and namespace_report["internal_child_label_leakage_count"] == 0
-        and hierarchy["reference_closure_passed"]
-        and hierarchy["missing_reference_target_count"] == 0
-        and hierarchy["reference_cycle_count"] == 0
-        and drc["marker_count"] == 0
-        and deterministic_identity_preserved
-        and polarity_audit["source_level_functional_polarity_audit_passed"]
+    machine_pass = compute_machine_pass(
+        {
+            "source_commit_match": stage_report["source_commit_match"],
+            "source_topology_extraction_passed": True,
+            "source_topology_hash_match": actual_source_topology_hash_match,
+            "exact_child_binding_count": exact_child_binding_count,
+            "non_exact_child_binding_count": non_exact_child_binding_count,
+            "child_geometry_modified_count": child_geometry_modified_count,
+            "pin_access_planning_passed": stage_report["pin_access_planning_passed"],
+            "routing_architecture_has_no_same_layer_crossovers": stage_report["routing_architecture_has_no_same_layer_crossovers"],
+            "signal_routing_completed": signal_routing_completed,
+            "physical_connectivity_verification_passed": connectivity["physical_connectivity_verification_passed"],
+            "logical_physical_structural_match": logical_physical_structural_match,
+            "top_canonical_label_set_exact": namespace_report["top_canonical_label_set_exact"],
+            "child_label_leakage_count": namespace_report["internal_child_label_leakage_count"],
+            "hierarchy_closure_passed": hierarchy["reference_closure_passed"],
+            "missing_reference_target_count": hierarchy["missing_reference_target_count"],
+            "reference_cycle_count": hierarchy["reference_cycle_count"],
+            "drc_marker_count": drc["marker_count"],
+            "deterministic_regeneration_verified": deterministic_identity_preserved,
+            "source_level_functional_polarity_audit_passed": polarity_audit["source_level_functional_polarity_audit_passed"],
+        }
     )
 
     annotated_gds = OUT_DIR / "DFF_BUF_annotated.gds"
@@ -748,18 +710,12 @@ def main() -> None:
     _write_json(OUT_DIR / "Wave3_DFF_BUF_review_atlas_inventory.json", atlas_inventory)
     print("hardening:atlas", flush=True)
 
-    if machine_pass:
-        human_review_required = True
-        can_enter = False
-        recommended_next_stage = "Wave3 / DFF_BUF human visual review"
-        recommended_next_stage_reason = "Machine verification hardened successfully. The candidate now requires focused human visual review before any reusable or higher-wave claim."
-        stage_status = "MACHINE_VERIFIED_CANDIDATE_PENDING_HUMAN_REVIEW"
-    else:
-        human_review_required = False
-        can_enter = False
-        recommended_next_stage = "Wave3 / DFF_BUF repair"
-        recommended_next_stage_reason = "Hardening exposed a machine-gate failure. Repair is required before human review."
-        stage_status = "QUALIFICATION_FAILED_MACHINE"
+    gate_outcome = compute_machine_gate_outcome(machine_pass)
+    human_review_required = gate_outcome["human_review_required"]
+    can_enter = gate_outcome["can_enter_next_stage_before_human_review"]
+    recommended_next_stage = gate_outcome["recommended_next_stage"]
+    recommended_next_stage_reason = gate_outcome["recommended_next_stage_reason"]
+    stage_status = gate_outcome["stage_status"]
 
     report = dict(stage_report)
     report.update(
@@ -785,9 +741,9 @@ def main() -> None:
             "drc_passed": drc["drc_passed"],
             "deterministic_regeneration_verified": deterministic_identity_preserved,
             "source_level_functional_polarity_audit_passed": polarity_audit["source_level_functional_polarity_audit_passed"],
-            "can_claim_dff_buf_machine_verified": machine_pass,
-            "can_claim_dff_buf_human_verified": False,
-            "can_claim_dff_buf_reusable": False,
+            "can_claim_dff_buf_machine_verified": gate_outcome["can_claim_dff_buf_machine_verified"],
+            "can_claim_dff_buf_human_verified": gate_outcome["can_claim_dff_buf_human_verified"],
+            "can_claim_dff_buf_reusable": gate_outcome["can_claim_dff_buf_reusable"],
             "human_review_required": human_review_required,
             "can_enter_next_stage_before_human_review": can_enter,
             "recommended_next_stage": recommended_next_stage,
@@ -801,21 +757,21 @@ def main() -> None:
         "pre_hardening_clean_gds_sha256": pre_sha,
         "post_hardening_clean_gds_sha256": _sha256(clean_gds),
         "clean_gds_geometry_unchanged": _sha256(clean_gds) == pre_sha == EXPECTED_CLEAN_SHA,
-        "topology_hash_check_is_computed_not_hardcoded": True,
+        "topology_hash_check_is_computed_not_hardcoded": actual_source_topology_hash_match and topology_negative["passed"],
         "topology_hash_positive_test_passed": actual_source_topology_hash_match,
         "topology_hash_negative_test_passed": topology_negative["passed"],
-        "child_geometry_modified_count_is_computed": True,
+        "child_geometry_modified_count_is_computed": child_geometry_modified_count == 0 and geometry_negative["passed"],
         "child_geometry_modified_count": child_geometry_modified_count,
         "child_geometry_negative_test_passed": geometry_negative["passed"],
-        "polarity_audit_is_computed_not_hardcoded": True,
+        "polarity_audit_is_computed_not_hardcoded": polarity_audit["source_level_functional_polarity_audit_passed"] and polarity_negative["passed"],
         "source_level_functional_polarity_audit_passed": polarity_audit["source_level_functional_polarity_audit_passed"],
         "polarity_negative_test_passed": polarity_negative["passed"],
         "machine_pass_includes_topology_hash_match": True,
         "machine_pass_includes_child_geometry_immutability": True,
         "machine_pass_includes_signal_routing_completed": True,
         "machine_pass_includes_structural_match": True,
-        "failed_machine_gate_blocks_human_review": True,
-        "failed_machine_gate_blocks_next_stage": True,
+        "failed_machine_gate_blocks_human_review": gate_outcome["human_review_required"] is False if not machine_pass else True,
+        "failed_machine_gate_blocks_next_stage": gate_outcome["can_enter_next_stage_before_human_review"] is False,
         "review_atlas_top_cell": atlas_inventory["atlas_top_cell"],
         "review_atlas_panel_count": atlas_inventory["panel_count"],
         "review_atlas_panel_names": atlas_inventory["panel_names"],
@@ -831,9 +787,9 @@ def main() -> None:
         "drc_marker_count": drc["marker_count"],
         "drc_passed": drc["drc_passed"],
         "deterministic_identity_preserved": deterministic_identity_preserved,
-        "can_claim_dff_buf_machine_verified": machine_pass,
-        "can_claim_dff_buf_human_verified": False,
-        "can_claim_dff_buf_reusable": False,
+        "can_claim_dff_buf_machine_verified": gate_outcome["can_claim_dff_buf_machine_verified"],
+        "can_claim_dff_buf_human_verified": gate_outcome["can_claim_dff_buf_human_verified"],
+        "can_claim_dff_buf_reusable": gate_outcome["can_claim_dff_buf_reusable"],
         "human_review_required": human_review_required,
         "can_enter_next_stage_before_human_review": can_enter,
         "recommended_next_stage": recommended_next_stage,
