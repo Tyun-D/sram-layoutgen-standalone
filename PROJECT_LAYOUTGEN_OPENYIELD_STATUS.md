@@ -154,3 +154,36 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 - deterministic regeneration verified: `True`
 - human review gate remains required: `True`
 - next stage: `M12C3AH_PRIMITIVE_SMOKE_VISUAL_REVIEW`
+
+## M12C3A3 Transmission Gate Repair
+
+- M12C3A machine generation and cell-level DRC had previously passed.
+- Human review later found the Transmission Gate `IN` net shorted into both `VDD` and `VSS`, while 9 `PINV` variants passed review.
+- This confirms DRC zero markers cannot prove signal-level connectivity semantics.
+- M12C3A3 repaired only the OpenRAM-backed Transmission Gate, added Metal1-accessible `CTR_P/CTR_N`, fixed aggregate GDS artifacts, and fixed empty geometry fingerprint digest artifacts.
+- Repaired TG machine connectivity passed: `True`.
+- Repaired TG DRC clean: `False`.
+- Composite CONTROL_LOGIC generation has still not started.
+- Another focused human visual review is still required for the repaired Transmission Gate.
+
+## M12C3A3 Transmission Gate Repair
+
+- M12C3A machine generation and cell-level DRC had previously passed.
+- Human review later found the Transmission Gate `IN` net shorted into both `VDD` and `VSS`, while 9 `PINV` variants passed review.
+- This confirms DRC zero markers cannot prove signal-level connectivity semantics.
+- M12C3A3 repaired only the OpenRAM-backed Transmission Gate, added Metal1-accessible `CTR_P/CTR_N`, fixed aggregate GDS artifacts, and fixed empty geometry fingerprint digest artifacts.
+- Repaired TG machine connectivity passed: `False`.
+- Repaired TG DRC clean: `False`.
+- Composite CONTROL_LOGIC generation has still not started.
+- Another focused human visual review is still required for the repaired Transmission Gate.
+
+## M12C3A3 Transmission Gate Repair
+
+- M12C3A machine generation and cell-level DRC had previously passed.
+- Human review later found the Transmission Gate `IN` net shorted into both `VDD` and `VSS`, while 9 `PINV` variants passed review.
+- This confirms DRC zero markers cannot prove signal-level connectivity semantics.
+- M12C3A3 repaired only the OpenRAM-backed Transmission Gate, added Metal1-accessible `CTR_P/CTR_N`, fixed aggregate GDS artifacts, and fixed empty geometry fingerprint digest artifacts.
+- Repaired TG machine connectivity passed: `True`.
+- Repaired TG DRC clean: `True`.
+- Composite CONTROL_LOGIC generation has still not started.
+- Another focused human visual review is still required for the repaired Transmission Gate.

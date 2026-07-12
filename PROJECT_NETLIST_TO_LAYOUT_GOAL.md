@@ -105,3 +105,8 @@
 - deterministic regeneration verified: `True`
 - human review gate remains required: `True`
 - next stage: `M12C3AH_PRIMITIVE_SMOKE_VISUAL_REVIEW`
+
+## M12C3A3 Repair Constraint
+
+- Scope remains limited to Transmission Gate repair evidence and does not authorize DFF, PNAND, AND, delay chain, TIME, CONTROL_LOGIC, or final SRAM generation.
+- `CONTROL_LOGIC physical ready`, `LVS clean`, and `signoff ready` remain false claims.

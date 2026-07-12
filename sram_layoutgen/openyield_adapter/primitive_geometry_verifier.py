@@ -37,6 +37,8 @@ def geometry_fingerprint(gds_path: Path, top_name: str | None = None) -> dict[st
     normalized.sort()
     label_norm = sorted((label.text, label.layer, label.texttype, round(label.origin[0], 6), round(label.origin[1], 6)) for label in labels)
     payload = {
+        "algorithm": "sha256_normalized_rectilinear_polygon_and_label_payload_v1",
+        "normalized_geometry_used": True,
         "top_cell": top.name,
         "bbox": [round(float(bbox[0][0]), 6), round(float(bbox[0][1]), 6), round(float(bbox[1][0]), 6), round(float(bbox[1][1]), 6)] if bbox else None,
         "polygon_count": len(polygons),
@@ -138,4 +140,3 @@ def parse_lyrdb_categories(path: Path) -> dict[str, int]:
         category = item.get("category") or item.get("name") or "UNKNOWN"
         counts[category] += 1
     return dict(sorted(counts.items()))
-

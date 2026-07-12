@@ -1,0 +1,21 @@
+# M12C3AH Human Visual Review Result
+
+- pinv_human_review_completed: `True`
+- pinv_human_review_passed: `True`
+- pinv_reviewed_variant_count: `9`
+- transmission_gate_human_review_completed: `True`
+- transmission_gate_human_review_passed: `False`
+- transmission_gate_real_pmos_present: `True`
+- transmission_gate_real_nmos_present: `True`
+- transmission_gate_in_out_intent_visible: `True`
+- transmission_gate_body_taps_visible: `True`
+- transmission_gate_in_connected_to_vdd: `True`
+- transmission_gate_in_connected_to_vss: `True`
+- transmission_gate_vdd_vss_short_through_in: `True`
+- transmission_gate_ctr_p_poly_only: `True`
+- transmission_gate_ctr_n_poly_only: `True`
+- transmission_gate_control_pins_metal_accessible: `False`
+- m12c3a_human_gate_passed: `False`
+- can_claim_generated_p0_primitives_human_verified: `False`
+- can_claim_control_logic_mapping_ready: `False`
+- can_claim_control_logic_physical_ready: `False`

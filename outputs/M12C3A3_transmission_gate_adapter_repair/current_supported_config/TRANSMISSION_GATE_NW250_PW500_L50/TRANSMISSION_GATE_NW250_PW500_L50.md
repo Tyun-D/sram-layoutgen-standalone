@@ -1,0 +1,9 @@
+# TRANSMISSION_GATE_NW250_PW500_L50
+
+- cell_name: `TRANSMISSION_GATE_NW250_PW500_L50`
+- logical_module: `TRANSMISSION_GATE`
+- actual_nmos_width_nm: `250`
+- actual_pmos_width_nm: `500`
+- actual_length_nm: `50`
+- transmission_gate_parameter_match: `True`
+- openram_backend: `ptx+pgate composition`

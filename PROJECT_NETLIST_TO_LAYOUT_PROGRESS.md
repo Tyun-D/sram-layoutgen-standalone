@@ -364,3 +364,10 @@
 - deterministic regeneration verified: `True`
 - human review gate remains required: `True`
 - next stage: `M12C3AH_PRIMITIVE_SMOKE_VISUAL_REVIEW`
+
+## M12C3A3 Repair Progress
+
+- Confirmed the original Transmission Gate short came from source/drain helper metal tying `IN` to both power rails.
+- Replaced poly-only control exports with routable Metal1 gate pins through real poly contacts.
+- Added machine geometry connectivity extraction that does not treat MOS channels as unconditional shorts.
+- Regenerated only `TRANSMISSION_GATE_NW250_PW500_L50` and left reviewed `PINV` geometry unchanged.

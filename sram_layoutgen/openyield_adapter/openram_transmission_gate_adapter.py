@@ -66,10 +66,8 @@ def generate_transmission_gate_cell(
             self.extend_wells()
             self._connect_terminal_pair("S", "in")
             self._connect_terminal_pair("D", "out")
-            self._route_gate_pin(self.pmos_inst, "ctr_p")
-            self._route_gate_pin(self.nmos_inst, "ctr_n")
-            self._connect_terminal_to_rail(self.pmos_inst, "S", "vdd")  # well/body proximity helper strip
-            self._connect_terminal_to_rail(self.nmos_inst, "S", "gnd")
+            self._route_gate_pin(self.pmos_inst, "ctr_p", rail_name="vdd")
+            self._route_gate_pin(self.nmos_inst, "ctr_n", rail_name="gnd")
             self.add_boundary()
 
         def _connect_terminal_pair(self, terminal: str, exported_name: str) -> None:
@@ -81,18 +79,24 @@ def generate_transmission_gate_cell(
             height = p_pin.uy() - by
             self.add_layout_pin(text=exported_name, layer="m1", offset=vector(llx, by), width=width, height=height)
 
-        def _route_gate_pin(self, inst: Any, exported_name: str) -> None:
+        def _route_gate_pin(self, inst: Any, exported_name: str, *, rail_name: str) -> None:
             gate_pin = inst.get_pin("G")
-            self.add_layout_pin(text=exported_name, layer=gate_pin.layer, offset=gate_pin.ll(), width=gate_pin.width(), height=gate_pin.height())
-
-        def _connect_terminal_to_rail(self, inst: Any, terminal: str, rail_name: str) -> None:
-            rail_pin = self.get_pin(rail_name)
-            term_pin = inst.get_pin(terminal)
+            gate_center_x = gate_pin.cx()
             if rail_name == "gnd":
-                height = rail_pin.by() - term_pin.by()
+                access_y = gate_pin.uy() + 0.5 * self.poly_contact.first_layer_height
             else:
-                height = rail_pin.uy() - term_pin.by()
-            self.add_rect(layer=term_pin.layer, offset=term_pin.ll(), width=term_pin.width(), height=height)
+                access_y = gate_pin.by() - 0.5 * self.poly_contact.first_layer_height
+            access_x = self.width - 0.5 * self.poly_contact.first_layer_width
+            via_center = vector(access_x, access_y)
+            self.add_path("poly", [vector(gate_center_x, gate_pin.cy()), vector(gate_center_x, access_y), vector(access_x, access_y)])
+            self.add_via_stack_center(offset=via_center, from_layer="poly", to_layer=self.route_layer, directions=("V", "H"))
+            self.add_layout_pin(
+                text=exported_name,
+                layer=self.route_layer,
+                offset=vector(via_center.x - 0.5 * self.poly_contact.second_layer_width, access_y - 0.5 * self.poly_contact.second_layer_height),
+                width=self.poly_contact.second_layer_width,
+                height=self.poly_contact.second_layer_height,
+            )
 
     core = TransmissionGateCore()
 
