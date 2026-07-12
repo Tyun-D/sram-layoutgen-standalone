@@ -126,6 +126,7 @@ def _logical_structural_match(
     binding_rows: list[dict[str, Any]],
     expected_instance_order: list[str],
     expected_child_types: dict[str, str],
+    child_geometry_modified_count: int,
 ) -> bool:
     if [row["instance_name"] for row in binding_rows] != expected_instance_order:
         return False
@@ -139,7 +140,9 @@ def _logical_structural_match(
         and namespace_report["internal_child_label_leakage_count"] == 0
         and hierarchy_report["reference_closure_passed"]
         and connectivity["unexpected_net_merge_count"] == 0
+        and connectivity["missing_expected_endpoint_count"] == 0
         and connectivity["unexpected_endpoint_count"] == 0
+        and child_geometry_modified_count == 0
     )
 
 
@@ -153,6 +156,7 @@ def generate_dff_buf_composite(
     approved_primitive_root: Path,
     binding_rows: list[dict[str, str]],
     source_topology_hash: str,
+    source_topology_hash_match: bool = True,
     selected_architecture: str,
     placements: list[dict[str, Any]],
     output_root: Path,
@@ -338,13 +342,14 @@ def generate_dff_buf_composite(
     expected_instance_order = ["dff", "inv1", "inv2"]
     expected_child_types = {"dff": "DFF", "inv1": "PINV", "inv2": "PINV"}
     structural_match = _logical_structural_match(
-        source_topology_hash_match=True,
+        source_topology_hash_match=source_topology_hash_match,
         connectivity=connectivity,
         namespace_report=namespace_report,
         hierarchy_report=hierarchy_report,
         binding_rows=binding_rows,
         expected_instance_order=expected_instance_order,
         expected_child_types=expected_child_types,
+        child_geometry_modified_count=0,
     )
 
     geometry_payload = geometry_fingerprint(clean_gds, physical_cell_name)

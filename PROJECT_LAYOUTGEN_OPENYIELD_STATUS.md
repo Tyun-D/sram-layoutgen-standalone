@@ -332,9 +332,8 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 ## Wave3 / DFF_BUF
 
 - current_status: `MACHINE_VERIFIED_CANDIDATE_PENDING_HUMAN_REVIEW`.
-- DFF reusable input remains `HUMAN_REVIEWED_REUSABLE_COMPOSITE`.
-- DFF_BUF topology is extracted directly from current OpenYield `DFF_BUF.add_dff_buf` source.
-- DFF child source remains the released clean DFF only; annotated/atlas and quarantined sources remain forbidden.
-- No claim is made for LVS, SPICE functional simulation, timing characterization, full CONTROL_LOGIC completion, or signoff.
-- Recommended next stage: `Wave3 / DFF_BUF`.
-- Recommended next stage reason: `Machine verification passed. The same Wave3 / DFF_BUF stage now requires focused human visual review before any reusable or higher-wave claim.`
+- Verification hardening now computes topology-hash match, child geometry immutability, and source-level polarity audit instead of hardcoding them.
+- Review atlas has been regenerated as `WAVE3_DFF_BUF_REVIEW_ATLAS` with 8 dedicated review panels.
+- Clean GDS remained byte-identical during hardening.
+- Recommended next stage: `Wave3 / DFF_BUF human visual review`.
+- Recommended next stage reason: `Machine verification hardened successfully. The candidate now requires focused human visual review before any reusable or higher-wave claim.`

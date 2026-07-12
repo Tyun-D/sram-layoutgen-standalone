@@ -68,5 +68,5 @@
 - annotated_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_composite_generation/current_supported_config/DFF_BUF_annotated.gds`
 - review_atlas_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_composite_generation/current_supported_config/DFF_BUF_review_atlas.gds`
 - remaining_blockers: `['DFF_BUF human visual review not yet completed.', 'LVS remains not proven for DFF_BUF.', 'SPICE functional simulation remains not proven for DFF_BUF.', 'Timing characterization remains incomplete for DFF_BUF.']`
-- recommended_next_stage: `Wave3 / DFF_BUF`
-- recommended_next_stage_reason: `Machine verification passed. The same Wave3 / DFF_BUF stage now requires focused human visual review before any reusable or higher-wave claim.`
+- recommended_next_stage: `Wave3 / DFF_BUF human visual review`
+- recommended_next_stage_reason: `Machine verification hardened successfully. The candidate now requires focused human visual review before any reusable or higher-wave claim.`
