@@ -211,3 +211,16 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 - Non-text geometry preserved across all primitives: `True`.
 - Connectivity preserved across all primitives: `True`.
 - Composite CONTROL_LOGIC generation may proceed to planning, but CONTROL_LOGIC physical ready is still false.
+
+## M12C3A4R Review Atlas Closure
+
+- M12C3A4 reusable label cleanup core gate remains passed.
+- The original review atlas was found to contain 20 missing SREF targets and was not self-contained.
+- The original test only compared aggregate SHA values and did not validate GDS reference closure.
+- The review atlas was rebuilt as a self-contained GDS with deterministic before/after hierarchy renaming.
+- Historical failure state and current qualified primitive state are now separated.
+- The current Transmission Gate is not shorted.
+- Duplicate label cleanup is complete in the current qualified state.
+- All 10 reusable primitives remained byte-identical during evidence closure.
+- The only approved primitive composition root for M12C4 is `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells`.
+- CONTROL_LOGIC physical ready, LVS clean, and signoff ready remain false.

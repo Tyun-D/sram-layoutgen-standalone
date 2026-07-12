@@ -8,7 +8,7 @@
     "L3：layoutgen-based OpenYield SRAM top GDS 生成",
     "L4：真实连接、电源、验证与最终交付"
   ],
-  "current_stage": "M12C3A4",
+  "current_stage": "M12C3A4R",
   "next_stage": "M12C4_COMPOSITE_CONTROL_CELL_GENERATION_PLAN",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
@@ -2368,5 +2368,13 @@
     "all_non_text_geometry_preserved": true,
     "all_connectivity_graphs_preserved": true,
     "can_enter_m12c4": true
+  },
+  "M12C3A4R": {
+    "review_atlas_reference_closure_passed": true,
+    "historical_current_review_state_separated": true,
+    "reusable_outputs_immutable": true,
+    "approved_reusable_cell_root": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells",
+    "can_claim_generated_p0_primitives_human_verified": true,
+    "can_claim_p0_primitives_reusable_for_composition": true
   }
 }

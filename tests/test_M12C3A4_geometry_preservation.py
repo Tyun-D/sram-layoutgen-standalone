@@ -17,6 +17,7 @@ from sram_layoutgen.openyield_adapter.primitive_geometry_verifier import (
     geometry_fingerprint,
     non_text_geometry_fingerprint,
 )
+from sram_layoutgen.openyield_adapter.gds_reference_closure_verifier import verify_gds_reference_closure
 
 
 def _sha256(path: Path) -> str:
@@ -90,10 +91,16 @@ def main() -> int:
     out_root = REPO_ROOT / "outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config"
     clean = out_root / "M12C3A4_reusable_primitives_clean.gds"
     annotated = out_root / "M12C3A4_reusable_primitives_annotated.gds"
-    atlas = out_root / "M12C3A4_label_cleanup_review_atlas.gds"
     assert _sha256(clean) != _sha256(annotated)
-    assert _sha256(clean) != _sha256(atlas)
-    assert _sha256(annotated) != _sha256(atlas)
+
+    repaired_atlas = REPO_ROOT / "outputs/M12C3A4R_review_atlas_state_normalization/current_supported_config/M12C3A4R_label_cleanup_review_atlas.gds"
+    closure = verify_gds_reference_closure(repaired_atlas, "M12C3A4R_LABEL_CLEANUP_REVIEW_ATLAS")
+    assert closure["missing_sref_target_count"] == 0
+    assert closure["missing_aref_target_count"] == 0
+    assert closure["duplicate_structure_name_count"] == 0
+    assert closure["top_level_cell_count"] == 1
+    assert closure["top_level_cell_name"] == "M12C3A4R_LABEL_CLEANUP_REVIEW_ATLAS"
+    assert closure["reference_closure_passed"] is True
 
     print("M12C3A4_geometry_preservation_ok")
     return 0

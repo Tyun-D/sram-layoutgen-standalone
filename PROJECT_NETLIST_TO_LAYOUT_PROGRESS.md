@@ -378,3 +378,10 @@
 - Confirmed leaked PTX `G/S/D` labels in recursive hierarchy.
 - Implemented export-time reusable GDS sanitization by stripping all recursive text and re-adding only canonical top-level labels.
 - Re-ran geometry preservation, connectivity regression, deterministic export, and cell-level DRC on all 10 sanitized primitives.
+
+## M12C3A4R Evidence Closure Progress
+
+- Verified the original M12C3A4 review atlas had 1 structure and 20 missing SREF targets.
+- Rebuilt a self-contained review atlas with deterministic DEBUG_BEFORE and REUSABLE_AFTER hierarchies.
+- Separated historical failure evidence from current qualified primitive state.
+- Verified all reusable outputs, DRC artifacts, and prior geometry/connectivity regressions remained unchanged.

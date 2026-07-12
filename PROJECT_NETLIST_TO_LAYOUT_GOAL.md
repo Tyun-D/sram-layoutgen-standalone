@@ -115,3 +115,8 @@
 
 - Before composite generation, primitive reusable exports must present exactly one canonical top-level pin label per net and no leaked internal terminal text.
 - This stage does not change any transistor/contact/well/implant/poly/metal geometry and does not claim LVS or signoff closure.
+
+## M12C3A4R Evidence Closure
+
+- Composite generation remains blocked until review atlas evidence is self-contained and current qualification state is unambiguous.
+- This stage does not modify reusable primitive conductive geometry or canonical pin labels.

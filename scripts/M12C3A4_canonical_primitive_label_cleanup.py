@@ -25,6 +25,7 @@ from sram_layoutgen.openyield_adapter.gds_label_sanitizer import (
     recursive_label_inventory,
     sanitize_gds_labels,
 )
+from sram_layoutgen.openyield_adapter.gds_hierarchy_clone_renamer import clone_hierarchy_with_renamed_cells, merge_unique_cells
 from sram_layoutgen.openyield_adapter.physical_connectivity_extractor import extract_physical_connectivity
 from sram_layoutgen.openyield_adapter.primitive_geometry_verifier import (
     conductive_geometry_fingerprint,
@@ -152,14 +153,48 @@ def _build_quarantine_readme(path: Path, source_rows: list[dict[str, Any]]) -> N
     write_text(path, "\n".join(lines) + "\n")
 
 
+def build_self_contained_review_atlas(
+    *,
+    original_sources: list[dict[str, Any]],
+    sanitized_gds_by_cell: dict[str, Path],
+    atlas_path: Path,
+    top_name: str,
+) -> None:
+    first_lib = gdstk.read_gds(next(iter(sanitized_gds_by_cell.values())))
+    review_lib = gdstk.Library(unit=first_lib.unit, precision=first_lib.precision)
+    review_top = review_lib.new_cell(top_name)
+    y_offset = 0.0
+    x_spacing = 5.0
+    for source in original_sources:
+        cell_name = source["cell_name"]
+        before_lib, before_root_name, _ = clone_hierarchy_with_renamed_cells(
+            source_gds=source["gds_path"],
+            root_cell_name=cell_name,
+            namespace_prefix="DEBUG_BEFORE",
+        )
+        after_lib, after_root_name, _ = clone_hierarchy_with_renamed_cells(
+            source_gds=sanitized_gds_by_cell[cell_name],
+            root_cell_name=cell_name,
+            namespace_prefix="REUSABLE_AFTER",
+        )
+        merge_unique_cells(review_lib, before_lib)
+        merge_unique_cells(review_lib, after_lib)
+        before_root = next(cell for cell in review_lib.cells if cell.name == before_root_name)
+        bbox = before_root.bounding_box() or ((0.0, 0.0), (0.0, 0.0))
+        review_top.add(gdstk.Reference(before_root, (0.0, y_offset)))
+        review_top.add(gdstk.Reference(next(cell for cell in review_lib.cells if cell.name == after_root_name), (x_spacing, y_offset)))
+        review_top.add(gdstk.Label(f"DEBUG_ONLY_BEFORE {cell_name}", (0.0, y_offset + bbox[1][1] + 0.4), layer=239, texttype=0))
+        review_top.add(gdstk.Label(f"REUSABLE_AFTER {cell_name}", (x_spacing, y_offset + bbox[1][1] + 0.4), layer=239, texttype=0))
+        y_offset += (bbox[1][1] - bbox[0][1]) + 2.0
+    review_lib.write_gds(atlas_path)
+
+
 def _build_aggregate_gds(cell_gds_paths: list[Path], clean_path: Path, annotated_path: Path, atlas_path: Path, original_sources: list[dict[str, Any]]) -> None:
     first_lib = gdstk.read_gds(cell_gds_paths[0])
     clean_lib = gdstk.Library(unit=first_lib.unit, precision=first_lib.precision)
     clean_top = clean_lib.new_cell("M12C3A4_REUSABLE_PRIMITIVES_CLEAN")
     annotated_lib = gdstk.Library(unit=first_lib.unit, precision=first_lib.precision)
     annotated_top = annotated_lib.new_cell("M12C3A4_REUSABLE_PRIMITIVES_ANNOTATED")
-    review_lib = gdstk.Library(unit=first_lib.unit, precision=first_lib.precision)
-    review_top = review_lib.new_cell("M12C3A4_LABEL_CLEANUP_REVIEW_ATLAS")
     x_offset = 0.0
     spacing = 3.0
     for gds_path in cell_gds_paths:
@@ -181,20 +216,12 @@ def _build_aggregate_gds(cell_gds_paths: list[Path], clean_path: Path, annotated
             x_offset += spacing
     clean_lib.write_gds(clean_path)
     annotated_lib.write_gds(annotated_path)
-
-    y_offset = 0.0
-    for source in original_sources:
-        original_lib = gdstk.read_gds(source["gds_path"])
-        original_top = original_lib.top_level()[0]
-        sanitized_lib = gdstk.read_gds(next(path for path in cell_gds_paths if path.name == source["gds_path"].name and path.parent.name == source["cell_name"]))
-        sanitized_top = sanitized_lib.top_level()[0]
-        review_top.add(gdstk.Reference(original_top, (0, y_offset)))
-        review_top.add(gdstk.Reference(sanitized_top, (5.0, y_offset)))
-        bbox = original_top.bounding_box() or ((0.0, 0.0), (0.0, 0.0))
-        review_top.add(gdstk.Label(f"DEBUG_ONLY before {source['cell_name']}", (0.0, y_offset + bbox[1][1] + 0.4), layer=239, texttype=0))
-        review_top.add(gdstk.Label(f"Reusable after {source['cell_name']}", (5.0, y_offset + bbox[1][1] + 0.4), layer=239, texttype=0))
-        y_offset += (bbox[1][1] - bbox[0][1]) + 2.0
-    review_lib.write_gds(atlas_path)
+    build_self_contained_review_atlas(
+        original_sources=original_sources,
+        sanitized_gds_by_cell={path.parent.name: path for path in cell_gds_paths},
+        atlas_path=atlas_path,
+        top_name="M12C3A4_LABEL_CLEANUP_REVIEW_ATLAS",
+    )
 
 
 def _update_human_review(path_json: Path, path_md: Path) -> dict[str, Any]:
