@@ -1,0 +1,21 @@
+# SRAM_SPEC
+
+- word_size: `16`
+- num_words: `16`
+- words_per_row: `1`
+- rows: `16`
+- cols: `16`
+- tech: `FreePDK45`
+- mux: `1`
+- power: `VDD/VSS`
+- generator: `Wave3 / DFF_BUF`
+- output: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_hierarchical_pin_access_repair/current_supported_config/_gen_a/DFF_BUF_FPDK45_6058eaf43739_HPA1/DFF_BUF_FPDK45_6058eaf43739_HPA1.gds`
+- logical_module: `DFF_BUF`
+- physical_cell_name: `DFF_BUF_FPDK45_6058eaf43739_HPA1`
+- source_topology_hash: `6058eaf43739`
+- child_instance_count: `3`
+- top_pin_order: `['VDD', 'VSS', 'D', 'Q', 'QB', 'CLK']`
+- internal_net_names: `['qint']`
+- geometry_fingerprint: `9fa7d554727ec3dc143b36a9`
+- qualification_status: `QUALIFICATION_CANDIDATE`
+- lvs_proven: `False`

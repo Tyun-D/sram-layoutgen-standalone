@@ -29,15 +29,16 @@ def _flatten_endpoint_rows(endpoints_by_net: dict[str, list[dict[str, Any]]]) ->
     rows = []
     for net_name, endpoints in endpoints_by_net.items():
         for endpoint in endpoints:
-            rows.append(
-                {
-                    "net_name": net_name,
-                    "endpoint": endpoint["endpoint_name"],
-                    "instance_name": endpoint["endpoint_name"].split(".", 1)[0],
-                    "pin_name": endpoint["endpoint_name"].split(".", 1)[1],
-                    "bbox": endpoint["bbox"],
-                }
-            )
+            row = {
+                "net_name": net_name,
+                "endpoint": endpoint["endpoint_name"],
+                "instance_name": endpoint["endpoint_name"].split(".", 1)[0],
+                "pin_name": endpoint["endpoint_name"].split(".", 1)[1],
+                "bbox": endpoint["bbox"],
+                "access_mode": endpoint.get("access_mode", "directional_escape"),
+                "allowed_obstacle_hierarchical_nets": endpoint.get("allowed_obstacle_hierarchical_nets", []),
+            }
+            rows.append(row)
     return rows
 
 
@@ -147,6 +148,7 @@ def generate_dff_signal_routes(
     top: gdstk.Cell,
     tech: Tech,
     endpoints_by_net: dict[str, list[dict[str, Any]]],
+    obstacle_rows: list[dict[str, Any]] | None = None,
     top_pin_anchors: dict[str, float],
     routing_channel_base_y: float,
     routing_channel_right_x: float,
@@ -163,7 +165,8 @@ def generate_dff_signal_routes(
     net_names = list(net_names) if net_names is not None else ["CLK", "CLKB", "D", "D_b", "z1", "z2", "z3", "z4", "z5", "Q", "QB"]
 
     endpoint_rows = _flatten_endpoint_rows({name: endpoints_by_net[name] for name in net_names})
-    obstacle_rows = _build_endpoint_obstacles(endpoint_rows)
+    if obstacle_rows is None:
+        obstacle_rows = _build_endpoint_obstacles(endpoint_rows)
     pin_access = plan_pin_access(
         endpoint_rows=endpoint_rows,
         obstacle_rows=obstacle_rows,
@@ -193,6 +196,7 @@ def generate_dff_signal_routes(
     m1_rects: list[dict[str, float]] = []
     m2_rects: list[dict[str, float]] = []
     via_rects: list[dict[str, float]] = []
+    route_objects: list[dict[str, Any]] = []
 
     for order, net_name in enumerate(net_names):
         endpoints = endpoints_by_net[net_name]
@@ -216,12 +220,35 @@ def generate_dff_signal_routes(
                 m2_landing = snap_rect_with_legal_width(cx=via_center[0], cy=via_center[1], width=landing, height=landing, grid=grid)
             via_bbox = snap_rect_with_legal_width(cx=via_center[0], cy=via_center[1], width=via_rule.size, height=via_rule.size, grid=grid)
             _add_rect(top, m1_landing, 11, 0)
-            _add_rect(top, escape_bbox, 11, 0)
-            m1_rects.extend([m1_landing, escape_bbox])
+            m1_rects.append(m1_landing)
+            route_objects.append(
+                {
+                    "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:m1_landing",
+                    "net_name": net_name,
+                    "intended_hierarchical_net": endpoint["intended_hierarchical_net"],
+                    "layer": "m1",
+                    "bbox": bbox_to_list(m1_landing),
+                    "role": "pin_access_landing",
+                }
+            )
+            if selected.get("access_mode") != "direct_via1_to_m2_escape":
+                _add_rect(top, escape_bbox, 11, 0)
+                m1_rects.append(escape_bbox)
+                route_objects.append(
+                    {
+                        "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:m1_escape",
+                        "net_name": net_name,
+                        "intended_hierarchical_net": endpoint["intended_hierarchical_net"],
+                        "layer": "m1",
+                        "bbox": bbox_to_list(escape_bbox),
+                        "role": "pin_access_escape",
+                    }
+                )
             xs.append(via_center[0])
             pending_columns.append(
                 {
                     "endpoint": endpoint,
+                    "selected": selected,
                     "via_center": via_center,
                     "escape_bbox": escape_bbox,
                     "m2_landing": m2_landing,
@@ -242,6 +269,16 @@ def generate_dff_signal_routes(
             _add_rect(top, top_pin_bbox, 11, 0)
             top.add(gdstk.Label(net_name, ((top_pin_bbox["lx"] + top_pin_bbox["rx"]) * 0.5, (top_pin_bbox["by"] + top_pin_bbox["uy"]) * 0.5), layer=11, texttype=0))
             m1_rects.append(top_pin_bbox)
+            route_objects.append(
+                {
+                    "route_object_id": f"{net_name}:TOP:m1_pin",
+                    "net_name": net_name,
+                    "intended_hierarchical_net": f"TOP::{net_name}",
+                    "layer": "m1",
+                    "bbox": bbox_to_list(top_pin_bbox),
+                    "role": "top_pin",
+                }
+            )
             xs.extend([top_pin_bbox["lx"], top_pin_bbox["rx"]])
 
         track_x0 = min(xs) if xs else 0.0
@@ -249,6 +286,16 @@ def generate_dff_signal_routes(
         track_bbox = _track_bbox(track_y, m1_rule.min_width, track_x0, max(track_x1, routing_channel_right_x), grid)
         _add_rect(top, track_bbox, 11, 0)
         m1_rects.append(track_bbox)
+        route_objects.append(
+            {
+                "route_object_id": f"{net_name}:TRACK:m1",
+                "net_name": net_name,
+                "intended_hierarchical_net": "PARENT::qint" if net_name == "qint" else f"TOP::{net_name}",
+                "layer": "m1",
+                "bbox": bbox_to_list(track_bbox),
+                "role": "horizontal_track",
+            }
+        )
         route_segments.append(
             {
                 "net_name": net_name,
@@ -273,12 +320,42 @@ def generate_dff_signal_routes(
             via_rects.append(pending["via_bbox"])
             m2_rects.append(pending["m2_landing"])
             vias.append(_via_dict(net_name, via_center[0], via_center[1], via_rule.size, landing, order, "pin_access"))
+            route_objects.append(
+                {
+                    "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:via_pin",
+                    "net_name": net_name,
+                    "intended_hierarchical_net": endpoint["intended_hierarchical_net"],
+                    "layer": "via1",
+                    "bbox": bbox_to_list(pending["via_bbox"]),
+                    "role": "pin_access_via",
+                }
+            )
+            route_objects.append(
+                {
+                    "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:m2_landing",
+                    "net_name": net_name,
+                    "intended_hierarchical_net": endpoint["intended_hierarchical_net"],
+                    "layer": "m2",
+                    "bbox": bbox_to_list(pending["m2_landing"]),
+                    "role": "pin_access_m2_landing",
+                }
+            )
 
             lower_y = via_center[1] + landing * 0.5
             upper_y = track_y - landing * 0.5
             vertical_bbox = rect_from_segment((via_center[0], lower_y), (via_center[0], upper_y), m2_rule.min_width, grid)
             _add_rect(top, vertical_bbox, 13, 0)
             m2_rects.append(vertical_bbox)
+            route_objects.append(
+                {
+                    "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:m2_escape",
+                    "net_name": net_name,
+                    "intended_hierarchical_net": endpoint["intended_hierarchical_net"],
+                    "layer": "m2",
+                    "bbox": bbox_to_list(vertical_bbox),
+                    "role": "vertical_escape",
+                }
+            )
             route_segments.append(
                 {
                     "net_name": net_name,
@@ -304,6 +381,34 @@ def generate_dff_signal_routes(
             via_rects.append(track_via_bbox)
             m2_rects.append(track_m2_landing)
             vias.append(_via_dict(net_name, via_center[0], track_y, via_rule.size, landing, order, "track_drop"))
+            route_objects.extend(
+                [
+                    {
+                        "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:track_drop_m1",
+                        "net_name": net_name,
+                        "intended_hierarchical_net": "PARENT::qint" if net_name == "qint" else f"TOP::{net_name}",
+                        "layer": "m1",
+                        "bbox": bbox_to_list(track_m1_landing),
+                        "role": "track_drop_m1_landing",
+                    },
+                    {
+                        "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:track_drop_via",
+                        "net_name": net_name,
+                        "intended_hierarchical_net": "PARENT::qint" if net_name == "qint" else f"TOP::{net_name}",
+                        "layer": "via1",
+                        "bbox": bbox_to_list(track_via_bbox),
+                        "role": "track_drop_via",
+                    },
+                    {
+                        "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:track_drop_m2",
+                        "net_name": net_name,
+                        "intended_hierarchical_net": "PARENT::qint" if net_name == "qint" else f"TOP::{net_name}",
+                        "layer": "m2",
+                        "bbox": bbox_to_list(track_m2_landing),
+                        "role": "track_drop_m2_landing",
+                    },
+                ]
+            )
         route_graph_nets.append(
             {
                 "net_name": net_name,
@@ -320,6 +425,7 @@ def generate_dff_signal_routes(
         "pin_access": pin_access,
         "column_allocation": column_alloc,
         "track_allocation": track_alloc,
+        "route_objects": route_objects,
         "routing_architecture_has_no_same_layer_crossovers": True,
         "pin_access_planning_passed": pin_access["pin_access_planning_passed"],
         "off_grid_m1_vertex_count": count_off_grid_vertices(m1_rects, grid),

@@ -458,9 +458,11 @@
 
 ## Wave3 / DFF_BUF
 
-- current_status: `MACHINE_VERIFIED_CANDIDATE_PENDING_HUMAN_REVIEW`.
-- Verification hardening closure removed remaining production defaults for topology-hash match and child-geometry immutability.
-- Production generator, hardening recheck, and final machine gate now use the same shared verification functions.
-- Clean GDS remained byte-identical during closure and remains pending focused human visual review.
+- current_status: `MACHINE_VERIFIED_HIERARCHICAL_PIN_ACCESS_REPAIRED_PENDING_HUMAN_REVIEW`.
+- old_candidate_status: `QUARANTINED_HUMAN_DETECTED_HIERARCHICAL_INTERNAL_SHORT`.
+- old_machine_pass_status: `REVOKED_DUE_TO_INCOMPLETE_HIERARCHICAL_CONNECTIVITY_MODEL`.
+- approved_dff_status: `HUMAN_REVIEWED_REUSABLE_COMPOSITE`.
+- repaired_dff_buf_human_verified: `False`.
+- repaired_dff_buf_reusable: `False`.
 - Recommended next stage: `Wave3 / DFF_BUF human visual review`.
-- Recommended next stage reason: `Machine verification hardened successfully. The candidate now requires focused human visual review before any reusable or higher-wave claim.`
+- Recommended next stage reason: `Machine verification now includes hierarchical foreign-net contact closure and repaired DFF pin access, but human visual review is still required.`

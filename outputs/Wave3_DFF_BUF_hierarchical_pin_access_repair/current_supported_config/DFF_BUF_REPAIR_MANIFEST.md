@@ -1,0 +1,36 @@
+# DFF BUF Repair Manifest
+
+- failed_candidate_sha256: `3c677aa1def66f0930a0f549120784cbea76095726d9d26ae8b81334b8b01536`
+- repaired_physical_cell_name: `DFF_BUF_FPDK45_6058eaf43739_HPA1`
+- repaired_clean_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_hierarchical_pin_access_repair/current_supported_config/DFF_BUF_repaired_clean.gds`
+- repaired_annotated_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_hierarchical_pin_access_repair/current_supported_config/DFF_BUF_repaired_annotated.gds`
+- repaired_review_atlas_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_hierarchical_pin_access_repair/current_supported_config/DFF_BUF_repaired_review_atlas.gds`
+- expected_net_count: `7`
+- actual_net_component_count: `7`
+- unexpected_net_merge_count: `0`
+- missing_expected_endpoint_count: `0`
+- unexpected_endpoint_count: `0`
+- floating_required_pin_count: `0`
+- power_signal_short_count: `0`
+- vdd_vss_short_present: `False`
+- hierarchical_foreign_net_contact_count: `0`
+- unexpected_child_internal_net_contact_count: `0`
+- clk_clkb_short_present: `False`
+- q_qb_internal_short_present: `False`
+- physical_connectivity_verification_passed: `True`
+- logical_physical_structural_match: `True`
+- hierarchy_closure_passed: `True`
+- missing_reference_target_count: `0`
+- reference_cycle_count: `0`
+- top_canonical_label_set_exact: `True`
+- child_label_leakage_count: `0`
+- child_geometry_modified_count: `0`
+- drc_marker_count: `0`
+- drc_passed: `True`
+- deterministic_regeneration_verified: `True`
+- can_claim_dff_buf_generated: `True`
+- can_claim_dff_buf_machine_verified: `True`
+- can_claim_dff_buf_human_verified: `False`
+- can_claim_dff_buf_reusable: `False`
+- human_review_required: `True`
+- can_enter_next_stage_before_human_review: `False`

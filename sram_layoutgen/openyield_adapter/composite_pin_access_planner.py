@@ -86,31 +86,65 @@ def plan_pin_access(
     selected_geometries: list[dict[str, Any]] = []
     for endpoint in endpoint_rows:
         pin_bbox = endpoint["bbox"]
-        expanded_obstacles = [
-            expand_bbox(obstacle["bbox"], min_space)
-            for obstacle in obstacle_rows
-            if obstacle["owner_endpoint"] != endpoint["endpoint"]
-        ]
+        access_mode = endpoint.get("access_mode", "directional_escape")
+        allowed_obstacle_nets = set(endpoint.get("allowed_obstacle_hierarchical_nets", []))
+        expanded_m1_obstacles = []
+        expanded_m2_obstacles = []
+        expanded_via1_obstacles = []
+        for obstacle in obstacle_rows:
+            if obstacle.get("owner_endpoint") == endpoint["endpoint"]:
+                continue
+            if obstacle.get("hierarchical_net_identity") in allowed_obstacle_nets:
+                continue
+            expanded = expand_bbox(obstacle["bbox"], min_space)
+            if obstacle.get("layer") == "m1":
+                expanded_m1_obstacles.append(expanded)
+            elif obstacle.get("layer") == "m2":
+                expanded_m2_obstacles.append(expanded)
+            elif obstacle.get("layer") == "via1":
+                expanded_via1_obstacles.append(expanded)
         candidates = []
-        for direction in _default_directions(endpoint["endpoint"]):
-            via_center, escape = _candidate_for_direction(
-                pin_bbox=pin_bbox,
-                direction=direction,
-                landing_size=landing_size,
-                access_clearance=min_space,
-                grid=grid,
-            )
-            m1_landing = snap_rect_with_legal_width(cx=via_center[0], cy=via_center[1], width=landing_size, height=landing_size, grid=grid)
-            m2_landing = snap_rect_with_legal_width(cx=via_center[0], cy=via_center[1], width=landing_size, height=landing_size, grid=grid)
-            via_bbox = snap_rect_with_legal_width(cx=via_center[0], cy=via_center[1], width=via_size, height=via_size, grid=grid)
-            blocked = any(
-                bbox_overlaps(expand_bbox(shape, 0.0), obstacle)
-                for shape in (m1_landing, escape)
-                for obstacle in expanded_obstacles
-            )
+        candidate_directions = ["direct_left", "direct_center", "direct_right"] if access_mode == "direct_via1_to_m2_escape" else _default_directions(endpoint["endpoint"])
+        for direction in candidate_directions:
+            if access_mode == "direct_via1_to_m2_escape":
+                half = landing_size * 0.5
+                cx_left = snap_via_center(pin_bbox["lx"] + half, grid)
+                cx_right = snap_via_center(pin_bbox["rx"] - half, grid)
+                cx_center = snap_via_center((pin_bbox["lx"] + pin_bbox["rx"]) * 0.5, grid)
+                cy = snap_via_center((pin_bbox["by"] + pin_bbox["uy"]) * 0.5, grid)
+                cx = {"direct_left": cx_left, "direct_center": cx_center, "direct_right": cx_right}[direction]
+                via_center = (cx, cy)
+                m1_landing = snap_rect_with_legal_width(cx=cx, cy=cy, width=landing_size, height=landing_size, grid=grid)
+                m2_landing = snap_rect_with_legal_width(cx=cx, cy=cy, width=landing_size, height=landing_size, grid=grid)
+                via_bbox = snap_rect_with_legal_width(cx=cx, cy=cy, width=via_size, height=via_size, grid=grid)
+                blocked = not bbox_contains(pin_bbox, m1_landing)
+                if not blocked:
+                    blocked = any(bbox_overlaps(m1_landing, obstacle) for obstacle in expanded_m1_obstacles)
+                if not blocked:
+                    blocked = any(bbox_overlaps(m2_landing, obstacle) for obstacle in expanded_m2_obstacles)
+                if not blocked:
+                    blocked = any(bbox_overlaps(via_bbox, obstacle) for obstacle in expanded_via1_obstacles)
+                escape = m1_landing
+            else:
+                via_center, escape = _candidate_for_direction(
+                    pin_bbox=pin_bbox,
+                    direction=direction,
+                    landing_size=landing_size,
+                    access_clearance=min_space,
+                    grid=grid,
+                )
+                m1_landing = snap_rect_with_legal_width(cx=via_center[0], cy=via_center[1], width=landing_size, height=landing_size, grid=grid)
+                m2_landing = snap_rect_with_legal_width(cx=via_center[0], cy=via_center[1], width=landing_size, height=landing_size, grid=grid)
+                via_bbox = snap_rect_with_legal_width(cx=via_center[0], cy=via_center[1], width=via_size, height=via_size, grid=grid)
+                blocked = any(
+                    bbox_overlaps(expand_bbox(shape, 0.0), obstacle)
+                    for shape in (m1_landing, escape)
+                    for obstacle in expanded_m1_obstacles
+                )
             candidate = {
                 "endpoint": endpoint["endpoint"],
                 "direction": direction,
+                "access_mode": access_mode,
                 "selected_via_center": [via_center[0], via_center[1]],
                 "m1_landing_bbox": m1_landing,
                 "m2_landing_bbox": m2_landing,
@@ -126,6 +160,7 @@ def plan_pin_access(
                     "instance_name": endpoint["instance_name"],
                     "net_name": endpoint["net_name"],
                     "candidate_direction": direction,
+                    "access_mode": access_mode,
                     "selected_via_center": str(candidate["selected_via_center"]),
                     "m1_landing_bbox": str(candidate["m1_landing_bbox"]),
                     "m2_landing_bbox": str(candidate["m2_landing_bbox"]),
@@ -148,6 +183,7 @@ def plan_pin_access(
                 "endpoint": endpoint["endpoint"],
                 "instance_name": endpoint["instance_name"],
                 "net_name": endpoint["net_name"],
+                "access_mode": access_mode,
                 "candidate_count": len(candidates),
                 "selected_candidate": selected["direction"],
                 "selected_via_center": str(selected["selected_via_center"]),

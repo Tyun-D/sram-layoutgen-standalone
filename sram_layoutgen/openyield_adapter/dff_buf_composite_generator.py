@@ -18,6 +18,8 @@ from sram_layoutgen.openyield_adapter.dff_buf_verification_gate import (
 )
 from sram_layoutgen.openyield_adapter.gds_hierarchy_clone_renamer import merge_unique_cells
 from sram_layoutgen.openyield_adapter.grid_legal_geometry import snap_bbox, snap_coordinate
+from sram_layoutgen.openyield_adapter.hierarchical_foreign_net_detector import detect_hierarchical_foreign_net_contacts
+from sram_layoutgen.openyield_adapter.hierarchical_obstacle_model import build_child_conductive_obstacle_map, hierarchical_net_namespace
 from sram_layoutgen.openyield_adapter.hierarchical_connectivity_verifier import verify_hierarchical_connectivity
 from sram_layoutgen.openyield_adapter.primitive_geometry_verifier import (
     conductive_geometry_fingerprint,
@@ -164,9 +166,11 @@ def generate_dff_buf_composite(
     output_root: Path,
     drc_deck: Path,
     klayout_path: Path,
+    physical_variant_tag: str = "",
     write_gds: bool = True,
 ) -> dict[str, Any]:
-    physical_cell_name = f"DFF_BUF_FPDK45_{source_topology_hash}"
+    variant_suffix = f"_{physical_variant_tag}" if physical_variant_tag else ""
+    physical_cell_name = f"DFF_BUF_FPDK45_{source_topology_hash}{variant_suffix}"
     cell_dir = output_root / physical_cell_name
     cell_dir.mkdir(parents=True, exist_ok=True)
     tech = Tech.freepdk45(repo_root)
@@ -269,7 +273,26 @@ def generate_dff_buf_composite(
         pin_order = json.loads(row["child_pin_order"])
         for pin_name, net_name in zip(pin_order, net_names):
             shifted = _shift_pin(pin_map[pin_name], origin[0], origin[1]) if isinstance(pin_map[pin_name], dict) else _shift_pin(pin_map[pin_name][0], origin[0], origin[1])
-            endpoints_by_net[net_name].append({"endpoint_name": f"{instance_name}.{pin_name}", "bbox": shifted})
+            intended_hierarchical = "PARENT::qint" if net_name == "qint" else f"TOP::{net_name}"
+            hierarchical_binding = {
+                "dff.D": ["dff::D"],
+                "dff.CLK": ["dff::CLK"],
+                "dff.Q": ["dff::Q"],
+                "inv1.A": ["inv1::A"],
+                "inv1.Z": ["inv1::Z"],
+                "inv2.A": ["inv2::A"],
+                "inv2.Z": ["inv2::Z"],
+            }.get(f"{instance_name}.{pin_name}", [])
+            access_mode = "direct_via1_to_m2_escape" if instance_name == "dff" and pin_name in {"D", "CLK", "Q"} else "directional_escape"
+            endpoints_by_net[net_name].append(
+                {
+                    "endpoint_name": f"{instance_name}.{pin_name}",
+                    "bbox": shifted,
+                    "intended_hierarchical_net": intended_hierarchical,
+                    "access_mode": access_mode,
+                    "allowed_obstacle_hierarchical_nets": hierarchical_binding,
+                }
+            )
             if pin_name == "VDD":
                 vdd_boxes.append(shifted)
             elif pin_name == "VSS":
@@ -289,8 +312,26 @@ def generate_dff_buf_composite(
             }
         )
 
+    obstacle_map = build_child_conductive_obstacle_map(
+        placement_rows=placement_rows,
+        child_source_rows=binding_rows,
+    )
+    obstacle_rows = [
+        {
+            "owner_endpoint": None,
+            "bbox": {
+                "lx": row["transformed_bbox"][0],
+                "by": row["transformed_bbox"][1],
+                "rx": row["transformed_bbox"][2],
+                "uy": row["transformed_bbox"][3],
+            },
+            "hierarchical_net_identity": row["hierarchical_net_identity"],
+            "layer": row["layer"],
+        }
+        for row in obstacle_map["objects"]
+    ]
     power_report = _connect_power_rows(top=top, tech=tech, vdd_boxes=vdd_boxes, vss_boxes=vss_boxes)
-    routing_channel_base_y = snap_coordinate(max(max(box["uy"] for box in vdd_boxes), max_y * 0.48) + 0.25, tech.manufacturing_grid)
+    routing_channel_base_y = snap_coordinate(max(max(box["uy"] for box in vdd_boxes), max_y) + 0.35, tech.manufacturing_grid)
     routing_channel_right_x = snap_coordinate(max_x + 0.40, tech.manufacturing_grid)
     top_pin_anchors = {
         "D": snap_coordinate(min_x - 0.35, tech.manufacturing_grid),
@@ -302,6 +343,7 @@ def generate_dff_buf_composite(
         top=top,
         tech=tech,
         endpoints_by_net={name: endpoints_by_net[name] for name in ["CLK", "D", "Q", "QB", "qint"]},
+        obstacle_rows=obstacle_rows,
         top_pin_anchors=top_pin_anchors,
         routing_channel_base_y=routing_channel_base_y,
         routing_channel_right_x=routing_channel_right_x,
@@ -336,6 +378,10 @@ def generate_dff_buf_composite(
         top_name=physical_cell_name,
         endpoints_by_net=endpoints_by_net,
         top_pin_bboxes=top_pin_pads,
+    )
+    hierarchical_contact_report = detect_hierarchical_foreign_net_contacts(
+        route_objects=route_plan["route_objects"],
+        obstacle_objects=obstacle_map["objects"],
     )
     namespace_report = verify_composite_pin_namespace(clean_gds, physical_cell_name, ["VDD", "VSS", "D", "Q", "QB", "CLK"])
     hierarchy_report = verify_composite_hierarchy_closure(clean_gds, physical_cell_name)
@@ -490,7 +536,10 @@ def generate_dff_buf_composite(
         "top_pin_pads": top_pin_pads,
         "route_plan": route_plan,
         "power_report": power_report,
+        "hierarchical_namespace": hierarchical_net_namespace(),
+        "child_conductive_obstacle_map": obstacle_map,
         "connectivity": connectivity,
+        "hierarchical_contact_report": hierarchical_contact_report,
         "namespace_report": namespace_report,
         "hierarchy_report": hierarchy_report,
         "drc": drc,
