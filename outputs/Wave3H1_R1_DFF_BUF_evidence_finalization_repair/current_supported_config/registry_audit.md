@@ -1,0 +1,20 @@
+# Registry Audit
+
+- approved_reusable_registry_found: `False`
+- approved_reusable_registry_paths:
+```json
+[]
+```
+- canonical_reusable_authority: `reviewed release manifests`
+- derived_registry_index:
+```json
+{
+  "dff_manifest": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4ACH_dff_reusable_release/DFF_REUSABLE_MANIFEST.json",
+  "dff_buf_manifest": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_reusable_release/DFF_BUF_REUSABLE_MANIFEST.json",
+  "primitive_reusable_root": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells",
+  "primitive_cells": [
+    "PINV_NW180_PW540_L50",
+    "PINV_NW360_PW1080_L50"
+  ]
+}
+```

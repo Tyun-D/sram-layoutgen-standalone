@@ -1,7 +1,9 @@
 ## Wave3H1 Progress Gate
 
-- current_stage: `Wave3H1_DFF_BUF_RELEASE_EVIDENCE_HARDENING_AND_LEDGER_RECONCILIATION`
+- current_stage: `Wave3H1-R1_DFF_BUF_EVIDENCE_FINALIZATION_REPAIR`
 - current_status: `PASS`
+- Wave3H1 geometry gate: `PASS`
+- Wave3H1 evidence finalization: `PASS`
 - DFF_BUF current_status: `HUMAN_REVIEWED_REUSABLE_COMPOSITE`
 - old failed DFF_BUF candidate: `QUARANTINED_HUMAN_DETECTED_HIERARCHICAL_INTERNAL_SHORT`
 - old DFF_BUF machine PASS: `REVOKED_DUE_TO_INCOMPLETE_HIERARCHICAL_CONNECTIVITY_MODEL`
@@ -13,7 +15,6 @@
 - can_enter_next_stage: `True`
 - human_review_required: `False`
 
-# Netlist-to-Layout Progress
 
 ## Asset Status
 

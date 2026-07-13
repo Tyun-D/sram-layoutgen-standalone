@@ -1,7 +1,7 @@
 {
   "project_goal": "基于原 layoutgen 版图生成器，将 OpenYield 的模块、网表语义和连接关系接入真实 SRAM GDS 生成主干，生成 OpenYield-driven layoutgen-based SRAM GDS。",
   "current_route": "Wave3H1 reconciles the approved DFF_BUF reusable release evidence without reopening geometry generation.",
-  "current_stage": "Wave3H1_DFF_BUF_RELEASE_EVIDENCE_HARDENING_AND_LEDGER_RECONCILIATION",
+  "current_stage": "Wave3H1-R1_DFF_BUF_EVIDENCE_FINALIZATION_REPAIR",
   "next_stage": "Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
@@ -1618,7 +1618,7 @@
   "sense_amp_substitution_analysis_status": "PASS_REAL_SUBSTITUTION_PROVEN",
   "sense_amp_substitution_risk_level": "MEDIUM",
   "recommended_next_stage": "Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK",
-  "recommended_next_stage_reason": "Locked wave plan advances to Wave4, but execution must begin with ADDR_DFF source-topology and binding lock only after Wave3H1 evidence closure passes.",
+  "recommended_next_stage_reason": "Wave3H1-R1 repaired evidence finalization has closed; locked wave plan proceeds to ADDR_DFF source-topology and binding lock before DATA_DFF.",
   "remaining_M11D_blockers": [],
   "remaining_M11D_blockers_count": 0,
   "human_klayout_review_required": false,
@@ -2439,5 +2439,7 @@
   "current_status": "PASS",
   "locked_plan_next_wave": "Wave4 / ADDR_DFF / DATA_DFF",
   "execution_next_stage": "Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK",
-  "deferred_sibling_stage": "Wave4B / DATA_DFF"
+  "deferred_sibling_stage": "Wave4B / DATA_DFF",
+  "Wave3H1_geometry_gate": "PASS",
+  "Wave3H1_evidence_finalization": "PASS"
 }

@@ -1,0 +1,93 @@
+# Wave3H1-R1 Stage Report
+
+- stage: `Wave3H1-R1_DFF_BUF_EVIDENCE_FINALIZATION_REPAIR`
+- current_status: `PASS`
+- report_generation_base_commit: `ff0ab7ce67c0214450b676c5ff6433a23497f7ae`
+- source_tree_hash: `2da0e20d44a1d4e29413d0082ae8ad3b28d7e7436c73fd6a7a674d9443d5152a`
+- evidence_logic_commit: `ff0ab7ce67c0214450b676c5ff6433a23497f7ae`
+- final_repository_head_recorded_externally: `True`
+- final_package_metadata_recorded_externally: `True`
+- project_branch: `feature/step45-clean-array-aggregation`
+- openyield_commit: `1c34428d8b913963c4971d093b1a7c2df97a2509`
+- released_clean_sha256: `f80dbdb1b9f5852c90801cdbee823db945a64693f4e4bec53381d533b48d6299`
+- repaired_clean_sha256: `f80dbdb1b9f5852c90801cdbee823db945a64693f4e4bec53381d533b48d6299`
+- byte_for_byte_equal: `True`
+- release_hash_matches_repaired_clean: `True`
+- drc_marker_count: `0`
+- dependency_immutability_connectivity_regression_status: `PASS`
+- exact_child_binding_count: `3`
+- child_geometry_modified_count: `0`
+- expected_net_count: `7`
+- actual_net_component_count: `7`
+- unexpected_net_merge_count: `0`
+- missing_expected_endpoint_count: `0`
+- unexpected_endpoint_count: `0`
+- floating_required_pin_count: `0`
+- power_signal_short_count: `0`
+- vdd_vss_short_present: `False`
+- hierarchical_foreign_net_contact_count: `0`
+- unexpected_child_internal_net_contact_count: `0`
+- clk_clkb_short_present: `False`
+- q_qb_internal_short_present: `False`
+- detector_input_contract_violation_count: `0`
+- deterministic_regeneration_verified: `True`
+- current_authority_stale_metadata_count: `0`
+- registry_audit:
+```json
+{
+  "approved_reusable_registry_found": false,
+  "approved_reusable_registry_paths": [],
+  "canonical_reusable_authority": "reviewed release manifests",
+  "derived_registry_index": {
+    "dff_manifest": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4ACH_dff_reusable_release/DFF_REUSABLE_MANIFEST.json",
+    "dff_buf_manifest": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_reusable_release/DFF_BUF_REUSABLE_MANIFEST.json",
+    "primitive_reusable_root": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells",
+    "primitive_cells": [
+      "PINV_NW180_PW540_L50",
+      "PINV_NW360_PW1080_L50"
+    ]
+  }
+}
+```
+- wave3_row:
+```json
+{
+  "wave_id": "Wave3",
+  "module": "DFF_BUF, delay_chain, pdrive family",
+  "reason": "composite chains after DFF and routing proof",
+  "dependency_modules": "DFF|PINV",
+  "approved_children_complete": "True",
+  "source_topology_complete": "True",
+  "parameter_resolution_complete": "True",
+  "interface_compatible": "False",
+  "routing_backend_ready": "True",
+  "generator_work_required": "True",
+  "expected_human_review": "True",
+  "entry_gate": "Wave1 closed",
+  "exit_gate": "buffer and delay-chain composites qualified",
+  "next_wave_dependency": "Wave4"
+}
+```
+- wave4_row:
+```json
+{
+  "wave_id": "Wave4",
+  "module": "ADDR_DFF / DATA_DFF",
+  "reason": "array-style hierarchical composition after DFF proof",
+  "dependency_modules": "DFF",
+  "approved_children_complete": "True",
+  "source_topology_complete": "True",
+  "parameter_resolution_complete": "True",
+  "interface_compatible": "False",
+  "routing_backend_ready": "True",
+  "generator_work_required": "True",
+  "expected_human_review": "True",
+  "entry_gate": "Wave1 closed",
+  "exit_gate": "qualified DFF row arrays",
+  "next_wave_dependency": "Wave5"
+}
+```
+- wave4_source_report_kind: `AST_DERIVED`
+- data_dff_constructor_binding_status: `UNRESOLVED_REQUIRES_WAVE4B_SOURCE_BINDING_REVIEW`
+- ledger_consistency_passed: `True`
+- next_stage_allowed: `Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK`

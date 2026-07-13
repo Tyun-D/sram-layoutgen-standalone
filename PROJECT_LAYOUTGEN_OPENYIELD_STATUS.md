@@ -6,7 +6,7 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 
 ## 2. Current Stage
 
-- current_stage: `Wave3H1_DFF_BUF_RELEASE_EVIDENCE_HARDENING_AND_LEDGER_RECONCILIATION`
+- current_stage: `Wave3H1-R1_DFF_BUF_EVIDENCE_FINALIZATION_REPAIR`
 - current_status: `PASS`
 - locked_plan_next_wave: `Wave4 / ADDR_DFF / DATA_DFF`
 - execution_next_stage: `Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK`
@@ -362,3 +362,18 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 - next_stage_allowed: `Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK`
 - can_enter_next_stage: `True`
 - human_review_required: `false`
+
+## Wave3H1-R1 / DFF_BUF Evidence Finalization Repair
+
+- current_status: `PASS`
+- Wave3H1 geometry gate: `PASS`
+- Wave3H1 evidence finalization: `PASS`
+- DFF_BUF current_status: `HUMAN_REVIEWED_REUSABLE_COMPOSITE`
+- old_candidate_status: `QUARANTINED_HUMAN_DETECTED_HIERARCHICAL_INTERNAL_SHORT`
+- old_machine_pass_status: `REVOKED_DUE_TO_INCOMPLETE_HIERARCHICAL_CONNECTIVITY_MODEL`
+- next_stage: `Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK`
+- recommended_next_stage: `Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK`
+- next_stage_allowed: `Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK`
+- can_enter_next_stage: `true`
+- human_review_required: `false`
+
