@@ -1,8 +1,8 @@
 {
   "project_goal": "基于原 layoutgen 版图生成器，将 OpenYield 的模块、网表语义和连接关系接入真实 SRAM GDS 生成主干，生成 OpenYield-driven layoutgen-based SRAM GDS。",
   "current_route": "Wave3H1 reconciles the approved DFF_BUF reusable release evidence without reopening geometry generation.",
-  "current_stage": "Wave3H1-R1_DFF_BUF_EVIDENCE_FINALIZATION_REPAIR",
-  "next_stage": "Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK",
+  "current_stage": "Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK",
+  "next_stage": "Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": false,
@@ -370,7 +370,7 @@
     "remaining_M7_blockers": [],
     "remaining_M7_blockers_count": 0
   },
-  "next_stage_allowed": "Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK",
+  "next_stage_allowed": "Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION",
   "golden_reference_user_confirmed": true,
   "golden_reference_is_now_locked": true,
   "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
@@ -1617,7 +1617,7 @@
   "openyield_sense_amp_fingerprint_found_in_M11C": true,
   "sense_amp_substitution_analysis_status": "PASS_REAL_SUBSTITUTION_PROVEN",
   "sense_amp_substitution_risk_level": "MEDIUM",
-  "recommended_next_stage": "Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK",
+  "recommended_next_stage": "Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION",
   "recommended_next_stage_reason": "Wave3H1-R1 repaired evidence finalization has closed; locked wave plan proceeds to ADDR_DFF source-topology and binding lock before DATA_DFF.",
   "remaining_M11D_blockers": [],
   "remaining_M11D_blockers_count": 0,
@@ -2441,5 +2441,9 @@
   "execution_next_stage": "Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK",
   "deferred_sibling_stage": "Wave4B / DATA_DFF",
   "Wave3H1_geometry_gate": "PASS",
-  "Wave3H1_evidence_finalization": "PASS"
+  "Wave3H1_evidence_finalization": "PASS",
+  "ADDR_DFF_source_topology_status": "SOURCE_EXACT_TOPOLOGY_LOCKED",
+  "ADDR_DFF_physical_binding_status": "APPROVED_DFF_BINDING_LOCKED",
+  "ADDR_DFF_physical_GDS_status": "NOT_GENERATED",
+  "DATA_DFF_binding_status": "UNRESOLVED_REQUIRES_WAVE4B_SOURCE_BINDING_REVIEW"
 }

@@ -6,19 +6,18 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 
 ## 2. Current Stage
 
-- current_stage: `Wave3H1-R1_DFF_BUF_EVIDENCE_FINALIZATION_REPAIR`
+- current_stage: `Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK`
 - current_status: `PASS`
-- locked_plan_next_wave: `Wave4 / ADDR_DFF / DATA_DFF`
-- execution_next_stage: `Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK`
-- deferred_sibling_stage: `Wave4B / DATA_DFF`
-- human_klayout_review_required_every_stage: `False`
+- ADDR_DFF source topology status: `SOURCE_EXACT_TOPOLOGY_LOCKED`
+- ADDR_DFF physical binding status: `APPROVED_DFF_BINDING_LOCKED`
+- ADDR_DFF physical GDS status: `NOT_GENERATED`
 - human_review_required: `False`
-- can_enter_next_stage_without_human_review: `False`
-- can_enter_next_stage_before_human_review: `False`
-- next_stage: `Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK`
-- recommended_next_stage: `Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK`
-- next_stage_allowed: `Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK`
+- next_stage: `Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION`
+- recommended_next_stage: `Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION`
+- next_stage_allowed: `Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION`
 - can_enter_next_stage: `True`
+- deferred_sibling_stage: `Wave4B / DATA_DFF`
+- DATA_DFF binding status: `UNRESOLVED_REQUIRES_WAVE4B_SOURCE_BINDING_REVIEW`
 
 
 ## 3. M11V Verification Result

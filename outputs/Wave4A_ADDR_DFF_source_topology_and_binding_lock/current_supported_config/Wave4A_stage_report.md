@@ -1,0 +1,46 @@
+# Wave4A Stage Report
+
+- stage: `Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK`
+- current_status: `PASS`
+- project_branch: `feature/step45-clean-array-aggregation`
+- project_head: `7e2fbcf6c0539b844099a9ba1d94a0b4252d6c3d`
+- openyield_commit: `1c34428d8b913963c4971d093b1a7c2df97a2509`
+- locked_blob_sha: `16b38c5a5d3165f046557941d15d425bbcab20b5`
+- locked_source_file_sha256: `fa5277f078f79d5b43335c2dcd6e364625aa8ad17b7108d323b85e73dfeaae80`
+- num_rows_authority_resolution: `consensus_current_layoutgen_and_locked_openyield_num_rows`
+- n_bits: `4`
+- top_pin_order:
+```json
+[
+  "VDD",
+  "VSS",
+  "CLK",
+  "A0",
+  "A1",
+  "A2",
+  "A3",
+  "A_dff0",
+  "A_dff1",
+  "A_dff2",
+  "A_dff3"
+]
+```
+- child_instance_list:
+```json
+[
+  "dff_0",
+  "dff_1",
+  "dff_2",
+  "dff_3"
+]
+```
+- canonical_net_count: `11`
+- topology_digest: `870eb1c9374020163e73962b2209062849102469465bc4aa1b3e22edbfb2c980`
+- approved_dff_gds_sha: `f6995536077a191c31e10644bbfcfb4075cda64b7da131987c70a59353c4e45d`
+- approved_dff_top_cell: `DFF_TG4_INV7_FPDK45_26d9543b82b7`
+- exact_child_binding_count: `4`
+- forbidden_source_tests_passed: `True`
+- negative_tests_passed: `True`
+- addr_dff_gds_generated: `False`
+- data_dff_work_performed: `False`
+- next_stage: `Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION`

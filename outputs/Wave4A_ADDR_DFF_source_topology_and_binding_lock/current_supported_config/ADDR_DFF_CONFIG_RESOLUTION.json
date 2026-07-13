@@ -1,0 +1,81 @@
+{
+  "candidates": [
+    {
+      "candidate_config_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6_layoutgen_spec_reproduce/current_supported_config/SRAM_SPEC.json",
+      "config_authority_category": "ledger_referenced_layoutgen_spec",
+      "num_rows_value": 16,
+      "content_sha256": "cd3ae9a1c1612578c629d5aacf0f63ed9c3d81840a7037cdbb4456e6bca7fcdb",
+      "current_historical_status": "historical"
+    },
+    {
+      "candidate_config_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M8_reproduce_uploaded_golden/current_supported_config/SRAM_SPEC.json",
+      "config_authority_category": "current_layoutgen_spec",
+      "num_rows_value": 16,
+      "content_sha256": "bafd91115ef6e8c616c775b0d83ffa058e7744229d55f84da4235e91249212ed",
+      "current_historical_status": "current"
+    },
+    {
+      "candidate_config_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M11C_sense_amp_smoke_substitution/current_supported_config/SRAM_SPEC.json",
+      "config_authority_category": "ledger_referenced_layoutgen_spec",
+      "num_rows_value": 16,
+      "content_sha256": "1e8324e039f7de1099149e15b4c8eb4f93cc70cd547aae10efca3a296e8edb54",
+      "current_historical_status": "historical"
+    },
+    {
+      "candidate_config_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/SRAM_SPEC.json",
+      "config_authority_category": "ledger_referenced_layoutgen_spec",
+      "num_rows_value": 16,
+      "content_sha256": "b0cf80ffc5eaf3af27f0d0c06b978a3e83fea205aa621b711d3b0ee5d77d6675",
+      "current_historical_status": "historical"
+    },
+    {
+      "candidate_config_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M9_openyield_netlist_translator/current_supported_config/M9_SRAM_SPEC.json",
+      "config_authority_category": "current_openyield_derived_layoutgen_spec",
+      "num_rows_value": 16,
+      "content_sha256": "c9daa330b3e685cc18d6bdd811b768e6f44cc16cc1011223f8762179fb936247",
+      "current_historical_status": "current"
+    },
+    {
+      "candidate_config_path": "1c34428d8b913963c4971d093b1a7c2df97a2509:sram_compiler/config_yaml/global.yaml",
+      "config_authority_category": "locked_openyield_global_yaml",
+      "num_rows_value": 16,
+      "content_sha256": "a0927167d2db7d9730fc239065cd345c93c323d7de9f68b9351da3c03adba94f",
+      "current_historical_status": "current_locked_blob"
+    },
+    {
+      "candidate_config_path": "1c34428d8b913963c4971d093b1a7c2df97a2509:sram_compiler/subcircuits/time_generate.py::TIME.__init__.num_rows_default",
+      "config_authority_category": "locked_openyield_source_default",
+      "num_rows_value": 16,
+      "content_sha256": "fa5277f078f79d5b43335c2dcd6e364625aa8ad17b7108d323b85e73dfeaae80",
+      "current_historical_status": "current_locked_blob"
+    }
+  ],
+  "selected_authority": "consensus_current_layoutgen_and_locked_openyield_num_rows",
+  "precedence_reason": "all current ledger-referenced specs and locked OpenYield config sources agree on num_rows=16",
+  "conflict_count": 0,
+  "resolved_num_rows": 16,
+  "resolved_n_bits": 4,
+  "n_bits_machine_tests": [
+    {
+      "num_rows": 1,
+      "n_bits": 1
+    },
+    {
+      "num_rows": 2,
+      "n_bits": 1
+    },
+    {
+      "num_rows": 3,
+      "n_bits": 2
+    },
+    {
+      "num_rows": 16,
+      "n_bits": 4
+    },
+    {
+      "num_rows": 17,
+      "n_bits": 5
+    }
+  ],
+  "time_num_rows_path": "TIME.__init__(num_rows=16) -> self.num_rows=num_rows -> ADDR_DFF(..., num_rows=self.num_rows)"
+}

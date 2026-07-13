@@ -1,0 +1,308 @@
+{
+  "approved_dff_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4ACH_dff_reusable_release/DFF_reusable_clean.gds",
+  "approved_dff_gds_sha256": "f6995536077a191c31e10644bbfcfb4075cda64b7da131987c70a59353c4e45d",
+  "physical_top_cell": "DFF_TG4_INV7_FPDK45_26d9543b82b7",
+  "bbox": [
+    -0.0725,
+    0.0,
+    13.6725,
+    4.2525
+  ],
+  "top_label_set": [
+    "CLK",
+    "D",
+    "Q",
+    "VDD",
+    "VSS"
+  ],
+  "pin_rows": [
+    {
+      "pin_name": "CLK",
+      "label_origin": [
+        6.635,
+        2.085
+      ],
+      "layer_datatype": [
+        "11/0"
+      ],
+      "exact_polygon_points": [
+        [
+          [
+            6.535,
+            2.0175
+          ],
+          [
+            6.735,
+            2.0175
+          ],
+          [
+            6.735,
+            2.1525
+          ],
+          [
+            6.535,
+            2.1525
+          ]
+        ],
+        [
+          [
+            -0.005,
+            2.0525
+          ],
+          [
+            13.6725,
+            2.0525
+          ],
+          [
+            13.6725,
+            2.1175
+          ],
+          [
+            -0.005,
+            2.1175
+          ]
+        ]
+      ],
+      "bbox_list": [
+        [
+          6.535,
+          2.0175,
+          6.735,
+          2.1525
+        ],
+        [
+          -0.005,
+          2.0525,
+          13.6725,
+          2.1175
+        ]
+      ],
+      "connected_conductive_component": "via1_58",
+      "resolved_net_name": "CLK"
+    },
+    {
+      "pin_name": "D",
+      "label_origin": [
+        0.25,
+        2.505
+      ],
+      "layer_datatype": [
+        "11/0"
+      ],
+      "exact_polygon_points": [
+        [
+          [
+            0.15,
+            2.4375
+          ],
+          [
+            0.35,
+            2.4375
+          ],
+          [
+            0.35,
+            2.5725
+          ],
+          [
+            0.15,
+            2.5725
+          ]
+        ],
+        [
+          [
+            0.15,
+            2.4725
+          ],
+          [
+            13.6725,
+            2.4725
+          ],
+          [
+            13.6725,
+            2.5375
+          ],
+          [
+            0.15,
+            2.5375
+          ]
+        ]
+      ],
+      "bbox_list": [
+        [
+          0.15,
+          2.4375,
+          0.35,
+          2.5725
+        ],
+        [
+          0.15,
+          2.4725,
+          13.6725,
+          2.5375
+        ]
+      ],
+      "connected_conductive_component": "via1_109",
+      "resolved_net_name": "D"
+    },
+    {
+      "pin_name": "Q",
+      "label_origin": [
+        13.0225,
+        3.975
+      ],
+      "layer_datatype": [
+        "11/0"
+      ],
+      "exact_polygon_points": [
+        [
+          [
+            12.9225,
+            3.9075
+          ],
+          [
+            13.1225,
+            3.9075
+          ],
+          [
+            13.1225,
+            4.0425
+          ],
+          [
+            12.9225,
+            4.0425
+          ]
+        ],
+        [
+          [
+            10.5725,
+            3.9425
+          ],
+          [
+            13.6725,
+            3.9425
+          ],
+          [
+            13.6725,
+            4.0075
+          ],
+          [
+            10.5725,
+            4.0075
+          ]
+        ]
+      ],
+      "bbox_list": [
+        [
+          12.9225,
+          3.9075,
+          13.1225,
+          4.0425
+        ],
+        [
+          10.5725,
+          3.9425,
+          13.6725,
+          4.0075
+        ]
+      ],
+      "connected_conductive_component": "via1_253",
+      "resolved_net_name": "Q"
+    },
+    {
+      "pin_name": "VDD",
+      "label_origin": [
+        6.6365,
+        1.8525
+      ],
+      "layer_datatype": [
+        "11/0"
+      ],
+      "exact_polygon_points": [
+        [
+          [
+            6.2925,
+            1.82
+          ],
+          [
+            6.8525,
+            1.82
+          ],
+          [
+            6.8525,
+            1.885
+          ],
+          [
+            6.2925,
+            1.885
+          ]
+        ]
+      ],
+      "bbox_list": [
+        [
+          6.2925,
+          1.82,
+          6.8525,
+          1.885
+        ]
+      ],
+      "connected_conductive_component": "contact_1174",
+      "resolved_net_name": "VDD"
+    },
+    {
+      "pin_name": "VSS",
+      "label_origin": [
+        6.6365,
+        0.0325
+      ],
+      "layer_datatype": [
+        "11/0"
+      ],
+      "exact_polygon_points": [
+        [
+          [
+            6.2925,
+            0.0
+          ],
+          [
+            6.8525,
+            0.0
+          ],
+          [
+            6.8525,
+            0.065
+          ],
+          [
+            6.2925,
+            0.065
+          ]
+        ]
+      ],
+      "bbox_list": [
+        [
+          6.2925,
+          0.0,
+          6.8525,
+          0.065
+        ]
+      ],
+      "connected_conductive_component": "contact_1180",
+      "resolved_net_name": "VSS"
+    }
+  ],
+  "vdd_vss_components": {
+    "VDD": "contact_1174",
+    "VSS": "contact_1180"
+  },
+  "hierarchy_closure": {
+    "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4ACH_dff_reusable_release/DFF_reusable_clean.gds",
+    "top_cells": [
+      "DFF_TG4_INV7_FPDK45_26d9543b82b7"
+    ],
+    "expected_top_cell": "DFF_TG4_INV7_FPDK45_26d9543b82b7",
+    "top_level_cell_count": 1,
+    "missing_reference_target_count": 0,
+    "missing_references": [],
+    "reference_cycle_count": 0,
+    "reference_cycles": []
+  }
+}

@@ -1,19 +1,17 @@
 ## Wave3H1 Progress Gate
 
-- current_stage: `Wave3H1-R1_DFF_BUF_EVIDENCE_FINALIZATION_REPAIR`
+- current_stage: `Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK`
 - current_status: `PASS`
-- Wave3H1 geometry gate: `PASS`
-- Wave3H1 evidence finalization: `PASS`
-- DFF_BUF current_status: `HUMAN_REVIEWED_REUSABLE_COMPOSITE`
-- old failed DFF_BUF candidate: `QUARANTINED_HUMAN_DETECTED_HIERARCHICAL_INTERNAL_SHORT`
-- old DFF_BUF machine PASS: `REVOKED_DUE_TO_INCOMPLETE_HIERARCHICAL_CONNECTIVITY_MODEL`
-- locked_plan_next_wave: `Wave4 / ADDR_DFF / DATA_DFF`
-- execution_next_stage: `Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK`
-- deferred_sibling_stage: `Wave4B / DATA_DFF`
-- recommended_next_stage: `Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK`
-- next_stage_allowed: `Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK`
-- can_enter_next_stage: `True`
+- ADDR_DFF source topology status: `SOURCE_EXACT_TOPOLOGY_LOCKED`
+- ADDR_DFF physical binding status: `APPROVED_DFF_BINDING_LOCKED`
+- ADDR_DFF physical GDS status: `NOT_GENERATED`
 - human_review_required: `False`
+- next_stage: `Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION`
+- recommended_next_stage: `Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION`
+- next_stage_allowed: `Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION`
+- can_enter_next_stage: `True`
+- deferred_sibling_stage: `Wave4B / DATA_DFF`
+- DATA_DFF binding status: `UNRESOLVED_REQUIRES_WAVE4B_SOURCE_BINDING_REVIEW`
 
 
 ## Asset Status

@@ -1,0 +1,184 @@
+# ADDR_DFF Negative Tests
+
+- all_negative_tests_passed: `True`
+- tests:
+```json
+[
+  {
+    "test_name": "openyield_commit_mismatch",
+    "input_artifact": "/tmp/wave4a_neg_dkbb2fx7/context.json",
+    "validator_result": false,
+    "failure_reason": "OpenYield commit mismatch",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "time_generate_blob_sha_mismatch",
+    "input_artifact": "/tmp/wave4a_neg_ms62o8jv/context.json",
+    "validator_result": false,
+    "failure_reason": "time_generate blob SHA mismatch",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "addr_dff_class_missing",
+    "input_artifact": "/tmp/wave4a_neg_q21qtcaw/time_generate.py",
+    "validator_result": false,
+    "failure_reason": "ADDR_DFF class missing",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "add_addr_dff_array_missing",
+    "input_artifact": "/tmp/wave4a_neg_z7pa2uu_/time_generate.py",
+    "validator_result": false,
+    "failure_reason": "add_addr_dff_array missing",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "n_bits_formula_changed",
+    "input_artifact": "/tmp/wave4a_neg_qlr966qi/time_generate.py",
+    "validator_result": false,
+    "failure_reason": "n_bits formula changed",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "top_pin_order_changed",
+    "input_artifact": "/tmp/wave4a_neg_b5e5tgxg/topology.json",
+    "validator_result": false,
+    "failure_reason": "top pin order changed",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "missing_dff_instances",
+    "input_artifact": "/tmp/wave4a_neg_awkbfccw/topology.json",
+    "validator_result": false,
+    "failure_reason": "child instance set changed",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "duplicate_child_instance",
+    "input_artifact": "/tmp/wave4a_neg_x2nyblgh/topology.json",
+    "validator_result": false,
+    "failure_reason": "duplicate child instance",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "child_count_five",
+    "input_artifact": "/tmp/wave4a_neg_2zi1vj3l/topology.json",
+    "validator_result": false,
+    "failure_reason": "child count mismatch",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "a_and_a_dff_swapped",
+    "input_artifact": "/tmp/wave4a_neg_o4cug37c/topology.json",
+    "validator_result": false,
+    "failure_reason": "instance connection mismatch for dff_0",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "d_and_q_physical_mapping_swapped",
+    "input_artifact": "/tmp/wave4a_neg_tr8nuks9/binding.json",
+    "validator_result": false,
+    "failure_reason": "constructor default parameter unable to close",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "clk_pin_missing",
+    "input_artifact": "/tmp/wave4a_neg_6e9c2j9c/fake.gds",
+    "validator_result": false,
+    "failure_reason": "CLK pin missing",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "approved_dff_gds_sha_mismatch",
+    "input_artifact": "/tmp/wave4a_neg_4bjnjc_s/DFF_reusable_clean.gds",
+    "validator_result": false,
+    "failure_reason": "path exists but SHA mismatches approved DFF",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "dff_top_cell_mismatch",
+    "input_artifact": "/tmp/wave4a_neg_555jnm86/fake.gds",
+    "validator_result": false,
+    "failure_reason": "approved DFF top cell mismatch",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "annotated_gds_supplied_as_child",
+    "input_artifact": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4AC_dff_connectivity_repair/current_supported_config/M12C4AC_dff_annotated.gds",
+    "validator_result": false,
+    "failure_reason": "annotated GDS supplied as child",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "atlas_supplied_as_child",
+    "input_artifact": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4AC_dff_connectivity_repair/current_supported_config/M12C4AC_dff_review_atlas.gds",
+    "validator_result": false,
+    "failure_reason": "atlas supplied as child",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "quarantined_candidate_supplied_as_child",
+    "input_artifact": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4AC_dff_connectivity_repair/current_supported_config/quarantined_failed_attempt/M12C4A_dff_clean.gds",
+    "validator_result": false,
+    "failure_reason": "quarantined candidate supplied as child",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "dff_buf_supplied_as_child",
+    "input_artifact": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_reusable_release/DFF_BUF_reusable_clean.gds",
+    "validator_result": false,
+    "failure_reason": "DFF_BUF supplied as child",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "constructor_default_parameter_unclosed",
+    "input_artifact": "/tmp/wave4a_neg_r7_vf1n1/binding.json",
+    "validator_result": false,
+    "failure_reason": "constructor default parameter unable to close",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "num_rows_authority_conflict",
+    "input_artifact": "/tmp/wave4a_neg_tumkjvje/config.json",
+    "validator_result": false,
+    "failure_reason": "num_rows authority conflict",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "data_dff_gds_generated",
+    "input_artifact": "/tmp/wave4a_neg_efysctmb",
+    "validator_result": false,
+    "failure_reason": "DATA_DFF GDS generated in this stage",
+    "expected_fail": true,
+    "negative_test_passed": true
+  },
+  {
+    "test_name": "addr_dff_gds_generated",
+    "input_artifact": "/tmp/wave4a_neg_iwgy0uzv",
+    "validator_result": false,
+    "failure_reason": "ADDR_DFF GDS generated in this stage",
+    "expected_fail": true,
+    "negative_test_passed": true
+  }
+]
+```
