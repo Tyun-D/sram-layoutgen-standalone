@@ -1,0 +1,8 @@
+net_name,component_id,expected_endpoint_set,actual_endpoint_set,missing_endpoints,unexpected_endpoints,net_match_status
+VDD,contact_1420,"[""TOP.VDD"", ""dff.VDD"", ""inv1.VDD"", ""inv2.VDD""]","[""TOP.VDD"", ""dff.VDD"", ""inv1.VDD"", ""inv2.VDD""]",[],[],MATCH
+VSS,contact_1426,"[""TOP.VSS"", ""dff.VSS"", ""inv1.VSS"", ""inv2.VSS""]","[""TOP.VSS"", ""dff.VSS"", ""inv1.VSS"", ""inv2.VSS""]",[],[],MATCH
+D,via1_177,"[""TOP.D"", ""dff.D""]","[""TOP.D"", ""dff.D""]",[],[],MATCH
+Q,via1_64,"[""TOP.Q"", ""inv2.Z""]","[""TOP.Q"", ""inv2.Z""]",[],[],MATCH
+QB,via1_54,"[""TOP.QB"", ""inv1.Z"", ""inv2.A""]","[""TOP.QB"", ""inv1.Z"", ""inv2.A""]",[],[],MATCH
+CLK,via1_126,"[""TOP.CLK"", ""dff.CLK""]","[""TOP.CLK"", ""dff.CLK""]",[],[],MATCH
+qint,via1_321,"[""dff.Q"", ""inv1.A""]","[""dff.Q"", ""inv1.A""]",[],[],MATCH

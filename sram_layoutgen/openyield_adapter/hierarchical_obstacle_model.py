@@ -193,6 +193,8 @@ def build_child_conductive_obstacle_map(
                         "is_internal_net": is_internal_net,
                         "is_power": is_power,
                         "parent_access_allowed": parent_access_allowed,
+                        "shape_kind": "axis_aligned_rectangle",
+                        "bbox_is_exact_geometry": True,
                     }
                 )
         summary_rows.append(

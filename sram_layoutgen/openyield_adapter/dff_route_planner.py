@@ -229,6 +229,8 @@ def generate_dff_signal_routes(
                     "layer": "m1",
                     "bbox": bbox_to_list(m1_landing),
                     "role": "pin_access_landing",
+                    "shape_kind": "axis_aligned_rectangle",
+                    "bbox_is_exact_geometry": True,
                 }
             )
             if selected.get("access_mode") != "direct_via1_to_m2_escape":
@@ -242,6 +244,8 @@ def generate_dff_signal_routes(
                         "layer": "m1",
                         "bbox": bbox_to_list(escape_bbox),
                         "role": "pin_access_escape",
+                        "shape_kind": "axis_aligned_rectangle",
+                        "bbox_is_exact_geometry": True,
                     }
                 )
             xs.append(via_center[0])
@@ -277,6 +281,8 @@ def generate_dff_signal_routes(
                     "layer": "m1",
                     "bbox": bbox_to_list(top_pin_bbox),
                     "role": "top_pin",
+                    "shape_kind": "axis_aligned_rectangle",
+                    "bbox_is_exact_geometry": True,
                 }
             )
             xs.extend([top_pin_bbox["lx"], top_pin_bbox["rx"]])
@@ -294,6 +300,8 @@ def generate_dff_signal_routes(
                 "layer": "m1",
                 "bbox": bbox_to_list(track_bbox),
                 "role": "horizontal_track",
+                "shape_kind": "axis_aligned_rectangle",
+                "bbox_is_exact_geometry": True,
             }
         )
         route_segments.append(
@@ -328,6 +336,8 @@ def generate_dff_signal_routes(
                     "layer": "via1",
                     "bbox": bbox_to_list(pending["via_bbox"]),
                     "role": "pin_access_via",
+                    "shape_kind": "axis_aligned_rectangle",
+                    "bbox_is_exact_geometry": True,
                 }
             )
             route_objects.append(
@@ -338,6 +348,8 @@ def generate_dff_signal_routes(
                     "layer": "m2",
                     "bbox": bbox_to_list(pending["m2_landing"]),
                     "role": "pin_access_m2_landing",
+                    "shape_kind": "axis_aligned_rectangle",
+                    "bbox_is_exact_geometry": True,
                 }
             )
 
@@ -354,6 +366,8 @@ def generate_dff_signal_routes(
                     "layer": "m2",
                     "bbox": bbox_to_list(vertical_bbox),
                     "role": "vertical_escape",
+                    "shape_kind": "axis_aligned_rectangle",
+                    "bbox_is_exact_geometry": True,
                 }
             )
             route_segments.append(
@@ -390,6 +404,8 @@ def generate_dff_signal_routes(
                         "layer": "m1",
                         "bbox": bbox_to_list(track_m1_landing),
                         "role": "track_drop_m1_landing",
+                        "shape_kind": "axis_aligned_rectangle",
+                        "bbox_is_exact_geometry": True,
                     },
                     {
                         "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:track_drop_via",
@@ -398,6 +414,8 @@ def generate_dff_signal_routes(
                         "layer": "via1",
                         "bbox": bbox_to_list(track_via_bbox),
                         "role": "track_drop_via",
+                        "shape_kind": "axis_aligned_rectangle",
+                        "bbox_is_exact_geometry": True,
                     },
                     {
                         "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:track_drop_m2",
@@ -406,6 +424,8 @@ def generate_dff_signal_routes(
                         "layer": "m2",
                         "bbox": bbox_to_list(track_m2_landing),
                         "role": "track_drop_m2_landing",
+                        "shape_kind": "axis_aligned_rectangle",
+                        "bbox_is_exact_geometry": True,
                     },
                 ]
             )

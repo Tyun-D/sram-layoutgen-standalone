@@ -1,0 +1,56 @@
+{
+  "openyield_commit": "1c34428d8b913963c4971d093b1a7c2df97a2509",
+  "time_generate_path": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+  "time_generate_sha256": "fa5277f078f79d5b43335c2dcd6e364625aa8ad17b7108d323b85e73dfeaae80",
+  "addr_dff": {
+    "class_name": "ADDR_DFF",
+    "class_present": true,
+    "init_present": true,
+    "add_addr_dff_array_present": true,
+    "n_bits_formula": "ceil(log2(self.num_rows)) if self.num_rows > 1 else 1",
+    "nodes_generation_order": [
+      "VDD",
+      "VSS",
+      "CLK",
+      "A0..A(n_bits-1)",
+      "A_dff0..A_dff(n_bits-1)"
+    ],
+    "instance_call_pattern": "self.X(f'dff_{i}', self.dff_addr.NAME, 'VDD', 'VSS', f'A{i}', f'A_dff{i}', 'CLK')",
+    "child_logical_dependency": [
+      "DFF"
+    ],
+    "current_supported_rows_16_instance_count": 4,
+    "source_excerpt": "405: class ADDR_DFF(BaseSubcircuit):\n406:     \"\"\"D Flip-Flop for address\"\"\"\n407:     NAME = \"ADDR_DFF\"\n408:     #NODES = ('VDD', 'VSS', 'D', 'Q', 'QB', 'CLK')\n409:     \n410:     def __init__(self, nmos_model=\"NMOS_VTG\", pmos_model=\"PMOS_VTG\",\n411:                  # Base widths for NAND gate transistors\n412:                  pmos_width=5e-07, nmos_width=2.5e-07,\n413:                  length=0.05e-6,num_rows=16,\n414:                  w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF,\n415:                  ):\n416:         self.num_rows = num_rows\n417:         n_bits = ceil(log2(self.num_rows)) if self.num_rows > 1 else 1\n418:         # 动态生成节点：包括所有地址输入、输出\n419:         nodes = ['VDD', 'VSS', 'CLK']\n420:         # 添加地址输入节点 A0, A1, A2, ..\n421:         nodes.extend([f'A{i}' for i in range(n_bits)])\n422:         # 添加地址输出节点 Q0, Q1, Q2, ...\n423:         nodes.extend([f'A_dff{i}' for i in range(n_bits)]) \n424:         self.NODES = nodes\n425: \n426:         super().__init__(\n427:             nmos_model, pmos_model,\n428:             nmos_width, pmos_width, length,\n429:             w_rc=w_rc, pi_res=pi_res, pi_cap=pi_cap,\n430:         ) \n431:         n_bits = ceil(log2(self.num_rows)) if self.num_rows > 1 else 1\n432:         self.dff_addr = dff(nmos_model, pmos_model)\n433:         self.subcircuit(self.dff_addr)\n434:          # 构建地址DFF阵列\n435:         self.add_addr_dff_array(n_bits)\n436:     \n437:     def add_addr_dff_array(self, n_bits):\n438:         # 创建DFF和反相器\n439:         for i in range(n_bits):\n440:             self.X(f'dff_{i}', self.dff_addr.NAME, \n441:                    'VDD', 'VSS', f'A{i}', f'A_dff{i}', 'CLK')\n442:             "
+  },
+  "data_dff": {
+    "class_name": "DATA_DFF",
+    "class_present": true,
+    "init_present": true,
+    "add_data_dff_array_present": true,
+    "nodes_generation_order": [
+      "VDD",
+      "VSS",
+      "CLK",
+      "DIN0..DIN(num_cols-1)",
+      "DIN_dff0..DIN_dff(num_cols-1)"
+    ],
+    "instance_call_pattern": "self.X(f'dff_{i}', self.dff_data.NAME, 'VDD', 'VSS', f'DIN{i}', f'DIN_dff{i}', 'CLK')",
+    "child_logical_dependency": [
+      "DFF"
+    ],
+    "current_supported_cols_16_instance_count": 16,
+    "source_excerpt": "443: class DATA_DFF(BaseSubcircuit):\n444:     \"\"\"D Flip-Flop for data\"\"\"\n445:     NAME = \"DATA_DFF\"\n446:     # NODES会动态生成\n447:     \n448:     def __init__(self, nmos_model=\"NMOS_VTG\", pmos_model=\"PMOS_VTG\",\n449:                  pmos_width=5e-07, nmos_width=2.5e-07,\n450:                  length=0.05e-6, num_cols=8,  # 默认16x8结构，8列数据\n451:                  w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF,\n452:                  ):\n453:         self.num_cols = num_cols\n454:         \n455:         # 动态生成节点：包括所有数据输入、输出和电源/时钟\n456:         nodes = ['VDD', 'VSS', 'CLK']\n457:         # 添加数据输入节点 DIN0, DIN1, ...\n458:         nodes.extend([f'DIN{i}' for i in range(num_cols)])\n459:         # 添加数据输出节点 DIN_dff0, DIN_dff1, ...\n460:         nodes.extend([f'DIN_dff{i}' for i in range(num_cols)])\n461:         self.NODES = nodes\n462: \n463:         super().__init__(\n464:             nmos_model, pmos_model,\n465:             nmos_width, pmos_width, length,\n466:             w_rc=w_rc, pi_res=pi_res, pi_cap=pi_cap,\n467:         )\n468:         \n469:         # 创建单个DFF实例作为模板\n470:         self.dff_data = dff(nmos_model, pmos_model, length)\n471:         self.subcircuit(self.dff_data)\n472:         \n473:         # 构建数据DFF阵列\n474:         self.add_data_dff_array(num_cols)\n475:     \n476:     def add_data_dff_array(self, num_cols):\n477:         # 为每个数据位创建DFF\n478:         for i in range(num_cols):"
+  },
+  "wave4_relationship": {
+    "same_wave": true,
+    "independent_siblings": true,
+    "required_split_execution": [
+      "Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK",
+      "Wave4B / DATA_DFF"
+    ],
+    "execution_order": [
+      "ADDR_DFF",
+      "DATA_DFF"
+    ]
+  }
+}
