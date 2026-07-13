@@ -1,12 +1,12 @@
 {
   "project_goal": "基于原 layoutgen 版图生成器，将 OpenYield 的模块、网表语义和连接关系接入真实 SRAM GDS 生成主干，生成 OpenYield-driven layoutgen-based SRAM GDS。",
-  "current_route": "M12C4ACH human review passed; repaired DFF released as the only reusable higher-composition candidate.",
-  "current_stage": "Wave3 / DFF_BUF_HIERARCHICAL_PIN_ACCESS_REPAIR",
-  "next_stage": "Wave3 / DFF_BUF",
+  "current_route": "Wave3 DFF_BUF repaired candidate is human-review sealed and released as a controlled reusable composite.",
+  "current_stage": "Wave3 / DFF_BUF_HUMAN_REVIEW_SEAL_AND_REUSABLE_RELEASE",
+  "next_stage": "ADDR_DFF / DATA_DFF",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
   "human_klayout_review_required_every_stage": false,
-  "can_enter_next_stage_without_human_review": true,
+  "can_enter_next_stage_without_human_review": false,
   "important_results": [
     {
       "result_name": "First-round OpenYield module GDS generation",
@@ -1617,8 +1617,8 @@
   "openyield_sense_amp_fingerprint_found_in_M11C": true,
   "sense_amp_substitution_analysis_status": "PASS_REAL_SUBSTITUTION_PROVEN",
   "sense_amp_substitution_risk_level": "MEDIUM",
-  "recommended_next_stage": "Wave3 / DFF_BUF human visual review",
-  "recommended_next_stage_reason": "Machine verification now includes hierarchical foreign-net contact closure and repaired DFF pin access, but human visual review is still required.",
+  "recommended_next_stage": "ADDR_DFF / DATA_DFF",
+  "recommended_next_stage_reason": "Locked wave plan advances from Wave3 to Wave4; ADDR_DFF / DATA_DFF depends on DFF, which are already approved reusable dependencies for controlled composition.",
   "remaining_M11D_blockers": [],
   "remaining_M11D_blockers_count": 0,
   "human_klayout_review_required": false,
@@ -2429,10 +2429,11 @@
     "Timing characterization including setup/hold and clock-to-Q remains incomplete."
   ],
   "Wave3_DFF_BUF": {
-    "current_status": "MACHINE_VERIFIED_HIERARCHICAL_PIN_ACCESS_REPAIRED_PENDING_HUMAN_REVIEW"
+    "current_status": "HUMAN_REVIEWED_REUSABLE_COMPOSITE"
   },
   "Wave3_DFF_BUF_failed_candidate": {
     "current_status": "QUARANTINED_HUMAN_DETECTED_HIERARCHICAL_INTERNAL_SHORT",
     "machine_pass_status": "REVOKED_DUE_TO_INCOMPLETE_HIERARCHICAL_CONNECTIVITY_MODEL"
-  }
+  },
+  "can_enter_next_stage": true
 }

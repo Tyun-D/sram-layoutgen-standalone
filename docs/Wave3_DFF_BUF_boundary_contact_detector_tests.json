@@ -1,0 +1,63 @@
+{
+  "boundary_touch_detection_implemented": true,
+  "edge_touch_negative_test_passed": true,
+  "corner_touch_negative_test_passed": true,
+  "positive_clearance_test_passed": true,
+  "cross_layer_without_via_test_passed": true,
+  "cross_layer_with_via_test_passed": true,
+  "raw": {
+    "edge": {
+      "contact_bbox": [
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "contact_area": 0.0,
+      "contact_kind": "edge_touch",
+      "electrically_connected": true,
+      "cross_layer_connection": false,
+      "reason": "same_layer_distance_zero"
+    },
+    "corner": {
+      "contact_bbox": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "contact_area": 0.0,
+      "contact_kind": "corner_touch",
+      "electrically_connected": true,
+      "cross_layer_connection": false,
+      "reason": "same_layer_distance_zero"
+    },
+    "gap": null,
+    "cross_no_via": {
+      "contact_bbox": [
+        0.2,
+        0.2,
+        0.8,
+        0.8
+      ],
+      "contact_area": 0.36,
+      "contact_kind": "area_overlap",
+      "electrically_connected": false,
+      "cross_layer_connection": true,
+      "reason": "cross_layer_without_via"
+    },
+    "cross_with_via": {
+      "contact_bbox": [
+        0.4,
+        0.4,
+        0.6,
+        0.6
+      ],
+      "contact_area": 0.04,
+      "contact_kind": "area_overlap",
+      "electrically_connected": true,
+      "cross_layer_connection": true,
+      "reason": "explicit_via_connection"
+    }
+  }
+}

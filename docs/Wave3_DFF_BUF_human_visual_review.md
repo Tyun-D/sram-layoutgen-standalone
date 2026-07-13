@@ -1,0 +1,25 @@
+# Wave3 DFF BUF Human Visual Review
+
+- stage: `Wave3 / DFF_BUF human visual review`
+- human_review_status: `PASS`
+- reviewed_physical_cell_name: `DFF_BUF_FPDK45_6058eaf43739_HPA1`
+- reviewed_clean_gds_sha256: `f80dbdb1b9f5852c90801cdbee823db945a64693f4e4bec53381d533b48d6299`
+- child_presence_verified: `True`
+- child_overlap_absent: `True`
+- clk_clkb_separation_verified: `True`
+- q_qb_internal_separation_verified: `True`
+- long_m1_bridge_absent: `True`
+- via1_pin_window_verified: `True`
+- m2_escape_independence_verified: `True`
+- data_path_verified: `True`
+- power_continuity_verified: `True`
+- power_separation_verified: `True`
+- internal_net_isolation_verified: `True`
+- top_pin_set_verified: `True`
+- routing_abnormality_absent: `True`
+- lvs_proven: `False`
+- spice_functional_simulation_proven: `False`
+- timing_characterized: `False`
+- setup_hold_characterized: `False`
+- clock_to_q_characterized: `False`
+- signoff_ready: `False`

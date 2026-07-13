@@ -185,11 +185,13 @@
 
 ## Wave3 / DFF_BUF
 
-- current_status: `MACHINE_VERIFIED_HIERARCHICAL_PIN_ACCESS_REPAIRED_PENDING_HUMAN_REVIEW`.
+- current_status: `HUMAN_REVIEWED_REUSABLE_COMPOSITE`.
+- approved_dff_status: `HUMAN_REVIEWED_REUSABLE_COMPOSITE`.
 - old_candidate_status: `QUARANTINED_HUMAN_DETECTED_HIERARCHICAL_INTERNAL_SHORT`.
 - old_machine_pass_status: `REVOKED_DUE_TO_INCOMPLETE_HIERARCHICAL_CONNECTIVITY_MODEL`.
-- approved_dff_status: `HUMAN_REVIEWED_REUSABLE_COMPOSITE`.
-- repaired_dff_buf_human_verified: `False`.
-- repaired_dff_buf_reusable: `False`.
-- Recommended next stage: `Wave3 / DFF_BUF human visual review`.
-- Recommended next stage reason: `Machine verification now includes hierarchical foreign-net contact closure and repaired DFF pin access, but human visual review is still required.`
+- repaired_dff_buf_human_visual_review: `PASS`.
+- can_enter_next_stage_without_human_review: `False`.
+- can_enter_next_stage: `True`.
+- This only means DFF_BUF may be used by controlled higher-level composition; it does not claim LVS, SPICE, timing characterization, or signoff readiness.
+- Recommended next stage: `ADDR_DFF / DATA_DFF`.
+- Recommended next stage reason: `Locked wave plan advances from Wave3 to Wave4; ADDR_DFF / DATA_DFF depends on DFF, which are already approved reusable dependencies for controlled composition.`
