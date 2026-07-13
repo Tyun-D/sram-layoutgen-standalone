@@ -2,9 +2,9 @@
 
 - stage: `Wave3H1-R1_DFF_BUF_EVIDENCE_FINALIZATION_REPAIR`
 - current_status: `PASS`
-- report_generation_base_commit: `ff0ab7ce67c0214450b676c5ff6433a23497f7ae`
-- source_tree_hash: `2da0e20d44a1d4e29413d0082ae8ad3b28d7e7436c73fd6a7a674d9443d5152a`
-- evidence_logic_commit: `ff0ab7ce67c0214450b676c5ff6433a23497f7ae`
+- report_generation_base_commit: `63a39d04dc89171a4aced459f8824779631da250`
+- source_tree_hash: `9a70ea7a5475ed037ce07ecfd063c15b761e027a85fdd2b5867bbd34b8083e8d`
+- evidence_logic_commit: `63a39d04dc89171a4aced459f8824779631da250`
 - final_repository_head_recorded_externally: `True`
 - final_package_metadata_recorded_externally: `True`
 - project_branch: `feature/step45-clean-array-aggregation`

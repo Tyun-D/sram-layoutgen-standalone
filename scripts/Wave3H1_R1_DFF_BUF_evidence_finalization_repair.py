@@ -1095,6 +1095,10 @@ def _build_package_root(final_head: str, bundle_path: Path, patch_path: Path, pu
     def add_entry(src: Path, rel: str, role: str, required: bool = True) -> None:
         dest = package_root / rel
         _copy_required(src, dest)
+        add_existing(rel, role, required)
+
+    def add_existing(rel: str, role: str, required: bool = True) -> None:
+        dest = package_root / rel
         required_entries.append(
             {
                 "relative_path": rel,
@@ -1106,6 +1110,23 @@ def _build_package_root(final_head: str, bundle_path: Path, patch_path: Path, pu
                 "manifest_self_excluded": True,
             }
         )
+
+    add_existing("git/final_commit_info.txt", "final commit information", True)
+    add_existing("git/git_status.txt", "git status", True)
+    add_existing("git/git_show.patch", "git show patch", True)
+
+    internal_package_report = {
+        "package_basename": package_name,
+        "package_format": "tar.gz",
+        "content_manifest_digest_recorded_in_manifest": True,
+        "final_tar_sha_stored_in_external_sidecar": True,
+        "final_repository_head_recorded_externally": True,
+        "push_result": push_result,
+    }
+    _write_json(package_root / "reports/evidence_package_report.json", internal_package_report)
+    _write_text(package_root / "reports/evidence_package_report.md", _render_md_kv("Evidence Package Report", internal_package_report))
+    add_existing("reports/evidence_package_report.json", "evidence package report", True)
+    add_existing("reports/evidence_package_report.md", "evidence package report", True)
 
     files = [
         (STATUS_MD, "project_ledgers/PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md", "project ledger"),
@@ -1212,18 +1233,6 @@ def _build_package_root(final_head: str, bundle_path: Path, patch_path: Path, pu
     manifest_report = _verify_manifest_and_shas(package_root)
     _write_json(package_root / "reports/manifest_verification_report.json", manifest_report)
     _write_text(package_root / "reports/manifest_verification_report.md", _render_md_kv("Manifest Verification Report", manifest_report))
-
-    package_report = {
-        "package_basename": package_name,
-        "package_format": "tar.gz",
-        "content_manifest_digest": _sha256(manifest_json_path),
-        "final_tar_sha_stored_in_external_sidecar": True,
-        "final_repository_head_recorded_externally": True,
-        "required_file_count": len(required_entries),
-        "push_result": push_result,
-    }
-    _write_json(package_root / "reports/evidence_package_report.json", package_report)
-    _write_text(package_root / "reports/evidence_package_report.md", _render_md_kv("Evidence Package Report", package_report))
 
     return package_root, manifest_report
 
