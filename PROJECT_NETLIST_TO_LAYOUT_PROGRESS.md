@@ -1,11 +1,11 @@
 ## Wave3H1 Progress Gate
 
-- current_stage: `Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK`
+- current_stage: `Wave4A-R1 / ADDR_DFF_SOURCE_BINDING_VALIDATOR_HARDENING`
 - current_status: `PASS`
 - ADDR_DFF source topology status: `SOURCE_EXACT_TOPOLOGY_LOCKED`
 - ADDR_DFF physical binding status: `APPROVED_DFF_BINDING_LOCKED`
+- ADDR_DFF validator status: `SOURCE_AND_BINDING_VALIDATOR_HARDENED`
 - ADDR_DFF physical GDS status: `NOT_GENERATED`
-- human_review_required: `False`
 - next_stage: `Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION`
 - recommended_next_stage: `Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION`
 - next_stage_allowed: `Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION`

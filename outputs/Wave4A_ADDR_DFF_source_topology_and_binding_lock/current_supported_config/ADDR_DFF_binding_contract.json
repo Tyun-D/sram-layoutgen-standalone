@@ -2,19 +2,54 @@
   "logical_module": "ADDR_DFF",
   "approved_child_logical_module": "DFF",
   "approved_child_physical_cell": "DFF_TG4_INV7_FPDK45_26d9543b82b7",
-  "top_pin_mapping_policy": {
-    "VDD": "VDD",
-    "VSS": "VSS",
-    "Ai": "D",
-    "A_dffi": "Q",
-    "CLK": "CLK"
-  },
-  "exact_child_binding_count": 4,
-  "forbidden_physical_sources": [
-    "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4AC_dff_connectivity_repair/current_supported_config/quarantined_failed_attempt/M12C4A_dff_clean.gds",
-    "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4AC_dff_connectivity_repair/current_supported_config/M12C4AC_dff_annotated.gds",
-    "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4AC_dff_connectivity_repair/current_supported_config/M12C4AC_dff_review_atlas.gds",
-    "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4A_dff_composite_generation/current_supported_config/M12C4A_dff_clean.gds",
-    "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_reusable_release/DFF_BUF_reusable_clean.gds"
-  ]
+  "binding_rows": [
+    {
+      "instance_name": "dff_0",
+      "approved_physical_cell": "DFF_TG4_INV7_FPDK45_26d9543b82b7",
+      "logical_to_physical_pin_mapping": {
+        "VDD": "VDD",
+        "VSS": "VSS",
+        "A0": "D",
+        "A_dff0": "Q",
+        "CLK": "CLK"
+      }
+    },
+    {
+      "instance_name": "dff_1",
+      "approved_physical_cell": "DFF_TG4_INV7_FPDK45_26d9543b82b7",
+      "logical_to_physical_pin_mapping": {
+        "VDD": "VDD",
+        "VSS": "VSS",
+        "A1": "D",
+        "A_dff1": "Q",
+        "CLK": "CLK"
+      }
+    },
+    {
+      "instance_name": "dff_2",
+      "approved_physical_cell": "DFF_TG4_INV7_FPDK45_26d9543b82b7",
+      "logical_to_physical_pin_mapping": {
+        "VDD": "VDD",
+        "VSS": "VSS",
+        "A2": "D",
+        "A_dff2": "Q",
+        "CLK": "CLK"
+      }
+    },
+    {
+      "instance_name": "dff_3",
+      "approved_physical_cell": "DFF_TG4_INV7_FPDK45_26d9543b82b7",
+      "logical_to_physical_pin_mapping": {
+        "VDD": "VDD",
+        "VSS": "VSS",
+        "A3": "D",
+        "A_dff3": "Q",
+        "CLK": "CLK"
+      }
+    }
+  ],
+  "mapping_validation": {
+    "mapping_passed": true,
+    "errors": []
+  }
 }

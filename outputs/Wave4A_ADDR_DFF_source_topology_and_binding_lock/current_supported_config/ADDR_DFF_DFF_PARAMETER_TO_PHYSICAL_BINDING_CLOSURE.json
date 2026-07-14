@@ -1,0 +1,65 @@
+{
+  "source_constructor_call": "self.dff_addr = dff(nmos_model, pmos_model)",
+  "formal_to_actual_binding": {
+    "nmos_model": "nmos_model",
+    "pmos_model": "pmos_model",
+    "pmos_width": "default",
+    "nmos_width": "default",
+    "length": "default"
+  },
+  "default_values": {
+    "nmos_model": "'NMOS_VTG'",
+    "pmos_model": "'PMOS_VTG'",
+    "pmos_width": "5e-07",
+    "nmos_width": "2.5e-07",
+    "length": "5e-08"
+  },
+  "normalized_nm_values": {
+    "pmos_width_nm": 500,
+    "nmos_width_nm": 250,
+    "length_nm": 50
+  },
+  "expected_physical_child_cell_names": [
+    "PINV_NW250_PW500_L50",
+    "TRANSMISSION_GATE_NW250_PW500_L50"
+  ],
+  "actual_direct_child_inventory": {
+    "PINV_NW250_PW500_L50": 7,
+    "TRANSMISSION_GATE_NW250_PW500_L50": 4
+  },
+  "count_comparison": {
+    "expected": {
+      "PINV_NW250_PW500_L50": 7,
+      "TRANSMISSION_GATE_NW250_PW500_L50": 4
+    },
+    "actual": {
+      "PINV_NW250_PW500_L50": 7,
+      "TRANSMISSION_GATE_NW250_PW500_L50": 4
+    },
+    "matched": true
+  },
+  "dimension_comparison": {
+    "PINV_NW250_PW500_L50": {
+      "NW_nm": 250,
+      "PW_nm": 500,
+      "L_nm": 50
+    },
+    "TRANSMISSION_GATE_NW250_PW500_L50": {
+      "NW_nm": 250,
+      "PW_nm": 500,
+      "L_nm": 50
+    }
+  },
+  "source_commit_comparison": {
+    "expected": "1c34428d8b913963c4971d093b1a7c2df97a2509",
+    "actual": "1c34428d8b913963c4971d093b1a7c2df97a2509",
+    "matched": true
+  },
+  "gds_sha_comparison": {
+    "expected": "f6995536077a191c31e10644bbfcfb4075cda64b7da131987c70a59353c4e45d",
+    "actual": "f6995536077a191c31e10644bbfcfb4075cda64b7da131987c70a59353c4e45d",
+    "matched": true
+  },
+  "defaults_close_with_approved_dff": true,
+  "closure_passed": true
+}

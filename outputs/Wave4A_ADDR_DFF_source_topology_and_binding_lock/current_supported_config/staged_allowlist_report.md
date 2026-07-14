@@ -20,6 +20,7 @@
   "PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md",
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_CONFIG_RESOLUTION.json",
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_CONFIG_RESOLUTION.md",
+  "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_DFF_PARAMETER_TO_PHYSICAL_BINDING_CLOSURE.json",
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_DFF_child_physical_interface.json",
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_DFF_conductive_obstacle_map.json",
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_DFF_hierarchy_closure.json",
@@ -32,28 +33,38 @@
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_canonical_topology.json",
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_child_binding_matrix.csv",
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_constructor_parameter_binding.json",
+  "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_expected_project_contract.json",
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_forbidden_source_negative_tests.json",
-  "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_hierarchical_namespace.json",
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_instance_connection_table.csv",
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_negative_tests.json",
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_negative_tests.md",
-  "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_net_endpoint_universe.json",
+  "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_source_derived_topology.json",
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_source_topology_analysis.json",
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_source_topology_analysis.md",
-  "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_top_pin_contract.json",
+  "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ADDR_DFF_topology_exact_identity_report.json",
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/Wave4A_stage_report.json",
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/Wave4A_stage_report.md",
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/baseline_dirty_tree_report.json",
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/baseline_dirty_tree_report.md",
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/ledger_consistency_report.json",
+  "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/negative_test_artifacts/clk_pin_missing/time_generate_clk_missing.py",
+  "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/negative_test_artifacts/d_and_q_physical_mapping_swapped/binding_rows_swapped.json",
+  "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/negative_test_artifacts/num_rows_authority_conflict/authority_16.json",
+  "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/negative_test_artifacts/num_rows_authority_conflict/authority_32.json",
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/preconditions.json",
-  "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/source/time_generate_locked_1c34428.py",
+  "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/source/global_yaml_locked_1c34428.yaml",
   "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/source_blob_lock_report.json",
+  "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/staged_allowlist_report.json",
+  "outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/staged_allowlist_report.md",
   "scripts/Wave4A_ADDR_DFF_source_topology_and_binding_lock.py"
 ]
 ```
-- staged_allowlist_passed: `True`
 - unexpected_staged_paths:
 ```json
 []
 ```
+- preexisting_dirty_paths_in_staged_area:
+```json
+[]
+```
+- staged_allowlist_passed: `True`

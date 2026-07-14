@@ -1,0 +1,132 @@
+{
+  "logical_module": "ADDR_DFF",
+  "resolved_num_rows": 16,
+  "resolved_n_bits": 4,
+  "resolved_top_pins": [
+    "VDD",
+    "VSS",
+    "CLK",
+    "A0",
+    "A1",
+    "A2",
+    "A3",
+    "A_dff0",
+    "A_dff1",
+    "A_dff2",
+    "A_dff3"
+  ],
+  "child_instances": [
+    {
+      "instance_name": "dff_0",
+      "logical_child_expression": "self.dff_addr.NAME",
+      "connections": [
+        "VDD",
+        "VSS",
+        "A0",
+        "A_dff0",
+        "CLK"
+      ]
+    },
+    {
+      "instance_name": "dff_1",
+      "logical_child_expression": "self.dff_addr.NAME",
+      "connections": [
+        "VDD",
+        "VSS",
+        "A1",
+        "A_dff1",
+        "CLK"
+      ]
+    },
+    {
+      "instance_name": "dff_2",
+      "logical_child_expression": "self.dff_addr.NAME",
+      "connections": [
+        "VDD",
+        "VSS",
+        "A2",
+        "A_dff2",
+        "CLK"
+      ]
+    },
+    {
+      "instance_name": "dff_3",
+      "logical_child_expression": "self.dff_addr.NAME",
+      "connections": [
+        "VDD",
+        "VSS",
+        "A3",
+        "A_dff3",
+        "CLK"
+      ]
+    }
+  ],
+  "canonical_nets": [
+    "VDD",
+    "VSS",
+    "CLK",
+    "A0",
+    "A_dff0",
+    "A1",
+    "A_dff1",
+    "A2",
+    "A_dff2",
+    "A3",
+    "A_dff3"
+  ],
+  "endpoint_contracts": {
+    "VDD": [
+      "TOP::VDD",
+      "dff_0::VDD",
+      "dff_1::VDD",
+      "dff_2::VDD",
+      "dff_3::VDD"
+    ],
+    "VSS": [
+      "TOP::VSS",
+      "dff_0::VSS",
+      "dff_1::VSS",
+      "dff_2::VSS",
+      "dff_3::VSS"
+    ],
+    "CLK": [
+      "TOP::CLK",
+      "dff_0::CLK",
+      "dff_1::CLK",
+      "dff_2::CLK",
+      "dff_3::CLK"
+    ],
+    "A0": [
+      "TOP::A0",
+      "dff_0::D"
+    ],
+    "A_dff0": [
+      "TOP::A_dff0",
+      "dff_0::Q"
+    ],
+    "A1": [
+      "TOP::A1",
+      "dff_1::D"
+    ],
+    "A_dff1": [
+      "TOP::A_dff1",
+      "dff_1::Q"
+    ],
+    "A2": [
+      "TOP::A2",
+      "dff_2::D"
+    ],
+    "A_dff2": [
+      "TOP::A_dff2",
+      "dff_2::Q"
+    ],
+    "A3": [
+      "TOP::A3",
+      "dff_3::D"
+    ],
+    "A_dff3": [
+      "TOP::A_dff3",
+      "dff_3::Q"
+    ]
+  }
+}

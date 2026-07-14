@@ -1,7 +1,7 @@
 {
   "project_goal": "基于原 layoutgen 版图生成器，将 OpenYield 的模块、网表语义和连接关系接入真实 SRAM GDS 生成主干，生成 OpenYield-driven layoutgen-based SRAM GDS。",
   "current_route": "Wave3H1 reconciles the approved DFF_BUF reusable release evidence without reopening geometry generation.",
-  "current_stage": "Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK",
+  "current_stage": "Wave4A-R1 / ADDR_DFF_SOURCE_BINDING_VALIDATOR_HARDENING",
   "next_stage": "Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
@@ -2445,5 +2445,10 @@
   "ADDR_DFF_source_topology_status": "SOURCE_EXACT_TOPOLOGY_LOCKED",
   "ADDR_DFF_physical_binding_status": "APPROVED_DFF_BINDING_LOCKED",
   "ADDR_DFF_physical_GDS_status": "NOT_GENERATED",
-  "DATA_DFF_binding_status": "UNRESOLVED_REQUIRES_WAVE4B_SOURCE_BINDING_REVIEW"
+  "DATA_DFF_binding_status": "UNRESOLVED_REQUIRES_WAVE4B_SOURCE_BINDING_REVIEW",
+  "ADDR_DFF source topology status": "SOURCE_EXACT_TOPOLOGY_LOCKED",
+  "ADDR_DFF physical binding status": "APPROVED_DFF_BINDING_LOCKED",
+  "ADDR_DFF physical GDS status": "NOT_GENERATED",
+  "DATA_DFF binding status": "UNRESOLVED_REQUIRES_WAVE4B_SOURCE_BINDING_REVIEW",
+  "ADDR_DFF validator status": "SOURCE_AND_BINDING_VALIDATOR_HARDENED"
 }
