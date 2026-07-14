@@ -1774,7 +1774,7 @@ def _manifest_entries_for_package(package_root: Path) -> list[dict[str, Any]]:
         if not path.is_file():
             continue
         rel = path.relative_to(package_root).as_posix()
-        if rel in {"evidence_package_manifest.json", "evidence_package_manifest.csv"}:
+        if rel in {"evidence_package_manifest.json", "evidence_package_manifest.csv", "SHA256SUMS"}:
             continue
         entries.append(
             {
