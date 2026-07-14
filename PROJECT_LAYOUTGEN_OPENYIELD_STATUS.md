@@ -6,11 +6,12 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 
 ## 2. Current Stage
 
-- current_stage: `Wave4A-R1 / ADDR_DFF_SOURCE_BINDING_VALIDATOR_HARDENING`
+- current_stage: `Wave4A-R2 / ADDR_DFF_PHYSICAL_INTERFACE_AND_NEGATIVE_REGRESSION_RESTORE`
 - current_status: `PASS`
 - ADDR_DFF source topology status: `SOURCE_EXACT_TOPOLOGY_LOCKED`
 - ADDR_DFF physical binding status: `APPROVED_DFF_BINDING_LOCKED`
-- ADDR_DFF validator status: `SOURCE_AND_BINDING_VALIDATOR_HARDENED`
+- ADDR_DFF physical interface status: `COMPLETE_GDS_DERIVED_INTERFACE_LOCKED`
+- ADDR_DFF validator status: `SOURCE_BINDING_AND_NEGATIVE_REGRESSION_HARDENED`
 - ADDR_DFF physical GDS status: `NOT_GENERATED`
 - next_stage: `Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION`
 - recommended_next_stage: `Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION`

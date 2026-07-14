@@ -1,7 +1,7 @@
 {
   "project_goal": "基于原 layoutgen 版图生成器，将 OpenYield 的模块、网表语义和连接关系接入真实 SRAM GDS 生成主干，生成 OpenYield-driven layoutgen-based SRAM GDS。",
   "current_route": "Wave3H1 reconciles the approved DFF_BUF reusable release evidence without reopening geometry generation.",
-  "current_stage": "Wave4A-R1 / ADDR_DFF_SOURCE_BINDING_VALIDATOR_HARDENING",
+  "current_stage": "Wave4A-R2 / ADDR_DFF_PHYSICAL_INTERFACE_AND_NEGATIVE_REGRESSION_RESTORE",
   "next_stage": "Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION",
   "must_read_this_file_before_every_task": true,
   "must_update_this_file_after_every_task": true,
@@ -2450,5 +2450,6 @@
   "ADDR_DFF physical binding status": "APPROVED_DFF_BINDING_LOCKED",
   "ADDR_DFF physical GDS status": "NOT_GENERATED",
   "DATA_DFF binding status": "UNRESOLVED_REQUIRES_WAVE4B_SOURCE_BINDING_REVIEW",
-  "ADDR_DFF validator status": "SOURCE_AND_BINDING_VALIDATOR_HARDENED"
+  "ADDR_DFF validator status": "SOURCE_BINDING_AND_NEGATIVE_REGRESSION_HARDENED",
+  "ADDR_DFF physical interface status": "COMPLETE_GDS_DERIVED_INTERFACE_LOCKED"
 }
