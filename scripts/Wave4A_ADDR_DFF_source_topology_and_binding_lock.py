@@ -1911,34 +1911,6 @@ def package() -> None:
     if negative_artifacts.exists():
         shutil.copytree(negative_artifacts, package_root / "negative_test_artifacts", dirs_exist_ok=True)
 
-    evidence_package_report = {
-        "package_basename": package_basename,
-        "package_format": "tar.gz",
-        "manifest_required_entry_actual_count": 0,
-        "sha256sums_actual_count": 0,
-        "final_tar_sha_stored_in_external_sidecar": True,
-        "push_result": push_result,
-    }
-    _write_json(package_root / "reports/evidence_package_report.json", evidence_package_report)
-
-    manifest_entries = _manifest_entries_for_package(package_root)
-    manifest = {
-        "package_basename": package_basename,
-        "package_format": "tar.gz",
-        "self_hash_policy": "non_self_referential_external_tar_sidecar",
-        "entries": manifest_entries,
-    }
-    _write_json(package_root / "evidence_package_manifest.json", manifest)
-    _write_csv(package_root / "evidence_package_manifest.csv", manifest_entries)
-
-    manifest_verification_report = {
-        "package_basename": package_basename,
-        "required_entry_count": len(manifest_entries),
-        "manifest_entries_all_have_size_and_sha": True,
-        "checksum_protection_strategy": "covered_by_final_SHA256SUMS",
-    }
-    _write_json(package_root / "reports/manifest_verification_report.json", manifest_verification_report)
-
     def write_sha256sums() -> None:
         lines = []
         for path in sorted(package_root.rglob("*")):
@@ -1949,20 +1921,100 @@ def package() -> None:
                 lines.append(f"{_sha256(path)}  {rel}")
         _write_text(package_root / "SHA256SUMS", "\n".join(lines) + "\n")
 
-    write_sha256sums()
-    package_verification_report = _verify_manifest_and_sums(package_root)
-    _write_json(package_root / "reports/package_verification_report.json", package_verification_report)
-    write_sha256sums()
-    final_verification = _verify_manifest_and_sums(package_root)
-    if not final_verification["all_passed"]:
-        raise RuntimeError("final package verification failed")
+    _write_json(
+        package_root / "reports/manifest_verification_report.json",
+        {
+            "package_basename": package_basename,
+            "required_entry_count": 0,
+            "manifest_entries_all_have_size_and_sha": True,
+            "checksum_protection_strategy": "covered_by_final_SHA256SUMS",
+        },
+    )
+    _write_json(
+        package_root / "reports/evidence_package_report.json",
+        {
+            "package_basename": package_basename,
+            "package_format": "tar.gz",
+            "manifest_required_entry_actual_count": 0,
+            "sha256sums_actual_count": 0,
+            "final_tar_sha_stored_in_external_sidecar": True,
+            "push_result": push_result,
+        },
+    )
+    _write_json(package_root / "reports/package_verification_report.json", {"status": "pending"})
 
-    evidence_package_report["manifest_required_entry_actual_count"] = final_verification["manifest_required_entry_actual_count"]
-    evidence_package_report["sha256sums_actual_count"] = final_verification["sha256sums_actual_count"]
-    _write_json(package_root / "reports/evidence_package_report.json", evidence_package_report)
+    final_verification: dict[str, Any] | None = None
+    for _ in range(4):
+        manifest_entries = _manifest_entries_for_package(package_root)
+        manifest = {
+            "package_basename": package_basename,
+            "package_format": "tar.gz",
+            "self_hash_policy": "non_self_referential_external_tar_sidecar",
+            "entries": manifest_entries,
+        }
+        _write_json(package_root / "evidence_package_manifest.json", manifest)
+        _write_csv(package_root / "evidence_package_manifest.csv", manifest_entries)
+        _write_json(
+            package_root / "reports/manifest_verification_report.json",
+            {
+                "package_basename": package_basename,
+                "required_entry_count": len(manifest_entries),
+                "manifest_entries_all_have_size_and_sha": True,
+                "checksum_protection_strategy": "covered_by_final_SHA256SUMS",
+            },
+        )
+        write_sha256sums()
+        verification = _verify_manifest_and_sums(package_root)
+        _write_json(
+            package_root / "reports/evidence_package_report.json",
+            {
+                "package_basename": package_basename,
+                "package_format": "tar.gz",
+                "manifest_required_entry_actual_count": verification["manifest_required_entry_actual_count"],
+                "sha256sums_actual_count": verification["sha256sums_actual_count"],
+                "final_tar_sha_stored_in_external_sidecar": True,
+                "push_result": push_result,
+            },
+        )
+        _write_json(package_root / "reports/package_verification_report.json", verification)
+        final_verification = verification
+
+    manifest_entries = _manifest_entries_for_package(package_root)
+    manifest = {
+        "package_basename": package_basename,
+        "package_format": "tar.gz",
+        "self_hash_policy": "non_self_referential_external_tar_sidecar",
+        "entries": manifest_entries,
+    }
+    _write_json(package_root / "evidence_package_manifest.json", manifest)
+    _write_csv(package_root / "evidence_package_manifest.csv", manifest_entries)
+    _write_json(
+        package_root / "reports/manifest_verification_report.json",
+        {
+            "package_basename": package_basename,
+            "required_entry_count": len(manifest_entries),
+            "manifest_entries_all_have_size_and_sha": True,
+            "checksum_protection_strategy": "covered_by_final_SHA256SUMS",
+        },
+    )
     write_sha256sums()
     final_verification = _verify_manifest_and_sums(package_root)
     _write_json(package_root / "reports/package_verification_report.json", final_verification)
+    _write_json(
+        package_root / "reports/evidence_package_report.json",
+        {
+            "package_basename": package_basename,
+            "package_format": "tar.gz",
+            "manifest_required_entry_actual_count": final_verification["manifest_required_entry_actual_count"],
+            "sha256sums_actual_count": final_verification["sha256sums_actual_count"],
+            "final_tar_sha_stored_in_external_sidecar": True,
+            "push_result": push_result,
+        },
+    )
+    manifest_entries = _manifest_entries_for_package(package_root)
+    manifest["entries"] = manifest_entries
+    _write_json(package_root / "evidence_package_manifest.json", manifest)
+    _write_csv(package_root / "evidence_package_manifest.csv", manifest_entries)
     write_sha256sums()
     final_verification = _verify_manifest_and_sums(package_root)
     if not final_verification["all_passed"]:
