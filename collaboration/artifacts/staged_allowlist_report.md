@@ -1,0 +1,31 @@
+# Staged Allowlist Report
+
+- allowlist_passed: `true`
+- staged_paths:
+- `collaboration/ALLOWED_PATHS_TEAM_B.txt`
+- `collaboration/ARTIFACT_STORAGE_POLICY.md`
+- `collaboration/COLLABORATION_PLAN.json`
+- `collaboration/COLLABORATION_PLAN.md`
+- `collaboration/EXISTING_GDS_QUALIFICATION_POLICY.md`
+- `collaboration/FORBIDDEN_PATHS_TEAM_B.txt`
+- `collaboration/GITHUB_WORKFLOW.md`
+- `collaboration/MERGE_POLICY.md`
+- `collaboration/MODULE_OWNERSHIP.csv`
+- `collaboration/MODULE_OWNERSHIP.md`
+- `collaboration/SHARED_CODE_OWNERSHIP.md`
+- `collaboration/artifacts/module_split_summary.json`
+- `collaboration/artifacts/original_dirty_paths.json`
+- `collaboration/artifacts/original_dirty_paths.tsv`
+- `collaboration/artifacts/remote_access_check.json`
+- `collaboration/artifacts/remote_access_check.txt`
+- `collaboration/artifacts/team_b_precreation_check.json`
+- `collaboration/team_b/CODEX_STARTER_PROMPT.txt`
+- `collaboration/team_b/ENVIRONMENT_CHECK.sh`
+- `collaboration/team_b/HANDOFF_TEMPLATE.md`
+- `collaboration/team_b/RESULT_SUBMISSION_CHECKLIST.md`
+- `collaboration/team_b/START_HERE.md`
+- `collaboration/team_b/TEAM_B_MODULE_QUEUE.csv`
+- `collaboration/team_b/TEAM_B_STATUS.json`
+- `collaboration/team_b/TEAM_B_STATUS.md`
+- `scripts/collaboration/validate_collab_baseline.py`
+- `tests/collaboration/test_collab_baseline.sh`
