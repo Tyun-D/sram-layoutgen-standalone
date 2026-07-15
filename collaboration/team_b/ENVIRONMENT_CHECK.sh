@@ -53,12 +53,24 @@ done < "$repo_root/collaboration/ALLOWED_PATHS_TEAM_B.txt"
 echo "forbidden_path_clean_check=working_tree_only"
 while IFS= read -r path; do
   [[ -z "$path" ]] && continue
-  if git -C "$repo_root" diff --quiet -- "$path"; then
+  if [[ "$path" == "/data1/qujh/work/external/OpenYield" ]]; then
+    if [[ "$(git -C "$path" rev-parse HEAD)" != "1c34428d8b913963c4971d093b1a7c2df97a2509" ]]; then
+      echo "ERROR: forbidden external repo HEAD changed: $path" >&2
+      exit 1
+    fi
+    if ! git -C "$path" diff --quiet; then
+      echo "ERROR: forbidden external repo dirty: $path" >&2
+      exit 1
+    fi
     echo "forbidden_clean=$path"
-  else
+    continue
+  fi
+
+  if [[ -n "$(git -C "$repo_root" status --porcelain --untracked-files=all -- "$path")" ]]; then
     echo "ERROR: forbidden path modified: $path" >&2
     exit 1
   fi
+  echo "forbidden_clean=$path"
 done < "$repo_root/collaboration/FORBIDDEN_PATHS_TEAM_B.txt"
 
 echo "environment_check=PASS"
