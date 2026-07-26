@@ -159,3 +159,13 @@
 - decision: `refresh long-range human-review package and full-evidence package on top of checkpoint commit`
 - unresolved_items: `decoder remains specifically blocked`; `Owner-A source recovery still blocked external`
 - next_action: `rebuild review packages and compute package SHA`
+
+## 2026-07-26T16:10:44Z project decoder_package_refresh
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `ae034bf5310e4b8a37e27d38d7fb73e1db193722`
+- files_read: `docs/P0_003_OWNER_CONFIRMATION_RESOLUTION.*`; `docs/DECODER_PHYSICAL_CLOSURE_AUDIT.*`; `docs/PROJECT_FINAL_TECHNICAL_DRAFT.md`; `docs/PROJECT_LONG_RANGE_DELTA_REVIEW_TEMPLATE.md`; `docs/PROJECT_RESULT_STATUS_MATRIX.csv`; `docs/PROJECT_CURRENT_STATUS.json`
+- files_modified: `docs/PROJECT_CURRENT_STATUS.json`; `/data1/qujh/PROJECT_LONG_RANGE_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`; `/data1/qujh/PROJECT_LONG_RANGE_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz.sha256`; `/data1/qujh/PROJECT_LONG_RANGE_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz`; `/data1/qujh/PROJECT_LONG_RANGE_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz.sha256`
+- result: `human_review_package_sha=ceaea0d368dd30ee7688b11eba0cbe818b9a0af4b52af9fa8c12a12bd73f5219`; `full_evidence_package_sha=253247d2d1a5aed75d0e7b4f09cdb3da104f242c0925ae105ee39dad5d179461`; `tar_readability_passed=true`
+- decision: `refresh package set with conservative P0-003 wording and specific decoder blocker audit; do not claim decoder closure`
+- unresolved_items: `decoder authority/generator/validation gaps`; `Owner-A source recovery authorization`
+- next_action: `user human review of refreshed project long-range package`
