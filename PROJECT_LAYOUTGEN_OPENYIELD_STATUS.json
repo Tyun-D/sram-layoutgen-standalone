@@ -1,10 +1,10 @@
 {
   "project_goal": "基于原 layoutgen 版图生成器，将 OpenYield 的模块、网表语义和连接关系接入真实 SRAM GDS 生成主干，生成 OpenYield-driven layoutgen-based SRAM GDS。",
-  "current_route": "Wave3H1 reconciles the approved DFF_BUF reusable release evidence without reopening geometry generation.",
-  "current_stage": "Wave4A-R2 / ADDR_DFF_PHYSICAL_INTERFACE_AND_NEGATIVE_REGRESSION_RESTORE",
-  "next_stage": "Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION",
-  "must_read_this_file_before_every_task": true,
-  "must_update_this_file_after_every_task": true,
+  "current_route": "Legacy Wave4A status retained for history; docs/PROJECT_CURRENT_STATUS.json is the current project-wide baseline.",
+  "current_stage": "LEGACY_WAVE4A_STATUS_REFER_TO_PROJECT_CURRENT_STATUS",
+  "next_stage": "See docs/PROJECT_CURRENT_STATUS.json and docs/NEXT_PROJECT_CLOSURE_EXECUTION_PLAN.md",
+  "must_read_this_file_before_every_task": false,
+  "must_update_this_file_after_every_task": false,
   "human_klayout_review_required_every_stage": false,
   "can_enter_next_stage_without_human_review": false,
   "important_results": [
@@ -2451,5 +2451,11 @@
   "ADDR_DFF physical GDS status": "NOT_GENERATED",
   "DATA_DFF binding status": "UNRESOLVED_REQUIRES_WAVE4B_SOURCE_BINDING_REVIEW",
   "ADDR_DFF validator status": "SOURCE_BINDING_AND_NEGATIVE_REGRESSION_HARDENED",
-  "ADDR_DFF physical interface status": "COMPLETE_GDS_DERIVED_INTERFACE_LOCKED"
+  "ADDR_DFF physical interface status": "COMPLETE_GDS_DERIVED_INTERFACE_LOCKED",
+  "legacy_status_file_only": true,
+  "legacy_original_current_stage": "Wave4A-R2 / ADDR_DFF_PHYSICAL_INTERFACE_AND_NEGATIVE_REGRESSION_RESTORE",
+  "project_status_entrypoint": "docs/PROJECT_CURRENT_STATUS.json",
+  "project_status_entrypoint_md": "docs/PROJECT_CURRENT_STATUS.json and docs/NEXT_PROJECT_CLOSURE_EXECUTION_PLAN.md",
+  "legacy_scope": "Historical Wave4A-R2 / ADDR_DFF control-logic track retained for traceability only.",
+  "last_project_status_redirect_timestamp": "2026-07-26T14:50:36Z"
 }

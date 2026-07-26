@@ -4,8 +4,8 @@
 | --- | --- | --- | --- |
 | OpenRAM 原始生成流程 | GENERATED | technology/freepdk45/gds_lib/*.gds; docs/openram_gds_generation_audit_report.md | reference baseline only |
 | 简化版 layoutgen | GENERATED | outputs/M2R_full_sram_regen/current_supported_config/openyield_layoutgen_full_sram_M2R.gds | full SRAM generated with internal DRC clean but not signoff-complete |
-| OpenYield 语义网表 | MACHINE_VERIFIED | docs/openyield_module_contracts.json; outputs/M12N_lock_openyield_authoritative_netlist/current_supported_config/ | authority and contracts locked |
-| OpenYield 控制逻辑 | EXPERIMENTAL | outputs/Wave4A_R2_ADDR_DFF_physical_interface_and_negative_regression_restore/current_supported_config | ADDR_DFF locked, not yet generated as final GDS |
+| OpenYield 语义网表 | MACHINE_VERIFIED | docs/openyield_module_contracts.json; outputs/M12N_lock_openyield_authoritative_netlist/current_supported_config/; docs/OPENYIELD_AUTHORITY_REVALIDATION.json | authority and contracts locked against external OpenYield anchor |
+| OpenYield 控制逻辑 | EXPERIMENTAL | outputs/Wave4A_R2_ADDR_DFF_physical_interface_and_negative_regression_restore/current_supported_config; PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json | legacy Wave4A evidence retained, but current project baseline now lives in docs/PROJECT_CURRENT_STATUS.json |
 | Team B 九单元 | MERGED_TO_MAINLINE | outputs/TeamB_9cell_integration/current_supported_config/TEAM_B_9CELL_INTEGRATION_GATE.json | mainline-approved baseline |
 | DFF | HUMAN_REVIEWED | outputs/M12C4ACH_dff_reusable_release; PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json | reusable composite baseline |
 | DFF_BUF | HUMAN_REVIEWED | outputs/Wave3_DFF_BUF_reusable_release | human-reviewed reusable composite |
@@ -21,4 +21,4 @@
 | dummy 行列 | GENERATED | outputs/openyield_module_gds/dummy_array | present in full-trial flow |
 | tap | SOURCE_ONLY | technology/freepdk45/gds_lib/gen_well_tap.gds | leaf exists, project-level integration not separately audited |
 | replica | GENERATED | outputs/openyield_module_gds/replica_array | present in full-trial flow |
-| 代表性 SRAM 顶层结果 | EXPERIMENTAL | outputs/M2R_full_sram_regen; outputs/M11_openyield_config_variation | explicit representative configs exist, not all signoff-complete |
+| 代表性 SRAM 顶层结果 | EXPERIMENTAL | docs/SRAM_CONFIGURATION_INVENTORY.csv; docs/HISTORICAL_30_CONFIG_21_MODULE_CLAIM_AUDIT.json | 10 explicit config rows are now evidence-backed; do not restate historical 30-config shorthand as current formal count |

@@ -1,3 +1,7 @@
+> Legacy status notice: this file preserves the historical Wave4A / ADDR_DFF track only.
+> Current project-wide status entrypoint: `docs/PROJECT_CURRENT_STATUS.json`.
+> Redirect recorded: `2026-07-26T14:49:50Z`.
+
 # OpenYield SRAM LayoutGen Project Status
 
 ## 1. Current Correct Goal
@@ -6,16 +10,16 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source �
 
 ## 2. Current Stage
 
-- current_stage: `Wave4A-R2 / ADDR_DFF_PHYSICAL_INTERFACE_AND_NEGATIVE_REGRESSION_RESTORE`
+- current_stage: `LEGACY_WAVE4A_STATUS_REFER_TO_PROJECT_CURRENT_STATUS`
 - current_status: `PASS`
 - ADDR_DFF source topology status: `SOURCE_EXACT_TOPOLOGY_LOCKED`
 - ADDR_DFF physical binding status: `APPROVED_DFF_BINDING_LOCKED`
 - ADDR_DFF physical interface status: `COMPLETE_GDS_DERIVED_INTERFACE_LOCKED`
 - ADDR_DFF validator status: `SOURCE_BINDING_AND_NEGATIVE_REGRESSION_HARDENED`
 - ADDR_DFF physical GDS status: `NOT_GENERATED`
-- next_stage: `Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION`
-- recommended_next_stage: `Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION`
-- next_stage_allowed: `Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION`
+- next_stage: `See docs/PROJECT_CURRENT_STATUS.json and docs/NEXT_PROJECT_CLOSURE_EXECUTION_PLAN.md`
+- recommended_next_stage: `See docs/PROJECT_CURRENT_STATUS.json and docs/NEXT_PROJECT_CLOSURE_EXECUTION_PLAN.md`
+- next_stage_allowed: `Use docs/PROJECT_CURRENT_STATUS.json as the project-wide source of truth`
 - can_enter_next_stage: `True`
 - deferred_sibling_stage: `Wave4B / DATA_DFF`
 - DATA_DFF binding status: `UNRESOLVED_REQUIRES_WAVE4B_SOURCE_BINDING_REVIEW`

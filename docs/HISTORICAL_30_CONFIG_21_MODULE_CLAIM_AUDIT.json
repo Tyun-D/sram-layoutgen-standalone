@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-07-26T14:50:36Z",
+  "claim_text": "30 个 SRAM 配置 / 21 个实现模块",
+  "result": "PARTIALLY_RECOVERED",
+  "current_explicit_unique_sram_config_count": 10,
+  "historical_m7_unique_sram_top_count": 10,
+  "historical_candidate_inventory_path": "outputs/M7_correct_golden_reference/current_supported_config/M7_gds_candidate_inventory.csv",
+  "legacy_control_logic_module_count_scope": {
+    "value": 22,
+    "source": "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json legacy historical section",
+    "note": "This is a control-logic physical-module planning count, not the same scope as SRAM top configuration count."
+  },
+  "conclusion": [
+    "The current formal project inventory must not claim 30 verified SRAM configurations.",
+    "A recoverable historical golden-reference inventory explicitly shows 10 unique SRAM top configurations.",
+    "The historical “21 modules” wording does not match the current recovered control-logic module-count evidence and is therefore not retained as a current exact fact."
+  ]
+}

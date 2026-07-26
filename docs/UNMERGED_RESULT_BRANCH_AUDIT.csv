@@ -1,7 +1,7 @@
 branch,owner,merge_base,unique_commits,result_summary,tests,evidence,conflict_risk,recommended_action
 backup/team-b-final-20260726_105757,Team B,ab6f66a,0 vs merged lineage,pre-merge backup ref,n/a,backup only,low,EVIDENCE_ONLY
 collab/team-b-control-support,Team B collaboration,e74054e,superseded by merged descendants,environment check fix,merged historically,branch retained,low,SUPERSEDED
-feature/owner-a-logical-data-model-v1-20260723_010633,Owner A / 其他组员,e74054e,owner-specific review worktree,logical data model hardening review,owner-local,review markdowns only,medium,UNKNOWN_NEEDS_OWNER
+feature/owner-a-logical-data-model-v1-20260723_010633,Owner A / 其他组员,e74054e,no unique committed logical-model source; result lives in external review bundle + untracked worktree files,logical data model hardening review bundle,review-local,review markdowns + runtime outputs,medium,UNKNOWN_NEEDS_OWNER
 feature/step45-clean-array-aggregation,Team B follow-up branch,c1fbd98,contains post-mainline verifier/test fixes,post-merge Team B follow-up commits,local only,current dirty working tree,high,EXPERIMENTAL_KEEP_SEPARATE
 integration/team-b-final-merge-20260726_105757,Team B,origin/master,rehearsal integration merge,pre-push merge rehearsal,passed during merge rehearsal,worktree retained,low,SUPERSEDED
-remotes/origin/codex/occupancy-compaction-routing,unknown prior branch,origin/master,remote-only,occupancy compaction routing exploration,unknown,remote commit ede16cc,medium,UNKNOWN_NEEDS_OWNER
+remotes/origin/codex/occupancy-compaction-routing,Tyun-D / 其他组员,origin/master,1,occupancy compaction and wordline routing exploration,unknown,remote commit ede16cc only,medium,EVIDENCE_ONLY
