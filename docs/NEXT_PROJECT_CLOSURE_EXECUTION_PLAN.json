@@ -1,0 +1,47 @@
+{
+  "timestamp": "2026-07-26T13:27:26Z",
+  "steps": [
+    {
+      "step": 1,
+      "priority": "P0",
+      "action": "确认项目级 CURRENT_STATUS 取代旧 Wave4A 状态文件作为主报告入口",
+      "output": "PROJECT_CURRENT_STATUS.json / updated root status pointers",
+      "validation": "project gate current_status_complete"
+    },
+    {
+      "step": 2,
+      "priority": "P0",
+      "action": "对 owner-a logical model 和其他未合并分支做 owner-based 结果认领与可回收性审查",
+      "output": "owner-approved recovery decisions",
+      "validation": "UNMERGED_RESULT_BRANCH_AUDIT rows resolved"
+    },
+    {
+      "step": 3,
+      "priority": "P0",
+      "action": "复核历史 30-config/21-module 说法，用显式 manifest 替代口头统计",
+      "output": "expanded config/module evidence index",
+      "validation": "all claims trace to files"
+    },
+    {
+      "step": 4,
+      "priority": "P1",
+      "action": "推进 decoder / top-level full SRAM 的物理闭合路线与 signoff 边界",
+      "output": "decoder closure plan + top-level signoff audit",
+      "validation": "status matrix upgraded where evidence exists"
+    },
+    {
+      "step": 5,
+      "priority": "P1",
+      "action": "把逻辑容量字段从 fallback 迁移到 raw-source-backed formal config",
+      "output": "new config authority reports",
+      "validation": "parameter catalog support upgraded"
+    },
+    {
+      "step": 6,
+      "priority": "P2",
+      "action": "按 figure/table requirements 制图和截图",
+      "output": "paper/report visual asset bundle",
+      "validation": "figure rows marked available"
+    }
+  ]
+}

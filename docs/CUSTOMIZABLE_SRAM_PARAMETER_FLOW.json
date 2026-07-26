@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-07-26T13:27:26Z",
+  "parameters": [
+    "word_count",
+    "word_size",
+    "address_bits",
+    "num_rows",
+    "num_cols",
+    "bank_count",
+    "words_per_row",
+    "column_mux_ratio",
+    "bitcell_array_rows_cols",
+    "dummy_row_column",
+    "tap_spacing",
+    "replica_cell",
+    "precharge_structure",
+    "sense_amp_structure",
+    "write_driver_structure",
+    "wl_driver_stages_sizes",
+    "decoder_architecture",
+    "delay_chain_stage_count",
+    "delay_chain_load_count",
+    "buffer_inverter_sizes",
+    "dff_variant",
+    "power_rail_width_direction_stitch",
+    "pin_location_access_strategy",
+    "module_spacing_abutment_strategy",
+    "pdk"
+  ],
+  "flow": "config_input -> legality_check -> netlist/topology -> module_selection -> floorplan -> placement -> routing -> power_stitching -> pin_access -> DRC/connectivity/negative_tests -> manifests"
+}

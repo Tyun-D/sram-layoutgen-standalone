@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-07-26T13:27:26Z",
+  "other_team_formal_count": 3,
+  "other_team_experimental_count": 2,
+  "audited_rows": [
+    {
+      "result_id": "owner_a_logical_model_v1",
+      "team_or_author_scope": "Owner A / 其他组员",
+      "source_path": "/data1/qujh/work/owner_a_logical_model_v1_20260723_010633",
+      "git_branch": "feature/owner-a-logical-data-model-v1-20260723_010633",
+      "git_commit": "e74054e",
+      "file_sha": "",
+      "result_type": "logical_data_model_review",
+      "module_or_config": "logical_data_model_v1",
+      "formal_or_experimental": "experimental",
+      "machine_verified": true,
+      "human_reviewed": false,
+      "already_merged": false,
+      "evidence_complete": false,
+      "recommended_action": "owner_review_then_cherry_pick_or_merge_candidate"
+    },
+    {
+      "result_id": "openyield_external_authority",
+      "team_or_author_scope": "OpenYield upstream / 其他组员电路与网表权威源",
+      "source_path": "/data1/qujh/work/external/OpenYield",
+      "git_branch": "external/OpenYield",
+      "git_commit": "1c34428d8b913963c4971d093b1a7c2df97a2509",
+      "file_sha": "",
+      "result_type": "upstream_netlist_authority",
+      "module_or_config": "OpenYield sram_compiler",
+      "formal_or_experimental": "formal",
+      "machine_verified": true,
+      "human_reviewed": false,
+      "already_merged": false,
+      "evidence_complete": true,
+      "recommended_action": "treat_as_authority_source_not_merge_target"
+    }
+  ],
+  "note": "Only evidence-backed sources discovered on disk are listed."
+}

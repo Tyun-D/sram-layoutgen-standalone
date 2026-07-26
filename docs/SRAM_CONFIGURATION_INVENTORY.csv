@@ -1,0 +1,6 @@
+config_id,word_count,word_size,rows,columns,banks,mux_ratio,generated_by,netlist_available,GDS_available,DRC_status,connectivity_status,area,runtime,evidence_path,formal_or_demo
+cfg_m2r_8x64_wpr4,64,8,16,32,1,4,M2R full SRAM regeneration,True,True,PASS_INTERNAL_DRC,ROUTE_AUDIT_PASS_NO_EXTERNAL_LVS,1682.803875,,outputs/M2R_full_sram_regen/current_supported_config/openyield_layoutgen_full_sram_M2R.report.json,experimental
+cfg_m2_8x64_wpr4,64,8,16,32,1,4,M2 full SRAM trial,True,True,TRIAL_NOT_SIGNOFFED,TRIAL_STRUCTURAL_ONLY,992.7724,,outputs/M2_layoutgen_full_trial/current_supported_config/M2_full_sram_assembly_report.json,experimental
+cfg_m11_8x64_wpr4,64,8,16,32,1,4,M11 variation support,True,True,GEOMETRY_MATCH_GENERATION_FAILED,NOT_AUDITED_FOR_SIGNOFF,,,outputs/M11_openyield_config_variation/current_supported_config/M11_variation_support_report.json,experimental
+cfg_m11_4x32_wpr2,32,4,16,8,1,2,M11 variation support,True,False,NOT_GENERATED,NOT_GENERATED,,,outputs/M11_openyield_config_variation/current_supported_config/M11_variation_support_report.json,experimental
+cfg_m11_16x16_wpr1,16,16,16,16,1,1,M11 raw OpenYield derived candidate,True,True,GENERATED_VARIATION_ONLY,NOT_AUDITED_FOR_SIGNOFF,,,outputs/M11_openyield_config_variation/current_supported_config/M11_OPENYIELD_CONFIG_DERIVED_SRAM_SPEC.json,experimental
