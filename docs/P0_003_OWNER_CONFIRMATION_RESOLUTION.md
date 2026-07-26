@@ -1,6 +1,6 @@
 # P0-003 Owner Confirmation Resolution
 
-- timestamp: `2026-07-26T15:24:49Z`
+- timestamp: `2026-07-26T15:26:19Z`
 - gap_id: `P0-003`
 - result_id: `OWNER_A_LOGICAL_DATA_MODEL_V1`
 - conclusion: `BLOCKED_EXTERNAL`
