@@ -1,0 +1,54 @@
+{
+  "rows": [
+    {
+      "extension_name": "delay_chain stage/load parameterization",
+      "current_status": "ROADMAP_DOCUMENTED",
+      "prerequisites": "formal source-lock expansion, new negative suites, timing and endpoint proofs",
+      "required_tools_or_source": "Team B chain generator + validator updates",
+      "expected_implementation": "parameterized stage_count and load_count for delay_chain and wen_delay_chain",
+      "validation_gate": "machine gate + negative tests + human review if GDS changes",
+      "risk": "timing semantics and zb_int contracts drift",
+      "must_not_claim": "arbitrary stage/load counts are already validated"
+    },
+    {
+      "extension_name": "multi-bank physical support",
+      "current_status": "ROADMAP_DOCUMENTED",
+      "prerequisites": "canonical bank-select/control authority",
+      "required_tools_or_source": "OpenYield top-level banking source + physical aggregator",
+      "expected_implementation": "bank_count>1 floorplan, routing, namespace, and integration flow",
+      "validation_gate": "top-level machine gate + bank-level connectivity + review",
+      "risk": "invented control semantics if authority is missing",
+      "must_not_claim": "multi-bank support is currently implemented"
+    },
+    {
+      "extension_name": "larger decoder scales",
+      "current_status": "ROADMAP_DOCUMENTED",
+      "prerequisites": "decoder dedicated physical closure flow",
+      "required_tools_or_source": "decoder authority + legal placement/routing generator",
+      "expected_implementation": "machine-verified decoder family for wider addr widths",
+      "validation_gate": "decoder machine gate + negative tests + atlas",
+      "risk": "metadata-only planning mistaken for physical closure",
+      "must_not_claim": "decoder family is already physically closed"
+    },
+    {
+      "extension_name": "external LVS / PEX / STA / power / IR / EM",
+      "current_status": "ROADMAP_DOCUMENTED",
+      "prerequisites": "full top-level schematic and external signoff environment",
+      "required_tools_or_source": "external decks and analysis flows",
+      "expected_implementation": "foundry-style signoff boundary expansion",
+      "validation_gate": "tool reports from external environment",
+      "risk": "overclaiming internal evidence as foundry signoff",
+      "must_not_claim": "full external signoff already passed"
+    },
+    {
+      "extension_name": "additional PDKs",
+      "current_status": "ROADMAP_DOCUMENTED",
+      "prerequisites": "ported contracts, generators, and signoff decks",
+      "required_tools_or_source": "new PDK libraries and rule decks",
+      "expected_implementation": "multi-PDK configurable flow",
+      "validation_gate": "PDK-specific machine gates and signoff boundaries",
+      "risk": "reusing FreePDK45 assumptions outside their scope",
+      "must_not_claim": "PDK portability already proven"
+    }
+  ]
+}

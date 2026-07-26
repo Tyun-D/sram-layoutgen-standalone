@@ -1,0 +1,8 @@
+flowchart LR
+  A[User config] --> B[Legality checks]
+  B --> C[OpenYield / manifest authority]
+  C --> D[Module selection]
+  D --> E[Floorplan and placement]
+  E --> F[Routing and power stitching]
+  F --> G[DRC / connectivity / negative tests]
+  G --> H[Final manifest and review package]

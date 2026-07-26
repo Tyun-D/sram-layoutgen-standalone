@@ -1,0 +1,100 @@
+{
+  "generated_at": "2026-07-26T15:24:49Z",
+  "sections": {
+    "research_goal": "Audit and close project-level evidence gaps without overclaiming unsupported physical or signoff states.",
+    "overall_architecture": "OpenRAM reference baseline + simplified layoutgen physical generator + OpenYield semantic authority + Team B formal physical library.",
+    "openram_baseline": "Reference implementation and comparison baseline only.",
+    "layoutgen": "Config-aware physical generator with internal DRC-clean 8x64_wpr4 top-level trial and formalized config inventory.",
+    "openyield_semantic_netlist": "Authority locked to external OpenYield commit 1c34428... and standard_cell.py blob e3269a...",
+    "customizable_parameter_system": {
+      "schema_name": "FORMAL_SRAM_CONFIG_INVENTORY",
+      "source_backed_variation_count": 3,
+      "locked_baseline_count": 1,
+      "degraded_historical_count": 6,
+      "counts": {
+        "total_configs": 10,
+        "inventory_status_counts": {
+          "CURRENT_SOURCE_BACKED": 3,
+          "CURRENT_LOCKED_BASELINE": 1,
+          "HISTORICAL_EVIDENCE_ONLY": 6
+        },
+        "support_level_counts": {
+          "SUPPORTED_WITH_CONSTRAINTS": 4,
+          "PARTIALLY_SUPPORTED": 6
+        }
+      },
+      "validation": {
+        "valid": true,
+        "error_count": 0,
+        "errors": []
+      }
+    },
+    "module_level_physical_generation": "Team B 9-cell library merged; DFF/DFF_BUF reusable releases; several peripheral modules remain partial or experimental.",
+    "team_b_nine_cell": "Merged to mainline after machine gates, negative tests, integration, and owner human review.",
+    "decoder": {
+      "generated_at": "2026-07-26T15:24:49Z",
+      "decoder_status": "BLOCKED_TECHNICAL",
+      "canonical_logic_contract_changed": false,
+      "team_b_leafs_now_available": {
+        "and2_connectivity_passed": true,
+        "and3_connectivity_passed": true
+      },
+      "stale_historical_blocker_removed": true,
+      "remaining_blockers": [
+        "decoder preplacement report is metadata_only and not_legal_physical_placement=true",
+        "decoder output contract remains metadata_only and physical_routing_proven=false",
+        "no final decoder machine gate / negative suite / deterministic closure exists",
+        "no final decoder review atlas or formal clean.gds exists as a closed artifact"
+      ],
+      "source_evidence": {
+        "preplacement_metadata_only": true,
+        "physical_layout_generated": false,
+        "output_contract_physical_routing_proven": false,
+        "historical_direct_and3_exists": false
+      },
+      "decision": "Do not claim decoder physical closure. Update project status to BLOCKED until a dedicated decoder generator closes placement, routing, DRC, connectivity, foreign-net, determinism, negative tests, and review atlas."
+    },
+    "multi_bank_boundary": {
+      "generated_at": "2026-07-26T15:24:49Z",
+      "multibank_status": "FUNCTIONAL_TOP_LEVEL_BLOCKED_BY_MISSING_AUTHORITY",
+      "bank_count_supported_today": 1,
+      "bank_count_gt_1_contract": "unsupported",
+      "support_level": "NOT_IMPLEMENTED",
+      "decision": "Do not invent bank-select/control netlists. Multi-bank stays a documented boundary until canonical source authority exists.",
+      "physical_aggregation_capability": "single-bank physical flow only; no formal bank_count=2 source-backed generator path is authorized"
+    },
+    "verification_system": "Internal DRC, connectivity, foreign-net, negative tests, determinism, review atlases, and explicit human-review artifacts where available.",
+    "representative_configs": {
+      "schema_name": "FORMAL_SRAM_CONFIG_INVENTORY",
+      "source_backed_variation_count": 3,
+      "locked_baseline_count": 1,
+      "degraded_historical_count": 6,
+      "counts": {
+        "total_configs": 10,
+        "inventory_status_counts": {
+          "CURRENT_SOURCE_BACKED": 3,
+          "CURRENT_LOCKED_BASELINE": 1,
+          "HISTORICAL_EVIDENCE_ONLY": 6
+        },
+        "support_level_counts": {
+          "SUPPORTED_WITH_CONSTRAINTS": 4,
+          "PARTIALLY_SUPPORTED": 6
+        }
+      },
+      "validation": {
+        "valid": true,
+        "error_count": 0,
+        "errors": []
+      }
+    },
+    "three_route_comparison": "OpenRAM = mature baseline; layoutgen = controllable research platform; OpenYield = semantic authority and modular circuit contract path.",
+    "limitations": {
+      "external_signoff": "NOT_CLOSED",
+      "owner_a_recovery": "blocked_external",
+      "decoder": "BLOCKED_TECHNICAL",
+      "multi_bank": "FUNCTIONAL_TOP_LEVEL_BLOCKED_BY_MISSING_AUTHORITY"
+    },
+    "author_boundary": "曲珈豪负责全部版图相关工作；OpenYield 网表设计、电路结构优化、电路级优化由其他组员负责。",
+    "ai_boundary": "Codex/AI used for code assistance, validation automation, and report synthesis; critical results are grounded in real source, GDS, DRC, connectivity, negative tests, and human review."
+  }
+}

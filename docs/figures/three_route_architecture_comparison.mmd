@@ -1,0 +1,13 @@
+flowchart TB
+  subgraph OpenRAM
+    A1[Reference compiler]
+  end
+  subgraph Layoutgen
+    B1[Config-aware physical generator]
+  end
+  subgraph OpenYield
+    C1[Semantic netlist authority]
+    C2[Module contracts]
+    C3[Physical reuse and integration]
+  end
+  C1 --> C2 --> C3
