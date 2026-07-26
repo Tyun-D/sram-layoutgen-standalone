@@ -109,3 +109,13 @@
 - decision: `advance P1/P2/P3 to current evidence boundary without merging other-team source`
 - unresolved_items: `Owner A confirmation for logical-model recovery`; `decoder physical closure`; `multi-bank authority`; `external signoff remains unsupported`
 - next_action: `user unified human review of PROJECT_LONG_RANGE_* package`
+
+## 2026-07-26T15:26:19Z project long_range_advance
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `392cc35940c7bf4c7dbc55c815883588d9deab42`
+- files_read: `docs/PROJECT_GAP_REGISTER.*`, `docs/NEXT_PROJECT_CLOSURE_EXECUTION_PLAN.*`, `docs/FINAL_REPORT_SECTION_EVIDENCE_MATRIX.csv`, `docs/FINAL_FIGURE_AND_TABLE_REQUIREMENTS.csv`, `docs/OTHER_TEAM_*`, `docs/UNKNOWN_OWNER_BRANCH_FORENSICS.*`, `outputs/M11_openyield_config_variation/*`, `outputs/M2R_full_sram_regen/*`, `docs/openyield_decoder_*`, `docs/mapping/openyield_top_bank_semantic_contract.json`
+- files_modified: `docs/P0_003_OWNER_CONFIRMATION_RESOLUTION.*`, `docs/LONG_RANGE_*`, `docs/FORMAL_SRAM_CONFIG_*`, `docs/PROJECT_CLAIM_POLICY.*`, `docs/M2R_SIGNOFF_BOUNDARY_AUDIT.*`, `docs/DECODER_PHYSICAL_CLOSURE_AUDIT.*`, `docs/MULTIBANK_PHYSICAL_FLOW_AUDIT.*`, `docs/FINAL_FIGURE_AND_TABLE_INDEX.*`, `docs/PROJECT_FUTURE_ROADMAP.*`, `docs/CUSTOMIZABLE_SRAM_EXTENSION_ROADMAP.csv`, `docs/PROJECT_FINAL_TECHNICAL_DRAFT.*`, `docs/PROJECT_LONG_RANGE_*`, `docs/PROJECT_RESULT_STATUS_MATRIX.*`, `docs/PROJECT_GAP_REGISTER.*`, `docs/PROJECT_CURRENT_STATUS.json`
+- result: `p0_003=BLOCKED_EXTERNAL`; `formal_config_count=10`; `decoder_status=BLOCKED_TECHNICAL`; `multibank_status=FUNCTIONAL_TOP_LEVEL_BLOCKED_BY_MISSING_AUTHORITY`; `claim_policy_passed=True`
+- decision: `advance P1/P2/P3 to current evidence boundary without merging other-team source`
+- unresolved_items: `Owner A confirmation for logical-model recovery`; `decoder physical closure`; `multi-bank authority`; `external signoff remains unsupported`
+- next_action: `user unified human review of PROJECT_LONG_RANGE_* package`
