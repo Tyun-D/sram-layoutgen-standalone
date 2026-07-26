@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import inspect
 import json
 import shutil
 import tempfile
@@ -311,7 +312,15 @@ def validate_inverter_chain_bundle(*, repo_root: Path, bundle_dir: Path, module_
     resolved_bundle = _resolve_bindings_from_gds(bundle_dir, module_name)
     binding_contract = _binding_contract_report(repo_root, bundle_dir, module_name, resolved_bundle["resolved"])
     endpoints, top_pin_bboxes = _endpoints_and_top_pins(bundle_dir, module_name, resolved_bundle["resolved"])
-    connectivity = verify_hierarchical_connectivity(gds_path=bundle_dir / "clean.gds", top_name=MODULE_SPECS[module_name]["top_cell_name"], endpoints_by_net=endpoints, top_pin_bboxes=top_pin_bboxes, short_exclusion_pairs=[("A", "Z")])
+    verify_kwargs = {
+        "gds_path": bundle_dir / "clean.gds",
+        "top_name": MODULE_SPECS[module_name]["top_cell_name"],
+        "endpoints_by_net": endpoints,
+        "top_pin_bboxes": top_pin_bboxes,
+    }
+    if "short_exclusion_pairs" in inspect.signature(verify_hierarchical_connectivity).parameters:
+        verify_kwargs["short_exclusion_pairs"] = [("A", "Z")]
+    connectivity = verify_hierarchical_connectivity(**verify_kwargs)
     write_json(bundle_dir / "connectivity_graph.json", connectivity["graph"])
     write_json(bundle_dir / "physical_connectivity_report.json", {k: v for k, v in connectivity.items() if k != "graph"})
     foreign_report = _foreign_net_report(connectivity, MODULE_SPECS[module_name]["internal_nets"])
