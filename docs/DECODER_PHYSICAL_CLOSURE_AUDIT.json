@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-07-26T15:24:49Z",
+  "decoder_status": "BLOCKED_TECHNICAL",
+  "canonical_logic_contract_changed": false,
+  "team_b_leafs_now_available": {
+    "and2_connectivity_passed": true,
+    "and3_connectivity_passed": true
+  },
+  "stale_historical_blocker_removed": true,
+  "remaining_blockers": [
+    "decoder preplacement report is metadata_only and not_legal_physical_placement=true",
+    "decoder output contract remains metadata_only and physical_routing_proven=false",
+    "no final decoder machine gate / negative suite / deterministic closure exists",
+    "no final decoder review atlas or formal clean.gds exists as a closed artifact"
+  ],
+  "source_evidence": {
+    "preplacement_metadata_only": true,
+    "physical_layout_generated": false,
+    "output_contract_physical_routing_proven": false,
+    "historical_direct_and3_exists": false
+  },
+  "decision": "Do not claim decoder physical closure. Update project status to BLOCKED until a dedicated decoder generator closes placement, routing, DRC, connectivity, foreign-net, determinism, negative tests, and review atlas."
+}

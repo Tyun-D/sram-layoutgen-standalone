@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-07-26T15:24:49Z",
+  "gap_id": "P0-003",
+  "result_id": "OWNER_A_LOGICAL_DATA_MODEL_V1",
+  "five_required_facts": {
+    "actual_author_or_responsible_owner": false,
+    "canonical_source_path_branch_or_commit": false,
+    "review_bundle_matches_canonical_source": false,
+    "recovery_authorization_for_current_project_branch": false,
+    "final_report_author_contribution_attribution": false
+  },
+  "evidence_scan": {
+    "all_five_confirmed": false,
+    "scanned_paths": [
+      "docs/OTHER_TEAM_OWNER_CONFIRMATION_REQUEST.md",
+      "docs/UNKNOWN_OWNER_BRANCH_FORENSICS.md",
+      "docs/OTHER_TEAM_RESULT_TRIANGULATION.csv",
+      "docs/PROJECT_TASK_MASTER_LOG.md",
+      "docs/TEAM_B_OWNER_HUMAN_REVIEW_APPROVAL.md",
+      "docs/TEAM_B_OWNER_HUMAN_REVIEW_APPROVAL.json"
+    ],
+    "positive_evidence_found": [
+      "Team B owner human-review approval exists and is explicitly scoped to Team B layout / 9-cell integration.",
+      "Owner A review bundles and untracked worktree files exist."
+    ],
+    "missing_evidence": [
+      "No explicit author/responsible-owner confirmation for OWNER_A_LOGICAL_DATA_MODEL_V1.",
+      "No canonical source path / branch / commit declaration for logical-model source.",
+      "No explicit statement that review bundles correspond to a declared canonical source snapshot.",
+      "No authorization to recover source or docs into the current project branch.",
+      "No final-report author-attribution approval for this result."
+    ]
+  },
+  "team_b_user_approval_is_not_owner_a_confirmation": true,
+  "status": "BLOCKED_EXTERNAL",
+  "decision": "Do not merge or recover OWNER_A source until explicit owner confirmation covers all five required facts."
+}

@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-07-26T15:24:49Z",
+  "forbidden_claims": [
+    {
+      "term": "tapeout-ready",
+      "allowed_now": false,
+      "reason": "No external foundry signoff or tapeout program evidence exists."
+    },
+    {
+      "term": "foundry signoff passed",
+      "allowed_now": false,
+      "reason": "Project evidence is limited to internal KLayout/DRC/connectivity and human review boundaries."
+    },
+    {
+      "term": "silicon-proven",
+      "allowed_now": false,
+      "reason": "No silicon measurements exist."
+    },
+    {
+      "term": "full external signoff",
+      "allowed_now": false,
+      "reason": "Current SRAM top lacks complete external DRC/LVS/PEX closure evidence."
+    }
+  ],
+  "positive_allowed_claims": [
+    "internal DRC clean where explicitly evidenced",
+    "machine-verified module or integration closure where gate files exist",
+    "human-reviewed Team B library and integration where approval file exists"
+  ]
+}
