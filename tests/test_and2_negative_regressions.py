@@ -16,15 +16,14 @@ from sram_layoutgen.openyield_adapter.and2_production_verification_gate import v
 
 
 def test_and2_validate_bundle_smoke() -> None:
-    repo_root = CHECKOUT_ROOT
     evidence_root = _evidence_root()
     bundle_dir = evidence_root / "outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2"
     result = validate_and2_bundle(
-        repo_root=repo_root,
+        repo_root=evidence_root,
         bundle_dir=bundle_dir,
         openyield_root=Path("/data1/qujh/work/external/OpenYield"),
         klayout_bin=Path("/usr/bin/klayout"),
-        drc_deck=repo_root / "technology/freepdk45/tech/freepdk45.lydrc",
+        drc_deck=CHECKOUT_ROOT / "technology/freepdk45/tech/freepdk45.lydrc",
     )
     assert "rejection_codes" in result
 
@@ -34,16 +33,16 @@ def test_and2_wrong_pinv_variant_is_specific_code(tmp_path) -> None:
 
     from sram_layoutgen.openyield_adapter.and2_negative_regressions import _mutate_instance_binding
 
-    repo_root = CHECKOUT_ROOT
-    src = _evidence_root() / "outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2"
+    evidence_root = _evidence_root()
+    src = evidence_root / "outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2"
     work = tmp_path / "AND2"
     shutil.copytree(src, work)
     _mutate_instance_binding(work / "parameter_mapping.json", "inv_driver", "resolved_physical_cell", "PINV_NW180_PW270_L50")
     result = validate_and2_bundle(
-        repo_root=repo_root,
+        repo_root=evidence_root,
         bundle_dir=work,
         openyield_root=Path("/data1/qujh/work/external/OpenYield"),
         klayout_bin=Path("/usr/bin/klayout"),
-        drc_deck=repo_root / "technology/freepdk45/tech/freepdk45.lydrc",
+        drc_deck=CHECKOUT_ROOT / "technology/freepdk45/tech/freepdk45.lydrc",
     )
     assert result["rejection_codes"][0] == "WRONG_PINV_VARIANT"

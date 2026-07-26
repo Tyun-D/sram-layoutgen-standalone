@@ -29,8 +29,8 @@ def test_and2_source_lock_extracts_anomaly() -> None:
 
 
 def test_child_immutability_tolerates_parent_route_and_transform() -> None:
-    repo_root = CHECKOUT_ROOT
-    base = _evidence_root() / "outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2"
+    evidence_root = _evidence_root()
+    base = evidence_root / "outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2"
     if not base.exists():
         pytest.skip("AND2 evidence bundle not present")
     with tempfile.TemporaryDirectory(prefix="and2_immutability_pass_") as tmp:
@@ -41,13 +41,13 @@ def test_child_immutability_tolerates_parent_route_and_transform() -> None:
         top.add(gdstk.rectangle((2.0, 0.2), (2.08, 0.28), layer=11, datatype=0))
         top.references[0].origin = (top.references[0].origin[0] + 0.03, top.references[0].origin[1] + 0.02)
         lib.write_gds(work / "clean.gds")
-        report = _build_child_immutability_report(repo_root=repo_root, cell_dir=work, write_artifacts=False)
+        report = _build_child_immutability_report(repo_root=evidence_root, cell_dir=work, write_artifacts=False)
         assert report["child_immutability_passed"] is True
 
 
 def test_child_immutability_detects_clone_geometry_change() -> None:
-    repo_root = CHECKOUT_ROOT
-    base = _evidence_root() / "outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2"
+    evidence_root = _evidence_root()
+    base = evidence_root / "outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2"
     if not base.exists():
         pytest.skip("AND2 evidence bundle not present")
     with tempfile.TemporaryDirectory(prefix="and2_immutability_fail_") as tmp:
@@ -56,5 +56,5 @@ def test_child_immutability_detects_clone_geometry_change() -> None:
         lib = gdstk.read_gds(work / "_clones/TEAMB_CLONE__nand.gds")
         lib.cells[0].add(gdstk.rectangle((0.1, 0.1), (0.18, 0.18), layer=11, datatype=0))
         lib.write_gds(work / "_clones/TEAMB_CLONE__nand.gds")
-        report = _build_child_immutability_report(repo_root=repo_root, cell_dir=work, write_artifacts=False)
+        report = _build_child_immutability_report(repo_root=evidence_root, cell_dir=work, write_artifacts=False)
         assert report["child_immutability_passed"] is False
