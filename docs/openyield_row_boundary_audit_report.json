@@ -1,0 +1,510 @@
+{
+  "inputs": {
+    "classification": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_drc_marker_classification_report.json",
+    "storage_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_2x4_stitched.gds"
+  },
+  "summary": {
+    "metal2_marker_total": 34,
+    "row_boundary_marker_count": 34,
+    "row_boundary_y_um": 1.465,
+    "marker_y_values": [
+      1.475,
+      1.4975
+    ],
+    "marker_y_distribution": {
+      "1.475": 28,
+      "1.4975": 6
+    },
+    "row_boundary_distance_stats_um": {
+      "min": 0.01,
+      "max": 0.0325,
+      "mean": 0.013971
+    },
+    "local_y_relative_to_row1_origin": [
+      -0.09,
+      -0.0675
+    ],
+    "bitline_near_count": 14,
+    "power_stitch_near_count": 2,
+    "nearest_bitline_label_stats": {
+      "bl": 14,
+      "br": 20
+    },
+    "nearest_macro_stats": {
+      "cell_1rw": 16,
+      "dummy_cell_1rw": 12,
+      "replica_cell_1rw": 6
+    },
+    "likely_cause_stats": {
+      "abutment_boundary_spacing": 20,
+      "storage_only_missing_context": 14
+    }
+  },
+  "hardcell_pin_summary": {
+    "cell_1rw": {
+      "bbox": {
+        "x0": -0.095,
+        "y0": -0.1,
+        "x1": 0.8,
+        "y1": 1.465
+      },
+      "pins": [
+        {
+          "label": "gnd",
+          "layer": "11/0",
+          "x": 0.345,
+          "y": 0.0
+        },
+        {
+          "label": "vdd",
+          "layer": "11/0",
+          "x": 0.345,
+          "y": 1.365
+        },
+        {
+          "label": "wl",
+          "layer": "11/0",
+          "x": -0.05,
+          "y": 0.167
+        },
+        {
+          "label": "bl",
+          "layer": "13/0",
+          "x": 0.19,
+          "y": 0.003
+        },
+        {
+          "label": "br",
+          "layer": "13/0",
+          "x": 0.52,
+          "y": 0.003
+        }
+      ],
+      "bitline_pins_near_bottom_edge": [
+        {
+          "label": "bl",
+          "layer": "13/0",
+          "x": 0.19,
+          "y": 0.003
+        },
+        {
+          "label": "br",
+          "layer": "13/0",
+          "x": 0.52,
+          "y": 0.003
+        }
+      ],
+      "power_pin_vertical_order": [
+        "gnd",
+        "vdd"
+      ]
+    },
+    "dummy_cell_1rw": {
+      "bbox": {
+        "x0": -0.095,
+        "y0": -0.1,
+        "x1": 0.8,
+        "y1": 1.465
+      },
+      "pins": [
+        {
+          "label": "gnd",
+          "layer": "11/0",
+          "x": 0.345,
+          "y": 0.0
+        },
+        {
+          "label": "vdd",
+          "layer": "11/0",
+          "x": 0.345,
+          "y": 1.365
+        },
+        {
+          "label": "wl",
+          "layer": "11/0",
+          "x": -0.05,
+          "y": 0.167
+        },
+        {
+          "label": "br",
+          "layer": "13/0",
+          "x": 0.52,
+          "y": 0.003
+        },
+        {
+          "label": "bl",
+          "layer": "13/0",
+          "x": 0.19,
+          "y": 0.003
+        }
+      ],
+      "bitline_pins_near_bottom_edge": [
+        {
+          "label": "br",
+          "layer": "13/0",
+          "x": 0.52,
+          "y": 0.003
+        },
+        {
+          "label": "bl",
+          "layer": "13/0",
+          "x": 0.19,
+          "y": 0.003
+        }
+      ],
+      "power_pin_vertical_order": [
+        "gnd",
+        "vdd"
+      ]
+    },
+    "replica_cell_1rw": {
+      "bbox": {
+        "x0": -0.095,
+        "y0": -0.1,
+        "x1": 0.8,
+        "y1": 1.465
+      },
+      "pins": [
+        {
+          "label": "gnd",
+          "layer": "11/0",
+          "x": 0.345,
+          "y": 0.0
+        },
+        {
+          "label": "vdd",
+          "layer": "11/0",
+          "x": 0.35,
+          "y": 1.365
+        },
+        {
+          "label": "wl",
+          "layer": "11/0",
+          "x": -0.05,
+          "y": 0.167
+        },
+        {
+          "label": "bl",
+          "layer": "13/0",
+          "x": 0.19,
+          "y": 0.003
+        },
+        {
+          "label": "br",
+          "layer": "13/0",
+          "x": 0.52,
+          "y": 0.003
+        }
+      ],
+      "bitline_pins_near_bottom_edge": [
+        {
+          "label": "bl",
+          "layer": "13/0",
+          "x": 0.19,
+          "y": 0.003
+        },
+        {
+          "label": "br",
+          "layer": "13/0",
+          "x": 0.52,
+          "y": 0.003
+        }
+      ],
+      "power_pin_vertical_order": [
+        "gnd",
+        "vdd"
+      ]
+    }
+  },
+  "orientation_audit": {
+    "current_policy": {
+      "rows": "R0/R0/R0/...",
+      "risk": "bottom-edge M2 bitline shapes from adjacent rows stay on the same seam side",
+      "evidence": [
+        "All 34 METAL2.2 markers sit at y=1.475 or 1.4975 around the row0/row1 seam.",
+        "cell_1rw, dummy_cell_1rw, replica_cell_1rw all place BL/BR text on m2 at local y=0.003 near the bottom edge.",
+        "Single hardcell DRC is clean, so the seam markers appear only after two rows are stacked in the storage-only smoke."
+      ]
+    },
+    "candidate_r0_mx": {
+      "rows": "row0=R0, row1=MX, row2=R0, row3=MX, ...",
+      "theoretical_benefit": "MX would move row1 bottom-edge m2 features to the top side of row1, away from the row seam.",
+      "theoretical_risk": [
+        "Vertical mirror flips power-rail order between rows, so later vertical power stitching must be mirror-aware.",
+        "WL access orientation changes with MX and would need explicit confirmation in any future compare smoke.",
+        "This audit does not prove DRC cleanup without generating a compare smoke."
+      ]
+    },
+    "candidate_row_gap": {
+      "policy": "full bbox pitch + explicit row gap",
+      "theoretical_benefit": "Should relieve row-to-row spacing by brute-force separation.",
+      "theoretical_risk": "Area increases and this behaves like a conservative workaround rather than a native bitcell tiling policy."
+    },
+    "candidate_keepout": {
+      "policy": "R0/R0 plus row-boundary keepout",
+      "theoretical_benefit": "Equivalent to adding local row gap only where seam risk exists.",
+      "theoretical_risk": "Semantically it is still a spacing workaround and does not answer whether alternating orientation is the intended tiling mode."
+    }
+  },
+  "marker_samples": [
+    {
+      "marker_id": 7,
+      "center_x": 5.145,
+      "center_y": 1.4975,
+      "distance_to_row_boundary": 0.0325,
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance": "dummy_right_r1",
+      "nearest_bitline_label": "br",
+      "nearest_bitline_distance": 0.165742,
+      "near_power_stitch": false,
+      "likely_cause": "abutment_boundary_spacing"
+    },
+    {
+      "marker_id": 8,
+      "center_x": 5.215,
+      "center_y": 1.4975,
+      "distance_to_row_boundary": 0.0325,
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance": "dummy_right_r1",
+      "nearest_bitline_label": "br",
+      "nearest_bitline_distance": 0.23102,
+      "near_power_stitch": true,
+      "likely_cause": "abutment_boundary_spacing"
+    },
+    {
+      "marker_id": 9,
+      "center_x": 4.995,
+      "center_y": 1.475,
+      "distance_to_row_boundary": 0.01,
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance": "dummy_right_r1",
+      "nearest_bitline_label": "br",
+      "nearest_bitline_distance": 0.093,
+      "near_power_stitch": false,
+      "likely_cause": "storage_only_missing_context"
+    },
+    {
+      "marker_id": 10,
+      "center_x": 4.475,
+      "center_y": 1.475,
+      "distance_to_row_boundary": 0.01,
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance": "dummy_right_r1",
+      "nearest_bitline_label": "bl",
+      "nearest_bitline_distance": 0.21154,
+      "near_power_stitch": false,
+      "likely_cause": "abutment_boundary_spacing"
+    },
+    {
+      "marker_id": 11,
+      "center_x": 2.31,
+      "center_y": 1.475,
+      "distance_to_row_boundary": 0.01,
+      "nearest_macro": "cell_1rw",
+      "nearest_instance": "bit_r1_c1",
+      "nearest_bitline_label": "br",
+      "nearest_bitline_distance": 0.093,
+      "near_power_stitch": false,
+      "likely_cause": "storage_only_missing_context"
+    },
+    {
+      "marker_id": 12,
+      "center_x": 5.37,
+      "center_y": 1.475,
+      "distance_to_row_boundary": 0.01,
+      "nearest_macro": "replica_cell_1rw",
+      "nearest_instance": "replica_r1",
+      "nearest_bitline_label": "bl",
+      "nearest_bitline_distance": 0.21154,
+      "near_power_stitch": false,
+      "likely_cause": "abutment_boundary_spacing"
+    },
+    {
+      "marker_id": 13,
+      "center_x": 0.185,
+      "center_y": 1.475,
+      "distance_to_row_boundary": 0.01,
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance": "dummy_left_r1",
+      "nearest_bitline_label": "bl",
+      "nearest_bitline_distance": 0.093134,
+      "near_power_stitch": false,
+      "likely_cause": "storage_only_missing_context"
+    },
+    {
+      "marker_id": 14,
+      "center_x": 0.67,
+      "center_y": 1.4975,
+      "distance_to_row_boundary": 0.0325,
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance": "dummy_left_r1",
+      "nearest_bitline_label": "br",
+      "nearest_bitline_distance": 0.165742,
+      "near_power_stitch": false,
+      "likely_cause": "abutment_boundary_spacing"
+    },
+    {
+      "marker_id": 15,
+      "center_x": 6.11,
+      "center_y": 1.4975,
+      "distance_to_row_boundary": 0.0325,
+      "nearest_macro": "replica_cell_1rw",
+      "nearest_instance": "replica_r1",
+      "nearest_bitline_label": "br",
+      "nearest_bitline_distance": 0.23102,
+      "near_power_stitch": false,
+      "likely_cause": "abutment_boundary_spacing"
+    },
+    {
+      "marker_id": 16,
+      "center_x": 0.705,
+      "center_y": 1.475,
+      "distance_to_row_boundary": 0.01,
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance": "dummy_left_r1",
+      "nearest_bitline_label": "br",
+      "nearest_bitline_distance": 0.20706,
+      "near_power_stitch": false,
+      "likely_cause": "abutment_boundary_spacing"
+    },
+    {
+      "marker_id": 17,
+      "center_x": 4.1,
+      "center_y": 1.475,
+      "distance_to_row_boundary": 0.01,
+      "nearest_macro": "cell_1rw",
+      "nearest_instance": "bit_r1_c3",
+      "nearest_bitline_label": "br",
+      "nearest_bitline_distance": 0.093,
+      "near_power_stitch": false,
+      "likely_cause": "storage_only_missing_context"
+    },
+    {
+      "marker_id": 18,
+      "center_x": 1.415,
+      "center_y": 1.475,
+      "distance_to_row_boundary": 0.01,
+      "nearest_macro": "cell_1rw",
+      "nearest_instance": "bit_r1_c0",
+      "nearest_bitline_label": "br",
+      "nearest_bitline_distance": 0.093,
+      "near_power_stitch": false,
+      "likely_cause": "storage_only_missing_context"
+    },
+    {
+      "marker_id": 19,
+      "center_x": 3.39,
+      "center_y": 1.475,
+      "distance_to_row_boundary": 0.01,
+      "nearest_macro": "cell_1rw",
+      "nearest_instance": "bit_r1_c2",
+      "nearest_bitline_label": "br",
+      "nearest_bitline_distance": 0.20706,
+      "near_power_stitch": false,
+      "likely_cause": "abutment_boundary_spacing"
+    },
+    {
+      "marker_id": 20,
+      "center_x": 2.87,
+      "center_y": 1.475,
+      "distance_to_row_boundary": 0.01,
+      "nearest_macro": "cell_1rw",
+      "nearest_instance": "bit_r1_c2",
+      "nearest_bitline_label": "bl",
+      "nearest_bitline_distance": 0.093134,
+      "near_power_stitch": false,
+      "likely_cause": "storage_only_missing_context"
+    },
+    {
+      "marker_id": 21,
+      "center_x": 1.08,
+      "center_y": 1.475,
+      "distance_to_row_boundary": 0.01,
+      "nearest_macro": "cell_1rw",
+      "nearest_instance": "bit_r1_c0",
+      "nearest_bitline_label": "bl",
+      "nearest_bitline_distance": 0.093134,
+      "near_power_stitch": false,
+      "likely_cause": "storage_only_missing_context"
+    },
+    {
+      "marker_id": 22,
+      "center_x": 2.685,
+      "center_y": 1.475,
+      "distance_to_row_boundary": 0.01,
+      "nearest_macro": "cell_1rw",
+      "nearest_instance": "bit_r1_c2",
+      "nearest_bitline_label": "bl",
+      "nearest_bitline_distance": 0.21154,
+      "near_power_stitch": false,
+      "likely_cause": "abutment_boundary_spacing"
+    },
+    {
+      "marker_id": 23,
+      "center_x": 0.74,
+      "center_y": 1.4975,
+      "distance_to_row_boundary": 0.0325,
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance": "dummy_left_r1",
+      "nearest_bitline_label": "br",
+      "nearest_bitline_distance": 0.23102,
+      "near_power_stitch": true,
+      "likely_cause": "abutment_boundary_spacing"
+    },
+    {
+      "marker_id": 24,
+      "center_x": 3.205,
+      "center_y": 1.475,
+      "distance_to_row_boundary": 0.01,
+      "nearest_macro": "cell_1rw",
+      "nearest_instance": "bit_r1_c2",
+      "nearest_bitline_label": "br",
+      "nearest_bitline_distance": 0.093,
+      "near_power_stitch": false,
+      "likely_cause": "storage_only_missing_context"
+    },
+    {
+      "marker_id": 25,
+      "center_x": 4.66,
+      "center_y": 1.475,
+      "distance_to_row_boundary": 0.01,
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance": "dummy_right_r1",
+      "nearest_bitline_label": "bl",
+      "nearest_bitline_distance": 0.093134,
+      "near_power_stitch": false,
+      "likely_cause": "storage_only_missing_context"
+    },
+    {
+      "marker_id": 26,
+      "center_x": 3.765,
+      "center_y": 1.475,
+      "distance_to_row_boundary": 0.01,
+      "nearest_macro": "cell_1rw",
+      "nearest_instance": "bit_r1_c3",
+      "nearest_bitline_label": "bl",
+      "nearest_bitline_distance": 0.093134,
+      "near_power_stitch": false,
+      "likely_cause": "storage_only_missing_context"
+    }
+  ],
+  "recommendations": {
+    "metal2_markers_concentrated_at_row_boundary": true,
+    "metal2_markers_near_bitlines": true,
+    "current_r0_r0_likely_source": true,
+    "recommend_r0_mx_compare_smoke": true,
+    "recommend_row_gap": false,
+    "recommend_modify_array_aggregation_py": false,
+    "recommend_modify_standalone_py": false,
+    "array_orientation_policy_should_be_configurable": true,
+    "horizontal_m1_markers_row_orientation_independent": true,
+    "array_outer_edge_markers_likely_context_related": true,
+    "storage_aggregation_can_continue": false
+  },
+  "next_step_recommendations": [
+    "Generate a separate R0/MX storage-only compare smoke outside the main flow.",
+    "Do not change pitch or power stitch before the R0/MX compare smoke confirms whether the 34 seam markers collapse.",
+    "Keep the 4 horizontal METAL1.2 markers as a separate issue; they are not explained by row orientation alone.",
+    "Treat the 2 array-edge markers as context candidates that may improve with edge dummy/context handling rather than row orientation."
+  ]
+}

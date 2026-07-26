@@ -1,0 +1,76 @@
+{
+  "logical_module": "TRANSMISSION_GATE",
+  "canonical_physical_cell_name": "TRANSMISSION_GATE_NW250_PW500_L50",
+  "source_instance_paths": [
+    "TransmissionGate"
+  ],
+  "reference_configs": [
+    "16x16",
+    "64x8"
+  ],
+  "pin_order": [
+    "VDD",
+    "VSS",
+    "IN",
+    "OUT",
+    "CTR_P",
+    "CTR_N"
+  ],
+  "pin_map": {
+    "VDD": [
+      {
+        "layer": "m1",
+        "lx": 0.0,
+        "by": 1.7875,
+        "rx": 0.56,
+        "uy": 1.8525
+      }
+    ],
+    "VSS": [
+      {
+        "layer": "m1",
+        "lx": 0.0,
+        "by": -0.0325,
+        "rx": 0.56,
+        "uy": 0.0325
+      }
+    ],
+    "IN": [
+      {
+        "layer": "m1",
+        "lx": 0.0925,
+        "by": 0.2275,
+        "rx": 0.1575,
+        "uy": 1.4675
+      }
+    ],
+    "OUT": [
+      {
+        "layer": "m1",
+        "lx": 0.3075,
+        "by": 0.2275,
+        "rx": 0.3725,
+        "uy": 1.4675
+      }
+    ],
+    "CTR_P": [
+      {
+        "layer": "poly",
+        "lx": 0.2075,
+        "by": 1.095,
+        "rx": 0.2575,
+        "uy": 1.705
+      }
+    ],
+    "CTR_N": [
+      {
+        "layer": "poly",
+        "lx": 0.2075,
+        "by": 0.115,
+        "rx": 0.2575,
+        "uy": 0.475
+      }
+    ]
+  },
+  "openram_backend": "ptx+pgate composition"
+}

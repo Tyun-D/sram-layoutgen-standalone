@@ -1,0 +1,205 @@
+# ADDR_DFF Negative Tests
+
+- all_negative_tests_passed: `True`
+- hardcoded_negative_test_count: `0`
+- real_mutation_negative_test_count: `15`
+- tests:
+```json
+[
+  {
+    "test_name": "openyield_commit_mismatch",
+    "mutated_file": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/source/time_generate_locked_1c34428.py",
+    "mutation_description": "pass wrong authority commit to production source snapshot validator",
+    "validator_entry_point": "_validator_source_snapshot",
+    "validator_output": {
+      "passed": false,
+      "rejection_reason": "authority commit mismatch"
+    },
+    "expected_rejection_reason": "authority commit mismatch",
+    "actual_rejection_reason": "authority commit mismatch",
+    "test_passed": true
+  },
+  {
+    "test_name": "time_generate_blob_sha_mismatch",
+    "mutated_file": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/source/time_generate_locked_1c34428.py",
+    "mutation_description": "pass wrong expected blob SHA to production source snapshot validator",
+    "validator_entry_point": "_validator_source_snapshot",
+    "validator_output": {
+      "passed": false,
+      "rejection_reason": "locked blob SHA mismatch"
+    },
+    "expected_rejection_reason": "locked blob SHA mismatch",
+    "actual_rejection_reason": "locked blob SHA mismatch",
+    "test_passed": true
+  },
+  {
+    "test_name": "source_path_points_elsewhere",
+    "mutated_file": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/source/time_generate_locked_1c34428.py",
+    "mutation_description": "pass correct bytes but wrong authority source path to production source snapshot validator",
+    "validator_entry_point": "_validator_source_snapshot",
+    "validator_output": {
+      "passed": false,
+      "rejection_reason": "source path points to different file"
+    },
+    "expected_rejection_reason": "source path points to different file",
+    "actual_rejection_reason": "source path points to different file",
+    "test_passed": true
+  },
+  {
+    "test_name": "working_tree_used_as_authority",
+    "mutated_file": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+    "mutation_description": "use working-tree file as authority source input instead of locked git blob",
+    "validator_entry_point": "_validator_source_snapshot",
+    "validator_output": {
+      "passed": false,
+      "rejection_reason": "working-tree source used as authority"
+    },
+    "expected_rejection_reason": "working-tree source used as authority",
+    "actual_rejection_reason": "working-tree source used as authority",
+    "test_passed": true
+  },
+  {
+    "test_name": "clk_pin_missing",
+    "mutated_file": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/negative_test_artifacts/clk_pin_missing/time_generate_clk_missing.py",
+    "mutation_description": "remove CLK from nodes and ADDR_DFF instance/time connection construction",
+    "validator_entry_point": "_validate_topology_exact_identity",
+    "validator_output": {
+      "passed": false,
+      "rejection_reason": "topology exact identity mismatch"
+    },
+    "expected_rejection_reason": "topology exact identity mismatch",
+    "actual_rejection_reason": "topology exact identity mismatch",
+    "test_passed": true
+  },
+  {
+    "test_name": "dff_top_cell_mismatch",
+    "mutated_file": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4ACH_dff_reusable_release/DFF_reusable_clean.gds",
+    "mutation_description": "pass wrong expected top cell to production DFF binding validator",
+    "validator_entry_point": "_validate_approved_dff_binding",
+    "validator_output": {
+      "passed": false,
+      "rejection_reason": "approved DFF top cell mismatch"
+    },
+    "expected_rejection_reason": "approved DFF top cell mismatch",
+    "actual_rejection_reason": "approved DFF top cell mismatch",
+    "test_passed": true
+  },
+  {
+    "test_name": "num_rows_authority_conflict",
+    "mutated_file": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/negative_test_artifacts/num_rows_authority_conflict/authority_16.json,/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/negative_test_artifacts/num_rows_authority_conflict/authority_32.json",
+    "mutation_description": "use two current-authority config copies with conflicting num_rows values 16 and 32",
+    "validator_entry_point": "_resolve_num_rows_from_ast_and_config",
+    "validator_output": {
+      "passed": false,
+      "rejection_reason": "num_rows authority conflict"
+    },
+    "expected_rejection_reason": "num_rows authority conflict",
+    "actual_rejection_reason": "num_rows authority conflict",
+    "test_passed": true
+  },
+  {
+    "test_name": "d_and_q_physical_mapping_swapped",
+    "mutated_file": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave4A_ADDR_DFF_source_topology_and_binding_lock/current_supported_config/negative_test_artifacts/d_and_q_physical_mapping_swapped/binding_rows_swapped.json",
+    "mutation_description": "swap Ai->D and A_dffi->Q into Ai->Q and A_dffi->D in logical-to-physical binding rows",
+    "validator_entry_point": "_validate_logical_to_physical_pin_mapping",
+    "validator_output": {
+      "passed": false,
+      "rejection_reason": "logical-to-physical pin mapping mismatch"
+    },
+    "expected_rejection_reason": "logical-to-physical pin mapping mismatch",
+    "actual_rejection_reason": "logical-to-physical pin mapping mismatch",
+    "test_passed": true
+  },
+  {
+    "test_name": "forbidden_source_M12C4A_dff_clean",
+    "mutated_file": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4AC_dff_connectivity_repair/current_supported_config/quarantined_failed_attempt/M12C4A_dff_clean.gds",
+    "mutation_description": "use forbidden physical source path against production source-path validator",
+    "validator_entry_point": "_validate_forbidden_source_path",
+    "validator_output": {
+      "passed": false,
+      "rejection_reason": "forbidden physical source"
+    },
+    "expected_rejection_reason": "forbidden physical source",
+    "actual_rejection_reason": "forbidden physical source",
+    "test_passed": true
+  },
+  {
+    "test_name": "forbidden_source_M12C4AC_dff_annotated",
+    "mutated_file": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4AC_dff_connectivity_repair/current_supported_config/M12C4AC_dff_annotated.gds",
+    "mutation_description": "use forbidden physical source path against production source-path validator",
+    "validator_entry_point": "_validate_forbidden_source_path",
+    "validator_output": {
+      "passed": false,
+      "rejection_reason": "forbidden physical source"
+    },
+    "expected_rejection_reason": "forbidden physical source",
+    "actual_rejection_reason": "forbidden physical source",
+    "test_passed": true
+  },
+  {
+    "test_name": "forbidden_source_M12C4AC_dff_review_atlas",
+    "mutated_file": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4AC_dff_connectivity_repair/current_supported_config/M12C4AC_dff_review_atlas.gds",
+    "mutation_description": "use forbidden physical source path against production source-path validator",
+    "validator_entry_point": "_validate_forbidden_source_path",
+    "validator_output": {
+      "passed": false,
+      "rejection_reason": "forbidden physical source"
+    },
+    "expected_rejection_reason": "forbidden physical source",
+    "actual_rejection_reason": "forbidden physical source",
+    "test_passed": true
+  },
+  {
+    "test_name": "forbidden_source_M12C4A_dff_clean",
+    "mutated_file": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4A_dff_composite_generation/current_supported_config/M12C4A_dff_clean.gds",
+    "mutation_description": "use forbidden physical source path against production source-path validator",
+    "validator_entry_point": "_validate_forbidden_source_path",
+    "validator_output": {
+      "passed": false,
+      "rejection_reason": "forbidden physical source"
+    },
+    "expected_rejection_reason": "forbidden physical source",
+    "actual_rejection_reason": "forbidden physical source",
+    "test_passed": true
+  },
+  {
+    "test_name": "forbidden_source_DFF_BUF_reusable_clean",
+    "mutated_file": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_reusable_release/DFF_BUF_reusable_clean.gds",
+    "mutation_description": "use forbidden physical source path against production source-path validator",
+    "validator_entry_point": "_validate_forbidden_source_path",
+    "validator_output": {
+      "passed": false,
+      "rejection_reason": "forbidden physical source"
+    },
+    "expected_rejection_reason": "forbidden physical source",
+    "actual_rejection_reason": "forbidden physical source",
+    "test_passed": true
+  },
+  {
+    "test_name": "addr_dff_gds_generated",
+    "mutated_file": "/tmp/wave4a_addr_gds_9n_jfyig/ADDR_DFF_generated.gds",
+    "mutation_description": "create temporary ADDR_DFF GDS in stage-like directory",
+    "validator_entry_point": "_validator_no_generated_gds",
+    "validator_output": {
+      "passed": false,
+      "rejection_reason": "ADDR_DFF GDS generated"
+    },
+    "expected_rejection_reason": "ADDR_DFF GDS generated",
+    "actual_rejection_reason": "ADDR_DFF GDS generated",
+    "test_passed": true
+  },
+  {
+    "test_name": "data_dff_gds_generated",
+    "mutated_file": "/tmp/wave4a_data_gds_4nz_kcsz/DATA_DFF_generated.gds",
+    "mutation_description": "create temporary DATA_DFF GDS in stage-like directory",
+    "validator_entry_point": "_validator_no_generated_gds",
+    "validator_output": {
+      "passed": false,
+      "rejection_reason": "DATA_DFF GDS generated"
+    },
+    "expected_rejection_reason": "DATA_DFF GDS generated",
+    "actual_rejection_reason": "DATA_DFF GDS generated",
+    "test_passed": true
+  }
+]
+```

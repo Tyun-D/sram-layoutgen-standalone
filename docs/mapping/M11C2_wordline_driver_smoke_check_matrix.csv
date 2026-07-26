@@ -1,0 +1,27 @@
+check,status,notes
+m11w_gate_loaded,True,M11W report loaded.
+m11w_next_stage_allowed,True,M11C2_WORDLINE_DRIVER_SMOKE_SUBSTITUTION
+m11w_wordline_driver_ready,True,True
+substitution_scope_only_wordline_driver,True,wordline_driver
+sense_amp_not_substituted,True,False
+column_mux_not_substituted,True,False
+write_driver_not_substituted,True,False
+control_logic_not_substituted,True,False
+wordline_driver_wrapper_gds_found,True,outputs/M11W_wordline_driver_wrapper_pin_repair/current_supported_config/M11W_wordline_driver_wrapper_candidate.gds
+wordline_driver_wrapper_gds_parsed,True,M11W_wordline_driver_wrapper_candidate
+wrapper_top_cell_correct,True,M11W_wordline_driver_wrapper_candidate
+m11w_pin_rail_metadata_loaded,True,metadata_rows=8 manifest_rows=4
+wordline_driver_golden_target_found,True,gen_wl_driver
+replacement_target_not_unknown,True,Golden target is the concrete gen_wl_driver leaf.
+output_gds_parsed,True,GDS_PARSED_SANITY_PASSED
+top_bbox_checked,True,EXACT_MATCH
+no_access_module,True,False
+no_floorplan_proxy,True,False
+no_arbitrary_scatter,True,False
+wordline_driver_instance_count_expected,True,16
+openyield_wordline_driver_wrapper_fingerprint_found_in_M11C2,True,"D,G,S"
+not_label_only,True,False
+not_outside_placement,True,False
+dgs_pin_metadata_inherited_from_M11W,True,All D/G/S rows remain ALIGNED from M11W.
+vdd_gnd_rail_still_identifiable,True,Inherited from M11W repaired metadata.
+no_unexpected_non_wordline_driver_geometry_change,True,0

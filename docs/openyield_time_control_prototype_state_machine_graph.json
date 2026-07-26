@@ -1,0 +1,225 @@
+{
+  "scope": "step6_38_openyield_time_control_prototype_state_machine_audit",
+  "nodes": [
+    {
+      "id": "metadata_closure",
+      "kind": "stage"
+    },
+    {
+      "id": "placement_readiness",
+      "kind": "stage"
+    },
+    {
+      "id": "prototype_plan",
+      "kind": "stage"
+    },
+    {
+      "id": "payload_completeness",
+      "kind": "stage"
+    },
+    {
+      "id": "payload_consumption_contract",
+      "kind": "stage"
+    },
+    {
+      "id": "payload_materialization_boundary",
+      "kind": "stage"
+    },
+    {
+      "id": "prototype_execution_guard",
+      "kind": "stage"
+    },
+    {
+      "id": "to_physical_placement",
+      "kind": "forbidden_auto_upgrade"
+    },
+    {
+      "id": "to_standalone_integration",
+      "kind": "forbidden_auto_upgrade"
+    },
+    {
+      "id": "to_time_control_gds",
+      "kind": "forbidden_auto_upgrade"
+    }
+  ],
+  "edges": [
+    {
+      "source": "metadata_closure",
+      "target": "placement_readiness",
+      "relation": "metadata_transition",
+      "allowed": true
+    },
+    {
+      "source": "placement_readiness",
+      "target": "prototype_plan",
+      "relation": "metadata_transition",
+      "allowed": true
+    },
+    {
+      "source": "prototype_plan",
+      "target": "payload_completeness",
+      "relation": "metadata_transition",
+      "allowed": true
+    },
+    {
+      "source": "payload_completeness",
+      "target": "payload_consumption_contract",
+      "relation": "metadata_transition",
+      "allowed": true
+    },
+    {
+      "source": "payload_consumption_contract",
+      "target": "payload_materialization_boundary",
+      "relation": "metadata_transition",
+      "allowed": true
+    },
+    {
+      "source": "payload_materialization_boundary",
+      "target": "prototype_execution_guard",
+      "relation": "metadata_transition",
+      "allowed": true
+    },
+    {
+      "source": "prototype_execution_guard",
+      "target": "future_builder_implementation",
+      "relation": "metadata_transition",
+      "allowed": true
+    },
+    {
+      "source": "metadata_closure",
+      "target": "to_physical_placement",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    },
+    {
+      "source": "metadata_closure",
+      "target": "to_standalone_integration",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    },
+    {
+      "source": "metadata_closure",
+      "target": "to_time_control_gds",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    },
+    {
+      "source": "placement_readiness",
+      "target": "to_physical_placement",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    },
+    {
+      "source": "placement_readiness",
+      "target": "to_standalone_integration",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    },
+    {
+      "source": "placement_readiness",
+      "target": "to_time_control_gds",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    },
+    {
+      "source": "prototype_plan",
+      "target": "to_physical_placement",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    },
+    {
+      "source": "prototype_plan",
+      "target": "to_standalone_integration",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    },
+    {
+      "source": "prototype_plan",
+      "target": "to_time_control_gds",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    },
+    {
+      "source": "payload_completeness",
+      "target": "to_physical_placement",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    },
+    {
+      "source": "payload_completeness",
+      "target": "to_standalone_integration",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    },
+    {
+      "source": "payload_completeness",
+      "target": "to_time_control_gds",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    },
+    {
+      "source": "payload_consumption_contract",
+      "target": "to_physical_placement",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    },
+    {
+      "source": "payload_consumption_contract",
+      "target": "to_standalone_integration",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    },
+    {
+      "source": "payload_consumption_contract",
+      "target": "to_time_control_gds",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    },
+    {
+      "source": "payload_materialization_boundary",
+      "target": "to_physical_placement",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    },
+    {
+      "source": "payload_materialization_boundary",
+      "target": "to_standalone_integration",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    },
+    {
+      "source": "payload_materialization_boundary",
+      "target": "to_time_control_gds",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    },
+    {
+      "source": "prototype_execution_guard",
+      "target": "to_physical_placement",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    },
+    {
+      "source": "prototype_execution_guard",
+      "target": "to_standalone_integration",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    },
+    {
+      "source": "prototype_execution_guard",
+      "target": "to_time_control_gds",
+      "relation": "must_not_auto_upgrade",
+      "allowed": false
+    }
+  ],
+  "summary": {
+    "prototype_state_machine_audit_available": true,
+    "metadata_only_transitions_clean": true,
+    "physical_gate_closed_across_stages": true,
+    "standalone_gate_closed_across_stages": true,
+    "future_default_off_builder_state_machine_clean": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  }
+}

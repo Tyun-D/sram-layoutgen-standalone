@@ -1,0 +1,696 @@
+{
+  "scope": "step6_10_openyield_decoder_row_rule_audit",
+  "addr_width": 5,
+  "num_rows": 32,
+  "decoder_hierarchy": {
+    "n_bits": 5,
+    "n_levels": 2,
+    "level_groups": [
+      1,
+      4
+    ],
+    "total_decoder3_8_instances": 5,
+    "stage_instances": [
+      {
+        "level": 0,
+        "decoder_index": 0,
+        "stage_name": "DEC_0_0",
+        "enable_net": "VDD",
+        "address_node_order": [
+          "A3",
+          "A4",
+          "VSS"
+        ],
+        "decoder_pin_map": {
+          "EN": "VDD",
+          "A0": "VSS",
+          "A1": "A4",
+          "A2": "A3"
+        },
+        "output_nets": [
+          "EN_0_0_0",
+          "EN_0_0_1",
+          "EN_0_0_2",
+          "EN_0_0_3",
+          "EN_0_0_4",
+          "EN_0_0_5",
+          "EN_0_0_6",
+          "EN_0_0_7"
+        ],
+        "output_role": "intermediate_enable_bus"
+      },
+      {
+        "level": 1,
+        "decoder_index": 0,
+        "stage_name": "DEC_1_0",
+        "enable_net": "EN_0_0_0",
+        "address_node_order": [
+          "A0",
+          "A1",
+          "A2"
+        ],
+        "decoder_pin_map": {
+          "EN": "EN_0_0_0",
+          "A0": "A2",
+          "A1": "A1",
+          "A2": "A0"
+        },
+        "output_nets": [
+          "WL0",
+          "WL1",
+          "WL2",
+          "WL3",
+          "WL4",
+          "WL5",
+          "WL6",
+          "WL7"
+        ],
+        "output_role": "wordline_outputs"
+      },
+      {
+        "level": 1,
+        "decoder_index": 1,
+        "stage_name": "DEC_1_1",
+        "enable_net": "EN_0_0_1",
+        "address_node_order": [
+          "A0",
+          "A1",
+          "A2"
+        ],
+        "decoder_pin_map": {
+          "EN": "EN_0_0_1",
+          "A0": "A2",
+          "A1": "A1",
+          "A2": "A0"
+        },
+        "output_nets": [
+          "WL8",
+          "WL9",
+          "WL10",
+          "WL11",
+          "WL12",
+          "WL13",
+          "WL14",
+          "WL15"
+        ],
+        "output_role": "wordline_outputs"
+      },
+      {
+        "level": 1,
+        "decoder_index": 2,
+        "stage_name": "DEC_1_2",
+        "enable_net": "EN_0_0_2",
+        "address_node_order": [
+          "A0",
+          "A1",
+          "A2"
+        ],
+        "decoder_pin_map": {
+          "EN": "EN_0_0_2",
+          "A0": "A2",
+          "A1": "A1",
+          "A2": "A0"
+        },
+        "output_nets": [
+          "WL16",
+          "WL17",
+          "WL18",
+          "WL19",
+          "WL20",
+          "WL21",
+          "WL22",
+          "WL23"
+        ],
+        "output_role": "wordline_outputs"
+      },
+      {
+        "level": 1,
+        "decoder_index": 3,
+        "stage_name": "DEC_1_3",
+        "enable_net": "EN_0_0_3",
+        "address_node_order": [
+          "A0",
+          "A1",
+          "A2"
+        ],
+        "decoder_pin_map": {
+          "EN": "EN_0_0_3",
+          "A0": "A2",
+          "A1": "A1",
+          "A2": "A0"
+        },
+        "output_nets": [
+          "WL24",
+          "WL25",
+          "WL26",
+          "WL27",
+          "WL28",
+          "WL29",
+          "WL30",
+          "WL31"
+        ],
+        "output_role": "wordline_outputs"
+      }
+    ]
+  },
+  "stage_packing_plan": [
+    {
+      "stage_name": "DEC_0_0",
+      "level": 0,
+      "decoder_index": 0,
+      "row_name": "DECODER_LEVEL0_ROW",
+      "row_role": "intermediate_enable_bus",
+      "input_nets": [
+        "A3",
+        "A4",
+        "VSS"
+      ],
+      "enable_net": "VDD",
+      "output_nets": [
+        "EN_0_0_0",
+        "EN_0_0_1",
+        "EN_0_0_2",
+        "EN_0_0_3",
+        "EN_0_0_4",
+        "EN_0_0_5",
+        "EN_0_0_6",
+        "EN_0_0_7"
+      ],
+      "input_side_hint": "decoder_input_side",
+      "output_side_hint": "east_enable_bus_side",
+      "enable_side_hint": "north_tiehigh_side",
+      "estimated_cell_count": 27,
+      "candidate_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 44.7275,
+        "y1": 1.565,
+        "width": 44.7275,
+        "height": 1.565
+      },
+      "metadata_only": true,
+      "pin_proven": false,
+      "physical_routing_proven": false,
+      "notes": [
+        "Estimated bbox uses a pessimistic linear macro proxy and is metadata-only.",
+        "Output side is an intermediate enable bus, not final WL pins."
+      ]
+    },
+    {
+      "stage_name": "DEC_1_0",
+      "level": 1,
+      "decoder_index": 0,
+      "row_name": "DECODER_LEVEL1_ROW_GROUP_0",
+      "row_role": "wordline_outputs",
+      "input_nets": [
+        "A0",
+        "A1",
+        "A2"
+      ],
+      "enable_net": "EN_0_0_0",
+      "output_nets": [
+        "WL0",
+        "WL1",
+        "WL2",
+        "WL3",
+        "WL4",
+        "WL5",
+        "WL6",
+        "WL7"
+      ],
+      "input_side_hint": "decoder_input_side",
+      "output_side_hint": "wordline_driver_side",
+      "enable_side_hint": "north_enable_bus_side",
+      "estimated_cell_count": 27,
+      "candidate_bbox": {
+        "x0": 0.0,
+        "y0": 3.13,
+        "x1": 44.7275,
+        "y1": 4.695,
+        "width": 44.7275,
+        "height": 1.565
+      },
+      "metadata_only": true,
+      "pin_proven": false,
+      "physical_routing_proven": false,
+      "notes": [
+        "Estimated bbox uses a pessimistic linear macro proxy and is metadata-only.",
+        "Output side targets WL nets for downstream WORDLINEDRIVER.A handoff."
+      ]
+    },
+    {
+      "stage_name": "DEC_1_1",
+      "level": 1,
+      "decoder_index": 1,
+      "row_name": "DECODER_LEVEL1_ROW_GROUP_1",
+      "row_role": "wordline_outputs",
+      "input_nets": [
+        "A0",
+        "A1",
+        "A2"
+      ],
+      "enable_net": "EN_0_0_1",
+      "output_nets": [
+        "WL8",
+        "WL9",
+        "WL10",
+        "WL11",
+        "WL12",
+        "WL13",
+        "WL14",
+        "WL15"
+      ],
+      "input_side_hint": "decoder_input_side",
+      "output_side_hint": "wordline_driver_side",
+      "enable_side_hint": "north_enable_bus_side",
+      "estimated_cell_count": 27,
+      "candidate_bbox": {
+        "x0": 0.0,
+        "y0": 6.26,
+        "x1": 44.7275,
+        "y1": 7.825,
+        "width": 44.7275,
+        "height": 1.565
+      },
+      "metadata_only": true,
+      "pin_proven": false,
+      "physical_routing_proven": false,
+      "notes": [
+        "Estimated bbox uses a pessimistic linear macro proxy and is metadata-only.",
+        "Output side targets WL nets for downstream WORDLINEDRIVER.A handoff."
+      ]
+    },
+    {
+      "stage_name": "DEC_1_2",
+      "level": 1,
+      "decoder_index": 2,
+      "row_name": "DECODER_LEVEL1_ROW_GROUP_2",
+      "row_role": "wordline_outputs",
+      "input_nets": [
+        "A0",
+        "A1",
+        "A2"
+      ],
+      "enable_net": "EN_0_0_2",
+      "output_nets": [
+        "WL16",
+        "WL17",
+        "WL18",
+        "WL19",
+        "WL20",
+        "WL21",
+        "WL22",
+        "WL23"
+      ],
+      "input_side_hint": "decoder_input_side",
+      "output_side_hint": "wordline_driver_side",
+      "enable_side_hint": "north_enable_bus_side",
+      "estimated_cell_count": 27,
+      "candidate_bbox": {
+        "x0": 0.0,
+        "y0": 9.39,
+        "x1": 44.7275,
+        "y1": 10.955,
+        "width": 44.7275,
+        "height": 1.565
+      },
+      "metadata_only": true,
+      "pin_proven": false,
+      "physical_routing_proven": false,
+      "notes": [
+        "Estimated bbox uses a pessimistic linear macro proxy and is metadata-only.",
+        "Output side targets WL nets for downstream WORDLINEDRIVER.A handoff."
+      ]
+    },
+    {
+      "stage_name": "DEC_1_3",
+      "level": 1,
+      "decoder_index": 3,
+      "row_name": "DECODER_LEVEL1_ROW_GROUP_3",
+      "row_role": "wordline_outputs",
+      "input_nets": [
+        "A0",
+        "A1",
+        "A2"
+      ],
+      "enable_net": "EN_0_0_3",
+      "output_nets": [
+        "WL24",
+        "WL25",
+        "WL26",
+        "WL27",
+        "WL28",
+        "WL29",
+        "WL30",
+        "WL31"
+      ],
+      "input_side_hint": "decoder_input_side",
+      "output_side_hint": "wordline_driver_side",
+      "enable_side_hint": "north_enable_bus_side",
+      "estimated_cell_count": 27,
+      "candidate_bbox": {
+        "x0": 0.0,
+        "y0": 12.52,
+        "x1": 44.7275,
+        "y1": 14.085,
+        "width": 44.7275,
+        "height": 1.565
+      },
+      "metadata_only": true,
+      "pin_proven": false,
+      "physical_routing_proven": false,
+      "notes": [
+        "Estimated bbox uses a pessimistic linear macro proxy and is metadata-only.",
+        "Output side targets WL nets for downstream WORDLINEDRIVER.A handoff."
+      ]
+    }
+  ],
+  "decoder_row_rules": [
+    {
+      "rule_name": "DECODER_LEVEL0_ROW_RULE",
+      "target_candidate": "DECODER_LEVEL0_ROW",
+      "stage_level": 0,
+      "stage_count": 1,
+      "logic_cell_sequence": [
+        "Pinv",
+        "AND3",
+        "AND2"
+      ],
+      "local_macro_candidates": [
+        "gen_inv",
+        "gen_nand2",
+        "gen_nand4"
+      ],
+      "missing_macros": [
+        "gen_nand3"
+      ],
+      "input_side": "decoder_input_side",
+      "output_side": "east_enable_bus_side",
+      "enable_side": "north_or_tiehigh_side",
+      "power_policy": "local_horizontal_vdd_gnd_only_no_shared_rail",
+      "pin_metadata_status": "partial",
+      "placement_status": "needs_power_metadata_repair",
+      "physical_routing_proven": false,
+      "notes": [
+        "Level 0 consumes high-order address bits and emits intermediate enable nets.",
+        "Tie-high enable uses VDD metadata only; no physical rail proof exists.",
+        "AND3 still depends on unresolved PNAND3-like implementation."
+      ]
+    },
+    {
+      "rule_name": "DECODER_LEVEL1_ROW_RULE",
+      "target_candidate": "DECODER_LEVEL1_ROW_GROUP_*",
+      "stage_level": 1,
+      "stage_count": 4,
+      "logic_cell_sequence": [
+        "Pinv",
+        "AND3",
+        "AND2"
+      ],
+      "local_macro_candidates": [
+        "gen_inv",
+        "gen_nand2",
+        "gen_nand4",
+        "gen_wl_driver"
+      ],
+      "missing_macros": [
+        "gen_nand3"
+      ],
+      "input_side": "west_addr_side",
+      "output_side": "east_wordline_side",
+      "enable_side": "north_enable_bus_side",
+      "power_policy": "local_horizontal_vdd_gnd_only_no_shared_rail",
+      "pin_metadata_status": "partial",
+      "placement_status": "needs_logic_macro_repair",
+      "physical_routing_proven": false,
+      "notes": [
+        "Each level-1 group is one DECODER3_8 stage driven by one intermediate enable net.",
+        "Wordline output ordering is semantic-only and still lacks per-stage physical pin proof.",
+        "gen_wl_driver remains a downstream consumer, not a decoder stage leaf."
+      ]
+    },
+    {
+      "rule_name": "DECODER_STAGE_PROXY_RULE",
+      "target_candidate": "DECODER3_8_GROUP",
+      "stage_level": -1,
+      "stage_count": 5,
+      "logic_cell_sequence": [
+        "3x Pinv",
+        "8x AND3",
+        "8x AND2"
+      ],
+      "local_macro_candidates": [
+        "gen_inv",
+        "gen_nand2",
+        "gen_nand4"
+      ],
+      "missing_macros": [
+        "gen_nand3"
+      ],
+      "input_side": "left",
+      "output_side": "right",
+      "enable_side": "top",
+      "power_policy": "metadata_only_proxy_power_policy",
+      "pin_metadata_status": "partial",
+      "placement_status": "metadata_row_rule_only",
+      "physical_routing_proven": false,
+      "notes": [
+        "This is an audit-only proxy rule for stage geometry estimation.",
+        "Linear cell-count packing is pessimistic and should not be treated as legal placement geometry."
+      ]
+    }
+  ],
+  "logic_cell_availability": {
+    "Pinv_to_gen_inv": {
+      "mapping": "direct_metadata_candidate",
+      "gds_available": true,
+      "spice_available": false,
+      "pin_metadata_complete": true,
+      "power_metadata_complete": true,
+      "safe_for_physical_placement": false
+    },
+    "PNAND2_to_gen_nand2": {
+      "mapping": "direct_metadata_candidate",
+      "gds_available": true,
+      "spice_available": false,
+      "pin_metadata_complete": true,
+      "power_metadata_complete": true,
+      "safe_for_physical_placement": false
+    },
+    "AND2_to_gen_nand2_plus_gen_inv": {
+      "mapping": "composite_metadata_candidate",
+      "required_cells": {
+        "gen_nand2": 1,
+        "gen_inv": 1
+      },
+      "resolved": true,
+      "safe_for_physical_placement": false
+    },
+    "PNAND3_direct": {
+      "mapping": "missing_direct_macro",
+      "direct_nand3_available": false
+    },
+    "AND3_resolution": {
+      "mapping": "generated_logic_unresolved",
+      "required_cells": {
+        "pnand3_like": 1,
+        "gen_inv": 1
+      },
+      "gen_nand4_substitution": "metadata_only_possible",
+      "safe_for_physical_placement": false
+    }
+  },
+  "logic_cell_count_per_stage": {
+    "pinv": 3,
+    "and2": 8,
+    "and3": 8,
+    "resolved_cells_without_pnand3": 19,
+    "unresolved_pnand3_like_cells": 8,
+    "upper_bound_with_nand4_proxy": 27
+  },
+  "direct_nand3_and3_missing": true,
+  "gen_nand4_gds_available": true,
+  "gen_nand4_label_metadata_complete": false,
+  "gen_nand4_power_metadata_complete": false,
+  "gen_nand4_can_substitute_pnand3": "metadata_only_possible",
+  "pin_metadata_audit": [
+    {
+      "macro": "gen_inv",
+      "required_pins": [
+        "a",
+        "z",
+        "vdd",
+        "gnd"
+      ],
+      "available_labels": [
+        "a",
+        "z",
+        "vdd",
+        "gnd"
+      ],
+      "missing_labels": [],
+      "pin_metadata_complete": true,
+      "power_metadata_complete": true,
+      "safe_for_metadata_mapping": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "macro": "gen_nand2",
+      "required_pins": [
+        "a",
+        "b",
+        "z",
+        "vdd",
+        "gnd"
+      ],
+      "available_labels": [
+        "a",
+        "b",
+        "z",
+        "vdd",
+        "gnd"
+      ],
+      "missing_labels": [],
+      "pin_metadata_complete": true,
+      "power_metadata_complete": true,
+      "safe_for_metadata_mapping": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "macro": "gen_nand4",
+      "required_pins": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "z",
+        "vdd",
+        "gnd"
+      ],
+      "available_labels": [],
+      "missing_labels": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "z",
+        "vdd",
+        "gnd"
+      ],
+      "pin_metadata_complete": false,
+      "power_metadata_complete": false,
+      "safe_for_metadata_mapping": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "macro": "gen_wl_driver",
+      "required_pins": [
+        "decoder_input",
+        "wordline_enable",
+        "wl",
+        "vdd",
+        "gnd"
+      ],
+      "available_labels": [
+        "decoder_input",
+        "wordline_enable",
+        "wl",
+        "vdd",
+        "gnd"
+      ],
+      "missing_labels": [],
+      "pin_metadata_complete": true,
+      "power_metadata_complete": true,
+      "safe_for_metadata_mapping": true,
+      "safe_for_physical_placement": false
+    }
+  ],
+  "power_metadata_audit": [
+    {
+      "macro": "gen_inv",
+      "row_power_policy": "local_horizontal_vdd_gnd_only_no_shared_rail",
+      "local_power_pins_available": true,
+      "rail_continuity_proven": false,
+      "safe_for_shared_rail": false,
+      "power_metadata_blockers": [
+        "rail_continuity_not_proven",
+        "shared_rail_not_allowed_for_decoder_generated_logic"
+      ]
+    },
+    {
+      "macro": "gen_nand2",
+      "row_power_policy": "local_horizontal_vdd_gnd_only_no_shared_rail",
+      "local_power_pins_available": true,
+      "rail_continuity_proven": false,
+      "safe_for_shared_rail": false,
+      "power_metadata_blockers": [
+        "rail_continuity_not_proven",
+        "shared_rail_not_allowed_for_decoder_generated_logic"
+      ]
+    },
+    {
+      "macro": "gen_nand4",
+      "row_power_policy": "local_horizontal_vdd_gnd_only_no_shared_rail",
+      "local_power_pins_available": false,
+      "rail_continuity_proven": false,
+      "safe_for_shared_rail": false,
+      "power_metadata_blockers": [
+        "power_metadata_incomplete",
+        "rail_continuity_not_proven",
+        "shared_rail_not_allowed_for_decoder_generated_logic"
+      ]
+    },
+    {
+      "macro": "gen_wl_driver",
+      "row_power_policy": "local_horizontal_vdd_gnd_only_no_shared_rail",
+      "local_power_pins_available": true,
+      "rail_continuity_proven": false,
+      "safe_for_shared_rail": false,
+      "power_metadata_blockers": [
+        "rail_continuity_not_proven",
+        "shared_rail_not_allowed_for_decoder_generated_logic"
+      ]
+    }
+  ],
+  "decoder_input_handoff": {
+    "source": "ADDR_DFF_ROW.addr_q[i]",
+    "sink": "DECODER_CASCADE.A[i]",
+    "source_anchor": "DECODER_INPUT_ANCHOR",
+    "source_window": "ADDR_TO_DECODER_WINDOW",
+    "decoder_stage_input_side": "decoder_input_side",
+    "metadata_only": true,
+    "pin_proven": false,
+    "physical_routing_proven": false
+  },
+  "decoder_output_handoff": {
+    "source": "DECODER_CASCADE.WL[row] / decoder_out[row]",
+    "consumer": "WORDLINEDRIVER",
+    "consumer_pin": "A",
+    "sink": "WORDLINEDRIVER.A[row]",
+    "wordline_driver_semantics_confirmed": true,
+    "metadata_only": true,
+    "pin_proven": false,
+    "physical_routing_proven": false
+  },
+  "decoder_row_rules_available": true,
+  "decoder_stage_packing_available": true,
+  "decoder_logic_row_metadata_available": true,
+  "decoder_direct_nand3_missing": true,
+  "decoder_generated_logic_unresolved": true,
+  "decoder_power_metadata_complete": false,
+  "decoder_pin_metadata_complete": false,
+  "can_enter_decoder_generated_block_planning": true,
+  "can_enter_physical_decoder_placement": false,
+  "can_enter_very_limited_control_row_smoke": false,
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "blocker_list": [
+    "Direct PNAND3 / AND3 hard macro is still missing, so decoder stage logic is not fully resolved.",
+    "gen_nand4 is not pin/power metadata complete and cannot be treated as a proven PNAND3 replacement.",
+    "Shared rail safety is not proven for decoder generated-logic rows.",
+    "Per-stage pin metadata is only partial and output routing toward WORDLINEDRIVER.A remains unproven.",
+    "Row-rule and stage-packing data are metadata planning aids only, not legal decoder placement evidence."
+  ],
+  "step_6_11_recommendation": "Audit decoder logic leaf repair options next: prove or reject PNAND3 substitution strategy, then define per-stage pin/power metadata before any decoder physical smoke."
+}

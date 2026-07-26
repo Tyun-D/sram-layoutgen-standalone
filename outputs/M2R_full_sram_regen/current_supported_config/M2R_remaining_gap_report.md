@@ -1,0 +1,6 @@
+# M2R Remaining Gap Report
+
+| gap_id | category | severity | description | blocks_M2R_gate |
+| --- | --- | --- | --- | --- |
+| M2R_GAP_001 | openyield_semantics | review_only | This M2R rebuild prioritizes original layoutgen top-flow correctness; OpenYield semantic ownership is mapped in reports rather than re-routed into a new physical hierarchy. | False |
+| M2R_GAP_002 | signoff | review_only | Human KLayout review is still required before any next-stage claim; DRC/LVS/signoff are not claimed here. | False |

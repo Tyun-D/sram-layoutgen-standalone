@@ -1,0 +1,81 @@
+{
+  "top_io": [
+    {
+      "pin_name": "address",
+      "pin_category": "ADDRESS",
+      "planned_top_edge": "left",
+      "planned_layer": "M4",
+      "source_internal_net": "A[*]",
+      "source_internal_access": "DFF_ROW:D[0]",
+      "pin_status": "GEOMETRY_BACKED_PIN",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    },
+    {
+      "pin_name": "din",
+      "pin_category": "DATA_IN",
+      "planned_top_edge": "left",
+      "planned_layer": "M4",
+      "source_internal_net": "DIN[*]",
+      "source_internal_access": "write_driver:din",
+      "pin_status": "GEOMETRY_BACKED_PIN",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    },
+    {
+      "pin_name": "dout",
+      "pin_category": "DATA_OUT",
+      "planned_top_edge": "right",
+      "planned_layer": "M4",
+      "source_internal_net": "DOUT[*]",
+      "source_internal_access": "sense_amp:dout",
+      "pin_status": "GEOMETRY_BACKED_PIN",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    },
+    {
+      "pin_name": "clk",
+      "pin_category": "CLOCK",
+      "planned_top_edge": "top",
+      "planned_layer": "M4",
+      "source_internal_net": "clk",
+      "source_internal_access": "CONTROL_LOGIC:clk",
+      "pin_status": "GEOMETRY_BACKED_PIN",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    },
+    {
+      "pin_name": "control",
+      "pin_category": "CONTROL",
+      "planned_top_edge": "top",
+      "planned_layer": "M4",
+      "source_internal_net": "control[*]",
+      "source_internal_access": "CONTROL_LOGIC:precharge_en",
+      "pin_status": "SYNTHESIZED_PIN_FOR_CURRENT_GENERATOR",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    },
+    {
+      "pin_name": "VDD",
+      "pin_category": "POWER",
+      "planned_top_edge": "top",
+      "planned_layer": "M5",
+      "source_internal_net": "VDD",
+      "source_internal_access": "bitcell_array:VDD",
+      "pin_status": "GEOMETRY_BACKED_PIN",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    },
+    {
+      "pin_name": "GND",
+      "pin_category": "GROUND",
+      "planned_top_edge": "bottom",
+      "planned_layer": "M5",
+      "source_internal_net": "GND",
+      "source_internal_access": "bitcell_array:GND",
+      "pin_status": "GEOMETRY_BACKED_PIN",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    }
+  ]
+}

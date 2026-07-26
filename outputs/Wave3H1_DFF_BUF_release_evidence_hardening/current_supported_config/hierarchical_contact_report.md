@@ -1,0 +1,1228 @@
+# Hierarchical Contact Report
+
+- per_route:
+```json
+[
+  {
+    "parent_route_id": "CLK:dff.CLK:m1_landing",
+    "intended_net": "TOP::CLK",
+    "contacted_hierarchical_nets": [
+      "dff::CLK"
+    ],
+    "allowed_hierarchical_nets": [
+      "dff::CLK"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [
+      {
+        "contacted_hierarchical_net": "dff::CLK",
+        "child_instance": "dff",
+        "layer": "m1",
+        "obstacle_shape_id": "m1_60",
+        "contact_bbox": [
+          6.6075,
+          2.0175,
+          6.7425,
+          2.1525
+        ],
+        "contact_area": 0.018225,
+        "overlap_bbox": [
+          6.6075,
+          2.0175,
+          6.7425,
+          2.1525
+        ],
+        "overlap_area": 0.018225,
+        "contact_kind": "area_overlap",
+        "reason": "same_layer_distance_zero"
+      },
+      {
+        "contacted_hierarchical_net": "dff::CLK",
+        "child_instance": "dff",
+        "layer": "m1",
+        "obstacle_shape_id": "m1_61",
+        "contact_bbox": [
+          6.6075,
+          2.0525,
+          6.7425,
+          2.1175
+        ],
+        "contact_area": 0.008775,
+        "overlap_bbox": [
+          6.6075,
+          2.0525,
+          6.7425,
+          2.1175
+        ],
+        "overlap_area": 0.008775,
+        "contact_kind": "area_overlap",
+        "reason": "same_layer_distance_zero"
+      }
+    ],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "CLK:TOP:m1_pin",
+    "intended_net": "TOP::CLK",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::CLK"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "CLK:TRACK:m1",
+    "intended_net": "TOP::CLK",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::CLK"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "CLK:dff.CLK:via_pin",
+    "intended_net": "TOP::CLK",
+    "contacted_hierarchical_nets": [
+      "dff::CLK"
+    ],
+    "allowed_hierarchical_nets": [
+      "dff::CLK"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "via1",
+    "overlap_geometry": [
+      {
+        "contacted_hierarchical_net": "dff::CLK",
+        "child_instance": "dff",
+        "layer": "m1",
+        "obstacle_shape_id": "m1_60",
+        "contact_bbox": [
+          6.6425,
+          2.0525,
+          6.7075,
+          2.1175
+        ],
+        "contact_area": 0.004225,
+        "overlap_bbox": [
+          6.6425,
+          2.0525,
+          6.7075,
+          2.1175
+        ],
+        "overlap_area": 0.004225,
+        "contact_kind": "area_overlap",
+        "reason": "explicit_via_connection"
+      },
+      {
+        "contacted_hierarchical_net": "dff::CLK",
+        "child_instance": "dff",
+        "layer": "m1",
+        "obstacle_shape_id": "m1_61",
+        "contact_bbox": [
+          6.6425,
+          2.0525,
+          6.7075,
+          2.1175
+        ],
+        "contact_area": 0.004225,
+        "overlap_bbox": [
+          6.6425,
+          2.0525,
+          6.7075,
+          2.1175
+        ],
+        "overlap_area": 0.004225,
+        "contact_kind": "area_overlap",
+        "reason": "explicit_via_connection"
+      }
+    ],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "CLK:dff.CLK:m2_landing",
+    "intended_net": "TOP::CLK",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::CLK"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "CLK:dff.CLK:m2_escape",
+    "intended_net": "TOP::CLK",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::CLK"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "CLK:dff.CLK:track_drop_m1",
+    "intended_net": "TOP::CLK",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::CLK"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "CLK:dff.CLK:track_drop_via",
+    "intended_net": "TOP::CLK",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::CLK"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "via1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "CLK:dff.CLK:track_drop_m2",
+    "intended_net": "TOP::CLK",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::CLK"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "D:dff.D:m1_landing",
+    "intended_net": "TOP::D",
+    "contacted_hierarchical_nets": [
+      "dff::D"
+    ],
+    "allowed_hierarchical_nets": [
+      "dff::D"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [
+      {
+        "contacted_hierarchical_net": "dff::D",
+        "child_instance": "dff",
+        "layer": "m1",
+        "obstacle_shape_id": "m1_111",
+        "contact_bbox": [
+          0.2225,
+          2.4375,
+          0.3575,
+          2.5725
+        ],
+        "contact_area": 0.018225,
+        "overlap_bbox": [
+          0.2225,
+          2.4375,
+          0.3575,
+          2.5725
+        ],
+        "overlap_area": 0.018225,
+        "contact_kind": "area_overlap",
+        "reason": "same_layer_distance_zero"
+      },
+      {
+        "contacted_hierarchical_net": "dff::D",
+        "child_instance": "dff",
+        "layer": "m1",
+        "obstacle_shape_id": "m1_112",
+        "contact_bbox": [
+          0.2225,
+          2.4725,
+          0.3575,
+          2.5375
+        ],
+        "contact_area": 0.008775,
+        "overlap_bbox": [
+          0.2225,
+          2.4725,
+          0.3575,
+          2.5375
+        ],
+        "overlap_area": 0.008775,
+        "contact_kind": "area_overlap",
+        "reason": "same_layer_distance_zero"
+      }
+    ],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "D:TOP:m1_pin",
+    "intended_net": "TOP::D",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::D"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "D:TRACK:m1",
+    "intended_net": "TOP::D",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::D"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "D:dff.D:via_pin",
+    "intended_net": "TOP::D",
+    "contacted_hierarchical_nets": [
+      "dff::D"
+    ],
+    "allowed_hierarchical_nets": [
+      "dff::D"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "via1",
+    "overlap_geometry": [
+      {
+        "contacted_hierarchical_net": "dff::D",
+        "child_instance": "dff",
+        "layer": "m1",
+        "obstacle_shape_id": "m1_111",
+        "contact_bbox": [
+          0.2575,
+          2.4725,
+          0.3225,
+          2.5375
+        ],
+        "contact_area": 0.004225,
+        "overlap_bbox": [
+          0.2575,
+          2.4725,
+          0.3225,
+          2.5375
+        ],
+        "overlap_area": 0.004225,
+        "contact_kind": "area_overlap",
+        "reason": "explicit_via_connection"
+      },
+      {
+        "contacted_hierarchical_net": "dff::D",
+        "child_instance": "dff",
+        "layer": "m1",
+        "obstacle_shape_id": "m1_112",
+        "contact_bbox": [
+          0.2575,
+          2.4725,
+          0.3225,
+          2.5375
+        ],
+        "contact_area": 0.004225,
+        "overlap_bbox": [
+          0.2575,
+          2.4725,
+          0.3225,
+          2.5375
+        ],
+        "overlap_area": 0.004225,
+        "contact_kind": "area_overlap",
+        "reason": "explicit_via_connection"
+      }
+    ],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "D:dff.D:m2_landing",
+    "intended_net": "TOP::D",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::D"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "D:dff.D:m2_escape",
+    "intended_net": "TOP::D",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::D"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "D:dff.D:track_drop_m1",
+    "intended_net": "TOP::D",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::D"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "D:dff.D:track_drop_via",
+    "intended_net": "TOP::D",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::D"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "via1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "D:dff.D:track_drop_m2",
+    "intended_net": "TOP::D",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::D"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "qint:dff.Q:m1_landing",
+    "intended_net": "PARENT::qint",
+    "contacted_hierarchical_nets": [
+      "dff::Q"
+    ],
+    "allowed_hierarchical_nets": [
+      "dff::Q",
+      "inv1::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [
+      {
+        "contacted_hierarchical_net": "dff::Q",
+        "child_instance": "dff",
+        "layer": "m1",
+        "obstacle_shape_id": "m1_255",
+        "contact_bbox": [
+          12.995,
+          3.9075,
+          13.13,
+          4.0425
+        ],
+        "contact_area": 0.018225,
+        "overlap_bbox": [
+          12.995,
+          3.9075,
+          13.13,
+          4.0425
+        ],
+        "overlap_area": 0.018225,
+        "contact_kind": "area_overlap",
+        "reason": "same_layer_distance_zero"
+      },
+      {
+        "contacted_hierarchical_net": "dff::Q",
+        "child_instance": "dff",
+        "layer": "m1",
+        "obstacle_shape_id": "m1_256",
+        "contact_bbox": [
+          12.995,
+          3.9425,
+          13.13,
+          4.0075
+        ],
+        "contact_area": 0.008775,
+        "overlap_bbox": [
+          12.995,
+          3.9425,
+          13.13,
+          4.0075
+        ],
+        "overlap_area": 0.008775,
+        "contact_kind": "area_overlap",
+        "reason": "same_layer_distance_zero"
+      }
+    ],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "qint:inv1.A:m1_landing",
+    "intended_net": "PARENT::qint",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::Q",
+      "inv1::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "qint:inv1.A:m1_escape",
+    "intended_net": "PARENT::qint",
+    "contacted_hierarchical_nets": [
+      "inv1::A"
+    ],
+    "allowed_hierarchical_nets": [
+      "dff::Q",
+      "inv1::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [
+      {
+        "contacted_hierarchical_net": "inv1::A",
+        "child_instance": "inv1",
+        "layer": "m1",
+        "obstacle_shape_id": "m1_1",
+        "contact_bbox": [
+          14.2225,
+          0.82,
+          14.3575,
+          0.885
+        ],
+        "contact_area": 0.008775,
+        "overlap_bbox": [
+          14.2225,
+          0.82,
+          14.3575,
+          0.885
+        ],
+        "overlap_area": 0.008775,
+        "contact_kind": "area_overlap",
+        "reason": "same_layer_distance_zero"
+      }
+    ],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "qint:TRACK:m1",
+    "intended_net": "PARENT::qint",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::Q",
+      "inv1::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "qint:dff.Q:via_pin",
+    "intended_net": "PARENT::qint",
+    "contacted_hierarchical_nets": [
+      "dff::Q"
+    ],
+    "allowed_hierarchical_nets": [
+      "dff::Q",
+      "inv1::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "via1",
+    "overlap_geometry": [
+      {
+        "contacted_hierarchical_net": "dff::Q",
+        "child_instance": "dff",
+        "layer": "m1",
+        "obstacle_shape_id": "m1_255",
+        "contact_bbox": [
+          13.03,
+          3.9425,
+          13.095,
+          4.0075
+        ],
+        "contact_area": 0.004225,
+        "overlap_bbox": [
+          13.03,
+          3.9425,
+          13.095,
+          4.0075
+        ],
+        "overlap_area": 0.004225,
+        "contact_kind": "area_overlap",
+        "reason": "explicit_via_connection"
+      },
+      {
+        "contacted_hierarchical_net": "dff::Q",
+        "child_instance": "dff",
+        "layer": "m1",
+        "obstacle_shape_id": "m1_256",
+        "contact_bbox": [
+          13.03,
+          3.9425,
+          13.095,
+          4.0075
+        ],
+        "contact_area": 0.004225,
+        "overlap_bbox": [
+          13.03,
+          3.9425,
+          13.095,
+          4.0075
+        ],
+        "overlap_area": 0.004225,
+        "contact_kind": "area_overlap",
+        "reason": "explicit_via_connection"
+      }
+    ],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "qint:dff.Q:m2_landing",
+    "intended_net": "PARENT::qint",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::Q",
+      "inv1::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "qint:dff.Q:m2_escape",
+    "intended_net": "PARENT::qint",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::Q",
+      "inv1::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "qint:dff.Q:track_drop_m1",
+    "intended_net": "PARENT::qint",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::Q",
+      "inv1::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "qint:dff.Q:track_drop_via",
+    "intended_net": "PARENT::qint",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::Q",
+      "inv1::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "via1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "qint:dff.Q:track_drop_m2",
+    "intended_net": "PARENT::qint",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::Q",
+      "inv1::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "qint:inv1.A:via_pin",
+    "intended_net": "PARENT::qint",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::Q",
+      "inv1::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "via1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "qint:inv1.A:m2_landing",
+    "intended_net": "PARENT::qint",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::Q",
+      "inv1::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "qint:inv1.A:m2_escape",
+    "intended_net": "PARENT::qint",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::Q",
+      "inv1::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "qint:inv1.A:track_drop_m1",
+    "intended_net": "PARENT::qint",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::Q",
+      "inv1::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "qint:inv1.A:track_drop_via",
+    "intended_net": "PARENT::qint",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::Q",
+      "inv1::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "via1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "qint:inv1.A:track_drop_m2",
+    "intended_net": "PARENT::qint",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "dff::Q",
+      "inv1::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "QB:inv1.Z:m1_landing",
+    "intended_net": "TOP::QB",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv1::Z",
+      "inv2::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "QB:inv1.Z:m1_escape",
+    "intended_net": "TOP::QB",
+    "contacted_hierarchical_nets": [
+      "inv1::Z"
+    ],
+    "allowed_hierarchical_nets": [
+      "inv1::Z",
+      "inv2::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [
+      {
+        "contacted_hierarchical_net": "inv1::Z",
+        "child_instance": "inv1",
+        "layer": "m1",
+        "obstacle_shape_id": "m1_2",
+        "contact_bbox": [
+          14.49,
+          0.82,
+          14.555,
+          0.885
+        ],
+        "contact_area": 0.004225,
+        "overlap_bbox": [
+          14.49,
+          0.82,
+          14.555,
+          0.885
+        ],
+        "overlap_area": 0.004225,
+        "contact_kind": "area_overlap",
+        "reason": "same_layer_distance_zero"
+      },
+      {
+        "contacted_hierarchical_net": "inv1::Z",
+        "child_instance": "inv1",
+        "layer": "m1",
+        "obstacle_shape_id": "m1_13",
+        "contact_bbox": [
+          14.49,
+          0.785,
+          14.5225,
+          0.92
+        ],
+        "contact_area": 0.004388,
+        "overlap_bbox": [
+          14.49,
+          0.785,
+          14.5225,
+          0.92
+        ],
+        "overlap_area": 0.004388,
+        "contact_kind": "area_overlap",
+        "reason": "same_layer_distance_zero"
+      }
+    ],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "QB:inv2.A:m1_landing",
+    "intended_net": "TOP::QB",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv1::Z",
+      "inv2::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "QB:inv2.A:m1_escape",
+    "intended_net": "TOP::QB",
+    "contacted_hierarchical_nets": [
+      "inv2::A"
+    ],
+    "allowed_hierarchical_nets": [
+      "inv1::Z",
+      "inv2::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [
+      {
+        "contacted_hierarchical_net": "inv2::A",
+        "child_instance": "inv2",
+        "layer": "m1",
+        "obstacle_shape_id": "m1_1",
+        "contact_bbox": [
+          15.37,
+          0.82,
+          15.505,
+          0.885
+        ],
+        "contact_area": 0.008775,
+        "overlap_bbox": [
+          15.37,
+          0.82,
+          15.505,
+          0.885
+        ],
+        "overlap_area": 0.008775,
+        "contact_kind": "area_overlap",
+        "reason": "same_layer_distance_zero"
+      }
+    ],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "QB:TOP:m1_pin",
+    "intended_net": "TOP::QB",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv1::Z",
+      "inv2::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "QB:TRACK:m1",
+    "intended_net": "TOP::QB",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv1::Z",
+      "inv2::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "QB:inv1.Z:via_pin",
+    "intended_net": "TOP::QB",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv1::Z",
+      "inv2::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "via1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "QB:inv1.Z:m2_landing",
+    "intended_net": "TOP::QB",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv1::Z",
+      "inv2::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "QB:inv1.Z:m2_escape",
+    "intended_net": "TOP::QB",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv1::Z",
+      "inv2::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "QB:inv1.Z:track_drop_m1",
+    "intended_net": "TOP::QB",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv1::Z",
+      "inv2::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "QB:inv1.Z:track_drop_via",
+    "intended_net": "TOP::QB",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv1::Z",
+      "inv2::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "via1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "QB:inv1.Z:track_drop_m2",
+    "intended_net": "TOP::QB",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv1::Z",
+      "inv2::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "QB:inv2.A:via_pin",
+    "intended_net": "TOP::QB",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv1::Z",
+      "inv2::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "via1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "QB:inv2.A:m2_landing",
+    "intended_net": "TOP::QB",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv1::Z",
+      "inv2::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "QB:inv2.A:m2_escape",
+    "intended_net": "TOP::QB",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv1::Z",
+      "inv2::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "QB:inv2.A:track_drop_m1",
+    "intended_net": "TOP::QB",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv1::Z",
+      "inv2::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "QB:inv2.A:track_drop_via",
+    "intended_net": "TOP::QB",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv1::Z",
+      "inv2::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "via1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "QB:inv2.A:track_drop_m2",
+    "intended_net": "TOP::QB",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv1::Z",
+      "inv2::A"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "Q:inv2.Z:m1_landing",
+    "intended_net": "TOP::Q",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv2::Z"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "Q:inv2.Z:m1_escape",
+    "intended_net": "TOP::Q",
+    "contacted_hierarchical_nets": [
+      "inv2::Z"
+    ],
+    "allowed_hierarchical_nets": [
+      "inv2::Z"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [
+      {
+        "contacted_hierarchical_net": "inv2::Z",
+        "child_instance": "inv2",
+        "layer": "m1",
+        "obstacle_shape_id": "m1_2",
+        "contact_bbox": [
+          15.6675,
+          0.82,
+          15.7325,
+          0.885
+        ],
+        "contact_area": 0.004225,
+        "overlap_bbox": [
+          15.6675,
+          0.82,
+          15.7325,
+          0.885
+        ],
+        "overlap_area": 0.004225,
+        "contact_kind": "area_overlap",
+        "reason": "same_layer_distance_zero"
+      },
+      {
+        "contacted_hierarchical_net": "inv2::Z",
+        "child_instance": "inv2",
+        "layer": "m1",
+        "obstacle_shape_id": "m1_13",
+        "contact_bbox": [
+          15.6675,
+          0.785,
+          15.7,
+          0.92
+        ],
+        "contact_area": 0.004388,
+        "overlap_bbox": [
+          15.6675,
+          0.785,
+          15.7,
+          0.92
+        ],
+        "overlap_area": 0.004388,
+        "contact_kind": "area_overlap",
+        "reason": "same_layer_distance_zero"
+      }
+    ],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "Q:TOP:m1_pin",
+    "intended_net": "TOP::Q",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv2::Z"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "Q:TRACK:m1",
+    "intended_net": "TOP::Q",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv2::Z"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "Q:inv2.Z:via_pin",
+    "intended_net": "TOP::Q",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv2::Z"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "via1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "Q:inv2.Z:m2_landing",
+    "intended_net": "TOP::Q",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv2::Z"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "Q:inv2.Z:m2_escape",
+    "intended_net": "TOP::Q",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv2::Z"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "Q:inv2.Z:track_drop_m1",
+    "intended_net": "TOP::Q",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv2::Z"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "Q:inv2.Z:track_drop_via",
+    "intended_net": "TOP::Q",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv2::Z"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "via1",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  },
+  {
+    "parent_route_id": "Q:inv2.Z:track_drop_m2",
+    "intended_net": "TOP::Q",
+    "contacted_hierarchical_nets": [],
+    "allowed_hierarchical_nets": [
+      "inv2::Z"
+    ],
+    "unexpected_hierarchical_nets": [],
+    "overlap_layer": "m2",
+    "overlap_geometry": [],
+    "short_classification": "AUTHORIZED_ONLY"
+  }
+]
+```
+- hierarchical_foreign_net_contact_count: `0`
+- unexpected_child_internal_net_contact_count: `0`
+- unique_foreign_hierarchical_net_count: `0`
+- unique_parent_route_foreign_net_pair_count: `0`
+- raw_contacting_foreign_obstacle_shape_count: `0`
+- unique_unexpected_child_internal_net_count: `0`
+- unique_parent_route_unexpected_child_internal_net_pair_count: `0`
+- clk_clkb_short_present: `False`
+- q_qb_internal_short_present: `False`
+- geometry_domain_contract:
+```json
+{
+  "shape_kind_required": "axis_aligned_rectangle",
+  "bbox_is_exact_geometry_required": true,
+  "epsilon": 1e-06
+}
+```

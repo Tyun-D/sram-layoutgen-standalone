@@ -1,0 +1,415 @@
+{
+  "source_derived_topology": {
+    "logical_module": "ADDR_DFF",
+    "source_class_name": "ADDR_DFF",
+    "addr_dff_init_formal_parameters": [
+      {
+        "parameter": "self",
+        "kind": "positional",
+        "default_source": null
+      },
+      {
+        "parameter": "nmos_model",
+        "kind": "positional",
+        "default_source": "'NMOS_VTG'"
+      },
+      {
+        "parameter": "pmos_model",
+        "kind": "positional",
+        "default_source": "'PMOS_VTG'"
+      },
+      {
+        "parameter": "pmos_width",
+        "kind": "positional",
+        "default_source": "5e-07"
+      },
+      {
+        "parameter": "nmos_width",
+        "kind": "positional",
+        "default_source": "2.5e-07"
+      },
+      {
+        "parameter": "length",
+        "kind": "positional",
+        "default_source": "5e-08"
+      },
+      {
+        "parameter": "num_rows",
+        "kind": "positional",
+        "default_source": "16"
+      },
+      {
+        "parameter": "w_rc",
+        "kind": "positional",
+        "default_source": "False"
+      },
+      {
+        "parameter": "pi_res",
+        "kind": "positional",
+        "default_source": "100 @ u_Ohm"
+      },
+      {
+        "parameter": "pi_cap",
+        "kind": "positional",
+        "default_source": "0.001 @ u_pF"
+      }
+    ],
+    "self_num_rows_source": "num_rows",
+    "resolved_num_rows": 16,
+    "n_bits_expressions": [
+      "ceil(log2(self.num_rows)) if self.num_rows > 1 else 1",
+      "ceil(log2(self.num_rows)) if self.num_rows > 1 else 1"
+    ],
+    "resolved_n_bits": 4,
+    "nodes_initial_value": [
+      "VDD",
+      "VSS",
+      "CLK"
+    ],
+    "nodes_extend_expressions": [
+      "[f'A{i}' for i in range(n_bits)]",
+      "[f'A_dff{i}' for i in range(n_bits)]"
+    ],
+    "self_nodes_source": "nodes",
+    "resolved_top_pins": [
+      "VDD",
+      "VSS",
+      "CLK",
+      "A0",
+      "A1",
+      "A2",
+      "A3",
+      "A_dff0",
+      "A_dff1",
+      "A_dff2",
+      "A_dff3"
+    ],
+    "dff_addr_constructor": {
+      "source_text": "self.dff_addr = dff(nmos_model, pmos_model)",
+      "positional_arguments": [
+        "nmos_model",
+        "pmos_model"
+      ],
+      "keyword_arguments": {}
+    },
+    "subcircuit_call_source": "self.subcircuit(self.dff_addr)",
+    "add_addr_dff_array_call": {
+      "source_text": "self.add_addr_dff_array(n_bits)",
+      "arguments": [
+        "n_bits"
+      ]
+    },
+    "loop_target": "i",
+    "loop_iterator": "range(n_bits)",
+    "child_instances": [
+      {
+        "instance_name": "dff_0",
+        "logical_child_expression": "self.dff_addr.NAME",
+        "connections": [
+          "VDD",
+          "VSS",
+          "A0",
+          "A_dff0",
+          "CLK"
+        ]
+      },
+      {
+        "instance_name": "dff_1",
+        "logical_child_expression": "self.dff_addr.NAME",
+        "connections": [
+          "VDD",
+          "VSS",
+          "A1",
+          "A_dff1",
+          "CLK"
+        ]
+      },
+      {
+        "instance_name": "dff_2",
+        "logical_child_expression": "self.dff_addr.NAME",
+        "connections": [
+          "VDD",
+          "VSS",
+          "A2",
+          "A_dff2",
+          "CLK"
+        ]
+      },
+      {
+        "instance_name": "dff_3",
+        "logical_child_expression": "self.dff_addr.NAME",
+        "connections": [
+          "VDD",
+          "VSS",
+          "A3",
+          "A_dff3",
+          "CLK"
+        ]
+      }
+    ],
+    "canonical_nets": [
+      "VDD",
+      "VSS",
+      "CLK",
+      "A0",
+      "A_dff0",
+      "A1",
+      "A_dff1",
+      "A2",
+      "A_dff2",
+      "A3",
+      "A_dff3"
+    ],
+    "endpoint_contracts": {
+      "VDD": [
+        "TOP::VDD",
+        "dff_0::VDD",
+        "dff_1::VDD",
+        "dff_2::VDD",
+        "dff_3::VDD"
+      ],
+      "VSS": [
+        "TOP::VSS",
+        "dff_0::VSS",
+        "dff_1::VSS",
+        "dff_2::VSS",
+        "dff_3::VSS"
+      ],
+      "CLK": [
+        "TOP::CLK",
+        "dff_0::CLK",
+        "dff_1::CLK",
+        "dff_2::CLK",
+        "dff_3::CLK"
+      ],
+      "A0": [
+        "TOP::A0",
+        "dff_0::D"
+      ],
+      "A_dff0": [
+        "TOP::A_dff0",
+        "dff_0::Q"
+      ],
+      "A1": [
+        "TOP::A1",
+        "dff_1::D"
+      ],
+      "A_dff1": [
+        "TOP::A_dff1",
+        "dff_1::Q"
+      ],
+      "A2": [
+        "TOP::A2",
+        "dff_2::D"
+      ],
+      "A_dff2": [
+        "TOP::A_dff2",
+        "dff_2::Q"
+      ],
+      "A3": [
+        "TOP::A3",
+        "dff_3::D"
+      ],
+      "A_dff3": [
+        "TOP::A_dff3",
+        "dff_3::Q"
+      ]
+    },
+    "time_addr_dff_constructor_call": {
+      "source_text": "dff_buf_addr=ADDR_DFF(nmos_model=\"NMOS_VTG\",\n            pmos_model=\"PMOS_VTG\",num_rows=self.num_rows)",
+      "positional_arguments": [],
+      "keyword_arguments": {
+        "nmos_model": "\"NMOS_VTG\"",
+        "pmos_model": "\"PMOS_VTG\"",
+        "num_rows": "self.num_rows"
+      }
+    },
+    "time_addr_dff_connections_initial": [
+      "VDD",
+      "VSS",
+      "clk_buf"
+    ],
+    "time_addr_dff_connection_loops": [
+      {
+        "loop_target": "i",
+        "loop_iterator": "range(self.n_bits)",
+        "append_expressions": [
+          "f'A{i}'"
+        ]
+      },
+      {
+        "loop_target": "i",
+        "loop_iterator": "range(self.n_bits)",
+        "append_expressions": [
+          "f'A_dff{i}'"
+        ]
+      }
+    ],
+    "resolved_time_addr_dff_connections": [
+      "VDD",
+      "VSS",
+      "clk_buf",
+      "A0",
+      "A1",
+      "A2",
+      "A3",
+      "A_dff0",
+      "A_dff1",
+      "A_dff2",
+      "A_dff3"
+    ],
+    "time_dff_buf_addr_instance_call": {
+      "instance_name_expression": "'dff_buf_addr'",
+      "child_expression": "dff_buf_addr.NAME",
+      "remaining_arguments": [
+        "*addr_dff_connections"
+      ]
+    },
+    "source_derived_topology_sha256": "086e5e9df95158a0a11391918e9737bdadf4e53c97e5514d8279515f1b81aecc"
+  },
+  "expected_project_contract": {
+    "logical_module": "ADDR_DFF",
+    "resolved_num_rows": 16,
+    "resolved_n_bits": 4,
+    "resolved_top_pins": [
+      "VDD",
+      "VSS",
+      "CLK",
+      "A0",
+      "A1",
+      "A2",
+      "A3",
+      "A_dff0",
+      "A_dff1",
+      "A_dff2",
+      "A_dff3"
+    ],
+    "child_instances": [
+      {
+        "instance_name": "dff_0",
+        "logical_child_expression": "self.dff_addr.NAME",
+        "connections": [
+          "VDD",
+          "VSS",
+          "A0",
+          "A_dff0",
+          "CLK"
+        ]
+      },
+      {
+        "instance_name": "dff_1",
+        "logical_child_expression": "self.dff_addr.NAME",
+        "connections": [
+          "VDD",
+          "VSS",
+          "A1",
+          "A_dff1",
+          "CLK"
+        ]
+      },
+      {
+        "instance_name": "dff_2",
+        "logical_child_expression": "self.dff_addr.NAME",
+        "connections": [
+          "VDD",
+          "VSS",
+          "A2",
+          "A_dff2",
+          "CLK"
+        ]
+      },
+      {
+        "instance_name": "dff_3",
+        "logical_child_expression": "self.dff_addr.NAME",
+        "connections": [
+          "VDD",
+          "VSS",
+          "A3",
+          "A_dff3",
+          "CLK"
+        ]
+      }
+    ],
+    "canonical_nets": [
+      "VDD",
+      "VSS",
+      "CLK",
+      "A0",
+      "A_dff0",
+      "A1",
+      "A_dff1",
+      "A2",
+      "A_dff2",
+      "A3",
+      "A_dff3"
+    ],
+    "endpoint_contracts": {
+      "VDD": [
+        "TOP::VDD",
+        "dff_0::VDD",
+        "dff_1::VDD",
+        "dff_2::VDD",
+        "dff_3::VDD"
+      ],
+      "VSS": [
+        "TOP::VSS",
+        "dff_0::VSS",
+        "dff_1::VSS",
+        "dff_2::VSS",
+        "dff_3::VSS"
+      ],
+      "CLK": [
+        "TOP::CLK",
+        "dff_0::CLK",
+        "dff_1::CLK",
+        "dff_2::CLK",
+        "dff_3::CLK"
+      ],
+      "A0": [
+        "TOP::A0",
+        "dff_0::D"
+      ],
+      "A_dff0": [
+        "TOP::A_dff0",
+        "dff_0::Q"
+      ],
+      "A1": [
+        "TOP::A1",
+        "dff_1::D"
+      ],
+      "A_dff1": [
+        "TOP::A_dff1",
+        "dff_1::Q"
+      ],
+      "A2": [
+        "TOP::A2",
+        "dff_2::D"
+      ],
+      "A_dff2": [
+        "TOP::A_dff2",
+        "dff_2::Q"
+      ],
+      "A3": [
+        "TOP::A3",
+        "dff_3::D"
+      ],
+      "A_dff3": [
+        "TOP::A_dff3",
+        "dff_3::Q"
+      ]
+    }
+  },
+  "exact_identity_report": {
+    "missing_fields": [],
+    "unexpected_fields": [],
+    "order_mismatch": [],
+    "instance_mismatch": [],
+    "net_mismatch": {
+      "missing_nets": [],
+      "unexpected_nets": [],
+      "order_mismatch": false
+    },
+    "endpoint_mismatch": [],
+    "exact_identity_passed": true
+  }
+}

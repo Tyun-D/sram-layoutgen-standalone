@@ -1,0 +1,57 @@
+{
+  "logical_module": "PINV",
+  "canonical_physical_cell_name": "PINV_NW180_PW540_L50",
+  "source_instance_paths": [
+    "DFF_BUF.inv1"
+  ],
+  "reference_configs": [
+    "16x16",
+    "64x8"
+  ],
+  "pin_order": [
+    "VDD",
+    "VSS",
+    "A",
+    "Z"
+  ],
+  "pin_map": {
+    "VDD": [
+      {
+        "layer": "m1",
+        "lx": 0.0,
+        "by": 1.7875,
+        "rx": 0.6875,
+        "uy": 1.8525
+      }
+    ],
+    "VSS": [
+      {
+        "layer": "m1",
+        "lx": 0.0,
+        "by": -0.0325,
+        "rx": 0.6875,
+        "uy": 0.0325
+      }
+    ],
+    "A": [
+      {
+        "layer": "m1",
+        "lx": 0.0725,
+        "by": 0.7875,
+        "rx": 0.2075,
+        "uy": 0.8525
+      }
+    ],
+    "Z": [
+      {
+        "layer": "m1",
+        "lx": 0.34,
+        "by": 0.7875,
+        "rx": 0.405,
+        "uy": 0.8525
+      }
+    ]
+  },
+  "openram_backend": "pinv",
+  "source_trace_kind": "OpenRAM-backed pinv wrapper"
+}

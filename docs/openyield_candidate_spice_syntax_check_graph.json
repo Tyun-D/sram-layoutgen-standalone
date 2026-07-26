@@ -1,0 +1,66 @@
+{
+  "scope": "candidate_spice_syntax_check_and_simulator_binding",
+  "nodes": [
+    {
+      "id": "candidate:gen_delay_inv",
+      "kind": "candidate_spice",
+      "label": "gen_delay_inv_candidate.sp"
+    },
+    {
+      "id": "candidate:tb",
+      "kind": "candidate_tb",
+      "label": "delay_chain_symbolic_tb.sp"
+    },
+    {
+      "id": "include:local_nom",
+      "kind": "include",
+      "label": "local_model_include_nom.inc"
+    },
+    {
+      "id": "sim:selected",
+      "kind": "simulator",
+      "label": "None"
+    }
+  ],
+  "edges": [
+    {
+      "from": "include:local_nom",
+      "to": "candidate:gen_delay_inv",
+      "relation": "binds_models"
+    },
+    {
+      "from": "candidate:gen_delay_inv",
+      "to": "candidate:tb",
+      "relation": "instantiated_by"
+    },
+    {
+      "from": "sim:selected",
+      "to": "candidate:tb",
+      "relation": "syntax_checks"
+    }
+  ],
+  "summary": {
+    "candidate_spice_syntax_check_available": true,
+    "simulator_found": false,
+    "selected_simulator": null,
+    "pdk_include_binding_available": true,
+    "local_model_include_emitted": true,
+    "static_spice_check_pass": true,
+    "syntax_smoke_attempted": false,
+    "syntax_smoke_pass": false,
+    "can_run_candidate_spice_now": false,
+    "can_run_delay_chain_testbench_now": false,
+    "can_claim_delay_proof_now": false,
+    "can_claim_timing_closure_now": false,
+    "needs_user_simulator_install": true,
+    "needs_user_vdd_corner_threshold": true,
+    "needs_teacher_or_project_provider": false,
+    "can_enter_pvt_corner_definition_plan": true,
+    "can_enter_delay_chain_smoke_simulation": false,
+    "can_enter_physical_timing_closure_now": false,
+    "can_enter_physical_routing_now": false,
+    "can_enter_physical_placement_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_modify_standalone_now": false
+  }
+}

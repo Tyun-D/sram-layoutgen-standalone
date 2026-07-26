@@ -1,0 +1,92 @@
+{
+  "rail_stitch_audit_status": "PASSED",
+  "plan_entry_count": 2,
+  "power_nets_present": [
+    "GND",
+    "VDD"
+  ],
+  "missing_power_nets": [],
+  "missing_modules_by_net": {
+    "VDD": [],
+    "GND": []
+  },
+  "modules_using_contract_rail": [],
+  "modules_needing_rail_geometry_followup": [
+    "CONTROL_LOGIC",
+    "DELAY_CHAIN",
+    "DFF_ROW",
+    "GATED_CLOCK_PATH",
+    "PRECHARGE_ENABLE_PATH",
+    "SENSE_ENABLE_PATH",
+    "WORDLINE_ENABLE_PATH",
+    "WRITE_ENABLE_PATH",
+    "decoder_gate_cells",
+    "row_decoder",
+    "wordline_decoder",
+    "wordline_driver_gate_cells"
+  ],
+  "entries": [
+    {
+      "power_net": "VDD",
+      "modules_involved": [
+        "CONTROL_LOGIC",
+        "DELAY_CHAIN",
+        "DFF_ROW",
+        "GATED_CLOCK_PATH",
+        "PRECHARGE_ENABLE_PATH",
+        "SENSE_ENABLE_PATH",
+        "WORDLINE_ENABLE_PATH",
+        "WRITE_ENABLE_PATH",
+        "bitcell_array",
+        "column_mux",
+        "decoder_gate_cells",
+        "dummy_array",
+        "precharge",
+        "replica_array",
+        "row_decoder",
+        "sense_amp",
+        "wordline_decoder",
+        "wordline_driver",
+        "wordline_driver_gate_cells",
+        "write_driver"
+      ],
+      "rail_source": "L3 module_boundary_rails + module rail_report metadata",
+      "stitch_strategy": "deterministic_top_perimeter_spine_with_vertical_module_drops",
+      "horizontal_stitch_required": true,
+      "vertical_stitch_required": true,
+      "stitch_status": "TOP_LEVEL_STITCH_PENDING_L5_VERIFICATION",
+      "requires_L5_verification": true
+    },
+    {
+      "power_net": "GND",
+      "modules_involved": [
+        "CONTROL_LOGIC",
+        "DELAY_CHAIN",
+        "DFF_ROW",
+        "GATED_CLOCK_PATH",
+        "PRECHARGE_ENABLE_PATH",
+        "SENSE_ENABLE_PATH",
+        "WORDLINE_ENABLE_PATH",
+        "WRITE_ENABLE_PATH",
+        "bitcell_array",
+        "column_mux",
+        "decoder_gate_cells",
+        "dummy_array",
+        "precharge",
+        "replica_array",
+        "row_decoder",
+        "sense_amp",
+        "wordline_decoder",
+        "wordline_driver",
+        "wordline_driver_gate_cells",
+        "write_driver"
+      ],
+      "rail_source": "L3 module_boundary_rails + module rail_report metadata",
+      "stitch_strategy": "deterministic_top_perimeter_spine_with_vertical_module_drops",
+      "horizontal_stitch_required": true,
+      "vertical_stitch_required": true,
+      "stitch_status": "TOP_LEVEL_STITCH_PENDING_L5_VERIFICATION",
+      "requires_L5_verification": true
+    }
+  ]
+}

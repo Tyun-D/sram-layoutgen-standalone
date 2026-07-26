@@ -1,0 +1,706 @@
+{
+  "scope": "step5_13_wordlinedriver_adapter_audit",
+  "inputs": {
+    "contracts": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+    "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+    "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45"
+  },
+  "openyield_contract": {
+    "original_module_name": "WORDLINEDRIVER",
+    "canonical_module_name": "wl_driver",
+    "role": "wordline_driver",
+    "pin_list": [
+      "VDD",
+      "VSS",
+      "A",
+      "B",
+      "Z"
+    ],
+    "canonical_pins": [
+      "vdd",
+      "gnd",
+      "decoder_input",
+      "wordline_enable",
+      "wl"
+    ],
+    "power_pins": {
+      "VDD": "vdd",
+      "VSS": "gnd"
+    },
+    "notes": [
+      "A is decoder_input, B is active-high wordline_enable, and Z is wl; OpenYield source and testbench wiring confirm the polarity.",
+      "semantic_confirmation_complete"
+    ],
+    "warnings": []
+  },
+  "openyield_source_audit": {
+    "source_file": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\wordline_driver.py",
+    "testbench_file": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\testbenches\\sram_6t_core_testbench.py",
+    "name_constant": "WORDLINEDRIVER",
+    "nodes": [
+      "VDD",
+      "VSS",
+      "A",
+      "B",
+      "Z"
+    ],
+    "topology": "nand2_plus_inverter",
+    "a_source": "decoder_input",
+    "b_source": "wordline_enable",
+    "z_sink": "wl",
+    "b_polarity": "high_active",
+    "a_decoder_input_confirmed": true,
+    "b_wordline_enable_confirmed": true,
+    "z_wl_confirmed": true,
+    "high_active_confirmed": true,
+    "evidence": [
+      "WORDLINEDRIVER.NAME and NODES are declared in sram_compiler/subcircuits/wordline_driver.py.",
+      "Driver chain is NAND2 -> inverter, so Z is asserted only when A and B are both high.",
+      "testbench create_wl_driver passes decoder_enable to A and WL_EN to B.",
+      "WL row output is passed as the Z sink in the testbench instance connections.",
+      "Testbench connects decoder_enable to A and WL_EN to B."
+    ]
+  },
+  "local_macro": {
+    "macro_name": "gen_wl_driver",
+    "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_wl_driver.gds",
+    "spice_path": null,
+    "gds_bbox": {
+      "x0": 0.0,
+      "y0": 0.0,
+      "x1": 1.5499999999999996,
+      "y1": 1.5649999999999997
+    },
+    "raw_gds_labels": [],
+    "primary_gds_label_count": 0,
+    "pin_audit_gds_path": "technology\\freepdk45\\gds_lib\\openram_replacements\\gen_wl_driver.gds",
+    "pin_audit_labels": [
+      "Z",
+      "A",
+      "B",
+      "gnd",
+      "vdd",
+      "G",
+      "S",
+      "D",
+      "G",
+      "S",
+      "D",
+      "G",
+      "S",
+      "S",
+      "S",
+      "S",
+      "D",
+      "A",
+      "Z",
+      "gnd",
+      "vdd",
+      "G",
+      "S",
+      "D",
+      "G",
+      "S",
+      "S",
+      "S",
+      "S",
+      "D",
+      "Z",
+      "gnd",
+      "vdd",
+      "A",
+      "B"
+    ],
+    "pin_audit_label_count": 35,
+    "spice_subckt_pins": [],
+    "audit": {
+      "macro_name": "gen_wl_driver",
+      "gds_path": "technology\\freepdk45\\gds_lib\\openram_replacements\\gen_wl_driver.gds",
+      "spice_path": null,
+      "bbox": {
+        "x0": -0.08,
+        "y0": -0.105,
+        "x1": 2.965,
+        "y1": 1.4000000000000001
+      },
+      "width": 3.045,
+      "height": 1.5050000000000001,
+      "labels": [
+        {
+          "text": "Z",
+          "layer": 11,
+          "texttype": 0,
+          "x": 1.855,
+          "y": 0.6225
+        },
+        {
+          "text": "A",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.2325,
+          "y": 0.4275
+        },
+        {
+          "text": "B",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.4475,
+          "y": 0.7075
+        },
+        {
+          "text": "gnd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 1.4825,
+          "y": 0.0
+        },
+        {
+          "text": "vdd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 1.4825,
+          "y": 1.365
+        },
+        {
+          "text": "G",
+          "layer": 9,
+          "texttype": 0,
+          "x": 0.1525,
+          "y": 0.09
+        },
+        {
+          "text": "S",
+          "layer": 1,
+          "texttype": 0,
+          "x": 0.045,
+          "y": 0.09
+        },
+        {
+          "text": "D",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.26,
+          "y": 0.09
+        },
+        {
+          "text": "G",
+          "layer": 9,
+          "texttype": 0,
+          "x": 0.1525,
+          "y": 0.09
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.045,
+          "y": 0.09
+        },
+        {
+          "text": "D",
+          "layer": 1,
+          "texttype": 0,
+          "x": 0.26,
+          "y": 0.09
+        },
+        {
+          "text": "G",
+          "layer": 9,
+          "texttype": 0,
+          "x": 0.84,
+          "y": 0.2
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 1.115,
+          "y": 0.06
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.5650000000000001,
+          "y": 0.06
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.045,
+          "y": 0.06
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 1.635,
+          "y": 0.06
+        },
+        {
+          "text": "D",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.84,
+          "y": 0.225
+        },
+        {
+          "text": "A",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.14,
+          "y": 0.6225
+        },
+        {
+          "text": "Z",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.9525,
+          "y": 0.6225
+        },
+        {
+          "text": "gnd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 1.03,
+          "y": 0.0
+        },
+        {
+          "text": "vdd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 1.03,
+          "y": 1.365
+        },
+        {
+          "text": "G",
+          "layer": 9,
+          "texttype": 0,
+          "x": 0.1525,
+          "y": 0.135
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.045,
+          "y": 0.135
+        },
+        {
+          "text": "D",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.26,
+          "y": 0.135
+        },
+        {
+          "text": "G",
+          "layer": 9,
+          "texttype": 0,
+          "x": 0.84,
+          "y": -0.08
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 1.635,
+          "y": 0.18
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 1.115,
+          "y": 0.18
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.045,
+          "y": 0.18
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.5650000000000001,
+          "y": 0.18
+        },
+        {
+          "text": "D",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.84,
+          "y": 0.015
+        },
+        {
+          "text": "Z",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.685,
+          "y": 0.9400000000000001
+        },
+        {
+          "text": "gnd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.45,
+          "y": 0.0
+        },
+        {
+          "text": "vdd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.45,
+          "y": 1.365
+        },
+        {
+          "text": "A",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.2325,
+          "y": 0.4275
+        },
+        {
+          "text": "B",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.4475,
+          "y": 0.7075
+        }
+      ],
+      "pins": [
+        {
+          "pin_name": "vdd",
+          "canonical_pin": "vdd",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 1.4825,
+            "y": 1.365
+          },
+          "pin_shape_bbox": {
+            "x0": 0.0,
+            "y0": 1.3325,
+            "x1": 2.965,
+            "y1": 1.3975
+          },
+          "pin_side": "top",
+          "distance_to_boundary": 0.03500000000000014,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "gnd",
+          "canonical_pin": "gnd",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 1.4825,
+            "y": 0.0
+          },
+          "pin_shape_bbox": {
+            "x0": 0.0,
+            "y0": -0.0325,
+            "x1": 2.965,
+            "y1": 0.0325
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.105,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "A",
+          "canonical_pin": "decoder_input",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.2325,
+            "y": 0.4275
+          },
+          "pin_shape_bbox": {
+            "x0": 0.165,
+            "y0": 0.395,
+            "x1": 0.3,
+            "y1": 0.46
+          },
+          "pin_side": "left",
+          "distance_to_boundary": 0.3125,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "B",
+          "canonical_pin": "wordline_enable",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.4475,
+            "y": 0.7075
+          },
+          "pin_shape_bbox": {
+            "x0": 0.38,
+            "y0": 0.675,
+            "x1": 0.515,
+            "y1": 0.74
+          },
+          "pin_side": "left",
+          "distance_to_boundary": 0.5275,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "Z",
+          "canonical_pin": "wl",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 1.855,
+            "y": 0.6225
+          },
+          "pin_shape_bbox": {
+            "x0": 1.8225,
+            "y0": 0.59,
+            "x1": 1.8875,
+            "y1": 0.655
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.7275,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        }
+      ],
+      "power_rail_audit": {
+        "has_vdd": true,
+        "has_gnd": true,
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "vdd_boundary_touch": true,
+        "gnd_boundary_touch": false,
+        "vdd_orientation": "horizontal",
+        "gnd_orientation": "horizontal",
+        "can_share_left_right": false,
+        "can_share_top_bottom": false,
+        "rail_continuity_status": "rail_needs_manual_review",
+        "notes": []
+      },
+      "abutment_readiness": "unknown_need_gds_pin_audit",
+      "semantic_flags": [],
+      "gds_reader_status": "ok",
+      "notes": []
+    }
+  },
+  "power_status": "vdd_gnd_metadata_present",
+  "adapter": {
+    "openyield_module": "WORDLINEDRIVER",
+    "local_macro": "gen_wl_driver",
+    "pin_adaptations": [
+      {
+        "openyield_pin": "VDD",
+        "local_pin": "vdd",
+        "canonical_signal": "vdd",
+        "adaptation_type": "direct_physical_pin",
+        "required": true,
+        "semantic_status": "confirmed",
+        "notes": [
+          "Power pin is present in GDS, SPICE, and contract metadata."
+        ]
+      },
+      {
+        "openyield_pin": "VSS",
+        "local_pin": "gnd",
+        "canonical_signal": "gnd",
+        "adaptation_type": "direct_physical_pin",
+        "required": true,
+        "semantic_status": "confirmed",
+        "notes": [
+          "Ground pin is present in GDS, SPICE, and contract metadata."
+        ]
+      },
+      {
+        "openyield_pin": "A",
+        "local_pin": "decoder_input",
+        "canonical_signal": "decoder_input",
+        "adaptation_type": "semantic_alias",
+        "required": true,
+        "semantic_status": "confirmed",
+        "notes": [
+          "OpenYield A drives the decoder input into the NAND stage."
+        ]
+      },
+      {
+        "openyield_pin": "B",
+        "local_pin": "wordline_enable",
+        "canonical_signal": "wordline_enable",
+        "adaptation_type": "semantic_alias",
+        "required": true,
+        "semantic_status": "confirmed_active_high",
+        "notes": [
+          "OpenYield B feeds the NAND enable input.",
+          "B is active-high in the NAND2+INV chain."
+        ]
+      },
+      {
+        "openyield_pin": "Z",
+        "local_pin": "wl",
+        "canonical_signal": "wl",
+        "adaptation_type": "direct_physical_pin",
+        "required": true,
+        "semantic_status": "confirmed",
+        "notes": [
+          "OpenYield Z is the final wordline output after inversion."
+        ]
+      }
+    ],
+    "power_status": "vdd_gnd_metadata_present",
+    "output_status": "wl_output_confirmed",
+    "enable_semantics_status": "confirmed_active_high",
+    "safe_for_physical_mapping": true,
+    "safe_for_shared_rail": false,
+    "can_enter_limited_placement": true,
+    "notes": [
+      "OpenYield WORDLINEDRIVER is a NAND2 followed by an inverter.",
+      "A maps to decoder_input, B maps to wordline_enable, and Z is the final wl output.",
+      "The enable is active-high because the NAND stage requires both A and B to be asserted before the output inverter drives WL high.",
+      "Shared rail remains disabled until a separate rail continuity proof exists."
+    ]
+  },
+  "semantics": {
+    "A_decoder_input_present": true,
+    "B_wordline_enable_present": true,
+    "B_high_active_confirmed": true,
+    "Z_wl_present": true,
+    "A_source": "decoder_input",
+    "B_source": "wordline_enable",
+    "Z_sink": "wl"
+  },
+  "pin_mapping_table": [
+    {
+      "openyield_pin": "VDD",
+      "local_pin": "vdd",
+      "canonical_signal": "vdd",
+      "required": true,
+      "adaptation_type": "direct_physical_pin",
+      "semantic_status": "confirmed",
+      "local_pin_shape_source": "label_plus_shape",
+      "local_pin_layer": "11/texttype0",
+      "contract_pin_present": true,
+      "notes": [
+        "Power pin is present in GDS, SPICE, and contract metadata."
+      ]
+    },
+    {
+      "openyield_pin": "VSS",
+      "local_pin": "gnd",
+      "canonical_signal": "gnd",
+      "required": true,
+      "adaptation_type": "direct_physical_pin",
+      "semantic_status": "confirmed",
+      "local_pin_shape_source": "label_plus_shape",
+      "local_pin_layer": "11/texttype0",
+      "contract_pin_present": true,
+      "notes": [
+        "Ground pin is present in GDS, SPICE, and contract metadata."
+      ]
+    },
+    {
+      "openyield_pin": "A",
+      "local_pin": "decoder_input",
+      "canonical_signal": "decoder_input",
+      "required": true,
+      "adaptation_type": "semantic_alias",
+      "semantic_status": "confirmed",
+      "local_pin_shape_source": "label_plus_shape",
+      "local_pin_layer": "11/texttype0",
+      "contract_pin_present": true,
+      "notes": [
+        "OpenYield A drives the decoder input into the NAND stage."
+      ]
+    },
+    {
+      "openyield_pin": "B",
+      "local_pin": "wordline_enable",
+      "canonical_signal": "wordline_enable",
+      "required": true,
+      "adaptation_type": "semantic_alias",
+      "semantic_status": "confirmed_active_high",
+      "local_pin_shape_source": "label_plus_shape",
+      "local_pin_layer": "11/texttype0",
+      "contract_pin_present": true,
+      "notes": [
+        "OpenYield B feeds the NAND enable input.",
+        "B is active-high in the NAND2+INV chain."
+      ]
+    },
+    {
+      "openyield_pin": "Z",
+      "local_pin": "wl",
+      "canonical_signal": "wl",
+      "required": true,
+      "adaptation_type": "direct_physical_pin",
+      "semantic_status": "confirmed",
+      "local_pin_shape_source": "label_plus_shape",
+      "local_pin_layer": "11/texttype0",
+      "contract_pin_present": true,
+      "notes": [
+        "OpenYield Z is the final wordline output after inversion."
+      ]
+    }
+  ],
+  "safe_for_physical_mapping": true,
+  "safe_for_shared_rail": false,
+  "can_enter_wordlinedriver_limited_placement": true,
+  "can_enter_limited_placement": true,
+  "limited_placement_plan": {
+    "macro_name": "gen_wl_driver",
+    "rows": 4,
+    "origin_x": 0.0,
+    "origin_y": 0.0,
+    "pitch_y": 1.565,
+    "row_orientation_policy": "all_r0",
+    "safe_for_physical_mapping": true,
+    "safe_for_shared_rail": false,
+    "can_enter_limited_placement": true,
+    "notes": [
+      "Representative smoke plan only.",
+      "One driver is placed per row with R0 orientation.",
+      "Routing and GDS writer are intentionally unchanged."
+    ]
+  },
+  "semantic_confirmation": {
+    "A_decoder_input": true,
+    "B_wordline_enable": true,
+    "B_active_high": true,
+    "Z_wl": true,
+    "conclusion": "confirmed_active_high"
+  },
+  "semantic_coexistence": {
+    "with_storage_array": true,
+    "with_columnmux": true,
+    "with_senseamp": true,
+    "reason": "The audit is read-only and only confirms the wordline-driver contract plus a limited placement plan."
+  },
+  "wordline_driver_pin_labels_verified": true,
+  "wordline_driver_pin_report_consistent": true,
+  "standalone_modified": false,
+  "routing_changed": false,
+  "gds_writer_changed": false,
+  "wordline_driver_changed": false,
+  "notes": [
+    "OpenYield WORDLINEDRIVER is a NAND2 followed by an inverter.",
+    "A maps to decoder_input, B maps to wordline_enable, and Z is the final wl output.",
+    "The enable is active-high because the NAND stage requires both A and B to be asserted before the output inverter drives WL high.",
+    "Shared rail remains disabled until a separate rail continuity proof exists.",
+    "This audit is read-only and does not modify standalone, routing, or GDS writer code.",
+    "The OpenYield source chain confirms a NAND2 followed by an inverter, so B is active-high and Z is the final WL output."
+  ]
+}

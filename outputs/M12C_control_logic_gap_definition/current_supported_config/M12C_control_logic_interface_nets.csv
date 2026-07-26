@@ -1,0 +1,13 @@
+net_name,role,direction,consumer_or_producer,adjacent_module
+clk,input,top_or_left_entry,TIME,TIME
+csb,input,top_or_left_entry,TIME,TIME
+web,input,top_or_left_entry,TIME,TIME
+A[*],input,left_entry_toward_decoder,ADDR_DFF/TIME,DECODER_CASCADE
+DIN[*],input,left_or_bottom_entry_for_write_path,DATA_DFF/TIME,WRITEDRIVER
+rbl,input,right_entry_from_replica,TIME,replica_column
+wl_en,output,right_toward_wordline_driver,TIME,WORDLINEDRIVER
+PRE,output,top_or_right_toward_precharge,TIME,PRECHARGE
+s_en,output,top_or_right_toward_sense_amp,TIME,SENSEAMP
+w_en,output,bottom_or_right_toward_write_driver,TIME,WRITEDRIVER
+VDD,power,horizontal_rail_handoff,TIME and neighbor rows,global_power
+VSS,ground,horizontal_rail_handoff,TIME and neighbor rows,global_power

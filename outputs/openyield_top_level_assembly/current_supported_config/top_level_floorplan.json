@@ -1,0 +1,82 @@
+{
+  "config_name": "current_supported_config",
+  "placement_strategy": "deterministic_zone_based_l4_assembly",
+  "floorplan_bbox": {
+    "x0": 0.0,
+    "y0": 0.0,
+    "x1": 43.715,
+    "y1": 25.26,
+    "width": 43.715,
+    "height": 25.26
+  },
+  "zones": [
+    {
+      "name": "left_control_column",
+      "modules": [
+        "row_decoder",
+        "wordline_decoder",
+        "decoder_gate_cells",
+        "wordline_driver",
+        "wordline_driver_gate_cells"
+      ],
+      "bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 5.2825,
+        "y1": 16.884999999999998
+      },
+      "reason": "Keep decode/wordline-related modules adjacent to the storage edge for deterministic control-side floorplanning."
+    },
+    {
+      "name": "center_storage_cluster",
+      "modules": [
+        "dummy_array",
+        "bitcell_array",
+        "replica_array"
+      ],
+      "bbox": {
+        "x0": 6.2825,
+        "y0": 0.0,
+        "x1": 17.232499999999998,
+        "y1": 7.68
+      },
+      "reason": "Place storage macros in the center and preserve standalone module boundaries without resizing them in L4."
+    },
+    {
+      "name": "right_data_column",
+      "modules": [
+        "precharge",
+        "column_mux",
+        "sense_amp",
+        "write_driver"
+      ],
+      "bbox": {
+        "x0": 18.232499999999998,
+        "y0": 0.0,
+        "x1": 19.072499999999998,
+        "y1": 15.885
+      },
+      "reason": "Collect precharge/mux/sense/write macros on the read-write datapath side."
+    },
+    {
+      "name": "top_control_ring",
+      "modules": [
+        "CONTROL_LOGIC",
+        "DFF_ROW",
+        "DELAY_CHAIN",
+        "GATED_CLOCK_PATH",
+        "WORDLINE_ENABLE_PATH",
+        "PRECHARGE_ENABLE_PATH",
+        "SENSE_ENABLE_PATH",
+        "WRITE_ENABLE_PATH"
+      ],
+      "bbox": {
+        "x0": 0.0,
+        "y0": 17.685,
+        "x1": 43.715,
+        "y1": 25.259999999999998
+      },
+      "reason": "Place clock/control/timing helpers above the bank candidate to keep their channels explicit for L5 routing handoff."
+    }
+  ]
+}

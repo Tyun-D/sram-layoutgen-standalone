@@ -1,0 +1,176 @@
+{
+  "scope": "step6_8_openyield_control_target_envelopes",
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "addr_width": 5,
+  "data_width": 4,
+  "decoder_input_anchor_summary": {
+    "anchor_name": "DECODER_INPUT_ANCHOR",
+    "target_block": "DECODER_CASCADE",
+    "anchor_policy": "metadata_window",
+    "input_nets": [
+      "A[0]",
+      "A[1]",
+      "A[2]",
+      "A[3]",
+      "A[4]"
+    ],
+    "source_nets": [
+      "addr_q[0]",
+      "addr_q[1]",
+      "addr_q[2]",
+      "addr_q[3]",
+      "addr_q[4]"
+    ],
+    "source_window": "ADDR_TO_DECODER_WINDOW",
+    "geometry_source": "metadata_only",
+    "decoder_side_geometry_proven": false,
+    "decoder_pin_proof_required": true,
+    "physical_access_proven": false,
+    "physical_routing_proven": false,
+    "bbox": {
+      "x0": 15.099999999999984,
+      "y0": 0.0,
+      "x1": 17.099999999999984,
+      "y1": 2.67,
+      "width": 2.0,
+      "height": 2.67
+    },
+    "side_hint": "decoder_input_side",
+    "metadata_only": true,
+    "decoder_anchor_geometry_source": "metadata_window"
+  },
+  "write_driver_input_anchor_summary": {
+    "anchor_name": "WRITEDRIVER_INPUT_ANCHOR",
+    "target_block": "WRITEDRIVER",
+    "anchor_policy": "gds_pin_side",
+    "input_nets": [
+      "DIN[0]",
+      "DIN[1]",
+      "DIN[2]",
+      "DIN[3]"
+    ],
+    "source_nets": [
+      "din_q[0]",
+      "din_q[1]",
+      "din_q[2]",
+      "din_q[3]"
+    ],
+    "source_window": "DATA_TO_WRITEDRIVER_WINDOW",
+    "geometry_source": "write_driver_gds_pin_side",
+    "write_driver_side_pin_known": true,
+    "write_driver_input_side": "bottom",
+    "physical_access_proven": true,
+    "physical_routing_proven": false,
+    "bbox": {
+      "x0": 0.0,
+      "y0": 8.01,
+      "x1": 0.839999999999995,
+      "y1": 10.01,
+      "width": 0.839999999999995,
+      "height": 2.0
+    },
+    "side_hint": "write_driver_input_side",
+    "metadata_only": false
+  },
+  "decoder_generated_block_envelope": {
+    "envelope_name": "DECODER_CASCADE_ENVELOPE",
+    "target_block": "DECODER_CASCADE",
+    "envelope_policy": "metadata_generated_block",
+    "geometry_source": "decomposition_graph_plus_anchor_window",
+    "pin_proven": false,
+    "input_nets": [
+      "A[0]",
+      "A[1]",
+      "A[2]",
+      "A[3]",
+      "A[4]"
+    ],
+    "input_source_nets": [
+      "addr_q[0]",
+      "addr_q[1]",
+      "addr_q[2]",
+      "addr_q[3]",
+      "addr_q[4]"
+    ],
+    "input_anchor": "DECODER_INPUT_ANCHOR",
+    "input_window": "ADDR_TO_DECODER_WINDOW",
+    "input_side_hint": "decoder_input_side",
+    "output_nets": [
+      "WL[*]"
+    ],
+    "output_consumer": "WORDLINEDRIVER.A / decoder_input",
+    "output_side_hint": "wordline_driver_side",
+    "metadata_only": true,
+    "physical_access_proven": false,
+    "physical_routing_proven": false,
+    "candidate_bbox": {
+      "x0": 17.099999999999984,
+      "y0": 0.0,
+      "x1": 21.099999999999984,
+      "y1": 2.67,
+      "width": 4.0,
+      "height": 2.67
+    },
+    "decoder_envelope_bbox_is_estimated": true,
+    "decoder_candidate_bbox_is_metadata_only": true,
+    "decoder_candidate_bbox_not_physical_layout": true,
+    "decoder_hardmacro_pin_proven": false
+  },
+  "decoder_input_side_hint": "decoder_input_side",
+  "decoder_output_side_hint": "wordline_driver_side",
+  "decoder_envelope_pin_proven": false,
+  "write_driver_target_reference": {
+    "target_name": "WRITEDRIVER_ARRAY_INPUT_TARGET",
+    "target_block": "WRITEDRIVER",
+    "target_policy": "gds_pin_side_array_reference",
+    "geometry_source": "write_driver_gds_pin_side",
+    "write_driver_side_pin_known": true,
+    "write_driver_input_side": "bottom",
+    "input_nets": [
+      "DIN[0]",
+      "DIN[1]",
+      "DIN[2]",
+      "DIN[3]"
+    ],
+    "source_nets": [
+      "din_q[0]",
+      "din_q[1]",
+      "din_q[2]",
+      "din_q[3]"
+    ],
+    "source_window": "DATA_TO_WRITEDRIVER_WINDOW",
+    "array_reference": "WRITEDRIVER column/data group input side",
+    "metadata_only": true,
+    "physical_access_proven": true,
+    "physical_routing_proven": false,
+    "target_bbox": {
+      "x0": 0.0,
+      "y0": 8.01,
+      "x1": 0.839999999999995,
+      "y1": 10.01,
+      "width": 0.839999999999995,
+      "height": 2.0
+    }
+  },
+  "write_driver_input_side": "bottom",
+  "decoder_envelope_bound": true,
+  "write_driver_target_bound": true,
+  "decoder_envelope_is_metadata_only": true,
+  "write_driver_target_uses_gds_pin_side": true,
+  "decoder_envelope_conflict_found": false,
+  "write_driver_target_conflict_found": false,
+  "hardmacro_overlap_found": false,
+  "physical_routing_proven": false,
+  "safe_for_target_envelope_metadata": true,
+  "can_enter_very_limited_physical_smoke": false,
+  "can_enter_standalone_control_placement": false,
+  "blocker_list": [
+    "Decoder envelope is still an estimated generated-block metadata box, not a physical decoder layout.",
+    "Write-driver target is tied to GDS pin-side evidence, but no routed connection from DATA_DFF_ROW exists yet.",
+    "No physical routing or clock skew proof exists for decoder/output handoff.",
+    "Very-limited physical smoke still lacks decoder-side concrete layout evidence."
+  ],
+  "step_6_9_recommendation": "Next, refine DECODER_CASCADE into explicit stage/group metadata candidates, or stop and summarize blockers before any control-row physical smoke attempt."
+}

@@ -1,0 +1,147 @@
+{
+  "scope": "step6_42_openyield_time_control_final_boundary_summary",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "boundary_rows": [
+    {
+      "boundary_name": "goal_progress_highest_stage",
+      "status": "Post-Stage D / abstract_floorplan_payload",
+      "gate_closed": false,
+      "evidence": "goal_chain_openyield_time_control_progress_audit",
+      "notes": "Tracks how far the metadata-only chain has progressed."
+    },
+    {
+      "boundary_name": "standalone_modification_gate",
+      "status": false,
+      "gate_closed": true,
+      "evidence": "step6_37_openyield_time_control_prototype_execution_guard_audit",
+      "notes": "Standalone remains closed across goal audit, execution guard, and state machine."
+    },
+    {
+      "boundary_name": "time_control_gds_generation_gate",
+      "status": false,
+      "gate_closed": true,
+      "evidence": "step6_37_openyield_time_control_prototype_execution_guard_audit",
+      "notes": "TIME/control GDS generation remains forbidden in all metadata-only audits."
+    },
+    {
+      "boundary_name": "physical_placement_gate",
+      "status": false,
+      "gate_closed": true,
+      "evidence": "step6_38_openyield_time_control_prototype_state_machine_audit",
+      "notes": "Physical placement remains closed through all audited transitions."
+    },
+    {
+      "boundary_name": "interface_surface_scope",
+      "status": true,
+      "gate_closed": false,
+      "evidence": "step6_39_openyield_time_control_prototype_interface_surface_audit",
+      "notes": "Builder I/O surface is restricted to metadata-only plan/report artifacts."
+    },
+    {
+      "boundary_name": "artifact_contract_scope",
+      "status": true,
+      "gate_closed": false,
+      "evidence": "step6_40_openyield_time_control_prototype_artifact_contract_audit",
+      "notes": "Artifact schema forbids physical-result fields and requires metadata-only sections."
+    },
+    {
+      "boundary_name": "output_regression_scope",
+      "status": true,
+      "gate_closed": false,
+      "evidence": "step6_41_openyield_time_control_builder_output_regression_audit",
+      "notes": "Current sample outputs remain free of forbidden physical-looking fields."
+    }
+  ],
+  "reopening_requirements": [
+    {
+      "gate_name": "standalone_modification_gate",
+      "still_closed": true,
+      "required_new_evidence": [
+        "legal TIME/control placement proof",
+        "routing proof for TIME/control nets",
+        "updated execution guard explicitly allowing standalone integration",
+        "updated state machine explicitly opening standalone transition"
+      ]
+    },
+    {
+      "gate_name": "time_control_gds_generation_gate",
+      "still_closed": true,
+      "required_new_evidence": [
+        "routing geometry proof",
+        "layout assembly proof",
+        "DRC/LVS-ready physical boundary evidence",
+        "updated artifact/output audits allowing physical result classes"
+      ]
+    },
+    {
+      "gate_name": "physical_placement_gate",
+      "still_closed": true,
+      "required_new_evidence": [
+        "legal placement proof for TIME/control subblocks",
+        "rail continuity proof",
+        "delay timing proof",
+        "wen-delay timing proof",
+        "updated readiness audit explicitly reopening physical placement"
+      ]
+    }
+  ],
+  "source_reports": {
+    "goal_progress_audit": "goal_chain_openyield_time_control_progress_audit",
+    "prototype_execution_guard": "step6_37_openyield_time_control_prototype_execution_guard_audit",
+    "prototype_state_machine": "step6_38_openyield_time_control_prototype_state_machine_audit",
+    "prototype_interface_surface": "step6_39_openyield_time_control_prototype_interface_surface_audit",
+    "prototype_artifact_contract": "step6_40_openyield_time_control_prototype_artifact_contract_audit",
+    "builder_output_regression": "step6_41_openyield_time_control_builder_output_regression_audit"
+  },
+  "residual_blockers": [
+    "rail continuity proof is still missing",
+    "legal routing proof is still missing",
+    "delay timing proof is still missing",
+    "wen-delay timing proof is still missing",
+    "no TIME/control physical placement proof exists",
+    "no TIME/control GDS generation is allowed yet",
+    "standalone integration remains blocked",
+    "prototype execution guard still forbids standalone/routing/GDS escalation",
+    "prototype state machine still forbids auto-upgrade into physical stages",
+    "interface surface still forbids output classes like gds_layout and routed_geometry",
+    "artifact contract still forbids keys like gds_path, placed_instances, and physical_bbox"
+  ],
+  "consistency_checks": {
+    "final_boundary_summary_available": true,
+    "highest_stage_reached_is_metadata_only": true,
+    "standalone_gate_closed": true,
+    "time_control_gds_gate_closed": true,
+    "physical_placement_gate_closed": true,
+    "guardrails_consistent": true,
+    "state_machine_consistent": true,
+    "interface_surface_consistent": true,
+    "artifact_contract_consistent": true,
+    "output_regression_consistent": true,
+    "final_boundary_clean": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "audit_summary": {
+    "final_boundary_summary_available": true,
+    "highest_stage_reached": "Post-Stage D / abstract_floorplan_payload",
+    "final_boundary_clean": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false,
+    "legacy_path_unchanged": true
+  },
+  "notes": [
+    "This summary consolidates the final metadata-only boundary after Stage D and later guard audits.",
+    "Passing this summary still does not authorize standalone integration, routing, GDS generation, or physical placement.",
+    "The reopening requirements list what new evidence would be needed before any currently closed gate may change state."
+  ],
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "can_modify_standalone_now": false,
+  "can_generate_time_control_gds_now": false,
+  "can_enter_physical_placement_now": false
+}

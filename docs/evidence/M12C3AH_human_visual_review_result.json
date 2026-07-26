@@ -1,0 +1,78 @@
+{
+  "schema_version": "M12C3A4R_HUMAN_REVIEW_STATE_V1",
+  "current_stage": "M12C3A4R",
+  "history": {
+    "m12c3a_original_transmission_gate": {
+      "human_review_passed": false,
+      "in_connected_to_vdd": true,
+      "in_connected_to_vss": true,
+      "vdd_vss_short_through_in": true,
+      "ctr_p_poly_only": true,
+      "ctr_n_poly_only": true
+    },
+    "m12c3a3_repaired_transmission_gate": {
+      "human_review_passed": true,
+      "in_isolated_from_vdd_vss": true,
+      "out_isolated_from_vdd_vss": true,
+      "in_out_direct_short_absent": true,
+      "ctr_p_metal_accessible": true,
+      "ctr_n_metal_accessible": true
+    },
+    "m12c3a4_label_cleanup": {
+      "duplicate_label_visual_artifact_detected": true,
+      "duplicate_label_affects_conductive_geometry": false,
+      "duplicate_label_cleanup_required_before_composite_generation": true
+    },
+    "previous_flat_payload_snapshot": {
+      "pinv_human_review_completed": true,
+      "pinv_human_review_passed": true,
+      "pinv_reviewed_variant_count": 9,
+      "transmission_gate_human_review_completed": true,
+      "transmission_gate_human_review_passed": true,
+      "transmission_gate_real_pmos_present": true,
+      "transmission_gate_real_nmos_present": true,
+      "transmission_gate_in_out_intent_visible": true,
+      "transmission_gate_body_taps_visible": true,
+      "transmission_gate_in_connected_to_vdd": true,
+      "transmission_gate_in_connected_to_vss": true,
+      "transmission_gate_vdd_vss_short_through_in": true,
+      "transmission_gate_ctr_p_poly_only": true,
+      "transmission_gate_ctr_n_poly_only": true,
+      "transmission_gate_control_pins_metal_accessible": false,
+      "m12c3a_human_gate_passed": false,
+      "can_claim_generated_p0_primitives_human_verified": false,
+      "can_claim_control_logic_mapping_ready": false,
+      "can_claim_control_logic_physical_ready": false,
+      "transmission_gate_in_isolated_from_vdd_vss": true,
+      "transmission_gate_out_isolated_from_vdd_vss": true,
+      "transmission_gate_in_out_direct_short_absent": true,
+      "transmission_gate_vdd_only_connects_nwell_tap": true,
+      "transmission_gate_vss_only_connects_pwell_tap": true,
+      "transmission_gate_ctr_p_metal_accessible": true,
+      "transmission_gate_ctr_n_metal_accessible": true,
+      "transmission_gate_pmos_present": true,
+      "transmission_gate_nmos_present": true,
+      "transmission_gate_visual_fracture_absent": true,
+      "transmission_gate_visual_overlap_error_absent": true,
+      "m12c3a3h_human_gate_passed": true,
+      "duplicate_label_visual_artifact_detected": true,
+      "duplicate_label_affects_conductive_geometry": false,
+      "duplicate_label_cleanup_required_before_composite_generation": true
+    }
+  },
+  "current_qualified_state": {
+    "pinv_human_review_passed": true,
+    "transmission_gate_human_review_passed": true,
+    "transmission_gate_in_connected_to_vdd": false,
+    "transmission_gate_in_connected_to_vss": false,
+    "transmission_gate_out_connected_to_vdd": false,
+    "transmission_gate_out_connected_to_vss": false,
+    "transmission_gate_vdd_vss_short_present": false,
+    "transmission_gate_in_out_direct_short_present": false,
+    "transmission_gate_ctr_p_metal_accessible": true,
+    "transmission_gate_ctr_n_metal_accessible": true,
+    "canonical_label_cleanup_completed": true,
+    "duplicate_label_cleanup_required_before_composite_generation": false,
+    "p0_primitives_reusable_for_composition": true
+  }
+}

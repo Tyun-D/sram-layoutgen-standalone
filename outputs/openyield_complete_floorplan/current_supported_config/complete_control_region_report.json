@@ -1,0 +1,403 @@
+{
+  "control_region": {
+    "x0": 6.5375,
+    "y0": 4.425,
+    "x1": 53.7525,
+    "y1": 12.0,
+    "width": 47.215,
+    "height": 7.575
+  },
+  "modules": [
+    {
+      "module_name": "CONTROL_LOGIC",
+      "physical_role": "CONTROL_LOGIC",
+      "region": "CONTROL_REGION",
+      "instance_name": "CONTROL_LOGIC_inst",
+      "source_access_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_pin_access_repair/current_supported_config/module_access_views/CONTROL_LOGIC/CONTROL_LOGIC_access.gds",
+      "pins_repaired_json": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_pin_access_repair/current_supported_config/module_access_views/CONTROL_LOGIC/pins_repaired.json",
+      "geometry_backed_pin_count": 3,
+      "synthesized_pin_count": 11,
+      "placed_origin": {
+        "x": 6.5375,
+        "y": 4.425
+      },
+      "placed_bbox": {
+        "x0": 6.5375,
+        "y0": 4.425,
+        "x1": 12.6425,
+        "y1": 8.693,
+        "width": 6.105,
+        "height": 4.268
+      },
+      "orientation": "R0",
+      "access_edge_facing_target": "north_toward_channels",
+      "row_pitch_alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "column_pitch_alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "control_channel_access_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "power_strap_access_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "uses_layoutgen_reference_rule": true,
+      "uses_openram_reference_rule": true,
+      "structure_role_satisfied": true,
+      "ready_for_C4_signal_routing": true,
+      "ready_for_C5_power_stitch": true,
+      "blocking_gap": "",
+      "next_required_action": "Use this placement as the C4/C5 anchor; do not treat guide geometry as final routing.",
+      "pin_access_status_summary": {
+        "geometry_backed_pin_count": 3,
+        "synthesized_pin_count": 11
+      }
+    },
+    {
+      "module_name": "DELAY_CHAIN",
+      "physical_role": "DELAY_CHAIN",
+      "region": "CONTROL_REGION",
+      "instance_name": "DELAY_CHAIN_inst",
+      "source_access_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_pin_access_repair/current_supported_config/module_access_views/DELAY_CHAIN/DELAY_CHAIN_access.gds",
+      "pins_repaired_json": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_pin_access_repair/current_supported_config/module_access_views/DELAY_CHAIN/pins_repaired.json",
+      "geometry_backed_pin_count": 2,
+      "synthesized_pin_count": 3,
+      "placed_origin": {
+        "x": 14.1425,
+        "y": 4.425
+      },
+      "placed_bbox": {
+        "x0": 14.1425,
+        "y0": 4.425,
+        "x1": 17.4325,
+        "y1": 7.043,
+        "width": 3.29,
+        "height": 2.618
+      },
+      "orientation": "R0",
+      "access_edge_facing_target": "north_toward_channels",
+      "row_pitch_alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "column_pitch_alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "control_channel_access_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "power_strap_access_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "uses_layoutgen_reference_rule": true,
+      "uses_openram_reference_rule": true,
+      "structure_role_satisfied": true,
+      "ready_for_C4_signal_routing": true,
+      "ready_for_C5_power_stitch": true,
+      "blocking_gap": "",
+      "next_required_action": "Use this placement as the C4/C5 anchor; do not treat guide geometry as final routing.",
+      "pin_access_status_summary": {
+        "geometry_backed_pin_count": 2,
+        "synthesized_pin_count": 3
+      }
+    },
+    {
+      "module_name": "PRECHARGE_ENABLE_PATH",
+      "physical_role": "ENABLE_PATH",
+      "region": "CONTROL_REGION",
+      "instance_name": "PRECHARGE_ENABLE_PATH_inst",
+      "source_access_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_pin_access_repair/current_supported_config/module_access_views/PRECHARGE_ENABLE_PATH/PRECHARGE_ENABLE_PATH_access.gds",
+      "pins_repaired_json": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_pin_access_repair/current_supported_config/module_access_views/PRECHARGE_ENABLE_PATH/pins_repaired.json",
+      "geometry_backed_pin_count": 2,
+      "synthesized_pin_count": 3,
+      "placed_origin": {
+        "x": 18.9325,
+        "y": 4.425
+      },
+      "placed_bbox": {
+        "x0": 18.9325,
+        "y0": 4.425,
+        "x1": 23.1775,
+        "y1": 8.523,
+        "width": 4.245,
+        "height": 4.098
+      },
+      "orientation": "R0",
+      "access_edge_facing_target": "north_toward_channels",
+      "row_pitch_alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "column_pitch_alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "control_channel_access_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "power_strap_access_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "uses_layoutgen_reference_rule": true,
+      "uses_openram_reference_rule": true,
+      "structure_role_satisfied": true,
+      "ready_for_C4_signal_routing": true,
+      "ready_for_C5_power_stitch": true,
+      "blocking_gap": "",
+      "next_required_action": "Use this placement as the C4/C5 anchor; do not treat guide geometry as final routing.",
+      "pin_access_status_summary": {
+        "geometry_backed_pin_count": 2,
+        "synthesized_pin_count": 3
+      }
+    },
+    {
+      "module_name": "SENSE_ENABLE_PATH",
+      "physical_role": "ENABLE_PATH",
+      "region": "CONTROL_REGION",
+      "instance_name": "SENSE_ENABLE_PATH_inst",
+      "source_access_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_pin_access_repair/current_supported_config/module_access_views/SENSE_ENABLE_PATH/SENSE_ENABLE_PATH_access.gds",
+      "pins_repaired_json": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_pin_access_repair/current_supported_config/module_access_views/SENSE_ENABLE_PATH/pins_repaired.json",
+      "geometry_backed_pin_count": 2,
+      "synthesized_pin_count": 3,
+      "placed_origin": {
+        "x": 24.6775,
+        "y": 4.425
+      },
+      "placed_bbox": {
+        "x0": 24.6775,
+        "y0": 4.425,
+        "x1": 28.1,
+        "y1": 12.0,
+        "width": 3.4225,
+        "height": 7.575
+      },
+      "orientation": "R0",
+      "access_edge_facing_target": "north_toward_channels",
+      "row_pitch_alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "column_pitch_alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "control_channel_access_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "power_strap_access_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "uses_layoutgen_reference_rule": true,
+      "uses_openram_reference_rule": true,
+      "structure_role_satisfied": true,
+      "ready_for_C4_signal_routing": true,
+      "ready_for_C5_power_stitch": true,
+      "blocking_gap": "",
+      "next_required_action": "Use this placement as the C4/C5 anchor; do not treat guide geometry as final routing.",
+      "pin_access_status_summary": {
+        "geometry_backed_pin_count": 2,
+        "synthesized_pin_count": 3
+      }
+    },
+    {
+      "module_name": "WRITE_ENABLE_PATH",
+      "physical_role": "ENABLE_PATH",
+      "region": "CONTROL_REGION",
+      "instance_name": "WRITE_ENABLE_PATH_inst",
+      "source_access_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_pin_access_repair/current_supported_config/module_access_views/WRITE_ENABLE_PATH/WRITE_ENABLE_PATH_access.gds",
+      "pins_repaired_json": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_pin_access_repair/current_supported_config/module_access_views/WRITE_ENABLE_PATH/pins_repaired.json",
+      "geometry_backed_pin_count": 2,
+      "synthesized_pin_count": 3,
+      "placed_origin": {
+        "x": 29.6,
+        "y": 4.425
+      },
+      "placed_bbox": {
+        "x0": 29.6,
+        "y0": 4.425,
+        "x1": 31.2625,
+        "y1": 11.218,
+        "width": 1.6625,
+        "height": 6.793
+      },
+      "orientation": "R0",
+      "access_edge_facing_target": "north_toward_channels",
+      "row_pitch_alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "column_pitch_alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "control_channel_access_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "power_strap_access_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "uses_layoutgen_reference_rule": true,
+      "uses_openram_reference_rule": true,
+      "structure_role_satisfied": true,
+      "ready_for_C4_signal_routing": true,
+      "ready_for_C5_power_stitch": true,
+      "blocking_gap": "",
+      "next_required_action": "Use this placement as the C4/C5 anchor; do not treat guide geometry as final routing.",
+      "pin_access_status_summary": {
+        "geometry_backed_pin_count": 2,
+        "synthesized_pin_count": 3
+      }
+    },
+    {
+      "module_name": "WORDLINE_ENABLE_PATH",
+      "physical_role": "ENABLE_PATH",
+      "region": "CONTROL_REGION",
+      "instance_name": "WORDLINE_ENABLE_PATH_inst",
+      "source_access_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_pin_access_repair/current_supported_config/module_access_views/WORDLINE_ENABLE_PATH/WORDLINE_ENABLE_PATH_access.gds",
+      "pins_repaired_json": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_pin_access_repair/current_supported_config/module_access_views/WORDLINE_ENABLE_PATH/pins_repaired.json",
+      "geometry_backed_pin_count": 2,
+      "synthesized_pin_count": 3,
+      "placed_origin": {
+        "x": 32.7625,
+        "y": 4.425
+      },
+      "placed_bbox": {
+        "x0": 32.7625,
+        "y0": 4.425,
+        "x1": 36.63,
+        "y1": 7.528,
+        "width": 3.8675,
+        "height": 3.103
+      },
+      "orientation": "R0",
+      "access_edge_facing_target": "north_toward_channels",
+      "row_pitch_alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "column_pitch_alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "control_channel_access_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "power_strap_access_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "uses_layoutgen_reference_rule": true,
+      "uses_openram_reference_rule": true,
+      "structure_role_satisfied": true,
+      "ready_for_C4_signal_routing": true,
+      "ready_for_C5_power_stitch": true,
+      "blocking_gap": "",
+      "next_required_action": "Use this placement as the C4/C5 anchor; do not treat guide geometry as final routing.",
+      "pin_access_status_summary": {
+        "geometry_backed_pin_count": 2,
+        "synthesized_pin_count": 3
+      }
+    },
+    {
+      "module_name": "GATED_CLOCK_PATH",
+      "physical_role": "CLOCK_PATH",
+      "region": "CONTROL_REGION",
+      "instance_name": "GATED_CLOCK_PATH_inst",
+      "source_access_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_pin_access_repair/current_supported_config/module_access_views/GATED_CLOCK_PATH/GATED_CLOCK_PATH_access.gds",
+      "pins_repaired_json": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_pin_access_repair/current_supported_config/module_access_views/GATED_CLOCK_PATH/pins_repaired.json",
+      "geometry_backed_pin_count": 2,
+      "synthesized_pin_count": 3,
+      "placed_origin": {
+        "x": 38.13,
+        "y": 4.425
+      },
+      "placed_bbox": {
+        "x0": 38.13,
+        "y0": 4.425,
+        "x1": 40.8125,
+        "y1": 7.418,
+        "width": 2.6825,
+        "height": 2.993
+      },
+      "orientation": "R0",
+      "access_edge_facing_target": "north_toward_channels",
+      "row_pitch_alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "column_pitch_alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "control_channel_access_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "power_strap_access_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "uses_layoutgen_reference_rule": true,
+      "uses_openram_reference_rule": true,
+      "structure_role_satisfied": true,
+      "ready_for_C4_signal_routing": true,
+      "ready_for_C5_power_stitch": true,
+      "blocking_gap": "",
+      "next_required_action": "Use this placement as the C4/C5 anchor; do not treat guide geometry as final routing.",
+      "pin_access_status_summary": {
+        "geometry_backed_pin_count": 2,
+        "synthesized_pin_count": 3
+      }
+    },
+    {
+      "module_name": "DFF_ROW",
+      "physical_role": "DFF_ROW",
+      "region": "CONTROL_REGION",
+      "instance_name": "DFF_ROW_inst",
+      "source_access_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_pin_access_repair/current_supported_config/module_access_views/DFF_ROW/DFF_ROW_access.gds",
+      "pins_repaired_json": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_pin_access_repair/current_supported_config/module_access_views/DFF_ROW/pins_repaired.json",
+      "geometry_backed_pin_count": 11,
+      "synthesized_pin_count": 0,
+      "placed_origin": {
+        "x": 42.3125,
+        "y": 4.425
+      },
+      "placed_bbox": {
+        "x0": 42.3125,
+        "y0": 4.425,
+        "x1": 53.7525,
+        "y1": 7.095,
+        "width": 11.44,
+        "height": 2.67
+      },
+      "orientation": "R0",
+      "access_edge_facing_target": "north_toward_channels",
+      "row_pitch_alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "column_pitch_alignment_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "control_channel_access_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "power_strap_access_status": "ACCEPTABLE_FOR_CURRENT_CONFIG",
+      "uses_layoutgen_reference_rule": true,
+      "uses_openram_reference_rule": true,
+      "structure_role_satisfied": true,
+      "ready_for_C4_signal_routing": true,
+      "ready_for_C5_power_stitch": true,
+      "blocking_gap": "",
+      "next_required_action": "Use this placement as the C4/C5 anchor; do not treat guide geometry as final routing.",
+      "pin_access_status_summary": {
+        "geometry_backed_pin_count": 11,
+        "synthesized_pin_count": 0
+      }
+    }
+  ],
+  "top_io_plan": [
+    {
+      "pin_name": "address",
+      "pin_category": "ADDRESS",
+      "planned_top_edge": "left",
+      "planned_layer": "M4",
+      "source_internal_net": "A[*]",
+      "source_internal_access": "DFF_ROW:D[0]",
+      "pin_status": "GEOMETRY_BACKED_PIN",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    },
+    {
+      "pin_name": "din",
+      "pin_category": "DATA_IN",
+      "planned_top_edge": "left",
+      "planned_layer": "M4",
+      "source_internal_net": "DIN[*]",
+      "source_internal_access": "write_driver:din",
+      "pin_status": "GEOMETRY_BACKED_PIN",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    },
+    {
+      "pin_name": "dout",
+      "pin_category": "DATA_OUT",
+      "planned_top_edge": "right",
+      "planned_layer": "M4",
+      "source_internal_net": "DOUT[*]",
+      "source_internal_access": "sense_amp:dout",
+      "pin_status": "GEOMETRY_BACKED_PIN",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    },
+    {
+      "pin_name": "clk",
+      "pin_category": "CLOCK",
+      "planned_top_edge": "top",
+      "planned_layer": "M4",
+      "source_internal_net": "clk",
+      "source_internal_access": "CONTROL_LOGIC:clk",
+      "pin_status": "GEOMETRY_BACKED_PIN",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    },
+    {
+      "pin_name": "control",
+      "pin_category": "CONTROL",
+      "planned_top_edge": "top",
+      "planned_layer": "M4",
+      "source_internal_net": "control[*]",
+      "source_internal_access": "CONTROL_LOGIC:precharge_en",
+      "pin_status": "SYNTHESIZED_PIN_FOR_CURRENT_GENERATOR",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    },
+    {
+      "pin_name": "VDD",
+      "pin_category": "POWER",
+      "planned_top_edge": "top",
+      "planned_layer": "M5",
+      "source_internal_net": "VDD",
+      "source_internal_access": "bitcell_array:VDD",
+      "pin_status": "GEOMETRY_BACKED_PIN",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    },
+    {
+      "pin_name": "GND",
+      "pin_category": "GROUND",
+      "planned_top_edge": "bottom",
+      "planned_layer": "M5",
+      "source_internal_net": "GND",
+      "source_internal_access": "bitcell_array:GND",
+      "pin_status": "GEOMETRY_BACKED_PIN",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+blocker_index,blocker_text
+1,main_sram.py and equivalent_modeling/main_sram.py currently fail to import cleanly because the environment is missing the `regex` dependency.
+2,demo_run_a_testbench.py currently fails to import cleanly because the environment is missing `torch`.
+3,"The sample generated netlist is a testbench netlist with supplies, pulse sources, and TIME/control harness, not a pure authoritative SRAM top netlist."
+4,A clean layout-facing top netlist or graph export API is still missing.
+5,"Top-level parameter contracts for word_size, num_words, and words_per_row remain incomplete."

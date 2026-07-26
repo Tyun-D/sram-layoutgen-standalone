@@ -1,0 +1,27 @@
+# M12C3 Primitive Generator Requirement Matrix
+
+- logical_module=NMOS_DEVICE, required_generator_level=DEVICE, generation_priority=P0_REQUIRED_FIRST
+- logical_module=PMOS_DEVICE, required_generator_level=DEVICE, generation_priority=P0_REQUIRED_FIRST
+- logical_module=CONTACT, required_generator_level=DEVICE, generation_priority=P0_REQUIRED_FIRST
+- logical_module=VIA1, required_generator_level=DEVICE, generation_priority=P0_REQUIRED_FIRST
+- logical_module=POWER_TAP, required_generator_level=DEVICE, generation_priority=P0_REQUIRED_FIRST
+- logical_module=PINV, required_generator_level=PRIMITIVE_GATE, generation_priority=P0_REQUIRED_FIRST
+- logical_module=PINV1, required_generator_level=PRIMITIVE_GATE, generation_priority=P0_REQUIRED_FIRST
+- logical_module=PINV2, required_generator_level=PRIMITIVE_GATE, generation_priority=P0_REQUIRED_FIRST
+- logical_module=PINV3, required_generator_level=PRIMITIVE_GATE, generation_priority=P0_REQUIRED_FIRST
+- logical_module=PINV4, required_generator_level=PRIMITIVE_GATE, generation_priority=P0_REQUIRED_FIRST
+- logical_module=PINV_wl_en_bar, required_generator_level=PRIMITIVE_GATE, generation_priority=P0_REQUIRED_FIRST
+- logical_module=PNAND2, required_generator_level=PRIMITIVE_GATE, generation_priority=P0_REQUIRED_FIRST
+- logical_module=PNAND3, required_generator_level=PRIMITIVE_GATE, generation_priority=P0_REQUIRED_FIRST
+- logical_module=TRANSMISSION_GATE, required_generator_level=PRIMITIVE_GATE, generation_priority=P0_REQUIRED_FIRST
+- logical_module=AND2, required_generator_level=PRIMITIVE_GATE, generation_priority=P1_REQUIRED_FOR_DFF
+- logical_module=AND3, required_generator_level=PRIMITIVE_GATE, generation_priority=P1_REQUIRED_FOR_DFF
+- logical_module=DFF, required_generator_level=SEQUENTIAL_CELL, generation_priority=P1_REQUIRED_FOR_DFF
+- logical_module=DFF_BUF, required_generator_level=SEQUENTIAL_CELL, generation_priority=P1_REQUIRED_FOR_DFF
+- logical_module=ADDR_DFF, required_generator_level=SEQUENTIAL_CELL, generation_priority=P2_REQUIRED_FOR_CONTROL_PATH
+- logical_module=DATA_DFF, required_generator_level=SEQUENTIAL_CELL, generation_priority=P2_REQUIRED_FOR_CONTROL_PATH
+- logical_module=pdrive, required_generator_level=BUFFER_CHAIN, generation_priority=P2_REQUIRED_FOR_CONTROL_PATH
+- logical_module=pdrive2_for_pre, required_generator_level=BUFFER_CHAIN, generation_priority=P2_REQUIRED_FOR_CONTROL_PATH
+- logical_module=wl_pdrive, required_generator_level=BUFFER_CHAIN, generation_priority=P2_REQUIRED_FOR_CONTROL_PATH
+- logical_module=delay_chain, required_generator_level=DELAY_CHAIN, generation_priority=P2_REQUIRED_FOR_CONTROL_PATH
+- logical_module=WenDelayChain, required_generator_level=DELAY_CHAIN, generation_priority=P2_REQUIRED_FOR_CONTROL_PATH

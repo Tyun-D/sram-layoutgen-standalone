@@ -1,0 +1,26 @@
+# DFF BUF Reusable Manifest
+
+- stage: `Wave3 / DFF_BUF_HUMAN_REVIEW_SEAL_AND_REUSABLE_RELEASE`
+- reusable_status: `HUMAN_REVIEWED_REUSABLE_COMPOSITE`
+- logical_module: `DFF_BUF`
+- logical_source_class_function: `DFF_BUF.add_dff_buf`
+- physical_cell_name: `DFF_BUF_FPDK45_6058eaf43739_HPA1`
+- released_clean_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_reusable_release/DFF_BUF_reusable_clean.gds`
+- source_repaired_clean_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_hierarchical_pin_access_repair/current_supported_config/DFF_BUF_repaired_clean.gds`
+- source_repaired_annotated_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_hierarchical_pin_access_repair/current_supported_config/DFF_BUF_repaired_annotated.gds`
+- source_repaired_review_atlas_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_hierarchical_pin_access_repair/current_supported_config/DFF_BUF_repaired_review_atlas.gds`
+- openyield_commit: `1c34428d8b913963c4971d093b1a7c2df97a2509`
+- canonical_topology_hash: `6058eaf43739`
+- repaired_geometry_hash: `9fa7d554727ec3dc143b36a9`
+- source_clean_gds_hash: `f80dbdb1b9f5852c90801cdbee823db945a64693f4e4bec53381d533b48d6299`
+- release_gds_hash: `f80dbdb1b9f5852c90801cdbee823db945a64693f4e4bec53381d533b48d6299`
+- approved_dff_dependency: `{'physical_cell_name': 'DFF_TG4_INV7_FPDK45_26d9543b82b7', 'released_clean_gds_path': '/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4ACH_dff_reusable_release/DFF_reusable_clean.gds', 'sha256': 'f6995536077a191c31e10644bbfcfb4075cda64b7da131987c70a59353c4e45d'}`
+- top_pin_list: `['VDD', 'VSS', 'D', 'Q', 'QB', 'CLK']`
+- internal_parent_net_list: `['qint']`
+- connectivity_summary: `{'expected_net_count': 7, 'actual_net_component_count': 7, 'unexpected_net_merge_count': 0, 'missing_expected_endpoint_count': 0, 'unexpected_endpoint_count': 0, 'floating_required_pin_count': 0, 'power_signal_short_count': 0, 'vdd_vss_short_present': False}`
+- hierarchical_contact_summary: `{'hierarchical_foreign_net_contact_count': 0, 'unexpected_child_internal_net_contact_count': 0, 'clk_clkb_short_present': False, 'q_qb_internal_short_present': False}`
+- drc_summary: `{'drc_marker_count': 0, 'drc_passed': True}`
+- determinism_summary: `{'deterministic_release_verified': True}`
+- human_review_record: `{'stage': 'Wave3 / DFF_BUF human visual review', 'human_review_status': 'PASS', 'reviewed_physical_cell_name': 'DFF_BUF_FPDK45_6058eaf43739_HPA1', 'reviewed_clean_gds_sha256': 'f80dbdb1b9f5852c90801cdbee823db945a64693f4e4bec53381d533b48d6299', 'child_presence_verified': True, 'child_overlap_absent': True, 'clk_clkb_separation_verified': True, 'q_qb_internal_separation_verified': True, 'long_m1_bridge_absent': True, 'via1_pin_window_verified': True, 'm2_escape_independence_verified': True, 'data_path_verified': True, 'power_continuity_verified': True, 'power_separation_verified': True, 'internal_net_isolation_verified': True, 'top_pin_set_verified': True, 'routing_abnormality_absent': True, 'lvs_proven': False, 'spice_functional_simulation_proven': False, 'timing_characterized': False, 'setup_hold_characterized': False, 'clock_to_q_characterized': False, 'signoff_ready': False}`
+- reusable_source_list: `['/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_reusable_release/DFF_BUF_reusable_clean.gds']`
+- only_clean_gds_is_composition_source: `True`

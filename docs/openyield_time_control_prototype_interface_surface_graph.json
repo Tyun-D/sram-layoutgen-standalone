@@ -1,0 +1,233 @@
+{
+  "scope": "step6_39_openyield_time_control_prototype_interface_surface_audit",
+  "nodes": [
+    {
+      "id": "flag_name",
+      "kind": "config_field"
+    },
+    {
+      "id": "default_enabled",
+      "kind": "config_field"
+    },
+    {
+      "id": "allowed_mode",
+      "kind": "config_field"
+    },
+    {
+      "id": "legacy_path_unchanged",
+      "kind": "config_field"
+    },
+    {
+      "id": "standalone_py_modified",
+      "kind": "config_field"
+    },
+    {
+      "id": "routing_modified",
+      "kind": "config_field"
+    },
+    {
+      "id": "gds_writer_modified",
+      "kind": "config_field"
+    },
+    {
+      "id": "physical_gds_generated",
+      "kind": "config_field"
+    },
+    {
+      "id": "shared_rail_enabled",
+      "kind": "config_field"
+    },
+    {
+      "id": "uses_time_as_single_macro",
+      "kind": "config_field"
+    },
+    {
+      "id": "notes",
+      "kind": "config_field"
+    },
+    {
+      "id": "experimental_contract.config_surface",
+      "kind": "input"
+    },
+    {
+      "id": "abstract_floorplan_payload.payload",
+      "kind": "input"
+    },
+    {
+      "id": "payload_completeness_report",
+      "kind": "input"
+    },
+    {
+      "id": "payload_consumption_contract_report",
+      "kind": "input"
+    },
+    {
+      "id": "payload_materialization_boundary_report",
+      "kind": "input"
+    },
+    {
+      "id": "prototype_execution_guard_report",
+      "kind": "input"
+    },
+    {
+      "id": "prototype_state_machine_report",
+      "kind": "input"
+    },
+    {
+      "id": "metadata_plan_object",
+      "kind": "output"
+    },
+    {
+      "id": "json_report",
+      "kind": "output"
+    },
+    {
+      "id": "markdown_report",
+      "kind": "output"
+    },
+    {
+      "id": "gds_layout",
+      "kind": "output"
+    },
+    {
+      "id": "routed_geometry",
+      "kind": "output"
+    },
+    {
+      "id": "standalone_generator_patch",
+      "kind": "output"
+    }
+  ],
+  "edges": [
+    {
+      "source": "future_builder",
+      "target": "flag_name",
+      "relation": "config_surface"
+    },
+    {
+      "source": "future_builder",
+      "target": "default_enabled",
+      "relation": "config_surface"
+    },
+    {
+      "source": "future_builder",
+      "target": "allowed_mode",
+      "relation": "config_surface"
+    },
+    {
+      "source": "future_builder",
+      "target": "legacy_path_unchanged",
+      "relation": "config_surface"
+    },
+    {
+      "source": "future_builder",
+      "target": "standalone_py_modified",
+      "relation": "config_surface"
+    },
+    {
+      "source": "future_builder",
+      "target": "routing_modified",
+      "relation": "config_surface"
+    },
+    {
+      "source": "future_builder",
+      "target": "gds_writer_modified",
+      "relation": "config_surface"
+    },
+    {
+      "source": "future_builder",
+      "target": "physical_gds_generated",
+      "relation": "config_surface"
+    },
+    {
+      "source": "future_builder",
+      "target": "shared_rail_enabled",
+      "relation": "config_surface"
+    },
+    {
+      "source": "future_builder",
+      "target": "uses_time_as_single_macro",
+      "relation": "config_surface"
+    },
+    {
+      "source": "future_builder",
+      "target": "notes",
+      "relation": "config_surface"
+    },
+    {
+      "source": "experimental_contract.config_surface",
+      "target": "future_builder",
+      "relation": "required_input"
+    },
+    {
+      "source": "abstract_floorplan_payload.payload",
+      "target": "future_builder",
+      "relation": "required_input"
+    },
+    {
+      "source": "payload_completeness_report",
+      "target": "future_builder",
+      "relation": "required_input"
+    },
+    {
+      "source": "payload_consumption_contract_report",
+      "target": "future_builder",
+      "relation": "required_input"
+    },
+    {
+      "source": "payload_materialization_boundary_report",
+      "target": "future_builder",
+      "relation": "required_input"
+    },
+    {
+      "source": "prototype_execution_guard_report",
+      "target": "future_builder",
+      "relation": "required_input"
+    },
+    {
+      "source": "prototype_state_machine_report",
+      "target": "future_builder",
+      "relation": "required_input"
+    },
+    {
+      "source": "future_builder",
+      "target": "metadata_plan_object",
+      "relation": "allowed_output"
+    },
+    {
+      "source": "future_builder",
+      "target": "json_report",
+      "relation": "allowed_output"
+    },
+    {
+      "source": "future_builder",
+      "target": "markdown_report",
+      "relation": "allowed_output"
+    },
+    {
+      "source": "future_builder",
+      "target": "gds_layout",
+      "relation": "forbidden_output"
+    },
+    {
+      "source": "future_builder",
+      "target": "routed_geometry",
+      "relation": "forbidden_output"
+    },
+    {
+      "source": "future_builder",
+      "target": "standalone_generator_patch",
+      "relation": "forbidden_output"
+    }
+  ],
+  "summary": {
+    "prototype_interface_surface_audit_available": true,
+    "config_surface_restricted": true,
+    "input_surface_restricted": true,
+    "output_surface_restricted": true,
+    "future_default_off_builder_interface_surface_clean": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  }
+}

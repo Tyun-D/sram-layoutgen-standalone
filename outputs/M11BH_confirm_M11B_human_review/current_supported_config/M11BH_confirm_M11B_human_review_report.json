@@ -1,0 +1,39 @@
+{
+  "status_file_read": true,
+  "status_file_updated": true,
+  "progress_file_updated": true,
+  "m11b_report_loaded": true,
+  "m11b_machine_verification_loaded": true,
+  "m11b_human_review_completed": true,
+  "human_review_items_before": [
+    "Visual completeness of the sense_amp macro still requires KLayout confirmation even after machine pin/rail extraction.",
+    "Visual completeness of the wordline_driver wrapper shape remains a human review item because D/G/S pins are not machine-resolved in the parsed GDS.",
+    "Annotated debug readability in M11B_pin_bbox_rail_metadata_annotated_debug.gds still requires human KLayout review."
+  ],
+  "human_review_items_after": [],
+  "sense_amp_visual_review_passed": true,
+  "sense_amp_annotated_debug_readable": true,
+  "sense_amp_ready_for_M11C_after_human_review": true,
+  "wordline_driver_excluded_from_M11C": true,
+  "wordline_driver_not_ready_reason": "Wrapper pins D/G/S are not machine-resolved in the parsed candidate GDS, so golden signal alignment cannot be fully verified.",
+  "wordline_driver_followup_required": true,
+  "ready_for_M11C_modules_before_human_review": [
+    "sense_amp"
+  ],
+  "ready_for_M11C_modules_after_human_review": [
+    "sense_amp"
+  ],
+  "not_ready_modules_before_human_review": [
+    "wordline_driver"
+  ],
+  "not_ready_modules_after_human_review": [
+    "wordline_driver"
+  ],
+  "M11C_scope": "sense_amp_only",
+  "M11C_scope_locked": true,
+  "can_claim_openyield_module_gds_hardmacro_substitution": false,
+  "can_enter_M11C_after_this_gate": true,
+  "remaining_M11B_blockers_before_count": 3,
+  "remaining_M11B_blockers_after_count": 0,
+  "next_stage_allowed": "M11C_SENSE_AMP_ONLY_SMOKE_SUBSTITUTION"
+}

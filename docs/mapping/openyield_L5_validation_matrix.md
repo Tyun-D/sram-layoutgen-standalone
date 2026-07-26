@@ -1,0 +1,14 @@
+# OpenYield L5 Validation Matrix
+
+| Check | Category | Status | Basic Blocker | DRC Blocker | LVS Blocker | Timing Blocker | Evidence | Summary |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| top_gds_sanity | gds | PASSED | False | False | False | False | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_validation/current_supported_config/top_gds_sanity_report.json | Parsed top-level GDS with gdstk. |
+| module_completeness | topology | PASSED | False | False | False | False | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_validation/current_supported_config/module_completeness_report.json | All 20 required L3 modules are present in placement and top-level references. |
+| placement_consistency | placement | PASSED | False | False | False | False | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_validation/current_supported_config/placement_consistency_report.json | Placement metadata is numerically consistent with the top-level floorplan. |
+| pin_accessibility | pins | PASSED | False | True | True | False | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_validation/current_supported_config/pin_accessibility_audit.json | Pin metadata audit emitted with contract-pin risks recorded. |
+| rail_stitch_audit | power | PASSED | False | True | True | False | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_validation/current_supported_config/rail_stitch_audit.json | Rail stitch plan covers VDD/GND and all modules. |
+| routing_handoff_audit | routing | PASSED | False | True | True | True | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_validation/current_supported_config/routing_handoff_audit.json | Routing handoff captures semantic net ownership and unresolved detailed-routing items. |
+| candidate_geometry_risk | risk | PASSED | False | True | True | True | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_validation/current_supported_config/candidate_geometry_risk_report.json | Candidate-geometry and contract-pin risk classes recorded for downstream DRC/LVS/timing gates. |
+| drc_smoke | drc | DRC_SMOKE_RAN_WITH_MARKERS | False | True | False | False | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_validation/current_supported_config/drc_smoke_report.json | DRC smoke ran with 24687 markers. |
+| lvs_feasibility | lvs | LVS_BLOCKED_BY_MISSING_NETLIST | False | False | True | False | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_validation/current_supported_config/lvs_feasibility_report.json | No generated top-level netlist is available for LVS. |
+| timing_metadata_consistency | timing | PASSED | False | False | False | True | /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_validation/current_supported_config/timing_metadata_consistency_report.json | Timing metadata remains traceable from DELAY_CHAIN into routing handoff. |

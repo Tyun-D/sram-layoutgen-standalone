@@ -1,0 +1,216 @@
+{
+  "per_net": [
+    {
+      "net_name": "VDD",
+      "expected_endpoints": [
+        "inv1_clk.VDD",
+        "inv2_D.VDD",
+        "tg1.VDD",
+        "inv3.VDD",
+        "inv4.VDD",
+        "tg2.VDD",
+        "inv5.VDD",
+        "tg3.VDD",
+        "inv6.VDD",
+        "inv7.VDD",
+        "tg4.VDD",
+        "TOP.VDD"
+      ],
+      "component_ids": [
+        "contact_1076"
+      ],
+      "component_count": 1,
+      "all_endpoints_connected": true
+    },
+    {
+      "net_name": "VSS",
+      "expected_endpoints": [
+        "inv1_clk.VSS",
+        "inv2_D.VSS",
+        "tg1.VSS",
+        "inv3.VSS",
+        "inv4.VSS",
+        "tg2.VSS",
+        "inv5.VSS",
+        "tg3.VSS",
+        "inv6.VSS",
+        "inv7.VSS",
+        "tg4.VSS",
+        "TOP.VSS"
+      ],
+      "component_ids": [
+        "contact_1082"
+      ],
+      "component_count": 1,
+      "all_endpoints_connected": true
+    },
+    {
+      "net_name": "D",
+      "expected_endpoints": [
+        "inv2_D.A",
+        "TOP.D"
+      ],
+      "component_ids": [
+        "via1_172"
+      ],
+      "component_count": 1,
+      "all_endpoints_connected": true
+    },
+    {
+      "net_name": "Q",
+      "expected_endpoints": [
+        "inv6.Z",
+        "inv7.A",
+        "TOP.Q"
+      ],
+      "component_ids": [
+        "via1_172"
+      ],
+      "component_count": 1,
+      "all_endpoints_connected": true
+    },
+    {
+      "net_name": "CLK",
+      "expected_endpoints": [
+        "inv1_clk.A",
+        "tg1.CTR_P",
+        "tg2.CTR_N",
+        "tg3.CTR_N",
+        "tg4.CTR_P",
+        "TOP.CLK"
+      ],
+      "component_ids": [
+        "via1_172"
+      ],
+      "component_count": 1,
+      "all_endpoints_connected": true
+    },
+    {
+      "net_name": "CLKB",
+      "expected_endpoints": [
+        "inv1_clk.Z",
+        "tg1.CTR_N",
+        "tg2.CTR_P",
+        "tg3.CTR_P",
+        "tg4.CTR_N"
+      ],
+      "component_ids": [
+        "via1_172"
+      ],
+      "component_count": 1,
+      "all_endpoints_connected": true
+    },
+    {
+      "net_name": "D_b",
+      "expected_endpoints": [
+        "inv2_D.Z",
+        "tg1.IN"
+      ],
+      "component_ids": [
+        "via1_172"
+      ],
+      "component_count": 1,
+      "all_endpoints_connected": true
+    },
+    {
+      "net_name": "z1",
+      "expected_endpoints": [
+        "tg1.OUT",
+        "inv3.A",
+        "tg2.OUT"
+      ],
+      "component_ids": [
+        "via1_172"
+      ],
+      "component_count": 1,
+      "all_endpoints_connected": true
+    },
+    {
+      "net_name": "z2",
+      "expected_endpoints": [
+        "inv3.Z",
+        "inv4.A",
+        "inv5.A"
+      ],
+      "component_ids": [
+        "via1_172"
+      ],
+      "component_count": 1,
+      "all_endpoints_connected": true
+    },
+    {
+      "net_name": "z3",
+      "expected_endpoints": [
+        "inv4.Z",
+        "tg2.IN"
+      ],
+      "component_ids": [
+        "via1_172"
+      ],
+      "component_count": 1,
+      "all_endpoints_connected": true
+    },
+    {
+      "net_name": "z4",
+      "expected_endpoints": [
+        "inv5.Z",
+        "tg3.IN"
+      ],
+      "component_ids": [
+        "via1_172"
+      ],
+      "component_count": 1,
+      "all_endpoints_connected": true
+    },
+    {
+      "net_name": "z5",
+      "expected_endpoints": [
+        "tg3.OUT",
+        "inv6.A",
+        "tg4.OUT"
+      ],
+      "component_ids": [
+        "via1_172"
+      ],
+      "component_count": 1,
+      "all_endpoints_connected": true
+    },
+    {
+      "net_name": "QB",
+      "expected_endpoints": [
+        "inv7.Z",
+        "tg4.IN"
+      ],
+      "component_ids": [
+        "via1_172"
+      ],
+      "component_count": 1,
+      "all_endpoints_connected": true
+    }
+  ],
+  "expected_net_count": 13,
+  "actual_net_component_count": 3,
+  "unexpected_net_merges": {
+    "via1_172": [
+      "CLK",
+      "CLKB",
+      "D",
+      "D_b",
+      "Q",
+      "QB",
+      "z1",
+      "z2",
+      "z3",
+      "z4",
+      "z5"
+    ]
+  },
+  "unexpected_net_merge_count": 1,
+  "missing_expected_endpoint_count": 0,
+  "unexpected_endpoint_count": 0,
+  "floating_required_pin_count": 0,
+  "power_signal_short_count": 0,
+  "vdd_vss_short_present": false,
+  "d_q_direct_short_present": true,
+  "physical_connectivity_verification_passed": false
+}

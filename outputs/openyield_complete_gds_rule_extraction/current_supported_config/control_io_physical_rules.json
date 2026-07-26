@@ -1,0 +1,58 @@
+{
+  "rules": [
+    {
+      "rule_name": "ControlLogicPlacement",
+      "source_evidence": "sram_1bank.place_control; bank.compute_instance_offsets",
+      "rule_description": "Control logic is placed relative to the bank array and row/data periphery so that control spines can reach both sides cleanly.",
+      "required_geometry": "Control logic bbox and anchor relative to array center.",
+      "required_metadata": "control_logic_center, bank array anchors.",
+      "c0_blockers_addressed": "FLOORPLAN_NOT_SRAM_LIKE",
+      "implemented_in_stage": "C3"
+    },
+    {
+      "rule_name": "DelayReplicaPlacement",
+      "source_evidence": "sram_1bank.place_control; bank.route_rbl",
+      "rule_description": "Delay/replica timing structures stay physically aligned to array-side replica geometry and feed control logic through explicit RBL routing.",
+      "required_geometry": "Replica BL geometry and delay-chain placement window.",
+      "required_metadata": "rbl source/target mapping and edge ownership.",
+      "c0_blockers_addressed": "CONTRACT_ROUTE,MISSING_PIN_GEOMETRY",
+      "implemented_in_stage": "C2/C3/C4"
+    },
+    {
+      "rule_name": "ControlEnableDistribution",
+      "source_evidence": "sram_1bank.route_control_logic; sense_amp_array.route_rails; write_driver_array.add_layout_pins",
+      "rule_description": "precharge_en/sense_en/write_en/wordline_en must be distributed on explicit buses or rails to actual sink pins.",
+      "required_geometry": "Control spine segments, vias, and sink landing shapes.",
+      "required_metadata": "sink list by net and route layer ownership.",
+      "c0_blockers_addressed": "CONTRACT_ROUTE",
+      "implemented_in_stage": "C2/C4"
+    },
+    {
+      "rule_name": "ClockSpineDistribution",
+      "source_evidence": "sram_1bank.route_clk",
+      "rule_description": "clk and buffered clock are routed as spines with defined branch points into control and DFF clusters.",
+      "required_geometry": "Clock trunk, branches, and via stacks.",
+      "required_metadata": "clock fanout map and route stack.",
+      "c0_blockers_addressed": "CONTRACT_ROUTE,PLACEHOLDER_VISUAL_GEOMETRY",
+      "implemented_in_stage": "C4"
+    },
+    {
+      "rule_name": "AddressDinDoutOrganization",
+      "source_evidence": "sram_1bank.add_layout_pins; route_row_addr_dff; route_data_dffs",
+      "rule_description": "addr, din, and dout should originate from the corresponding flop/bank child pins and then escape to the perimeter through explicit routing.",
+      "required_geometry": "Instance-backed IO pins and escape routes.",
+      "required_metadata": "which instance owns each external IO bit.",
+      "c0_blockers_addressed": "MISSING_TOP_PIN_GEOMETRY,MISSING_LVS_READY_NET_MAPPING",
+      "implemented_in_stage": "C4/C6"
+    },
+    {
+      "rule_name": "TopPinPlacement",
+      "source_evidence": "sram_1bank.route_escape_pins; signal_escape_router",
+      "rule_description": "Top-level pins belong on the perimeter after escape routing is complete and should correspond to routed internal geometry.",
+      "required_geometry": "Perimeter pin shapes and matching internal routes.",
+      "required_metadata": "top pin side, layer, net name, source instance.",
+      "c0_blockers_addressed": "MISSING_TOP_PIN_GEOMETRY",
+      "implemented_in_stage": "C4/C6"
+    }
+  ]
+}

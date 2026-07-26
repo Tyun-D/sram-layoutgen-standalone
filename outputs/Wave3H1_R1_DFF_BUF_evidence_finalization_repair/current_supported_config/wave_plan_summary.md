@@ -1,0 +1,83 @@
+# Wave Plan Summary
+
+- wave_plan_csv_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4_composite_control_cell_generation_plan/current_supported_config/M12C4_composite_implementation_wave_plan.csv`
+- wave_plan_csv_sha256: `17a1fad1ff0cbfebd46d965043bebbf6ffeb81d52898834d0261428920a5f357`
+- wave3_row:
+```json
+{
+  "wave_id": "Wave3",
+  "module": "DFF_BUF, delay_chain, pdrive family",
+  "reason": "composite chains after DFF and routing proof",
+  "dependency_modules": "DFF|PINV",
+  "approved_children_complete": "True",
+  "source_topology_complete": "True",
+  "parameter_resolution_complete": "True",
+  "interface_compatible": "False",
+  "routing_backend_ready": "True",
+  "generator_work_required": "True",
+  "expected_human_review": "True",
+  "entry_gate": "Wave1 closed",
+  "exit_gate": "buffer and delay-chain composites qualified",
+  "next_wave_dependency": "Wave4"
+}
+```
+- wave3_next_wave_dependency: `Wave4`
+- wave4_row:
+```json
+{
+  "wave_id": "Wave4",
+  "module": "ADDR_DFF / DATA_DFF",
+  "reason": "array-style hierarchical composition after DFF proof",
+  "dependency_modules": "DFF",
+  "approved_children_complete": "True",
+  "source_topology_complete": "True",
+  "parameter_resolution_complete": "True",
+  "interface_compatible": "False",
+  "routing_backend_ready": "True",
+  "generator_work_required": "True",
+  "expected_human_review": "True",
+  "entry_gate": "Wave1 closed",
+  "exit_gate": "qualified DFF row arrays",
+  "next_wave_dependency": "Wave5"
+}
+```
+- wave4_module: `ADDR_DFF / DATA_DFF`
+- wave4_dependency_modules: `DFF`
+- wave4_completion_gate: `qualified DFF row arrays`
+- subsequent_wave_dependencies:
+```json
+[
+  {
+    "wave_id": "Wave4",
+    "module": "ADDR_DFF / DATA_DFF",
+    "reason": "array-style hierarchical composition after DFF proof",
+    "dependency_modules": "DFF",
+    "approved_children_complete": "True",
+    "source_topology_complete": "True",
+    "parameter_resolution_complete": "True",
+    "interface_compatible": "False",
+    "routing_backend_ready": "True",
+    "generator_work_required": "True",
+    "expected_human_review": "True",
+    "entry_gate": "Wave1 closed",
+    "exit_gate": "qualified DFF row arrays",
+    "next_wave_dependency": "Wave5"
+  },
+  {
+    "wave_id": "Wave5",
+    "module": "TIME",
+    "reason": "full control region composition only after all child composites qualify",
+    "dependency_modules": "ADDR_DFF|DATA_DFF|DFF_BUF|AND2|AND3|delay_chain|pdrive|wl_pdrive|pdrive2_for_pre",
+    "approved_children_complete": "False",
+    "source_topology_complete": "True",
+    "parameter_resolution_complete": "True",
+    "interface_compatible": "False",
+    "routing_backend_ready": "True",
+    "generator_work_required": "True",
+    "expected_human_review": "True",
+    "entry_gate": "Waves 1-4 closed",
+    "exit_gate": "TIME region qualified",
+    "next_wave_dependency": ""
+  }
+]
+```

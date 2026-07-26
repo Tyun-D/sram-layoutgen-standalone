@@ -1,0 +1,94 @@
+# Wave3H1 Stage Report
+
+- stage: `Wave3H1_DFF_BUF_RELEASE_EVIDENCE_HARDENING_AND_LEDGER_RECONCILIATION`
+- current_status: `PASS`
+- project_branch: `feature/step45-clean-array-aggregation`
+- project_commit: `a8294f007073dece1b156860afbedbd64a023013`
+- openyield_commit: `1c34428d8b913963c4971d093b1a7c2df97a2509`
+- repaired_clean_sha256: `f80dbdb1b9f5852c90801cdbee823db945a64693f4e4bec53381d533b48d6299`
+- released_clean_sha256: `f80dbdb1b9f5852c90801cdbee823db945a64693f4e4bec53381d533b48d6299`
+- byte_for_byte_equal: `True`
+- release_hash_matches_repaired_clean: `True`
+- reusable_registry_audit:
+```json
+{
+  "approved_reusable_registry_found": false,
+  "approved_reusable_registry_paths": [],
+  "canonical_reusable_authority": "reviewed release manifests",
+  "derived_registry_index": {
+    "dff_manifest": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4ACH_dff_reusable_release/DFF_REUSABLE_MANIFEST.json",
+    "dff_buf_manifest": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_reusable_release/DFF_BUF_REUSABLE_MANIFEST.json",
+    "primitive_reusable_root": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells",
+    "primitive_cells": [
+      "PINV_NW180_PW540_L50",
+      "PINV_NW360_PW1080_L50"
+    ]
+  }
+}
+```
+- exact_child_binding_count: `3`
+- child_geometry_modified_count: `0`
+- expected_net_count: `7`
+- actual_net_component_count: `7`
+- unexpected_net_merge_count: `0`
+- missing_expected_endpoint_count: `0`
+- unexpected_endpoint_count: `0`
+- floating_required_pin_count: `0`
+- power_signal_short_count: `0`
+- vdd_vss_short_present: `False`
+- hierarchical_foreign_net_contact_count: `0`
+- unexpected_child_internal_net_contact_count: `0`
+- clk_clkb_short_present: `False`
+- q_qb_internal_short_present: `False`
+- missing_reference_target_count: `0`
+- reference_cycle_count: `0`
+- top_canonical_label_set_exact: `True`
+- child_label_leakage_count: `0`
+- drc_marker_count: `0`
+- drc_passed: `True`
+- deterministic_regeneration_verified: `True`
+- atlas_semantic_filtering_ok: `True`
+- wave3_row:
+```json
+{
+  "wave_id": "Wave3",
+  "module": "DFF_BUF, delay_chain, pdrive family",
+  "reason": "composite chains after DFF and routing proof",
+  "dependency_modules": "DFF|PINV",
+  "approved_children_complete": "True",
+  "source_topology_complete": "True",
+  "parameter_resolution_complete": "True",
+  "interface_compatible": "False",
+  "routing_backend_ready": "True",
+  "generator_work_required": "True",
+  "expected_human_review": "True",
+  "entry_gate": "Wave1 closed",
+  "exit_gate": "buffer and delay-chain composites qualified",
+  "next_wave_dependency": "Wave4"
+}
+```
+- wave4_row:
+```json
+{
+  "wave_id": "Wave4",
+  "module": "ADDR_DFF / DATA_DFF",
+  "reason": "array-style hierarchical composition after DFF proof",
+  "dependency_modules": "DFF",
+  "approved_children_complete": "True",
+  "source_topology_complete": "True",
+  "parameter_resolution_complete": "True",
+  "interface_compatible": "False",
+  "routing_backend_ready": "True",
+  "generator_work_required": "True",
+  "expected_human_review": "True",
+  "entry_gate": "Wave1 closed",
+  "exit_gate": "qualified DFF row arrays",
+  "next_wave_dependency": "Wave5"
+}
+```
+- next_stage: `Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK`
+- evidence_package_path: `/data1/qujh/work/sram_layoutgen_step45_clean/Wave3H1_DFF_BUF_release_evidence_hardening_final_20260713_101530.tar.gz`
+- evidence_package_sha256: `9d060dd6c5ddf3a201be0e15d2adc03420508bad2a038a4382f06cab61199fec`
+- evidence_package_self_contained: `True`
+- required_file_count: `48`
+- total_file_count: `48`

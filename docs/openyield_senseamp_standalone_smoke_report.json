@@ -1,0 +1,797 @@
+{
+  "scope": "standalone_openyield_senseamp_adapter_opt_in_smoke",
+  "standalone_modified": true,
+  "new_parameter_name": "enable_openyield_senseamp_adapter",
+  "default_value": false,
+  "test_case": {
+    "word_size": 2,
+    "num_words": 16,
+    "words_per_row": 1
+  },
+  "cases": {
+    "legacy_default": {
+      "spec": {
+        "word_size": 2,
+        "num_words": 16,
+        "words_per_row": 1,
+        "enable_openyield_array_aggregation": false,
+        "enable_openyield_senseamp_adapter": false,
+        "openyield_storage_row_orientation_policy": "all_r0"
+      },
+      "outputs": {
+        "out_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_legacy_default",
+        "gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_legacy_default\\sram_2x16_wpr1_fd45.gds",
+        "report_md": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_legacy_default\\sram_2x16_wpr1_fd45.report.md",
+        "generated_gds": true
+      },
+      "metrics": {
+        "width_um": 15.202499999999999,
+        "height_um": 50.705,
+        "macro_area_um2": 770.8427624999999,
+        "sense_amp_instance_count": 2
+      },
+      "senseamp_adapter": {
+        "enabled": false,
+        "adapter_strategy": "single_ended_q_to_dout",
+        "q_to_dout": true,
+        "qb_to_dout_b": false,
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "requires_netlist_rewrite": true,
+        "requires_layout_pin": false,
+        "generated_fake_dout_b": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "write_driver_changed": false,
+        "column_mux_changed": false,
+        "wordline_driver_changed": false,
+        "placement_count": 0,
+        "local_macro": "sense_amp",
+        "local_pins": [
+          "bl",
+          "br",
+          "dout",
+          "en",
+          "vdd",
+          "gnd"
+        ],
+        "plan": {},
+        "example_placements": [],
+        "adapter_applied_to_placement": false
+      },
+      "storage_aggregation": {
+        "enabled": false,
+        "row_orientation_policy": "all_r0",
+        "allowed_macros": [
+          "cell_1rw",
+          "dummy_cell_1rw",
+          "replica_cell_1rw"
+        ],
+        "excluded_peripheral_macros": {
+          "sense_amp": "architecture_adapter_required: OpenYield has Q/QB, local sense_amp has single-ended dout.",
+          "write_driver": "rail_needs_manual_review: keep legacy/peripheral placement until rail sharing is proven.",
+          "dff": "standard_cell_row_required: do not aggregate with storage-array cells.",
+          "tri_gate": "standard_cell_row_required: do not aggregate with storage-array cells.",
+          "gen_col_mux": "missing_power_metadata: vdd is not proven, shared rail is forbidden.",
+          "gen_wl_driver": "needs_semantic_confirmation: B/wordline_enable semantics still need confirmation.",
+          "gen_nand2": "logic_gate: not part of limited storage-array aggregation.",
+          "gen_nand4": "logic_gate: not part of limited storage-array aggregation.",
+          "gen_precharge": "peripheral_macro: not part of limited storage-array aggregation."
+        },
+        "storage_only": true,
+        "peripherals_old_path": true,
+        "changed_gds_flow": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "shared_rail_merge": false,
+        "generated_gds": false,
+        "cross_row_power_short_risk": null,
+        "storage_plan": {
+          "enabled": false,
+          "rows": 16,
+          "cols": 2,
+          "plans": [],
+          "allowed_macros": [
+            "cell_1rw",
+            "dummy_cell_1rw",
+            "replica_cell_1rw"
+          ],
+          "row_orientation_policy": "all_r0",
+          "excluded_macros": {
+            "sense_amp": "architecture_adapter_required: OpenYield has Q/QB, local sense_amp has single-ended dout.",
+            "write_driver": "rail_needs_manual_review: keep legacy/peripheral placement until rail sharing is proven.",
+            "dff": "standard_cell_row_required: do not aggregate with storage-array cells.",
+            "tri_gate": "standard_cell_row_required: do not aggregate with storage-array cells.",
+            "gen_col_mux": "missing_power_metadata: vdd is not proven, shared rail is forbidden.",
+            "gen_wl_driver": "needs_semantic_confirmation: B/wordline_enable semantics still need confirmation.",
+            "gen_nand2": "logic_gate: not part of limited storage-array aggregation.",
+            "gen_nand4": "logic_gate: not part of limited storage-array aggregation.",
+            "gen_precharge": "peripheral_macro: not part of limited storage-array aggregation."
+          },
+          "power_rail_policy": "tb_shared_hint_only",
+          "cross_row_power_short_risk": null,
+          "changed_gds_flow": false,
+          "routing_changed": false,
+          "shared_rail_merge": false,
+          "notes": [
+            "enable_openyield_array_aggregation is False; standalone storage placement stays on the legacy path."
+          ]
+        },
+        "storage_arrays": {
+          "bitcell_array": {
+            "x0": 11.905,
+            "y0": 22.9175,
+            "x1": 13.505,
+            "y1": 44.95750000000001
+          },
+          "dummy_left_array": {
+            "x0": 11.2,
+            "y0": 22.9175,
+            "x1": 12.095,
+            "y1": 44.95750000000001
+          },
+          "dummy_right_array": {
+            "x0": 14.02,
+            "y0": 22.9175,
+            "x1": 14.915000000000001,
+            "y1": 44.95750000000001
+          },
+          "replica_bitline_array": {
+            "x0": 13.315,
+            "y0": 22.9175,
+            "x1": 14.21,
+            "y1": 44.95750000000001
+          }
+        },
+        "macro_counts": {},
+        "instance_count": 0,
+        "pitch": {
+          "x": 0.705,
+          "y": 1.365
+        },
+        "origin": {
+          "x": 12.0,
+          "y": 23.017500000000002
+        },
+        "power_rail_policy": "tb_shared_hint_only"
+      }
+    },
+    "senseamp_only": {
+      "spec": {
+        "word_size": 2,
+        "num_words": 16,
+        "words_per_row": 1,
+        "enable_openyield_array_aggregation": false,
+        "enable_openyield_senseamp_adapter": true,
+        "openyield_storage_row_orientation_policy": "all_r0"
+      },
+      "outputs": {
+        "out_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_senseamp_only",
+        "gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_senseamp_only\\sram_2x16_wpr1_fd45.gds",
+        "report_md": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_senseamp_only\\sram_2x16_wpr1_fd45.report.md",
+        "generated_gds": true
+      },
+      "metrics": {
+        "width_um": 15.202499999999999,
+        "height_um": 50.705,
+        "macro_area_um2": 770.8427624999999,
+        "sense_amp_instance_count": 2
+      },
+      "senseamp_adapter": {
+        "enabled": true,
+        "adapter_strategy": "single_ended_q_to_dout",
+        "q_to_dout": true,
+        "qb_to_dout_b": false,
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "requires_netlist_rewrite": true,
+        "requires_layout_pin": false,
+        "generated_fake_dout_b": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "write_driver_changed": false,
+        "column_mux_changed": false,
+        "wordline_driver_changed": false,
+        "placement_count": 2,
+        "local_macro": "sense_amp",
+        "local_pins": [
+          "bl",
+          "br",
+          "dout",
+          "en",
+          "vdd",
+          "gnd"
+        ],
+        "plan": {
+          "cols": 2,
+          "mux_ratio": 1,
+          "placements": [
+            {
+              "instance_name": "Xsa_c0",
+              "macro_name": "sense_amp",
+              "col": 0,
+              "x": 12.0,
+              "y": 14.257499999999999,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "sense_enable",
+                "bl": "bl[0]",
+                "br": "br[0]",
+                "dout": "dout[0]"
+              },
+              "dropped_pins": {
+                "QB": "dropped_complementary_output"
+              },
+              "adapter_strategy": "single_ended_q_to_dout",
+              "safe_for_physical_mapping": true,
+              "notes": [
+                "Column-direct sense amp placement plan."
+              ]
+            },
+            {
+              "instance_name": "Xsa_c1",
+              "macro_name": "sense_amp",
+              "col": 1,
+              "x": 12.705,
+              "y": 14.257499999999999,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "sense_enable",
+                "bl": "bl[1]",
+                "br": "br[1]",
+                "dout": "dout[1]"
+              },
+              "dropped_pins": {
+                "QB": "dropped_complementary_output"
+              },
+              "adapter_strategy": "single_ended_q_to_dout",
+              "safe_for_physical_mapping": true,
+              "notes": [
+                "Column-direct sense amp placement plan."
+              ]
+            }
+          ],
+          "macro_name": "sense_amp",
+          "adapter_strategy": "single_ended_q_to_dout",
+          "requires_netlist_rewrite": true,
+          "requires_layout_pin": false,
+          "notes": [
+            "One sense_amp is planned per storage/data column.",
+            "The plan is adapter-only and does not modify standalone placement."
+          ]
+        },
+        "example_placements": [
+          {
+            "instance_name": "Xsa_c0",
+            "macro_name": "sense_amp",
+            "col": 0,
+            "x": 12.0,
+            "y": 14.257499999999999,
+            "orientation": "R0",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "en": "sense_enable",
+              "bl": "bl[0]",
+              "br": "br[0]",
+              "dout": "dout[0]"
+            },
+            "dropped_pins": {
+              "QB": "dropped_complementary_output"
+            },
+            "adapter_strategy": "single_ended_q_to_dout",
+            "safe_for_physical_mapping": true,
+            "notes": [
+              "Column-direct sense amp placement plan."
+            ]
+          },
+          {
+            "instance_name": "Xsa_c1",
+            "macro_name": "sense_amp",
+            "col": 1,
+            "x": 12.705,
+            "y": 14.257499999999999,
+            "orientation": "R0",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "en": "sense_enable",
+              "bl": "bl[1]",
+              "br": "br[1]",
+              "dout": "dout[1]"
+            },
+            "dropped_pins": {
+              "QB": "dropped_complementary_output"
+            },
+            "adapter_strategy": "single_ended_q_to_dout",
+            "safe_for_physical_mapping": true,
+            "notes": [
+              "Column-direct sense amp placement plan."
+            ]
+          }
+        ],
+        "adapter_applied_to_placement": true,
+        "sense_rect_origin": {
+          "x": 12.0,
+          "y": 14.257499999999999
+        },
+        "column_pitch_um": 0.705,
+        "mux_ratio": 1,
+        "storage_aggregation_enabled": false
+      },
+      "storage_aggregation": {
+        "enabled": false,
+        "row_orientation_policy": "all_r0",
+        "allowed_macros": [
+          "cell_1rw",
+          "dummy_cell_1rw",
+          "replica_cell_1rw"
+        ],
+        "excluded_peripheral_macros": {
+          "sense_amp": "architecture_adapter_required: OpenYield has Q/QB, local sense_amp has single-ended dout.",
+          "write_driver": "rail_needs_manual_review: keep legacy/peripheral placement until rail sharing is proven.",
+          "dff": "standard_cell_row_required: do not aggregate with storage-array cells.",
+          "tri_gate": "standard_cell_row_required: do not aggregate with storage-array cells.",
+          "gen_col_mux": "missing_power_metadata: vdd is not proven, shared rail is forbidden.",
+          "gen_wl_driver": "needs_semantic_confirmation: B/wordline_enable semantics still need confirmation.",
+          "gen_nand2": "logic_gate: not part of limited storage-array aggregation.",
+          "gen_nand4": "logic_gate: not part of limited storage-array aggregation.",
+          "gen_precharge": "peripheral_macro: not part of limited storage-array aggregation."
+        },
+        "storage_only": true,
+        "peripherals_old_path": true,
+        "changed_gds_flow": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "shared_rail_merge": false,
+        "generated_gds": false,
+        "cross_row_power_short_risk": null,
+        "storage_plan": {
+          "enabled": false,
+          "rows": 16,
+          "cols": 2,
+          "plans": [],
+          "allowed_macros": [
+            "cell_1rw",
+            "dummy_cell_1rw",
+            "replica_cell_1rw"
+          ],
+          "row_orientation_policy": "all_r0",
+          "excluded_macros": {
+            "sense_amp": "architecture_adapter_required: OpenYield has Q/QB, local sense_amp has single-ended dout.",
+            "write_driver": "rail_needs_manual_review: keep legacy/peripheral placement until rail sharing is proven.",
+            "dff": "standard_cell_row_required: do not aggregate with storage-array cells.",
+            "tri_gate": "standard_cell_row_required: do not aggregate with storage-array cells.",
+            "gen_col_mux": "missing_power_metadata: vdd is not proven, shared rail is forbidden.",
+            "gen_wl_driver": "needs_semantic_confirmation: B/wordline_enable semantics still need confirmation.",
+            "gen_nand2": "logic_gate: not part of limited storage-array aggregation.",
+            "gen_nand4": "logic_gate: not part of limited storage-array aggregation.",
+            "gen_precharge": "peripheral_macro: not part of limited storage-array aggregation."
+          },
+          "power_rail_policy": "tb_shared_hint_only",
+          "cross_row_power_short_risk": null,
+          "changed_gds_flow": false,
+          "routing_changed": false,
+          "shared_rail_merge": false,
+          "notes": [
+            "enable_openyield_array_aggregation is False; standalone storage placement stays on the legacy path."
+          ]
+        },
+        "storage_arrays": {
+          "bitcell_array": {
+            "x0": 11.905,
+            "y0": 22.9175,
+            "x1": 13.505,
+            "y1": 44.95750000000001
+          },
+          "dummy_left_array": {
+            "x0": 11.2,
+            "y0": 22.9175,
+            "x1": 12.095,
+            "y1": 44.95750000000001
+          },
+          "dummy_right_array": {
+            "x0": 14.02,
+            "y0": 22.9175,
+            "x1": 14.915000000000001,
+            "y1": 44.95750000000001
+          },
+          "replica_bitline_array": {
+            "x0": 13.315,
+            "y0": 22.9175,
+            "x1": 14.21,
+            "y1": 44.95750000000001
+          }
+        },
+        "macro_counts": {},
+        "instance_count": 0,
+        "pitch": {
+          "x": 0.705,
+          "y": 1.365
+        },
+        "origin": {
+          "x": 12.0,
+          "y": 23.017500000000002
+        },
+        "power_rail_policy": "tb_shared_hint_only"
+      }
+    },
+    "storage_plus_senseamp": {
+      "spec": {
+        "word_size": 2,
+        "num_words": 16,
+        "words_per_row": 1,
+        "enable_openyield_array_aggregation": true,
+        "enable_openyield_senseamp_adapter": true,
+        "openyield_storage_row_orientation_policy": "alternating_mx"
+      },
+      "outputs": {
+        "out_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_storage_plus_senseamp",
+        "gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_storage_plus_senseamp\\sram_2x16_wpr1_fd45.gds",
+        "report_md": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_senseamp_standalone_storage_plus_senseamp\\sram_2x16_wpr1_fd45.report.md",
+        "generated_gds": true
+      },
+      "metrics": {
+        "width_um": 15.922499999999975,
+        "height_um": 50.705,
+        "macro_area_um2": 807.3503624999987,
+        "sense_amp_instance_count": 2
+      },
+      "senseamp_adapter": {
+        "enabled": true,
+        "adapter_strategy": "single_ended_q_to_dout",
+        "q_to_dout": true,
+        "qb_to_dout_b": false,
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "requires_netlist_rewrite": true,
+        "requires_layout_pin": false,
+        "generated_fake_dout_b": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "write_driver_changed": false,
+        "column_mux_changed": false,
+        "wordline_driver_changed": false,
+        "placement_count": 2,
+        "local_macro": "sense_amp",
+        "local_pins": [
+          "bl",
+          "br",
+          "dout",
+          "en",
+          "vdd",
+          "gnd"
+        ],
+        "plan": {
+          "cols": 2,
+          "mux_ratio": 1,
+          "placements": [
+            {
+              "instance_name": "Xsa_c0",
+              "macro_name": "sense_amp",
+              "col": 0,
+              "x": 12.189999999999987,
+              "y": 14.257499999999999,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "sense_enable",
+                "bl": "bl[0]",
+                "br": "br[0]",
+                "dout": "dout[0]"
+              },
+              "dropped_pins": {
+                "QB": "dropped_complementary_output"
+              },
+              "adapter_strategy": "single_ended_q_to_dout",
+              "safe_for_physical_mapping": true,
+              "notes": [
+                "Column-direct sense amp placement plan."
+              ]
+            },
+            {
+              "instance_name": "Xsa_c1",
+              "macro_name": "sense_amp",
+              "col": 1,
+              "x": 13.084999999999987,
+              "y": 14.257499999999999,
+              "orientation": "R0",
+              "nets": {
+                "vdd": "vdd",
+                "gnd": "gnd",
+                "en": "sense_enable",
+                "bl": "bl[1]",
+                "br": "br[1]",
+                "dout": "dout[1]"
+              },
+              "dropped_pins": {
+                "QB": "dropped_complementary_output"
+              },
+              "adapter_strategy": "single_ended_q_to_dout",
+              "safe_for_physical_mapping": true,
+              "notes": [
+                "Column-direct sense amp placement plan."
+              ]
+            }
+          ],
+          "macro_name": "sense_amp",
+          "adapter_strategy": "single_ended_q_to_dout",
+          "requires_netlist_rewrite": true,
+          "requires_layout_pin": false,
+          "notes": [
+            "One sense_amp is planned per storage/data column.",
+            "The plan is adapter-only and does not modify standalone placement."
+          ]
+        },
+        "example_placements": [
+          {
+            "instance_name": "Xsa_c0",
+            "macro_name": "sense_amp",
+            "col": 0,
+            "x": 12.189999999999987,
+            "y": 14.257499999999999,
+            "orientation": "R0",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "en": "sense_enable",
+              "bl": "bl[0]",
+              "br": "br[0]",
+              "dout": "dout[0]"
+            },
+            "dropped_pins": {
+              "QB": "dropped_complementary_output"
+            },
+            "adapter_strategy": "single_ended_q_to_dout",
+            "safe_for_physical_mapping": true,
+            "notes": [
+              "Column-direct sense amp placement plan."
+            ]
+          },
+          {
+            "instance_name": "Xsa_c1",
+            "macro_name": "sense_amp",
+            "col": 1,
+            "x": 13.084999999999987,
+            "y": 14.257499999999999,
+            "orientation": "R0",
+            "nets": {
+              "vdd": "vdd",
+              "gnd": "gnd",
+              "en": "sense_enable",
+              "bl": "bl[1]",
+              "br": "br[1]",
+              "dout": "dout[1]"
+            },
+            "dropped_pins": {
+              "QB": "dropped_complementary_output"
+            },
+            "adapter_strategy": "single_ended_q_to_dout",
+            "safe_for_physical_mapping": true,
+            "notes": [
+              "Column-direct sense amp placement plan."
+            ]
+          }
+        ],
+        "adapter_applied_to_placement": true,
+        "sense_rect_origin": {
+          "x": 12.189999999999987,
+          "y": 14.257499999999999
+        },
+        "column_pitch_um": 0.895,
+        "mux_ratio": 1,
+        "storage_aggregation_enabled": true
+      },
+      "storage_aggregation": {
+        "enabled": true,
+        "row_orientation_policy": "alternating_mx",
+        "allowed_macros": [
+          "cell_1rw",
+          "dummy_cell_1rw",
+          "replica_cell_1rw"
+        ],
+        "excluded_peripheral_macros": {
+          "sense_amp": "architecture_adapter_required: OpenYield has Q/QB, local sense_amp has single-ended dout.",
+          "write_driver": "rail_needs_manual_review: keep legacy/peripheral placement until rail sharing is proven.",
+          "dff": "standard_cell_row_required: do not aggregate with storage-array cells.",
+          "tri_gate": "standard_cell_row_required: do not aggregate with storage-array cells.",
+          "gen_col_mux": "missing_power_metadata: vdd is not proven, shared rail is forbidden.",
+          "gen_wl_driver": "needs_semantic_confirmation: B/wordline_enable semantics still need confirmation.",
+          "gen_nand2": "logic_gate: not part of limited storage-array aggregation.",
+          "gen_nand4": "logic_gate: not part of limited storage-array aggregation.",
+          "gen_precharge": "peripheral_macro: not part of limited storage-array aggregation."
+        },
+        "storage_only": true,
+        "peripherals_old_path": true,
+        "changed_gds_flow": false,
+        "routing_changed": false,
+        "gds_writer_changed": false,
+        "shared_rail_merge": false,
+        "generated_gds": false,
+        "cross_row_power_short_risk": false,
+        "storage_plan": {
+          "enabled": true,
+          "rows": 16,
+          "cols": 2,
+          "plans": [
+            {
+              "array_name": "bitcell_array",
+              "role": "bitcell_array",
+              "rows": 16,
+              "cols": 2,
+              "cell_macro": "cell_1rw",
+              "origin_x": 12.189999999999987,
+              "origin_y": 23.017500000000002,
+              "pitch_x": 0.895,
+              "pitch_y": 1.5650000000000002,
+              "width": 1.79,
+              "height": 25.040000000000003,
+              "orientation": "R0/MX by row",
+              "row_orientation_policy": "alternating_mx",
+              "power_rail_policy": "tb_shared_hint_only",
+              "notes": [
+                "x=origin_x+col*cell_width, y=origin_y+row*cell_height.",
+                "row_orientation_policy=alternating_mx"
+              ]
+            },
+            {
+              "array_name": "dummy_left_array",
+              "role": "dummy_bitcell",
+              "rows": 16,
+              "cols": 1,
+              "cell_macro": "dummy_cell_1rw",
+              "origin_x": 11.295,
+              "origin_y": 23.017500000000002,
+              "pitch_x": 0.894999999999988,
+              "pitch_y": 1.564999999999979,
+              "width": 0.894999999999988,
+              "height": 25.039999999999665,
+              "orientation": "R0/MX by row",
+              "row_orientation_policy": "alternating_mx",
+              "power_rail_policy": "tb_shared_hint_only",
+              "notes": [
+                "x=origin_x+col*cell_width, y=origin_y+row*cell_height.",
+                "row_orientation_policy=alternating_mx"
+              ]
+            },
+            {
+              "array_name": "dummy_right_array",
+              "role": "dummy_bitcell",
+              "rows": 16,
+              "cols": 1,
+              "cell_macro": "dummy_cell_1rw",
+              "origin_x": 14.874999999999975,
+              "origin_y": 23.017500000000002,
+              "pitch_x": 0.894999999999988,
+              "pitch_y": 1.564999999999979,
+              "width": 0.894999999999988,
+              "height": 25.039999999999665,
+              "orientation": "R0/MX by row",
+              "row_orientation_policy": "alternating_mx",
+              "power_rail_policy": "tb_shared_hint_only",
+              "notes": [
+                "x=origin_x+col*cell_width, y=origin_y+row*cell_height.",
+                "row_orientation_policy=alternating_mx"
+              ]
+            },
+            {
+              "array_name": "replica_bitline_array",
+              "role": "replica_bitline",
+              "rows": 16,
+              "cols": 1,
+              "cell_macro": "replica_cell_1rw",
+              "origin_x": 13.979999999999986,
+              "origin_y": 23.017500000000002,
+              "pitch_x": 0.894999999999988,
+              "pitch_y": 1.564999999999979,
+              "width": 0.894999999999988,
+              "height": 25.039999999999665,
+              "orientation": "R0/MX by row",
+              "row_orientation_policy": "alternating_mx",
+              "power_rail_policy": "tb_shared_hint_only",
+              "notes": [
+                "x=origin_x+col*cell_width, y=origin_y+row*cell_height.",
+                "row_orientation_policy=alternating_mx"
+              ]
+            }
+          ],
+          "allowed_macros": [
+            "cell_1rw",
+            "dummy_cell_1rw",
+            "replica_cell_1rw"
+          ],
+          "row_orientation_policy": "alternating_mx",
+          "excluded_macros": {
+            "sense_amp": "architecture_adapter_required: OpenYield has Q/QB, local sense_amp has single-ended dout.",
+            "write_driver": "rail_needs_manual_review: keep legacy/peripheral placement until rail sharing is proven.",
+            "dff": "standard_cell_row_required: do not aggregate with storage-array cells.",
+            "tri_gate": "standard_cell_row_required: do not aggregate with storage-array cells.",
+            "gen_col_mux": "missing_power_metadata: vdd is not proven, shared rail is forbidden.",
+            "gen_wl_driver": "needs_semantic_confirmation: B/wordline_enable semantics still need confirmation.",
+            "gen_nand2": "logic_gate: not part of limited storage-array aggregation.",
+            "gen_nand4": "logic_gate: not part of limited storage-array aggregation.",
+            "gen_precharge": "peripheral_macro: not part of limited storage-array aggregation."
+          },
+          "power_rail_policy": "tb_shared_hint_only",
+          "cross_row_power_short_risk": false,
+          "changed_gds_flow": false,
+          "routing_changed": false,
+          "shared_rail_merge": false,
+          "notes": [
+            "Standalone integration replaces only bitcell/dummy/replica CellArray placement.",
+            "Peripheral placement, routing, GDS writer behavior, and rail-shape merging remain unchanged.",
+            "row_orientation_policy=alternating_mx"
+          ]
+        },
+        "storage_arrays": {
+          "bitcell_array": {
+            "x0": 12.094999999999986,
+            "y0": 22.9175,
+            "x1": 13.884999999999987,
+            "y1": 47.95750000000001
+          },
+          "dummy_left_array": {
+            "x0": 11.2,
+            "y0": 22.9175,
+            "x1": 12.095,
+            "y1": 47.95749999999969
+          },
+          "dummy_right_array": {
+            "x0": 14.779999999999974,
+            "y0": 22.9175,
+            "x1": 15.674999999999976,
+            "y1": 47.95749999999969
+          },
+          "replica_bitline_array": {
+            "x0": 13.884999999999986,
+            "y0": 22.9175,
+            "x1": 14.779999999999987,
+            "y1": 47.95749999999969
+          }
+        },
+        "macro_counts": {
+          "cell_1rw": 32,
+          "dummy_cell_1rw": 32,
+          "replica_cell_1rw": 16
+        },
+        "instance_count": 80,
+        "pitch": {
+          "x": 0.895,
+          "y": 1.5650000000000002
+        },
+        "origin": {
+          "x": 12.189999999999987,
+          "y": 23.017500000000002
+        },
+        "power_rail_policy": "tb_shared_hint_only"
+      }
+    }
+  },
+  "checks": {
+    "legacy_default_preserved": true,
+    "senseamp_only_passed": true,
+    "storage_plus_senseamp_passed": true
+  },
+  "summary": {
+    "generated_fake_dout_b": false,
+    "routing_changed": false,
+    "gds_writer_changed": false,
+    "write_driver_changed": false,
+    "column_mux_changed": false,
+    "wordline_driver_changed": false
+  },
+  "can_continue_to_next_adapter": true,
+  "next_step_recommendations": [
+    "Keep the sense_amp adapter opt-in only; do not enable it by default yet.",
+    "Use the same pattern for the next peripheral adapter so the main flow stays easy to audit.",
+    "The next adapter should be column mux or write driver, depending on whether you want to settle data-path source semantics or write-path semantics first."
+  ]
+}

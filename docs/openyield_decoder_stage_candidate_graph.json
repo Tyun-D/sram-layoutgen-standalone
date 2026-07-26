@@ -1,0 +1,307 @@
+{
+  "scope": "step6_9_openyield_decoder_stage_candidate_audit",
+  "nodes": [
+    {
+      "id": "DECODER_CASCADE_STAGE_PLAN",
+      "kind": "candidate",
+      "candidate_type": "hierarchical_decoder_plan",
+      "source_class": "DECODER_CASCADE",
+      "mapping_status": "generated_logic_partial",
+      "placement_feasibility": "metadata_stage_plan_only"
+    },
+    {
+      "id": "DECODER3_8_GROUP",
+      "kind": "candidate",
+      "candidate_type": "decoder_stage_group",
+      "source_class": "DECODER3_8",
+      "mapping_status": "generated_logic_partial",
+      "placement_feasibility": "needs_generated_logic_row_rules"
+    },
+    {
+      "id": "DECODER_LOGIC_CELL_SET",
+      "kind": "candidate",
+      "candidate_type": "logic_cell_set",
+      "source_class": "Pinv/PNAND2/PNAND3/AND2/AND3",
+      "mapping_status": "generated_logic_partial",
+      "placement_feasibility": "needs_generated_logic_row_rules"
+    },
+    {
+      "id": "gen_inv",
+      "kind": "local_macro",
+      "safe_for_metadata_mapping": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "id": "gen_delay_inv",
+      "kind": "local_macro",
+      "safe_for_metadata_mapping": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "id": "gen_nand2",
+      "kind": "local_macro",
+      "safe_for_metadata_mapping": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "id": "gen_nand4",
+      "kind": "local_macro",
+      "safe_for_metadata_mapping": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "id": "tri_gate",
+      "kind": "local_macro",
+      "safe_for_metadata_mapping": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "id": "dff",
+      "kind": "local_macro",
+      "safe_for_metadata_mapping": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "id": "gen_wl_driver",
+      "kind": "local_macro",
+      "safe_for_metadata_mapping": true,
+      "safe_for_physical_placement": false
+    }
+  ],
+  "edges": [
+    {
+      "source": "ADDR_DFF_ROW.addr_q[*]",
+      "target": "DECODER_CASCADE_STAGE_PLAN",
+      "relation": "input_handoff"
+    },
+    {
+      "source": "DECODER_CASCADE_STAGE_PLAN",
+      "target": "WORDLINEDRIVER.A[*]",
+      "relation": "output_handoff"
+    },
+    {
+      "source": "DECODER_CASCADE_STAGE_PLAN",
+      "target": "DECODER3_8_GROUP",
+      "relation": "repeats"
+    },
+    {
+      "source": "DECODER3_8_GROUP",
+      "target": "DECODER_LOGIC_CELL_SET",
+      "relation": "contains"
+    },
+    {
+      "source": "DECODER_LOGIC_CELL_SET",
+      "target": "gen_inv",
+      "relation": "candidate_macro"
+    },
+    {
+      "source": "DECODER_LOGIC_CELL_SET",
+      "target": "gen_nand2",
+      "relation": "candidate_macro"
+    },
+    {
+      "source": "DECODER_CASCADE_STAGE_PLAN",
+      "target": "gen_wl_driver",
+      "relation": "downstream_consumer_macro"
+    },
+    {
+      "source": "DECODER_CASCADE_STAGE_PLAN",
+      "target": "DEC_0_0",
+      "relation": "stage_instance",
+      "level": 0
+    },
+    {
+      "source": "DECODER_CASCADE_STAGE_PLAN",
+      "target": "DEC_1_0",
+      "relation": "stage_instance",
+      "level": 1
+    },
+    {
+      "source": "DECODER_CASCADE_STAGE_PLAN",
+      "target": "DEC_1_1",
+      "relation": "stage_instance",
+      "level": 1
+    },
+    {
+      "source": "DECODER_CASCADE_STAGE_PLAN",
+      "target": "DEC_1_2",
+      "relation": "stage_instance",
+      "level": 1
+    },
+    {
+      "source": "DECODER_CASCADE_STAGE_PLAN",
+      "target": "DEC_1_3",
+      "relation": "stage_instance",
+      "level": 1
+    }
+  ],
+  "stage_instances": [
+    {
+      "level": 0,
+      "decoder_index": 0,
+      "stage_name": "DEC_0_0",
+      "enable_net": "VDD",
+      "address_node_order": [
+        "A3",
+        "A4",
+        "VSS"
+      ],
+      "decoder_pin_map": {
+        "EN": "VDD",
+        "A0": "VSS",
+        "A1": "A4",
+        "A2": "A3"
+      },
+      "output_nets": [
+        "EN_0_0_0",
+        "EN_0_0_1",
+        "EN_0_0_2",
+        "EN_0_0_3",
+        "EN_0_0_4",
+        "EN_0_0_5",
+        "EN_0_0_6",
+        "EN_0_0_7"
+      ],
+      "output_role": "intermediate_enable_bus"
+    },
+    {
+      "level": 1,
+      "decoder_index": 0,
+      "stage_name": "DEC_1_0",
+      "enable_net": "EN_0_0_0",
+      "address_node_order": [
+        "A0",
+        "A1",
+        "A2"
+      ],
+      "decoder_pin_map": {
+        "EN": "EN_0_0_0",
+        "A0": "A2",
+        "A1": "A1",
+        "A2": "A0"
+      },
+      "output_nets": [
+        "WL0",
+        "WL1",
+        "WL2",
+        "WL3",
+        "WL4",
+        "WL5",
+        "WL6",
+        "WL7"
+      ],
+      "output_role": "wordline_outputs"
+    },
+    {
+      "level": 1,
+      "decoder_index": 1,
+      "stage_name": "DEC_1_1",
+      "enable_net": "EN_0_0_1",
+      "address_node_order": [
+        "A0",
+        "A1",
+        "A2"
+      ],
+      "decoder_pin_map": {
+        "EN": "EN_0_0_1",
+        "A0": "A2",
+        "A1": "A1",
+        "A2": "A0"
+      },
+      "output_nets": [
+        "WL8",
+        "WL9",
+        "WL10",
+        "WL11",
+        "WL12",
+        "WL13",
+        "WL14",
+        "WL15"
+      ],
+      "output_role": "wordline_outputs"
+    },
+    {
+      "level": 1,
+      "decoder_index": 2,
+      "stage_name": "DEC_1_2",
+      "enable_net": "EN_0_0_2",
+      "address_node_order": [
+        "A0",
+        "A1",
+        "A2"
+      ],
+      "decoder_pin_map": {
+        "EN": "EN_0_0_2",
+        "A0": "A2",
+        "A1": "A1",
+        "A2": "A0"
+      },
+      "output_nets": [
+        "WL16",
+        "WL17",
+        "WL18",
+        "WL19",
+        "WL20",
+        "WL21",
+        "WL22",
+        "WL23"
+      ],
+      "output_role": "wordline_outputs"
+    },
+    {
+      "level": 1,
+      "decoder_index": 3,
+      "stage_name": "DEC_1_3",
+      "enable_net": "EN_0_0_3",
+      "address_node_order": [
+        "A0",
+        "A1",
+        "A2"
+      ],
+      "decoder_pin_map": {
+        "EN": "EN_0_0_3",
+        "A0": "A2",
+        "A1": "A1",
+        "A2": "A0"
+      },
+      "output_nets": [
+        "WL24",
+        "WL25",
+        "WL26",
+        "WL27",
+        "WL28",
+        "WL29",
+        "WL30",
+        "WL31"
+      ],
+      "output_role": "wordline_outputs"
+    }
+  ],
+  "input_handoff": {
+    "source": "ADDR_DFF_ROW.addr_q[i]",
+    "sink": "DECODER_CASCADE.A[i]",
+    "source_anchor": "DECODER_INPUT_ANCHOR",
+    "source_window": "ADDR_TO_DECODER_WINDOW",
+    "decoder_stage_input_side": "decoder_input_side",
+    "metadata_only": true,
+    "pin_proven": false,
+    "physical_routing_proven": false
+  },
+  "output_handoff": {
+    "source": "DECODER_CASCADE.WL[row] / decoder_out[row]",
+    "consumer": "WORDLINEDRIVER",
+    "consumer_pin": "A",
+    "sink": "WORDLINEDRIVER.A[row]",
+    "wordline_driver_semantics_confirmed": true,
+    "metadata_only": true,
+    "pin_proven": false,
+    "physical_routing_proven": false
+  },
+  "blockers": [
+    "DECODER_CASCADE is still metadata-only and is not a pin-proven hard macro.",
+    "No direct local gen_nand3 / AND3 hard macro is available; decoder stage logic remains partially compositional.",
+    "Generated-logic row rules, stage grouping row packing, and power rail strategy are not yet proven for decoder placement.",
+    "Decoder output handoff to WORDLINEDRIVER.A is semantic-only; no physical routing proof exists.",
+    "Control-row physical smoke remains blocked until decoder pin/power/routing evidence exists."
+  ]
+}

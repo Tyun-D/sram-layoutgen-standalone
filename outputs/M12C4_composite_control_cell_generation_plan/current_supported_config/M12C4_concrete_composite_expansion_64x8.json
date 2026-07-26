@@ -1,0 +1,138 @@
+{
+  "config": {
+    "num_rows": 64,
+    "num_cols": 8,
+    "num_words": 64,
+    "word_size": 8,
+    "words_per_row": 1,
+    "mux_ratio": 1,
+    "choose_columnmux": false,
+    "operation": "read&write",
+    "tech": "FreePDK45"
+  },
+  "address_width": 6,
+  "ADDR_DFF_bit_count": 6,
+  "DATA_DFF_bit_count": 8,
+  "DFF_total_count": 16,
+  "DFF_BUF_count": 2,
+  "AND2_count": 2,
+  "AND3_count": 2,
+  "PNAND2_count": 2,
+  "PNAND3_count": 3,
+  "pdrive_child_variant_sequence": [
+    {
+      "nmos_width_nm": 90,
+      "pmos_width_nm": 270,
+      "physical_cell": "PINV_NW90_PW270_L50"
+    },
+    {
+      "nmos_width_nm": 270,
+      "pmos_width_nm": 810,
+      "physical_cell": "PINV_NW270_PW810_L50"
+    },
+    {
+      "nmos_width_nm": 910,
+      "pmos_width_nm": 2430,
+      "physical_cell": "PINV_NW910_PW2430_L50"
+    },
+    {
+      "nmos_width_nm": 2430,
+      "pmos_width_nm": 7290,
+      "physical_cell": "PINV_NW2430_PW7290_L50"
+    }
+  ],
+  "pdrive2_for_pre_child_variant_sequence": [
+    {
+      "nmos_width_nm": 90,
+      "pmos_width_nm": 270,
+      "physical_cell": "PINV_NW90_PW270_L50"
+    },
+    {
+      "nmos_width_nm": 270,
+      "pmos_width_nm": 810,
+      "physical_cell": "PINV_NW270_PW810_L50"
+    }
+  ],
+  "wl_pdrive_child_variant_sequence": [
+    {
+      "nmos_width_nm": 90,
+      "pmos_width_nm": 270,
+      "physical_cell": "PINV_NW90_PW270_L50"
+    },
+    {
+      "nmos_width_nm": 450,
+      "pmos_width_nm": 1350,
+      "physical_cell": "PINV_NW450_PW1350_L50"
+    }
+  ],
+  "delay_chain_stage_count": 9,
+  "delay_chain_polarity_parity": "odd_stage_count_inverting",
+  "delay_chain_child_variant_sequence": [
+    {
+      "nmos_width_nm": 90,
+      "pmos_width_nm": 270,
+      "physical_cell": "PINV_NW90_PW270_L50"
+    },
+    {
+      "nmos_width_nm": 90,
+      "pmos_width_nm": 270,
+      "physical_cell": "PINV_NW90_PW270_L50"
+    },
+    {
+      "nmos_width_nm": 90,
+      "pmos_width_nm": 270,
+      "physical_cell": "PINV_NW90_PW270_L50"
+    },
+    {
+      "nmos_width_nm": 90,
+      "pmos_width_nm": 270,
+      "physical_cell": "PINV_NW90_PW270_L50"
+    },
+    {
+      "nmos_width_nm": 90,
+      "pmos_width_nm": 270,
+      "physical_cell": "PINV_NW90_PW270_L50"
+    },
+    {
+      "nmos_width_nm": 90,
+      "pmos_width_nm": 270,
+      "physical_cell": "PINV_NW90_PW270_L50"
+    },
+    {
+      "nmos_width_nm": 90,
+      "pmos_width_nm": 270,
+      "physical_cell": "PINV_NW90_PW270_L50"
+    },
+    {
+      "nmos_width_nm": 90,
+      "pmos_width_nm": 270,
+      "physical_cell": "PINV_NW90_PW270_L50"
+    },
+    {
+      "nmos_width_nm": 90,
+      "pmos_width_nm": 270,
+      "physical_cell": "PINV_NW90_PW270_L50"
+    }
+  ],
+  "TIME_child_instance_counts": {
+    "ADDR_DFF": 1,
+    "DATA_DFF": 1,
+    "DFF_BUF": 2,
+    "pdrive": 1,
+    "wl_pdrive": 1,
+    "delay_chain": 1,
+    "AND2": 2,
+    "AND3": 2,
+    "PNAND3": 1,
+    "PINV_wl_en_bar": 1
+  },
+  "concrete_physical_children": {
+    "DFF_pinv": "PINV_NW250_PW500_L50",
+    "DFF_transmission_gate": "TRANSMISSION_GATE_NW250_PW500_L50",
+    "DFF_BUF_inv1": "PINV_NW180_PW540_L50",
+    "DFF_BUF_inv2": "PINV_NW360_PW1080_L50",
+    "PINV_wl_en_bar": "PINV_NW90_PW270_L50",
+    "PINV_clk_bar": "PINV_NW90_PW270_L50",
+    "PINV_rbl_delay_bar": "PINV_NW90_PW270_L50"
+  }
+}

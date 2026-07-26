@@ -1,0 +1,14 @@
+net_name,expected_endpoints,component_ids,component_count,all_endpoints_connected
+VDD,"['inv1_clk.VDD', 'inv2_D.VDD', 'tg1.VDD', 'inv3.VDD', 'inv4.VDD', 'tg2.VDD', 'inv5.VDD', 'tg3.VDD', 'inv6.VDD', 'inv7.VDD', 'tg4.VDD', 'TOP.VDD']",['contact_1076'],1,True
+VSS,"['inv1_clk.VSS', 'inv2_D.VSS', 'tg1.VSS', 'inv3.VSS', 'inv4.VSS', 'tg2.VSS', 'inv5.VSS', 'tg3.VSS', 'inv6.VSS', 'inv7.VSS', 'tg4.VSS', 'TOP.VSS']",['contact_1082'],1,True
+D,"['inv2_D.A', 'TOP.D']",['via1_172'],1,True
+Q,"['inv6.Z', 'inv7.A', 'TOP.Q']",['via1_172'],1,True
+CLK,"['inv1_clk.A', 'tg1.CTR_P', 'tg2.CTR_N', 'tg3.CTR_N', 'tg4.CTR_P', 'TOP.CLK']",['via1_172'],1,True
+CLKB,"['inv1_clk.Z', 'tg1.CTR_N', 'tg2.CTR_P', 'tg3.CTR_P', 'tg4.CTR_N']",['via1_172'],1,True
+D_b,"['inv2_D.Z', 'tg1.IN']",['via1_172'],1,True
+z1,"['tg1.OUT', 'inv3.A', 'tg2.OUT']",['via1_172'],1,True
+z2,"['inv3.Z', 'inv4.A', 'inv5.A']",['via1_172'],1,True
+z3,"['inv4.Z', 'tg2.IN']",['via1_172'],1,True
+z4,"['inv5.Z', 'tg3.IN']",['via1_172'],1,True
+z5,"['tg3.OUT', 'inv6.A', 'tg4.OUT']",['via1_172'],1,True
+QB,"['inv7.Z', 'tg4.IN']",['via1_172'],1,True

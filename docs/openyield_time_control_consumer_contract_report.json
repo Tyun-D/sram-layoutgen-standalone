@@ -1,0 +1,488 @@
+{
+  "scope": "step6_26_openyield_time_control_consumer_side_contract_normalization_audit",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "source_reports": {
+    "time_control_signal_binding": "step6_24_openyield_time_control_signal_binding_audit",
+    "time_control_generated_logic_contract": "step6_25_openyield_time_control_generated_logic_contract_packaging_audit",
+    "time_control_subblock_audit": "step6_23_openyield_time_control_subblock_adapter_audit",
+    "time_control_decomposition": "step6_1_time_control_decomposition_audit",
+    "senseamp_adapter": "step5_1_senseamp_architecture_adapter_read_only",
+    "writedriver_adapter": "step5_10_writedriver_adapter_audit",
+    "wordlinedriver_adapter": "step5_13_wordlinedriver_adapter_audit",
+    "decoder_metadata_closure": "step6_22_openyield_decoder_metadata_closure"
+  },
+  "time_control_consumer_contract_available": true,
+  "consumer_contract_normalization_available": true,
+  "all_primary_control_consumers_have_contract": true,
+  "consumer_contracts_complete_for_metadata_planning": true,
+  "consumer_contracts_complete_for_physical_planning": false,
+  "precharge_enb_consumer_contract_status": "source_level_metadata_only",
+  "consumer_side_contract_list": [
+    {
+      "contract_name": "WRITE_ENABLE_CONSUMER_CONTRACT",
+      "control_signal": "write_enable",
+      "aliases": [
+        "w_en",
+        "write_enable"
+      ],
+      "producer_binding_contract": "WRITE_ENABLE_BINDING_CONTRACT",
+      "generated_logic_contracts": [
+        "AND3_COMPOSITE_GENERATED_LOGIC_CONTRACT"
+      ],
+      "consumer_macro": "WRITEDRIVER",
+      "consumer_adapter": "writedriver_adapter",
+      "consumer_pin": "EN",
+      "consumer_pin_aliases": [
+        "EN",
+        "en",
+        "write_enable"
+      ],
+      "local_consumer_pin": "en",
+      "expected_active_level": "active_high",
+      "producer_active_level": "active_high",
+      "polarity_consistent": true,
+      "conditional_applicability": "always, with conditional alternate first input in special WEN path",
+      "fanout_count": 1,
+      "fanout_targets": [
+        "WRITEDRIVER.EN"
+      ],
+      "metadata_binding_available": true,
+      "consumer_pin_metadata_available": true,
+      "consumer_pin_side_known": true,
+      "consumer_pin_power_domain_known": true,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "requires_routing_proof": true,
+      "requires_timing_proof": true,
+      "requires_pin_side_proof": false,
+      "metadata_only": true,
+      "status": "normalized_metadata_contract",
+      "notes": [
+        "Downstream consumer is unique at current metadata scope: WRITEDRIVER.EN.",
+        "Conditional WEN delay branch is preserved as an alternate first-input source into the AND3 producer, not as a separate write-driver consumer.",
+        "Local write driver pin name remains `en`; canonical signal is normalized to `write_enable`."
+      ]
+    },
+    {
+      "contract_name": "SENSE_ENABLE_CONSUMER_CONTRACT",
+      "control_signal": "sense_enable",
+      "aliases": [
+        "s_en",
+        "sense_enable"
+      ],
+      "producer_binding_contract": "SENSE_ENABLE_BINDING_CONTRACT",
+      "generated_logic_contracts": [
+        "AND3_COMPOSITE_GENERATED_LOGIC_CONTRACT"
+      ],
+      "consumer_macro": "SENSEAMP",
+      "consumer_adapter": "senseamp_report_only_adapter",
+      "consumer_pin": "EN",
+      "consumer_pin_aliases": [
+        "EN",
+        "en",
+        "sense_enable"
+      ],
+      "local_consumer_pin": "en",
+      "expected_active_level": "active_high",
+      "producer_active_level": "active_high",
+      "polarity_consistent": true,
+      "conditional_applicability": "always",
+      "fanout_count": 1,
+      "fanout_targets": [
+        "SENSEAMP.EN"
+      ],
+      "metadata_binding_available": true,
+      "consumer_pin_metadata_available": true,
+      "consumer_pin_side_known": true,
+      "consumer_pin_power_domain_known": true,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "requires_routing_proof": true,
+      "requires_timing_proof": true,
+      "requires_pin_side_proof": false,
+      "metadata_only": true,
+      "status": "normalized_metadata_contract",
+      "notes": [
+        "Downstream consumer is unique at current metadata scope: SENSEAMP.EN.",
+        "Current sense-amp architecture remains single-ended on Q->dout; this consumer contract only concerns the EN control pin.",
+        "Consumer-side normalization is derived from the existing read-only sense-amp adapter report."
+      ]
+    },
+    {
+      "contract_name": "PRECHARGE_ENB_CONSUMER_CONTRACT",
+      "control_signal": "precharge_enb",
+      "aliases": [
+        "PRE",
+        "precharge_enb"
+      ],
+      "producer_binding_contract": "PRECHARGE_ENB_BINDING_CONTRACT",
+      "generated_logic_contracts": [
+        "PNAND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+        "PDRIVE2_FOR_PRE_CHAIN_GENERATED_LOGIC_CONTRACT"
+      ],
+      "consumer_macro": "PRECHARGE",
+      "consumer_adapter": null,
+      "consumer_pin": "ENB",
+      "consumer_pin_aliases": [
+        "ENB",
+        "EN",
+        "precharge_enb",
+        "PRE"
+      ],
+      "local_consumer_pin": "EN",
+      "expected_active_level": "active_low",
+      "producer_active_level": "active_low",
+      "polarity_consistent": true,
+      "conditional_applicability": "always",
+      "fanout_count": 1,
+      "fanout_targets": [
+        "PRECHARGE.ENB"
+      ],
+      "metadata_binding_available": true,
+      "consumer_pin_metadata_available": true,
+      "consumer_pin_side_known": true,
+      "consumer_pin_power_domain_known": "partial",
+      "safe_for_metadata_planning": "partial",
+      "safe_for_physical_placement": false,
+      "requires_routing_proof": true,
+      "requires_timing_proof": true,
+      "requires_pin_side_proof": false,
+      "metadata_only": true,
+      "status": "source_level_metadata_only",
+      "notes": [
+        "PRE is normalized as canonical `precharge_enb` because the downstream macro contract uses ENB active-low semantics.",
+        "No dedicated precharge adapter module is present in the current repository; this closure stays at source-level metadata plus GDS pin audit level.",
+        "Current hard-macro metadata for gen_precharge shows EN as the physical alias for the active-low precharge enable input."
+      ]
+    },
+    {
+      "contract_name": "WORDLINE_ENABLE_CONSUMER_CONTRACT",
+      "control_signal": "wordline_enable",
+      "aliases": [
+        "wl_en",
+        "wordline_enable"
+      ],
+      "producer_binding_contract": "WORDLINE_ENABLE_BINDING_CONTRACT",
+      "generated_logic_contracts": [
+        "WL_PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT"
+      ],
+      "consumer_macro": "WORDLINEDRIVER",
+      "consumer_adapter": "wordlinedriver_adapter",
+      "consumer_pin": "B",
+      "consumer_pin_aliases": [
+        "B",
+        "wordline_enable",
+        "wl_en"
+      ],
+      "local_consumer_pin": "B",
+      "expected_active_level": "active_high",
+      "producer_active_level": "active_high",
+      "polarity_consistent": true,
+      "conditional_applicability": "always",
+      "fanout_count": 3,
+      "fanout_targets": [
+        "WORDLINEDRIVER.B",
+        "Pinv.A(wl_en_bar)",
+        "RWL_AND2.B"
+      ],
+      "metadata_binding_available": true,
+      "consumer_pin_metadata_available": true,
+      "consumer_pin_side_known": true,
+      "consumer_pin_power_domain_known": true,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "requires_routing_proof": true,
+      "requires_timing_proof": true,
+      "requires_pin_side_proof": false,
+      "metadata_only": true,
+      "status": "normalized_metadata_contract",
+      "notes": [
+        "Primary downstream consumer is WORDLINEDRIVER.B and the active-high semantics are already confirmed by the existing wordline-driver audit.",
+        "Secondary metadata fanout remains present through wl_en_bar generation and the replica-RWL enable path.",
+        "This contract normalizes the primary consumer while preserving the secondary wl_en_bar path as metadata only."
+      ]
+    }
+  ],
+  "alias_normalization": {
+    "control_signal_aliases_normalized": true,
+    "alias_map": {
+      "w_en": {
+        "canonical_signal": "write_enable",
+        "consumer_endpoint": "WRITEDRIVER.EN",
+        "local_consumer_pin": "en"
+      },
+      "write_enable": {
+        "canonical_signal": "write_enable",
+        "consumer_endpoint": "WRITEDRIVER.EN",
+        "local_consumer_pin": "en"
+      },
+      "s_en": {
+        "canonical_signal": "sense_enable",
+        "consumer_endpoint": "SENSEAMP.EN",
+        "local_consumer_pin": "en"
+      },
+      "sense_enable": {
+        "canonical_signal": "sense_enable",
+        "consumer_endpoint": "SENSEAMP.EN",
+        "local_consumer_pin": "en"
+      },
+      "PRE": {
+        "canonical_signal": "precharge_enb",
+        "consumer_endpoint": "PRECHARGE.ENB",
+        "local_consumer_pin": "EN"
+      },
+      "precharge_enb": {
+        "canonical_signal": "precharge_enb",
+        "consumer_endpoint": "PRECHARGE.ENB",
+        "local_consumer_pin": "EN"
+      },
+      "wl_en": {
+        "canonical_signal": "wordline_enable",
+        "consumer_endpoint": "WORDLINEDRIVER.B",
+        "local_consumer_pin": "B"
+      },
+      "wordline_enable": {
+        "canonical_signal": "wordline_enable",
+        "consumer_endpoint": "WORDLINEDRIVER.B",
+        "local_consumer_pin": "B"
+      },
+      "wl_en_bar": {
+        "canonical_signal": "inverted_wordline_enable",
+        "consumer_endpoint": "PRECHARGE.PNAND3.C",
+        "local_consumer_pin": null
+      }
+    },
+    "unknown_aliases": []
+  },
+  "fanout_audit": {
+    "signals": [
+      {
+        "control_signal": "write_enable",
+        "aliases": [
+          "w_en",
+          "write_enable"
+        ],
+        "fanout_count": 1,
+        "fanout_targets": [
+          "WRITEDRIVER.EN"
+        ],
+        "fanout_targets_known": true,
+        "multi_consumer": false,
+        "physical_routing_proven": false,
+        "notes": [
+          "Producer-side WEN delay branch affects the first logic input of the AND3 producer, not the write-driver endpoint count."
+        ]
+      },
+      {
+        "control_signal": "sense_enable",
+        "aliases": [
+          "s_en",
+          "sense_enable"
+        ],
+        "fanout_count": 1,
+        "fanout_targets": [
+          "SENSEAMP.EN"
+        ],
+        "fanout_targets_known": true,
+        "multi_consumer": false,
+        "physical_routing_proven": false,
+        "notes": []
+      },
+      {
+        "control_signal": "precharge_enb",
+        "aliases": [
+          "PRE",
+          "precharge_enb"
+        ],
+        "fanout_count": 1,
+        "fanout_targets": [
+          "PRECHARGE.ENB"
+        ],
+        "fanout_targets_known": true,
+        "multi_consumer": false,
+        "physical_routing_proven": false,
+        "notes": [
+          "Consumer metadata is source-level plus GDS pin audit; no formal precharge adapter module is available yet."
+        ]
+      },
+      {
+        "control_signal": "wordline_enable",
+        "aliases": [
+          "wl_en",
+          "wordline_enable"
+        ],
+        "fanout_count": 3,
+        "fanout_targets": [
+          "WORDLINEDRIVER.B",
+          "Pinv.A(wl_en_bar)",
+          "RWL_AND2.B"
+        ],
+        "fanout_targets_known": true,
+        "multi_consumer": true,
+        "physical_routing_proven": false,
+        "notes": [
+          "Primary consumer is the wordline driver B pin.",
+          "Secondary fanout remains metadata-only and includes wl_en_bar generation plus replica/RWL-side gating."
+        ]
+      },
+      {
+        "control_signal": "wl_en_bar",
+        "aliases": [
+          "wl_en_bar",
+          "inverted_wordline_enable"
+        ],
+        "fanout_count": 1,
+        "fanout_targets": [
+          "PRECHARGE.PNAND3.C"
+        ],
+        "fanout_targets_known": true,
+        "multi_consumer": false,
+        "physical_routing_proven": false,
+        "notes": [
+          "This is a secondary path derived from wl_en through a downstream inverter."
+        ]
+      }
+    ],
+    "fanout_targets_known": true,
+    "multi_consumer_control_signals": [
+      "wordline_enable"
+    ],
+    "fanout_requires_routing_proof": true,
+    "physical_routing_proven": false
+  },
+  "consumer_pin_metadata_audit": [
+    {
+      "consumer_macro": "WRITEDRIVER",
+      "consumer_adapter": "writedriver_adapter",
+      "adapter_report_available": true,
+      "consumer_pin": "EN",
+      "local_consumer_pin": "en",
+      "consumer_pin_known": true,
+      "consumer_pin_side_known": true,
+      "consumer_pin_power_domain_known": true,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "consumer_macro": "SENSEAMP",
+      "consumer_adapter": "senseamp_report_only_adapter",
+      "adapter_report_available": true,
+      "consumer_pin": "EN",
+      "local_consumer_pin": "en",
+      "consumer_pin_known": true,
+      "consumer_pin_side_known": true,
+      "consumer_pin_power_domain_known": true,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "consumer_macro": "PRECHARGE",
+      "consumer_adapter": null,
+      "adapter_report_available": false,
+      "consumer_pin": "ENB",
+      "local_consumer_pin": "EN",
+      "consumer_pin_known": true,
+      "consumer_pin_side_known": true,
+      "consumer_pin_power_domain_known": "partial",
+      "safe_for_metadata_planning": "partial",
+      "safe_for_physical_placement": false
+    },
+    {
+      "consumer_macro": "WORDLINEDRIVER",
+      "consumer_adapter": "wordlinedriver_adapter",
+      "adapter_report_available": true,
+      "consumer_pin": "B",
+      "local_consumer_pin": "B",
+      "consumer_pin_known": true,
+      "consumer_pin_side_known": true,
+      "consumer_pin_power_domain_known": true,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false
+    }
+  ],
+  "consistency_checks": {
+    "consumer_contract_normalization_available": true,
+    "all_primary_control_consumers_have_contract": true,
+    "write_enable_consumer_contract_available": true,
+    "sense_enable_consumer_contract_available": true,
+    "precharge_enb_consumer_contract_available": true,
+    "wordline_enable_consumer_contract_available": true,
+    "write_enable_consumer_consistent": true,
+    "writedriver_enable_pin_known": true,
+    "writedriver_enable_active_high": true,
+    "sense_enable_consumer_consistent": true,
+    "senseamp_enable_pin_known": true,
+    "senseamp_enable_active_high": true,
+    "precharge_enb_consumer_consistent": true,
+    "precharge_enable_pin_known": true,
+    "precharge_enable_active_low": true,
+    "precharge_consumer_adapter_available": false,
+    "wordline_enable_consumer_consistent": true,
+    "wordlinedriver_B_pin_known": true,
+    "wordlinedriver_B_active_high": true,
+    "wl_en_bar_secondary_path_preserved": true,
+    "conditional_wen_delay_policy_preserved": true,
+    "control_signal_aliases_normalized": true,
+    "control_signal_polarity_consistent": true,
+    "consumer_pin_binding_consistent": true,
+    "fanout_metadata_available": true,
+    "consumer_contracts_complete_for_metadata_planning": true,
+    "consumer_contracts_complete_for_physical_planning": false,
+    "safe_for_metadata_planning": true,
+    "safe_for_physical_placement": false
+  },
+  "unresolved_items": [
+    "consumer contracts are metadata-only",
+    "control fanout routing is not proven",
+    "consumer physical pin-side proof may be incomplete for PRECHARGE",
+    "precharge adapter may still be missing or source-level only",
+    "timing proof for enable arrival is missing",
+    "routing proof for all control signals is missing",
+    "control-row physical placement proof is missing",
+    "rail continuity proof is missing",
+    "no DRC/LVS proof exists",
+    "standalone integration is not allowed yet"
+  ],
+  "can_enter_time_control_consumer_metadata_planning": true,
+  "can_enter_time_control_physical_placement": false,
+  "can_enter_standalone_control_placement": false,
+  "audit_summary": {
+    "time_control_consumer_contract_available": true,
+    "consumer_contract_normalization_available": true,
+    "all_primary_control_consumers_have_contract": true,
+    "control_signal_aliases_normalized": true,
+    "control_signal_polarity_consistent": true,
+    "consumer_pin_binding_consistent": true,
+    "precharge_enb_consumer_contract_status": "source_level_metadata_only",
+    "can_enter_time_control_consumer_metadata_planning": true,
+    "can_enter_time_control_physical_placement": false,
+    "can_enter_standalone_control_placement": false
+  },
+  "step_6_27_recommendation": {
+    "recommended_next_phase": "time_control_consumer_pin_metadata_closure",
+    "candidate_directions": [
+      "precharge_consumer_adapter_audit",
+      "wordline_secondary_consumer_contract_normalization",
+      "control_fanout_handoff_budget",
+      "control_row_preplacement_constraints"
+    ],
+    "reason": [
+      "Primary consumer-side contracts are now normalized at metadata level.",
+      "The weakest link is PRECHARGE consumer closure, which is still source-level plus pin-audit only.",
+      "Routing, timing, and control-row placement remain blocked, so the next useful step is consumer-pin metadata closure rather than physical placement."
+    ]
+  },
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "supporting_context": {
+    "conditional_wen_delay_binding": {
+      "contract_name": "WEN_DELAY_CONDITIONAL_BINDING_CONTRACT",
+      "conditional_applicability": "operation == write and num_rows == 16 and num_cols == 512",
+      "affects": "WRITE_ENABLE_CONSUMER_CONTRACT producer-side first input only"
+    },
+    "precharge_module_contract_available": true
+  }
+}

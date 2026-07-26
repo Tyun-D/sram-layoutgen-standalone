@@ -1,0 +1,2748 @@
+{
+  "contracts_source": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "replacement_macro_count": 6,
+  "alias_count": 10,
+  "library_gds_count": 19,
+  "library_spice_count": 10,
+  "catalog_macro_count": 19,
+  "alias_file_present": true,
+  "contract_count": 53,
+  "compatibilities": [
+    {
+      "original_module_name": "SRAM_6T_CELL",
+      "canonical_module_name": "bitcell",
+      "role": "bitcell",
+      "candidate_macros": [
+        "cell_1rw",
+        "cell_6t"
+      ],
+      "existing_macros": [
+        "cell_1rw"
+      ],
+      "selected_macro": "cell_1rw",
+      "pin_checks": [
+        {
+          "canonical_pin": "vdd",
+          "expected_aliases": [
+            "VDD",
+            "vdd"
+          ],
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "gnd",
+          "expected_aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ],
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "bl",
+          "expected_aliases": [
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ],
+          "matched_macro_pin": "bl",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "br",
+          "expected_aliases": [
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ],
+          "matched_macro_pin": "br",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "wl",
+          "expected_aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ],
+          "matched_macro_pin": "wl",
+          "status": "matched",
+          "notes": []
+        }
+      ],
+      "power_status": "vdd_gnd_alias_ok",
+      "aggregation_status": "abutment_ready",
+      "implementation_status": "macro_candidate",
+      "footprint": {
+        "macro_name": "cell_1rw",
+        "role": "bitcell",
+        "width": 0.0,
+        "height": 0.0,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [],
+        "bottom_rails": [],
+        "abutment_rules": [
+          {
+            "side": "left",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "right",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "top",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          },
+          {
+            "side": "bottom",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          }
+        ],
+        "pin_access_sides": {
+          "bl": [
+            "internal"
+          ],
+          "br": [
+            "internal"
+          ],
+          "gnd": [
+            "internal"
+          ],
+          "vdd": [
+            "internal"
+          ],
+          "wl": [
+            "internal"
+          ]
+        },
+        "status": "abutment_ready",
+        "notes": []
+      },
+      "notes": []
+    },
+    {
+      "original_module_name": "SRAM_10T_CELL",
+      "canonical_module_name": "bitcell_10t",
+      "role": "bitcell_10t",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "unsupported_architecture",
+      "implementation_status": "unsupported_architecture",
+      "footprint": null,
+      "notes": [
+        "Current layout generator/replacement macro library is 6T-focused; this OpenYield architecture is unsupported."
+      ]
+    },
+    {
+      "original_module_name": "SRAM_6T_CORE_*",
+      "canonical_module_name": "sram_6t_core",
+      "role": "bitcell_array",
+      "candidate_macros": [
+        "cell_1rw_array",
+        "bitcell_array"
+      ],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [
+        {
+          "canonical_pin": "vdd",
+          "expected_aliases": [
+            "VDD",
+            "vdd"
+          ],
+          "matched_macro_pin": null,
+          "status": "missing_macro",
+          "notes": [
+            "Candidate macro names are not present in replacement_macros.json."
+          ]
+        },
+        {
+          "canonical_pin": "gnd",
+          "expected_aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ],
+          "matched_macro_pin": null,
+          "status": "missing_macro",
+          "notes": [
+            "Candidate macro names are not present in replacement_macros.json."
+          ]
+        },
+        {
+          "canonical_pin": "bl",
+          "expected_aliases": [
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ],
+          "matched_macro_pin": null,
+          "status": "missing_macro",
+          "notes": [
+            "Candidate macro names are not present in replacement_macros.json."
+          ]
+        },
+        {
+          "canonical_pin": "br",
+          "expected_aliases": [
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ],
+          "matched_macro_pin": null,
+          "status": "missing_macro",
+          "notes": [
+            "Candidate macro names are not present in replacement_macros.json."
+          ]
+        },
+        {
+          "canonical_pin": "wl",
+          "expected_aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ],
+          "matched_macro_pin": null,
+          "status": "missing_macro",
+          "notes": [
+            "Candidate macro names are not present in replacement_macros.json."
+          ]
+        }
+      ],
+      "power_status": "no_macro",
+      "aggregation_status": "composite_required",
+      "implementation_status": "composite_required",
+      "footprint": null,
+      "notes": [
+        "This contract is hierarchical and should not map to one single flat GDS macro.",
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement.",
+        "Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts."
+      ]
+    },
+    {
+      "original_module_name": "SRAM_10T_CORE_*",
+      "canonical_module_name": "sram_10t_core",
+      "role": "bitcell_array_10t",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "unsupported_architecture",
+      "implementation_status": "unsupported_architecture",
+      "footprint": null,
+      "notes": [
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement.",
+        "Current layout generator/replacement macro library is 6T-focused; this OpenYield architecture is unsupported."
+      ]
+    },
+    {
+      "original_module_name": "COLUMNMUX*",
+      "canonical_module_name": "column_mux",
+      "role": "column_mux",
+      "candidate_macros": [
+        "gen_col_mux",
+        "column_mux"
+      ],
+      "existing_macros": [
+        "gen_col_mux"
+      ],
+      "selected_macro": "gen_col_mux",
+      "pin_checks": [
+        {
+          "canonical_pin": "vdd",
+          "expected_aliases": [
+            "VDD",
+            "vdd"
+          ],
+          "matched_macro_pin": null,
+          "status": "missing_pin",
+          "notes": [
+            "No replacement macro pin maps to canonical `vdd`."
+          ]
+        },
+        {
+          "canonical_pin": "gnd",
+          "expected_aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ],
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "mux_out",
+          "expected_aliases": [
+            "SA_IN",
+            "OUT",
+            "mux_out"
+          ],
+          "matched_macro_pin": "OUT",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "mux_out_b",
+          "expected_aliases": [
+            "SA_INB",
+            "OUTB",
+            "mux_out_b"
+          ],
+          "matched_macro_pin": "OUTB",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "column_select",
+          "expected_aliases": [
+            "SEL{i}",
+            "SEL",
+            "column_select"
+          ],
+          "matched_macro_pin": "SEL",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "bl",
+          "expected_aliases": [
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ],
+          "matched_macro_pin": "BL",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "br",
+          "expected_aliases": [
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ],
+          "matched_macro_pin": "BR",
+          "status": "matched",
+          "notes": []
+        }
+      ],
+      "power_status": "missing_vdd",
+      "aggregation_status": "unknown_need_gds_pin_audit",
+      "implementation_status": "macro_candidate",
+      "footprint": {
+        "macro_name": "gen_col_mux",
+        "role": "column_mux",
+        "width": 0.8175,
+        "height": 1.8800000000000001,
+        "left_rails": [],
+        "right_rails": [
+          {
+            "net": "gnd",
+            "layer": "m1",
+            "orientation": "vertical",
+            "side": "right",
+            "track": 0.705,
+            "width": null,
+            "can_share_with_neighbor": true
+          }
+        ],
+        "top_rails": [],
+        "bottom_rails": [],
+        "abutment_rules": [
+          {
+            "side": "left",
+            "compatible_roles": [
+              "column_mux"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "Requires GDS pin/DRC audit before enabling no-gap abutment."
+            ]
+          },
+          {
+            "side": "right",
+            "compatible_roles": [
+              "column_mux"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "Requires GDS pin/DRC audit before enabling no-gap abutment."
+            ]
+          }
+        ],
+        "pin_access_sides": {
+          "BL": [
+            "top"
+          ],
+          "BR": [
+            "top"
+          ],
+          "OUT": [
+            "internal"
+          ],
+          "OUTB": [
+            "internal"
+          ],
+          "SEL": [
+            "internal"
+          ],
+          "gnd": [
+            "right"
+          ]
+        },
+        "status": "unknown_need_gds_pin_audit",
+        "notes": [
+          "Replacement macro JSON has bbox/pin centers, but full GDS pin shapes are still needed before enabling physical abutment.",
+          "Column-side circuits need bitline pitch and power rail continuity checks before sharing rails."
+        ]
+      },
+      "notes": [
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement.",
+        "Replacement macro exists, but one or more canonical pins do not match current metadata."
+      ]
+    },
+    {
+      "original_module_name": "ColumnMuxFactory",
+      "canonical_module_name": "column_mux",
+      "role": "column_mux",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "non_layout_source",
+      "implementation_status": "non_layout_source",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "ADDR_DFF",
+      "canonical_module_name": "control_dff",
+      "role": "control_timing",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "composite_required",
+      "implementation_status": "composite_required",
+      "footprint": null,
+      "notes": [
+        "This contract is hierarchical and should not map to one single flat GDS macro.",
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement.",
+        "Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts."
+      ]
+    },
+    {
+      "original_module_name": "DATA_DFF",
+      "canonical_module_name": "data_dff",
+      "role": "control_timing",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "composite_required",
+      "implementation_status": "composite_required",
+      "footprint": null,
+      "notes": [
+        "This contract is hierarchical and should not map to one single flat GDS macro.",
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement.",
+        "Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts."
+      ]
+    },
+    {
+      "original_module_name": "DFF",
+      "canonical_module_name": "dff",
+      "role": "control_timing",
+      "candidate_macros": [
+        "dff"
+      ],
+      "existing_macros": [
+        "dff"
+      ],
+      "selected_macro": "dff",
+      "pin_checks": [
+        {
+          "canonical_pin": "vdd",
+          "expected_aliases": [
+            "VDD",
+            "vdd"
+          ],
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "gnd",
+          "expected_aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ],
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "d",
+          "expected_aliases": [
+            "D"
+          ],
+          "matched_macro_pin": "D",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "dout",
+          "expected_aliases": [
+            "Q",
+            "OUT",
+            "dout0[*]",
+            "dout"
+          ],
+          "matched_macro_pin": "Q",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "clk",
+          "expected_aliases": [
+            "CLK",
+            "clk0",
+            "clk"
+          ],
+          "matched_macro_pin": "clk",
+          "status": "matched",
+          "notes": []
+        }
+      ],
+      "power_status": "vdd_gnd_alias_ok",
+      "aggregation_status": "unknown_need_gds_pin_audit",
+      "implementation_status": "macro_candidate",
+      "footprint": {
+        "macro_name": "dff",
+        "role": "control_timing",
+        "width": 0.0,
+        "height": 0.0,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [],
+        "bottom_rails": [],
+        "abutment_rules": [],
+        "pin_access_sides": {
+          "D": [
+            "internal"
+          ],
+          "Q": [
+            "internal"
+          ],
+          "clk": [
+            "internal"
+          ],
+          "gnd": [
+            "internal"
+          ],
+          "vdd": [
+            "internal"
+          ]
+        },
+        "status": "unknown_need_gds_pin_audit",
+        "notes": [
+          "Replacement macro JSON has bbox/pin centers, but full GDS pin shapes are still needed before enabling physical abutment."
+        ]
+      },
+      "notes": [
+        "This contract is hierarchical and should not map to one single flat GDS macro."
+      ]
+    },
+    {
+      "original_module_name": "TIME",
+      "canonical_module_name": "control_logic",
+      "role": "control_timing",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "composite_required",
+      "implementation_status": "composite_required",
+      "footprint": null,
+      "notes": [
+        "Composite control/timing module; should become architecture/control contract before placement.",
+        "Composed from ADDR_DFF, DATA_DFF, DFF, delay_chain, wen_delay_chain, pdrive, pdrive2_for_pre, wl_pdrive, and logic gates.",
+        "This contract is hierarchical and should not map to one single flat GDS macro.",
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement.",
+        "Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts."
+      ]
+    },
+    {
+      "original_module_name": "delay_chain",
+      "canonical_module_name": "delay_chain",
+      "role": "control_timing",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "composite_required",
+      "implementation_status": "composite_required",
+      "footprint": null,
+      "notes": [
+        "This contract is hierarchical and should not map to one single flat GDS macro.",
+        "Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts."
+      ]
+    },
+    {
+      "original_module_name": "wen_delay_chain",
+      "canonical_module_name": "wen_delay_chain",
+      "role": "control_timing",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "composite_required",
+      "implementation_status": "composite_required",
+      "footprint": null,
+      "notes": [
+        "This contract is hierarchical and should not map to one single flat GDS macro.",
+        "Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts."
+      ]
+    },
+    {
+      "original_module_name": "DECODER3_8",
+      "canonical_module_name": "decoder",
+      "role": "decoder",
+      "candidate_macros": [
+        "gen_nand2",
+        "gen_nand4",
+        "row_decoder"
+      ],
+      "existing_macros": [
+        "gen_nand2",
+        "gen_nand4"
+      ],
+      "selected_macro": "gen_nand2",
+      "pin_checks": [
+        {
+          "canonical_pin": "vdd",
+          "expected_aliases": [
+            "VDD",
+            "vdd"
+          ],
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "gnd",
+          "expected_aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ],
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "en",
+          "expected_aliases": [
+            "EN"
+          ],
+          "matched_macro_pin": null,
+          "status": "missing_pin",
+          "notes": [
+            "No replacement macro pin maps to canonical `en`."
+          ]
+        },
+        {
+          "canonical_pin": "addr",
+          "expected_aliases": [
+            "A{i}",
+            "A0",
+            "addr0[*]",
+            "addr"
+          ],
+          "matched_macro_pin": null,
+          "status": "missing_pin",
+          "notes": [
+            "No replacement macro pin maps to canonical `addr`."
+          ]
+        },
+        {
+          "canonical_pin": "wl",
+          "expected_aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ],
+          "matched_macro_pin": null,
+          "status": "missing_pin",
+          "notes": [
+            "No replacement macro pin maps to canonical `wl`."
+          ]
+        }
+      ],
+      "power_status": "vdd_gnd_alias_ok",
+      "aggregation_status": "unknown_need_gds_pin_audit",
+      "implementation_status": "macro_candidate",
+      "footprint": {
+        "macro_name": "gen_nand2",
+        "role": "decoder",
+        "width": 1.0375,
+        "height": 1.48,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [
+          {
+            "net": "vdd",
+            "layer": "m1",
+            "orientation": "horizontal",
+            "side": "top",
+            "track": 1.365,
+            "width": null,
+            "can_share_with_neighbor": true
+          }
+        ],
+        "bottom_rails": [
+          {
+            "net": "gnd",
+            "layer": "m1",
+            "orientation": "horizontal",
+            "side": "bottom",
+            "track": 0.0,
+            "width": null,
+            "can_share_with_neighbor": true
+          }
+        ],
+        "abutment_rules": [],
+        "pin_access_sides": {
+          "A": [
+            "internal"
+          ],
+          "B": [
+            "internal"
+          ],
+          "Z": [
+            "internal"
+          ],
+          "gnd": [
+            "bottom"
+          ],
+          "vdd": [
+            "top"
+          ]
+        },
+        "status": "unknown_need_gds_pin_audit",
+        "notes": [
+          "Replacement macro JSON has bbox/pin centers, but full GDS pin shapes are still needed before enabling physical abutment."
+        ]
+      },
+      "notes": [
+        "Replacement macro exists, but one or more canonical pins do not match current metadata."
+      ]
+    },
+    {
+      "original_module_name": "DECODER_CASCADE",
+      "canonical_module_name": "decoder",
+      "role": "decoder",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "composite_required",
+      "implementation_status": "composite_required",
+      "footprint": null,
+      "notes": [
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement.",
+        "Do not map this OpenYield module to one single GDS macro; build it from lower-level contracts."
+      ]
+    },
+    {
+      "original_module_name": "DecoderCascadeFactory",
+      "canonical_module_name": "decoder",
+      "role": "decoder",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "non_layout_source",
+      "implementation_status": "non_layout_source",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "DummyColumnFactory",
+      "canonical_module_name": "dummy",
+      "role": "dummy",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "non_layout_source",
+      "implementation_status": "non_layout_source",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "DummyRowFactory",
+      "canonical_module_name": "dummy",
+      "role": "dummy",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "non_layout_source",
+      "implementation_status": "non_layout_source",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "Dummy_CELL",
+      "canonical_module_name": "dummy_cell",
+      "role": "dummy",
+      "candidate_macros": [
+        "dummy_cell_1rw",
+        "dummy_cell_array"
+      ],
+      "existing_macros": [
+        "dummy_cell_1rw"
+      ],
+      "selected_macro": "dummy_cell_1rw",
+      "pin_checks": [
+        {
+          "canonical_pin": "vdd",
+          "expected_aliases": [
+            "VDD",
+            "vdd"
+          ],
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "gnd",
+          "expected_aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ],
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "bl",
+          "expected_aliases": [
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ],
+          "matched_macro_pin": "bl",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "br",
+          "expected_aliases": [
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ],
+          "matched_macro_pin": "br",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "wl",
+          "expected_aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ],
+          "matched_macro_pin": "wl",
+          "status": "matched",
+          "notes": []
+        }
+      ],
+      "power_status": "vdd_gnd_alias_ok",
+      "aggregation_status": "abutment_ready",
+      "implementation_status": "macro_candidate",
+      "footprint": {
+        "macro_name": "dummy_cell_1rw",
+        "role": "dummy",
+        "width": 0.0,
+        "height": 0.0,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [],
+        "bottom_rails": [],
+        "abutment_rules": [
+          {
+            "side": "left",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "right",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "top",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          },
+          {
+            "side": "bottom",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          }
+        ],
+        "pin_access_sides": {
+          "bl": [
+            "internal"
+          ],
+          "br": [
+            "internal"
+          ],
+          "gnd": [
+            "internal"
+          ],
+          "vdd": [
+            "internal"
+          ],
+          "wl": [
+            "internal"
+          ]
+        },
+        "status": "abutment_ready",
+        "notes": []
+      },
+      "notes": []
+    },
+    {
+      "original_module_name": "Dummy_Column",
+      "canonical_module_name": "dummy",
+      "role": "dummy",
+      "candidate_macros": [
+        "dummy_cell_1rw",
+        "dummy_cell_array"
+      ],
+      "existing_macros": [
+        "dummy_cell_1rw"
+      ],
+      "selected_macro": "dummy_cell_1rw",
+      "pin_checks": [
+        {
+          "canonical_pin": "vdd",
+          "expected_aliases": [
+            "VDD",
+            "vdd"
+          ],
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "gnd",
+          "expected_aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ],
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "bl",
+          "expected_aliases": [
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ],
+          "matched_macro_pin": "bl",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "br",
+          "expected_aliases": [
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ],
+          "matched_macro_pin": "br",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "wl",
+          "expected_aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ],
+          "matched_macro_pin": "wl",
+          "status": "matched",
+          "notes": []
+        }
+      ],
+      "power_status": "vdd_gnd_alias_ok",
+      "aggregation_status": "abutment_ready",
+      "implementation_status": "macro_candidate",
+      "footprint": {
+        "macro_name": "dummy_cell_1rw",
+        "role": "dummy",
+        "width": 0.0,
+        "height": 0.0,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [],
+        "bottom_rails": [],
+        "abutment_rules": [
+          {
+            "side": "left",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "right",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "top",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          },
+          {
+            "side": "bottom",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          }
+        ],
+        "pin_access_sides": {
+          "bl": [
+            "internal"
+          ],
+          "br": [
+            "internal"
+          ],
+          "gnd": [
+            "internal"
+          ],
+          "vdd": [
+            "internal"
+          ],
+          "wl": [
+            "internal"
+          ]
+        },
+        "status": "abutment_ready",
+        "notes": []
+      },
+      "notes": [
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement."
+      ]
+    },
+    {
+      "original_module_name": "Dummy_Row",
+      "canonical_module_name": "dummy",
+      "role": "dummy",
+      "candidate_macros": [
+        "dummy_cell_1rw",
+        "dummy_cell_array"
+      ],
+      "existing_macros": [
+        "dummy_cell_1rw"
+      ],
+      "selected_macro": "dummy_cell_1rw",
+      "pin_checks": [
+        {
+          "canonical_pin": "vdd",
+          "expected_aliases": [
+            "VDD",
+            "vdd"
+          ],
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "gnd",
+          "expected_aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ],
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "bl",
+          "expected_aliases": [
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ],
+          "matched_macro_pin": "bl",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "br",
+          "expected_aliases": [
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ],
+          "matched_macro_pin": "br",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "wl",
+          "expected_aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ],
+          "matched_macro_pin": "wl",
+          "status": "matched",
+          "notes": []
+        }
+      ],
+      "power_status": "vdd_gnd_alias_ok",
+      "aggregation_status": "abutment_ready",
+      "implementation_status": "macro_candidate",
+      "footprint": {
+        "macro_name": "dummy_cell_1rw",
+        "role": "dummy",
+        "width": 0.0,
+        "height": 0.0,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [],
+        "bottom_rails": [],
+        "abutment_rules": [
+          {
+            "side": "left",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "right",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "top",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          },
+          {
+            "side": "bottom",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          }
+        ],
+        "pin_access_sides": {
+          "bl": [
+            "internal"
+          ],
+          "br": [
+            "internal"
+          ],
+          "gnd": [
+            "internal"
+          ],
+          "vdd": [
+            "internal"
+          ],
+          "wl": [
+            "internal"
+          ]
+        },
+        "status": "abutment_ready",
+        "notes": []
+      },
+      "notes": [
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement."
+      ]
+    },
+    {
+      "original_module_name": "PRECHARGE",
+      "canonical_module_name": "precharge",
+      "role": "precharge",
+      "candidate_macros": [
+        "gen_precharge",
+        "precharge_array"
+      ],
+      "existing_macros": [
+        "gen_precharge"
+      ],
+      "selected_macro": "gen_precharge",
+      "pin_checks": [
+        {
+          "canonical_pin": "vdd",
+          "expected_aliases": [
+            "VDD",
+            "vdd"
+          ],
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "precharge_enb",
+          "expected_aliases": [
+            "ENB",
+            "PRE",
+            "pre",
+            "p_en_bar"
+          ],
+          "matched_macro_pin": "EN",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "bl",
+          "expected_aliases": [
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ],
+          "matched_macro_pin": "BL",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "br",
+          "expected_aliases": [
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ],
+          "matched_macro_pin": "BR",
+          "status": "matched",
+          "notes": []
+        }
+      ],
+      "power_status": "no_gnd_required",
+      "aggregation_status": "unknown_need_gds_pin_audit",
+      "implementation_status": "macro_candidate",
+      "footprint": {
+        "macro_name": "gen_precharge",
+        "role": "precharge",
+        "width": 0.7849999999999999,
+        "height": 1.4200000000000002,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [],
+        "bottom_rails": [],
+        "abutment_rules": [
+          {
+            "side": "left",
+            "compatible_roles": [
+              "precharge"
+            ],
+            "share_power_rails": false,
+            "min_gap": 0.0,
+            "notes": [
+              "Requires GDS pin/DRC audit before enabling no-gap abutment."
+            ]
+          },
+          {
+            "side": "right",
+            "compatible_roles": [
+              "precharge"
+            ],
+            "share_power_rails": false,
+            "min_gap": 0.0,
+            "notes": [
+              "Requires GDS pin/DRC audit before enabling no-gap abutment."
+            ]
+          }
+        ],
+        "pin_access_sides": {
+          "BL": [
+            "internal"
+          ],
+          "BR": [
+            "internal"
+          ],
+          "EN": [
+            "internal"
+          ],
+          "vdd": [
+            "internal"
+          ]
+        },
+        "status": "unknown_need_gds_pin_audit",
+        "notes": [
+          "Replacement macro JSON has bbox/pin centers, but full GDS pin shapes are still needed before enabling physical abutment.",
+          "Column-side circuits need bitline pitch and power rail continuity checks before sharing rails."
+        ]
+      },
+      "notes": [
+        "OpenYield PRECHARGE uses ENB; map to active-low precharge enable."
+      ]
+    },
+    {
+      "original_module_name": "PrechargeFactory",
+      "canonical_module_name": "precharge",
+      "role": "precharge",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "non_layout_source",
+      "implementation_status": "non_layout_source",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "ReplicaColumnFactory",
+      "canonical_module_name": "replica",
+      "role": "replica",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "non_layout_source",
+      "implementation_status": "non_layout_source",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "Replica_CELL",
+      "canonical_module_name": "replica_cell",
+      "role": "replica",
+      "candidate_macros": [
+        "replica_cell_1rw",
+        "replica_column"
+      ],
+      "existing_macros": [
+        "replica_cell_1rw"
+      ],
+      "selected_macro": "replica_cell_1rw",
+      "pin_checks": [
+        {
+          "canonical_pin": "vdd",
+          "expected_aliases": [
+            "VDD",
+            "vdd"
+          ],
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "gnd",
+          "expected_aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ],
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "rbl",
+          "expected_aliases": [
+            "RBL"
+          ],
+          "matched_macro_pin": "bl",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "rblb",
+          "expected_aliases": [
+            "RBLB"
+          ],
+          "matched_macro_pin": "br",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "wl",
+          "expected_aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ],
+          "matched_macro_pin": "wl",
+          "status": "matched",
+          "notes": []
+        }
+      ],
+      "power_status": "vdd_gnd_alias_ok",
+      "aggregation_status": "abutment_ready",
+      "implementation_status": "macro_candidate",
+      "footprint": {
+        "macro_name": "replica_cell_1rw",
+        "role": "replica",
+        "width": 0.0,
+        "height": 0.0,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [],
+        "bottom_rails": [],
+        "abutment_rules": [
+          {
+            "side": "left",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "right",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "top",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          },
+          {
+            "side": "bottom",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          }
+        ],
+        "pin_access_sides": {
+          "bl": [
+            "internal"
+          ],
+          "br": [
+            "internal"
+          ],
+          "gnd": [
+            "internal"
+          ],
+          "vdd": [
+            "internal"
+          ],
+          "wl": [
+            "internal"
+          ]
+        },
+        "status": "abutment_ready",
+        "notes": []
+      },
+      "notes": []
+    },
+    {
+      "original_module_name": "Replica_Column",
+      "canonical_module_name": "replica",
+      "role": "replica",
+      "candidate_macros": [
+        "replica_cell_1rw",
+        "replica_column"
+      ],
+      "existing_macros": [
+        "replica_cell_1rw"
+      ],
+      "selected_macro": "replica_cell_1rw",
+      "pin_checks": [
+        {
+          "canonical_pin": "vdd",
+          "expected_aliases": [
+            "VDD",
+            "vdd"
+          ],
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "gnd",
+          "expected_aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ],
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "rbl",
+          "expected_aliases": [
+            "RBL"
+          ],
+          "matched_macro_pin": "bl",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "rblb",
+          "expected_aliases": [
+            "RBLB"
+          ],
+          "matched_macro_pin": "br",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "wl",
+          "expected_aliases": [
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ],
+          "matched_macro_pin": "wl",
+          "status": "matched",
+          "notes": []
+        }
+      ],
+      "power_status": "vdd_gnd_alias_ok",
+      "aggregation_status": "abutment_ready",
+      "implementation_status": "macro_candidate",
+      "footprint": {
+        "macro_name": "replica_cell_1rw",
+        "role": "replica",
+        "width": 0.0,
+        "height": 0.0,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [],
+        "bottom_rails": [],
+        "abutment_rules": [
+          {
+            "side": "left",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "right",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array cells normally abut horizontally."
+            ]
+          },
+          {
+            "side": "top",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          },
+          {
+            "side": "bottom",
+            "compatible_roles": [
+              "bitcell",
+              "dummy",
+              "replica"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "SRAM array rows may share rails when GDS pins confirm continuity."
+            ]
+          }
+        ],
+        "pin_access_sides": {
+          "bl": [
+            "internal"
+          ],
+          "br": [
+            "internal"
+          ],
+          "gnd": [
+            "internal"
+          ],
+          "vdd": [
+            "internal"
+          ],
+          "wl": [
+            "internal"
+          ]
+        },
+        "status": "abutment_ready",
+        "notes": []
+      },
+      "notes": [
+        "Pins contain dynamic bus patterns; expand with SRAM size before placement."
+      ]
+    },
+    {
+      "original_module_name": "SENSEAMP",
+      "canonical_module_name": "sense_amp",
+      "role": "sense_amp",
+      "candidate_macros": [
+        "sense_amp",
+        "sense_amp_array"
+      ],
+      "existing_macros": [
+        "sense_amp"
+      ],
+      "selected_macro": "sense_amp",
+      "pin_checks": [
+        {
+          "canonical_pin": "vdd",
+          "expected_aliases": [
+            "VDD",
+            "vdd"
+          ],
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "gnd",
+          "expected_aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ],
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "sense_enable",
+          "expected_aliases": [
+            "EN",
+            "s_en",
+            "sense_en"
+          ],
+          "matched_macro_pin": "en",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "bl",
+          "expected_aliases": [
+            "IN",
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ],
+          "matched_macro_pin": "bl",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "br",
+          "expected_aliases": [
+            "INB",
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ],
+          "matched_macro_pin": "br",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "dout",
+          "expected_aliases": [
+            "Q",
+            "OUT",
+            "dout0[*]",
+            "dout"
+          ],
+          "matched_macro_pin": "dout",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "dout_b",
+          "expected_aliases": [
+            "QB",
+            "OUTB"
+          ],
+          "matched_macro_pin": null,
+          "status": "missing_pin",
+          "notes": [
+            "No replacement macro pin maps to canonical `dout_b`."
+          ]
+        }
+      ],
+      "power_status": "vdd_gnd_alias_ok",
+      "aggregation_status": "unknown_need_gds_pin_audit",
+      "implementation_status": "macro_candidate",
+      "footprint": {
+        "macro_name": "sense_amp",
+        "role": "sense_amp",
+        "width": 0.0,
+        "height": 0.0,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [],
+        "bottom_rails": [],
+        "abutment_rules": [
+          {
+            "side": "left",
+            "compatible_roles": [
+              "sense_amp"
+            ],
+            "share_power_rails": false,
+            "min_gap": 0.0,
+            "notes": [
+              "Requires GDS pin/DRC audit before enabling no-gap abutment."
+            ]
+          },
+          {
+            "side": "right",
+            "compatible_roles": [
+              "sense_amp"
+            ],
+            "share_power_rails": false,
+            "min_gap": 0.0,
+            "notes": [
+              "Requires GDS pin/DRC audit before enabling no-gap abutment."
+            ]
+          }
+        ],
+        "pin_access_sides": {
+          "bl": [
+            "internal"
+          ],
+          "br": [
+            "internal"
+          ],
+          "dout": [
+            "internal"
+          ],
+          "en": [
+            "internal"
+          ],
+          "gnd": [
+            "internal"
+          ],
+          "vdd": [
+            "internal"
+          ]
+        },
+        "status": "unknown_need_gds_pin_audit",
+        "notes": [
+          "Replacement macro JSON has bbox/pin centers, but full GDS pin shapes are still needed before enabling physical abutment.",
+          "Column-side circuits need bitline pitch and power rail continuity checks before sharing rails."
+        ]
+      },
+      "notes": [
+        "Map IN/INB to selected BL/BR and Q/QB to dout/dout_b or tri-state stage.",
+        "Replacement macro exists, but one or more canonical pins do not match current metadata."
+      ]
+    },
+    {
+      "original_module_name": "SenseAmpFactory",
+      "canonical_module_name": "sense_amp",
+      "role": "sense_amp",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "non_layout_source",
+      "implementation_status": "non_layout_source",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "AND2",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "needs_stdcell_or_generated_layout",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "AND3",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "needs_stdcell_or_generated_layout",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "DFF_BUF",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "needs_stdcell_or_generated_layout",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "D_LATCH",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "needs_stdcell_or_generated_layout",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "PBUFF",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "needs_stdcell_or_generated_layout",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "PNAND2",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "needs_stdcell_or_generated_layout",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "PNAND3",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "needs_stdcell_or_generated_layout",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "TRANSMISSION_GATE",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "needs_stdcell_or_generated_layout",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "f'PINV{num}'",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "needs_stdcell_or_generated_layout",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "pdrive",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "needs_stdcell_or_generated_layout",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "pdrive2_for_pre",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "needs_stdcell_or_generated_layout",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "wl_pdrive",
+      "canonical_module_name": "support_cell",
+      "role": "support_cell",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "needs_stdcell_or_generated_layout",
+      "implementation_status": "needs_stdcell_or_generated_layout",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "BASE_SUBCKT",
+      "canonical_module_name": "base_subckt",
+      "role": "unknown",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "non_layout_source",
+      "implementation_status": "non_layout_source",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "BaseTestbench",
+      "canonical_module_name": "basetestbench",
+      "role": "unknown",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "non_layout_source",
+      "implementation_status": "non_layout_source",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "SRAMCellParasiticTester",
+      "canonical_module_name": "sramcellparasitictester",
+      "role": "unknown",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "non_layout_source",
+      "implementation_status": "non_layout_source",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "Sram10TCellFactory",
+      "canonical_module_name": "sram10tcellfactory",
+      "role": "unknown",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "non_layout_source",
+      "implementation_status": "non_layout_source",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "Sram10TCoreFactory",
+      "canonical_module_name": "sram10tcorefactory",
+      "role": "unknown",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "non_layout_source",
+      "implementation_status": "non_layout_source",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "Sram6TCellFactory",
+      "canonical_module_name": "sram6tcellfactory",
+      "role": "unknown",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "non_layout_source",
+      "implementation_status": "non_layout_source",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "Sram6TCoreFactory",
+      "canonical_module_name": "sram6tcorefactory",
+      "role": "unknown",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "non_layout_source",
+      "implementation_status": "non_layout_source",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "Sram6TCoreMcTestbench",
+      "canonical_module_name": "sram6tcoremctestbench",
+      "role": "unknown",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "non_layout_source",
+      "implementation_status": "non_layout_source",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "Sram6TCoreTestbench",
+      "canonical_module_name": "sram6tcoretestbench",
+      "role": "unknown",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "non_layout_source",
+      "implementation_status": "non_layout_source",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "TIMEFactory",
+      "canonical_module_name": "timefactory",
+      "role": "unknown",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "non_layout_source",
+      "implementation_status": "non_layout_source",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "WORDLINEDRIVER",
+      "canonical_module_name": "wl_driver",
+      "role": "wordline_driver",
+      "candidate_macros": [
+        "gen_wl_driver",
+        "wordline_driver"
+      ],
+      "existing_macros": [
+        "gen_wl_driver"
+      ],
+      "selected_macro": "gen_wl_driver",
+      "pin_checks": [
+        {
+          "canonical_pin": "vdd",
+          "expected_aliases": [
+            "VDD",
+            "vdd"
+          ],
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "gnd",
+          "expected_aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ],
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "decoder_input",
+          "expected_aliases": [
+            "A",
+            "decoder_input"
+          ],
+          "matched_macro_pin": "A",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "wordline_enable",
+          "expected_aliases": [
+            "B",
+            "wl_en"
+          ],
+          "matched_macro_pin": null,
+          "status": "missing_pin",
+          "notes": [
+            "No replacement macro pin maps to canonical `wordline_enable`."
+          ]
+        },
+        {
+          "canonical_pin": "wl",
+          "expected_aliases": [
+            "Z",
+            "WL",
+            "WL0",
+            "WL{i}",
+            "wl"
+          ],
+          "matched_macro_pin": "Z",
+          "status": "matched",
+          "notes": []
+        }
+      ],
+      "power_status": "vdd_gnd_alias_ok",
+      "aggregation_status": "unknown_need_gds_pin_audit",
+      "implementation_status": "macro_candidate",
+      "footprint": {
+        "macro_name": "gen_wl_driver",
+        "role": "wordline_driver",
+        "width": 3.045,
+        "height": 1.505,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [
+          {
+            "net": "vdd",
+            "layer": "m1",
+            "orientation": "horizontal",
+            "side": "top",
+            "track": 1.365,
+            "width": null,
+            "can_share_with_neighbor": true
+          }
+        ],
+        "bottom_rails": [
+          {
+            "net": "gnd",
+            "layer": "m1",
+            "orientation": "horizontal",
+            "side": "bottom",
+            "track": 0.0,
+            "width": null,
+            "can_share_with_neighbor": true
+          }
+        ],
+        "abutment_rules": [
+          {
+            "side": "left",
+            "compatible_roles": [
+              "wordline_driver"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "Requires GDS pin/DRC audit before enabling no-gap abutment."
+            ]
+          },
+          {
+            "side": "right",
+            "compatible_roles": [
+              "wordline_driver"
+            ],
+            "share_power_rails": true,
+            "min_gap": 0.0,
+            "notes": [
+              "Requires GDS pin/DRC audit before enabling no-gap abutment."
+            ]
+          }
+        ],
+        "pin_access_sides": {
+          "A": [
+            "internal"
+          ],
+          "Z": [
+            "internal"
+          ],
+          "gnd": [
+            "bottom"
+          ],
+          "vdd": [
+            "top"
+          ]
+        },
+        "status": "unknown_need_gds_pin_audit",
+        "notes": [
+          "Replacement macro JSON has bbox/pin centers, but full GDS pin shapes are still needed before enabling physical abutment."
+        ]
+      },
+      "notes": [
+        "A is treated as decoder_input, B as wordline_enable, and Z as wl; confirm polarity against OpenYield timing before physical hookup.",
+        "needs_semantic_confirmation",
+        "Replacement macro exists, but one or more canonical pins do not match current metadata."
+      ]
+    },
+    {
+      "original_module_name": "WordlineDriverFactory",
+      "canonical_module_name": "wordline_driver",
+      "role": "wordline_driver",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "non_layout_source",
+      "implementation_status": "non_layout_source",
+      "footprint": null,
+      "notes": []
+    },
+    {
+      "original_module_name": "WRITEDRIVER",
+      "canonical_module_name": "write_driver",
+      "role": "write_driver",
+      "candidate_macros": [
+        "write_driver",
+        "write_driver_array"
+      ],
+      "existing_macros": [
+        "write_driver"
+      ],
+      "selected_macro": "write_driver",
+      "pin_checks": [
+        {
+          "canonical_pin": "vdd",
+          "expected_aliases": [
+            "VDD",
+            "vdd"
+          ],
+          "matched_macro_pin": "vdd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "gnd",
+          "expected_aliases": [
+            "VSS",
+            "GND",
+            "gnd"
+          ],
+          "matched_macro_pin": "gnd",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "write_enable",
+          "expected_aliases": [
+            "EN",
+            "w_en",
+            "write_en"
+          ],
+          "matched_macro_pin": "en",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "din",
+          "expected_aliases": [
+            "DIN",
+            "DIN{i}",
+            "din0[*]",
+            "din"
+          ],
+          "matched_macro_pin": "din",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "bl",
+          "expected_aliases": [
+            "BL",
+            "BL0",
+            "BL{i}",
+            "bl"
+          ],
+          "matched_macro_pin": "bl",
+          "status": "matched",
+          "notes": []
+        },
+        {
+          "canonical_pin": "br",
+          "expected_aliases": [
+            "BLB",
+            "BR",
+            "br",
+            "BLB0",
+            "BLB{i}"
+          ],
+          "matched_macro_pin": "br",
+          "status": "matched",
+          "notes": []
+        }
+      ],
+      "power_status": "vdd_gnd_alias_ok",
+      "aggregation_status": "unknown_need_gds_pin_audit",
+      "implementation_status": "macro_candidate",
+      "footprint": {
+        "macro_name": "write_driver",
+        "role": "write_driver",
+        "width": 0.0,
+        "height": 0.0,
+        "left_rails": [],
+        "right_rails": [],
+        "top_rails": [],
+        "bottom_rails": [],
+        "abutment_rules": [
+          {
+            "side": "left",
+            "compatible_roles": [
+              "write_driver"
+            ],
+            "share_power_rails": false,
+            "min_gap": 0.0,
+            "notes": [
+              "Requires GDS pin/DRC audit before enabling no-gap abutment."
+            ]
+          },
+          {
+            "side": "right",
+            "compatible_roles": [
+              "write_driver"
+            ],
+            "share_power_rails": false,
+            "min_gap": 0.0,
+            "notes": [
+              "Requires GDS pin/DRC audit before enabling no-gap abutment."
+            ]
+          }
+        ],
+        "pin_access_sides": {
+          "bl": [
+            "internal"
+          ],
+          "br": [
+            "internal"
+          ],
+          "din": [
+            "internal"
+          ],
+          "en": [
+            "internal"
+          ],
+          "gnd": [
+            "internal"
+          ],
+          "vdd": [
+            "internal"
+          ]
+        },
+        "status": "unknown_need_gds_pin_audit",
+        "notes": [
+          "Replacement macro JSON has bbox/pin centers, but full GDS pin shapes are still needed before enabling physical abutment.",
+          "Column-side circuits need bitline pitch and power rail continuity checks before sharing rails."
+        ]
+      },
+      "notes": [
+        "OpenYield WRITEDRIVER has internal DINB/ENB generation; only DIN/EN are external pins."
+      ]
+    },
+    {
+      "original_module_name": "WriteDriverFactory",
+      "canonical_module_name": "write_driver",
+      "role": "write_driver",
+      "candidate_macros": [],
+      "existing_macros": [],
+      "selected_macro": null,
+      "pin_checks": [],
+      "power_status": "no_macro",
+      "aggregation_status": "non_layout_source",
+      "implementation_status": "non_layout_source",
+      "footprint": null,
+      "notes": []
+    }
+  ],
+  "summary": {
+    "matched_existing_macro": [
+      "SRAM_6T_CELL",
+      "DFF",
+      "Dummy_CELL",
+      "Dummy_Column",
+      "Dummy_Row",
+      "PRECHARGE",
+      "Replica_CELL",
+      "Replica_Column",
+      "WRITEDRIVER"
+    ],
+    "candidate_macro_missing": [],
+    "macro_exists_pin_mismatch": [
+      "COLUMNMUX*",
+      "DECODER3_8",
+      "SENSEAMP",
+      "WORDLINEDRIVER"
+    ],
+    "no_physical_implementation": [
+      "AND2",
+      "AND3",
+      "DFF_BUF",
+      "D_LATCH",
+      "PBUFF",
+      "PNAND2",
+      "PNAND3",
+      "TRANSMISSION_GATE",
+      "f'PINV{num}'",
+      "pdrive",
+      "pdrive2_for_pre",
+      "wl_pdrive"
+    ],
+    "composite_required": [
+      "SRAM_6T_CORE_*",
+      "ADDR_DFF",
+      "DATA_DFF",
+      "TIME",
+      "delay_chain",
+      "wen_delay_chain",
+      "DECODER_CASCADE"
+    ],
+    "unsupported_architecture": [
+      "SRAM_10T_CELL",
+      "SRAM_10T_CORE_*"
+    ],
+    "non_layout_source": [
+      "ColumnMuxFactory",
+      "DecoderCascadeFactory",
+      "DummyColumnFactory",
+      "DummyRowFactory",
+      "PrechargeFactory",
+      "ReplicaColumnFactory",
+      "SenseAmpFactory",
+      "BASE_SUBCKT",
+      "BaseTestbench",
+      "SRAMCellParasiticTester",
+      "Sram10TCellFactory",
+      "Sram10TCoreFactory",
+      "Sram6TCellFactory",
+      "Sram6TCoreFactory",
+      "Sram6TCoreMcTestbench",
+      "Sram6TCoreTestbench",
+      "TIMEFactory",
+      "WordlineDriverFactory",
+      "WriteDriverFactory"
+    ],
+    "aggregation_status_counts": {
+      "abutment_ready": 6,
+      "composite_required": 7,
+      "needs_stdcell_or_generated_layout": 12,
+      "non_layout_source": 19,
+      "unknown_need_gds_pin_audit": 7,
+      "unsupported_architecture": 2
+    },
+    "implementation_status_counts": {
+      "composite_required": 7,
+      "macro_candidate": 13,
+      "needs_stdcell_or_generated_layout": 12,
+      "non_layout_source": 19,
+      "unsupported_architecture": 2
+    },
+    "power_status_counts": {
+      "missing_vdd": 1,
+      "no_gnd_required": 1,
+      "no_macro": 40,
+      "vdd_gnd_alias_ok": 11
+    },
+    "vdd_gnd_shared_rail_risks": [
+      "COLUMNMUX*",
+      "DFF",
+      "DECODER3_8",
+      "PRECHARGE",
+      "SENSEAMP",
+      "WORDLINEDRIVER",
+      "WRITEDRIVER"
+    ]
+  },
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_standalone\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_standalone\\technology\\freepdk45",
+  "focus_modules": [
+    "SRAM_6T_CELL",
+    "SRAM_6T_CORE_*",
+    "Dummy_CELL",
+    "Dummy_Row",
+    "Dummy_Column",
+    "Replica_CELL",
+    "Replica_Column",
+    "PRECHARGE",
+    "WRITEDRIVER",
+    "SENSEAMP",
+    "COLUMNMUX*",
+    "DECODER3_8",
+    "DECODER_CASCADE",
+    "WORDLINEDRIVER",
+    "DFF",
+    "ADDR_DFF",
+    "DATA_DFF",
+    "delay_chain",
+    "wen_delay_chain",
+    "TIME"
+  ],
+  "missing_focus_modules": []
+}

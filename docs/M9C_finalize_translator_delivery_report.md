@@ -1,0 +1,22 @@
+# M9C Finalize Translator Delivery Report
+
+- status_file_read: `True`
+- status_file_updated: `True`
+- m9_outputs_found: `True`
+- m9_trace_available: `True`
+- m9_clean_review_gds_found: `True`
+- m9_annotated_debug_gds_found: `True`
+- gds_sanity_status: `GDS_PARSED_SANITY_PASSED`
+- generated_from_layoutgen_source: `True`
+- reference_file_copied_as_output: `False`
+- openyield_module_binding_count: `20`
+- openyield_net_binding_count: `34`
+- label_only_binding_as_implementation_count: `0`
+- access_module_as_primary_count: `0`
+- floorplan_proxy_count: `0`
+- arbitrary_module_scatter_used: `False`
+- human_klayout_review_required: `True`
+- can_enter_next_stage_before_human_review: `False`
+- commit_required: `True`
+- push_required: `True`
+- remaining_M9C_blockers_count: `1`

@@ -1,0 +1,157 @@
+{
+  "atlas_top_cell": "WAVE3_DFF_BUF_FINAL_REVIEW_ATLAS",
+  "panel_count": 10,
+  "panel_names": [
+    "CLEAN_FULL_VIEW",
+    "ANNOTATED_FULL_VIEW",
+    "CHILD_PLACEMENT_VIEW",
+    "POWER_ONLY_VIEW",
+    "SIGNAL_ROUTING_ONLY_VIEW",
+    "TOP_PIN_VIEW",
+    "DFF_INTERFACE_VIEW",
+    "PINV_INTERFACE_VIEW",
+    "DFF_INTERNAL_OBSTACLE_VIEW",
+    "HIERARCHICAL_CONTACT_AUDIT_VIEW"
+  ],
+  "panel_geometry_digest": {
+    "CLEAN_FULL_VIEW": "8d4380bae5052c7c8c5870a5673288fb3667bd26911ccabc0498e19c0cbacdbe",
+    "ANNOTATED_FULL_VIEW": "d4575619a11b34bd3c3b03c67da6e6601e5ef972858f88e6ce589bf6def2bf0c",
+    "CHILD_PLACEMENT_VIEW": "0fe94e33dd59b5a0f74871bd4daf35f4328b33e20cdf8d8b3efda7ee4f63a23c",
+    "POWER_ONLY_VIEW": "8ca8e4ba29e60b30600f4c6c8b5978e2598f3671cf11b5dd4db091779c9bfe5c",
+    "SIGNAL_ROUTING_ONLY_VIEW": "a6f5d42e89ec0b3940662193626ed051f1b1bddf8f476d9319e58aa072c0951f",
+    "TOP_PIN_VIEW": "d7e6817d3a821f846c770c671c83920d76113f8cc07c60c4161a4152d3277250",
+    "DFF_INTERFACE_VIEW": "85c0379df63833e44937aaf90408d4be77d01720a8452c9c5b9c640cf53f56df",
+    "PINV_INTERFACE_VIEW": "2a9564054776b504b87cd1627ffba2e1cde6c545049f302dc507a94203ff8164",
+    "DFF_INTERNAL_OBSTACLE_VIEW": "95d386a5563331995c594786416f11ab55aa2a8e7fd7f0410ce28ba6c97039bb",
+    "HIERARCHICAL_CONTACT_AUDIT_VIEW": "8b1fad4e8aef52eca698a4f2868e9a8b8ebcaf4d57d68dc6fdb73420460cca56"
+  },
+  "panel_reference_targets": {
+    "CLEAN_FULL_VIEW": [],
+    "ANNOTATED_FULL_VIEW": [],
+    "CHILD_PLACEMENT_VIEW": [],
+    "POWER_ONLY_VIEW": [],
+    "SIGNAL_ROUTING_ONLY_VIEW": [],
+    "TOP_PIN_VIEW": [],
+    "DFF_INTERFACE_VIEW": [],
+    "PINV_INTERFACE_VIEW": [],
+    "DFF_INTERNAL_OBSTACLE_VIEW": [],
+    "HIERARCHICAL_CONTACT_AUDIT_VIEW": []
+  },
+  "panel_metadata": {
+    "CLEAN_FULL_VIEW": {
+      "panel_name": "CLEAN_FULL_VIEW",
+      "panel_role": "full_reference_view",
+      "panel_is_semantically_filtered": false,
+      "filter_predicate": "all_clean_geometry",
+      "source_object_count": 1442,
+      "selected_object_count": 1442,
+      "excluded_object_count": 0,
+      "geometry_digest": "8d4380bae5052c7c8c5870a5673288fb3667bd26911ccabc0498e19c0cbacdbe"
+    },
+    "ANNOTATED_FULL_VIEW": {
+      "panel_name": "ANNOTATED_FULL_VIEW",
+      "panel_role": "full_reference_view",
+      "panel_is_semantically_filtered": false,
+      "filter_predicate": "all_annotated_geometry",
+      "source_object_count": 1667,
+      "selected_object_count": 1667,
+      "excluded_object_count": 0,
+      "geometry_digest": "d4575619a11b34bd3c3b03c67da6e6601e5ef972858f88e6ce589bf6def2bf0c"
+    },
+    "CHILD_PLACEMENT_VIEW": {
+      "panel_name": "CHILD_PLACEMENT_VIEW",
+      "panel_role": "focused_view",
+      "panel_is_semantically_filtered": true,
+      "filter_predicate": "instance bbox + source order labels",
+      "source_object_count": 3,
+      "selected_object_count": 6,
+      "excluded_object_count": 0,
+      "geometry_digest": "0fe94e33dd59b5a0f74871bd4daf35f4328b33e20cdf8d8b3efda7ee4f63a23c"
+    },
+    "POWER_ONLY_VIEW": {
+      "panel_name": "POWER_ONLY_VIEW",
+      "panel_role": "focused_view",
+      "panel_is_semantically_filtered": true,
+      "filter_predicate": "connected to TOP::VDD or TOP::VSS components",
+      "source_object_count": 537,
+      "selected_object_count": 168,
+      "excluded_object_count": 369,
+      "geometry_digest": "8ca8e4ba29e60b30600f4c6c8b5978e2598f3671cf11b5dd4db091779c9bfe5c"
+    },
+    "SIGNAL_ROUTING_ONLY_VIEW": {
+      "panel_name": "SIGNAL_ROUTING_ONLY_VIEW",
+      "panel_role": "focused_view",
+      "panel_is_semantically_filtered": true,
+      "filter_predicate": "parent-added signal M1/M2/Via1 on D/CLK/qint/QB/Q only",
+      "source_object_count": 62,
+      "selected_object_count": 124,
+      "excluded_object_count": 0,
+      "geometry_digest": "a6f5d42e89ec0b3940662193626ed051f1b1bddf8f476d9319e58aa072c0951f"
+    },
+    "TOP_PIN_VIEW": {
+      "panel_name": "TOP_PIN_VIEW",
+      "panel_role": "focused_view",
+      "panel_is_semantically_filtered": true,
+      "filter_predicate": "top canonical pin metal and labels only",
+      "source_object_count": 6,
+      "selected_object_count": 12,
+      "excluded_object_count": 0,
+      "geometry_digest": "d7e6817d3a821f846c770c671c83920d76113f8cc07c60c4161a4152d3277250"
+    },
+    "DFF_INTERFACE_VIEW": {
+      "panel_name": "DFF_INTERFACE_VIEW",
+      "panel_role": "focused_view",
+      "panel_is_semantically_filtered": true,
+      "filter_predicate": "dff pin windows + direct Via1/M2 escape + dff parent-access geometries",
+      "source_object_count": 531,
+      "selected_object_count": 218,
+      "excluded_object_count": 314,
+      "geometry_digest": "85c0379df63833e44937aaf90408d4be77d01720a8452c9c5b9c640cf53f56df"
+    },
+    "PINV_INTERFACE_VIEW": {
+      "panel_name": "PINV_INTERFACE_VIEW",
+      "panel_role": "focused_view",
+      "panel_is_semantically_filtered": true,
+      "filter_predicate": "inv1/inv2 bbox + parent route interfaces",
+      "source_object_count": 65,
+      "selected_object_count": 36,
+      "excluded_object_count": 29,
+      "geometry_digest": "2a9564054776b504b87cd1627ffba2e1cde6c545049f302dc507a94203ff8164"
+    },
+    "DFF_INTERNAL_OBSTACLE_VIEW": {
+      "panel_name": "DFF_INTERNAL_OBSTACLE_VIEW",
+      "panel_role": "focused_view",
+      "panel_is_semantically_filtered": true,
+      "filter_predicate": "dff::CLK/CLKB_internal/Q/QB_internal plus new parent access geometry",
+      "source_object_count": 531,
+      "selected_object_count": 301,
+      "excluded_object_count": 231,
+      "geometry_digest": "95d386a5563331995c594786416f11ab55aa2a8e7fd7f0410ce28ba6c97039bb"
+    },
+    "HIERARCHICAL_CONTACT_AUDIT_VIEW": {
+      "panel_name": "HIERARCHICAL_CONTACT_AUDIT_VIEW",
+      "panel_role": "focused_view",
+      "panel_is_semantically_filtered": true,
+      "filter_predicate": "route objects + report-derived contact counts",
+      "source_object_count": 62,
+      "selected_object_count": 127,
+      "excluded_object_count": 0,
+      "geometry_digest": "8b1fad4e8aef52eca698a4f2868e9a8b8ebcaf4d57d68dc6fdb73420460cca56"
+    }
+  },
+  "panel_is_semantically_filtered": {
+    "CLEAN_FULL_VIEW": false,
+    "ANNOTATED_FULL_VIEW": false,
+    "CHILD_PLACEMENT_VIEW": true,
+    "POWER_ONLY_VIEW": true,
+    "SIGNAL_ROUTING_ONLY_VIEW": true,
+    "TOP_PIN_VIEW": true,
+    "DFF_INTERFACE_VIEW": true,
+    "PINV_INTERFACE_VIEW": true,
+    "DFF_INTERNAL_OBSTACLE_VIEW": true,
+    "HIERARCHICAL_CONTACT_AUDIT_VIEW": true
+  },
+  "focused_panel_digest_duplicate_groups": [],
+  "missing_reference_target_count": 0,
+  "reference_cycle_count": 0
+}

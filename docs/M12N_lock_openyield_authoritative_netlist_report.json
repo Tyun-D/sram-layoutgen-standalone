@@ -1,0 +1,104 @@
+{
+  "status_file_read": true,
+  "status_file_updated": true,
+  "goal_file_read": true,
+  "goal_file_updated": true,
+  "progress_file_updated": true,
+  "m12o_report_loaded": true,
+  "m12o_recommended_next_stage": "M12N_LOCK_OPENYIELD_AUTHORITATIVE_NETLIST",
+  "reused_previous_artifacts": [
+    "M12O OpenYield authority inventory",
+    "M12O three-way module gap matrix",
+    "M12O configurable SRAM spec plan",
+    "OpenYield YAML configuration stack",
+    "OpenYield subcircuit and testbench library"
+  ],
+  "deprecated_previous_artifacts": [
+    "Treating all 14 M12O candidate files as equally authoritative top-netlist candidates"
+  ],
+  "current_stage_inputs": [
+    "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md",
+    "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json",
+    "PROJECT_NETLIST_TO_LAYOUT_GOAL.md",
+    "PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md",
+    "docs/M12O_openram_openyield_gap_audit_report.json",
+    "docs/mapping/M12O_openyield_netlist_authority_inventory.csv",
+    "docs/mapping/M12O_three_way_module_gap_matrix.csv",
+    "/data1/qujh/work/external/OpenYield"
+  ],
+  "current_stage_delta_from_M12O": "M12N moves from broad OpenRAM/OpenYield gap audit to a narrow source-lock decision for the OpenYield SRAM netlist or netlist-generator authority.",
+  "why_M12N_is_required_before_custom_netlist_driven_layout": "Without a locked authoritative OpenYield top-netlist source or generator API, any later custom netlist-driven layout flow would be forced to guess between subcircuits, testbenches, and wrappers.",
+  "openyield_root_found": true,
+  "openyield_candidate_files_loaded": true,
+  "openyield_entrypoints_loaded": true,
+  "file_role_classification_completed": true,
+  "entrypoint_callgraph_generated": true,
+  "parameter_interface_extracted": true,
+  "sram_top_coverage_matrix_generated": true,
+  "control_logic_source_matrix_generated": true,
+  "authoritative_netlist_lock_status": "PARTIAL_SUBCIRCUIT_LIBRARY_ONLY",
+  "authoritative_netlist_type": "TESTBENCH_BACKED_PARAMETERIZED_SPICE_GENERATOR",
+  "authoritative_entrypoint": "sram_compiler/testbenches/sram_6t_core_testbench.py",
+  "authoritative_top_class_or_function": "Sram6TCoreTestbench.create_testbench",
+  "authoritative_output_format": "PySpice Circuit rendered to SPICE testbench netlist (.sp)",
+  "openyield_single_authoritative_netlist_proven": false,
+  "openyield_parameterized_netlist_generator_proven": true,
+  "openyield_complete_sram_top_proven": false,
+  "openyield_control_logic_source_locked": true,
+  "sample_netlist_generation_attempted": true,
+  "sample_netlist_generation_passed": true,
+  "sample_netlist_path": "outputs/M12N_lock_openyield_authoritative_netlist/current_supported_config/sample_openyield_sram_netlist.sp",
+  "sample_netlist_failure_reason": "",
+  "parameterization_supported": true,
+  "supported_parameters": [
+    "num_rows",
+    "num_cols",
+    "choose_columnmux",
+    "corner",
+    "temperature",
+    "sram_cell_type",
+    "control_timing_parameters"
+  ],
+  "partial_parameters": [
+    "word_size",
+    "num_words",
+    "mux_ratio",
+    "tech"
+  ],
+  "unknown_parameters": [
+    "words_per_row"
+  ],
+  "parameterization_blockers": [
+    "No single pure SRAM top netlist file is present; the proven generator emits a testbench-wrapped SPICE netlist.",
+    "The proven generation chain is rooted in testbench classes, which cannot be promoted directly to authoritative layout input without stripping stimuli/measurement scaffolding.",
+    "word_size, num_words, and words_per_row are not locked as first-class top-level OpenYield parameters.",
+    "column mux behavior exists, but a raw mux-ratio authority contract is not locked.",
+    "Control logic is semantically present, but its clean layout-facing decomposition is not yet separated from the simulation harness."
+  ],
+  "custom_netlist_driven_generation_readiness": "NOT_READY_TESTBENCH_GENERATOR_ONLY",
+  "external_dependency_blockers": [
+    "main_sram.py and equivalent_modeling/main_sram.py currently fail to import cleanly because the environment is missing the `regex` dependency.",
+    "demo_run_a_testbench.py currently fails to import cleanly because the environment is missing `torch`.",
+    "The sample generated netlist is a testbench netlist with supplies, pulse sources, and TIME/control harness, not a pure authoritative SRAM top netlist.",
+    "A clean layout-facing top netlist or graph export API is still missing.",
+    "Top-level parameter contracts for word_size, num_words, and words_per_row remain incomplete."
+  ],
+  "external_dependency_blockers_count": 5,
+  "can_claim_openyield_authoritative_netlist_locked": false,
+  "can_claim_custom_netlist_driven_layout_generation": false,
+  "can_claim_control_logic_mapping_ready": false,
+  "can_claim_drc_clean": false,
+  "can_claim_lvs_clean": false,
+  "can_claim_signoff_ready": false,
+  "recommended_next_stage": "M12C_CONTROL_LOGIC_GAP_DEFINITION",
+  "recommended_next_stage_reason": "M12N proves that OpenYield contains a parameterized Python SPICE/testbench generator chain centered on `Sram6TCoreTestbench.create_testbench`, and it can emit a sample SRAM-related netlist. However, that emitted artifact is still a simulation testbench netlist with supplies, stimuli, and measurement scaffolding rather than a locked pure SRAM top authority. The next blocking step is to define how the traced OpenYield control logic and enable paths map onto the OpenRAM/layoutgen control-logic gap before any custom netlist-driven layout flow can be claimed.",
+  "remaining_M12N_blockers": [
+    "The best-proven OpenYield generation chain is still testbench-backed rather than a pure authoritative SRAM top netlist source.",
+    "main_sram.py / equivalent_modeling.main_sram.py still have import-time dependency issues in this environment (`regex`).",
+    "word_size / num_words / words_per_row remain incomplete as first-class top-level OpenYield authority parameters.",
+    "Control logic is semantically traced but not yet mapped into a clean layout-facing contract."
+  ],
+  "remaining_M12N_blockers_count": 4,
+  "human_review_required": false,
+  "can_enter_next_stage_before_human_review": true
+}

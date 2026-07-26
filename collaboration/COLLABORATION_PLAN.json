@@ -1,0 +1,75 @@
+{
+  "task_id": "COLLAB-P0 / TWO_PERSON_MODULE_SPLIT_AND_HANDOFF_BASELINE",
+  "project_branch": "feature/step45-clean-array-aggregation",
+  "project_baseline_commit": "480ca5200f31bb0c21cdcfbdde25ff50f40108b0",
+  "openyield_commit": "1c34428d8b913963c4971d093b1a7c2df97a2509",
+  "locked_wave_plan": "outputs/M12C4_composite_control_cell_generation_plan/current_supported_config/M12C4_composite_implementation_wave_plan.csv",
+  "team_b_branch": "collab/team-b-control-support",
+  "team_b_worktree": "/data1/qujh/worktrees/team_b_control_support",
+  "frozen_modules": [
+    "PINV",
+    "TRANSMISSION_GATE",
+    "DFF",
+    "DFF_BUF"
+  ],
+  "owner_a": {
+    "name": "Owner A",
+    "person": "曲珈豪",
+    "branch": "feature/step45-clean-array-aggregation",
+    "physical_modules": [
+      "ADDR_DFF",
+      "DATA_DFF",
+      "TIME"
+    ],
+    "exclusive_scope": [
+      "CONTROL_LOGIC integration",
+      "shared DFF-array core",
+      "final machine audit",
+      "human review orchestration",
+      "reusable release",
+      "reusable registry",
+      "four project ledgers",
+      "integration branch merges"
+    ]
+  },
+  "owner_b": {
+    "name": "Owner B",
+    "branch": "collab/team-b-control-support",
+    "physical_modules": [
+      "PNAND2",
+      "PNAND3",
+      "AND2",
+      "AND3",
+      "pdrive",
+      "pdrive2_for_pre",
+      "wl_pdrive",
+      "delay_chain",
+      "wen_delay_chain"
+    ],
+    "current_stage": "TEAM-B0 / ASSIGNED_MODULE_SOURCE_ASSET_AND_DEPENDENCY_LOCK",
+    "gds_generation_allowed": false,
+    "ledger_write_allowed": false,
+    "reusable_release_allowed": false
+  },
+  "shared_code_owner": "Owner A",
+  "ledger_write_owner": "Owner A",
+  "release_owner": "Owner A",
+  "merge_authority": "Owner A",
+  "recorded_differences": [
+    "Authority files use logical module name wen_delay_chain while the source class is WenDelayChain.",
+    "The locked wave plan is authoritative for family ordering and places TEAM-B modules in Wave2 and Wave3 only."
+  ],
+  "do_not_do_in_this_task": [
+    "Generate any new GDS",
+    "Start Wave4A2",
+    "Start any Team-B physical implementation stage",
+    "Modify approved reusable GDS",
+    "Modify OpenYield",
+    "Change EDA stage status in any of the four project ledgers",
+    "Change next_stage_allowed"
+  ],
+  "delivery_policy": {
+    "preferred": "Push integration collaboration-preparation commit and collab/team-b-control-support branch if remote push works.",
+    "fallback": "If push fails, create bundle + patch + SHA256SUMS under collaboration/artifacts/ and verify cloneability."
+  }
+}

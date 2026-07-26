@@ -1,0 +1,257 @@
+{
+  "scope": "step6_40_openyield_time_control_prototype_artifact_contract_audit",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "required_top_level_keys": [
+    {
+      "key_name": "artifact_kind",
+      "required": true,
+      "metadata_only_ok": true,
+      "notes": "Must identify a metadata-only artifact class such as abstract_plan_bundle."
+    },
+    {
+      "key_name": "schema_version",
+      "required": true,
+      "metadata_only_ok": true,
+      "notes": "Needed for deterministic report/builder compatibility."
+    },
+    {
+      "key_name": "config_snapshot",
+      "required": true,
+      "metadata_only_ok": true,
+      "notes": "Must mirror default-off experimental config state."
+    },
+    {
+      "key_name": "gate_snapshot",
+      "required": true,
+      "metadata_only_ok": true,
+      "notes": "Must preserve current closed physical/standalone gates."
+    },
+    {
+      "key_name": "regions",
+      "required": true,
+      "metadata_only_ok": true,
+      "notes": "Abstract region metadata only, not physical geometry."
+    },
+    {
+      "key_name": "subblocks",
+      "required": true,
+      "metadata_only_ok": true,
+      "notes": "Abstract subblock ordering / grouping metadata only."
+    },
+    {
+      "key_name": "handoffs",
+      "required": true,
+      "metadata_only_ok": true,
+      "notes": "Metadata-only handoff contracts and reservations."
+    },
+    {
+      "key_name": "group_order",
+      "required": true,
+      "metadata_only_ok": true,
+      "notes": "Deterministic abstract materialization order."
+    },
+    {
+      "key_name": "blocker_summary",
+      "required": true,
+      "metadata_only_ok": true,
+      "notes": "Must carry unresolved blocker propagation explicitly."
+    },
+    {
+      "key_name": "notes",
+      "required": true,
+      "metadata_only_ok": true,
+      "notes": "Human-readable metadata-only scope reminders."
+    }
+  ],
+  "forbidden_top_level_keys": [
+    {
+      "key_name": "gds_path",
+      "forbidden_now": true,
+      "reason": "Would imply physical layout generation."
+    },
+    {
+      "key_name": "topcell_name",
+      "forbidden_now": true,
+      "reason": "Would imply a concrete layout database artifact."
+    },
+    {
+      "key_name": "routed_shapes",
+      "forbidden_now": true,
+      "reason": "Routing geometry remains forbidden."
+    },
+    {
+      "key_name": "via_shapes",
+      "forbidden_now": true,
+      "reason": "Via geometry remains forbidden."
+    },
+    {
+      "key_name": "placed_instances",
+      "forbidden_now": true,
+      "reason": "Would overstate abstract metadata as legalized placement."
+    },
+    {
+      "key_name": "physical_bbox",
+      "forbidden_now": true,
+      "reason": "Physical bbox would imply concrete placement proof."
+    },
+    {
+      "key_name": "standalone_patch",
+      "forbidden_now": true,
+      "reason": "Main generator integration remains forbidden."
+    },
+    {
+      "key_name": "drc_result",
+      "forbidden_now": true,
+      "reason": "No physical DRC signoff artifact may be claimed here."
+    },
+    {
+      "key_name": "lvs_result",
+      "forbidden_now": true,
+      "reason": "No physical LVS signoff artifact may be claimed here."
+    }
+  ],
+  "candidate_artifact_shape": {
+    "artifact_kind": "abstract_plan_bundle",
+    "schema_version": 1,
+    "config_snapshot": {
+      "flag_name": "enable_openyield_time_control_experimental_placement",
+      "default_enabled": false,
+      "allowed_mode": "metadata_prototype_only",
+      "legacy_path_unchanged": true
+    },
+    "gate_snapshot": {
+      "can_modify_standalone_now": false,
+      "can_generate_time_control_gds_now": false,
+      "can_enter_physical_placement_now": false
+    },
+    "regions": "abstract region payload rows only",
+    "subblocks": "abstract subblock payload rows only",
+    "handoffs": "metadata-only handoff rows only",
+    "group_order": "deterministic payload materialization order only",
+    "blocker_summary": "propagated unresolved blockers only",
+    "notes": "metadata-only scope reminder"
+  },
+  "schema_rows": [
+    {
+      "section_name": "config_snapshot",
+      "required_fields": [
+        "flag_name",
+        "default_enabled",
+        "allowed_mode",
+        "legacy_path_unchanged",
+        "standalone_py_modified",
+        "routing_modified",
+        "gds_writer_modified",
+        "physical_gds_generated"
+      ],
+      "metadata_only_ok": true
+    },
+    {
+      "section_name": "gate_snapshot",
+      "required_fields": [
+        "can_modify_standalone_now",
+        "can_generate_time_control_gds_now",
+        "can_enter_physical_placement_now"
+      ],
+      "metadata_only_ok": true
+    },
+    {
+      "section_name": "regions",
+      "required_fields": [
+        "region_name",
+        "preferred_neighbor_regions",
+        "required_channel_width",
+        "reserved_channel_width",
+        "budget_margin",
+        "risk_level",
+        "metadata_only"
+      ],
+      "metadata_only_ok": true
+    },
+    {
+      "section_name": "subblocks",
+      "required_fields": [
+        "subblock_name",
+        "plan_kind",
+        "assigned_region",
+        "relative_order_group",
+        "metadata_ready",
+        "physical_ready",
+        "requires_opt_in",
+        "blocked_by"
+      ],
+      "metadata_only_ok": true
+    },
+    {
+      "section_name": "handoffs",
+      "required_fields": [
+        "interface_name",
+        "source_regions",
+        "target_macro",
+        "control_signals",
+        "metadata_ready",
+        "physical_ready"
+      ],
+      "metadata_only_ok": true
+    }
+  ],
+  "payload_topology_counts": {
+    "region_count": 7,
+    "subblock_count": 11,
+    "handoff_count": 4,
+    "blocked_capability_count": 6
+  },
+  "source_reports": {
+    "experimental_contract": "step6_31_openyield_time_control_experimental_contract",
+    "abstract_floorplan_payload": "step6_32_openyield_time_control_abstract_floorplan_payload",
+    "payload_completeness": "step6_34_openyield_time_control_payload_completeness_audit",
+    "payload_consumption_contract": "step6_35_openyield_time_control_payload_consumption_contract_audit",
+    "payload_materialization_boundary": "step6_36_openyield_time_control_payload_materialization_boundary_audit",
+    "prototype_execution_guard": "step6_37_openyield_time_control_prototype_execution_guard_audit",
+    "prototype_state_machine": "step6_38_openyield_time_control_prototype_state_machine_audit",
+    "prototype_interface_surface": "step6_39_openyield_time_control_prototype_interface_surface_audit"
+  },
+  "violations": {
+    "missing_required_top_level_keys": [],
+    "forbidden_top_level_keys_present": [],
+    "schema_section_violations": [],
+    "gate_snapshot_violation": false
+  },
+  "consistency_checks": {
+    "prototype_artifact_contract_audit_available": true,
+    "required_top_level_keys_explicit": true,
+    "forbidden_top_level_keys_explicit": true,
+    "artifact_schema_sections_explicit": true,
+    "candidate_artifact_shape_explicit": true,
+    "gate_snapshot_closed": true,
+    "metadata_only_mode_preserved": true,
+    "default_off_preserved": true,
+    "future_default_off_builder_artifact_contract_clean": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "audit_summary": {
+    "prototype_artifact_contract_audit_available": true,
+    "required_top_level_keys_explicit": true,
+    "forbidden_top_level_keys_explicit": true,
+    "gate_snapshot_closed": true,
+    "future_default_off_builder_artifact_contract_clean": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "notes": [
+    "This audit constrains future builder artifacts to metadata-only plan bundles.",
+    "Passing this audit still does not authorize standalone integration, routing, GDS generation, or physical placement.",
+    "The purpose is to prevent metadata artifacts from drifting into physical-result claims through schema creep."
+  ],
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "can_modify_standalone_now": false,
+  "can_generate_time_control_gds_now": false,
+  "can_enter_physical_placement_now": false
+}

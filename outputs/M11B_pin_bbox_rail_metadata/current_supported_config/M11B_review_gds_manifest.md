@@ -1,0 +1,6 @@
+# M11B Review GDS Manifest
+
+- `outputs/M11B_pin_bbox_rail_metadata/current_supported_config/M11B_pin_bbox_rail_metadata_review.gds` size=39140 sha256=`b344820ad4f39f332eadb55e84085d7b0c79b5d16b05d818aa5782aac73a3975`
+- `outputs/M11B_pin_bbox_rail_metadata/current_supported_config/M11B_pin_bbox_rail_metadata_clean_review.gds` size=39140 sha256=`b344820ad4f39f332eadb55e84085d7b0c79b5d16b05d818aa5782aac73a3975`
+- `outputs/M11B_pin_bbox_rail_metadata/current_supported_config/M11B_pin_bbox_rail_metadata_annotated_debug.gds` size=40010 sha256=`d12226871de3b7d8ac1ce2f6194089e8fc7598f0f26e03901d390496fce24c8c`
+- `outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds` size=389826 sha256=`713cc2b87ec3a2b0239b7a1015a5eb5dd94d65c482f88e145dd69a7dcd058bcd`

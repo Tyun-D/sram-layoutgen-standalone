@@ -1,0 +1,31 @@
+{
+  "openyield_config_sources_checked": [
+    "/data1/qujh/work/external/OpenYield/main_sram.py",
+    "/data1/qujh/work/external/OpenYield/config.py",
+    "/data1/qujh/work/external/OpenYield/sram_compiler/config_yaml/global.yaml"
+  ],
+  "word_size": {
+    "value": 8,
+    "is_source_backed": false
+  },
+  "num_words": {
+    "value": 64,
+    "is_source_backed": false
+  },
+  "words_per_row": {
+    "value": 4,
+    "is_source_backed": false
+  },
+  "num_rows": {
+    "value": 16,
+    "is_source_backed": false,
+    "derived_from_locked_spec": true
+  },
+  "num_cols": {
+    "value": 32,
+    "is_source_backed": false,
+    "derived_from_locked_spec": true
+  },
+  "capacity_config_fallback_used": true,
+  "fallback_reason": "OpenYield raw source did not provide sufficient capacity/config values; locked golden 8x64_wpr4 layoutgen configuration was used while binding OpenYield source-backed module/net semantics."
+}

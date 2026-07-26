@@ -1,0 +1,130 @@
+# OpenYield Source Provenance Linking Report
+
+- Main repo path: `/data1/qujh/work/sram_layoutgen_step45_clean`
+- Main repo HEAD: `fe96f55ccc3588ff9ae431ce64db47b0899b6693`
+- OpenYield source path: `/data1/qujh/work/external/OpenYield`
+- OpenYield remote URL: `https://github.com/ShenShan123/OpenYield.git`
+- OpenYield branch: `main`
+- OpenYield HEAD: `1c34428d8b913963c4971d093b1a7c2df97a2509`
+- Latest OpenYield commit: `完善等效电路`
+
+## DelayChain Source
+
+```json
+{
+  "path": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+  "line": 299,
+  "constructor_parameters": "self, nmos_model=\"NMOS_VTG\", pmos_model=\"PMOS_VTG\", pmos_width=5e-07, nmos_width=2.5e-07, length=5e-08, w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF ",
+  "nodes": [
+    "VDD",
+    "VSS",
+    "in",
+    "out"
+  ],
+  "stage_count_evidence": "dinv0 + dinv1..dinv7 + dinv8 => 9 total inverters",
+  "instance_naming_pattern": {
+    "stage_instances": "dinv0..dinv8",
+    "load_instances": "dload_<stage>_<index>",
+    "internal_nodes": "dout_1..dout_8 and n_<stage>_<index>"
+  },
+  "loads_per_stage": 4,
+  "load_inverter_source_shared_with_stage_inverter": true,
+  "stage_inverter_source": "self.inv = Pinv(...) reused for both dinv and dload instances"
+}
+```
+
+## Pinv Source
+
+```json
+{
+  "path": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/standard_cell.py",
+  "line": 5,
+  "constructor_parameters": "self, nmos_model, pmos_model, nmos_width, pmos_width, length, w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF,num=''",
+  "nodes": [
+    "VDD",
+    "VSS",
+    "A",
+    "Z"
+  ],
+  "nmos_width": 9e-08,
+  "pmos_width": 2.7e-07,
+  "length": 5e-08
+}
+```
+
+## rbl/rbl_delay Usage
+
+```json
+[
+  {
+    "path": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+    "line": 664,
+    "role": "DelayChain instance drives rbl -> rbl_delay",
+    "snippet": "self.X('delaychain', delaychain.NAME, 'VDD', 'VSS', 'rbl', 'rbl_delay')"
+  },
+  {
+    "path": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+    "line": 674,
+    "role": "Generate rbl_delay_bar from rbl_delay",
+    "snippet": "self.X('inv_rbl_delay_bar', inv_rbl_delay_bar.NAME, 'VDD', 'VSS', 'rbl_delay', 'rbl_delay_bar')"
+  },
+  {
+    "path": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+    "line": 702,
+    "role": "Write-enable path consumes rbl_delay_bar or delayed write variant",
+    "snippet": "self.X('w_en', w_en.NAME, 'VDD','VSS' , w_en_rbl_input , 'gated_clk_bar' ,'we', 'w_en' )"
+  },
+  {
+    "path": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+    "line": 718,
+    "role": "Sense-enable path consumes rbl_delay",
+    "snippet": "self.X('s_en', s_en.NAME, 'VDD','VSS' ,'rbl_delay', 'gated_clk_bar' ,'we_bar' ,'s_en' )"
+  },
+  {
+    "path": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+    "line": 731,
+    "role": "Precharge path consumes rbl_delay with gated clock and wl_en_bar",
+    "snippet": "self.X('pre_unbuf', pre_unbuf.NAME, 'VDD', 'VSS', 'gated_clk_buf', 'rbl_delay', 'wl_en_bar', 'PRE_UNBUF')"
+  }
+]
+```
+
+## Cross Validation
+
+```json
+{
+  "candidate_spice": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/candidate_spice/gen_delay_inv_candidate.sp",
+  "measurement_deck": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/candidate_spice/delay_chain_measurement_refined_ngspice.sp",
+  "timing_metadata_json": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_delay_chain_timing_metadata_report.json",
+  "timing_metadata_summary": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/evidence/timing_metadata_summary.md",
+  "consistency_checks": {
+    "stage_count_match": true,
+    "loads_per_stage_match": true,
+    "pinv_w_l_match": true,
+    "source_signal_match": true,
+    "target_signal_match": true,
+    "odd_stage_inversion_match": true,
+    "nom_ff_ss_delay_metadata_complete": true
+  },
+  "source_to_candidate_spice_consistent": true,
+  "source_to_timing_metadata_consistent": true,
+  "mismatches": []
+}
+```
+
+## Gates
+
+```json
+{
+  "openyield_source_available": true,
+  "openyield_head_recorded": true,
+  "delay_chain_source_found": true,
+  "pinv_source_found": true,
+  "source_to_candidate_spice_consistent": true,
+  "source_to_timing_metadata_consistent": true,
+  "can_enter_metadata_consumer_adapter": true,
+  "can_modify_standalone_now": false,
+  "can_generate_time_control_gds_now": false,
+  "can_claim_openyield_full_integration_now": false
+}
+```

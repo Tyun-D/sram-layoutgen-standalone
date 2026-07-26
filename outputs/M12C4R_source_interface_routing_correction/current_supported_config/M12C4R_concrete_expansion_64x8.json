@@ -1,0 +1,282 @@
+{
+  "config": {
+    "num_rows": 64,
+    "num_cols": 8,
+    "num_words": 64,
+    "word_size": 8,
+    "words_per_row": 1,
+    "mux_ratio": 1,
+    "choose_columnmux": false,
+    "operation": "read&write",
+    "tech": "FreePDK45"
+  },
+  "address_width": 6,
+  "ADDR_DFF_bit_count": 6,
+  "DATA_DFF_bit_count": 8,
+  "DFF_total_count": 16,
+  "DFF_BUF_count": 2,
+  "AND2_count": 2,
+  "AND3_count": 2,
+  "PNAND2_count": 2,
+  "PNAND3_count": 3,
+  "source_template_instance_count": 12,
+  "concrete_expanded_instance_count": 12,
+  "concrete_leaf_primitive_instance_count": 19,
+  "concrete_composite_instance_count": 12,
+  "leaf_rows": [
+    {
+      "config_id": "R64_C8_read&write",
+      "concrete_instance_name": "AND2.inv_driver",
+      "parent_module": "AND2",
+      "child_module": "PINV",
+      "concrete_parameter_values": "{\"resolved_channel_length_nm\": 50, \"resolved_nmos_width_nm\": 90, \"resolved_pmos_width_nm\": 270}",
+      "parent_net_connections": "",
+      "resolved_physical_cell_name": "PINV_NW90_PW270_L50",
+      "binding_status": "APPROVED_PRIMITIVE_BINDING",
+      "source_trace": "{\"config\": \"64x8\", \"scales\": {\"address_bits\": 6, \"clk_dff_count\": 16, \"clk_drive_scale\": 1.0, \"pre_col_scale\": 0.13846153846153847, \"pre_drive_scale\": 1, \"pre_pmos_scale\": 4.0, \"ref_dff_count\": 22, \"resolved_scales\": {\"pdrive\": 1.0, \"pdrive2_for_pre\": 1, \"w_en_scale\": 1}, \"w_en_scale\": 1}, \"source_path\": \"AND2.inv_driver\"}"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "concrete_instance_name": "AND3.inv_driver",
+      "parent_module": "AND3",
+      "child_module": "PINV",
+      "concrete_parameter_values": "{\"resolved_channel_length_nm\": 50, \"resolved_nmos_width_nm\": 90, \"resolved_pmos_width_nm\": 270}",
+      "parent_net_connections": "",
+      "resolved_physical_cell_name": "PINV_NW90_PW270_L50",
+      "binding_status": "APPROVED_PRIMITIVE_BINDING",
+      "source_trace": "{\"config\": \"64x8\", \"scales\": {\"address_bits\": 6, \"clk_dff_count\": 16, \"clk_drive_scale\": 1.0, \"pre_col_scale\": 0.13846153846153847, \"pre_drive_scale\": 1, \"pre_pmos_scale\": 4.0, \"ref_dff_count\": 22, \"resolved_scales\": {\"pdrive\": 1.0, \"pdrive2_for_pre\": 1, \"w_en_scale\": 1}, \"w_en_scale\": 1}, \"source_path\": \"AND3.inv_driver\"}"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "concrete_instance_name": "DFF_BUF.inv1",
+      "parent_module": "DFF_BUF",
+      "child_module": "PINV",
+      "concrete_parameter_values": "{\"resolved_channel_length_nm\": 50, \"resolved_nmos_width_nm\": 180, \"resolved_pmos_width_nm\": 540}",
+      "parent_net_connections": "",
+      "resolved_physical_cell_name": "PINV_NW180_PW540_L50",
+      "binding_status": "APPROVED_PRIMITIVE_BINDING",
+      "source_trace": "{\"config\": \"64x8\", \"scales\": {\"address_bits\": 6, \"clk_dff_count\": 16, \"clk_drive_scale\": 1.0, \"pre_col_scale\": 0.13846153846153847, \"pre_drive_scale\": 1, \"pre_pmos_scale\": 4.0, \"ref_dff_count\": 22, \"resolved_scales\": {\"pdrive\": 1.0, \"pdrive2_for_pre\": 1, \"w_en_scale\": 1}, \"w_en_scale\": 1}, \"source_path\": \"DFF_BUF.inv1\"}"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "concrete_instance_name": "DFF_BUF.inv2",
+      "parent_module": "DFF_BUF",
+      "child_module": "PINV",
+      "concrete_parameter_values": "{\"resolved_channel_length_nm\": 50, \"resolved_nmos_width_nm\": 360, \"resolved_pmos_width_nm\": 1080}",
+      "parent_net_connections": "",
+      "resolved_physical_cell_name": "PINV_NW360_PW1080_L50",
+      "binding_status": "APPROVED_PRIMITIVE_BINDING",
+      "source_trace": "{\"config\": \"64x8\", \"scales\": {\"address_bits\": 6, \"clk_dff_count\": 16, \"clk_drive_scale\": 1.0, \"pre_col_scale\": 0.13846153846153847, \"pre_drive_scale\": 1, \"pre_pmos_scale\": 4.0, \"ref_dff_count\": 22, \"resolved_scales\": {\"pdrive\": 1.0, \"pdrive2_for_pre\": 1, \"w_en_scale\": 1}, \"w_en_scale\": 1}, \"source_path\": \"DFF_BUF.inv2\"}"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "concrete_instance_name": "D_latch.inv1",
+      "parent_module": "D_latch",
+      "child_module": "PINV",
+      "concrete_parameter_values": "{\"resolved_channel_length_nm\": 50, \"resolved_nmos_width_nm\": 180, \"resolved_pmos_width_nm\": 270}",
+      "parent_net_connections": "",
+      "resolved_physical_cell_name": "PINV_NW180_PW270_L50",
+      "binding_status": "APPROVED_PRIMITIVE_BINDING",
+      "source_trace": "{\"config\": \"64x8\", \"scales\": {\"address_bits\": 6, \"clk_dff_count\": 16, \"clk_drive_scale\": 1.0, \"pre_col_scale\": 0.13846153846153847, \"pre_drive_scale\": 1, \"pre_pmos_scale\": 4.0, \"ref_dff_count\": 22, \"resolved_scales\": {\"pdrive\": 1.0, \"pdrive2_for_pre\": 1, \"w_en_scale\": 1}, \"w_en_scale\": 1}, \"source_path\": \"D_latch.inv1\"}"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "concrete_instance_name": "DelayChain.inv",
+      "parent_module": "DelayChain",
+      "child_module": "PINV",
+      "concrete_parameter_values": "{\"resolved_channel_length_nm\": 50, \"resolved_nmos_width_nm\": 90, \"resolved_pmos_width_nm\": 270}",
+      "parent_net_connections": "",
+      "resolved_physical_cell_name": "PINV_NW90_PW270_L50",
+      "binding_status": "APPROVED_PRIMITIVE_BINDING",
+      "source_trace": "{\"config\": \"64x8\", \"scales\": {\"address_bits\": 6, \"clk_dff_count\": 16, \"clk_drive_scale\": 1.0, \"pre_col_scale\": 0.13846153846153847, \"pre_drive_scale\": 1, \"pre_pmos_scale\": 4.0, \"ref_dff_count\": 22, \"resolved_scales\": {\"pdrive\": 1.0, \"pdrive2_for_pre\": 1, \"w_en_scale\": 1}, \"w_en_scale\": 1}, \"source_path\": \"DelayChain.inv\"}"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "concrete_instance_name": "TIME.inv_clk_bar",
+      "parent_module": "TIME",
+      "child_module": "PINV",
+      "concrete_parameter_values": "{\"resolved_channel_length_nm\": 50, \"resolved_nmos_width_nm\": 90, \"resolved_pmos_width_nm\": 270}",
+      "parent_net_connections": "",
+      "resolved_physical_cell_name": "PINV_NW90_PW270_L50",
+      "binding_status": "APPROVED_PRIMITIVE_BINDING",
+      "source_trace": "{\"config\": \"64x8\", \"scales\": {\"address_bits\": 6, \"clk_dff_count\": 16, \"clk_drive_scale\": 1.0, \"pre_col_scale\": 0.13846153846153847, \"pre_drive_scale\": 1, \"pre_pmos_scale\": 4.0, \"ref_dff_count\": 22, \"resolved_scales\": {\"pdrive\": 1.0, \"pdrive2_for_pre\": 1, \"w_en_scale\": 1}, \"w_en_scale\": 1}, \"source_path\": \"TIME.inv_clk_bar\"}"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "concrete_instance_name": "TIME.inv_rbl_delay_bar",
+      "parent_module": "TIME",
+      "child_module": "PINV",
+      "concrete_parameter_values": "{\"resolved_channel_length_nm\": 50, \"resolved_nmos_width_nm\": 90, \"resolved_pmos_width_nm\": 270}",
+      "parent_net_connections": "",
+      "resolved_physical_cell_name": "PINV_NW90_PW270_L50",
+      "binding_status": "APPROVED_PRIMITIVE_BINDING",
+      "source_trace": "{\"config\": \"64x8\", \"scales\": {\"address_bits\": 6, \"clk_dff_count\": 16, \"clk_drive_scale\": 1.0, \"pre_col_scale\": 0.13846153846153847, \"pre_drive_scale\": 1, \"pre_pmos_scale\": 4.0, \"ref_dff_count\": 22, \"resolved_scales\": {\"pdrive\": 1.0, \"pdrive2_for_pre\": 1, \"w_en_scale\": 1}, \"w_en_scale\": 1}, \"source_path\": \"TIME.inv_rbl_delay_bar\"}"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "concrete_instance_name": "TIME.inv_wl_en_bar",
+      "parent_module": "TIME",
+      "child_module": "PINV",
+      "concrete_parameter_values": "{\"resolved_channel_length_nm\": 50, \"resolved_nmos_width_nm\": 90, \"resolved_pmos_width_nm\": 270}",
+      "parent_net_connections": "",
+      "resolved_physical_cell_name": "PINV_NW90_PW270_L50",
+      "binding_status": "APPROVED_PRIMITIVE_BINDING",
+      "source_trace": "{\"config\": \"64x8\", \"scales\": {\"address_bits\": 6, \"clk_dff_count\": 16, \"clk_drive_scale\": 1.0, \"pre_col_scale\": 0.13846153846153847, \"pre_drive_scale\": 1, \"pre_pmos_scale\": 4.0, \"ref_dff_count\": 22, \"resolved_scales\": {\"pdrive\": 1.0, \"pdrive2_for_pre\": 1, \"w_en_scale\": 1}, \"w_en_scale\": 1}, \"source_path\": \"TIME.inv_wl_en_bar\"}"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "concrete_instance_name": "WenDelayChain.inv",
+      "parent_module": "WenDelayChain",
+      "child_module": "PINV",
+      "concrete_parameter_values": "{\"resolved_channel_length_nm\": 50, \"resolved_nmos_width_nm\": 90, \"resolved_pmos_width_nm\": 270}",
+      "parent_net_connections": "",
+      "resolved_physical_cell_name": "PINV_NW90_PW270_L50",
+      "binding_status": "APPROVED_PRIMITIVE_BINDING",
+      "source_trace": "{\"config\": \"64x8\", \"scales\": {\"address_bits\": 6, \"clk_dff_count\": 16, \"clk_drive_scale\": 1.0, \"pre_col_scale\": 0.13846153846153847, \"pre_drive_scale\": 1, \"pre_pmos_scale\": 4.0, \"ref_dff_count\": 22, \"resolved_scales\": {\"pdrive\": 1.0, \"pdrive2_for_pre\": 1, \"w_en_scale\": 1}, \"w_en_scale\": 1}, \"source_path\": \"WenDelayChain.inv\"}"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "concrete_instance_name": "dff.inv_dff",
+      "parent_module": "dff",
+      "child_module": "PINV",
+      "concrete_parameter_values": "{\"resolved_channel_length_nm\": 50, \"resolved_nmos_width_nm\": 250, \"resolved_pmos_width_nm\": 500}",
+      "parent_net_connections": "",
+      "resolved_physical_cell_name": "PINV_NW250_PW500_L50",
+      "binding_status": "APPROVED_PRIMITIVE_BINDING",
+      "source_trace": "{\"config\": \"64x8\", \"scales\": {\"address_bits\": 6, \"clk_dff_count\": 16, \"clk_drive_scale\": 1.0, \"pre_col_scale\": 0.13846153846153847, \"pre_drive_scale\": 1, \"pre_pmos_scale\": 4.0, \"ref_dff_count\": 22, \"resolved_scales\": {\"pdrive\": 1.0, \"pdrive2_for_pre\": 1, \"w_en_scale\": 1}, \"w_en_scale\": 1}, \"source_path\": \"dff.inv_dff\"}"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "concrete_instance_name": "pdrive.inv1",
+      "parent_module": "pdrive",
+      "child_module": "PINV",
+      "concrete_parameter_values": "{\"resolved_channel_length_nm\": 50, \"resolved_nmos_width_nm\": 90, \"resolved_pmos_width_nm\": 270}",
+      "parent_net_connections": "",
+      "resolved_physical_cell_name": "PINV_NW90_PW270_L50",
+      "binding_status": "APPROVED_PRIMITIVE_BINDING",
+      "source_trace": "{\"config\": \"64x8\", \"scales\": {\"address_bits\": 6, \"clk_dff_count\": 16, \"clk_drive_scale\": 1.0, \"pre_col_scale\": 0.13846153846153847, \"pre_drive_scale\": 1, \"pre_pmos_scale\": 4.0, \"ref_dff_count\": 22, \"resolved_scales\": {\"pdrive\": 1.0, \"pdrive2_for_pre\": 1, \"w_en_scale\": 1}, \"w_en_scale\": 1}, \"source_path\": \"pdrive.inv1\"}"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "concrete_instance_name": "pdrive.inv2",
+      "parent_module": "pdrive",
+      "child_module": "PINV",
+      "concrete_parameter_values": "{\"resolved_channel_length_nm\": 50, \"resolved_nmos_width_nm\": 270, \"resolved_pmos_width_nm\": 810}",
+      "parent_net_connections": "",
+      "resolved_physical_cell_name": "PINV_NW270_PW810_L50",
+      "binding_status": "APPROVED_PRIMITIVE_BINDING",
+      "source_trace": "{\"config\": \"64x8\", \"scales\": {\"address_bits\": 6, \"clk_dff_count\": 16, \"clk_drive_scale\": 1.0, \"pre_col_scale\": 0.13846153846153847, \"pre_drive_scale\": 1, \"pre_pmos_scale\": 4.0, \"ref_dff_count\": 22, \"resolved_scales\": {\"pdrive\": 1.0, \"pdrive2_for_pre\": 1, \"w_en_scale\": 1}, \"w_en_scale\": 1}, \"source_path\": \"pdrive.inv2\"}"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "concrete_instance_name": "pdrive.inv3",
+      "parent_module": "pdrive",
+      "child_module": "PINV",
+      "concrete_parameter_values": "{\"resolved_channel_length_nm\": 50, \"resolved_nmos_width_nm\": 910, \"resolved_pmos_width_nm\": 2430}",
+      "parent_net_connections": "",
+      "resolved_physical_cell_name": "PINV_NW910_PW2430_L50",
+      "binding_status": "APPROVED_PRIMITIVE_BINDING",
+      "source_trace": "{\"config\": \"64x8\", \"scales\": {\"address_bits\": 6, \"clk_dff_count\": 16, \"clk_drive_scale\": 1.0, \"pre_col_scale\": 0.13846153846153847, \"pre_drive_scale\": 1, \"pre_pmos_scale\": 4.0, \"ref_dff_count\": 22, \"resolved_scales\": {\"pdrive\": 1.0, \"pdrive2_for_pre\": 1, \"w_en_scale\": 1}, \"w_en_scale\": 1}, \"source_path\": \"pdrive.inv3\"}"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "concrete_instance_name": "pdrive.inv4",
+      "parent_module": "pdrive",
+      "child_module": "PINV",
+      "concrete_parameter_values": "{\"resolved_channel_length_nm\": 50, \"resolved_nmos_width_nm\": 2430, \"resolved_pmos_width_nm\": 7290}",
+      "parent_net_connections": "",
+      "resolved_physical_cell_name": "PINV_NW2430_PW7290_L50",
+      "binding_status": "APPROVED_PRIMITIVE_BINDING",
+      "source_trace": "{\"config\": \"64x8\", \"scales\": {\"address_bits\": 6, \"clk_dff_count\": 16, \"clk_drive_scale\": 1.0, \"pre_col_scale\": 0.13846153846153847, \"pre_drive_scale\": 1, \"pre_pmos_scale\": 4.0, \"ref_dff_count\": 22, \"resolved_scales\": {\"pdrive\": 1.0, \"pdrive2_for_pre\": 1, \"w_en_scale\": 1}, \"w_en_scale\": 1}, \"source_path\": \"pdrive.inv4\"}"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "concrete_instance_name": "pdrive2_for_pre.inv1",
+      "parent_module": "pdrive2_for_pre",
+      "child_module": "PINV",
+      "concrete_parameter_values": "{\"resolved_channel_length_nm\": 50, \"resolved_nmos_width_nm\": 90, \"resolved_pmos_width_nm\": 270}",
+      "parent_net_connections": "",
+      "resolved_physical_cell_name": "PINV_NW90_PW270_L50",
+      "binding_status": "APPROVED_PRIMITIVE_BINDING",
+      "source_trace": "{\"config\": \"64x8\", \"scales\": {\"address_bits\": 6, \"clk_dff_count\": 16, \"clk_drive_scale\": 1.0, \"pre_col_scale\": 0.13846153846153847, \"pre_drive_scale\": 1, \"pre_pmos_scale\": 4.0, \"ref_dff_count\": 22, \"resolved_scales\": {\"pdrive\": 1.0, \"pdrive2_for_pre\": 1, \"w_en_scale\": 1}, \"w_en_scale\": 1}, \"source_path\": \"pdrive2_for_pre.inv1\"}"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "concrete_instance_name": "pdrive2_for_pre.inv2",
+      "parent_module": "pdrive2_for_pre",
+      "child_module": "PINV",
+      "concrete_parameter_values": "{\"resolved_channel_length_nm\": 50, \"resolved_nmos_width_nm\": 270, \"resolved_pmos_width_nm\": 810}",
+      "parent_net_connections": "",
+      "resolved_physical_cell_name": "PINV_NW270_PW810_L50",
+      "binding_status": "APPROVED_PRIMITIVE_BINDING",
+      "source_trace": "{\"config\": \"64x8\", \"scales\": {\"address_bits\": 6, \"clk_dff_count\": 16, \"clk_drive_scale\": 1.0, \"pre_col_scale\": 0.13846153846153847, \"pre_drive_scale\": 1, \"pre_pmos_scale\": 4.0, \"ref_dff_count\": 22, \"resolved_scales\": {\"pdrive\": 1.0, \"pdrive2_for_pre\": 1, \"w_en_scale\": 1}, \"w_en_scale\": 1}, \"source_path\": \"pdrive2_for_pre.inv2\"}"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "concrete_instance_name": "wl_pdrive.inv1",
+      "parent_module": "wl_pdrive",
+      "child_module": "PINV",
+      "concrete_parameter_values": "{\"resolved_channel_length_nm\": 50, \"resolved_nmos_width_nm\": 90, \"resolved_pmos_width_nm\": 270}",
+      "parent_net_connections": "",
+      "resolved_physical_cell_name": "PINV_NW90_PW270_L50",
+      "binding_status": "APPROVED_PRIMITIVE_BINDING",
+      "source_trace": "{\"config\": \"64x8\", \"scales\": {\"address_bits\": 6, \"clk_dff_count\": 16, \"clk_drive_scale\": 1.0, \"pre_col_scale\": 0.13846153846153847, \"pre_drive_scale\": 1, \"pre_pmos_scale\": 4.0, \"ref_dff_count\": 22, \"resolved_scales\": {\"pdrive\": 1.0, \"pdrive2_for_pre\": 1, \"w_en_scale\": 1}, \"w_en_scale\": 1}, \"source_path\": \"wl_pdrive.inv1\"}"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "concrete_instance_name": "wl_pdrive.inv2",
+      "parent_module": "wl_pdrive",
+      "child_module": "PINV",
+      "concrete_parameter_values": "{\"resolved_channel_length_nm\": 50, \"resolved_nmos_width_nm\": 450, \"resolved_pmos_width_nm\": 1350}",
+      "parent_net_connections": "",
+      "resolved_physical_cell_name": "PINV_NW450_PW1350_L50",
+      "binding_status": "APPROVED_PRIMITIVE_BINDING",
+      "source_trace": "{\"config\": \"64x8\", \"scales\": {\"address_bits\": 6, \"clk_dff_count\": 16, \"clk_drive_scale\": 1.0, \"pre_col_scale\": 0.13846153846153847, \"pre_drive_scale\": 1, \"pre_pmos_scale\": 4.0, \"ref_dff_count\": 22, \"resolved_scales\": {\"pdrive\": 1.0, \"pdrive2_for_pre\": 1, \"w_en_scale\": 1}, \"w_en_scale\": 1}, \"source_path\": \"wl_pdrive.inv2\"}"
+    }
+  ],
+  "failure_rows": [
+    {
+      "config_id": "R64_C8_read&write",
+      "failure_class": "COMPOSITE_CHILD_NOT_YET_GENERATED",
+      "instance_name": "DFF",
+      "parent_module": "TIME",
+      "reason": "16 composite child instances remain hierarchical in M12C4R"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "failure_class": "COMPOSITE_CHILD_NOT_YET_GENERATED",
+      "instance_name": "DFF_BUF",
+      "parent_module": "TIME",
+      "reason": "2 composite child instances remain hierarchical in M12C4R"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "failure_class": "COMPOSITE_CHILD_NOT_YET_GENERATED",
+      "instance_name": "AND2",
+      "parent_module": "TIME",
+      "reason": "2 composite child instances remain hierarchical in M12C4R"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "failure_class": "COMPOSITE_CHILD_NOT_YET_GENERATED",
+      "instance_name": "AND3",
+      "parent_module": "TIME",
+      "reason": "2 composite child instances remain hierarchical in M12C4R"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "failure_class": "NEW_PRIMITIVE_REQUIRED",
+      "instance_name": "PNAND2",
+      "parent_module": "TIME",
+      "reason": "OpenYield PNAND physical primitive is not yet approved"
+    },
+    {
+      "config_id": "R64_C8_read&write",
+      "failure_class": "NEW_PRIMITIVE_REQUIRED",
+      "instance_name": "PNAND3",
+      "parent_module": "TIME",
+      "reason": "OpenYield PNAND physical primitive is not yet approved"
+    }
+  ],
+  "approved_reusable_root": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells"
+}

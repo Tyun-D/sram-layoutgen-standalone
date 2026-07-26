@@ -1,0 +1,33 @@
+{
+  "raw_num_rows": 16,
+  "raw_num_cols": 16,
+  "raw_choose_columnmux": false,
+  "derived_spec": {
+    "raw_num_rows": 16,
+    "raw_num_cols": 16,
+    "raw_choose_columnmux": false,
+    "word_size": 16,
+    "num_words": 16,
+    "words_per_row": 1,
+    "num_rows": 16,
+    "num_cols": 16,
+    "num_banks": 1,
+    "num_ports": 1,
+    "tech": "freepdk45",
+    "column_mux_ratio": 1,
+    "mux_enabled": false,
+    "derivation_rule": {
+      "word_size": "word_size = num_cols / column_mux_ratio",
+      "num_words": "num_words = num_rows * words_per_row",
+      "words_per_row": "words_per_row = column_mux_ratio = 2 if choose_columnmux else 1"
+    }
+  },
+  "openyield_capacity_config_found": true,
+  "word_size_source_backed": false,
+  "num_words_source_backed": false,
+  "words_per_row_source_backed": false,
+  "num_rows_source_backed": true,
+  "num_cols_source_backed": true,
+  "capacity_config_fallback_used_after_M11": true,
+  "fallback_reason": "Raw OpenYield provides architecture knobs (num_rows/num_cols/choose_columnmux) but not enough first-class logical capacity fields to eliminate the locked 8x64_wpr4 fallback for current_supported_config delivery."
+}

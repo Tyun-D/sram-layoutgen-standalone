@@ -1,0 +1,85 @@
+{
+  "scope": "candidate_spice_generation_and_pdk_model_search",
+  "nodes": [
+    {
+      "id": "tech:openram",
+      "kind": "pdk_root",
+      "label": "OpenRAM freepdk45"
+    },
+    {
+      "id": "tech:local",
+      "kind": "pdk_root",
+      "label": "local freepdk45"
+    },
+    {
+      "id": "model:NMOS_VTG",
+      "kind": "device_model",
+      "label": "NMOS_VTG"
+    },
+    {
+      "id": "model:PMOS_VTG",
+      "kind": "device_model",
+      "label": "PMOS_VTG"
+    },
+    {
+      "id": "subckt:gen_delay_inv",
+      "kind": "candidate_subckt",
+      "label": "gen_delay_inv"
+    },
+    {
+      "id": "tb:delay_chain",
+      "kind": "candidate_tb",
+      "label": "DELAY_CHAIN TB"
+    }
+  ],
+  "edges": [
+    {
+      "from": "tech:openram",
+      "to": "model:NMOS_VTG",
+      "relation": "contains"
+    },
+    {
+      "from": "tech:openram",
+      "to": "model:PMOS_VTG",
+      "relation": "contains"
+    },
+    {
+      "from": "model:NMOS_VTG",
+      "to": "subckt:gen_delay_inv",
+      "relation": "binds"
+    },
+    {
+      "from": "model:PMOS_VTG",
+      "to": "subckt:gen_delay_inv",
+      "relation": "binds"
+    },
+    {
+      "from": "subckt:gen_delay_inv",
+      "to": "tb:delay_chain",
+      "relation": "instantiated_by"
+    }
+  ],
+  "summary": {
+    "pdk_model_search_completed": true,
+    "candidate_spice_generation_available": true,
+    "gen_delay_inv_candidate_spice_emitted": true,
+    "delay_chain_symbolic_tb_emitted": true,
+    "device_model_include_found": true,
+    "nmos_vtg_bound": true,
+    "pmos_vtg_bound": true,
+    "needs_model_alias_mapping": false,
+    "can_run_candidate_spice_now": false,
+    "can_run_delay_chain_testbench_now": false,
+    "can_claim_delay_proof_now": false,
+    "can_claim_timing_closure_now": false,
+    "needs_teacher_or_project_provider": false,
+    "can_enter_candidate_spice_syntax_check": true,
+    "can_enter_pvt_corner_definition": true,
+    "can_enter_delay_chain_smoke_simulation": false,
+    "can_enter_physical_timing_closure_now": false,
+    "can_enter_physical_routing_now": false,
+    "can_enter_physical_placement_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_modify_standalone_now": false
+  }
+}

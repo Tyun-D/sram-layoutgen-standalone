@@ -1,0 +1,83 @@
+{
+  "required_parameters": [
+    "word_size",
+    "num_words",
+    "words_per_row",
+    "tech",
+    "num_rows",
+    "num_cols"
+  ],
+  "optional_parameters": [
+    "choose_columnmux",
+    "write_size",
+    "num_banks",
+    "corner",
+    "temperature",
+    "sram_cell_type"
+  ],
+  "default_sample_parameters": {
+    "sample_A_layoutgen_current": {
+      "word_size": 8,
+      "num_words": 64,
+      "words_per_row": 4,
+      "num_rows": 16,
+      "num_cols": 32,
+      "tech": "fd45 / FreePDK45"
+    },
+    "sample_B_openram_reference": {
+      "word_size": 16,
+      "num_words": 32,
+      "words_per_row": "UNKNOWN",
+      "num_rows": "UNKNOWN",
+      "num_cols": "UNKNOWN",
+      "tech": "freepdk45"
+    }
+  },
+  "derived_parameters": {
+    "num_rows": "num_words / words_per_row",
+    "num_cols": "word_size * words_per_row"
+  },
+  "unsupported_parameters": [
+    "full control_logic decomposition selection",
+    "verified top-level netlist connectivity",
+    "routing/power closure constraints"
+  ],
+  "parameter_to_layout_impact": {
+    "word_size": "changes bitline count, sense_amp/write_driver/column_mux width, and top pin span",
+    "num_words": "changes row count, decoder depth, wordline_driver array length, and array height",
+    "words_per_row": "changes mux ratio, num_cols, and periphery width",
+    "tech": "changes layer map, device library, rail geometry, and verification decks"
+  },
+  "parameter_to_netlist_impact": {
+    "word_size": "changes data bus width and per-column peripheral replication",
+    "num_words": "changes address width and row decode hierarchy",
+    "words_per_row": "changes column muxing and decoder addressing split",
+    "tech": "changes model libraries and device parameter bindings"
+  },
+  "parameter_source_limitations": {
+    "currently_adjustable": [
+      "num_rows",
+      "num_cols",
+      "choose_columnmux",
+      "SRAM_6T_CELL widths/length via YAML"
+    ],
+    "theoretically_adjustable_but_not_integrated": [
+      "word_size",
+      "num_words",
+      "words_per_row as a locked top-level authority contract"
+    ],
+    "sample_borrowed_parameters": [
+      "sample_A derives from layoutgen current 8x64_wpr4 evidence",
+      "sample_B borrows OpenRAM external reference 32x16 naming evidence"
+    ],
+    "missing_openyield_authority": [
+      "single complete SRAM top netlist",
+      "locked top-level pin contract",
+      "locked control_logic decomposition"
+    ],
+    "missing_physical_rule": [
+      "rows/cols/mux to periphery geometry mapping",
+      "control path placement/routing rule map"
+    ]
+  }
+}

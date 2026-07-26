@@ -1,0 +1,38 @@
+logical_alias,source_context,physical_variant,canonical_physical_name,nmos_width_nm,pmos_width_nm,channel_length_nm,generation_priority,required_generator_level,candidate_existing_generator_path
+NMOS_DEVICE,,NMOS_NW{nmos}_L{length},NMOS_NW{nmos}_L{length},90,,50,P0_REQUIRED_FIRST,DEVICE,/data1/qujh/OpenRAM/compiler/modules/ptx.py
+PMOS_DEVICE,,PMOS_PW{pmos}_L{length},PMOS_PW{pmos}_L{length},,90,50,P0_REQUIRED_FIRST,DEVICE,/data1/qujh/OpenRAM/compiler/modules/ptx.py
+CONTACT,,CONTACT_{stack}_{dims},CONTACT_{stack}_{dims},,,,P0_REQUIRED_FIRST,DEVICE,/data1/qujh/OpenRAM/compiler/base/contact.py
+VIA1,,VIA1_{dims},VIA1_{dims},,,,P0_REQUIRED_FIRST,DEVICE,/data1/qujh/OpenRAM/compiler/base/contact.py
+POWER_TAP,,POWER_TAP_{well}_{dims},POWER_TAP_{well}_{dims},,,,P0_REQUIRED_FIRST,DEVICE,/data1/qujh/OpenRAM/compiler/base/contact.py
+PINV,TIME.inv_clk_bar,NW90|PW270|L50,PINV_NW90_PW270_L50,90,270,50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,/data1/qujh/OpenRAM/compiler/modules/pinv.py
+PINV,TIME.inv_rbl_delay_bar,NW90|PW270|L50,PINV_NW90_PW270_L50,90,270,50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,/data1/qujh/OpenRAM/compiler/modules/pinv.py
+PINV,AND2.inv_driver,NW90|PW270|L50,PINV_NW90_PW270_L50,90,270,50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,/data1/qujh/OpenRAM/compiler/modules/pinv.py
+PINV,AND3.inv_driver,NW90|PW270|L50,PINV_NW90_PW270_L50,90,270,50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,/data1/qujh/OpenRAM/compiler/modules/pinv.py
+PINV,D_latch.inv1,NW180|PW270|L50,PINV_NW180_PW270_L50,180,270,50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,/data1/qujh/OpenRAM/compiler/modules/pinv.py
+PINV1,pdrive.inv1,"NW(90*(max(1.0, float(drive_scale))**0.25))|PW(270*(max(1.0, float(drive_scale))**0.25))|L50",PINV_7BEF9676_NW90_PW270_L50,"(90*(max(1.0, float(drive_scale))**0.25))","(270*(max(1.0, float(drive_scale))**0.25))",50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,/data1/qujh/OpenRAM/compiler/modules/pinv.py
+PINV1,pdrive2_for_pre.inv1,"NW(90*max(1.0, (max(1.0, float(drive_scale))**0.5)))|PW(270*max(1.0, (max(1.0, float(drive_scale))**0.5)))|L50",PINV_FEDF48F1_NW90_PW270_L50,"(90*max(1.0, (max(1.0, float(drive_scale))**0.5)))","(270*max(1.0, (max(1.0, float(drive_scale))**0.5)))",50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,/data1/qujh/OpenRAM/compiler/modules/pinv.py
+PINV1,wl_pdrive.inv1,NW90|PW270|L50,PINV_NW90_PW270_L50,90,270,50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,/data1/qujh/OpenRAM/compiler/modules/pinv.py
+PINV1,dff.inv_dff,NW250|PW500|L50,PINV_NW250_PW500_L50,250,500,50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,/data1/qujh/OpenRAM/compiler/modules/pinv.py
+PINV1,DFF_BUF.inv1,NW180|PW540|L50,PINV_NW180_PW540_L50,180,540,50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,/data1/qujh/OpenRAM/compiler/modules/pinv.py
+PINV1,DelayChain.inv,NW90|PW270|L50,PINV_NW90_PW270_L50,90,270,50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,/data1/qujh/OpenRAM/compiler/modules/pinv.py
+PINV2,pdrive.inv2,"NW(270*(max(1.0, float(drive_scale))**0.5))|PW(810*(max(1.0, float(drive_scale))**0.5))|L50",PINV_4CDBED33_NW270_PW810_L50,"(270*(max(1.0, float(drive_scale))**0.5))","(810*(max(1.0, float(drive_scale))**0.5))",50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,/data1/qujh/OpenRAM/compiler/modules/pinv.py
+PINV2,pdrive2_for_pre.inv2,"NW(270*max(1.0, float(drive_scale)))|PW(810*max(1.0, float(drive_scale)))|L50",PINV_6D5778A4_NW270_PW810_L50,"(270*max(1.0, float(drive_scale)))","(810*max(1.0, float(drive_scale)))",50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,/data1/qujh/OpenRAM/compiler/modules/pinv.py
+PINV2,wl_pdrive.inv2,NW450|PW1350|L50,PINV_NW450_PW1350_L50,450,1350,50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,/data1/qujh/OpenRAM/compiler/modules/pinv.py
+PINV2,DFF_BUF.inv2,NW360|PW1080|L50,PINV_NW360_PW1080_L50,360,1080,50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,/data1/qujh/OpenRAM/compiler/modules/pinv.py
+PINV3,pdrive.inv3,"NW(910*(max(1.0, float(drive_scale))**0.75))|PW(2430*(max(1.0, float(drive_scale))**0.75))|L50",PINV_459A182D_NW910_PW2430_L50,"(910*(max(1.0, float(drive_scale))**0.75))","(2430*(max(1.0, float(drive_scale))**0.75))",50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,/data1/qujh/OpenRAM/compiler/modules/pinv.py
+PINV4,pdrive.inv4,"NW(2430*max(1.0, float(drive_scale)))|PW(7290*max(1.0, float(drive_scale)))|L50",PINV_CA102F26_NW2430_PW7290_L50,"(2430*max(1.0, float(drive_scale)))","(7290*max(1.0, float(drive_scale)))",50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,/data1/qujh/OpenRAM/compiler/modules/pinv.py
+PINV_wl_en_bar,TIME.inv_wl_en_bar,NW90|PW270|L50,PINV_NW90_PW270_L50,90,270,50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,/data1/qujh/OpenRAM/compiler/modules/pinv.py
+PNAND2,sram_compiler/subcircuits/standard_cell.py,PNAND2,PNAND2,180,270,50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,
+PNAND3,sram_compiler/subcircuits/standard_cell.py,PNAND3,PNAND3,270,270,50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,
+TRANSMISSION_GATE,sram_compiler/subcircuits/time_generate.py,TRANSMISSION_GATE,TRANSMISSION_GATE,250,500,50,P0_REQUIRED_FIRST,PRIMITIVE_GATE,/data1/qujh/OpenRAM/compiler/modules/ptx.py
+AND2,sram_compiler/subcircuits/standard_cell.py,AND2,AND2,,,50,P1_REQUIRED_FOR_DFF,PRIMITIVE_GATE,
+AND3,sram_compiler/subcircuits/standard_cell.py,AND3,AND3,,,50,P1_REQUIRED_FOR_DFF,PRIMITIVE_GATE,
+DFF,sram_compiler/subcircuits/time_generate.py,DFF,DFF,,,50,P1_REQUIRED_FOR_DFF,SEQUENTIAL_CELL,
+DFF_BUF,sram_compiler/subcircuits/time_generate.py,DFF_BUF,DFF_BUF,,,50,P1_REQUIRED_FOR_DFF,SEQUENTIAL_CELL,
+ADDR_DFF,sram_compiler/subcircuits/time_generate.py,ADDR_DFF,ADDR_DFF,,,50,P2_REQUIRED_FOR_CONTROL_PATH,SEQUENTIAL_CELL,
+DATA_DFF,sram_compiler/subcircuits/time_generate.py,DATA_DFF,DATA_DFF,,,50,P2_REQUIRED_FOR_CONTROL_PATH,SEQUENTIAL_CELL,
+pdrive,sram_compiler/subcircuits/time_generate.py,PDRIVE,PDRIVE,250,500,50,P2_REQUIRED_FOR_CONTROL_PATH,BUFFER_CHAIN,
+pdrive2_for_pre,sram_compiler/subcircuits/time_generate.py,PDRIVE2_FOR_PRE,PDRIVE2_FOR_PRE,250,500,50,P2_REQUIRED_FOR_CONTROL_PATH,BUFFER_CHAIN,
+wl_pdrive,sram_compiler/subcircuits/time_generate.py,WL_PDRIVE,WL_PDRIVE,250,500,50,P2_REQUIRED_FOR_CONTROL_PATH,BUFFER_CHAIN,
+delay_chain,sram_compiler/subcircuits/time_generate.py,DELAY_CHAIN,DELAY_CHAIN,250,500,50,P2_REQUIRED_FOR_CONTROL_PATH,DELAY_CHAIN,
+WenDelayChain,sram_compiler/subcircuits/time_generate.py,WEN_DELAY_CHAIN_ST{stage_count},WEN_DELAY_CHAIN_ST{stage_count},250,500,50,P2_REQUIRED_FOR_CONTROL_PATH,DELAY_CHAIN,

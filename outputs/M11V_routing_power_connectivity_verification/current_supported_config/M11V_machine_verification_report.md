@@ -1,0 +1,33 @@
+# M11V Machine Verification Report
+
+- `m11c2h_gate_loaded` status=`True` notes=`M11C2H report + gate CSV loaded.`
+- `can_enter_M11V_from_M11C2H` status=`True` notes=`True`
+- `baseline_gds_parsed` status=`True` notes=`sram_8x64_wpr4_fd45`
+- `m11c_sense_amp_gds_parsed` status=`True` notes=`sram_8x64_wpr4_fd45`
+- `m11c2_wordline_driver_gds_parsed` status=`True` notes=`sram_8x64_wpr4_fd45`
+- `top_cell_consistent` status=`True` notes=`sram_8x64_wpr4_fd45`
+- `top_bbox_match_status_resolved` status=`True` notes=`EXACT_MATCH`
+- `hierarchy_reference_signature_stable` status=`True` notes=`False`
+- `layer_datatype_summary_compared` status=`True` notes=`baseline/m11c/m11c2 layer summaries recorded`
+- `boundary_path_text_count_compared` status=`True` notes=`labels=136/136/139`
+- `sense_amp_local_region_delta_recorded` status=`True` notes=`LOW_INCREMENTAL_RISK`
+- `wordline_driver_local_region_delta_recorded` status=`True` notes=`LOW_INCREMENTAL_RISK`
+- `non_sense_amp_unexpected_change_count_zero` status=`True` notes=`0`
+- `non_wordline_driver_unexpected_change_count_zero` status=`True` notes=`0`
+- `power_rail_layer_identifiable` status=`True` notes=`{'VDD': {'label_origin': [18.31, 44.02], 'rail_layer': '239/0', 'rail_bbox': [0.0, 0.0, 36.6225, 44.145]}, 'GND': {'label_origin': [18.31, 0.125], 'rail_layer': '239/0', 'rail_bbox': [0.0, 0.0, 36.6225, 44.145]}}`
+- `vdd_gnd_rail_bbox_identifiable` status=`True` notes=`CONSISTENT`
+- `power_rail_continuity_heuristic` status=`True` notes=`CONSISTENT`
+- `local_power_rail_overlap_risk` status=`True` notes=`NO_NEW_LOCAL_POWER_RAIL_OVERLAP_DETECTED`
+- `local_routing_disturbance_risk` status=`True` notes=`No non-target cell change or placement scatter detected.`
+- `pin_to_rail_proximity_heuristic` status=`True` notes=`sense_amp baseline-consistent; wordline_driver baseline-limited but no new mismatch detected.`
+- `pin_to_golden_alignment_consistency` status=`True` notes=`Inherited from M11B/M11W alignment contracts and unchanged placement.`
+- `new_disconnected_looking_rail_segment` status=`True` notes=`False`
+- `new_abnormal_large_void` status=`True` notes=`False`
+- `substitution_module_outside_top` status=`True` notes=`False`
+- `no_access_module` status=`True` notes=`False`
+- `no_floorplan_proxy` status=`True` notes=`False`
+- `no_arbitrary_scatter` status=`True` notes=`False`
+- `no_unauthorized_module_substitution` status=`True` notes=`False`
+- `baseline_risk_classified` status=`True` notes=`power=MEDIUM_BASELINE_LIMITED routing=HIGH_BASELINE_LIMITED`
+- `new_risk_introduced_by_sense_amp` status=`True` notes=`False/False`
+- `new_risk_introduced_by_wordline_driver` status=`True` notes=`False/False`

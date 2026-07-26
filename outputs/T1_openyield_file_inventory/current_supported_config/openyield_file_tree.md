@@ -1,0 +1,135 @@
+# OpenYield File Tree
+
+```text
+OpenYield
+- .gitignore
+- LICENSE
+- README.md
+- conda
+- config.py
+- demo_run_a_testbench.py
+- environment.yml
+- main_estimation.py
+- main_opt.py
+- main_sram.py
+- plot_data.py
+- readme_compiler.md
+- refreshenv
+- utils.py
+- 电路算法说明文档.md
+- 等效电路说明文档.md
+  - equivalent_modeling/main_sram.py
+  - equivalent_modeling/run.sh
+  - equivalent_modeling/test.ipynb
+  - img/logo-cut-openyield.jpg
+  - img/openyield_all-overall.drawio.png
+  - size_optimization/README.md
+  - size_optimization/config_sram.yaml
+  - size_optimization/demo_cbo.py
+  - size_optimization/demo_cmaes.py
+  - size_optimization/demo_cpn.py
+  - size_optimization/demo_mobo.py
+  - size_optimization/demo_moead.py
+  - size_optimization/demo_nsgaii.py
+  - size_optimization/demo_pso.py
+  - size_optimization/demo_random.py
+  - size_optimization/demo_roseopt.py
+  - size_optimization/demo_sa.py
+  - size_optimization/demo_smac.py
+  - size_optimization/demo_tssbo.py
+  - size_optimization/exp_utils.py
+  - size_optimization/experiment.py
+  - size_optimization/run_all_algos_test.py
+  - size_optimization/run_experiments.py
+  - size_optimization/sram_lef_generator.py
+  - size_optimization/tongji.py
+    - size_optimization/MOBO/README.md
+    - size_optimization/MOBO/__init__.py
+    - size_optimization/MOBO/acquisition.py
+    - size_optimization/MOBO/bayesian_optimizer.py
+    - size_optimization/MOBO/individual.py
+    - size_optimization/MOBO/main.py
+    - size_optimization/MOBO/population.py
+    - size_optimization/MOBO/problem.py
+    - size_optimization/NSGA-II/Readme.md
+    - size_optimization/NSGA-II/__init__.py
+    - size_optimization/NSGA-II/evolution.py
+    - size_optimization/NSGA-II/individual.py
+    - size_optimization/NSGA-II/main.py
+    - size_optimization/NSGA-II/nsga2_utils.py
+    - size_optimization/NSGA-II/population.py
+    - size_optimization/NSGA-II/problem.py
+    - size_optimization/borl_model/actor_critic.py
+    - size_optimization/borl_model/actor_net.py
+    - size_optimization/borl_model/buffer.py
+    - size_optimization/borl_model/critic_net.py
+    - size_optimization/borl_model/ppo.py
+    - size_optimization/model_lib/models.spice
+    - size_optimization/moead/__init__.py
+    - size_optimization/moead/ga_utils.py
+    - size_optimization/moead/individual.py
+    - size_optimization/moead/mean_vector.py
+    - size_optimization/moead/optimizer.py
+    - size_optimization/moead/population.py
+    - size_optimization/moead/problem.py
+    - size_optimization/moead/utils.py
+    - size_optimization/vector_csv_file/sram_joint_4obj_h17.csv
+    - size_optimization/vector_csv_file/sram_joint_4obj_h2.csv
+    - sram_compiler/config_yaml/config.py
+    - sram_compiler/config_yaml/decoder.yaml
+    - sram_compiler/config_yaml/global.yaml
+    - sram_compiler/config_yaml/mux.yaml
+    - sram_compiler/config_yaml/precharge.yaml
+    - sram_compiler/config_yaml/sa.yaml
+    - sram_compiler/config_yaml/sram_10t_cell.yaml
+    - sram_compiler/config_yaml/sram_6t_cell.yaml
+    - sram_compiler/config_yaml/sweep_config.py
+    - sram_compiler/config_yaml/wordline_driver.yaml
+    - sram_compiler/config_yaml/write_driver.yaml
+    - sram_compiler/subcircuits/base_subcircuit.py
+    - sram_compiler/subcircuits/decoder.py
+    - sram_compiler/subcircuits/dummy_row_or_column.py
+    - sram_compiler/subcircuits/mux_and_sa.py
+    - sram_compiler/subcircuits/precharge_and_write_driver.py
+    - sram_compiler/subcircuits/replica_column.py
+    - sram_compiler/subcircuits/sram_10t_core.py
+    - sram_compiler/subcircuits/sram_6t_core.py
+    - sram_compiler/subcircuits/sram_cell_add_equivalent.py
+    - sram_compiler/subcircuits/standard_cell.py
+    - sram_compiler/subcircuits/time_generate.py
+    - sram_compiler/subcircuits/wordline_driver.py
+    - sram_compiler/testbenches/base_testbench.py
+    - sram_compiler/testbenches/parameter_factor.py
+    - sram_compiler/testbenches/snm.py
+    - sram_compiler/testbenches/sram_6t_core_MC_testbench.py
+    - sram_compiler/testbenches/sram_6t_core_testbench.py
+    - sram_compiler/testbenches/yaml_change.py
+  - tran_models/models_FF.spice
+  - tran_models/models_FS.spice
+  - tran_models/models_SF.spice
+  - tran_models/models_SS.spice
+  - tran_models/models_TT.spice
+  - yield_estimation/README.md
+  - yield_estimation/__init__.py
+  - yield_estimation/demo_6tstamTestbench.py
+    - yield_estimation/bound_lib/model_108_bound.txt
+    - yield_estimation/bound_lib/model_1152_bound3.txt
+    - yield_estimation/bound_lib/model_18_bound.txt
+    - yield_estimation/bound_lib/model_bound_576.txt
+    - yield_estimation/model_lib/ACS.py
+    - yield_estimation/model_lib/AIS.py
+    - yield_estimation/model_lib/HSCS.py
+    - yield_estimation/model_lib/MC.py
+    - yield_estimation/model_lib/MNIS.py
+    - yield_estimation/model_lib/__init__.py
+    - yield_estimation/tool/__init__.py
+    - yield_estimation/tool/delete.py
+    - yield_estimation/tool/util.py
+      - yield_estimation/tool/Distribution/__init__.py
+      - yield_estimation/tool/Distribution/gmm_v1.py
+      - yield_estimation/tool/Distribution/gmm_v2.py
+      - yield_estimation/tool/Distribution/guassian_distribution.py
+      - yield_estimation/tool/Distribution/multi_cone_cluster.py
+      - yield_estimation/tool/Distribution/normal_v1.py
+      - yield_estimation/tool/Distribution/utils.py
+```

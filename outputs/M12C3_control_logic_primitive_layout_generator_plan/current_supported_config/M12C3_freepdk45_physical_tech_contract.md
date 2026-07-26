@@ -1,0 +1,12 @@
+# M12C3 FreePDK45 Physical Tech Contract
+
+- database_unit: `{'user': '0.0005', 'meter': '1e-9'}`
+- manufacturing_grid: `0.0025`
+- physical_tech_contract_status: `LOCKED_FREEPDK45_V1`
+- source_files: `['/data1/qujh/OpenRAM/technology/freepdk45/tech/tech.py', '/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/tech.py', '/data1/qujh/work/sram_layoutgen_step45_clean/technology/freepdk45/tech/freepdk45.lydrc']`
+- technology_rule_count: `39`
+- technology_rule_conflict_count: `0`
+- layer_map_complete: `True`
+- contact_via_rules_complete: `True`
+- device_rules_complete: `True`
+- freepdk45_tech_dir: `/data1/qujh/work/sram_layoutgen_step45_clean/technology/freepdk45`

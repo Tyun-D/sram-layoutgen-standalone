@@ -1,0 +1,91 @@
+{
+  "logical_module": "DFF_BUF",
+  "source_topology_hash": "6058eaf43739",
+  "selected_architecture": "M1_HORIZONTAL_TRACK_M2_VERTICAL_DROP__DFF_DIRECT_VIA1_TO_M2_ESCAPE",
+  "binding_rows": [
+    {
+      "instance_name": "dff",
+      "child_logical_module": "DFF",
+      "source_line": 288,
+      "child_pin_order": "[\"VDD\", \"VSS\", \"D\", \"Q\", \"CLK\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"D\", \"qint\", \"CLK\"]",
+      "resolved_physical_cell_name": "DFF_TG4_INV7_FPDK45_26d9543b82b7",
+      "approved_physical_source_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4ACH_dff_reusable_release/DFF_reusable_clean.gds",
+      "approved_pin_map_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4AC_dff_connectivity_repair/current_supported_config/DFF_TG4_INV7_FPDK45_26d9543b82b7/DFF_TG4_INV7_FPDK45_26d9543b82b7_pin_map.json",
+      "approved_geometry_fingerprint": "8668df83d4b7e5d14ee35a01",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "inv1",
+      "child_logical_module": "PINV",
+      "source_line": 292,
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"qint\", \"QB\"]",
+      "resolved_physical_cell_name": "PINV_NW180_PW540_L50",
+      "approved_physical_source_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells/PINV_NW180_PW540_L50/PINV_NW180_PW540_L50.gds",
+      "approved_pin_map_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells/PINV_NW180_PW540_L50/PINV_NW180_PW540_L50_pin_map.json",
+      "approved_geometry_fingerprint": "bdbb09ae6bafbd382b8bb88f",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "inv2",
+      "child_logical_module": "PINV",
+      "source_line": 296,
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"QB\", \"Q\"]",
+      "resolved_physical_cell_name": "PINV_NW360_PW1080_L50",
+      "approved_physical_source_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells/PINV_NW360_PW1080_L50/PINV_NW360_PW1080_L50.gds",
+      "approved_pin_map_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells/PINV_NW360_PW1080_L50/PINV_NW360_PW1080_L50_pin_map.json",
+      "approved_geometry_fingerprint": "94978c4bb09d28b0e9fc7ac9",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    }
+  ],
+  "placement_rows": [
+    {
+      "instance_name": "dff",
+      "logical_module": "DFF",
+      "physical_child_cell": "DFF_TG4_INV7_FPDK45_26d9543b82b7",
+      "source_line": 288,
+      "placement_x": 0.0,
+      "placement_y": 0.0,
+      "orientation": "R0",
+      "bbox": "[0.0, 0.0, 13.745, 4.2525]",
+      "pin_transform": "{\"origin_x\": 0.0725, \"origin_y\": 0.0}",
+      "geometry_fingerprint": "8668df83d4b7e5d14ee35a01"
+    },
+    {
+      "instance_name": "inv1",
+      "logical_module": "PINV",
+      "physical_child_cell": "PINV_NW180_PW540_L50",
+      "source_line": 292,
+      "placement_x": 14.094999999999999,
+      "placement_y": 0.0,
+      "orientation": "R0",
+      "bbox": "[14.095, 0.0, 14.8925, 1.8875]",
+      "pin_transform": "{\"origin_x\": 14.149999999999999, \"origin_y\": 0.0325}",
+      "geometry_fingerprint": "bdbb09ae6bafbd382b8bb88f"
+    },
+    {
+      "instance_name": "inv2",
+      "logical_module": "PINV",
+      "physical_child_cell": "PINV_NW360_PW1080_L50",
+      "source_line": 296,
+      "placement_x": 15.242499999999998,
+      "placement_y": 0.0,
+      "orientation": "R0",
+      "bbox": "[15.2425, 0.0, 16.315, 1.8875]",
+      "pin_transform": "{\"origin_x\": 15.297499999999998, \"origin_y\": 0.0325}",
+      "geometry_fingerprint": "94978c4bb09d28b0e9fc7ac9"
+    }
+  ],
+  "expected_instance_order": [
+    "dff",
+    "inv1",
+    "inv2"
+  ],
+  "expected_child_types": {
+    "dff": "DFF",
+    "inv1": "PINV",
+    "inv2": "PINV"
+  }
+}

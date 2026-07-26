@@ -1,0 +1,26 @@
+{
+  "registry_version": "M12C4A_PIN_ROLE_REGISTRY_V1",
+  "modules": {
+    "PINV": {
+      "VDD": "POWER",
+      "VSS": "GROUND",
+      "A": "SIGNAL_INPUT",
+      "Z": "SIGNAL_OUTPUT"
+    },
+    "TRANSMISSION_GATE": {
+      "VDD": "BODY_POWER",
+      "VSS": "BODY_GROUND",
+      "IN": "BIDIRECTIONAL_SWITCH_TERMINAL",
+      "OUT": "BIDIRECTIONAL_SWITCH_TERMINAL",
+      "CTR_P": "CONTROL_INPUT",
+      "CTR_N": "CONTROL_INPUT"
+    },
+    "DFF": {
+      "VDD": "POWER",
+      "VSS": "GROUND",
+      "D": "SIGNAL_INPUT",
+      "Q": "SIGNAL_OUTPUT",
+      "CLK": "CLOCK_INPUT"
+    }
+  }
+}

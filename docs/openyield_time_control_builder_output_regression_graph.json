@@ -1,0 +1,116 @@
+{
+  "scope": "step6_41_openyield_time_control_builder_output_regression_audit",
+  "nodes": [
+    {
+      "id": "candidate_artifact_shape",
+      "kind": "metadata_plan_object"
+    },
+    {
+      "id": "experimental_contract.config_surface",
+      "kind": "metadata_plan_object"
+    },
+    {
+      "id": "experimental_contract.prototype_subplans",
+      "kind": "metadata_plan_object"
+    },
+    {
+      "id": "abstract_floorplan_payload.payload",
+      "kind": "metadata_plan_object"
+    },
+    {
+      "id": "goal_progress_audit.audit_summary",
+      "kind": "json_report"
+    },
+    {
+      "id": "json_report",
+      "kind": "allowed_output"
+    },
+    {
+      "id": "markdown_report",
+      "kind": "allowed_output"
+    },
+    {
+      "id": "metadata_plan_object",
+      "kind": "allowed_output"
+    },
+    {
+      "id": "gds_layout",
+      "kind": "forbidden_output"
+    },
+    {
+      "id": "routed_geometry",
+      "kind": "forbidden_output"
+    },
+    {
+      "id": "standalone_generator_patch",
+      "kind": "forbidden_output"
+    }
+  ],
+  "edges": [
+    {
+      "source": "candidate_artifact_shape",
+      "target": "metadata_plan_object",
+      "relation": "classified_as"
+    },
+    {
+      "source": "experimental_contract.config_surface",
+      "target": "metadata_plan_object",
+      "relation": "classified_as"
+    },
+    {
+      "source": "experimental_contract.prototype_subplans",
+      "target": "metadata_plan_object",
+      "relation": "classified_as"
+    },
+    {
+      "source": "abstract_floorplan_payload.payload",
+      "target": "metadata_plan_object",
+      "relation": "classified_as"
+    },
+    {
+      "source": "goal_progress_audit.audit_summary",
+      "target": "json_report",
+      "relation": "classified_as"
+    },
+    {
+      "source": "future_builder",
+      "target": "json_report",
+      "relation": "may_emit"
+    },
+    {
+      "source": "future_builder",
+      "target": "markdown_report",
+      "relation": "may_emit"
+    },
+    {
+      "source": "future_builder",
+      "target": "metadata_plan_object",
+      "relation": "may_emit"
+    },
+    {
+      "source": "future_builder",
+      "target": "gds_layout",
+      "relation": "must_not_emit"
+    },
+    {
+      "source": "future_builder",
+      "target": "routed_geometry",
+      "relation": "must_not_emit"
+    },
+    {
+      "source": "future_builder",
+      "target": "standalone_generator_patch",
+      "relation": "must_not_emit"
+    }
+  ],
+  "summary": {
+    "builder_output_regression_audit_available": true,
+    "candidate_artifact_shape_complete": true,
+    "sample_outputs_forbidden_field_free": true,
+    "goal_gates_still_closed": true,
+    "future_default_off_builder_output_regression_clean": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  }
+}

@@ -1,0 +1,45 @@
+You are working on OpenYield SRAM layoutgen Team B support modules only.
+
+Locked facts:
+- Project branch baseline: feature/step45-clean-array-aggregation
+- Project baseline commit: 480ca5200f31bb0c21cdcfbdde25ff50f40108b0
+- OpenYield commit must remain: 1c34428d8b913963c4971d093b1a7c2df97a2509
+- Your branch: collab/team-b-control-support
+- Your starting stage: TEAM-B0 / ASSIGNED_MODULE_SOURCE_ASSET_AND_DEPENDENCY_LOCK
+- gds_generation_allowed=false
+- main_project_ledgers_write_allowed=false
+- reusable_release_allowed=false
+- next instruction source: GPT_EVIDENCE_REVIEW_REQUIRED
+
+Your module scope only:
+- PNAND2
+- PNAND3
+- AND2
+- AND3
+- pdrive
+- pdrive2_for_pre
+- wl_pdrive
+- delay_chain
+- wen_delay_chain
+
+Forbidden:
+- editing PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md
+- editing PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json
+- editing PROJECT_NETLIST_TO_LAYOUT_GOAL.md
+- editing PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md
+- editing approved reusable GDS
+- editing reusable registry or release/seal outputs
+- editing OpenYield
+- editing Wave4A outputs
+- editing TIME integration code
+- editing shared DFF-array core
+- starting any physical implementation stage without new GPT approval
+- calling anything reusable/human reviewed
+
+Required behavior:
+- do exactly one GPT-approved minimal stage per round
+- stop at the end of the round
+- produce a report, tar.gz evidence package, and handoff using collaboration/team_b/HANDOFF_TEMPLATE.md
+- include bundle/patch if direct push is not available
+- send results back for GPT audit
+- do not progress beyond TEAM-B0 until GPT explicitly approves the next stage

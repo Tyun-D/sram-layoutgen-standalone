@@ -1,0 +1,578 @@
+{
+  "scope": "step6_9_openyield_decoder_stage_candidate_audit",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "source_files": {
+    "decoder_py": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\decoder.py",
+    "standard_cell_py": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\standard_cell.py"
+  },
+  "source_health": {
+    "decoder_py": true,
+    "standard_cell_py": true
+  },
+  "addr_width": 5,
+  "num_rows": 32,
+  "decoder_cascade_exists": true,
+  "decoder_cascade_source_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\decoder.py",
+  "decoder_cascade_top_inputs": [
+    "VDD",
+    "VSS",
+    "A[0]",
+    "A[1]",
+    "A[2]",
+    "A[3]",
+    "A[4]"
+  ],
+  "decoder_cascade_top_outputs": [
+    "WL[0]",
+    "WL[1]",
+    "WL[2]",
+    "WL[3]",
+    "WL[4]",
+    "WL[5]",
+    "WL[6]",
+    "WL[7]",
+    "WL[8]",
+    "WL[9]",
+    "WL[10]",
+    "WL[11]",
+    "WL[12]",
+    "WL[13]",
+    "WL[14]",
+    "WL[15]",
+    "WL[16]",
+    "WL[17]",
+    "WL[18]",
+    "WL[19]",
+    "WL[20]",
+    "WL[21]",
+    "WL[22]",
+    "WL[23]",
+    "WL[24]",
+    "WL[25]",
+    "WL[26]",
+    "WL[27]",
+    "WL[28]",
+    "WL[29]",
+    "WL[30]",
+    "WL[31]"
+  ],
+  "decoder3_8_exists": true,
+  "decoder3_8_inputs": [
+    "EN",
+    "A0",
+    "A1",
+    "A2"
+  ],
+  "decoder3_8_outputs": [
+    "WL0",
+    "WL1",
+    "WL2",
+    "WL3",
+    "WL4",
+    "WL5",
+    "WL6",
+    "WL7"
+  ],
+  "decoder_logic_subcells_present": {
+    "Pinv": true,
+    "PNAND2": true,
+    "PNAND3": true,
+    "AND2": true,
+    "AND3": true
+  },
+  "decoder_cascade_hierarchy": {
+    "n_bits": 5,
+    "n_levels": 2,
+    "level_groups": [
+      1,
+      4
+    ],
+    "total_decoder3_8_instances": 5,
+    "stage_instances": [
+      {
+        "level": 0,
+        "decoder_index": 0,
+        "stage_name": "DEC_0_0",
+        "enable_net": "VDD",
+        "address_node_order": [
+          "A3",
+          "A4",
+          "VSS"
+        ],
+        "decoder_pin_map": {
+          "EN": "VDD",
+          "A0": "VSS",
+          "A1": "A4",
+          "A2": "A3"
+        },
+        "output_nets": [
+          "EN_0_0_0",
+          "EN_0_0_1",
+          "EN_0_0_2",
+          "EN_0_0_3",
+          "EN_0_0_4",
+          "EN_0_0_5",
+          "EN_0_0_6",
+          "EN_0_0_7"
+        ],
+        "output_role": "intermediate_enable_bus"
+      },
+      {
+        "level": 1,
+        "decoder_index": 0,
+        "stage_name": "DEC_1_0",
+        "enable_net": "EN_0_0_0",
+        "address_node_order": [
+          "A0",
+          "A1",
+          "A2"
+        ],
+        "decoder_pin_map": {
+          "EN": "EN_0_0_0",
+          "A0": "A2",
+          "A1": "A1",
+          "A2": "A0"
+        },
+        "output_nets": [
+          "WL0",
+          "WL1",
+          "WL2",
+          "WL3",
+          "WL4",
+          "WL5",
+          "WL6",
+          "WL7"
+        ],
+        "output_role": "wordline_outputs"
+      },
+      {
+        "level": 1,
+        "decoder_index": 1,
+        "stage_name": "DEC_1_1",
+        "enable_net": "EN_0_0_1",
+        "address_node_order": [
+          "A0",
+          "A1",
+          "A2"
+        ],
+        "decoder_pin_map": {
+          "EN": "EN_0_0_1",
+          "A0": "A2",
+          "A1": "A1",
+          "A2": "A0"
+        },
+        "output_nets": [
+          "WL8",
+          "WL9",
+          "WL10",
+          "WL11",
+          "WL12",
+          "WL13",
+          "WL14",
+          "WL15"
+        ],
+        "output_role": "wordline_outputs"
+      },
+      {
+        "level": 1,
+        "decoder_index": 2,
+        "stage_name": "DEC_1_2",
+        "enable_net": "EN_0_0_2",
+        "address_node_order": [
+          "A0",
+          "A1",
+          "A2"
+        ],
+        "decoder_pin_map": {
+          "EN": "EN_0_0_2",
+          "A0": "A2",
+          "A1": "A1",
+          "A2": "A0"
+        },
+        "output_nets": [
+          "WL16",
+          "WL17",
+          "WL18",
+          "WL19",
+          "WL20",
+          "WL21",
+          "WL22",
+          "WL23"
+        ],
+        "output_role": "wordline_outputs"
+      },
+      {
+        "level": 1,
+        "decoder_index": 3,
+        "stage_name": "DEC_1_3",
+        "enable_net": "EN_0_0_3",
+        "address_node_order": [
+          "A0",
+          "A1",
+          "A2"
+        ],
+        "decoder_pin_map": {
+          "EN": "EN_0_0_3",
+          "A0": "A2",
+          "A1": "A1",
+          "A2": "A0"
+        },
+        "output_nets": [
+          "WL24",
+          "WL25",
+          "WL26",
+          "WL27",
+          "WL28",
+          "WL29",
+          "WL30",
+          "WL31"
+        ],
+        "output_role": "wordline_outputs"
+      }
+    ]
+  },
+  "stage_group_candidates": [
+    {
+      "candidate_name": "DECODER_CASCADE_STAGE_PLAN",
+      "candidate_type": "hierarchical_decoder_plan",
+      "source_class": "DECODER_CASCADE",
+      "role": "decoder",
+      "input_nets": [
+        "A[0]",
+        "A[1]",
+        "A[2]",
+        "A[3]",
+        "A[4]"
+      ],
+      "output_nets": [
+        "WL[*]"
+      ],
+      "enable_nets": [
+        "VDD",
+        "EN_<level-1>_<group>_<slot>"
+      ],
+      "internal_nodes": [
+        "EN_<level>_<group>_<slot>"
+      ],
+      "subcells": [
+        "DECODER3_8"
+      ],
+      "candidate_local_macros": [
+        "gen_inv",
+        "gen_nand2",
+        "gen_nand4",
+        "gen_wl_driver"
+      ],
+      "missing_local_macros": [
+        "gen_nand3"
+      ],
+      "mapping_status": "generated_logic_partial",
+      "placement_feasibility": "metadata_stage_plan_only",
+      "metadata_only": true,
+      "pin_proven": false,
+      "physical_routing_proven": false,
+      "notes": [
+        "Computed for addr_width=5, num_rows=32, n_levels=2, level_groups=[1, 4].",
+        "Input source is ADDR_DFF_ROW.addr_q[*] via DECODER_INPUT_ANCHOR / ADDR_TO_DECODER_WINDOW metadata.",
+        "Output consumer is WORDLINEDRIVER.A[*]; routing and physical access remain unproven."
+      ]
+    },
+    {
+      "candidate_name": "DECODER3_8_GROUP",
+      "candidate_type": "decoder_stage_group",
+      "source_class": "DECODER3_8",
+      "role": "decoder_stage",
+      "input_nets": [
+        "EN",
+        "A0",
+        "A1",
+        "A2"
+      ],
+      "output_nets": [
+        "WL0",
+        "WL1",
+        "WL2",
+        "WL3",
+        "WL4",
+        "WL5",
+        "WL6",
+        "WL7"
+      ],
+      "enable_nets": [
+        "EN"
+      ],
+      "internal_nodes": [
+        "A0b",
+        "A1b",
+        "A2b",
+        "WL0_pre",
+        "WL1_pre",
+        "WL2_pre",
+        "WL3_pre",
+        "WL4_pre",
+        "WL5_pre",
+        "WL6_pre",
+        "WL7_pre"
+      ],
+      "subcells": [
+        "Pinv",
+        "AND3",
+        "AND2"
+      ],
+      "candidate_local_macros": [
+        "gen_inv",
+        "gen_nand2"
+      ],
+      "missing_local_macros": [
+        "gen_nand3"
+      ],
+      "mapping_status": "generated_logic_partial",
+      "placement_feasibility": "needs_generated_logic_row_rules",
+      "metadata_only": true,
+      "pin_proven": false,
+      "physical_routing_proven": false,
+      "notes": [
+        "DECODER3_8 instantiates three input inverters, eight AND3 gates, and eight AND2 enable gates.",
+        "A0/A1/A2 pin ordering in DECODER_CASCADE is reversed from the local address_node accumulation order in source.",
+        "No direct gen_nand3 hard macro is present in the local library, so AND3 is still composition/generated-logic only."
+      ]
+    },
+    {
+      "candidate_name": "DECODER_LOGIC_CELL_SET",
+      "candidate_type": "logic_cell_set",
+      "source_class": "Pinv/PNAND2/PNAND3/AND2/AND3",
+      "role": "support_logic",
+      "input_nets": [
+        "A",
+        "B",
+        "C"
+      ],
+      "output_nets": [
+        "Z"
+      ],
+      "enable_nets": [],
+      "internal_nodes": [],
+      "subcells": [
+        "Pinv",
+        "PNAND2",
+        "PNAND3",
+        "AND2",
+        "AND3"
+      ],
+      "candidate_local_macros": [
+        "gen_inv",
+        "gen_nand2",
+        "gen_nand4"
+      ],
+      "missing_local_macros": [
+        "gen_nand3"
+      ],
+      "mapping_status": "generated_logic_partial",
+      "placement_feasibility": "needs_generated_logic_row_rules",
+      "metadata_only": true,
+      "pin_proven": false,
+      "physical_routing_proven": false,
+      "notes": [
+        "Pinv maps most directly to gen_inv.",
+        "PNAND2 / AND2 can be composed from gen_nand2 and inversion.",
+        "PNAND3 / AND3 lack a direct local hard macro and still require composition or generated logic."
+      ]
+    }
+  ],
+  "logic_cell_set": {
+    "candidate_name": "DECODER_LOGIC_CELL_SET",
+    "candidate_type": "logic_cell_set",
+    "source_class": "Pinv/PNAND2/PNAND3/AND2/AND3",
+    "role": "support_logic",
+    "input_nets": [
+      "A",
+      "B",
+      "C"
+    ],
+    "output_nets": [
+      "Z"
+    ],
+    "enable_nets": [],
+    "internal_nodes": [],
+    "subcells": [
+      "Pinv",
+      "PNAND2",
+      "PNAND3",
+      "AND2",
+      "AND3"
+    ],
+    "candidate_local_macros": [
+      "gen_inv",
+      "gen_nand2",
+      "gen_nand4"
+    ],
+    "missing_local_macros": [
+      "gen_nand3"
+    ],
+    "mapping_status": "generated_logic_partial",
+    "placement_feasibility": "needs_generated_logic_row_rules",
+    "metadata_only": true,
+    "pin_proven": false,
+    "physical_routing_proven": false,
+    "notes": [
+      "Pinv maps most directly to gen_inv.",
+      "PNAND2 / AND2 can be composed from gen_nand2 and inversion.",
+      "PNAND3 / AND3 lack a direct local hard macro and still require composition or generated logic."
+    ]
+  },
+  "local_macro_availability": [
+    {
+      "macro_name": "gen_inv",
+      "gds_available": true,
+      "spice_available": false,
+      "labels_available": true,
+      "power_metadata_available": true,
+      "safe_for_metadata_mapping": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "No local SPICE leaf discovered.",
+        "Availability supports metadata planning only; decoder row rules and routing remain unproven."
+      ]
+    },
+    {
+      "macro_name": "gen_delay_inv",
+      "gds_available": true,
+      "spice_available": false,
+      "labels_available": true,
+      "power_metadata_available": true,
+      "safe_for_metadata_mapping": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "No local SPICE leaf discovered."
+      ]
+    },
+    {
+      "macro_name": "gen_nand2",
+      "gds_available": true,
+      "spice_available": false,
+      "labels_available": true,
+      "power_metadata_available": true,
+      "safe_for_metadata_mapping": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "No local SPICE leaf discovered.",
+        "Availability supports metadata planning only; decoder row rules and routing remain unproven."
+      ]
+    },
+    {
+      "macro_name": "gen_nand4",
+      "gds_available": true,
+      "spice_available": false,
+      "labels_available": false,
+      "power_metadata_available": false,
+      "safe_for_metadata_mapping": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "No local SPICE leaf discovered.",
+        "GDS exists but label coverage is missing or incomplete in current pin audit.",
+        "Power metadata is incomplete in current GDS pin audit.",
+        "Availability supports metadata planning only; decoder row rules and routing remain unproven."
+      ]
+    },
+    {
+      "macro_name": "tri_gate",
+      "gds_available": true,
+      "spice_available": true,
+      "labels_available": true,
+      "power_metadata_available": true,
+      "safe_for_metadata_mapping": true,
+      "safe_for_physical_placement": false,
+      "notes": []
+    },
+    {
+      "macro_name": "dff",
+      "gds_available": true,
+      "spice_available": true,
+      "labels_available": true,
+      "power_metadata_available": true,
+      "safe_for_metadata_mapping": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "DFF is a proven local hardcell, but it is upstream of decoder input handoff rather than a decoder logic leaf."
+      ]
+    },
+    {
+      "macro_name": "gen_wl_driver",
+      "gds_available": true,
+      "spice_available": false,
+      "labels_available": true,
+      "power_metadata_available": true,
+      "safe_for_metadata_mapping": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "No local SPICE leaf discovered.",
+        "Wordline driver semantics were confirmed earlier, but decoder-to-driver routing is still metadata-only."
+      ]
+    }
+  ],
+  "nand3_direct_macro_available": false,
+  "and3_requires_composition_or_generated_logic": true,
+  "decoder_direct_and3_or_nand3_missing": true,
+  "decoder_logic_macros_partially_available": true,
+  "input_handoff": {
+    "source": "ADDR_DFF_ROW.addr_q[i]",
+    "sink": "DECODER_CASCADE.A[i]",
+    "source_anchor": "DECODER_INPUT_ANCHOR",
+    "source_window": "ADDR_TO_DECODER_WINDOW",
+    "decoder_stage_input_side": "decoder_input_side",
+    "metadata_only": true,
+    "pin_proven": false,
+    "physical_routing_proven": false
+  },
+  "output_handoff": {
+    "source": "DECODER_CASCADE.WL[row] / decoder_out[row]",
+    "consumer": "WORDLINEDRIVER",
+    "consumer_pin": "A",
+    "sink": "WORDLINEDRIVER.A[row]",
+    "wordline_driver_semantics_confirmed": true,
+    "metadata_only": true,
+    "pin_proven": false,
+    "physical_routing_proven": false
+  },
+  "decoder_envelope_is_metadata_only": true,
+  "decoder_hardmacro_pin_proven": false,
+  "physical_routing_proven": false,
+  "decoder_stage_decomposition_success": true,
+  "decoder_generated_block_plan_available": true,
+  "can_enter_decoder_generated_block_planning": true,
+  "can_enter_physical_decoder_placement": false,
+  "can_enter_very_limited_control_row_smoke": false,
+  "manual_source_review_required": false,
+  "blocker_list": [
+    "DECODER_CASCADE is still metadata-only and is not a pin-proven hard macro.",
+    "No direct local gen_nand3 / AND3 hard macro is available; decoder stage logic remains partially compositional.",
+    "Generated-logic row rules, stage grouping row packing, and power rail strategy are not yet proven for decoder placement.",
+    "Decoder output handoff to WORDLINEDRIVER.A is semantic-only; no physical routing proof exists.",
+    "Control-row physical smoke remains blocked until decoder pin/power/routing evidence exists."
+  ],
+  "step_6_10_recommendation": "Define decoder generated-logic row rules and per-stage power/pin metadata before any decoder physical placement or control-row smoke.",
+  "upstream_context": {
+    "target_envelope_summary": {
+      "decoder_envelope_bound": true,
+      "decoder_envelope_is_metadata_only": true,
+      "decoder_hardmacro_pin_proven": false,
+      "write_driver_target_bound": true,
+      "can_enter_very_limited_physical_smoke": false
+    },
+    "decomposition_summary": {
+      "time_decomposition_success": true,
+      "can_enter_control_subblock_adapter_planning": true,
+      "decoder_nodes": [
+        "Pinv",
+        "PNAND2",
+        "PNAND3",
+        "AND2",
+        "AND3",
+        "DECODER3_8",
+        "DECODER_CASCADE"
+      ]
+    }
+  }
+}

@@ -1,0 +1,784 @@
+{
+  "instances": [
+    {
+      "module_name": "bitcell_array",
+      "physical_role": "ARRAY_CORE",
+      "region": "ARRAY_CORE_REGION",
+      "instance_name": "bitcell_array_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/bitcell_array/bitcell_array.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 3.58,
+        "y1": 6.26,
+        "width": 3.58,
+        "height": 6.26,
+        "shape_count": 16
+      },
+      "placed_origin": {
+        "x": 12.0,
+        "y": 8.0
+      },
+      "placed_bbox": {
+        "x0": 12.0,
+        "y0": 8.0,
+        "x1": 15.58,
+        "y1": 14.26,
+        "width": 3.58,
+        "height": 6.26
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "ALIGNED",
+      "column_pitch_alignment_status": "ALIGNED",
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Use ARRAY_CORE as the placement and routing anchor for R4."
+    },
+    {
+      "module_name": "dummy_array",
+      "physical_role": "ARRAY_DUMMY",
+      "region": "ARRAY_DUMMY_REGION",
+      "instance_name": "dummy_array_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/dummy_array/dummy_array.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 3.58,
+        "y1": 6.26,
+        "width": 3.58,
+        "height": 6.26,
+        "shape_count": 16
+      },
+      "placed_origin": {
+        "x": 7.24625,
+        "y": 8.0
+      },
+      "placed_bbox": {
+        "x0": 7.24625,
+        "y0": 8.0,
+        "x1": 10.82625,
+        "y1": 14.26,
+        "width": 3.58,
+        "height": 6.26
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "ALIGNED",
+      "column_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": false,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Tighten dummy-boundary ownership when the array wrapper is upgraded in R4/R5."
+    },
+    {
+      "module_name": "replica_array",
+      "physical_role": "ARRAY_REPLICA",
+      "region": "ARRAY_REPLICA_REGION",
+      "instance_name": "replica_array_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/replica_array/replica_array.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 1.79,
+        "y1": 7.68,
+        "width": 1.79,
+        "height": 7.68,
+        "shape_count": 9
+      },
+      "placed_origin": {
+        "x": 12.0,
+        "y": 23.00875
+      },
+      "placed_bbox": {
+        "x0": 12.0,
+        "y0": 23.00875,
+        "x1": 13.79,
+        "y1": 30.68875,
+        "width": 1.79,
+        "height": 7.68
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "column_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Preserve replica timing semantics and add explicit coupling routes in R4."
+    },
+    {
+      "module_name": "row_decoder",
+      "physical_role": "ROW_DECODER",
+      "region": "ROW_PERIPHERY_REGION",
+      "instance_name": "row_decoder_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/row_decoder/row_decoder.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 4.245,
+        "y1": 3.13,
+        "width": 4.245,
+        "height": 3.13,
+        "shape_count": 6
+      },
+      "placed_origin": {
+        "x": 0.79,
+        "y": 8.0
+      },
+      "placed_bbox": {
+        "x0": 0.79,
+        "y0": 8.0,
+        "x1": 5.035,
+        "y1": 11.13,
+        "width": 4.245,
+        "height": 3.13
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Refine row-pitch ownership with explicit WL routing and tighter abutment proof in R4."
+    },
+    {
+      "module_name": "wordline_decoder",
+      "physical_role": "ROW_DECODER",
+      "region": "ROW_PERIPHERY_REGION",
+      "instance_name": "wordline_decoder_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_decoder/wordline_decoder.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 4.245,
+        "y1": 3.045,
+        "width": 4.245,
+        "height": 3.045,
+        "shape_count": 6
+      },
+      "placed_origin": {
+        "x": 0.79,
+        "y": 11.13
+      },
+      "placed_bbox": {
+        "x0": 0.79,
+        "y0": 11.13,
+        "x1": 5.035,
+        "y1": 14.175,
+        "width": 4.245,
+        "height": 3.045
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Refine row-pitch ownership with explicit WL routing and tighter abutment proof in R4."
+    },
+    {
+      "module_name": "decoder_gate_cells",
+      "physical_role": "ROW_DECODER",
+      "region": "ROW_PERIPHERY_REGION",
+      "instance_name": "decoder_gate_cells_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/decoder_gate_cells/decoder_gate_cells.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 5.2825,
+        "y1": 3.045,
+        "width": 5.2825,
+        "height": 3.045,
+        "shape_count": 7
+      },
+      "placed_origin": {
+        "x": 0.79,
+        "y": 14.26
+      },
+      "placed_bbox": {
+        "x0": 0.79,
+        "y0": 14.26,
+        "x1": 6.0725,
+        "y1": 17.305,
+        "width": 5.2825,
+        "height": 3.045
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Refine row-pitch ownership with explicit WL routing and tighter abutment proof in R4."
+    },
+    {
+      "module_name": "wordline_driver",
+      "physical_role": "WORDLINE_DRIVER",
+      "region": "ROW_PERIPHERY_REGION",
+      "instance_name": "wordline_driver_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_driver/wordline_driver.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 3.045,
+        "y1": 1.505,
+        "width": 3.045,
+        "height": 1.505,
+        "shape_count": 1
+      },
+      "placed_origin": {
+        "x": 0.79,
+        "y": 17.39
+      },
+      "placed_bbox": {
+        "x0": 0.79,
+        "y0": 17.39,
+        "x1": 3.835,
+        "y1": 18.895,
+        "width": 3.045,
+        "height": 1.505
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "ALIGNED",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": false,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Refine row-pitch ownership with explicit WL routing and tighter abutment proof in R4."
+    },
+    {
+      "module_name": "wordline_driver_gate_cells",
+      "physical_role": "WORDLINE_DRIVER",
+      "region": "ROW_PERIPHERY_REGION",
+      "instance_name": "wordline_driver_gate_cells_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_driver_gate_cells/wordline_driver_gate_cells.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 2.8975,
+        "y1": 2.96,
+        "width": 2.8975,
+        "height": 2.96,
+        "shape_count": 5
+      },
+      "placed_origin": {
+        "x": 0.79,
+        "y": 20.52
+      },
+      "placed_bbox": {
+        "x0": 0.79,
+        "y0": 20.52,
+        "x1": 3.6875,
+        "y1": 23.48,
+        "width": 2.8975,
+        "height": 2.96
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Refine row-pitch ownership with explicit WL routing and tighter abutment proof in R4."
+    },
+    {
+      "module_name": "precharge",
+      "physical_role": "COLUMN_PRECHARGE",
+      "region": "COLUMN_PERIPHERY_REGION",
+      "instance_name": "precharge_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/precharge/precharge.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 0.785,
+        "y1": 1.42,
+        "width": 0.785,
+        "height": 1.42,
+        "shape_count": 1
+      },
+      "placed_origin": {
+        "x": 12.0,
+        "y": 15.825
+      },
+      "placed_bbox": {
+        "x0": 12.0,
+        "y0": 15.825,
+        "x1": 12.785,
+        "y1": 17.245,
+        "width": 0.785,
+        "height": 1.42
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Refine per-column ownership when BL/BR and optional mux routing are implemented in R4."
+    },
+    {
+      "module_name": "column_mux",
+      "physical_role": "COLUMN_MUX",
+      "region": "COLUMN_PERIPHERY_REGION",
+      "instance_name": "column_mux_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/column_mux/column_mux.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 0.8175,
+        "y1": 1.88,
+        "width": 0.8175,
+        "height": 1.88,
+        "shape_count": 1
+      },
+      "placed_origin": {
+        "x": 12.895,
+        "y": 15.825
+      },
+      "placed_bbox": {
+        "x0": 12.895,
+        "y0": 15.825,
+        "x1": 13.7125,
+        "y1": 17.705,
+        "width": 0.8175,
+        "height": 1.88
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": false,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Refine per-column ownership when BL/BR and optional mux routing are implemented in R4."
+    },
+    {
+      "module_name": "sense_amp",
+      "physical_role": "SENSE_AMP",
+      "region": "COLUMN_PERIPHERY_REGION",
+      "instance_name": "sense_amp_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/sense_amp/sense_amp.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 0.775,
+        "y1": 6.01,
+        "width": 0.775,
+        "height": 6.01,
+        "shape_count": 1
+      },
+      "placed_origin": {
+        "x": 13.79,
+        "y": 15.825
+      },
+      "placed_bbox": {
+        "x0": 13.79,
+        "y0": 15.825,
+        "x1": 14.565,
+        "y1": 21.835,
+        "width": 0.775,
+        "height": 6.01
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": false,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Refine per-column ownership when BL/BR and optional mux routing are implemented in R4."
+    },
+    {
+      "module_name": "write_driver",
+      "physical_role": "WRITE_DRIVER",
+      "region": "COLUMN_PERIPHERY_REGION",
+      "instance_name": "write_driver_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/write_driver/write_driver.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 0.84,
+        "y1": 4.175,
+        "width": 0.84,
+        "height": 4.175,
+        "shape_count": 1
+      },
+      "placed_origin": {
+        "x": 14.685,
+        "y": 15.825
+      },
+      "placed_bbox": {
+        "x0": 14.685,
+        "y0": 15.825,
+        "x1": 15.525,
+        "y1": 20.0,
+        "width": 0.84,
+        "height": 4.175
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": false,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Refine per-column ownership when BL/BR and optional mux routing are implemented in R4."
+    },
+    {
+      "module_name": "CONTROL_LOGIC",
+      "physical_role": "CONTROL_LOGIC",
+      "region": "CONTROL_PERIPHERY_REGION",
+      "instance_name": "CONTROL_LOGIC_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/CONTROL_LOGIC/CONTROL_LOGIC.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 6.105,
+        "y1": 4.235,
+        "width": 6.105,
+        "height": 4.235,
+        "shape_count": 8
+      },
+      "placed_origin": {
+        "x": 21.58,
+        "y": 8.0
+      },
+      "placed_bbox": {
+        "x0": 21.58,
+        "y0": 8.0,
+        "x1": 27.685,
+        "y1": 12.235,
+        "width": 6.105,
+        "height": 4.235
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Keep control modules inside the control region and add explicit control/power connectivity in R4."
+    },
+    {
+      "module_name": "DELAY_CHAIN",
+      "physical_role": "DELAY_CHAIN",
+      "region": "CONTROL_PERIPHERY_REGION",
+      "instance_name": "DELAY_CHAIN_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/DELAY_CHAIN/DELAY_CHAIN.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 3.29,
+        "y1": 2.585,
+        "width": 3.29,
+        "height": 2.585,
+        "shape_count": 4
+      },
+      "placed_origin": {
+        "x": 28.885,
+        "y": 8.0
+      },
+      "placed_bbox": {
+        "x0": 28.885,
+        "y0": 8.0,
+        "x1": 32.175,
+        "y1": 10.585,
+        "width": 3.29,
+        "height": 2.585
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Keep control modules inside the control region and add explicit control/power connectivity in R4."
+    },
+    {
+      "module_name": "PRECHARGE_ENABLE_PATH",
+      "physical_role": "ENABLE_PATH",
+      "region": "CONTROL_PERIPHERY_REGION",
+      "instance_name": "PRECHARGE_ENABLE_PATH_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/PRECHARGE_ENABLE_PATH/PRECHARGE_ENABLE_PATH.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 4.245,
+        "y1": 4.065,
+        "width": 4.245,
+        "height": 4.065,
+        "shape_count": 5
+      },
+      "placed_origin": {
+        "x": 21.58,
+        "y": 13.035
+      },
+      "placed_bbox": {
+        "x0": 21.58,
+        "y0": 13.035,
+        "x1": 25.825,
+        "y1": 17.1,
+        "width": 4.245,
+        "height": 4.065
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Keep control modules inside the control region and add explicit control/power connectivity in R4."
+    },
+    {
+      "module_name": "SENSE_ENABLE_PATH",
+      "physical_role": "ENABLE_PATH",
+      "region": "CONTROL_PERIPHERY_REGION",
+      "instance_name": "SENSE_ENABLE_PATH_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/SENSE_ENABLE_PATH/SENSE_ENABLE_PATH.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 3.4225,
+        "y1": 7.575,
+        "width": 3.4225,
+        "height": 7.575,
+        "shape_count": 4
+      },
+      "placed_origin": {
+        "x": 27.025,
+        "y": 13.035
+      },
+      "placed_bbox": {
+        "x0": 27.025,
+        "y0": 13.035,
+        "x1": 30.4475,
+        "y1": 20.61,
+        "width": 3.4225,
+        "height": 7.575
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Keep control modules inside the control region and add explicit control/power connectivity in R4."
+    },
+    {
+      "module_name": "WRITE_ENABLE_PATH",
+      "physical_role": "ENABLE_PATH",
+      "region": "CONTROL_PERIPHERY_REGION",
+      "instance_name": "WRITE_ENABLE_PATH_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/WRITE_ENABLE_PATH/WRITE_ENABLE_PATH.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 1.6625,
+        "y1": 6.76,
+        "width": 1.6625,
+        "height": 6.76,
+        "shape_count": 4
+      },
+      "placed_origin": {
+        "x": 21.58,
+        "y": 21.41
+      },
+      "placed_bbox": {
+        "x0": 21.58,
+        "y0": 21.41,
+        "x1": 23.2425,
+        "y1": 28.17,
+        "width": 1.6625,
+        "height": 6.76
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Keep control modules inside the control region and add explicit control/power connectivity in R4."
+    },
+    {
+      "module_name": "WORDLINE_ENABLE_PATH",
+      "physical_role": "ENABLE_PATH",
+      "region": "CONTROL_PERIPHERY_REGION",
+      "instance_name": "WORDLINE_ENABLE_PATH_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/WORDLINE_ENABLE_PATH/WORDLINE_ENABLE_PATH.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 3.8675,
+        "y1": 3.07,
+        "width": 3.8675,
+        "height": 3.07,
+        "shape_count": 4
+      },
+      "placed_origin": {
+        "x": 24.4425,
+        "y": 21.41
+      },
+      "placed_bbox": {
+        "x0": 24.4425,
+        "y0": 21.41,
+        "x1": 28.31,
+        "y1": 24.48,
+        "width": 3.8675,
+        "height": 3.07
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Keep control modules inside the control region and add explicit control/power connectivity in R4."
+    },
+    {
+      "module_name": "GATED_CLOCK_PATH",
+      "physical_role": "CLOCK_PATH",
+      "region": "CONTROL_PERIPHERY_REGION",
+      "instance_name": "GATED_CLOCK_PATH_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/GATED_CLOCK_PATH/GATED_CLOCK_PATH.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 2.6825,
+        "y1": 2.96,
+        "width": 2.6825,
+        "height": 2.96,
+        "shape_count": 5
+      },
+      "placed_origin": {
+        "x": 21.58,
+        "y": 28.97
+      },
+      "placed_bbox": {
+        "x0": 21.58,
+        "y0": 28.97,
+        "x1": 24.2625,
+        "y1": 31.93,
+        "width": 2.6825,
+        "height": 2.96
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Keep control modules inside the control region and add explicit control/power connectivity in R4."
+    },
+    {
+      "module_name": "DFF_ROW",
+      "physical_role": "DFF_ROW",
+      "region": "CONTROL_PERIPHERY_REGION",
+      "instance_name": "DFF_ROW_inst",
+      "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/DFF_ROW/DFF_ROW.gds",
+      "source_bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 11.44,
+        "y1": 2.67,
+        "width": 11.44,
+        "height": 2.67,
+        "shape_count": 4
+      },
+      "placed_origin": {
+        "x": 25.4625,
+        "y": 28.97
+      },
+      "placed_bbox": {
+        "x0": 25.4625,
+        "y0": 28.97,
+        "x1": 36.9025,
+        "y1": 31.64,
+        "width": 11.44,
+        "height": 2.67
+      },
+      "orientation": "R0",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true,
+      "structure_role_satisfied": true,
+      "routing_required_in_R4": true,
+      "power_required_in_R4": true,
+      "pin_export_required_in_R4": true,
+      "blocking_gap": "",
+      "next_required_action": "Keep control modules inside the control region and add explicit control/power connectivity in R4."
+    }
+  ]
+}

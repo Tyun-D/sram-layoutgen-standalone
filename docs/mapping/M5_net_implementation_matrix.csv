@@ -1,0 +1,35 @@
+binding_id,net_name,target_module,layout_role,implementation_strategy,annotation_label_exported,implemented,wrapper_binding_count,wrapper_binding_details
+PINBIND_001_DFF_ROW,A[i],DFF_ROW,address_distribution,parameterized_generator_handoff,True,True,0,
+PINBIND_002_row_decoder,A_dff[i],row_decoder,address_distribution,parameterized_generator_handoff,True,True,0,
+PINBIND_003_wordline_driver,DEC_WL[i],wordline_driver,row_pitch_aligned_wordline,real_cell_wrapper_pin_binding,True,True,1,A->decoder_input
+PINBIND_004_wordline_driver,WL_EN,wordline_driver,replica_timing_distribution,real_cell_wrapper_pin_binding,True,True,1,B->wordline_enable
+PINBIND_005_bitcell_array,WL[i],bitcell_array,row_pitch_aligned_wordline,direct_generator_pin_or_array_binding,True,True,1,Z->wl
+PINBIND_006_precharge,BL[i];BLB[i],precharge,column_pitch_aligned_bitline_bar,real_cell_wrapper_pin_binding,True,True,0,
+PINBIND_007_column_mux,BL[i];BLB[i],column_mux,column_pitch_aligned_bitline_bar,real_cell_wrapper_pin_binding,True,True,0,
+PINBIND_008_sense_amp,SA_IN[*];SA_INB[*],sense_amp,write_data_delivery,real_cell_wrapper_pin_binding,True,True,0,
+PINBIND_009_sense_amp,BL[i];BLB[i],sense_amp,column_pitch_aligned_bitline_bar,real_cell_wrapper_pin_binding,True,True,0,
+PINBIND_010_SRAM_TOP,SA_Q[*];SA_QB[*],SRAM_TOP,read_data_observation,top_level_semantic_pin_binding,True,True,0,
+PINBIND_011_DFF_ROW,DIN[i],DFF_ROW,write_data_delivery,parameterized_generator_handoff,True,True,0,
+PINBIND_012_write_driver,DIN_dff[i],write_driver,write_data_delivery,real_cell_wrapper_pin_binding,True,True,1,DIN->din
+PINBIND_013_write_driver,w_en,write_driver,replica_timing_distribution,real_cell_wrapper_pin_binding,True,True,1,EN->write_enable
+PINBIND_014_bitcell_array,BL[i];BLB[i],bitcell_array,column_pitch_aligned_bitline_bar,direct_generator_pin_or_array_binding,True,True,0,
+PINBIND_015_DELAY_CHAIN,rbl,DELAY_CHAIN,column_pitch_aligned_bitline,parameterized_generator_handoff,True,True,0,
+PINBIND_016_SENSE_ENABLE_PATH,rbl_delay,SENSE_ENABLE_PATH,replica_timing_distribution,layoutgen_fallback_semantic_handoff,True,True,0,
+PINBIND_017_WRITE_ENABLE_PATH,rbl_delay_bar,WRITE_ENABLE_PATH,replica_timing_distribution,layoutgen_fallback_semantic_handoff,True,True,0,
+PINBIND_018_precharge,PRE,precharge,replica_timing_distribution,real_cell_wrapper_pin_binding,True,True,0,
+PINBIND_019_sense_amp,s_en,sense_amp,replica_timing_distribution,real_cell_wrapper_pin_binding,True,True,1,EN->en
+PINBIND_020_DFF_ROW,clk_buf,DFF_ROW,clock_distribution,parameterized_generator_handoff,True,True,0,
+PINBIND_021_GATED_CLOCK_PATH,gated_clk_bar;gated_clk_buf,GATED_CLOCK_PATH,clock_distribution,layoutgen_fallback_semantic_handoff,True,True,0,
+PINBIND_022_WORDLINE_ENABLE_PATH,wl_en,WORDLINE_ENABLE_PATH,replica_timing_distribution,layoutgen_fallback_semantic_handoff,True,True,0,
+PINBIND_023_PRECHARGE_ENABLE_PATH,PRE,PRECHARGE_ENABLE_PATH,replica_timing_distribution,layoutgen_fallback_semantic_handoff,True,True,0,
+PINBIND_024_WRITE_ENABLE_PATH,w_en,WRITE_ENABLE_PATH,replica_timing_distribution,layoutgen_fallback_semantic_handoff,True,True,1,EN->write_enable
+PINBIND_025_SENSE_ENABLE_PATH,s_en,SENSE_ENABLE_PATH,replica_timing_distribution,layoutgen_fallback_semantic_handoff,True,True,1,EN->en
+PINBIND_026_all_modules,VDD;VSS,all_modules,power_distribution,optimized_power_rail_backbone,True,True,0,
+PINBIND_027_CONTROL_LOGIC,clk,CONTROL_LOGIC,clock_distribution,layoutgen_fallback_semantic_handoff,True,True,0,
+PINBIND_028_CONTROL_LOGIC,csb,CONTROL_LOGIC,control_enable_distribution,layoutgen_fallback_semantic_handoff,True,True,0,
+PINBIND_029_CONTROL_LOGIC,web,CONTROL_LOGIC,control_enable_distribution,layoutgen_fallback_semantic_handoff,True,True,0,
+PINBIND_030_SRAM_TOP,DOUT[i],SRAM_TOP,read_data_observation,top_level_semantic_pin_binding,True,True,0,
+PINBIND_031_ALL_MODULES,VDD,ALL_MODULES,power_distribution,optimized_power_rail_backbone,True,True,3,VDD->vdd; VDD->vdd; VDD->vdd
+PINBIND_032_ALL_MODULES,VSS,ALL_MODULES,ground_distribution,optimized_power_rail_backbone,True,True,3,VSS->gnd; VSS->gnd; VSS->gnd
+PINBIND_033_DELAY_CHAIN,RBL,DELAY_CHAIN,replica_timing_distribution,parameterized_generator_handoff,True,True,0,
+PINBIND_033_CONTROL_LOGIC,RBL,CONTROL_LOGIC,replica_timing_distribution,layoutgen_fallback_semantic_handoff,True,True,0,

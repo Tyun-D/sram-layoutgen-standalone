@@ -1,0 +1,172 @@
+{
+  "scope": "goal_chain_openyield_time_control_progress_audit",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "stage_records": [
+    {
+      "stage_name": "Stage A / closure_unblock",
+      "gate_name": "can_enter_time_control_metadata_closure",
+      "gate_value": true,
+      "report_path": "docs/openyield_time_control_closure_unblock_report.json",
+      "summary": {
+        "generated_logic_to_wordline_enable_adjacency_available": true,
+        "gated_clk_bar_to_wl_en_crossing_covered": true,
+        "all_required_crossings_have_adjacency": true,
+        "all_required_crossings_have_handoff_or_reservation": true,
+        "all_crossing_budgets_pass": true,
+        "precharge_ground_semantics_classification": "intentional_no_local_gnd_metadata_exception",
+        "precharge_power_metadata_complete": true,
+        "can_enter_time_control_metadata_closure": true
+      },
+      "next_gate_opened": true,
+      "notes": [
+        "Repairs the 6.30 crossing-gap blocker with GENERATED_LOGIC_TO_WORDLINE_ENABLE_CONTROL adjacency.",
+        "PRECHARGE semantics classification=intentional_no_local_gnd_metadata_exception."
+      ]
+    },
+    {
+      "stage_name": "Stage B / metadata_closure",
+      "gate_name": "can_enter_very_limited_abstract_to_placement_readiness",
+      "gate_value": true,
+      "report_path": "docs/openyield_time_control_metadata_closure_report.json",
+      "summary": {
+        "time_control_metadata_closure_available": true,
+        "time_control_metadata_chain_complete": true,
+        "precharge_closure_status": "intentional_no_local_gnd_metadata_exception",
+        "control_region_crossing_coverage_complete": true,
+        "can_enter_very_limited_abstract_to_placement_readiness": true,
+        "can_enter_time_control_physical_placement": false,
+        "can_enter_standalone_control_placement": false
+      },
+      "next_gate_opened": true,
+      "notes": [
+        "Closes the metadata chain without claiming legal routing or physical placement.",
+        "PRECHARGE closure status=intentional_no_local_gnd_metadata_exception."
+      ]
+    },
+    {
+      "stage_name": "Stage C / placement_readiness",
+      "gate_name": "can_create_experimental_opt_in_placement_plan",
+      "gate_value": true,
+      "report_path": "docs/openyield_time_control_placement_readiness_report.json",
+      "summary": {
+        "time_control_placement_readiness_available": true,
+        "metadata_ready_subblock_count": 11,
+        "partial_metadata_subblock_count": 0,
+        "can_create_experimental_opt_in_placement_plan": true,
+        "can_modify_standalone": false,
+        "can_generate_time_control_gds": false,
+        "can_enter_physical_placement": false
+      },
+      "next_gate_opened": true,
+      "notes": [
+        "Very-limited readiness is open only for metadata-only prototype planning.",
+        "Physical placement, standalone edits, and GDS generation remain closed."
+      ]
+    },
+    {
+      "stage_name": "Stage D / default_off_prototype_plan",
+      "gate_name": "default_off_experimental_opt_in_prototype_plan_available",
+      "gate_value": true,
+      "report_path": "docs/openyield_time_control_opt_in_prototype_plan_report.json",
+      "summary": {
+        "default_off_experimental_opt_in_prototype_plan_available": true,
+        "default_enabled": false,
+        "legacy_path_unchanged": true,
+        "can_modify_standalone_now": false,
+        "can_generate_time_control_gds_now": false,
+        "can_enter_physical_placement_now": false
+      },
+      "next_gate_opened": true,
+      "notes": [
+        "Defines the default-off prototype contract surface.",
+        "Still forbidden to wire into standalone, routing, or GDS writer."
+      ]
+    },
+    {
+      "stage_name": "Post-Stage D / experimental_contract",
+      "gate_name": "experimental_contract_available",
+      "gate_value": true,
+      "report_path": "docs/openyield_time_control_experimental_contract_report.json",
+      "summary": {
+        "experimental_contract_available": true,
+        "default_enabled": false,
+        "legacy_path_unchanged": true,
+        "prototype_subplan_count": 11,
+        "can_modify_standalone_now": false,
+        "can_generate_time_control_gds_now": false,
+        "can_enter_physical_placement_now": false
+      },
+      "next_gate_opened": true,
+      "notes": [
+        "Adds structured config + prototype subplans for future default-off work.",
+        "Remains metadata-only and does not reopen physical gates."
+      ]
+    },
+    {
+      "stage_name": "Post-Stage D / abstract_floorplan_payload",
+      "gate_name": "abstract_floorplan_payload_available",
+      "gate_value": true,
+      "report_path": "docs/openyield_time_control_abstract_floorplan_payload_report.json",
+      "summary": {
+        "abstract_floorplan_payload_available": true,
+        "default_enabled": false,
+        "region_count": 7,
+        "subblock_count": 11,
+        "handoff_count": 4,
+        "can_modify_standalone_now": false,
+        "can_generate_time_control_gds_now": false,
+        "can_enter_physical_placement_now": false
+      },
+      "next_gate_opened": false,
+      "notes": [
+        "Packages regions, subblocks, and handoffs into a consumable metadata payload.",
+        "This is the current farthest safe boundary in the clean worktree."
+      ]
+    }
+  ],
+  "highest_stage_reached": "Post-Stage D / abstract_floorplan_payload",
+  "current_gates": {
+    "can_enter_time_control_metadata_closure": true,
+    "can_enter_very_limited_abstract_to_placement_readiness": true,
+    "can_create_experimental_opt_in_placement_plan": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false,
+    "legacy_path_unchanged": true,
+    "standalone_modified": false,
+    "routing_modified": false,
+    "gds_writer_modified": false
+  },
+  "stop_condition_status": {
+    "evidence_conflict_found": false,
+    "crossing_gap_unresolved": false,
+    "metadata_closure_impossible": false,
+    "would_require_modifying_hardcell_gds": false,
+    "would_require_claiming_physical_proof_without_evidence": true,
+    "would_require_changing_standalone_routing_gds_writer_before_readiness": true
+  },
+  "unresolved_blockers": [
+    "rail continuity proof is still missing",
+    "legal routing proof is still missing",
+    "delay timing proof is still missing",
+    "wen-delay timing proof is still missing",
+    "no TIME/control physical placement proof exists",
+    "no TIME/control GDS generation is allowed yet",
+    "standalone integration remains blocked"
+  ],
+  "audit_summary": {
+    "highest_stage_reached": "Post-Stage D / abstract_floorplan_payload",
+    "can_enter_time_control_metadata_closure": true,
+    "can_enter_very_limited_abstract_to_placement_readiness": true,
+    "can_create_experimental_opt_in_placement_plan": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false,
+    "legacy_path_unchanged": true
+  },
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false
+}

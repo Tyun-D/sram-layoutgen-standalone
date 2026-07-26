@@ -1,0 +1,136 @@
+{
+  "scope": "step6_5_openyield_control_channel_budget",
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "addr_width": 5,
+  "data_width": 4,
+  "channel_width": 2.0,
+  "clock_channel_width": 2.0,
+  "route_pitch": 0.2,
+  "route_margin": 0.2,
+  "row_to_decoder_required_tracks": 5,
+  "row_to_decoder_estimated_required_width": 1.4,
+  "row_to_decoder_metadata_budget_pass": true,
+  "row_to_write_driver_required_tracks": 4,
+  "row_to_write_driver_estimated_required_width": 1.2000000000000002,
+  "row_to_write_driver_metadata_budget_pass": true,
+  "clock_channel_required_tracks": 2,
+  "clock_channel_estimated_required_width": 0.8,
+  "clock_channel_metadata_budget_pass": true,
+  "clock_entry_side": "control_side",
+  "decoder_side": "decoder_input_side",
+  "write_driver_side": "write_driver_input_side",
+  "channels": [
+    {
+      "channel_name": "CLOCK_CHANNEL",
+      "source_block": "TIME/control side",
+      "sink_block": "ADDR_DFF_ROW + DATA_DFF_ROW",
+      "source_side_hint": "control_side",
+      "sink_side_hint": "control_facing_row_side",
+      "source_pins_or_nets": [
+        "clk_buf",
+        "future_control_net"
+      ],
+      "sink_pins_or_nets": [
+        "ADDR_DFF_ROW.clk",
+        "DATA_DFF_ROW.clk"
+      ],
+      "channel_width_um": 2.0,
+      "required_tracks": 2,
+      "estimated_required_width": 0.8,
+      "available_width": 2.0,
+      "metadata_budget_pass": true,
+      "physical_access_proven": false,
+      "physical_routing_proven": false,
+      "notes": [
+        "Known clock net is clk_buf.",
+        "One extra future control track is reserved conservatively for gated/control-side clock distribution planning."
+      ],
+      "known_clock_nets": 1,
+      "reserved_future_control_tracks": 1,
+      "clock_tree_generated": false,
+      "clock_skew_checked": false
+    },
+    {
+      "channel_name": "ADDR_TO_DECODER_CHANNEL",
+      "source_block": "ADDR_DFF_ROW",
+      "sink_block": "DECODER_CASCADE",
+      "source_side_hint": "row_output_side_toward_decoder",
+      "sink_side_hint": "decoder_input_side",
+      "source_pins_or_nets": [
+        "addr_q[0]",
+        "addr_q[1]",
+        "addr_q[2]",
+        "addr_q[3]",
+        "addr_q[4]"
+      ],
+      "sink_pins_or_nets": [
+        "A[0]",
+        "A[1]",
+        "A[2]",
+        "A[3]",
+        "A[4]"
+      ],
+      "channel_width_um": 2.0,
+      "required_tracks": 5,
+      "estimated_required_width": 1.4,
+      "available_width": 2.0,
+      "metadata_budget_pass": true,
+      "physical_access_proven": false,
+      "physical_routing_proven": false,
+      "notes": [
+        "DECODER_CASCADE remains a hierarchical decoder block, not a single hard macro pin-proven leaf.",
+        "Decoder side geometry is still metadata-only in this step."
+      ],
+      "decoder_side_geometry_proven": false,
+      "decoder_channel_budget_is_metadata_only": true
+    },
+    {
+      "channel_name": "DATA_TO_WRITEDRIVER_CHANNEL",
+      "source_block": "DATA_DFF_ROW",
+      "sink_block": "WRITEDRIVER",
+      "source_side_hint": "row_output_side_toward_write_driver",
+      "sink_side_hint": "write_driver_input_side",
+      "source_pins_or_nets": [
+        "din_q[0]",
+        "din_q[1]",
+        "din_q[2]",
+        "din_q[3]"
+      ],
+      "sink_pins_or_nets": [
+        "DIN[0]",
+        "DIN[1]",
+        "DIN[2]",
+        "DIN[3]"
+      ],
+      "channel_width_um": 2.0,
+      "required_tracks": 4,
+      "estimated_required_width": 1.2000000000000002,
+      "available_width": 2.0,
+      "metadata_budget_pass": true,
+      "physical_access_proven": true,
+      "physical_routing_proven": false,
+      "notes": [
+        "write_driver GDS audit shows DIN/EN on the bottom side and BL/BLB on the top side.",
+        "The input-side pin location is known, but the interconnect from DATA_DFF_ROW is still not physically routed."
+      ],
+      "write_driver_side_pin_known": true,
+      "write_driver_channel_physical_route_proven": false
+    }
+  ],
+  "decoder_side_geometry_proven": false,
+  "write_driver_side_pin_known": true,
+  "physical_routing_proven": false,
+  "clock_skew_checked": false,
+  "safe_for_channel_budget_metadata": true,
+  "can_enter_physical_row_placement": false,
+  "can_enter_standalone_control_placement": false,
+  "blocker_list": [
+    "Channel budgets are metadata-only; no physical route or via plan is proven.",
+    "Decoder side geometry is not pin-proven at hardcell level.",
+    "Clock skew and real clock tree distribution remain unchecked.",
+    "No row-abutment, rail-sharing, or integrated control-row routing proof exists yet."
+  ],
+  "step_6_6_recommendation": "Next, bind decoder-side and write-driver-side budget hints to explicit local geometry windows or placement keepouts before any physical control-row placement smoke."
+}

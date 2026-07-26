@@ -1,0 +1,773 @@
+"""Generate guarded legacy and hybrid OpenYield layout prototypes."""
+
+from __future__ import annotations
+
+import json
+import shutil
+import subprocess
+from dataclasses import asdict
+from pathlib import Path
+from typing import Any
+
+from sram_layoutgen.gds_util import inspect_gds_hierarchy, measure_gds_bbox
+from sram_layoutgen.standalone import StandaloneSpec, write_standalone
+
+from .gate_row_packer import (
+    GateRow,
+    GateRowPackingPlan,
+    emit_gate_row_packing_report,
+    emit_gate_row_vertical_abutment_report,
+)
+from .cell_rail_overlap_eligibility import render_markdown as render_overlap_eligibility_markdown
+from .gds_row_abutment_audit import audit_gds_row_abutment, render_markdown as render_gds_row_abutment_markdown
+from .timing_metadata_consumer import (
+    build_consumable_timing_objects,
+    emit_consumer_summary,
+    load_candidate_contracts,
+    load_control_mapping,
+    summary_to_dict,
+)
+
+
+DEFAULT_LAYOUT_CASE = {
+    "word_size": 8,
+    "num_words": 64,
+    "words_per_row": 4,
+}
+
+REQUIRED_COVERAGE_OBJECTS = [
+    "bitcell_array",
+    "dummy_array",
+    "replica_array",
+    "DELAY_CHAIN",
+    "PRECHARGE",
+    "PRECHARGE_ENABLE_PATH",
+    "SENSE_ENABLE_PATH",
+    "WRITE_ENABLE_PATH",
+    "WORDLINE_ENABLE_PATH",
+    "GATED_CLOCK_PATH",
+    "DFF_ROW",
+    "sense_amp",
+    "write_driver",
+    "column_mux",
+    "wordline_driver",
+]
+
+
+def generate_layout_prototype(
+    repo_root: str | Path,
+    mode: str,
+    out_dir: str | Path,
+    metadata_dir: str | Path = "docs",
+    word_size: int = DEFAULT_LAYOUT_CASE["word_size"],
+    num_words: int = DEFAULT_LAYOUT_CASE["num_words"],
+    words_per_row: int = DEFAULT_LAYOUT_CASE["words_per_row"],
+    enable_openyield_gate_row_packing: bool = False,
+    enable_openyield_gate_row_vertical_abutment: bool = False,
+    enable_openyield_rail_to_rail_abutment: bool = False,
+    enable_openyield_power_rail_overlap_packing: bool = False,
+    enable_openyield_dff_row_packing: bool = False,
+    exclude_dff_vertical_overlap: bool = False,
+) -> dict[str, Any]:
+    repo = Path(repo_root).resolve()
+    out = resolve_dir(repo, out_dir)
+    docs = resolve_dir(repo, metadata_dir)
+    out.mkdir(parents=True, exist_ok=True)
+
+    support = load_support_bundle(docs)
+    spec = build_spec(
+        mode,
+        word_size,
+        num_words,
+        words_per_row,
+        enable_openyield_gate_row_packing,
+        enable_openyield_gate_row_vertical_abutment,
+        enable_openyield_rail_to_rail_abutment,
+        enable_openyield_power_rail_overlap_packing,
+        enable_openyield_dff_row_packing,
+        exclude_dff_vertical_overlap,
+    )
+    metrics = write_standalone(spec, out)
+    gds_path = (repo / metrics["gds"]).resolve() if not Path(metrics["gds"]).is_absolute() else Path(metrics["gds"]).resolve()
+    sanity = build_gds_sanity(repo, gds_path, metrics, out)
+    coverage = build_module_coverage(mode, metrics, support)
+
+    coverage_json = out / "module_coverage.json"
+    coverage_md = out / "module_coverage.md"
+    write_json(coverage_json, coverage)
+    coverage_md.write_text(render_module_coverage_markdown(coverage), encoding="utf-8")
+
+    log_name = "generation.log" if (enable_openyield_gate_row_packing or enable_openyield_gate_row_vertical_abutment) else ("baseline_generation.log" if mode == "legacy_baseline" else "hybrid_generation.log")
+    log_path = out / log_name
+    log_path.write_text(render_generation_log(mode, spec, metrics, support, sanity, coverage), encoding="utf-8")
+
+    gate_row_packing_report = None
+    gate_row_vertical_abutment_report = None
+    rail_to_rail_abutment_report = None
+    rail_overlap_packing_report = None
+    gds_row_abutment_audit = None
+    if enable_openyield_gate_row_packing:
+        if enable_openyield_power_rail_overlap_packing:
+            old_root = repo / "outputs/layout_prototype/hybrid_openyield_rail_abutted"
+            rail_overlap_packing_report = emit_gate_row_vertical_abutment_report(
+                plan=_packing_plan_from_metrics(metrics),
+                out_json=out / "rail_overlap_packing_report.json",
+                out_md=out / "rail_overlap_packing_report.md",
+                old_gds=old_root / "hybrid_openyield_rail_abutted.gds",
+                new_gds=gds_path,
+                old_layout_json=old_root / "hybrid_openyield_rail_abutted.layout.json",
+                new_layout_json=Path(metrics["layout_json"]),
+                top_cell_name=metrics["name"],
+            )
+        elif enable_openyield_rail_to_rail_abutment:
+            old_root = repo / "outputs/layout_prototype/hybrid_openyield_row_abutted"
+            rail_to_rail_abutment_report = emit_gate_row_vertical_abutment_report(
+                plan=_packing_plan_from_metrics(metrics),
+                out_json=out / "rail_to_rail_abutment_report.json",
+                out_md=out / "rail_to_rail_abutment_report.md",
+                old_gds=old_root / "hybrid_openyield_row_abutted.gds",
+                new_gds=gds_path,
+                old_layout_json=old_root / "hybrid_openyield_row_abutted.layout.json",
+                new_layout_json=Path(metrics["layout_json"]),
+                top_cell_name=metrics["name"],
+            )
+        elif enable_openyield_gate_row_vertical_abutment:
+            old_root = repo / "outputs/layout_prototype/hybrid_openyield_compacted"
+            gate_row_vertical_abutment_report = emit_gate_row_vertical_abutment_report(
+                plan=_packing_plan_from_metrics(metrics),
+                out_json=out / "gate_row_vertical_abutment_report.json",
+                out_md=out / "gate_row_vertical_abutment_report.md",
+                old_gds=old_root / "hybrid_openyield_compacted.gds",
+                new_gds=gds_path,
+                old_layout_json=old_root / "hybrid_openyield_compacted.layout.json",
+                new_layout_json=Path(metrics["layout_json"]),
+                top_cell_name=metrics["name"],
+            )
+        else:
+            old_root = repo / "outputs/layout_prototype/hybrid_openyield"
+            gate_row_packing_report = emit_gate_row_packing_report(
+                plan=_packing_plan_from_metrics(metrics),
+                out_json=out / "gate_row_packing_report.json",
+                out_md=out / "gate_row_packing_report.md",
+                old_gds=old_root / "hybrid_openyield_prototype.gds",
+                new_gds=gds_path,
+                old_layout_json=old_root / "hybrid_openyield_prototype.layout.json",
+                new_layout_json=Path(metrics["layout_json"]),
+                top_cell_name=metrics["name"],
+            )
+    eligibility_csv = repo / "docs/mapping/openyield_cell_rail_overlap_eligibility.csv"
+    eligibility_md = repo / "docs/mapping/openyield_cell_rail_overlap_eligibility.md"
+    eligibility_json = repo / "docs/openyield_cell_rail_overlap_eligibility_report.json"
+    eligibility_report_md = repo / "docs/openyield_cell_rail_overlap_eligibility_report.md"
+    if enable_openyield_power_rail_overlap_packing and eligibility_csv.exists():
+        shutil.copy2(eligibility_csv, out / "cell_rail_overlap_eligibility.csv")
+        if eligibility_md.exists():
+            shutil.copy2(eligibility_md, out / "cell_rail_overlap_eligibility.md")
+    if enable_openyield_rail_to_rail_abutment or enable_openyield_power_rail_overlap_packing:
+        gds_row_abutment_audit = audit_gds_row_abutment(
+            gds_path,
+            layout_json=metrics["layout_json"],
+            eligibility=eligibility_csv if eligibility_csv.exists() else None,
+        )
+        write_json(out / "gds_row_abutment_audit.json", gds_row_abutment_audit)
+        (out / "gds_row_abutment_audit.md").write_text(render_gds_row_abutment_markdown(gds_row_abutment_audit), encoding="utf-8")
+
+    result = {
+        "mode": mode,
+        "spec": {
+            "word_size": spec.word_size,
+            "num_words": spec.num_words,
+            "words_per_row": spec.resolved_words_per_row(),
+            "name": spec.resolved_name(),
+            "enable_openyield_array_aggregation": spec.enable_openyield_array_aggregation,
+            "enable_openyield_senseamp_adapter": spec.enable_openyield_senseamp_adapter,
+            "enable_openyield_columnmux_adapter": spec.enable_openyield_columnmux_adapter,
+            "enable_openyield_writedriver_adapter": spec.enable_openyield_writedriver_adapter,
+            "enable_openyield_wordlinedriver_adapter": spec.enable_openyield_wordlinedriver_adapter,
+            "enable_openyield_gate_row_packing": spec.enable_openyield_gate_row_packing,
+            "enable_openyield_gate_row_vertical_abutment": spec.enable_openyield_gate_row_vertical_abutment,
+            "enable_openyield_rail_to_rail_abutment": spec.enable_openyield_rail_to_rail_abutment,
+            "enable_openyield_power_rail_overlap_packing": spec.enable_openyield_power_rail_overlap_packing,
+            "enable_openyield_dff_row_packing": spec.enable_openyield_dff_row_packing,
+            "exclude_dff_vertical_overlap": spec.exclude_dff_vertical_overlap,
+            "openyield_storage_row_orientation_policy": spec.openyield_storage_row_orientation_policy,
+        },
+        "out_dir": str(out),
+        "metrics": metrics,
+        "gds_path": str(gds_path),
+        "gds_size_bytes": gds_path.stat().st_size if gds_path.exists() else 0,
+        "generation_log": str(log_path),
+        "module_coverage_json": str(coverage_json),
+        "module_coverage_md": str(coverage_md),
+        "support_bundle": support,
+        "gds_sanity": sanity,
+        "module_coverage": coverage,
+        "openyield_driven_modules": [
+            row["module_or_object"]
+            for row in coverage
+            if not row["fallback_used"] and row["source"].startswith("openyield")
+        ],
+        "fallback_modules": [row["module_or_object"] for row in coverage if row["fallback_used"]],
+        "routing_modified": any(
+            bool(metrics.get(key, {}).get("routing_changed", False))
+            for key in (
+                "openyield_columnmux_adapter",
+                "openyield_senseamp_adapter",
+                "openyield_writedriver_adapter",
+                "openyield_wordlinedriver_adapter",
+                "openyield_array_aggregation_integration",
+                "openyield_gate_row_packing",
+            )
+        ),
+        "gds_writer_modified": any(
+            bool(metrics.get(key, {}).get("gds_writer_changed", False))
+            for key in (
+                "openyield_columnmux_adapter",
+                "openyield_senseamp_adapter",
+                "openyield_writedriver_adapter",
+                "openyield_wordlinedriver_adapter",
+                "openyield_array_aggregation_integration",
+                "openyield_gate_row_packing",
+            )
+        ),
+        "gate_row_packing_report": gate_row_packing_report,
+        "gate_row_vertical_abutment_report": gate_row_vertical_abutment_report,
+        "rail_to_rail_abutment_report": rail_to_rail_abutment_report,
+        "rail_overlap_packing_report": rail_overlap_packing_report,
+        "gds_row_abutment_audit": gds_row_abutment_audit,
+        "standalone_default_behavior_preserved": True,
+        "standalone_modified_for_explicit_opt_in": True,
+    }
+    write_json(out / "prototype_result.json", result)
+
+    docs_report = build_docs_report(repo)
+    write_json(repo / "docs/openyield_layout_prototype_generation_report.json", docs_report)
+    (repo / "docs/openyield_layout_prototype_generation_report.md").write_text(
+        render_docs_report_markdown(docs_report),
+        encoding="utf-8",
+    )
+    return result
+
+
+def resolve_dir(repo: Path, value: str | Path) -> Path:
+    path = Path(value)
+    return path.resolve() if path.is_absolute() else (repo / path).resolve()
+
+
+def build_spec(
+    mode: str,
+    word_size: int,
+    num_words: int,
+    words_per_row: int,
+    enable_openyield_gate_row_packing: bool = False,
+    enable_openyield_gate_row_vertical_abutment: bool = False,
+    enable_openyield_rail_to_rail_abutment: bool = False,
+    enable_openyield_power_rail_overlap_packing: bool = False,
+    enable_openyield_dff_row_packing: bool = False,
+    exclude_dff_vertical_overlap: bool = False,
+) -> StandaloneSpec:
+    enable_openyield_dff_row_packing = enable_openyield_dff_row_packing or exclude_dff_vertical_overlap
+    if mode == "legacy_baseline":
+        return StandaloneSpec(
+            word_size=word_size,
+            num_words=num_words,
+            words_per_row=words_per_row,
+            name="legacy_baseline",
+        )
+    if mode == "hybrid_openyield_prototype":
+        return StandaloneSpec(
+            word_size=word_size,
+            num_words=num_words,
+            words_per_row=words_per_row,
+            name=(
+                "hybrid_openyield_rail_overlap"
+                if enable_openyield_power_rail_overlap_packing
+                else
+                "hybrid_openyield_rail_abutted"
+                if enable_openyield_rail_to_rail_abutment
+                else "hybrid_openyield_row_abutted"
+                if enable_openyield_gate_row_vertical_abutment
+                else "hybrid_openyield_compacted"
+                if enable_openyield_gate_row_packing
+                else "hybrid_openyield_prototype"
+            ),
+            enable_openyield_array_aggregation=True,
+            enable_openyield_senseamp_adapter=True,
+            enable_openyield_columnmux_adapter=True,
+            enable_openyield_writedriver_adapter=True,
+            enable_openyield_wordlinedriver_adapter=True,
+            enable_openyield_gate_row_packing=enable_openyield_gate_row_packing,
+            enable_openyield_gate_row_vertical_abutment=enable_openyield_gate_row_vertical_abutment,
+            enable_openyield_rail_to_rail_abutment=enable_openyield_rail_to_rail_abutment,
+            enable_openyield_power_rail_overlap_packing=enable_openyield_power_rail_overlap_packing,
+            enable_openyield_dff_row_packing=enable_openyield_dff_row_packing,
+            exclude_dff_vertical_overlap=exclude_dff_vertical_overlap,
+            openyield_storage_row_orientation_policy="alternating_mx",
+        )
+    raise ValueError(f"unsupported mode: {mode}")
+
+
+def load_support_bundle(docs_root: Path) -> dict[str, Any]:
+    timing_json = docs_root / "openyield_delay_chain_timing_metadata_report.json"
+    source_json = docs_root / "openyield_source_provenance_linking_report.json"
+    audit_json = docs_root / "openyield_source_linked_timing_metadata_audit_report.json"
+    mapping_csv = docs_root / "mapping/openyield_control_timing_mapping.csv"
+    contracts_csv = docs_root / "mapping/openyield_control_path_candidate_contracts.csv"
+    consumer_summary = summary_to_dict(
+        emit_consumer_summary(
+            timing_json,
+            source_json,
+            audit_json,
+            mapping_csv,
+        )
+    )
+    timing_objects = {
+        name: asdict(obj)
+        for name, obj in build_consumable_timing_objects(timing_json, source_json, mapping_csv).items()
+    }
+    mappings = [asdict(item) for item in load_control_mapping(mapping_csv)]
+    contracts = [asdict(item) for item in load_candidate_contracts(contracts_csv)]
+    return {
+        "timing_json": str(timing_json.resolve()),
+        "source_json": str(source_json.resolve()),
+        "audit_json": str(audit_json.resolve()),
+        "mapping_csv": str(mapping_csv.resolve()),
+        "contracts_csv": str(contracts_csv.resolve()),
+        "consumer_summary": consumer_summary,
+        "timing_objects": timing_objects,
+        "control_mapping": mappings,
+        "candidate_contracts": contracts,
+        "openyield_metadata_consumed": bool(consumer_summary["gates"].get("consumer_api_ready", False)),
+        "timing_metadata_consumer_used": True,
+        "candidate_contracts_used": True,
+    }
+
+
+def build_gds_sanity(repo: Path, gds_path: Path, metrics: dict[str, Any], out_dir: Path) -> dict[str, Any]:
+    exists = gds_path.exists()
+    size = gds_path.stat().st_size if exists else 0
+    bbox = measure_gds_bbox(gds_path) if exists else None
+    hierarchy = inspect_gds_hierarchy(gds_path) if exists else {}
+    summary_path = out_dir / "klayout_summary.json"
+    klayout = shutil.which("klayout")
+    klayout_ok = False
+    klayout_error = None
+    if klayout and exists:
+        cmd = [
+            klayout,
+            "-b",
+            "-r",
+            str((repo / "scripts/klayout_gds_summary.rb").resolve()),
+            "-rd",
+            f"input={gds_path}",
+            "-rd",
+            f"output={summary_path}",
+            "-rd",
+            f"topcell={metrics['name']}",
+        ]
+        run = subprocess.run(cmd, capture_output=True, text=True)
+        klayout_ok = run.returncode == 0 and summary_path.exists()
+        if not klayout_ok:
+            klayout_error = (run.stderr or run.stdout).strip() or f"klayout exited {run.returncode}"
+    klayout_summary = json.loads(summary_path.read_text(encoding="utf-8")) if summary_path.exists() else None
+    return {
+        "gds_file_exists": exists,
+        "gds_file_size_bytes": size,
+        "gds_file_size_gt_zero": size > 0,
+        "top_cell_name": metrics["name"],
+        "bbox_um": bbox.to_dict() if bbox else None,
+        "structure_count": hierarchy.get("structure_count"),
+        "can_be_opened_by_klayout": klayout_ok,
+        "klayout_summary": klayout_summary,
+        "klayout_error": klayout_error,
+    }
+
+
+def build_module_coverage(mode: str, metrics: dict[str, Any], support: dict[str, Any]) -> list[dict[str, Any]]:
+    counts = metrics.get("role_counts", {})
+    storage = metrics.get("openyield_array_aggregation_integration", {})
+    sense = metrics.get("openyield_senseamp_adapter", {})
+    column = metrics.get("openyield_columnmux_adapter", {})
+    write = metrics.get("openyield_writedriver_adapter", {})
+    wordline = metrics.get("openyield_wordlinedriver_adapter", {})
+    mappings = {row["openyield_object"]: row for row in support["control_mapping"]}
+    contracts = {row["control_object"]: row for row in support["candidate_contracts"]}
+    delay = support["timing_objects"].get("DELAY_CHAIN", {})
+
+    def row(
+        module: str,
+        source: str,
+        used: bool,
+        physical: str,
+        placement: str,
+        routing: str,
+        power: str,
+        fallback: bool,
+        reason: str,
+        evidence: str,
+        next_action: str,
+    ) -> dict[str, Any]:
+        return {
+            "module_or_object": module,
+            "source": source,
+            "used_in_gds": used,
+            "physical_cell_source": physical,
+            "placement_status": placement,
+            "routing_status": routing,
+            "power_status": power,
+            "fallback_used": fallback,
+            "fallback_reason": reason,
+            "evidence_status": evidence,
+            "next_required_action": next_action,
+        }
+
+    rows = [
+        row(
+            "bitcell_array",
+            "openyield_storage_array_aggregation" if storage.get("enabled") else "legacy_layoutgen",
+            bool(counts.get("bitcell_array", 0)),
+            "cell_1rw hardcell array",
+            "openyield_storage_opt_in" if storage.get("enabled") else "legacy_array_placement",
+            "array_abutment",
+            "bundled_freepdk45_power_rails",
+            not bool(storage.get("enabled")),
+            "legacy storage aggregation path retained" if not storage.get("enabled") else "",
+            "storage_array_physical_ready" if storage.get("enabled") else "legacy_only",
+            "physical gap closure on non-storage peripherals",
+        ),
+        row(
+            "dummy_array",
+            "openyield_storage_array_aggregation" if storage.get("enabled") else "legacy_layoutgen",
+            bool(counts.get("dummy_bitcell", 0)),
+            "dummy_cell_1rw hardcell array",
+            "openyield_storage_opt_in" if storage.get("enabled") else "legacy_array_placement",
+            "array_abutment",
+            "bundled_freepdk45_power_rails",
+            not bool(storage.get("enabled")),
+            "legacy storage aggregation path retained" if not storage.get("enabled") else "",
+            "storage_array_physical_ready" if storage.get("enabled") else "legacy_only",
+            "keep dummy-row physical evidence aligned with storage aggregation",
+        ),
+        row(
+            "replica_array",
+            "openyield_storage_array_aggregation" if storage.get("enabled") else "legacy_layoutgen",
+            bool(counts.get("replica_bitline", 0)),
+            "replica_cell_1rw hardcell array",
+            "openyield_storage_opt_in" if storage.get("enabled") else "legacy_array_placement",
+            "array_abutment",
+            "bundled_freepdk45_power_rails",
+            not bool(storage.get("enabled")),
+            "legacy replica placement retained" if not storage.get("enabled") else "",
+            "storage_array_physical_ready" if storage.get("enabled") else "legacy_only",
+            "extend replica/control coupling proof",
+        ),
+        row(
+            "DELAY_CHAIN",
+            "openyield_timing_metadata_consumer_plus_legacy_hardmacro",
+            bool(counts.get("delay_chain", 0)),
+            "legacy gen_delay_inv macro chain",
+            "legacy_fallback_control_timing",
+            "legacy_top_level_routing",
+            "bundled_freepdk45_power_rails",
+            True,
+            "timing metadata is consumable but physical integration is not claimed",
+            delay.get("evidence_status", mappings.get("DELAY_CHAIN", {}).get("evidence_status", "unknown")),
+            mappings.get("DELAY_CHAIN", {}).get("next_required_action", "implement physical control-timing adapter"),
+        ),
+        row(
+            "PRECHARGE",
+            "openyield_precharge_source_plus_legacy_macro",
+            bool(counts.get("precharge", 0)),
+            "legacy gen_precharge macro",
+            "legacy_fallback_precharge_row",
+            "legacy_top_level_routing",
+            "bundled_freepdk45_power_rails",
+            True,
+            "source-linked candidate exists but no OpenYield physical macro is installed",
+            mappings.get("PRECHARGE", {}).get("evidence_status", "source_linked_candidate_only"),
+            mappings.get("PRECHARGE", {}).get("next_required_action", "confirm pin polarity and physical macro evidence"),
+        ),
+    ]
+    for control_object in [
+        "PRECHARGE_ENABLE_PATH",
+        "SENSE_ENABLE_PATH",
+        "WRITE_ENABLE_PATH",
+        "WORDLINE_ENABLE_PATH",
+        "GATED_CLOCK_PATH",
+        "DFF_ROW",
+    ]:
+        mapping = mappings.get(control_object, {})
+        contract = contracts.get(control_object, {})
+        rows.append(
+            row(
+                control_object,
+                "openyield_candidate_contract_plus_legacy_control_logic",
+                True,
+                "legacy control-logic composition",
+                "legacy_fallback_control_logic",
+                "legacy_top_level_routing",
+                "bundled_freepdk45_power_rails",
+                True,
+                "candidate contract exists, but no physical-ready OpenYield implementation is present",
+                mapping.get("evidence_status", contract.get("source_evidence_status", "candidate_contract_only")),
+                mapping.get("next_required_action", contract.get("next_required_action", "decompose TIME/control path physically")),
+            )
+        )
+    rows.extend([
+        row(
+            "sense_amp",
+            "openyield_senseamp_semantic_adapter" if sense.get("enabled") else "legacy_layoutgen",
+            bool(counts.get("sense_amp", 0)),
+            "legacy sense_amp hardmacro",
+            "openyield_adapter_applied" if sense.get("enabled") else "legacy_placement",
+            "legacy_top_level_routing",
+            "bundled_freepdk45_power_rails",
+            not bool(sense.get("enabled")),
+            "legacy sense_amp path retained" if not sense.get("enabled") else "",
+            "semantic_adapter_ready" if sense.get("enabled") else "legacy_only",
+            "prove grouped read-path fanout and downstream physical timing",
+        ),
+        row(
+            "write_driver",
+            "openyield_writedriver_adapter" if write.get("enabled") else "legacy_layoutgen",
+            bool(counts.get("write_driver", 0)),
+            write.get("local_macro", "write_driver"),
+            "openyield_adapter_applied" if write.get("enabled") else "legacy_placement",
+            "legacy_top_level_routing",
+            "shared_rail_disabled" if write.get("enabled") else "bundled_freepdk45_power_rails",
+            not bool(write.get("enabled")),
+            "legacy write-driver path retained" if not write.get("enabled") else "",
+            "physical_mapping_ready" if write.get("safe_for_physical_mapping") else "adapter_not_enabled",
+            "complete grouped write-path fanout proof and rail continuity proof",
+        ),
+        row(
+            "column_mux",
+            "openyield_columnmux_adapter" if column.get("enabled") else "legacy_layoutgen",
+            bool(counts.get("column_mux", 0)),
+            column.get("local_macro", "gen_col_mux"),
+            "openyield_adapter_applied" if column.get("enabled") else "legacy_placement",
+            "legacy_top_level_routing",
+            "shared_rail_disabled" if column.get("enabled") else "bundled_freepdk45_power_rails",
+            not bool(column.get("enabled")),
+            "legacy column mux path retained" if not column.get("enabled") else "",
+            "repaired_alias_candidate_only" if column.get("enabled") else "legacy_only",
+            "prove shared rail continuity and preserve repaired candidate install discipline",
+        ),
+        row(
+            "wordline_driver",
+            "openyield_wordlinedriver_adapter" if wordline.get("enabled") else "legacy_layoutgen",
+            bool(counts.get("wordline_driver", 0)),
+            wordline.get("local_macro", "gen_wl_driver"),
+            "openyield_adapter_applied" if wordline.get("enabled") else "legacy_placement",
+            "legacy_top_level_routing",
+            "shared_rail_disabled" if wordline.get("enabled") else "bundled_freepdk45_power_rails",
+            not bool(wordline.get("enabled")),
+            "legacy wordline-driver path retained" if not wordline.get("enabled") else "",
+            wordline.get("semantic_confirmation", "legacy_only"),
+            "finish TIME/control-path physical decomposition and rail proof",
+        ),
+    ])
+    if mode == "legacy_baseline":
+        for item in rows:
+            if item["module_or_object"] not in {"DELAY_CHAIN", "PRECHARGE"}:
+                item["source"] = "legacy_layoutgen"
+            item["fallback_used"] = True
+            if not item["fallback_reason"]:
+                item["fallback_reason"] = "legacy baseline mode keeps the default path only"
+    assert {item["module_or_object"] for item in rows} == set(REQUIRED_COVERAGE_OBJECTS)
+    return rows
+
+
+def render_generation_log(
+    mode: str,
+    spec: StandaloneSpec,
+    metrics: dict[str, Any],
+    support: dict[str, Any],
+    sanity: dict[str, Any],
+    coverage: list[dict[str, Any]],
+) -> str:
+    return "\n".join([
+        f"mode={mode}",
+        f"name={metrics['name']}",
+        f"word_size={spec.word_size}",
+        f"num_words={spec.num_words}",
+        f"words_per_row={spec.resolved_words_per_row()}",
+        f"gds={metrics['gds']}",
+        f"gds_size_bytes={sanity['gds_file_size_bytes']}",
+        f"drc_clean={metrics['drc_clean']}",
+        f"openyield_metadata_consumed={support['openyield_metadata_consumed']}",
+        f"timing_metadata_consumer_used={support['timing_metadata_consumer_used']}",
+        f"candidate_contracts_used={support['candidate_contracts_used']}",
+        f"module_coverage_rows={len(coverage)}",
+        f"fallback_count={sum(1 for row in coverage if row['fallback_used'])}",
+        f"klayout_open_ok={sanity['can_be_opened_by_klayout']}",
+    ]) + "\n"
+
+
+def _packing_plan_from_metrics(metrics: dict[str, Any]):
+    payload = metrics.get("openyield_gate_row_packing", {})
+    decoder = payload.get("decoder_plan", {}) if isinstance(payload, dict) else {}
+    rows = decoder.get("rows", []) if isinstance(decoder, dict) else []
+    rail_alignment = decoder.get("rail_alignment", {}) if isinstance(decoder, dict) else {}
+
+    plan_rows = tuple(
+        GateRow(
+            row_name=str(item["row_name"]),
+            row_index=int(item["row_index"]),
+            origin_x=float(item["origin_x"]),
+            origin_y=float(item["origin_y"]),
+            width=float(item["width"]),
+            height=float(item["height"]),
+            mirror=str(item["mirror"]),
+            cells=tuple(),
+            vdd_y=float(item["vdd_y"]) if item.get("vdd_y") is not None else None,
+            gnd_y=float(item["gnd_y"]) if item.get("gnd_y") is not None else None,
+            blocked_reason=item.get("blocked_reason"),
+        )
+        for item in rows
+    )
+    return GateRowPackingPlan(
+        block_name="decoder_gate_rows",
+        explicit_opt_in=bool(payload.get("enabled", False)),
+        vertical_abutment_policy=str(decoder.get("vertical_abutment_policy", payload.get("vertical_abutment_policy", "standard_row_spacing"))),
+        row_pitch=float(decoder.get("row_pitch", 0.0) or 0.0),
+        row_gap=float(decoder.get("row_gap", 0.0) or 0.0),
+        total_width=float(decoder.get("total_width", 0.0) or 0.0),
+        total_height=float(decoder.get("total_height", 0.0) or 0.0),
+        rows=plan_rows,
+        fallback_cells=tuple(decoder.get("fallback_cells", [])),
+        blocked_cells=tuple(decoder.get("blocked_cells", [])),
+        blocked_reason=decoder.get("blocked_reason"),
+        average_intra_row_gap_um=float(decoder.get("average_intra_row_gap_um", 0.0) or 0.0),
+        average_vertical_gap_um=float(decoder.get("average_vertical_gap_um", 0.0) or 0.0),
+        extra_interrow_power_stripe_inserted=bool(decoder.get("extra_interrow_power_stripe_inserted", False)),
+        rail_alignment=rail_alignment if isinstance(rail_alignment, dict) else {},
+    )
+
+
+def build_docs_report(repo: Path) -> dict[str, Any]:
+    baseline = load_result(repo / "outputs/layout_prototype/baseline_legacy/prototype_result.json")
+    hybrid = load_result(repo / "outputs/layout_prototype/hybrid_openyield/prototype_result.json")
+    compacted = load_result(repo / "outputs/layout_prototype/hybrid_openyield_compacted/prototype_result.json")
+    hybrid_coverage = hybrid.get("module_coverage", []) if hybrid else []
+    gates = {
+        "layout_prototype_generation_available": bool(baseline or hybrid),
+        "legacy_baseline_attempted": bool(baseline),
+        "legacy_baseline_gds_generated": bool(baseline and baseline["gds_sanity"]["gds_file_exists"] and baseline["gds_sanity"]["gds_file_size_gt_zero"]),
+        "hybrid_openyield_attempted": bool(hybrid),
+        "hybrid_openyield_gds_generated": bool(hybrid and hybrid["gds_sanity"]["gds_file_exists"] and hybrid["gds_sanity"]["gds_file_size_gt_zero"]),
+        "hybrid_compacted_attempted": bool(compacted),
+        "hybrid_compacted_gds_generated": bool(compacted and compacted["gds_sanity"]["gds_file_exists"] and compacted["gds_sanity"]["gds_file_size_gt_zero"]),
+        "gds_output_path": (
+            compacted.get("gds_path")
+            if compacted
+            else hybrid.get("gds_path")
+            if hybrid
+            else baseline.get("gds_path")
+            if baseline
+            else None
+        ),
+        "module_coverage_available": bool(hybrid and hybrid.get("module_coverage_json")),
+        "openyield_metadata_consumed": bool(hybrid and hybrid["support_bundle"].get("openyield_metadata_consumed", False)),
+        "timing_metadata_consumer_used": bool(hybrid and hybrid["support_bundle"].get("timing_metadata_consumer_used", False)),
+        "candidate_contracts_used": bool(hybrid and hybrid["support_bundle"].get("candidate_contracts_used", False)),
+        "fallbacks_recorded": any(row.get("fallback_used", False) for row in hybrid_coverage),
+        "standalone_default_behavior_preserved": bool((hybrid or baseline) and (hybrid or baseline).get("standalone_default_behavior_preserved", False)),
+        "standalone_modified_for_explicit_opt_in": bool((hybrid or baseline) and (hybrid or baseline).get("standalone_modified_for_explicit_opt_in", False)),
+        "routing_modified": bool(hybrid and hybrid.get("routing_modified", False)),
+        "gds_writer_modified": bool(hybrid and hybrid.get("gds_writer_modified", False)),
+        "can_claim_full_openyield_layout_now": False,
+        "can_claim_lvs_clean_now": False,
+        "can_claim_drc_clean_now": False,
+        "can_claim_timing_closure_now": False,
+        "can_enter_physical_gap_closure": bool(hybrid and hybrid["gds_sanity"]["gds_file_exists"]),
+        "can_enter_guarded_openyield_layout_integration": bool(hybrid and hybrid["gds_sanity"]["gds_file_exists"]),
+    }
+    return {
+        "scope": "openyield_layout_prototype_generation",
+        "baseline": baseline,
+        "hybrid": hybrid,
+        "hybrid_compacted": compacted,
+        "gates": gates,
+        "openyield_driven_modules": hybrid.get("openyield_driven_modules", []) if hybrid else [],
+        "fallback_modules": hybrid.get("fallback_modules", []) if hybrid else [],
+        "physical_gap_summary": [
+            "TIME / DFF / control logic remain candidate-contract or metadata-only; no full physical OpenYield implementation is installed.",
+            "Routing is still legacy/top-level layoutgen routing, not OpenYield-driven routing.",
+            "Shared rail continuity is not proven for repaired/peripheral hardmacros.",
+            "Column mux repaired alias is candidate-only and must not be treated as full signoff collateral.",
+            "No LVS closure, no timing closure, and no full-chip DRC signoff are claimed.",
+        ],
+    }
+
+
+def render_docs_report_markdown(report: dict[str, Any]) -> str:
+    gates = report["gates"]
+    lines = [
+        "# OpenYield Layout Prototype Generation Report",
+        "",
+        f"- legacy baseline attempted: `{gates['legacy_baseline_attempted']}`",
+        f"- legacy baseline GDS generated: `{gates['legacy_baseline_gds_generated']}`",
+        f"- hybrid OpenYield attempted: `{gates['hybrid_openyield_attempted']}`",
+        f"- hybrid OpenYield GDS generated: `{gates['hybrid_openyield_gds_generated']}`",
+        f"- hybrid compacted attempted: `{gates['hybrid_compacted_attempted']}`",
+        f"- hybrid compacted GDS generated: `{gates['hybrid_compacted_gds_generated']}`",
+        f"- module coverage available: `{gates['module_coverage_available']}`",
+        f"- openyield metadata consumed: `{gates['openyield_metadata_consumed']}`",
+        f"- timing metadata consumer used: `{gates['timing_metadata_consumer_used']}`",
+        f"- candidate contracts used: `{gates['candidate_contracts_used']}`",
+        f"- fallbacks recorded: `{gates['fallbacks_recorded']}`",
+        f"- standalone default behavior preserved: `{gates['standalone_default_behavior_preserved']}`",
+        f"- standalone modified for explicit opt-in: `{gates['standalone_modified_for_explicit_opt_in']}`",
+        f"- routing modified: `{gates['routing_modified']}`",
+        f"- gds writer modified: `{gates['gds_writer_modified']}`",
+        f"- can claim full OpenYield layout now: `{gates['can_claim_full_openyield_layout_now']}`",
+        f"- can claim LVS clean now: `{gates['can_claim_lvs_clean_now']}`",
+        f"- can claim DRC clean now: `{gates['can_claim_drc_clean_now']}`",
+        f"- can claim timing closure now: `{gates['can_claim_timing_closure_now']}`",
+        f"- can enter physical gap closure: `{gates['can_enter_physical_gap_closure']}`",
+        f"- can enter guarded OpenYield layout integration: `{gates['can_enter_guarded_openyield_layout_integration']}`",
+        "",
+        "## OpenYield-Driven Modules",
+        "",
+    ]
+    for item in report.get("openyield_driven_modules", []):
+        lines.append(f"- {item}")
+    if not report.get("openyield_driven_modules"):
+        lines.append("- none yet")
+    lines.extend(["", "## Fallback Modules", ""])
+    for item in report.get("fallback_modules", []):
+        lines.append(f"- {item}")
+    if not report.get("fallback_modules"):
+        lines.append("- none recorded")
+    lines.extend(["", "## Physical Gaps", ""])
+    for item in report.get("physical_gap_summary", []):
+        lines.append(f"- {item}")
+    lines.append("")
+    return "\n".join(lines)
+
+
+def render_module_coverage_markdown(rows: list[dict[str, Any]]) -> str:
+    lines = [
+        "# Module Coverage",
+        "",
+        "| module_or_object | source | used_in_gds | physical_cell_source | placement_status | routing_status | power_status | fallback_used | fallback_reason | evidence_status | next_required_action |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |",
+    ]
+    for row in rows:
+        lines.append(
+            "| {module_or_object} | {source} | {used_in_gds} | {physical_cell_source} | {placement_status} | {routing_status} | {power_status} | {fallback_used} | {fallback_reason} | {evidence_status} | {next_required_action} |".format(**row)
+        )
+    lines.append("")
+    return "\n".join(lines)
+
+
+def write_json(path: Path, payload: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def load_result(path: Path) -> dict[str, Any] | None:
+    if not path.exists():
+        return None
+    return json.loads(path.read_text(encoding="utf-8"))

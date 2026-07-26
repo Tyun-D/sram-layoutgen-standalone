@@ -1,0 +1,309 @@
+{
+  "scope": "delay_chain_spice_testbench_plan",
+  "nodes": [
+    {
+      "id": "delay_chain",
+      "kind": "timing_object",
+      "label": "DELAY_CHAIN"
+    },
+    {
+      "id": "signal:rbl",
+      "kind": "signal",
+      "label": "rbl"
+    },
+    {
+      "id": "signal:rbl_delay",
+      "kind": "signal",
+      "label": "rbl_delay"
+    },
+    {
+      "id": "stage:1",
+      "kind": "delay_stage",
+      "label": "stage_1"
+    },
+    {
+      "id": "stage:2",
+      "kind": "delay_stage",
+      "label": "stage_2"
+    },
+    {
+      "id": "stage:3",
+      "kind": "delay_stage",
+      "label": "stage_3"
+    },
+    {
+      "id": "stage:4",
+      "kind": "delay_stage",
+      "label": "stage_4"
+    },
+    {
+      "id": "stage:5",
+      "kind": "delay_stage",
+      "label": "stage_5"
+    },
+    {
+      "id": "stage:6",
+      "kind": "delay_stage",
+      "label": "stage_6"
+    },
+    {
+      "id": "stage:7",
+      "kind": "delay_stage",
+      "label": "stage_7"
+    },
+    {
+      "id": "stage:8",
+      "kind": "delay_stage",
+      "label": "stage_8"
+    },
+    {
+      "id": "stage:9",
+      "kind": "delay_stage",
+      "label": "stage_9"
+    },
+    {
+      "id": "model:gen_delay_inv",
+      "kind": "model_dependency",
+      "label": "gen_delay_inv"
+    },
+    {
+      "id": "model:gen_inv",
+      "kind": "model_dependency",
+      "label": "gen_inv"
+    },
+    {
+      "id": "model:PDK transistor models",
+      "kind": "model_dependency",
+      "label": "PDK transistor models"
+    },
+    {
+      "id": "model:four-load inverter model",
+      "kind": "model_dependency",
+      "label": "four-load inverter model"
+    },
+    {
+      "id": "model:replica bitline RC/load model",
+      "kind": "model_dependency",
+      "label": "replica bitline RC/load model"
+    },
+    {
+      "id": "model:consumer pin load model",
+      "kind": "model_dependency",
+      "label": "consumer pin load model"
+    },
+    {
+      "id": "task:1",
+      "kind": "next_task",
+      "label": "gen_delay_inv_transistor_netlist_recovery_plan"
+    },
+    {
+      "id": "task:2",
+      "kind": "next_task",
+      "label": "four_load_inverter_stage_model_plan"
+    },
+    {
+      "id": "task:3",
+      "kind": "next_task",
+      "label": "delay_chain_testbench_template_contract"
+    },
+    {
+      "id": "task:4",
+      "kind": "next_task",
+      "label": "pvt_corner_definition_plan"
+    },
+    {
+      "id": "task:5",
+      "kind": "next_task",
+      "label": "replica_load_calibration_plan"
+    },
+    {
+      "id": "task:6",
+      "kind": "next_task",
+      "label": "waveform_measurement_spec_plan"
+    }
+  ],
+  "edges": [
+    {
+      "from": "signal:rbl",
+      "to": "delay_chain",
+      "relation": "drives"
+    },
+    {
+      "from": "delay_chain",
+      "to": "signal:rbl_delay",
+      "relation": "produces"
+    },
+    {
+      "from": "delay_chain",
+      "to": "stage:1",
+      "relation": "contains"
+    },
+    {
+      "from": "stage:1",
+      "to": "model:gen_delay_inv",
+      "relation": "requires_model"
+    },
+    {
+      "from": "delay_chain",
+      "to": "stage:2",
+      "relation": "contains"
+    },
+    {
+      "from": "stage:2",
+      "to": "model:gen_delay_inv",
+      "relation": "requires_model"
+    },
+    {
+      "from": "delay_chain",
+      "to": "stage:3",
+      "relation": "contains"
+    },
+    {
+      "from": "stage:3",
+      "to": "model:gen_delay_inv",
+      "relation": "requires_model"
+    },
+    {
+      "from": "delay_chain",
+      "to": "stage:4",
+      "relation": "contains"
+    },
+    {
+      "from": "stage:4",
+      "to": "model:gen_delay_inv",
+      "relation": "requires_model"
+    },
+    {
+      "from": "delay_chain",
+      "to": "stage:5",
+      "relation": "contains"
+    },
+    {
+      "from": "stage:5",
+      "to": "model:gen_delay_inv",
+      "relation": "requires_model"
+    },
+    {
+      "from": "delay_chain",
+      "to": "stage:6",
+      "relation": "contains"
+    },
+    {
+      "from": "stage:6",
+      "to": "model:gen_delay_inv",
+      "relation": "requires_model"
+    },
+    {
+      "from": "delay_chain",
+      "to": "stage:7",
+      "relation": "contains"
+    },
+    {
+      "from": "stage:7",
+      "to": "model:gen_delay_inv",
+      "relation": "requires_model"
+    },
+    {
+      "from": "delay_chain",
+      "to": "stage:8",
+      "relation": "contains"
+    },
+    {
+      "from": "stage:8",
+      "to": "model:gen_delay_inv",
+      "relation": "requires_model"
+    },
+    {
+      "from": "delay_chain",
+      "to": "stage:9",
+      "relation": "contains"
+    },
+    {
+      "from": "stage:9",
+      "to": "model:gen_delay_inv",
+      "relation": "requires_model"
+    },
+    {
+      "from": "delay_chain",
+      "to": "model:gen_delay_inv",
+      "relation": "depends_on"
+    },
+    {
+      "from": "delay_chain",
+      "to": "model:gen_inv",
+      "relation": "depends_on"
+    },
+    {
+      "from": "delay_chain",
+      "to": "model:PDK transistor models",
+      "relation": "depends_on"
+    },
+    {
+      "from": "delay_chain",
+      "to": "model:four-load inverter model",
+      "relation": "depends_on"
+    },
+    {
+      "from": "delay_chain",
+      "to": "model:replica bitline RC/load model",
+      "relation": "depends_on"
+    },
+    {
+      "from": "delay_chain",
+      "to": "model:consumer pin load model",
+      "relation": "depends_on"
+    },
+    {
+      "from": "delay_chain",
+      "to": "task:1",
+      "relation": "next_task"
+    },
+    {
+      "from": "delay_chain",
+      "to": "task:2",
+      "relation": "next_task"
+    },
+    {
+      "from": "delay_chain",
+      "to": "task:3",
+      "relation": "next_task"
+    },
+    {
+      "from": "delay_chain",
+      "to": "task:4",
+      "relation": "next_task"
+    },
+    {
+      "from": "delay_chain",
+      "to": "task:5",
+      "relation": "next_task"
+    },
+    {
+      "from": "delay_chain",
+      "to": "task:6",
+      "relation": "next_task"
+    }
+  ],
+  "summary": {
+    "delay_chain_spice_testbench_plan_available": true,
+    "delay_chain_structure_captured": true,
+    "stage_count_confirmed": true,
+    "four_load_inverter_policy_captured": true,
+    "model_dependencies_identified": true,
+    "measurement_plan_available": true,
+    "corner_plan_available": true,
+    "artifact_contract_available": true,
+    "can_emit_testbench_template_now": true,
+    "can_run_testbench_now": false,
+    "can_claim_delay_proof_now": false,
+    "can_claim_timing_closure_now": false,
+    "can_enter_gen_delay_inv_transistor_netlist_recovery_plan": true,
+    "can_enter_four_load_inverter_stage_model_plan": true,
+    "can_enter_wen_delay_chain_conditional_testbench_plan": true,
+    "can_enter_physical_timing_closure_now": false,
+    "can_enter_physical_routing_now": false,
+    "can_enter_physical_placement_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_modify_standalone_now": false
+  }
+}

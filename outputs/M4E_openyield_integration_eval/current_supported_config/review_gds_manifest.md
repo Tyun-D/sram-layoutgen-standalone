@@ -1,0 +1,9 @@
+# M4E Review GDS Manifest
+
+- review_gds: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M4E_openyield_integration_eval/current_supported_config/openyield_integration_feasibility_review.gds`
+- base_m3f_gds: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M3F_optimized_layoutgen_restore/current_supported_config/openyield_optimized_layoutgen_sram.gds`
+- base_top_cell_name: `openyield_optimized_layoutgen_sram`
+- review_top_cell_name: `openyield_integration_feasibility_review`
+- annotation_layers: `{'implementation_mode': {'DIRECT_GENERATOR_BINDING': 210, 'PARAMETERIZED_LAYOUTGEN_GENERATOR': 211, 'REAL_CELL_WRAPPER': 212, 'LAYOUTGEN_FALLBACK_WITH_OPENYIELD_SEMANTICS': 213, 'NOT_IMPLEMENTABLE_NOW': 214}, 'change_layers': {'floorplan': 220, 'placement': 221, 'routing': 222, 'power': 223}, 'text_layer': 230}`
+- annotated_module_count: `20`
+- openyield_module_gds_dir_read: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds`

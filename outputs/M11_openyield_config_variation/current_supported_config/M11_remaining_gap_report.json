@@ -1,0 +1,23 @@
+[
+  {
+    "gap_id": "M11_GAP_001",
+    "gap_type": "HUMAN_REVIEW_REQUIRED",
+    "severity": "BLOCKER",
+    "status": "OPEN",
+    "details": "Human KLayout review is required for openyield_config_derived_sram_clean_review.gds before any post-M11 stage."
+  },
+  {
+    "gap_id": "M11_GAP_002",
+    "gap_type": "LOGICAL_CAPACITY_FIELDS_STILL_FALLBACK",
+    "severity": "NON_BLOCKING_SCOPE_LIMIT",
+    "status": "OPEN",
+    "details": "Fallback still required for: word_size, num_words, words_per_row, num_banks, num_ports, tech, top_cell_name, dummy_enabled, replica_enabled, precharge_enabled, sense_amp_enabled, write_driver_enabled, wordline_driver_enabled, decoder_enabled"
+  },
+  {
+    "gap_id": "M11_GAP_003",
+    "gap_type": "FULL_RAW_COMPILER_NOT_CLAIMED",
+    "severity": "NON_BLOCKING_SCOPE_LIMIT",
+    "status": "OPEN",
+    "details": "OpenYield raw source exposes num_rows/num_cols/choose_columnmux and architecture variations, but current supported delivery still relies on locked 8x64_wpr4 logical capacity fallback."
+  }
+]

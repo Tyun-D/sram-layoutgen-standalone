@@ -1,0 +1,61 @@
+{
+  "scope": "step6_12_openyield_decoder_composite_leaf_convention_audit",
+  "nodes": [
+    {
+      "id": "PNAND3_COMPOSITE_NAND2_INV",
+      "kind": "composite_leaf"
+    },
+    {
+      "id": "AND3_COMPOSITE_NAND2_INV",
+      "kind": "composite_leaf"
+    },
+    {
+      "id": "gen_nand2",
+      "kind": "leaf_macro"
+    },
+    {
+      "id": "gen_inv",
+      "kind": "leaf_macro"
+    }
+  ],
+  "edges": [
+    {
+      "source": "PNAND3_COMPOSITE_NAND2_INV",
+      "target": "gen_nand2",
+      "relation": "uses"
+    },
+    {
+      "source": "PNAND3_COMPOSITE_NAND2_INV",
+      "target": "gen_inv",
+      "relation": "uses"
+    },
+    {
+      "source": "AND3_COMPOSITE_NAND2_INV",
+      "target": "gen_nand2",
+      "relation": "uses"
+    },
+    {
+      "source": "AND3_COMPOSITE_NAND2_INV",
+      "target": "gen_inv",
+      "relation": "uses"
+    }
+  ],
+  "stage_impact_refresh": {
+    "per_stage_gen_inv": 27,
+    "per_stage_gen_nand2": 24,
+    "per_stage_composite_and3": 8,
+    "per_stage_composite_pnand3": 0,
+    "per_stage_total_leafs": 51,
+    "cascade_total_gen_inv": 135,
+    "cascade_total_gen_nand2": 120,
+    "cascade_total_composite_and3": 40,
+    "cascade_total_leafs": 255,
+    "stage_formula": "3x Pinv + 8x AND2 + 8x AND3_COMPOSITE_NAND2_INV"
+  },
+  "blockers": [
+    "Composite pin and power conventions are available, but internal net routing is still metadata-only.",
+    "Composite rail continuity is not proven, so shared rail remains disabled.",
+    "BBox proxy and keepout are planning aids only, not legal placement proof.",
+    "Physical decoder placement and control-row smoke remain blocked."
+  ]
+}

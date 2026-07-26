@@ -1,0 +1,71 @@
+{
+  "scope": "step6_42_openyield_time_control_final_boundary_summary",
+  "nodes": [
+    {
+      "id": "goal_progress_highest_stage",
+      "kind": "boundary"
+    },
+    {
+      "id": "standalone_modification_gate",
+      "kind": "boundary"
+    },
+    {
+      "id": "time_control_gds_generation_gate",
+      "kind": "boundary"
+    },
+    {
+      "id": "physical_placement_gate",
+      "kind": "boundary"
+    },
+    {
+      "id": "interface_surface_scope",
+      "kind": "boundary"
+    },
+    {
+      "id": "artifact_contract_scope",
+      "kind": "boundary"
+    },
+    {
+      "id": "output_regression_scope",
+      "kind": "boundary"
+    },
+    {
+      "id": "standalone_modification_gate",
+      "kind": "reopening_requirement"
+    },
+    {
+      "id": "time_control_gds_generation_gate",
+      "kind": "reopening_requirement"
+    },
+    {
+      "id": "physical_placement_gate",
+      "kind": "reopening_requirement"
+    }
+  ],
+  "edges": [
+    {
+      "source": "standalone_modification_gate",
+      "target": "standalone_modification_gate",
+      "relation": "reopens_with_new_evidence"
+    },
+    {
+      "source": "time_control_gds_generation_gate",
+      "target": "time_control_gds_generation_gate",
+      "relation": "reopens_with_new_evidence"
+    },
+    {
+      "source": "physical_placement_gate",
+      "target": "physical_placement_gate",
+      "relation": "reopens_with_new_evidence"
+    }
+  ],
+  "summary": {
+    "final_boundary_summary_available": true,
+    "highest_stage_reached": "Post-Stage D / abstract_floorplan_payload",
+    "final_boundary_clean": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false,
+    "legacy_path_unchanged": true
+  }
+}

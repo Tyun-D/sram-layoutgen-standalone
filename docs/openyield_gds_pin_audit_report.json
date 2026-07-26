@@ -1,0 +1,3027 @@
+{
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_standalone\\technology\\freepdk45",
+  "gds_reader": "internal_gdsii_text_boundary_parser",
+  "gds_reader_limitations": [
+    "Extracts TEXT, BOUNDARY, and PATH bboxes only.",
+    "Does not flatten hierarchy or prove electrical connectivity.",
+    "Pin shapes are inferred from same-layer shapes containing or near the TEXT label."
+  ],
+  "macro_count": 14,
+  "audited_macros": [
+    {
+      "macro_name": "cell_1rw",
+      "gds_path": "technology\\freepdk45\\gds_lib\\cell_1rw.gds",
+      "spice_path": "technology\\freepdk45\\sp_lib\\cell_1rw.sp",
+      "bbox": {
+        "x0": -0.095,
+        "y0": -0.1,
+        "x1": 0.8,
+        "y1": 1.465
+      },
+      "width": 0.895,
+      "height": 1.5650000000000002,
+      "labels": [
+        {
+          "text": "gnd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.34500000000000003,
+          "y": 0.0
+        },
+        {
+          "text": "vdd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.34500000000000003,
+          "y": 1.365
+        },
+        {
+          "text": "Q_bar",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.625,
+          "y": 0.48
+        },
+        {
+          "text": "Q",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.0825,
+          "y": 0.46
+        },
+        {
+          "text": "wl",
+          "layer": 11,
+          "texttype": 0,
+          "x": -0.05,
+          "y": 0.167
+        },
+        {
+          "text": "bl",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.19,
+          "y": 0.003
+        },
+        {
+          "text": "br",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.52,
+          "y": 0.003
+        }
+      ],
+      "pins": [
+        {
+          "pin_name": "VDD",
+          "canonical_pin": "vdd",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.34500000000000003,
+            "y": 1.365
+          },
+          "pin_shape_bbox": {
+            "x0": -0.09,
+            "y0": 1.3325,
+            "x1": 0.795,
+            "y1": 1.3975
+          },
+          "pin_side": "top",
+          "distance_to_boundary": 0.10000000000000009,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "VSS",
+          "canonical_pin": "gnd",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.34500000000000003,
+            "y": 0.0
+          },
+          "pin_shape_bbox": {
+            "x0": -0.09,
+            "y0": -0.0325,
+            "x1": 0.795,
+            "y1": 0.0325
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.1,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "BL",
+          "canonical_pin": "bl",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.19,
+            "y": 0.003
+          },
+          "pin_shape_bbox": {
+            "x0": 0.15,
+            "y0": -0.08,
+            "x1": 0.22,
+            "y1": 1.465
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.10300000000000001,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "BLB",
+          "canonical_pin": "br",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.52,
+            "y": 0.003
+          },
+          "pin_shape_bbox": {
+            "x0": 0.485,
+            "y0": -0.08,
+            "x1": 0.555,
+            "y1": 1.465
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.10300000000000001,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "WL",
+          "canonical_pin": "wl",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": -0.05,
+            "y": 0.167
+          },
+          "pin_shape_bbox": {
+            "x0": -0.09,
+            "y0": 0.1275,
+            "x1": 0.795,
+            "y1": 0.1925
+          },
+          "pin_side": "left",
+          "distance_to_boundary": 0.045,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        }
+      ],
+      "power_rail_audit": {
+        "has_vdd": true,
+        "has_gnd": true,
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "vdd_boundary_touch": false,
+        "gnd_boundary_touch": false,
+        "vdd_orientation": "horizontal",
+        "gnd_orientation": "horizontal",
+        "can_share_left_right": false,
+        "can_share_top_bottom": true,
+        "rail_continuity_status": "rail_abutment_ready",
+        "notes": []
+      },
+      "abutment_readiness": "abutment_ready",
+      "semantic_flags": [],
+      "gds_reader_status": "ok",
+      "notes": [
+        "SRAM bitcells are expected to abut in arrays, but final enablement still requires GDS pin-shape and rail-continuity audit."
+      ]
+    },
+    {
+      "macro_name": "dff",
+      "gds_path": "technology\\freepdk45\\gds_lib\\dff.gds",
+      "spice_path": "technology\\freepdk45\\sp_lib\\dff.sp",
+      "bbox": {
+        "x0": 0.0,
+        "y0": -0.0999999999999994,
+        "x1": 2.8599999999999826,
+        "y1": 2.5699999999999843
+      },
+      "width": 2.8599999999999826,
+      "height": 2.6699999999999835,
+      "labels": [
+        {
+          "text": "clk",
+          "layer": 13,
+          "texttype": 0,
+          "x": 1.8649999999999887,
+          "y": 1.149999999999993
+        },
+        {
+          "text": "D",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.2949999999999982,
+          "y": 1.149999999999993
+        },
+        {
+          "text": "Q",
+          "layer": 13,
+          "texttype": 0,
+          "x": 2.6849999999999836,
+          "y": 1.0999999999999934
+        },
+        {
+          "text": "gnd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 1.64499999999999,
+          "y": 0.042499999999999746
+        },
+        {
+          "text": "vdd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 2.0349999999999877,
+          "y": 2.5324999999999847
+        }
+      ],
+      "pins": [
+        {
+          "pin_name": "VDD",
+          "canonical_pin": "vdd",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 2.0349999999999877,
+            "y": 2.5324999999999847
+          },
+          "pin_shape_bbox": {
+            "x0": 0.0999999999999994,
+            "y0": 1.2674999999999923,
+            "x1": 2.8599999999999826,
+            "y1": 2.5349999999999846
+          },
+          "pin_side": "top",
+          "distance_to_boundary": 0.037499999999999645,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "VSS",
+          "canonical_pin": "gnd",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 1.64499999999999,
+            "y": 0.042499999999999746
+          },
+          "pin_shape_bbox": {
+            "x0": 0.0999999999999994,
+            "y0": -0.06499999999999961,
+            "x1": 2.7599999999999834,
+            "y1": 0.987499999999994
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.14249999999999913,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "D",
+          "canonical_pin": "d",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.2949999999999982,
+            "y": 1.149999999999993
+          },
+          "pin_shape_bbox": {
+            "x0": 0.24499999999999852,
+            "y0": 1.0374999999999936,
+            "x1": 0.32249999999999807,
+            "y1": 1.172499999999993
+          },
+          "pin_side": "left",
+          "distance_to_boundary": 0.2949999999999982,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "Q",
+          "canonical_pin": "dout",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 2.6849999999999836,
+            "y": 1.0999999999999934
+          },
+          "pin_shape_bbox": {
+            "x0": 2.632499999999984,
+            "y0": 1.0474999999999937,
+            "x1": 2.7099999999999835,
+            "y1": 1.1824999999999928
+          },
+          "pin_side": "right",
+          "distance_to_boundary": 0.17499999999999893,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "CLK",
+          "canonical_pin": "clk",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 1.8649999999999887,
+            "y": 1.149999999999993
+          },
+          "pin_shape_bbox": {
+            "x0": 1.819999999999989,
+            "y0": 1.0374999999999936,
+            "x1": 1.8974999999999884,
+            "y1": 1.172499999999993
+          },
+          "pin_side": "internal",
+          "distance_to_boundary": 1.001249999999994,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        }
+      ],
+      "power_rail_audit": {
+        "has_vdd": true,
+        "has_gnd": true,
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "vdd_boundary_touch": true,
+        "gnd_boundary_touch": false,
+        "vdd_orientation": "horizontal",
+        "gnd_orientation": "horizontal",
+        "can_share_left_right": false,
+        "can_share_top_bottom": false,
+        "rail_continuity_status": "rail_needs_manual_review",
+        "notes": []
+      },
+      "abutment_readiness": "unknown_need_gds_pin_audit",
+      "semantic_flags": [],
+      "gds_reader_status": "ok",
+      "notes": [
+        "OpenYield DFF Q is accepted as canonical dout for current contract compatibility."
+      ]
+    },
+    {
+      "macro_name": "dummy_cell_1rw",
+      "gds_path": "technology\\freepdk45\\gds_lib\\dummy_cell_1rw.gds",
+      "spice_path": "technology\\freepdk45\\sp_lib\\dummy_cell_1rw.sp",
+      "bbox": {
+        "x0": -0.09499999999999872,
+        "y0": -0.09999999999999866,
+        "x1": 0.7999999999999893,
+        "y1": 1.4649999999999803
+      },
+      "width": 0.894999999999988,
+      "height": 1.564999999999979,
+      "labels": [
+        {
+          "text": "gnd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.34499999999999537,
+          "y": 0.0
+        },
+        {
+          "text": "vdd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.34499999999999537,
+          "y": 1.3649999999999818
+        },
+        {
+          "text": "wl",
+          "layer": 11,
+          "texttype": 0,
+          "x": -0.04999999999999933,
+          "y": 0.16699999999999776
+        },
+        {
+          "text": "br",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.519999999999993,
+          "y": 0.0029999999999999597
+        },
+        {
+          "text": "bl",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.18999999999999745,
+          "y": 0.0029999999999999597
+        }
+      ],
+      "pins": [
+        {
+          "pin_name": "VDD",
+          "canonical_pin": "vdd",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.34499999999999537,
+            "y": 1.3649999999999818
+          },
+          "pin_shape_bbox": {
+            "x0": -0.08999999999999879,
+            "y0": 1.332499999999982,
+            "x1": 0.7949999999999894,
+            "y1": 1.3974999999999813
+          },
+          "pin_side": "top",
+          "distance_to_boundary": 0.09999999999999853,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "VSS",
+          "canonical_pin": "gnd",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.34499999999999537,
+            "y": 0.0
+          },
+          "pin_shape_bbox": {
+            "x0": 0.2849999999999962,
+            "y0": -0.032499999999999564,
+            "x1": 0.4199999999999944,
+            "y1": 0.032499999999999564
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.09999999999999866,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "BL",
+          "canonical_pin": "bl",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.18999999999999745,
+            "y": 0.0029999999999999597
+          },
+          "pin_shape_bbox": {
+            "x0": 0.1574999999999979,
+            "y0": -0.024999999999999665,
+            "x1": 0.21249999999999714,
+            "y1": 0.027499999999999632
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.10299999999999862,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "BLB",
+          "canonical_pin": "br",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.519999999999993,
+            "y": 0.0029999999999999597
+          },
+          "pin_shape_bbox": {
+            "x0": 0.4924999999999934,
+            "y0": -0.032499999999999564,
+            "x1": 0.5499999999999926,
+            "y1": 0.027499999999999632
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.10299999999999862,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "WL",
+          "canonical_pin": "wl",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": -0.04999999999999933,
+            "y": 0.16699999999999776
+          },
+          "pin_shape_bbox": {
+            "x0": -0.08499999999999885,
+            "y0": 0.12999999999999826,
+            "x1": -0.032499999999999564,
+            "y1": 0.19249999999999742
+          },
+          "pin_side": "left",
+          "distance_to_boundary": 0.044999999999999395,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        }
+      ],
+      "power_rail_audit": {
+        "has_vdd": true,
+        "has_gnd": true,
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "vdd_boundary_touch": false,
+        "gnd_boundary_touch": false,
+        "vdd_orientation": "horizontal",
+        "gnd_orientation": "horizontal",
+        "can_share_left_right": false,
+        "can_share_top_bottom": true,
+        "rail_continuity_status": "rail_abutment_ready",
+        "notes": []
+      },
+      "abutment_readiness": "abutment_ready",
+      "semantic_flags": [],
+      "gds_reader_status": "ok",
+      "notes": [
+        "OpenYield Dummy_Column is an array composition of dummy_cell_1rw."
+      ]
+    },
+    {
+      "macro_name": "gen_col_mux",
+      "gds_path": "technology\\freepdk45\\gds_lib\\openram_replacements\\gen_col_mux.gds",
+      "spice_path": null,
+      "bbox": {
+        "x0": -0.08,
+        "y0": -0.08,
+        "x1": 0.7375,
+        "y1": 1.8
+      },
+      "width": 0.8175,
+      "height": 1.8800000000000001,
+      "labels": [
+        {
+          "text": "sel",
+          "layer": 9,
+          "texttype": 0,
+          "x": 0.3525,
+          "y": 0.0525
+        },
+        {
+          "text": "bl",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.17500000000000002,
+          "y": 1.73
+        },
+        {
+          "text": "br",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.6,
+          "y": 1.73
+        },
+        {
+          "text": "bl_out",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.17500000000000002,
+          "y": 0.07
+        },
+        {
+          "text": "br_out",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.6,
+          "y": 0.07
+        },
+        {
+          "text": "gnd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.705,
+          "y": 0.87
+        },
+        {
+          "text": "G",
+          "layer": 9,
+          "texttype": 0,
+          "x": 0.1525,
+          "y": 0.36
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.045,
+          "y": 0.36
+        },
+        {
+          "text": "D",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.26,
+          "y": 0.36
+        }
+      ],
+      "pins": [
+        {
+          "pin_name": "VDD",
+          "canonical_pin": "vdd",
+          "pin_layer": "unknown",
+          "pin_text_position": null,
+          "pin_shape_bbox": null,
+          "pin_side": "unknown",
+          "distance_to_boundary": null,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "missing",
+          "notes": [
+            "Expected pin label not found in GDS TEXT labels."
+          ]
+        },
+        {
+          "pin_name": "gnd",
+          "canonical_pin": "gnd",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.705,
+            "y": 0.87
+          },
+          "pin_shape_bbox": {
+            "x0": 0.6725,
+            "y0": 0.8375,
+            "x1": 0.7375,
+            "y1": 0.9025
+          },
+          "pin_side": "right",
+          "distance_to_boundary": 0.032500000000000084,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "BL",
+          "canonical_pin": "bl",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.17500000000000002,
+            "y": 1.73
+          },
+          "pin_shape_bbox": {
+            "x0": 0.14,
+            "y0": 1.6600000000000001,
+            "x1": 0.21,
+            "y1": 1.8
+          },
+          "pin_side": "top",
+          "distance_to_boundary": 0.07000000000000006,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "BR",
+          "canonical_pin": "br",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.6,
+            "y": 1.73
+          },
+          "pin_shape_bbox": {
+            "x0": 0.5650000000000001,
+            "y0": 1.6600000000000001,
+            "x1": 0.635,
+            "y1": 1.8
+          },
+          "pin_side": "top",
+          "distance_to_boundary": 0.07000000000000006,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "OUT",
+          "canonical_pin": "mux_out",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.17500000000000002,
+            "y": 0.07
+          },
+          "pin_shape_bbox": {
+            "x0": 0.14,
+            "y0": 0.0,
+            "x1": 0.21,
+            "y1": 0.14
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.15000000000000002,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "OUTB",
+          "canonical_pin": "mux_out_b",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.6,
+            "y": 0.07
+          },
+          "pin_shape_bbox": {
+            "x0": 0.5650000000000001,
+            "y0": 0.0,
+            "x1": 0.635,
+            "y1": 0.14
+          },
+          "pin_side": "right",
+          "distance_to_boundary": 0.13750000000000007,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "SEL",
+          "canonical_pin": "column_select",
+          "pin_layer": "9/texttype0",
+          "pin_text_position": {
+            "x": 0.3525,
+            "y": 0.0525
+          },
+          "pin_shape_bbox": {
+            "x0": 0.3275,
+            "y0": 0.025,
+            "x1": 0.3775,
+            "y1": 0.08
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.1325,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        }
+      ],
+      "power_rail_audit": {
+        "has_vdd": false,
+        "has_gnd": true,
+        "vdd_side": "unknown",
+        "gnd_side": "right",
+        "vdd_boundary_touch": true,
+        "gnd_boundary_touch": true,
+        "vdd_orientation": "unknown",
+        "gnd_orientation": "horizontal",
+        "can_share_left_right": false,
+        "can_share_top_bottom": false,
+        "rail_continuity_status": "rail_needs_manual_review",
+        "notes": [
+          "Power pins are label-only or lack matching shapes; rail continuity is not proven."
+        ]
+      },
+      "abutment_readiness": "unknown_need_gds_pin_audit",
+      "semantic_flags": [
+        "missing_power_metadata"
+      ],
+      "gds_reader_status": "ok",
+      "notes": []
+    },
+    {
+      "macro_name": "gen_delay_inv",
+      "gds_path": "technology\\freepdk45\\gds_lib\\openram_replacements\\gen_delay_inv.gds",
+      "spice_path": null,
+      "bbox": {
+        "x0": -0.08,
+        "y0": -0.08,
+        "x1": 0.7425,
+        "y1": 2.505
+      },
+      "width": 0.8225,
+      "height": 2.585,
+      "labels": [
+        {
+          "text": "A",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.14,
+          "y": 1.19
+        },
+        {
+          "text": "Z",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.3725,
+          "y": 1.19
+        },
+        {
+          "text": "gnd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.34500000000000003,
+          "y": 0.0
+        },
+        {
+          "text": "vdd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.34500000000000003,
+          "y": 2.47
+        },
+        {
+          "text": "G",
+          "layer": 9,
+          "texttype": 0,
+          "x": 0.1525,
+          "y": 0.045
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.045,
+          "y": 0.045
+        },
+        {
+          "text": "D",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.26,
+          "y": 0.045
+        },
+        {
+          "text": "G",
+          "layer": 9,
+          "texttype": 0,
+          "x": 0.1525,
+          "y": 0.135
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.045,
+          "y": 0.135
+        },
+        {
+          "text": "D",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.26,
+          "y": 0.135
+        }
+      ],
+      "pins": [
+        {
+          "pin_name": "A",
+          "canonical_pin": "a",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.14,
+            "y": 1.19
+          },
+          "pin_shape_bbox": {
+            "x0": 0.0725,
+            "y0": 1.1575,
+            "x1": 0.20750000000000002,
+            "y1": 1.2225
+          },
+          "pin_side": "left",
+          "distance_to_boundary": 0.22000000000000003,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "Z",
+          "canonical_pin": "z",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.3725,
+            "y": 1.19
+          },
+          "pin_shape_bbox": {
+            "x0": 0.3075,
+            "y0": 0.10250000000000001,
+            "x1": 0.3725,
+            "y1": 2.2775
+          },
+          "pin_side": "right",
+          "distance_to_boundary": 0.37000000000000005,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "gnd",
+          "canonical_pin": "gnd",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.34500000000000003,
+            "y": 0.0
+          },
+          "pin_shape_bbox": {
+            "x0": 0.0,
+            "y0": -0.0325,
+            "x1": 0.6875,
+            "y1": 0.0325
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.08,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "vdd",
+          "canonical_pin": "vdd",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.34500000000000003,
+            "y": 2.47
+          },
+          "pin_shape_bbox": {
+            "x0": 0.0,
+            "y0": 2.4375,
+            "x1": 0.6875,
+            "y1": 2.5025
+          },
+          "pin_side": "top",
+          "distance_to_boundary": 0.0349999999999997,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        }
+      ],
+      "power_rail_audit": {
+        "has_vdd": true,
+        "has_gnd": true,
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "vdd_boundary_touch": true,
+        "gnd_boundary_touch": false,
+        "vdd_orientation": "horizontal",
+        "gnd_orientation": "horizontal",
+        "can_share_left_right": false,
+        "can_share_top_bottom": false,
+        "rail_continuity_status": "rail_needs_manual_review",
+        "notes": []
+      },
+      "abutment_readiness": "unknown_need_gds_pin_audit",
+      "semantic_flags": [],
+      "gds_reader_status": "ok",
+      "notes": []
+    },
+    {
+      "macro_name": "gen_inv",
+      "gds_path": "technology\\freepdk45\\gds_lib\\openram_replacements\\gen_inv.gds",
+      "spice_path": null,
+      "bbox": {
+        "x0": -0.08,
+        "y0": -0.08,
+        "x1": 0.7425,
+        "y1": 1.4000000000000001
+      },
+      "width": 0.8225,
+      "height": 1.4800000000000002,
+      "labels": [
+        {
+          "text": "A",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.14,
+          "y": 0.6375000000000001
+        },
+        {
+          "text": "Z",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.3725,
+          "y": 0.6375000000000001
+        },
+        {
+          "text": "gnd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.34500000000000003,
+          "y": 0.0
+        },
+        {
+          "text": "vdd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.34500000000000003,
+          "y": 1.365
+        },
+        {
+          "text": "G",
+          "layer": 9,
+          "texttype": 0,
+          "x": 0.1525,
+          "y": 0.045
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.045,
+          "y": 0.045
+        },
+        {
+          "text": "D",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.26,
+          "y": 0.045
+        },
+        {
+          "text": "G",
+          "layer": 9,
+          "texttype": 0,
+          "x": 0.1525,
+          "y": 0.135
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.045,
+          "y": 0.135
+        },
+        {
+          "text": "D",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.26,
+          "y": 0.135
+        }
+      ],
+      "pins": [
+        {
+          "pin_name": "A",
+          "canonical_pin": "a",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.14,
+            "y": 0.6375000000000001
+          },
+          "pin_shape_bbox": {
+            "x0": 0.0725,
+            "y0": 0.605,
+            "x1": 0.20750000000000002,
+            "y1": 0.67
+          },
+          "pin_side": "left",
+          "distance_to_boundary": 0.22000000000000003,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "Z",
+          "canonical_pin": "z",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.3725,
+            "y": 0.6375000000000001
+          },
+          "pin_shape_bbox": {
+            "x0": 0.3075,
+            "y0": 0.10250000000000001,
+            "x1": 0.3725,
+            "y1": 1.1725
+          },
+          "pin_side": "right",
+          "distance_to_boundary": 0.37000000000000005,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "gnd",
+          "canonical_pin": "gnd",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.34500000000000003,
+            "y": 0.0
+          },
+          "pin_shape_bbox": {
+            "x0": 0.0,
+            "y0": -0.0325,
+            "x1": 0.6875,
+            "y1": 0.0325
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.08,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "vdd",
+          "canonical_pin": "vdd",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.34500000000000003,
+            "y": 1.365
+          },
+          "pin_shape_bbox": {
+            "x0": 0.0,
+            "y0": 1.3325,
+            "x1": 0.6875,
+            "y1": 1.3975
+          },
+          "pin_side": "top",
+          "distance_to_boundary": 0.03500000000000014,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        }
+      ],
+      "power_rail_audit": {
+        "has_vdd": true,
+        "has_gnd": true,
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "vdd_boundary_touch": true,
+        "gnd_boundary_touch": false,
+        "vdd_orientation": "horizontal",
+        "gnd_orientation": "horizontal",
+        "can_share_left_right": false,
+        "can_share_top_bottom": false,
+        "rail_continuity_status": "rail_needs_manual_review",
+        "notes": []
+      },
+      "abutment_readiness": "unknown_need_gds_pin_audit",
+      "semantic_flags": [],
+      "gds_reader_status": "ok",
+      "notes": []
+    },
+    {
+      "macro_name": "gen_nand2",
+      "gds_path": "technology\\freepdk45\\gds_lib\\openram_replacements\\gen_nand2.gds",
+      "spice_path": null,
+      "bbox": {
+        "x0": -0.08,
+        "y0": -0.08,
+        "x1": 0.9575,
+        "y1": 1.4000000000000001
+      },
+      "width": 1.0375,
+      "height": 1.4800000000000002,
+      "labels": [
+        {
+          "text": "Z",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.685,
+          "y": 0.9400000000000001
+        },
+        {
+          "text": "gnd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.45,
+          "y": 0.0
+        },
+        {
+          "text": "vdd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.45,
+          "y": 1.365
+        },
+        {
+          "text": "A",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.2325,
+          "y": 0.4275
+        },
+        {
+          "text": "B",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.4475,
+          "y": 0.7075
+        },
+        {
+          "text": "G",
+          "layer": 9,
+          "texttype": 0,
+          "x": 0.1525,
+          "y": 0.09
+        },
+        {
+          "text": "S",
+          "layer": 1,
+          "texttype": 0,
+          "x": 0.045,
+          "y": 0.09
+        },
+        {
+          "text": "D",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.26,
+          "y": 0.09
+        },
+        {
+          "text": "G",
+          "layer": 9,
+          "texttype": 0,
+          "x": 0.1525,
+          "y": 0.09
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.045,
+          "y": 0.09
+        },
+        {
+          "text": "D",
+          "layer": 1,
+          "texttype": 0,
+          "x": 0.26,
+          "y": 0.09
+        },
+        {
+          "text": "G",
+          "layer": 9,
+          "texttype": 0,
+          "x": 0.1525,
+          "y": 0.135
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.045,
+          "y": 0.135
+        },
+        {
+          "text": "D",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.26,
+          "y": 0.135
+        }
+      ],
+      "pins": [
+        {
+          "pin_name": "vdd",
+          "canonical_pin": "vdd",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.45,
+            "y": 1.365
+          },
+          "pin_shape_bbox": {
+            "x0": 0.0,
+            "y0": 1.3325,
+            "x1": 0.9025,
+            "y1": 1.3975
+          },
+          "pin_side": "top",
+          "distance_to_boundary": 0.03500000000000014,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "gnd",
+          "canonical_pin": "gnd",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.45,
+            "y": 0.0
+          },
+          "pin_shape_bbox": {
+            "x0": 0.0,
+            "y0": -0.0325,
+            "x1": 0.9025,
+            "y1": 0.0325
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.08,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "A",
+          "canonical_pin": "a",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.2325,
+            "y": 0.4275
+          },
+          "pin_shape_bbox": {
+            "x0": 0.165,
+            "y0": 0.395,
+            "x1": 0.3,
+            "y1": 0.46
+          },
+          "pin_side": "left",
+          "distance_to_boundary": 0.3125,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "B",
+          "canonical_pin": "b",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.4475,
+            "y": 0.7075
+          },
+          "pin_shape_bbox": {
+            "x0": 0.38,
+            "y0": 0.675,
+            "x1": 0.515,
+            "y1": 0.74
+          },
+          "pin_side": "internal",
+          "distance_to_boundary": 0.51,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "Z",
+          "canonical_pin": "z",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.685,
+            "y": 0.9400000000000001
+          },
+          "pin_shape_bbox": {
+            "x0": 0.34,
+            "y0": 0.9075,
+            "x1": 0.685,
+            "y1": 0.9725
+          },
+          "pin_side": "right",
+          "distance_to_boundary": 0.27249999999999996,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        }
+      ],
+      "power_rail_audit": {
+        "has_vdd": true,
+        "has_gnd": true,
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "vdd_boundary_touch": true,
+        "gnd_boundary_touch": false,
+        "vdd_orientation": "horizontal",
+        "gnd_orientation": "horizontal",
+        "can_share_left_right": false,
+        "can_share_top_bottom": false,
+        "rail_continuity_status": "rail_needs_manual_review",
+        "notes": []
+      },
+      "abutment_readiness": "unknown_need_gds_pin_audit",
+      "semantic_flags": [],
+      "gds_reader_status": "ok",
+      "notes": []
+    },
+    {
+      "macro_name": "gen_nand4",
+      "gds_path": "technology\\freepdk45\\gds_lib\\gen_nand4.gds",
+      "spice_path": null,
+      "bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 2.5999999999999996,
+        "y1": 1.5649999999999997
+      },
+      "width": 2.5999999999999996,
+      "height": 1.5649999999999997,
+      "labels": [],
+      "pins": [
+        {
+          "pin_name": "vdd",
+          "canonical_pin": "vdd",
+          "pin_layer": "unknown",
+          "pin_text_position": null,
+          "pin_shape_bbox": null,
+          "pin_side": "unknown",
+          "distance_to_boundary": null,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "missing",
+          "notes": [
+            "Expected pin label not found in GDS TEXT labels."
+          ]
+        },
+        {
+          "pin_name": "gnd",
+          "canonical_pin": "gnd",
+          "pin_layer": "unknown",
+          "pin_text_position": null,
+          "pin_shape_bbox": null,
+          "pin_side": "unknown",
+          "distance_to_boundary": null,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "missing",
+          "notes": [
+            "Expected pin label not found in GDS TEXT labels."
+          ]
+        },
+        {
+          "pin_name": "A",
+          "canonical_pin": "a",
+          "pin_layer": "unknown",
+          "pin_text_position": null,
+          "pin_shape_bbox": null,
+          "pin_side": "unknown",
+          "distance_to_boundary": null,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "missing",
+          "notes": [
+            "Expected pin label not found in GDS TEXT labels."
+          ]
+        },
+        {
+          "pin_name": "B",
+          "canonical_pin": "b",
+          "pin_layer": "unknown",
+          "pin_text_position": null,
+          "pin_shape_bbox": null,
+          "pin_side": "unknown",
+          "distance_to_boundary": null,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "missing",
+          "notes": [
+            "Expected pin label not found in GDS TEXT labels."
+          ]
+        },
+        {
+          "pin_name": "C",
+          "canonical_pin": "c",
+          "pin_layer": "unknown",
+          "pin_text_position": null,
+          "pin_shape_bbox": null,
+          "pin_side": "unknown",
+          "distance_to_boundary": null,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "missing",
+          "notes": [
+            "Expected pin label not found in GDS TEXT labels."
+          ]
+        },
+        {
+          "pin_name": "D",
+          "canonical_pin": "d",
+          "pin_layer": "unknown",
+          "pin_text_position": null,
+          "pin_shape_bbox": null,
+          "pin_side": "unknown",
+          "distance_to_boundary": null,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "missing",
+          "notes": [
+            "Expected pin label not found in GDS TEXT labels."
+          ]
+        },
+        {
+          "pin_name": "Z",
+          "canonical_pin": "z",
+          "pin_layer": "unknown",
+          "pin_text_position": null,
+          "pin_shape_bbox": null,
+          "pin_side": "unknown",
+          "distance_to_boundary": null,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "missing",
+          "notes": [
+            "Expected pin label not found in GDS TEXT labels."
+          ]
+        }
+      ],
+      "power_rail_audit": {
+        "has_vdd": false,
+        "has_gnd": false,
+        "vdd_side": "unknown",
+        "gnd_side": "unknown",
+        "vdd_boundary_touch": true,
+        "gnd_boundary_touch": true,
+        "vdd_orientation": "unknown",
+        "gnd_orientation": "unknown",
+        "can_share_left_right": false,
+        "can_share_top_bottom": false,
+        "rail_continuity_status": "rail_needs_manual_review",
+        "notes": [
+          "Power pins are label-only or lack matching shapes; rail continuity is not proven."
+        ]
+      },
+      "abutment_readiness": "unknown_need_gds_pin_audit",
+      "semantic_flags": [],
+      "gds_reader_status": "ok",
+      "notes": [
+        "No TEXT labels were found in GDS; SPICE/alias metadata is used as fallback."
+      ]
+    },
+    {
+      "macro_name": "gen_precharge",
+      "gds_path": "technology\\freepdk45\\gds_lib\\openram_replacements\\gen_precharge.gds",
+      "spice_path": null,
+      "bbox": {
+        "x0": -0.08,
+        "y0": -0.08,
+        "x1": 0.705,
+        "y1": 1.34
+      },
+      "width": 0.7849999999999999,
+      "height": 1.4200000000000002,
+      "labels": [
+        {
+          "text": "en_bar",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.3525,
+          "y": -0.0125
+        },
+        {
+          "text": "vdd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.3725,
+          "y": 1.185
+        },
+        {
+          "text": "bl",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.14,
+          "y": 0.67
+        },
+        {
+          "text": "br",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.5650000000000001,
+          "y": 0.67
+        },
+        {
+          "text": "G",
+          "layer": 9,
+          "texttype": 0,
+          "x": 0.1525,
+          "y": 0.135
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.045,
+          "y": 0.135
+        },
+        {
+          "text": "D",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.26,
+          "y": 0.135
+        }
+      ],
+      "pins": [
+        {
+          "pin_name": "vdd",
+          "canonical_pin": "vdd",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.3725,
+            "y": 1.185
+          },
+          "pin_shape_bbox": {
+            "x0": 0.34,
+            "y0": 0.905,
+            "x1": 0.405,
+            "y1": 1.185
+          },
+          "pin_side": "top",
+          "distance_to_boundary": 0.15500000000000003,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "EN",
+          "canonical_pin": "precharge_enb",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.3525,
+            "y": -0.0125
+          },
+          "pin_shape_bbox": {
+            "x0": 0.0,
+            "y0": -0.045,
+            "x1": 0.705,
+            "y1": 0.02
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.0675,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "BL",
+          "canonical_pin": "bl",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.14,
+            "y": 0.67
+          },
+          "pin_shape_bbox": {
+            "x0": 0.105,
+            "y0": 0.0,
+            "x1": 0.17500000000000002,
+            "y1": 1.34
+          },
+          "pin_side": "left",
+          "distance_to_boundary": 0.22000000000000003,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "BR",
+          "canonical_pin": "br",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.5650000000000001,
+            "y": 0.67
+          },
+          "pin_shape_bbox": {
+            "x0": 0.53,
+            "y0": 0.0,
+            "x1": 0.6,
+            "y1": 1.34
+          },
+          "pin_side": "right",
+          "distance_to_boundary": 0.1399999999999999,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        }
+      ],
+      "power_rail_audit": {
+        "has_vdd": true,
+        "has_gnd": false,
+        "vdd_side": "top",
+        "gnd_side": "missing",
+        "vdd_boundary_touch": false,
+        "gnd_boundary_touch": false,
+        "vdd_orientation": "vertical",
+        "gnd_orientation": "unknown",
+        "can_share_left_right": false,
+        "can_share_top_bottom": false,
+        "rail_continuity_status": "rail_needs_manual_review",
+        "notes": [
+          "This macro does not require a GND pin in the current contract; shared rail use still needs manual review."
+        ]
+      },
+      "abutment_readiness": "unknown_need_gds_pin_audit",
+      "semantic_flags": [],
+      "gds_reader_status": "ok",
+      "notes": []
+    },
+    {
+      "macro_name": "gen_wl_driver",
+      "gds_path": "technology\\freepdk45\\gds_lib\\openram_replacements\\gen_wl_driver.gds",
+      "spice_path": null,
+      "bbox": {
+        "x0": -0.08,
+        "y0": -0.105,
+        "x1": 2.965,
+        "y1": 1.4000000000000001
+      },
+      "width": 3.045,
+      "height": 1.5050000000000001,
+      "labels": [
+        {
+          "text": "Z",
+          "layer": 11,
+          "texttype": 0,
+          "x": 1.855,
+          "y": 0.6225
+        },
+        {
+          "text": "A",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.2325,
+          "y": 0.4275
+        },
+        {
+          "text": "B",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.4475,
+          "y": 0.7075
+        },
+        {
+          "text": "gnd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 1.4825,
+          "y": 0.0
+        },
+        {
+          "text": "vdd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 1.4825,
+          "y": 1.365
+        },
+        {
+          "text": "G",
+          "layer": 9,
+          "texttype": 0,
+          "x": 0.1525,
+          "y": 0.09
+        },
+        {
+          "text": "S",
+          "layer": 1,
+          "texttype": 0,
+          "x": 0.045,
+          "y": 0.09
+        },
+        {
+          "text": "D",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.26,
+          "y": 0.09
+        },
+        {
+          "text": "G",
+          "layer": 9,
+          "texttype": 0,
+          "x": 0.1525,
+          "y": 0.09
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.045,
+          "y": 0.09
+        },
+        {
+          "text": "D",
+          "layer": 1,
+          "texttype": 0,
+          "x": 0.26,
+          "y": 0.09
+        },
+        {
+          "text": "G",
+          "layer": 9,
+          "texttype": 0,
+          "x": 0.84,
+          "y": 0.2
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 1.115,
+          "y": 0.06
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.5650000000000001,
+          "y": 0.06
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.045,
+          "y": 0.06
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 1.635,
+          "y": 0.06
+        },
+        {
+          "text": "D",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.84,
+          "y": 0.225
+        },
+        {
+          "text": "A",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.14,
+          "y": 0.6225
+        },
+        {
+          "text": "Z",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.9525,
+          "y": 0.6225
+        },
+        {
+          "text": "gnd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 1.03,
+          "y": 0.0
+        },
+        {
+          "text": "vdd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 1.03,
+          "y": 1.365
+        },
+        {
+          "text": "G",
+          "layer": 9,
+          "texttype": 0,
+          "x": 0.1525,
+          "y": 0.135
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.045,
+          "y": 0.135
+        },
+        {
+          "text": "D",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.26,
+          "y": 0.135
+        },
+        {
+          "text": "G",
+          "layer": 9,
+          "texttype": 0,
+          "x": 0.84,
+          "y": -0.08
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 1.635,
+          "y": 0.18
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 1.115,
+          "y": 0.18
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.045,
+          "y": 0.18
+        },
+        {
+          "text": "S",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.5650000000000001,
+          "y": 0.18
+        },
+        {
+          "text": "D",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.84,
+          "y": 0.015
+        },
+        {
+          "text": "Z",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.685,
+          "y": 0.9400000000000001
+        },
+        {
+          "text": "gnd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.45,
+          "y": 0.0
+        },
+        {
+          "text": "vdd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.45,
+          "y": 1.365
+        },
+        {
+          "text": "A",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.2325,
+          "y": 0.4275
+        },
+        {
+          "text": "B",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.4475,
+          "y": 0.7075
+        }
+      ],
+      "pins": [
+        {
+          "pin_name": "vdd",
+          "canonical_pin": "vdd",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 1.4825,
+            "y": 1.365
+          },
+          "pin_shape_bbox": {
+            "x0": 0.0,
+            "y0": 1.3325,
+            "x1": 2.965,
+            "y1": 1.3975
+          },
+          "pin_side": "top",
+          "distance_to_boundary": 0.03500000000000014,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "gnd",
+          "canonical_pin": "gnd",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 1.4825,
+            "y": 0.0
+          },
+          "pin_shape_bbox": {
+            "x0": 0.0,
+            "y0": -0.0325,
+            "x1": 2.965,
+            "y1": 0.0325
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.105,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "A",
+          "canonical_pin": "decoder_input",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.2325,
+            "y": 0.4275
+          },
+          "pin_shape_bbox": {
+            "x0": 0.165,
+            "y0": 0.395,
+            "x1": 0.3,
+            "y1": 0.46
+          },
+          "pin_side": "left",
+          "distance_to_boundary": 0.3125,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "B",
+          "canonical_pin": "wordline_enable",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.4475,
+            "y": 0.7075
+          },
+          "pin_shape_bbox": {
+            "x0": 0.38,
+            "y0": 0.675,
+            "x1": 0.515,
+            "y1": 0.74
+          },
+          "pin_side": "left",
+          "distance_to_boundary": 0.5275,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "Z",
+          "canonical_pin": "wl",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 1.855,
+            "y": 0.6225
+          },
+          "pin_shape_bbox": {
+            "x0": 1.8225,
+            "y0": 0.59,
+            "x1": 1.8875,
+            "y1": 0.655
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.7275,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        }
+      ],
+      "power_rail_audit": {
+        "has_vdd": true,
+        "has_gnd": true,
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "vdd_boundary_touch": true,
+        "gnd_boundary_touch": false,
+        "vdd_orientation": "horizontal",
+        "gnd_orientation": "horizontal",
+        "can_share_left_right": false,
+        "can_share_top_bottom": false,
+        "rail_continuity_status": "rail_needs_manual_review",
+        "notes": []
+      },
+      "abutment_readiness": "unknown_need_gds_pin_audit",
+      "semantic_flags": [],
+      "gds_reader_status": "ok",
+      "notes": []
+    },
+    {
+      "macro_name": "replica_cell_1rw",
+      "gds_path": "technology\\freepdk45\\gds_lib\\replica_cell_1rw.gds",
+      "spice_path": "technology\\freepdk45\\sp_lib\\replica_cell_1rw.sp",
+      "bbox": {
+        "x0": -0.09499999999999872,
+        "y0": -0.09999999999999866,
+        "x1": 0.7999999999999893,
+        "y1": 1.4649999999999803
+      },
+      "width": 0.894999999999988,
+      "height": 1.564999999999979,
+      "labels": [
+        {
+          "text": "gnd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.34499999999999537,
+          "y": 0.0
+        },
+        {
+          "text": "vdd",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.3499999999999953,
+          "y": 1.3649999999999818
+        },
+        {
+          "text": "wl",
+          "layer": 11,
+          "texttype": 0,
+          "x": -0.04999999999999933,
+          "y": 0.16699999999999776
+        },
+        {
+          "text": "bl",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.18999999999999745,
+          "y": 0.0029999999999999597
+        },
+        {
+          "text": "br",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.519999999999993,
+          "y": 0.0029999999999999597
+        }
+      ],
+      "pins": [
+        {
+          "pin_name": "VDD",
+          "canonical_pin": "vdd",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.3499999999999953,
+            "y": 1.3649999999999818
+          },
+          "pin_shape_bbox": {
+            "x0": -0.08999999999999879,
+            "y0": 1.332499999999982,
+            "x1": 0.7949999999999894,
+            "y1": 1.3974999999999813
+          },
+          "pin_side": "top",
+          "distance_to_boundary": 0.09999999999999853,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "VSS",
+          "canonical_pin": "gnd",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.34499999999999537,
+            "y": 0.0
+          },
+          "pin_shape_bbox": {
+            "x0": -0.08999999999999879,
+            "y0": -0.032499999999999564,
+            "x1": 0.7949999999999894,
+            "y1": 0.032499999999999564
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.09999999999999866,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "RBL",
+          "canonical_pin": "rbl",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.18999999999999745,
+            "y": 0.0029999999999999597
+          },
+          "pin_shape_bbox": {
+            "x0": 0.149999999999998,
+            "y0": -0.07999999999999893,
+            "x1": 0.21999999999999706,
+            "y1": 1.4649999999999803
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.10299999999999862,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "RBLB",
+          "canonical_pin": "rblb",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.519999999999993,
+            "y": 0.0029999999999999597
+          },
+          "pin_shape_bbox": {
+            "x0": 0.4849999999999935,
+            "y0": -0.07999999999999893,
+            "x1": 0.5549999999999925,
+            "y1": 1.4649999999999803
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.10299999999999862,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "WL",
+          "canonical_pin": "wl",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": -0.04999999999999933,
+            "y": 0.16699999999999776
+          },
+          "pin_shape_bbox": {
+            "x0": -0.08999999999999879,
+            "y0": 0.12749999999999828,
+            "x1": 0.7949999999999894,
+            "y1": 0.19249999999999742
+          },
+          "pin_side": "left",
+          "distance_to_boundary": 0.044999999999999395,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        }
+      ],
+      "power_rail_audit": {
+        "has_vdd": true,
+        "has_gnd": true,
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "vdd_boundary_touch": false,
+        "gnd_boundary_touch": false,
+        "vdd_orientation": "horizontal",
+        "gnd_orientation": "horizontal",
+        "can_share_left_right": false,
+        "can_share_top_bottom": true,
+        "rail_continuity_status": "rail_abutment_ready",
+        "notes": []
+      },
+      "abutment_readiness": "abutment_ready",
+      "semantic_flags": [],
+      "gds_reader_status": "ok",
+      "notes": [
+        "OpenYield Replica_Column is a column composition of replica_cell_1rw."
+      ]
+    },
+    {
+      "macro_name": "sense_amp",
+      "gds_path": "technology\\freepdk45\\gds_lib\\sense_amp.gds",
+      "spice_path": "technology\\freepdk45\\sp_lib\\sense_amp.sp",
+      "bbox": {
+        "x0": -0.03499999999999979,
+        "y0": 0.0,
+        "x1": 0.7399999999999956,
+        "y1": 6.009999999999963
+      },
+      "width": 0.7749999999999954,
+      "height": 6.009999999999963,
+      "labels": [
+        {
+          "text": "en",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.25799999999999845,
+          "y": 5.859999999999965
+        },
+        {
+          "text": "dout",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.028499999999999828,
+          "y": 0.6924999999999958
+        },
+        {
+          "text": "gnd",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.6554999999999961,
+          "y": 0.12349999999999925
+        },
+        {
+          "text": "bl",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.18999999999999884,
+          "y": 0.00499999999999997
+        },
+        {
+          "text": "br",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.5199999999999969,
+          "y": 0.006499999999999961
+        },
+        {
+          "text": "vdd",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.35249999999999787,
+          "y": 3.799999999999977
+        },
+        {
+          "text": "gnd",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.7024999999999958,
+          "y": 5.734999999999966
+        }
+      ],
+      "pins": [
+        {
+          "pin_name": "VDD",
+          "canonical_pin": "vdd",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.35249999999999787,
+            "y": 3.799999999999977
+          },
+          "pin_shape_bbox": {
+            "x0": 0.31749999999999806,
+            "y0": 3.7349999999999772,
+            "x1": 0.3874999999999977,
+            "y1": 3.8699999999999766
+          },
+          "pin_side": "left",
+          "distance_to_boundary": 0.3874999999999977,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "VSS",
+          "canonical_pin": "gnd",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.6554999999999961,
+            "y": 0.12349999999999925
+          },
+          "pin_shape_bbox": {
+            "x0": 0.6274999999999962,
+            "y0": 0.10249999999999938,
+            "x1": 0.7024999999999958,
+            "y1": 0.17749999999999894
+          },
+          "pin_side": "right",
+          "distance_to_boundary": 0.08449999999999946,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "EN",
+          "canonical_pin": "sense_enable",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.25799999999999845,
+            "y": 5.859999999999965
+          },
+          "pin_shape_bbox": {
+            "x0": 0.2299999999999986,
+            "y0": 5.827499999999965,
+            "x1": 0.2949999999999982,
+            "y1": 5.8924999999999645
+          },
+          "pin_side": "top",
+          "distance_to_boundary": 0.14999999999999858,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "IN",
+          "canonical_pin": "bl",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.18999999999999884,
+            "y": 0.00499999999999997
+          },
+          "pin_shape_bbox": {
+            "x0": 0.14999999999999908,
+            "y0": 0.0,
+            "x1": 0.21999999999999867,
+            "y1": 6.009999999999963
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.00499999999999997,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "INB",
+          "canonical_pin": "br",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.5199999999999969,
+            "y": 0.006499999999999961
+          },
+          "pin_shape_bbox": {
+            "x0": 0.48499999999999704,
+            "y0": 0.0,
+            "x1": 0.5549999999999966,
+            "y1": 6.009999999999963
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.006499999999999961,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "Q",
+          "canonical_pin": "dout",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.028499999999999828,
+            "y": 0.6924999999999958
+          },
+          "pin_shape_bbox": {
+            "x0": -0.007499999999999955,
+            "y0": 0.6699999999999959,
+            "x1": 0.06749999999999959,
+            "y1": 0.7449999999999954
+          },
+          "pin_side": "left",
+          "distance_to_boundary": 0.06349999999999961,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "QB",
+          "canonical_pin": "dout_b",
+          "pin_layer": "unknown",
+          "pin_text_position": null,
+          "pin_shape_bbox": null,
+          "pin_side": "unknown",
+          "distance_to_boundary": null,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "missing",
+          "notes": [
+            "Expected pin label not found in GDS TEXT labels."
+          ]
+        }
+      ],
+      "power_rail_audit": {
+        "has_vdd": true,
+        "has_gnd": true,
+        "vdd_side": "left",
+        "gnd_side": "right",
+        "vdd_boundary_touch": false,
+        "gnd_boundary_touch": false,
+        "vdd_orientation": "vertical",
+        "gnd_orientation": "horizontal",
+        "can_share_left_right": false,
+        "can_share_top_bottom": false,
+        "rail_continuity_status": "rail_needs_manual_review",
+        "notes": []
+      },
+      "abutment_readiness": "unknown_need_gds_pin_audit",
+      "semantic_flags": [
+        "senseamp_in_to_bl_confirmed",
+        "senseamp_inb_to_br_confirmed",
+        "senseamp_q_to_dout_confirmed",
+        "architecture_adapter_required",
+        "senseamp_qb_dout_b_missing"
+      ],
+      "gds_reader_status": "ok",
+      "notes": [
+        "Local sense_amp SPICE has a single dout pin; OpenYield SENSEAMP contract has Q and QB. Treat QB/dout_b as unresolved until the GDS/SPICE semantics are confirmed."
+      ]
+    },
+    {
+      "macro_name": "tri_gate",
+      "gds_path": "technology\\freepdk45\\gds_lib\\tri_gate.gds",
+      "spice_path": "technology\\freepdk45\\sp_lib\\tri_gate.sp",
+      "bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 0.7399999999999956,
+        "y1": 2.974999999999982
+      },
+      "width": 0.7399999999999956,
+      "height": 2.974999999999982,
+      "labels": [
+        {
+          "text": "en",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.35249999999999787,
+          "y": 0.39499999999999763
+        },
+        {
+          "text": "en_bar",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.30749999999999816,
+          "y": 1.9499999999999882
+        },
+        {
+          "text": "vdd",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.39499999999999763,
+          "y": 1.9424999999999883
+        },
+        {
+          "text": "gnd",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.5049999999999969,
+          "y": 0.6049999999999963
+        },
+        {
+          "text": "in",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.34999999999999787,
+          "y": 2.8074999999999832
+        },
+        {
+          "text": "out",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.35249999999999787,
+          "y": 0.17749999999999894
+        },
+        {
+          "text": "gnd",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.7074999999999957,
+          "y": 2.637499999999984
+        }
+      ],
+      "pins": [
+        {
+          "pin_name": "in",
+          "canonical_pin": "din",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.34999999999999787,
+            "y": 2.8074999999999832
+          },
+          "pin_shape_bbox": {
+            "x0": 0.31749999999999806,
+            "y0": 2.7349999999999834,
+            "x1": 0.3874999999999977,
+            "y1": 2.8624999999999825
+          },
+          "pin_side": "top",
+          "distance_to_boundary": 0.16749999999999865,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "out",
+          "canonical_pin": "dout",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.35249999999999787,
+            "y": 0.17749999999999894
+          },
+          "pin_shape_bbox": {
+            "x0": 0.31749999999999806,
+            "y0": 0.0,
+            "x1": 0.3874999999999977,
+            "y1": 0.34999999999999787
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.17749999999999894,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "en",
+          "canonical_pin": "en",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.35249999999999787,
+            "y": 0.39499999999999763
+          },
+          "pin_shape_bbox": {
+            "x0": 0.0,
+            "y0": 0.3674999999999978,
+            "x1": 0.7399999999999956,
+            "y1": 0.4324999999999974
+          },
+          "pin_side": "left",
+          "distance_to_boundary": 0.35249999999999787,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "en_bar",
+          "canonical_pin": "enb",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.30749999999999816,
+            "y": 1.9499999999999882
+          },
+          "pin_shape_bbox": {
+            "x0": 0.2774999999999983,
+            "y0": 1.9149999999999885,
+            "x1": 0.33999999999999797,
+            "y1": 1.979999999999988
+          },
+          "pin_side": "left",
+          "distance_to_boundary": 0.30749999999999816,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "vdd",
+          "canonical_pin": "vdd",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.39499999999999763,
+            "y": 1.9424999999999883
+          },
+          "pin_shape_bbox": {
+            "x0": 0.34999999999999787,
+            "y0": 1.8524999999999887,
+            "x1": 0.4199999999999975,
+            "y1": 2.0899999999999874
+          },
+          "pin_side": "right",
+          "distance_to_boundary": 0.3449999999999979,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "gnd",
+          "canonical_pin": "gnd",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.5049999999999969,
+            "y": 0.6049999999999963
+          },
+          "pin_shape_bbox": {
+            "x0": 0.4799999999999971,
+            "y0": 0.497499999999997,
+            "x1": 0.5499999999999967,
+            "y1": 0.6324999999999962
+          },
+          "pin_side": "right",
+          "distance_to_boundary": 0.23499999999999865,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        }
+      ],
+      "power_rail_audit": {
+        "has_vdd": true,
+        "has_gnd": true,
+        "vdd_side": "right",
+        "gnd_side": "right",
+        "vdd_boundary_touch": false,
+        "gnd_boundary_touch": false,
+        "vdd_orientation": "vertical",
+        "gnd_orientation": "vertical",
+        "can_share_left_right": false,
+        "can_share_top_bottom": false,
+        "rail_continuity_status": "rail_needs_manual_review",
+        "notes": []
+      },
+      "abutment_readiness": "unknown_need_gds_pin_audit",
+      "semantic_flags": [],
+      "gds_reader_status": "ok",
+      "notes": [
+        "Included for future output path compatibility; not a direct OpenYield top-level contract in the current parser output."
+      ]
+    },
+    {
+      "macro_name": "write_driver",
+      "gds_path": "technology\\freepdk45\\gds_lib\\write_driver.gds",
+      "spice_path": "technology\\freepdk45\\sp_lib\\write_driver.sp",
+      "bbox": {
+        "x0": -0.0999999999999994,
+        "y0": 0.0,
+        "x1": 0.7399999999999956,
+        "y1": 4.174999999999975
+      },
+      "width": 0.839999999999995,
+      "height": 4.174999999999975,
+      "labels": [
+        {
+          "text": "en",
+          "layer": 11,
+          "texttype": 0,
+          "x": 0.33249999999999796,
+          "y": 0.29999999999999816
+        },
+        {
+          "text": "din",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.31999999999999806,
+          "y": 0.03499999999999979
+        },
+        {
+          "text": "vdd",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.17249999999999896,
+          "y": 0.4324999999999974
+        },
+        {
+          "text": "br",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.5199999999999969,
+          "y": 4.149999999999975
+        },
+        {
+          "text": "bl",
+          "layer": 13,
+          "texttype": 0,
+          "x": 0.18999999999999884,
+          "y": 4.137999999999975
+        },
+        {
+          "text": "gnd",
+          "layer": 13,
+          "texttype": 0,
+          "x": -0.00499999999999997,
+          "y": 1.5699999999999905
+        }
+      ],
+      "pins": [
+        {
+          "pin_name": "VDD",
+          "canonical_pin": "vdd",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.17249999999999896,
+            "y": 0.4324999999999974
+          },
+          "pin_shape_bbox": {
+            "x0": 0.10499999999999937,
+            "y0": 0.39499999999999763,
+            "x1": 0.23999999999999855,
+            "y1": 0.4649999999999972
+          },
+          "pin_side": "left",
+          "distance_to_boundary": 0.27249999999999835,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "VSS",
+          "canonical_pin": "gnd",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": -0.00499999999999997,
+            "y": 1.5699999999999905
+          },
+          "pin_shape_bbox": {
+            "x0": -0.03499999999999979,
+            "y0": 1.162499999999993,
+            "x1": 0.03499999999999979,
+            "y1": 3.7974999999999772
+          },
+          "pin_side": "left",
+          "distance_to_boundary": 0.09499999999999942,
+          "is_power_pin": true,
+          "is_signal_pin": false,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "EN",
+          "canonical_pin": "write_enable",
+          "pin_layer": "11/texttype0",
+          "pin_text_position": {
+            "x": 0.33249999999999796,
+            "y": 0.29999999999999816
+          },
+          "pin_shape_bbox": {
+            "x0": 0.04499999999999973,
+            "y0": 0.2674999999999984,
+            "x1": 0.6349999999999961,
+            "y1": 0.33249999999999796
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.29999999999999816,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "DIN",
+          "canonical_pin": "din",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.31999999999999806,
+            "y": 0.03499999999999979
+          },
+          "pin_shape_bbox": {
+            "x0": 0.2799999999999983,
+            "y0": 0.0,
+            "x1": 0.34999999999999787,
+            "y1": 0.13999999999999915
+          },
+          "pin_side": "bottom",
+          "distance_to_boundary": 0.03499999999999979,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "BL",
+          "canonical_pin": "bl",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.18999999999999884,
+            "y": 4.137999999999975
+          },
+          "pin_shape_bbox": {
+            "x0": 0.14999999999999908,
+            "y0": 3.8749999999999765,
+            "x1": 0.21999999999999867,
+            "y1": 4.174999999999975
+          },
+          "pin_side": "top",
+          "distance_to_boundary": 0.03699999999999992,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        },
+        {
+          "pin_name": "BLB",
+          "canonical_pin": "br",
+          "pin_layer": "13/texttype0",
+          "pin_text_position": {
+            "x": 0.5199999999999969,
+            "y": 4.149999999999975
+          },
+          "pin_shape_bbox": {
+            "x0": 0.48499999999999704,
+            "y0": 1.7349999999999894,
+            "x1": 0.5549999999999966,
+            "y1": 4.174999999999975
+          },
+          "pin_side": "top",
+          "distance_to_boundary": 0.025000000000000355,
+          "is_power_pin": false,
+          "is_signal_pin": true,
+          "pin_shape_source": "label_plus_shape",
+          "notes": []
+        }
+      ],
+      "power_rail_audit": {
+        "has_vdd": true,
+        "has_gnd": true,
+        "vdd_side": "left",
+        "gnd_side": "left",
+        "vdd_boundary_touch": false,
+        "gnd_boundary_touch": false,
+        "vdd_orientation": "horizontal",
+        "gnd_orientation": "vertical",
+        "can_share_left_right": false,
+        "can_share_top_bottom": false,
+        "rail_continuity_status": "rail_needs_manual_review",
+        "notes": []
+      },
+      "abutment_readiness": "unknown_need_gds_pin_audit",
+      "semantic_flags": [],
+      "gds_reader_status": "ok",
+      "notes": [
+        "Local write_driver has matching functional pins by SPICE name; abutment requires GDS rail/pin-shape audit."
+      ]
+    }
+  ],
+  "summary": {
+    "rail_status_counts": {
+      "rail_abutment_ready": 3,
+      "rail_needs_manual_review": 11
+    },
+    "abutment_readiness_counts": {
+      "abutment_ready": 3,
+      "unknown_need_gds_pin_audit": 11
+    },
+    "macros_ready_for_aggregation": [
+      "cell_1rw",
+      "dummy_cell_1rw",
+      "replica_cell_1rw"
+    ],
+    "macros_need_manual_confirmation": [
+      "dff",
+      "gen_col_mux",
+      "gen_delay_inv",
+      "gen_inv",
+      "gen_nand2",
+      "gen_nand4",
+      "gen_precharge",
+      "gen_wl_driver",
+      "sense_amp",
+      "tri_gate",
+      "write_driver"
+    ],
+    "semantic_flags": {
+      "gen_col_mux": [
+        "missing_power_metadata"
+      ],
+      "sense_amp": [
+        "senseamp_in_to_bl_confirmed",
+        "senseamp_inb_to_br_confirmed",
+        "senseamp_q_to_dout_confirmed",
+        "architecture_adapter_required",
+        "senseamp_qb_dout_b_missing"
+      ]
+    }
+  },
+  "aliases_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_standalone\\technology\\freepdk45\\openyield_macro_aliases.json",
+  "focus_macros": [
+    "cell_1rw",
+    "dummy_cell_1rw",
+    "replica_cell_1rw",
+    "sense_amp",
+    "write_driver",
+    "dff",
+    "tri_gate",
+    "gen_precharge",
+    "gen_col_mux",
+    "gen_wl_driver",
+    "gen_nand2",
+    "gen_nand4"
+  ],
+  "semantic_conclusions": {
+    "SENSEAMP": {
+      "IN_to_bl": true,
+      "INB_to_br": true,
+      "Q_to_dout": true,
+      "QB_to_dout_b": false,
+      "conclusion": "architecture_adapter_required",
+      "recommendation": "Do not force-match QB/dout_b. Current local layoutgen uses single-ended dout sense_amp; adapt Q/QB to dout at architecture contract level."
+    },
+    "WORDLINEDRIVER": {
+      "A_decoder_input_present": true,
+      "B_wordline_enable_present": true,
+      "Z_wl_present": true,
+      "conclusion": "needs_semantic_confirmation",
+      "recommendation": "Do not directly route OpenYield B as wordline_enable until gen_wl_driver polarity and physical B/equivalent pin are confirmed."
+    },
+    "COLUMNMUX": {
+      "has_vdd_metadata": false,
+      "has_gnd_metadata": true,
+      "conclusion": "missing_power_metadata",
+      "recommendation": "Do not allow shared rail for gen_col_mux until vdd metadata or a proven vdd shape is added."
+    }
+  },
+  "can_enter_placement_aggregation": false,
+  "placement_aggregation_blockers": [
+    "The internal parser extracted labels and nearby shape bboxes, but it does not prove electrical connectivity across hierarchy.",
+    "SENSEAMP requires an architecture adapter because local sense_amp has no proven QB/dout_b physical output.",
+    "WORDLINEDRIVER still needs semantic confirmation for B/wordline_enable before routing.",
+    "COLUMNMUX is missing vdd metadata and must not be allowed to share rails.",
+    "Power rail sharing must be validated with a full GDS pin-shape/connectivity audit before placement aggregation."
+  ]
+}

@@ -1,0 +1,1561 @@
+binding_id,openyield_net,openyield_net_role,m9_layoutgen_net,raw_source_file,raw_source_line_start,raw_source_line_end,raw_source_snippet,source_hash,evidence_type,evidence_confidence,is_source_backed,is_inferred,layoutgen_pin_or_bus,layout_region,route_type,implemented_in_gds,physical_shape_evidence,fallback_used,fallback_reason
+PINBIND_001_DFF_ROW,A[i],address_distribution,SRAM_TOP:A[i]->DFF_ROW:A[i],/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py,501,537,"500:          # 动态生成节点
+501:         nodes = ['VDD', 'VSS', 'clk', 'csb', 'web', 'clk_buf', 'clk_bar',
+502:                 'cs_bar','cs', 'we_bar','we','gated_clk_bar', 'gated_clk_buf', 'wl_en']
+503: 
+504:         # 添加地址输入输出节点
+505:         nodes.extend([f'A{i}' for i in range(n_bits)])
+506:         nodes.extend([f'A_dff{i}' for i in range(n_bits)])
+507:         if operation == 'write' or operation == 'read&write':
+508:             # 添加数据输入输出节点
+509:             nodes.extend([f'DIN{i}' for i in range(num_cols)])
+510:             nodes.extend([f'DIN_dff{i}' for i in range(num_cols)])
+511: 
+512:         nodes += ['rbl','rbl_delay','rbl_delay_bar','s_en','w_en','PRE']
+513:         self.NODES = nodes
+514: 
+515:         super().__init__(
+516:             nmos_model, pmos_model,
+517:             nmos_width, pmos_width, length,
+518:             w_rc=w_rc, pi_res=pi_res, pi_cap=pi_cap,
+519:         )
+520:         self.num_rows=num_rows
+521:         self.num_cols=num_cols
+522:         self.n_bits = n_bits
+523:         #触发器在时钟上升沿触发地址信号
+524:         dff_buf_addr=ADDR_DFF(nmos_model=""NMOS_VTG"",
+525:             pmos_model=""PMOS_VTG"",num_rows=self.num_rows)
+526:         self.subcircuit(dff_buf_addr)
+527:             # 构建地址DFF连接列表
+528:         addr_dff_connections = ['VDD', 'VSS', 'clk_buf']  # 基本连接
+529:             # 添加地址输入连接
+530:         for i in range(self.n_bits):
+531:             addr_dff_connections.append(f'A{i}')
+532:             # 添加地址输出连接
+533:         for i in range(self.n_bits):
+534:             addr_dff_connections.append(f'A_dff{i}')
+535:             # 实例化DFF
+536:         self.X('dff_buf_addr',
+537:                dff_buf_addr.NAME, *addr_dff_connections)
+538: ",78ea47411c1194208fc576510910f990984d1a6fe8c03e4f3b468641b7a92f7c,RAW_NETLIST_ENTRY,HIGH,True,False,A[i],address_distribution,periphery_bus,True,periphery_bus,False,
+PINBIND_002_row_decoder,A_dff[i],address_distribution,DFF_ROW:A_dff[i]->row_decoder:A[i],/data1/qujh/work/external/OpenYield/sram_compiler/testbenches/sram_6t_core_testbench.py,336,384,"335: 
+336:     def create_decoder(self, circuit: Circuit):
+337:         decoder_config = self.sram_config.decoder    #从总config类里提取decoder部分参数
+338:         decoder = DecoderCascadeFactory(
+339:             nmos_model_inv=decoder_config.nmos_model.value[0],
+340:             pmos_model_inv=decoder_config.pmos_model.value[0],
+341:             nmos_model_nand=decoder_config.nmos_model.value[0],
+342:             pmos_model_nand=decoder_config.pmos_model.value[0],
+343:             num_rows=self.num_rows,
+344:             nand_pmos_width=decoder_config.pmos_width.value[0],
+345:             nand_nmos_width=decoder_config.nmos_width.value[0],
+346:             inv_pmos_width=decoder_config.pmos_width.value[1],
+347:             inv_nmos_width =decoder_config.nmos_width.value[1],
+348:             length=decoder_config.length.value,
+349:             w_rc=False,  # default `w_rc` is False,暂时不支持
+350:             sweep_decoder=self.sweep_decoder,
+351:             pmos_choices = self.sram_config.senseamp.pmos_model.choices,
+352:             nmos_choices = self.sram_config.senseamp.nmos_model.choices,
+353:             param_model_file =self.sim_path + '/param_sweep_models.data',
+354:         ).create()
+355:         circuit.subcircuit(decoder)   #添加到主电路
+356:         # 计算地址位数
+357:         n_bits = ceil(log2(self.num_rows)) if self.num_rows > 1 else 1
+358:           # 地址节点
+359:         address_nodes = [f'A_dff{i}' for i in range(n_bits)]
+360: 
+361:         # # 设置地址信号（目标行地址）
+362:         # address_nodes = []
+363:         # for bit in range(n_bits):
+364:         #     bit_val = (target_row >> bit) & 1  # 提取每一位的值
+365:         #     node_name = f'A{bit}'
+366:         #     if bit_val:
+367:         #         circuit.V(f'ADDR_{bit}', node_name, self.gnd_node, self.vdd)
+368:         #     else:
+369:         #         circuit.V(f'ADDR_{bit}', node_name, self.gnd_node, 0 @ u_V)
+370:         #     address_nodes.append(node_name)
+371: 
+372:         # 添加使能信号 - 始终使能
+373:         #circuit.V('DEC_EN', 'EN', self.gnd_node, self.vdd @ u_V)
+374: 
+375:         # 字线节点
+376:         wl_nodes = [f'DEC_WL{i}' for i in range(self.num_rows)]
+377: 
+378:         # 实例化译码器
+379:         circuit.X(
+380:             'DECODER', decoder.NAME,
+381:             self.power_node, self.gnd_node,  # VDD, VSS
+382:             *address_nodes,                  # 地址信号
+383:             *wl_nodes                       # 字线输出
+384:         )
+385:          # 保存译码器输出节点供字线驱动器使用",eca6d37f96040a7346c0ba4f5e958e7621fddf1485ab6b8827607617c327e779,RAW_NETLIST_ENTRY,HIGH,True,False,A[i],address_distribution,periphery_bus,True,periphery_bus,False,
+PINBIND_003_wordline_driver,DEC_WL[i],row_pitch_aligned_wordline,row_decoder:WL[i]->wordline_driver:A,/data1/qujh/work/external/OpenYield/sram_compiler/testbenches/sram_6t_core_testbench.py,375,426,"374: 
+375:         # 字线节点
+376:         wl_nodes = [f'DEC_WL{i}' for i in range(self.num_rows)]
+377: 
+378:         # 实例化译码器
+379:         circuit.X(
+380:             'DECODER', decoder.NAME,
+381:             self.power_node, self.gnd_node,  # VDD, VSS
+382:             *address_nodes,                  # 地址信号
+383:             *wl_nodes                       # 字线输出
+384:         )
+385:          # 保存译码器输出节点供字线驱动器使用
+386:         self.decoder_wl_nodes = wl_nodes
+387: 
+388:         return circuit
+389: 
+390:     def create_wl_driver(self, circuit: Circuit, target_row: int):  #创造字线驱动电路函数
+391:         """"""Create wordline driver for the target/standby row""""""
+392:         wl_config = self.sram_config.wordline_driver    #从总config类里提取wordline部分参数
+393:         wldrv = WordlineDriverFactory(
+394:             nmos_model=wl_config.nmos_model.value[0],
+395:             pmos_model=wl_config.pmos_model.value[0],
+396:             nand_pmos_width=wl_config.pmos_width.value[0],
+397:             nand_nmos_width=wl_config.nmos_width.value[0],
+398:             inv_pmos_width=wl_config.pmos_width.value[1],
+399:             inv_nmos_width =wl_config.nmos_width.value[1],
+400:             length=wl_config.length.value,
+401:             num_cols=self.num_cols,
+402:             w_rc=self.w_rc,
+403:             sweep_wordlinedriver = self.sweep_wordlinrdriver,
+404:             pmos_modle_choices = self.sram_config.senseamp.pmos_model.choices,
+405:             nmos_modle_choices = self.sram_config.senseamp.nmos_model.choices,
+406:             param_model_file =self.sim_path + '/param_sweep_models.data',
+407:         ).create()
+408:         circuit.subcircuit(wldrv)   #添加到主电路
+409: 
+410:         # Wordline control & drivers
+411:         for row in range(self.num_rows):
+412:             # 使用译码器输出作为使能信号
+413:             decoder_enable = self.decoder_wl_nodes[row]
+414:                 # Add pulse source for the target row 实例化字线驱动器
+415:          # 添加字线驱动器
+416:             circuit.X(
+417:                 f'WL_DRV_{row}', wldrv.name,
+418:                 self.power_node, self.gnd_node,
+419:                 decoder_enable,    # 来自译码器的使能信号
+420:                 'WL_EN',   # 内部使能（始终有效）
+421:                 f'WL{row}',        # 输出到SRAM阵列
+422:             )
+423:             # else:
+424:             #     # Tie idle wordlines to ground 非目标行将字线接地
+425:             #     circuit.V(f'WL{row}_gnd', f'WL{row}', self.gnd_node, 0 @ u_V)
+426:         return circuit
+427: ",0e58e6fd3accd18c9c9bcb819984bdf14dc06b9403dda5378f707657493c6300,RAW_NETLIST_ENTRY,HIGH,True,False,A,row_pitch_aligned_wordline,horizontal_across_array_rows,True,horizontal_across_array_rows,False,
+PINBIND_004_wordline_driver,WL_EN,replica_timing_distribution,CONTROL_LOGIC:wl_en->wordline_driver:B,/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py,640,657,"639:                'VDD', 'VSS', 'cs', 'clk_buf','gated_clk_buf')
+640:         #字线使能，在clk的低电平
+641:         wl_en=wl_pdrive()
+642:         self.subcircuit(wl_en)
+643:         self.X('wl_en',
+644:                wl_en.NAME,
+645:                'VDD', 'VSS', 'gated_clk_bar', 'wl_en')
+646:         inv_wl_en_bar = Pinv(
+647:             nmos_model=""NMOS_VTG"",
+648:             pmos_model=""PMOS_VTG"",
+649:             nmos_width=0.09e-6,
+650:             pmos_width=0.27e-6,
+651:             length=0.05e-6,
+652:             num='_wl_en_bar'
+653:         )
+654:         self.subcircuit(inv_wl_en_bar)
+655:         self.X('inv_wl_en_bar',
+656:             inv_wl_en_bar.NAME,
+657:             'VDD', 'VSS', 'wl_en', 'wl_en_bar')
+658: ",b2a5613217041a000d8212754b0f20565cebbe2e88aaa156668e9d3ad5753c3f,RAW_NETLIST_ENTRY,HIGH,True,False,B,replica_timing_distribution,replica_chain_periphery_route,True,replica_chain_periphery_route,False,
+PINBIND_005_bitcell_array,WL[i],row_pitch_aligned_wordline,wordline_driver:Z->bitcell_array:WL[i],/data1/qujh/work/external/OpenYield/sram_compiler/testbenches/sram_6t_core_testbench.py,416,421,"415:          # 添加字线驱动器
+416:             circuit.X(
+417:                 f'WL_DRV_{row}', wldrv.name,
+418:                 self.power_node, self.gnd_node,
+419:                 decoder_enable,    # 来自译码器的使能信号
+420:                 'WL_EN',   # 内部使能（始终有效）
+421:                 f'WL{row}',        # 输出到SRAM阵列
+422:             )",53bb8c15efbc776307edf058373f3f8b7d347add18ff499c1fdd782d0ab4cec2,RAW_NETLIST_ENTRY,HIGH,True,False,WL[i],row_pitch_aligned_wordline,horizontal_across_array_rows,True,horizontal_across_array_rows,False,
+PINBIND_006_precharge,BL[i];BLB[i],column_pitch_aligned_bitline_bar,bitcell_array:BL[i]/BLB[i]->precharge:BL/BLB,/data1/qujh/work/external/OpenYield/sram_compiler/testbenches/sram_6t_core_testbench.py,461,473,"460: 
+461:         # Add precharge circuitry for all columns 为每列都添加预充电电路实例
+462:         for col in range(self.num_cols):
+463:             circuit.X(
+464:                 f'{prch.name}_{col}',
+465:                 prch.name,
+466:                 self.power_node, 'PRE', f'BL{col}', f'BLB{col}'
+467:             )
+468:         # 新增一列，连接至 RBL 和 RBLB
+469:         circuit.X(
+470:             f'{prch.name}_RBL',
+471:             prch.name,
+472:             self.power_node, 'PRE', 'RBL', 'RBLB'
+473:         )
+474: ",4122a7fed8a14c26aa988a858cef5eb4a38b1c5566d8aed9d58dbd533225ace6,RAW_NETLIST_ENTRY,HIGH,True,False,BL/BLB,column_pitch_aligned_bitline_bar,vertical_along_array_columns,True,vertical_along_array_columns,False,
+PINBIND_007_column_mux,BL[i];BLB[i],column_pitch_aligned_bitline_bar,precharge:BL/BLB->column_mux:BL[i]/BLB[i],/data1/qujh/work/external/OpenYield/sram_compiler/testbenches/sram_6t_core_testbench.py,497,512,"496: 
+497:             # Add Column Mux for all columns    为每组列添加多路复用器实例
+498:             for col in range(self.num_cols // self.mux_in): #//表示整除，即需要几组多路选择器
+499:                 circuit.X(
+500:                     f'{cmux.name}_{col}',
+501:                     cmux.name,
+502:                     self.power_node, self.gnd_node,  # Power node and GND node
+503:                     f'SA_IN{col}',  # SA inputs are Mux's outputs
+504:                     f'SA_INB{col}',  # SA inputs are Mux's outputs
+505:                     # SELect signal, high valid, #SEL = self.mux_in
+506:                     *[f'SEL{i}' for i in range(self.mux_in)],
+507:                     *[f'SELB{i}' for i in range(self.mux_in)],
+508:                     # Inputs are BLs, #BLs  = self.mux_in
+509:                     *[f'BL{i}' for i in range(col * self.mux_in, (col + 1) * self.mux_in)],
+510:                     # Inputs are BLBs, #BLBs = self.mux_in
+511:                     *[f'BLB{i}' for i in range(col * self.mux_in, (col + 1) * self.mux_in)],
+512:                 )
+513:                 # Set SEL signals   设置选择信号：目标列使用脉冲源，其他列接地",5c18a515281bb8fa03792200b43ae5adc25c33afee906a3bb5847e3b256d670e,RAW_NETLIST_ENTRY,HIGH,True,False,BL[i]/BLB[i],column_pitch_aligned_bitline_bar,vertical_along_array_columns,True,vertical_along_array_columns,False,
+PINBIND_008_sense_amp,SA_IN[*];SA_INB[*],write_data_delivery,column_mux:SA_IN/SA_INB->sense_amp:IN/INB,/data1/qujh/work/external/OpenYield/sram_compiler/testbenches/sram_6t_core_testbench.py,567,589,"566: 
+567:         if self.choose_columnmux:
+568:             # Add SA circuitry for all columns  #为每组多路选择器下接灵敏放大器
+569:             for col in range(self.num_cols // self.mux_in):
+570:                 circuit.X(
+571:                     f'{sa.name}_{col}',
+572:                     sa.name,
+573:                     self.power_node, self.gnd_node,
+574:                     's_en',  # SA Enable signal
+575:                     f'SA_IN{col}', f'SA_INB{col}',  # Inputs
+576:                     f'SA_Q{col}', f'SA_QB{col}',  # Outputs
+577:                 )
+578: 
+579:         else:
+580:             # 直接连BL和BLB
+581:             for col in range(self.num_cols):
+582:                 circuit.X(
+583:                     f'{sa.name}_{col}',
+584:                     sa.name,
+585:                     self.power_node, self.gnd_node,
+586:                     's_en',  # SA Enable signal
+587:                     f'BL{col}', f'BLB{col}',  # Inputs
+588:                     f'SA_Q{col}', f'SA_QB{col}',  # Outputs
+589:                 )
+590:         return circuit",7b9ee6bea7c36fb237d311fa4504918168c1fb078b7e504af07ad2177b9d86aa,RAW_NETLIST_ENTRY,HIGH,True,False,IN/INB,write_data_delivery,periphery_to_column_path,True,periphery_to_column_path,False,
+PINBIND_009_sense_amp,BL[i];BLB[i],column_pitch_aligned_bitline_bar,bitcell_array:BL[i]/BLB[i]->sense_amp:IN/INB,/data1/qujh/work/external/OpenYield/sram_compiler/testbenches/sram_6t_core_testbench.py,579,589,"578: 
+579:         else:
+580:             # 直接连BL和BLB
+581:             for col in range(self.num_cols):
+582:                 circuit.X(
+583:                     f'{sa.name}_{col}',
+584:                     sa.name,
+585:                     self.power_node, self.gnd_node,
+586:                     's_en',  # SA Enable signal
+587:                     f'BL{col}', f'BLB{col}',  # Inputs
+588:                     f'SA_Q{col}', f'SA_QB{col}',  # Outputs
+589:                 )
+590:         return circuit",d876e583321e04c7e38c3c31b05c842c236775f898bf194594138b7eac92390b,RAW_NETLIST_ENTRY,HIGH,True,False,IN/INB,column_pitch_aligned_bitline_bar,vertical_along_array_columns,True,vertical_along_array_columns,False,
+PINBIND_010_SRAM_TOP,SA_Q[*];SA_QB[*],read_data_observation,sense_amp:Q/QB->SRAM_TOP:dout path,/data1/qujh/work/external/OpenYield/sram_compiler/testbenches/sram_6t_core_testbench.py,551,589,"550: 
+551:         # Sense Amplifer
+552:         sa = SenseAmpFactory(
+553:             nmos_model=self.sram_config.senseamp.nmos_model.value,
+554:             pmos_model=self.sram_config.senseamp.pmos_model.value,
+555:             nmos_width=self.sram_config.senseamp.nmos_width.value,
+556:             pmos_width=self.sram_config.senseamp.pmos_width.value,
+557:             length=self.sram_config.senseamp.length.value,
+558:             w_rc=self.w_rc,
+559:             sweep_senseamp = self.sweep_senseamp,
+560:             pmos_modle_choices = self.sram_config.senseamp.pmos_model.choices,
+561:             nmos_modle_choices = self.sram_config.senseamp.nmos_model.choices,
+562:             param_model_file =self.sim_path + '/param_sweep_models.data',
+563:         ).create()
+564:         circuit.subcircuit(sa)  #添加灵敏放大器实例到主电路
+565:         self.sa_inst_prefix = f'X{sa.name}'
+566: 
+567:         if self.choose_columnmux:
+568:             # Add SA circuitry for all columns  #为每组多路选择器下接灵敏放大器
+569:             for col in range(self.num_cols // self.mux_in):
+570:                 circuit.X(
+571:                     f'{sa.name}_{col}',
+572:                     sa.name,
+573:                     self.power_node, self.gnd_node,
+574:                     's_en',  # SA Enable signal
+575:                     f'SA_IN{col}', f'SA_INB{col}',  # Inputs
+576:                     f'SA_Q{col}', f'SA_QB{col}',  # Outputs
+577:                 )
+578: 
+579:         else:
+580:             # 直接连BL和BLB
+581:             for col in range(self.num_cols):
+582:                 circuit.X(
+583:                     f'{sa.name}_{col}',
+584:                     sa.name,
+585:                     self.power_node, self.gnd_node,
+586:                     's_en',  # SA Enable signal
+587:                     f'BL{col}', f'BLB{col}',  # Inputs
+588:                     f'SA_Q{col}', f'SA_QB{col}',  # Outputs
+589:                 )
+590:         return circuit",e4766489e1b7aa305b424a82173fde8c4e72b6d5378d19eb478c69424dd384c7,RAW_NETLIST_ENTRY,HIGH,True,False,dout path,read_data_observation,column_path_to_top_io,True,column_path_to_top_io,False,
+PINBIND_011_DFF_ROW,DIN[i],write_data_delivery,SRAM_TOP:DIN[i]->DFF_ROW:DIN[i],/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py,507,555,"506:         nodes.extend([f'A_dff{i}' for i in range(n_bits)])
+507:         if operation == 'write' or operation == 'read&write':
+508:             # 添加数据输入输出节点
+509:             nodes.extend([f'DIN{i}' for i in range(num_cols)])
+510:             nodes.extend([f'DIN_dff{i}' for i in range(num_cols)])
+511: 
+512:         nodes += ['rbl','rbl_delay','rbl_delay_bar','s_en','w_en','PRE']
+513:         self.NODES = nodes
+514: 
+515:         super().__init__(
+516:             nmos_model, pmos_model,
+517:             nmos_width, pmos_width, length,
+518:             w_rc=w_rc, pi_res=pi_res, pi_cap=pi_cap,
+519:         )
+520:         self.num_rows=num_rows
+521:         self.num_cols=num_cols
+522:         self.n_bits = n_bits
+523:         #触发器在时钟上升沿触发地址信号
+524:         dff_buf_addr=ADDR_DFF(nmos_model=""NMOS_VTG"",
+525:             pmos_model=""PMOS_VTG"",num_rows=self.num_rows)
+526:         self.subcircuit(dff_buf_addr)
+527:             # 构建地址DFF连接列表
+528:         addr_dff_connections = ['VDD', 'VSS', 'clk_buf']  # 基本连接
+529:             # 添加地址输入连接
+530:         for i in range(self.n_bits):
+531:             addr_dff_connections.append(f'A{i}')
+532:             # 添加地址输出连接
+533:         for i in range(self.n_bits):
+534:             addr_dff_connections.append(f'A_dff{i}')
+535:             # 实例化DFF
+536:         self.X('dff_buf_addr',
+537:                dff_buf_addr.NAME, *addr_dff_connections)
+538: 
+539:         if operation == 'write' or operation == 'read&write':
+540:             #触发器在时钟上升沿触发数据信号
+541:             dff_buf_data=DATA_DFF(nmos_model=""NMOS_VTG"",
+542:                 pmos_model=""PMOS_VTG"",num_cols=self.num_cols)  # 对于16x8结构，有8位数据
+543:             self.subcircuit(dff_buf_data)
+544: 
+545:             # 构建数据DFF连接列表
+546:             data_dff_connections = ['VDD', 'VSS', 'clk_buf']  # 基本连接
+547:             # 添加数据输入连接
+548:             for i in range(self.num_cols):
+549:                 data_dff_connections.append(f'DIN{i}')
+550:             # 添加数据输出连接
+551:             for i in range(self.num_cols):
+552:                 data_dff_connections.append(f'DIN_dff{i}')
+553:             # 实例化DFF
+554:             self.X('dff_buf_data',
+555:                 dff_buf_data.NAME, *data_dff_connections)
+556: ",50cc764e4ec8532a1d3075bce41688c4c8f7cae7e94533f78dcd4d92161cd7a8,RAW_NETLIST_ENTRY,HIGH,True,False,DIN[i],write_data_delivery,periphery_to_column_path,True,periphery_to_column_path,False,
+PINBIND_012_write_driver,DIN_dff[i],write_data_delivery,DFF_ROW:DIN_dff[i]->write_driver:DIN,/data1/qujh/work/external/OpenYield/sram_compiler/testbenches/sram_6t_core_testbench.py,612,623,"611: 
+612:         # Instantiate write drivers for all columns 为每列添加写驱动器实例
+613:         for col in range(self.num_cols):
+614:             circuit.X(
+615:                 self.wdrv_inst_name + f""_{col}"",
+616:                 write_drv.name,
+617:                 self.power_node,  # Power net
+618:                 self.gnd_node,  # Ground net
+619:                 'w_en',  # Write Enable signal
+620:                 f'DIN_dff{col}',  # Data In
+621:                 f'BL{col}',  # Connect to column bitline
+622:                 f'BLB{col}',  # Connect to column bitline bar
+623:             )
+624: ",e86e4533275f8f5325aaa66bf8792e3c211f0c8282f7336ff1e235d6917b735d,RAW_NETLIST_ENTRY,HIGH,True,False,DIN,write_data_delivery,periphery_to_column_path,True,periphery_to_column_path,False,
+PINBIND_013_write_driver,w_en,replica_timing_distribution,CONTROL_LOGIC:w_en->write_driver:EN,/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py,687,705,"686:             w_en_rbl_input = 'rbl_delay_bar_wen'
+687:         #产生写使能
+688:         w_en_ref_cols = 64
+689:         w_en_scale = max(1, ceil(self.num_cols / w_en_ref_cols))#按列数放大驱动晶体管尺寸
+690:         w_en=AND3(nmos_model_nand=""NMOS_VTG"",
+691:                 pmos_model_nand=""PMOS_VTG"",
+692:                 nmos_model_inv=""NMOS_VTG"",
+693:                 pmos_model_inv=""PMOS_VTG"",
+694:                 nand_pmos_width=0.27e-6,
+695:                 nand_nmos_width=0.18e-6,
+696:                 inv_pmos_width=1.08e-6 * w_en_scale,
+697:                 inv_nmos_width=0.36e-6 * w_en_scale,
+698:                 length=0.05e-6,
+699:                 w_rc=w_rc
+700:                 )
+701:         self.subcircuit(w_en)
+702:         self.X('w_en',
+703:                w_en.NAME,
+704:                'VDD','VSS' , w_en_rbl_input , 'gated_clk_bar' ,'we', 'w_en' )
+705:         #产生灵敏放大器
+706:         s_en=AND3(nmos_model_nand=""NMOS_VTG"",",e71c8072947ffc3af66c60b9549b66aebe328fce6565edfb0b9366163c37304f,RAW_NETLIST_ENTRY,HIGH,True,False,EN,replica_timing_distribution,replica_chain_periphery_route,True,replica_chain_periphery_route,False,
+PINBIND_014_bitcell_array,BL[i];BLB[i],column_pitch_aligned_bitline_bar,write_driver:BL/BLB->bitcell_array:BL[i]/BLB[i],/data1/qujh/work/external/OpenYield/sram_compiler/testbenches/sram_6t_core_testbench.py,613,623,"612:         # Instantiate write drivers for all columns 为每列添加写驱动器实例
+613:         for col in range(self.num_cols):
+614:             circuit.X(
+615:                 self.wdrv_inst_name + f""_{col}"",
+616:                 write_drv.name,
+617:                 self.power_node,  # Power net
+618:                 self.gnd_node,  # Ground net
+619:                 'w_en',  # Write Enable signal
+620:                 f'DIN_dff{col}',  # Data In
+621:                 f'BL{col}',  # Connect to column bitline
+622:                 f'BLB{col}',  # Connect to column bitline bar
+623:             )
+624: ",ba30310c56006f0dd25a3d2cdae60fdb56b4a0ff941e0b894d96b0197b7db89b,RAW_NETLIST_ENTRY,HIGH,True,False,BL[i]/BLB[i],column_pitch_aligned_bitline_bar,vertical_along_array_columns,True,vertical_along_array_columns,False,
+PINBIND_015_DELAY_CHAIN,rbl,column_pitch_aligned_bitline,replica_array:RBL/RBLB->DELAY_CHAIN:in,/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py,659,676,"658: 
+659:         #复制位线延迟链
+660:         delaychain=DelayChain()
+661:         self.subcircuit(delaychain)
+662:         self.X('delaychain',
+663:                delaychain.NAME,
+664:                'VDD', 'VSS', 'rbl', 'rbl_delay')
+665:         #复制位线延迟反相
+666:         inv_rbl_delay_bar = Pinv(
+667:             nmos_model=""NMOS_VTG"",
+668:             pmos_model=""PMOS_VTG"",
+669:             nmos_width=0.09e-6,
+670:             pmos_width=0.27e-6,
+671:             length=0.05e-6,
+672:         )
+673:         self.subcircuit(inv_rbl_delay_bar)
+674:         self.X('inv_rbl_delay_bar',
+675:                inv_rbl_delay_bar.NAME,
+676:                'VDD', 'VSS', 'rbl_delay', 'rbl_delay_bar')
+677: ",d110b432c084b822e700b008ecbe87eea11f213b984e95785a8632479a1088f4,RAW_NETLIST_ENTRY,HIGH,True,False,in,column_pitch_aligned_bitline,vertical_along_array_columns,True,vertical_along_array_columns,False,
+PINBIND_016_SENSE_ENABLE_PATH,rbl_delay,replica_timing_distribution,DELAY_CHAIN:out->SENSE_ENABLE_PATH:input,/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py,705,720,"704:                'VDD','VSS' , w_en_rbl_input , 'gated_clk_bar' ,'we', 'w_en' )
+705:         #产生灵敏放大器
+706:         s_en=AND3(nmos_model_nand=""NMOS_VTG"",
+707:                 pmos_model_nand=""PMOS_VTG"",
+708:                 nmos_model_inv=""NMOS_VTG"",
+709:                 pmos_model_inv=""PMOS_VTG"",
+710:                 nand_pmos_width=0.27e-6,
+711:                 nand_nmos_width=0.18e-6,
+712:                 inv_pmos_width=1.08e-6 * w_en_scale,
+713:                 inv_nmos_width=0.36e-6 * w_en_scale,
+714:                 length=0.05e-6,
+715:                 w_rc=w_rc
+716:             )
+717:         self.subcircuit(s_en)
+718:         self.X('s_en',
+719:                s_en.NAME,
+720:                'VDD','VSS' ,'rbl_delay', 'gated_clk_bar' ,'we_bar' ,'s_en' )
+721: ",eb62e2ded4b48cde5fe36da19d331e2eace1b1e99a13488706156b13765cb2a0,RAW_NETLIST_ENTRY,HIGH,True,False,input,replica_timing_distribution,replica_chain_periphery_route,True,replica_chain_periphery_route,False,
+PINBIND_017_WRITE_ENABLE_PATH,rbl_delay_bar,replica_timing_distribution,DELAY_CHAIN:out_bar->WRITE_ENABLE_PATH:input,/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py,666,705,"665:         #复制位线延迟反相
+666:         inv_rbl_delay_bar = Pinv(
+667:             nmos_model=""NMOS_VTG"",
+668:             pmos_model=""PMOS_VTG"",
+669:             nmos_width=0.09e-6,
+670:             pmos_width=0.27e-6,
+671:             length=0.05e-6,
+672:         )
+673:         self.subcircuit(inv_rbl_delay_bar)
+674:         self.X('inv_rbl_delay_bar',
+675:                inv_rbl_delay_bar.NAME,
+676:                'VDD', 'VSS', 'rbl_delay', 'rbl_delay_bar')
+677: 
+678:         w_en_rbl_input = 'rbl_delay_bar'
+679: 
+680:         if operation == 'write' and self.num_rows == 16 and self.num_cols == 512:
+681:             wen_delaychain = WenDelayChain(stages=6, loads_per_stage=4, w_rc=w_rc)
+682:             self.subcircuit(wen_delaychain)
+683:             self.X('wen_delaychain',
+684:                 wen_delaychain.NAME,
+685:                 'VDD', 'VSS', 'rbl_delay_bar', 'rbl_delay_bar_wen')
+686:             w_en_rbl_input = 'rbl_delay_bar_wen'
+687:         #产生写使能
+688:         w_en_ref_cols = 64
+689:         w_en_scale = max(1, ceil(self.num_cols / w_en_ref_cols))#按列数放大驱动晶体管尺寸
+690:         w_en=AND3(nmos_model_nand=""NMOS_VTG"",
+691:                 pmos_model_nand=""PMOS_VTG"",
+692:                 nmos_model_inv=""NMOS_VTG"",
+693:                 pmos_model_inv=""PMOS_VTG"",
+694:                 nand_pmos_width=0.27e-6,
+695:                 nand_nmos_width=0.18e-6,
+696:                 inv_pmos_width=1.08e-6 * w_en_scale,
+697:                 inv_nmos_width=0.36e-6 * w_en_scale,
+698:                 length=0.05e-6,
+699:                 w_rc=w_rc
+700:                 )
+701:         self.subcircuit(w_en)
+702:         self.X('w_en',
+703:                w_en.NAME,
+704:                'VDD','VSS' , w_en_rbl_input , 'gated_clk_bar' ,'we', 'w_en' )
+705:         #产生灵敏放大器
+706:         s_en=AND3(nmos_model_nand=""NMOS_VTG"",",6cc2cc5625fccf004f44a0a0517a909706fb6cf28f25e9a2558cac12f9a84193,RAW_NETLIST_ENTRY,HIGH,True,False,input,replica_timing_distribution,replica_chain_periphery_route,True,replica_chain_periphery_route,False,
+PINBIND_018_precharge,PRE,replica_timing_distribution,CONTROL_LOGIC:PRE->precharge:ENB,/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py,735,756,"734: 
+735:         pre_unbuf = PNAND3(nmos_model=""NMOS_VTG"",
+736:                    pmos_model=""PMOS_VTG"",
+737:                    nmos_width=0.27e-6,
+738:                    pmos_width=0.27e-6,
+739:                    length=0.05e-6,
+740:                    w_rc=w_rc
+741:                    )
+742:         self.subcircuit(pre_unbuf)
+743:         self.X('pre_unbuf',
+744:             pre_unbuf.NAME,
+745:             'VDD', 'VSS', 'gated_clk_buf', 'rbl_delay', 'wl_en_bar', 'PRE_UNBUF')
+746: 
+747: 
+748:         pre_ref_cols = 64
+749:         pre_col_scale = (self.num_cols + 1) / (pre_ref_cols + 1)
+750:         pre_pmos_scale = max(0.5, self.num_rows / 16)
+751:         pre_drive_scale = max(1, ceil(pre_col_scale * pre_pmos_scale))
+752:         pre = pdrive2_for_pre(drive_scale=pre_drive_scale)
+753:         self.subcircuit(pre)
+754:         self.X('pre',
+755:                pre.NAME,
+756:                'VDD','VSS', 'PRE_UNBUF', 'PRE')
+757: ",9f066af0b93b40a8c6ec85d8aba8fdc0833139cd35daa7c968ff23111eb96aec,RAW_NETLIST_ENTRY,HIGH,True,False,ENB,replica_timing_distribution,replica_chain_periphery_route,True,replica_chain_periphery_route,False,
+PINBIND_019_sense_amp,s_en,replica_timing_distribution,CONTROL_LOGIC:s_en->sense_amp:EN,/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py,705,720,"704:                'VDD','VSS' , w_en_rbl_input , 'gated_clk_bar' ,'we', 'w_en' )
+705:         #产生灵敏放大器
+706:         s_en=AND3(nmos_model_nand=""NMOS_VTG"",
+707:                 pmos_model_nand=""PMOS_VTG"",
+708:                 nmos_model_inv=""NMOS_VTG"",
+709:                 pmos_model_inv=""PMOS_VTG"",
+710:                 nand_pmos_width=0.27e-6,
+711:                 nand_nmos_width=0.18e-6,
+712:                 inv_pmos_width=1.08e-6 * w_en_scale,
+713:                 inv_nmos_width=0.36e-6 * w_en_scale,
+714:                 length=0.05e-6,
+715:                 w_rc=w_rc
+716:             )
+717:         self.subcircuit(s_en)
+718:         self.X('s_en',
+719:                s_en.NAME,
+720:                'VDD','VSS' ,'rbl_delay', 'gated_clk_bar' ,'we_bar' ,'s_en' )
+721: ",eb62e2ded4b48cde5fe36da19d331e2eace1b1e99a13488706156b13765cb2a0,RAW_NETLIST_ENTRY,HIGH,True,False,EN,replica_timing_distribution,replica_chain_periphery_route,True,replica_chain_periphery_route,False,
+PINBIND_020_DFF_ROW,clk_buf,clock_distribution,CONTROL_LOGIC:clk_buf->DFF_ROW:CLK,/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py,523,607,"522:         self.n_bits = n_bits
+523:         #触发器在时钟上升沿触发地址信号
+524:         dff_buf_addr=ADDR_DFF(nmos_model=""NMOS_VTG"",
+525:             pmos_model=""PMOS_VTG"",num_rows=self.num_rows)
+526:         self.subcircuit(dff_buf_addr)
+527:             # 构建地址DFF连接列表
+528:         addr_dff_connections = ['VDD', 'VSS', 'clk_buf']  # 基本连接
+529:             # 添加地址输入连接
+530:         for i in range(self.n_bits):
+531:             addr_dff_connections.append(f'A{i}')
+532:             # 添加地址输出连接
+533:         for i in range(self.n_bits):
+534:             addr_dff_connections.append(f'A_dff{i}')
+535:             # 实例化DFF
+536:         self.X('dff_buf_addr',
+537:                dff_buf_addr.NAME, *addr_dff_connections)
+538: 
+539:         if operation == 'write' or operation == 'read&write':
+540:             #触发器在时钟上升沿触发数据信号
+541:             dff_buf_data=DATA_DFF(nmos_model=""NMOS_VTG"",
+542:                 pmos_model=""PMOS_VTG"",num_cols=self.num_cols)  # 对于16x8结构，有8位数据
+543:             self.subcircuit(dff_buf_data)
+544: 
+545:             # 构建数据DFF连接列表
+546:             data_dff_connections = ['VDD', 'VSS', 'clk_buf']  # 基本连接
+547:             # 添加数据输入连接
+548:             for i in range(self.num_cols):
+549:                 data_dff_connections.append(f'DIN{i}')
+550:             # 添加数据输出连接
+551:             for i in range(self.num_cols):
+552:                 data_dff_connections.append(f'DIN_dff{i}')
+553:             # 实例化DFF
+554:             self.X('dff_buf_data',
+555:                 dff_buf_data.NAME, *data_dff_connections)
+556: 
+557: 
+558:         #产生内部时钟
+559:         # 让 clkbuf 按实际 DFF 负载自动放大
+560:         ref_rows = 16
+561:         ref_cols = 16
+562:         ref_bits = ceil(log2(ref_rows))
+563: 
+564:         clk_dff_count = self.n_bits + 2  # 地址DFF + CS_DFF + WE_DFF
+565:         ref_dff_count = ref_bits + 2
+566: 
+567:         if operation == 'write' or operation == 'read&write':
+568:             clk_dff_count += self.num_cols
+569:             ref_dff_count += ref_cols
+570: 
+571:         clk_drive_scale = max(1.0, clk_dff_count / ref_dff_count)
+572: 
+573:         clkbuf = pdrive(
+574:             nmos_model=""NMOS_VTG"",
+575:             pmos_model=""PMOS_VTG"",
+576:             drive_scale=clk_drive_scale
+577:         )
+578:         self.subcircuit(clkbuf)
+579:         self.X('clkbuf',
+580:                clkbuf.NAME,
+581:                'VDD', 'VSS', 'clk', 'clk_buf')
+582:         #产生内部主时钟的反信号
+583:         inv_clk_bar = Pinv(
+584:             nmos_model=""NMOS_VTG"",
+585:             pmos_model=""PMOS_VTG"",
+586:             nmos_width=0.09e-6,
+587:             pmos_width=0.27e-6,
+588:             length=0.05e-6,
+589:         )
+590:         self.subcircuit(inv_clk_bar)
+591:         self.X('inv_clk_bar',
+592:                inv_clk_bar.NAME,
+593:                'VDD', 'VSS', 'clk_buf', 'clk_bar')
+594:         #触发器在时钟上升沿触发片选信号
+595:         dff_buf=DFF_BUF(nmos_model=""NMOS_VTG"",
+596:             pmos_model=""PMOS_VTG"")
+597:         self.subcircuit(dff_buf)
+598:         self.X('dff_buf',
+599:                dff_buf.NAME,
+600:                'VDD', 'VSS', 'csb', 'cs_bar','cs','clk_buf')
+601:         #触发器在时钟上升沿触发写信号
+602:         dff_buf1=DFF_BUF(nmos_model=""NMOS_VTG"",
+603:             pmos_model=""PMOS_VTG"")
+604:         self.subcircuit(dff_buf1)
+605:         self.X('dff_buf1',
+606:                dff_buf1.NAME,
+607:                'VDD', 'VSS', 'web', 'we_bar','we','clk_buf')
+608:         #门控时钟（反相）",16216fa5e5c079ca76d8c2eae8e8c76b060931d2639f11aa694ce5a4da877c25,RAW_NETLIST_ENTRY,HIGH,True,False,CLK,clock_distribution,top_clock_spine,True,top_clock_spine,False,
+PINBIND_021_GATED_CLOCK_PATH,gated_clk_bar;gated_clk_buf,clock_distribution,CONTROL_LOGIC:gated_clk_bar/gated_clk_buf->GATED_CLOCK_PATH:internal gates,/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py,608,639,"607:                'VDD', 'VSS', 'web', 'we_bar','we','clk_buf')
+608:         #门控时钟（反相）
+609:         and2_gated_clk_bar=AND2(nmos_model_nand=""NMOS_VTG"",
+610:                                 pmos_model_nand=""PMOS_VTG"",
+611:                                 nmos_model_inv=""NMOS_VTG"",
+612:                                 pmos_model_inv=""PMOS_VTG"",
+613:                                 nand_pmos_width=0.27e-6,
+614:                                 nand_nmos_width=0.18e-6,
+615:                                 inv_pmos_width=1.62e-6,
+616:                                 inv_nmos_width=0.54e-6,
+617:                                 length=0.05e-6,
+618:                                 w_rc=w_rc
+619:                                 )
+620:         self.subcircuit(and2_gated_clk_bar)
+621:         self.X('and2_gated_clk_bar',
+622:             and2_gated_clk_bar.NAME,
+623:             'VDD', 'VSS', 'cs', 'clk_bar','gated_clk_bar')
+624:         #门控时钟
+625:         and2_gated_clk_buf=AND2(nmos_model_nand=""NMOS_VTG"",
+626:                                 pmos_model_nand=""PMOS_VTG"",
+627:                                 nmos_model_inv=""NMOS_VTG"",
+628:                                 pmos_model_inv=""PMOS_VTG"",
+629:                                 nand_pmos_width=0.27e-6,
+630:                                 nand_nmos_width=0.18e-6,
+631:                                 inv_pmos_width=1.62e-6,
+632:                                 inv_nmos_width=0.54e-6,
+633:                                 length=0.05e-6,
+634:                                 w_rc=w_rc
+635:                                 )
+636:         self.subcircuit(and2_gated_clk_buf)
+637:         self.X('and2_gated_clk_buf',
+638:                and2_gated_clk_buf.NAME,
+639:                'VDD', 'VSS', 'cs', 'clk_buf','gated_clk_buf')
+640:         #字线使能，在clk的低电平",07d7e0e4b73718cc511b6c901f20e9b90b8302f38202b70a91d86e8c06af1152,RAW_NETLIST_ENTRY,HIGH,True,False,internal gates,clock_distribution,top_clock_spine,True,top_clock_spine,False,
+PINBIND_022_WORDLINE_ENABLE_PATH,wl_en,replica_timing_distribution,CONTROL_LOGIC:wl_en->WORDLINE_ENABLE_PATH:derived output,/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py,640,657,"639:                'VDD', 'VSS', 'cs', 'clk_buf','gated_clk_buf')
+640:         #字线使能，在clk的低电平
+641:         wl_en=wl_pdrive()
+642:         self.subcircuit(wl_en)
+643:         self.X('wl_en',
+644:                wl_en.NAME,
+645:                'VDD', 'VSS', 'gated_clk_bar', 'wl_en')
+646:         inv_wl_en_bar = Pinv(
+647:             nmos_model=""NMOS_VTG"",
+648:             pmos_model=""PMOS_VTG"",
+649:             nmos_width=0.09e-6,
+650:             pmos_width=0.27e-6,
+651:             length=0.05e-6,
+652:             num='_wl_en_bar'
+653:         )
+654:         self.subcircuit(inv_wl_en_bar)
+655:         self.X('inv_wl_en_bar',
+656:             inv_wl_en_bar.NAME,
+657:             'VDD', 'VSS', 'wl_en', 'wl_en_bar')
+658: ",b2a5613217041a000d8212754b0f20565cebbe2e88aaa156668e9d3ad5753c3f,RAW_NETLIST_ENTRY,HIGH,True,False,derived output,replica_timing_distribution,replica_chain_periphery_route,True,replica_chain_periphery_route,False,
+PINBIND_023_PRECHARGE_ENABLE_PATH,PRE,replica_timing_distribution,CONTROL_LOGIC:PRE->PRECHARGE_ENABLE_PATH:derived output,/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py,735,756,"734: 
+735:         pre_unbuf = PNAND3(nmos_model=""NMOS_VTG"",
+736:                    pmos_model=""PMOS_VTG"",
+737:                    nmos_width=0.27e-6,
+738:                    pmos_width=0.27e-6,
+739:                    length=0.05e-6,
+740:                    w_rc=w_rc
+741:                    )
+742:         self.subcircuit(pre_unbuf)
+743:         self.X('pre_unbuf',
+744:             pre_unbuf.NAME,
+745:             'VDD', 'VSS', 'gated_clk_buf', 'rbl_delay', 'wl_en_bar', 'PRE_UNBUF')
+746: 
+747: 
+748:         pre_ref_cols = 64
+749:         pre_col_scale = (self.num_cols + 1) / (pre_ref_cols + 1)
+750:         pre_pmos_scale = max(0.5, self.num_rows / 16)
+751:         pre_drive_scale = max(1, ceil(pre_col_scale * pre_pmos_scale))
+752:         pre = pdrive2_for_pre(drive_scale=pre_drive_scale)
+753:         self.subcircuit(pre)
+754:         self.X('pre',
+755:                pre.NAME,
+756:                'VDD','VSS', 'PRE_UNBUF', 'PRE')
+757: ",9f066af0b93b40a8c6ec85d8aba8fdc0833139cd35daa7c968ff23111eb96aec,RAW_NETLIST_ENTRY,HIGH,True,False,derived output,replica_timing_distribution,replica_chain_periphery_route,True,replica_chain_periphery_route,False,
+PINBIND_024_WRITE_ENABLE_PATH,w_en,replica_timing_distribution,CONTROL_LOGIC:w_en->WRITE_ENABLE_PATH:derived output,/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py,687,705,"686:             w_en_rbl_input = 'rbl_delay_bar_wen'
+687:         #产生写使能
+688:         w_en_ref_cols = 64
+689:         w_en_scale = max(1, ceil(self.num_cols / w_en_ref_cols))#按列数放大驱动晶体管尺寸
+690:         w_en=AND3(nmos_model_nand=""NMOS_VTG"",
+691:                 pmos_model_nand=""PMOS_VTG"",
+692:                 nmos_model_inv=""NMOS_VTG"",
+693:                 pmos_model_inv=""PMOS_VTG"",
+694:                 nand_pmos_width=0.27e-6,
+695:                 nand_nmos_width=0.18e-6,
+696:                 inv_pmos_width=1.08e-6 * w_en_scale,
+697:                 inv_nmos_width=0.36e-6 * w_en_scale,
+698:                 length=0.05e-6,
+699:                 w_rc=w_rc
+700:                 )
+701:         self.subcircuit(w_en)
+702:         self.X('w_en',
+703:                w_en.NAME,
+704:                'VDD','VSS' , w_en_rbl_input , 'gated_clk_bar' ,'we', 'w_en' )
+705:         #产生灵敏放大器
+706:         s_en=AND3(nmos_model_nand=""NMOS_VTG"",",e71c8072947ffc3af66c60b9549b66aebe328fce6565edfb0b9366163c37304f,RAW_NETLIST_ENTRY,HIGH,True,False,derived output,replica_timing_distribution,replica_chain_periphery_route,True,replica_chain_periphery_route,False,
+PINBIND_025_SENSE_ENABLE_PATH,s_en,replica_timing_distribution,CONTROL_LOGIC:s_en->SENSE_ENABLE_PATH:derived output,/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py,705,720,"704:                'VDD','VSS' , w_en_rbl_input , 'gated_clk_bar' ,'we', 'w_en' )
+705:         #产生灵敏放大器
+706:         s_en=AND3(nmos_model_nand=""NMOS_VTG"",
+707:                 pmos_model_nand=""PMOS_VTG"",
+708:                 nmos_model_inv=""NMOS_VTG"",
+709:                 pmos_model_inv=""PMOS_VTG"",
+710:                 nand_pmos_width=0.27e-6,
+711:                 nand_nmos_width=0.18e-6,
+712:                 inv_pmos_width=1.08e-6 * w_en_scale,
+713:                 inv_nmos_width=0.36e-6 * w_en_scale,
+714:                 length=0.05e-6,
+715:                 w_rc=w_rc
+716:             )
+717:         self.subcircuit(s_en)
+718:         self.X('s_en',
+719:                s_en.NAME,
+720:                'VDD','VSS' ,'rbl_delay', 'gated_clk_bar' ,'we_bar' ,'s_en' )
+721: ",eb62e2ded4b48cde5fe36da19d331e2eace1b1e99a13488706156b13765cb2a0,RAW_NETLIST_ENTRY,HIGH,True,False,derived output,replica_timing_distribution,replica_chain_periphery_route,True,replica_chain_periphery_route,False,
+PINBIND_026_all_modules,VDD;VSS,power_distribution,VDD/GND:VDD/VSS->all_modules:power pins,/data1/qujh/work/external/OpenYield/sram_compiler/testbenches/sram_6t_core_testbench.py,861,863,"860: 
+861:         # Power supply
+862:         circuit.V(self.power_node, self.power_node, self.gnd_node, self.vdd @ u_V)
+863:         circuit.V(self.gnd_node, self.gnd_node, circuit.gnd, 0 @ u_V)
+864: ",e0e8365f69aeb340771fc2a958f226743227aa7bbbb1b48c31d10ce7f29d818f,RAW_NETLIST_ENTRY,HIGH,True,False,power pins,power_distribution,top_level_rails_and_stitches,True,top_level_rails_and_stitches,False,
+PINBIND_027_CONTROL_LOGIC,clk,clock_distribution,SRAM_TOP:clk->CONTROL_LOGIC:clk,/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py,188,490,"187:     NAME = ""DFF""
+188:     NODES = ('VDD', 'VSS', 'D', 'Q','CLK')
+189: 
+190:     def __init__(self, nmos_model=""NMOS_VTG"", pmos_model=""PMOS_VTG"",
+191:                  # Base widths for NAND gate transistors
+192:                  pmos_width=5e-07, nmos_width=2.5e-07,
+193:                  length=0.05e-6,
+194:                  w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF,
+195:                  ):
+196: 
+197:         super().__init__(
+198:             nmos_model, pmos_model,
+199:             nmos_width, pmos_width, length,
+200:             w_rc=w_rc, pi_res=pi_res, pi_cap=pi_cap,
+201:         )
+202:         self.inv_dff = Pinv(nmos_model,pmos_model,2.5e-07, 5e-07,0.05e-6,num=1)
+203:         self.subcircuit(self.inv_dff)
+204: 
+205:         self.trans_dff = TransmissionGate(
+206:             nmos_model=""NMOS_VTG"",
+207:             pmos_model=""PMOS_VTG""
+208:         )
+209:         self.subcircuit(self.trans_dff)
+210:         # 构建传输门型触发器
+211:         self.add_dff()
+212: 
+213:     def add_dff(self):
+214:         """"""构建传输门D触发器""""""
+215:         # 1. 时钟反相器 - 生成clk_b
+216:         self.X('inv1_clk', self.inv_dff.NAME,
+217:                'VDD', 'VSS', 'CLK', 'CLKB')
+218:         # 2. 主锁存器 - 第一部分
+219:         #    信号反相器 - 生成D_b
+220:         self.X('inv2_D', self.inv_dff.NAME,
+221:                'VDD', 'VSS', 'D', 'D_b')
+222:         # T1传输门 - 当CLK=0时导通
+223:         self.X('tg1', self.trans_dff.NAME,
+224:                'VDD', 'VSS', 'D_b', 'z1', 'CLK', 'CLKB')
+225: 
+226:         # 反相器3
+227:         self.X('inv3', self.inv_dff.NAME,
+228:                'VDD', 'VSS', 'z1', 'z2')
+229: 
+230:         # 反相器4 (反馈)
+231:         self.X('inv4', self.inv_dff.NAME,
+232:                'VDD', 'VSS', 'z2', 'z3')
+233:         #T2传输门（反馈）
+234:         self.X('tg2', self.trans_dff.NAME,
+235:                'VDD', 'VSS', 'z3', 'z1', 'CLKB', 'CLK')
+236: 
+237:         # 3. 第二部分 (T3和T4)
+238:          # 反相器5
+239:         self.X('inv5', self.inv_dff.NAME,
+240:                'VDD', 'VSS', 'z2', 'z4')
+241:         # T3传输门 - 当CLK=1时导通 (反馈路径)
+242:         self.X('tg3', self.trans_dff.NAME,
+243:                'VDD', 'VSS', 'z4', 'z5', 'CLKB', 'CLK')
+244: 
+245:         # 反相器6
+246:         self.X('inv6', self.inv_dff.NAME,
+247:                'VDD', 'VSS', 'z5', 'Q')
+248: 
+249:         # 反相器7 (反馈)
+250:         self.X('inv7', self.inv_dff.NAME,
+251:                'VDD', 'VSS', 'Q', 'QB')
+252: 
+253:         # T4传输门 - 当CLK=0时导通 (反馈路径)
+254:         self.X('tg4', self.trans_dff.NAME,
+255:                'VDD', 'VSS', 'QB', 'z5', 'CLK', 'CLKB')
+256: 
+257: class DFF_BUF(BaseSubcircuit):
+258:     """"""D Flip-Flop with output buffers""""""#加两级缓冲增加驱动能力
+259:     NAME = ""DFF_BUF""
+260:     NODES = ('VDD', 'VSS', 'D', 'Q', 'QB', 'CLK')
+261: 
+262:     def __init__(self, nmos_model=""NMOS_VTG"", pmos_model=""PMOS_VTG"",
+263:                  pmos_width=5e-07, nmos_width=2.5e-07,
+264:                  length=0.05e-6,
+265:                  w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF,
+266:                  ):
+267: 
+268:         super().__init__(
+269:             nmos_model, pmos_model,
+270:             nmos_width, pmos_width, length,
+271:             w_rc=w_rc, pi_res=pi_res, pi_cap=pi_cap,
+272:         )
+273: 
+274:         # 创建DFF和反相器
+275:         self.dff1 = dff(nmos_model, pmos_model, length)
+276:         self.inv1 = Pinv(nmos_model, pmos_model,0.18e-6, 0.54e-6,length=0.05e-6,num=1)  # 尺寸2
+277:         self.inv2 = Pinv(nmos_model, pmos_model,0.36e-6, 1.08e-6,length=0.05e-6,num=2)  # 尺寸4
+278: 
+279:         self.subcircuit(self.dff1)
+280:         self.subcircuit(self.inv1)
+281:         self.subcircuit(self.inv2)
+282: 
+283:         self.add_dff_buf()
+284: 
+285:     def add_dff_buf(self):
+286:         """"""构建带缓冲的DFF""""""
+287:         # DFF
+288:         self.X('dff', self.dff1.NAME,
+289:                'VDD', 'VSS', 'D', 'qint', 'CLK')
+290: 
+291:         # 第一个反相器（尺寸2）- 产生QB
+292:         self.X('inv1', self.inv1.NAME,
+293:                'VDD', 'VSS', 'qint', 'QB')
+294: 
+295:         # 第二个反相器（尺寸4）- 产生缓冲后的Q
+296:         self.X('inv2', self.inv2.NAME,
+297:                'VDD', 'VSS', 'QB', 'Q')
+298: 
+299: class DelayChain(BaseSubcircuit):#用于复制位线延迟的延迟链
+300:     """"""
+301:     延迟链电路 (sram_delay_chain)
+302:     输入: in, VDD, VSS
+303:     输出: out
+304:     """"""
+305:     NAME = ""delay_chain""
+306:     NODES = ('VDD', 'VSS', 'in', 'out')
+307: 
+308:     def __init__(self, nmos_model=""NMOS_VTG"", pmos_model=""PMOS_VTG"",
+309:                  pmos_width=5e-07, nmos_width=2.5e-07,
+310:                  length=0.05e-6,
+311:                  w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF,
+312:                  ):
+313: 
+314:         super().__init__(
+315:             nmos_model, pmos_model,
+316:             nmos_width, pmos_width, length,
+317:             w_rc=w_rc, pi_res=pi_res, pi_cap=pi_cap,
+318:         )
+319: 
+320:         # 创建基本反相器单元
+321:         self.inv = Pinv(nmos_model, pmos_model,0.9e-07,2.7e-07, length=0.05e-6,num=1)
+322:         self.subcircuit(self.inv)
+323: 
+324:         # 添加内部节点
+325:         #self.add_internal_nodes()
+326: 
+327:         # 构建延迟链
+328:         self.add_delay_chain()
+329: 
+330:     def add_delay_chain(self):
+331:         """"""构建延迟链电路""""""
+332:         # 第一级反相器
+333:         self.X('dinv0', self.inv.NAME, 'VDD', 'VSS', 'in', 'dout_1')
+334: 
+335:         # 第一级的4个负载
+336:         for j in range(4):
+337:             self.X(f'dload_0_{j}', self.inv.NAME,
+338:                    'VDD', 'VSS', 'dout_1', f'n_0_{j}')
+339: 
+340:         # 中间7级反相器 (第2级到第8级)
+341:         for i in range(1, 8):
+342:             # 反相器
+343:             self.X(f'dinv{i}', self.inv.NAME,
+344:                    'VDD', 'VSS', f'dout_{i}', f'dout_{i+1}')
+345: 
+346:             # 负载
+347:             for j in range(4):
+348:                 self.X(f'dload_{i}_{j}', self.inv.NAME,
+349:                        'VDD', 'VSS', f'dout_{i+1}', f'n_{i}_{j}')
+350: 
+351:         # 最后一级反相器 (第9级)
+352:         self.X('dinv8', self.inv.NAME, 'VDD', 'VSS', 'dout_8', 'out')
+353: 
+354:         # 最后一级的4个负载
+355:         for j in range(4):
+356:             self.X(f'dload_8_{j}', self.inv.NAME,
+357:                    'VDD', 'VSS', 'out', f'n_8_{j}')
+358: 
+359: class WenDelayChain(BaseSubcircuit):
+360:     NAME = ""wen_delay_chain""
+361:     NODES = ('VDD', 'VSS', 'in', 'out')
+362: 
+363:     def __init__(self, nmos_model=""NMOS_VTG"", pmos_model=""PMOS_VTG"",
+364:                  length=0.05e-6, stages=4, loads_per_stage=4,
+365:                  w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF):
+366: 
+367:         stages = max(2, int(stages))
+368:         if stages % 2:
+369:             stages += 1
+370: 
+371:         self.stages = stages
+372:         self.loads_per_stage = loads_per_stage
+373: 
+374:         super().__init__(
+375:             nmos_model, pmos_model,
+376:             0.09e-6, 0.27e-6, length,
+377:             w_rc=w_rc, pi_res=pi_res, pi_cap=pi_cap,
+378:         )
+379: 
+380:         self.inv = Pinv(
+381:             nmos_model, pmos_model,
+382:             nmos_width=0.09e-6,
+383:             pmos_width=0.27e-6,
+384:             length=length,
+385:             num='_wen_delay'
+386:         )
+387:         self.subcircuit(self.inv)
+388:         self.add_delay_chain()
+389: 
+390:     def add_delay_chain(self):
+391:         prev = 'in'
+392: 
+393:         for i in range(self.stages):
+394:             out = 'out' if i == self.stages - 1 else f'wen_dly_{i + 1}'
+395: 
+396:             self.X(f'winv{i}', self.inv.NAME,
+397:                    'VDD', 'VSS', prev, out)
+398: 
+399:             for j in range(self.loads_per_stage):
+400:                 self.X(f'wload_{i}_{j}', self.inv.NAME,
+401:                        'VDD', 'VSS', out, f'wn_{i}_{j}')
+402: 
+403:             prev = out
+404: 
+405: class ADDR_DFF(BaseSubcircuit):
+406:     """"""D Flip-Flop for address""""""
+407:     NAME = ""ADDR_DFF""
+408:     #NODES = ('VDD', 'VSS', 'D', 'Q', 'QB', 'CLK')
+409: 
+410:     def __init__(self, nmos_model=""NMOS_VTG"", pmos_model=""PMOS_VTG"",
+411:                  # Base widths for NAND gate transistors
+412:                  pmos_width=5e-07, nmos_width=2.5e-07,
+413:                  length=0.05e-6,num_rows=16,
+414:                  w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF,
+415:                  ):
+416:         self.num_rows = num_rows
+417:         n_bits = ceil(log2(self.num_rows)) if self.num_rows > 1 else 1
+418:         # 动态生成节点：包括所有地址输入、输出
+419:         nodes = ['VDD', 'VSS', 'CLK']
+420:         # 添加地址输入节点 A0, A1, A2, ..
+421:         nodes.extend([f'A{i}' for i in range(n_bits)])
+422:         # 添加地址输出节点 Q0, Q1, Q2, ...
+423:         nodes.extend([f'A_dff{i}' for i in range(n_bits)])
+424:         self.NODES = nodes
+425: 
+426:         super().__init__(
+427:             nmos_model, pmos_model,
+428:             nmos_width, pmos_width, length,
+429:             w_rc=w_rc, pi_res=pi_res, pi_cap=pi_cap,
+430:         )
+431:         n_bits = ceil(log2(self.num_rows)) if self.num_rows > 1 else 1
+432:         self.dff_addr = dff(nmos_model, pmos_model)
+433:         self.subcircuit(self.dff_addr)
+434:          # 构建地址DFF阵列
+435:         self.add_addr_dff_array(n_bits)
+436: 
+437:     def add_addr_dff_array(self, n_bits):
+438:         # 创建DFF和反相器
+439:         for i in range(n_bits):
+440:             self.X(f'dff_{i}', self.dff_addr.NAME,
+441:                    'VDD', 'VSS', f'A{i}', f'A_dff{i}', 'CLK')
+442: 
+443: class DATA_DFF(BaseSubcircuit):
+444:     """"""D Flip-Flop for data""""""
+445:     NAME = ""DATA_DFF""
+446:     # NODES会动态生成
+447: 
+448:     def __init__(self, nmos_model=""NMOS_VTG"", pmos_model=""PMOS_VTG"",
+449:                  pmos_width=5e-07, nmos_width=2.5e-07,
+450:                  length=0.05e-6, num_cols=8,  # 默认16x8结构，8列数据
+451:                  w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF,
+452:                  ):
+453:         self.num_cols = num_cols
+454: 
+455:         # 动态生成节点：包括所有数据输入、输出和电源/时钟
+456:         nodes = ['VDD', 'VSS', 'CLK']
+457:         # 添加数据输入节点 DIN0, DIN1, ...
+458:         nodes.extend([f'DIN{i}' for i in range(num_cols)])
+459:         # 添加数据输出节点 DIN_dff0, DIN_dff1, ...
+460:         nodes.extend([f'DIN_dff{i}' for i in range(num_cols)])
+461:         self.NODES = nodes
+462: 
+463:         super().__init__(
+464:             nmos_model, pmos_model,
+465:             nmos_width, pmos_width, length,
+466:             w_rc=w_rc, pi_res=pi_res, pi_cap=pi_cap,
+467:         )
+468: 
+469:         # 创建单个DFF实例作为模板
+470:         self.dff_data = dff(nmos_model, pmos_model, length)
+471:         self.subcircuit(self.dff_data)
+472: 
+473:         # 构建数据DFF阵列
+474:         self.add_data_dff_array(num_cols)
+475: 
+476:     def add_data_dff_array(self, num_cols):
+477:         # 为每个数据位创建DFF
+478:         for i in range(num_cols):
+479:             self.X(f'dff_{i}', self.dff_data.NAME,
+480:                    'VDD', 'VSS', f'DIN{i}', f'DIN_dff{i}', 'CLK')
+481: 
+482: 
+483: class TIME(BaseSubcircuit):
+484:     """"""
+485:     时序信号生成
+486:     输入:VDD, VSS, clk
+487:     输出:clk_buf
+488:     """"""
+489:     NAME = ""TIME""
+490:     #NODES = ('VDD', 'VSS', 'clk', 'csb','web', 'clk_buf','clk_bar','cs','gated_clk_bar','gated_clk_buf','wl_en')
+491: ",ae963108341822395b385abfa9a35d6a802e738a7f135bf6b8df1ab46a390fa8,RAW_CLASS_OR_FUNCTION,HIGH,True,False,clk,clock_distribution,top_clock_spine,True,top_clock_spine,False,
+PINBIND_028_CONTROL_LOGIC,csb,control_enable_distribution,SRAM_TOP:csb->CONTROL_LOGIC:csb,/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py,490,502,"489:     NAME = ""TIME""
+490:     #NODES = ('VDD', 'VSS', 'clk', 'csb','web', 'clk_buf','clk_bar','cs','gated_clk_bar','gated_clk_buf','wl_en')
+491: 
+492:     def __init__(self, nmos_model=""NMOS_VTG"", pmos_model=""PMOS_VTG"",
+493:                  # Base widths for NAND gate transistors
+494:                  pmos_width=0.27e-6, nmos_width=0.18e-6,
+495:                  length=0.05e-6,num_rows=16,num_cols=8,
+496:                  w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF,operation='read'
+497:                  ):
+498:         # 计算需要的地址位数
+499:         n_bits = ceil(log2(num_rows)) if num_rows > 1 else 1
+500:          # 动态生成节点
+501:         nodes = ['VDD', 'VSS', 'clk', 'csb', 'web', 'clk_buf', 'clk_bar',
+502:                 'cs_bar','cs', 'we_bar','we','gated_clk_bar', 'gated_clk_buf', 'wl_en']
+503: ",6f627bb6c43bf1fe94e0e37e21424c09c1eb86c9cb1a0300807fabc53a2c8cde,RAW_CLASS_OR_FUNCTION,HIGH,True,False,csb,control_enable_distribution,periphery_control_spine,True,periphery_control_spine,False,
+PINBIND_029_CONTROL_LOGIC,web,control_enable_distribution,SRAM_TOP:web->CONTROL_LOGIC:web,/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py,359,502,"358: 
+359: class WenDelayChain(BaseSubcircuit):
+360:     NAME = ""wen_delay_chain""
+361:     NODES = ('VDD', 'VSS', 'in', 'out')
+362: 
+363:     def __init__(self, nmos_model=""NMOS_VTG"", pmos_model=""PMOS_VTG"",
+364:                  length=0.05e-6, stages=4, loads_per_stage=4,
+365:                  w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF):
+366: 
+367:         stages = max(2, int(stages))
+368:         if stages % 2:
+369:             stages += 1
+370: 
+371:         self.stages = stages
+372:         self.loads_per_stage = loads_per_stage
+373: 
+374:         super().__init__(
+375:             nmos_model, pmos_model,
+376:             0.09e-6, 0.27e-6, length,
+377:             w_rc=w_rc, pi_res=pi_res, pi_cap=pi_cap,
+378:         )
+379: 
+380:         self.inv = Pinv(
+381:             nmos_model, pmos_model,
+382:             nmos_width=0.09e-6,
+383:             pmos_width=0.27e-6,
+384:             length=length,
+385:             num='_wen_delay'
+386:         )
+387:         self.subcircuit(self.inv)
+388:         self.add_delay_chain()
+389: 
+390:     def add_delay_chain(self):
+391:         prev = 'in'
+392: 
+393:         for i in range(self.stages):
+394:             out = 'out' if i == self.stages - 1 else f'wen_dly_{i + 1}'
+395: 
+396:             self.X(f'winv{i}', self.inv.NAME,
+397:                    'VDD', 'VSS', prev, out)
+398: 
+399:             for j in range(self.loads_per_stage):
+400:                 self.X(f'wload_{i}_{j}', self.inv.NAME,
+401:                        'VDD', 'VSS', out, f'wn_{i}_{j}')
+402: 
+403:             prev = out
+404: 
+405: class ADDR_DFF(BaseSubcircuit):
+406:     """"""D Flip-Flop for address""""""
+407:     NAME = ""ADDR_DFF""
+408:     #NODES = ('VDD', 'VSS', 'D', 'Q', 'QB', 'CLK')
+409: 
+410:     def __init__(self, nmos_model=""NMOS_VTG"", pmos_model=""PMOS_VTG"",
+411:                  # Base widths for NAND gate transistors
+412:                  pmos_width=5e-07, nmos_width=2.5e-07,
+413:                  length=0.05e-6,num_rows=16,
+414:                  w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF,
+415:                  ):
+416:         self.num_rows = num_rows
+417:         n_bits = ceil(log2(self.num_rows)) if self.num_rows > 1 else 1
+418:         # 动态生成节点：包括所有地址输入、输出
+419:         nodes = ['VDD', 'VSS', 'CLK']
+420:         # 添加地址输入节点 A0, A1, A2, ..
+421:         nodes.extend([f'A{i}' for i in range(n_bits)])
+422:         # 添加地址输出节点 Q0, Q1, Q2, ...
+423:         nodes.extend([f'A_dff{i}' for i in range(n_bits)])
+424:         self.NODES = nodes
+425: 
+426:         super().__init__(
+427:             nmos_model, pmos_model,
+428:             nmos_width, pmos_width, length,
+429:             w_rc=w_rc, pi_res=pi_res, pi_cap=pi_cap,
+430:         )
+431:         n_bits = ceil(log2(self.num_rows)) if self.num_rows > 1 else 1
+432:         self.dff_addr = dff(nmos_model, pmos_model)
+433:         self.subcircuit(self.dff_addr)
+434:          # 构建地址DFF阵列
+435:         self.add_addr_dff_array(n_bits)
+436: 
+437:     def add_addr_dff_array(self, n_bits):
+438:         # 创建DFF和反相器
+439:         for i in range(n_bits):
+440:             self.X(f'dff_{i}', self.dff_addr.NAME,
+441:                    'VDD', 'VSS', f'A{i}', f'A_dff{i}', 'CLK')
+442: 
+443: class DATA_DFF(BaseSubcircuit):
+444:     """"""D Flip-Flop for data""""""
+445:     NAME = ""DATA_DFF""
+446:     # NODES会动态生成
+447: 
+448:     def __init__(self, nmos_model=""NMOS_VTG"", pmos_model=""PMOS_VTG"",
+449:                  pmos_width=5e-07, nmos_width=2.5e-07,
+450:                  length=0.05e-6, num_cols=8,  # 默认16x8结构，8列数据
+451:                  w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF,
+452:                  ):
+453:         self.num_cols = num_cols
+454: 
+455:         # 动态生成节点：包括所有数据输入、输出和电源/时钟
+456:         nodes = ['VDD', 'VSS', 'CLK']
+457:         # 添加数据输入节点 DIN0, DIN1, ...
+458:         nodes.extend([f'DIN{i}' for i in range(num_cols)])
+459:         # 添加数据输出节点 DIN_dff0, DIN_dff1, ...
+460:         nodes.extend([f'DIN_dff{i}' for i in range(num_cols)])
+461:         self.NODES = nodes
+462: 
+463:         super().__init__(
+464:             nmos_model, pmos_model,
+465:             nmos_width, pmos_width, length,
+466:             w_rc=w_rc, pi_res=pi_res, pi_cap=pi_cap,
+467:         )
+468: 
+469:         # 创建单个DFF实例作为模板
+470:         self.dff_data = dff(nmos_model, pmos_model, length)
+471:         self.subcircuit(self.dff_data)
+472: 
+473:         # 构建数据DFF阵列
+474:         self.add_data_dff_array(num_cols)
+475: 
+476:     def add_data_dff_array(self, num_cols):
+477:         # 为每个数据位创建DFF
+478:         for i in range(num_cols):
+479:             self.X(f'dff_{i}', self.dff_data.NAME,
+480:                    'VDD', 'VSS', f'DIN{i}', f'DIN_dff{i}', 'CLK')
+481: 
+482: 
+483: class TIME(BaseSubcircuit):
+484:     """"""
+485:     时序信号生成
+486:     输入:VDD, VSS, clk
+487:     输出:clk_buf
+488:     """"""
+489:     NAME = ""TIME""
+490:     #NODES = ('VDD', 'VSS', 'clk', 'csb','web', 'clk_buf','clk_bar','cs','gated_clk_bar','gated_clk_buf','wl_en')
+491: 
+492:     def __init__(self, nmos_model=""NMOS_VTG"", pmos_model=""PMOS_VTG"",
+493:                  # Base widths for NAND gate transistors
+494:                  pmos_width=0.27e-6, nmos_width=0.18e-6,
+495:                  length=0.05e-6,num_rows=16,num_cols=8,
+496:                  w_rc=False, pi_res=100 @ u_Ohm, pi_cap=0.001 @ u_pF,operation='read'
+497:                  ):
+498:         # 计算需要的地址位数
+499:         n_bits = ceil(log2(num_rows)) if num_rows > 1 else 1
+500:          # 动态生成节点
+501:         nodes = ['VDD', 'VSS', 'clk', 'csb', 'web', 'clk_buf', 'clk_bar',
+502:                 'cs_bar','cs', 'we_bar','we','gated_clk_bar', 'gated_clk_buf', 'wl_en']
+503: ",edfea4e0226e7c1832b42da4a251c34b03f5f5c2aa0271961526b06bdd7b9117,RAW_CLASS_OR_FUNCTION,HIGH,True,False,web,control_enable_distribution,periphery_control_spine,True,periphery_control_spine,False,
+PINBIND_030_SRAM_TOP,DOUT[i],read_data_observation,sense_amp:dout->SRAM_TOP:DOUT[i],/data1/qujh/work/external/OpenYield/sram_compiler/testbenches/sram_6t_core_testbench.py,76,441,"75:         address_input_nodes = [f'A{i}' for i in range(n_bits)]
+76:         address_output_nodes = [f'A_dff{i}' for i in range(n_bits)]
+77: 
+78:         if operation == 'write' or operation == 'read&write':
+79:             # Data nodes
+80:             data_input_nodes = [f'DIN{i}' for i in range(self.num_cols)]
+81:             data_output_nodes = [f'DIN_dff{i}' for i in range(self.num_cols)]
+82: 
+83:         # All TIME connections
+84:         time_connections = [
+85:             'VDD', 'VSS', 'clk', 'csb', 'web', 'clk_buf', 'clk_bar',
+86:             'cs_bar', 'cs', 'we_bar', 'we', 'gated_clk_bar', 'gated_clk_buf', 'wl_en'
+87:         ]
+88: 
+89:         # Add address nodes
+90:         time_connections.extend(address_input_nodes)
+91:         time_connections.extend(address_output_nodes)
+92:         if operation == 'write' or operation == 'read&write':
+93:             # Add data nodes
+94:             time_connections.extend(data_input_nodes)
+95:             time_connections.extend(data_output_nodes)
+96: 
+97:         # Add remaining nodes
+98:         time_connections.extend(['rbl', 'rbl_delay', 'rbl_delay_bar', 's_en', 'w_en', 'PRE'])
+99: 
+100:         # Instantiate TIME circuit
+101:         circuit.X(
+102:             'TIME', time_circuit.NAME,
+103:             *time_connections
+104:         )
+105:         return circuit
+106: 
+107:     def add_cs_startup_clamp(self, circuit: Circuit):
+108:         """"""上电时把 CS/CS_BAR 强制钳在非使能态，避免 DFF 随机起态。""""""
+109:         release_time = 1.0 @ u_ns + 0.2 * self.t_period + 2 * self.t_rise
+110: 
+111:         # circuit.raw_spice += (
+112:         #     '* Hold CS inactive until just after the first valid clock capture.\n'
+113:         #     'MCSINIT_P cs_bar cs_init_bar VDD VDD PMOS_VTG l=5e-08 w=4.32e-06\n'
+114:         #     'MCSINIT_N cs cs_init VSS VSS NMOS_VTG l=5e-08 w=1.44e-06\n'
+115:         # )
+116:         circuit.M(
+117:             'CSINIT_P', 'cs_bar', 'cs_init_bar', 'VDD', 'VDD',
+118:             model='PMOS_VTG', l=5e-08, w=4.32e-06
+119:         )
+120:         circuit.M(
+121:             'CSINIT_N', 'cs', 'cs_init', 'VSS', 'VSS',
+122:             model='NMOS_VTG', l=5e-08, w=1.44e-06
+123:         )
+124: 
+125:         circuit.PulseVoltageSource(
+126:             'CSINIT', 'cs_init', self.gnd_node,
+127:             initial_value=self.vdd @ u_V, pulsed_value=0 @ u_V,
+128:             delay_time=release_time,
+129:             rise_time=0.2 * self.t_rise, fall_time=0.2 * self.t_fall,
+130:             pulse_width=2 * self.t_period,
+131:             period=4 * self.t_period
+132:         )
+133: 
+134:         circuit.PulseVoltageSource(
+135:             'CSINITB', 'cs_init_bar', self.gnd_node,
+136:             initial_value=0 @ u_V, pulsed_value=self.vdd @ u_V,
+137:             delay_time=release_time,
+138:             rise_time=0.2 * self.t_rise, fall_time=0.2 * self.t_fall,
+139:             pulse_width=2 * self.t_period,
+140:             period=4 * self.t_period
+141:         )
+142: 
+143:     def create_replica_column(self, circuit: Circuit):
+144:         """"""Create replica column circuitry""""""
+145:         # Create Replica Column circuit
+146:         if self.sram_cell_type == 'SRAM_10T_CELL':
+147:             cell_cfg = self.sram_config.sram_10t_cell
+148:             replica_kwargs = {
+149:                 'pd_nmos_model': cell_cfg.nmos_model.value[0],
+150:                 'pu_pmos_model': cell_cfg.pmos_model.value,
+151:                 'pg_nmos_model': cell_cfg.nmos_model.value[1],
+152:                 'fd_nmos_model': cell_cfg.nmos_model.value[2],
+153:                 'pd_width': cell_cfg.nmos_width.value[0],
+154:                 'pu_width': cell_cfg.pmos_width.value,
+155:                 'pg_width': cell_cfg.nmos_width.value[1],
+156:                 'fd_width': cell_cfg.nmos_width.value[2],
+157:                 'pmos_choices': cell_cfg.pmos_model.choices,
+158:                 'nmos_choices': cell_cfg.nmos_model.choices,
+159:                 'length': cell_cfg.length.value,
+160:             }
+161:         else:
+162:             cell_cfg = self.sram_config.sram_6t_cell
+163:             replica_kwargs = {
+164:                 'pd_nmos_model': cell_cfg.nmos_model.value[0],
+165:                 'pu_pmos_model': cell_cfg.pmos_model.value,
+166:                 'pg_nmos_model': cell_cfg.nmos_model.value[1],
+167:                 'pd_width': cell_cfg.nmos_width.value[0],
+168:                 'pu_width': cell_cfg.pmos_width.value,
+169:                 'pg_width': cell_cfg.nmos_width.value[1],
+170:                 'pmos_choices': cell_cfg.pmos_model.choices,
+171:                 'nmos_choices': cell_cfg.nmos_model.choices,
+172:                 'length': cell_cfg.length.value,
+173:             }
+174: 
+175:         replica_column = ReplicaColumnFactory(
+176:             num_rows=self.num_rows,
+177:             num_cols=self.num_cols,
+178:             w_rc=self.w_rc,
+179:             sweep_replica=self.sweep_cell,
+180:             param_model_file=self.sim_path + '/param_sweep_models.data',
+181:             sram_cell_type=self.sram_cell_type,
+182:             **replica_kwargs
+183:         ).create()
+184:         circuit.subcircuit(replica_column)   # Add to main circuit
+185: 
+186:         # All Replica Column connections
+187:         replica_connections = [
+188:             'VDD', 'VSS', 'RBL', 'RBLB','RWL',
+189:             *[f'WL{i}' for i in range(self.num_rows)]  # WL0 to WLn
+190:         ]
+191: 
+192:         # Instantiate Replica Column circuit
+193:         circuit.X(
+194:             'sram_17x1_replica_column', replica_column.NAME,
+195:             *replica_connections
+196:         )
+197:         return circuit
+198: 
+199:     def create_dummy_column(self, circuit: Circuit):
+200:         """"""Create dummy column circuitry""""""
+201:         # Create Dummy Column circuit
+202:         dummy_column = DummyColumnFactory(
+203:             num_rows=self.num_rows,
+204:             pd_nmos_model=self.sram_config.sram_6t_cell.nmos_model.value[0],
+205:             pu_pmos_model=self.sram_config.sram_6t_cell.pmos_model.value,
+206:             pg_nmos_model=self.sram_config.sram_6t_cell.nmos_model.value[1],
+207:             pd_width=self.sram_config.sram_6t_cell.nmos_width.value[0],
+208:             pu_width=self.sram_config.sram_6t_cell.pmos_width.value,
+209:             pg_width=self.sram_config.sram_6t_cell.nmos_width.value[1],
+210:             length=self.sram_config.sram_6t_cell.length.value,
+211:         ).create()
+212:         circuit.subcircuit(dummy_column)   # Add to main circuit
+213: 
+214:         # All Dummy Column connections for left and right columns
+215:         dummy_connections_left = [
+216:             'VDD', 'VSS', 'dummy_left_bl', 'dummy_left_blb', 'VSS', 'RWL',
+217:             *[f'WL{i}' for i in range(self.num_rows)],'VSS'  # WL数量仍是行数，多的三行分别是VSS，RWL，VSS
+218:         ]
+219: 
+220:         dummy_connections_right = [
+221:             'VDD', 'VSS', 'dummy_right_bl', 'dummy_right_blb', 'VSS', 'RWL',
+222:             *[f'WL{i}' for i in range(self.num_rows)],'VSS'
+223:         ]
+224: 
+225:         # Instantiate Dummy Column circuits
+226:         circuit.X(
+227:             'Dummy_column_left', dummy_column.NAME,
+228:             *dummy_connections_left
+229:         )
+230: 
+231:         circuit.X(
+232:             'Dummy_column_right', dummy_column.NAME,
+233:             *dummy_connections_right
+234:         )
+235:         return circuit
+236: 
+237:     def create_dummy_row(self, circuit: Circuit):
+238:         """"""Create dummy rows on top and bottom of the SRAM array""""""
+239:         # Create dummy row instances
+240:         dummy_row = DummyRowFactory(
+241:             num_cols=self.num_cols,
+242:             pd_nmos_model=self.sram_config.sram_6t_cell.nmos_model.value[0],
+243:             pu_pmos_model=self.sram_config.sram_6t_cell.pmos_model.value,
+244:             pg_nmos_model=self.sram_config.sram_6t_cell.nmos_model.value[1],
+245:             pd_width=self.sram_config.sram_6t_cell.nmos_width.value[0],
+246:             pu_width=self.sram_config.sram_6t_cell.pmos_width.value,
+247:             pg_width=self.sram_config.sram_6t_cell.nmos_width.value[1],
+248:             length=self.sram_config.sram_6t_cell.length.value,
+249:             w_rc=self.w_rc,
+250:         ).create()
+251:         # Add subcircuit definition to this testbench.
+252:         circuit.subcircuit(dummy_row)
+253: 
+254:         # Connections for top dummy row (includes RBL/RBLB)
+255:         dummy_connections_top = [
+256:             self.power_node, self.gnd_node,  # VDD, VSS
+257:             'RBL',  # RBL as extra BL
+258:             *[f'BL{i}' for i in range(self.num_cols)],  # BL0 to BL(num_cols-1)
+259:             'RBLB',  # RBLB as extra BLB
+260:             *[f'BLB{i}' for i in range(self.num_cols)],  # BLB0 to BLB(num_cols-1)
+261:             self.gnd_node  # VSS接WL
+262:         ]
+263: 
+264:         # Connections for bottom dummy row (includes RBL/RBLB)
+265:         dummy_connections_bottom = [
+266:             self.power_node, self.gnd_node,  # VDD, VSS
+267:             'RBL',  # RBL as extra BL
+268:             *[f'BL{i}' for i in range(self.num_cols)],  # BL0 to BL(num_cols-1)
+269:             'RBLB',  # RBLB as extra BLB
+270:             *[f'BLB{i}' for i in range(self.num_cols)],  # BLB0 to BLB(num_cols-1)
+271:             self.gnd_node  # VSS
+272:         ]
+273: 
+274:         # Instantiate dummy rows
+275:         circuit.X(
+276:             'Dummy_row_top', dummy_row.NAME,
+277:             *dummy_connections_top
+278:         )
+279:         circuit.X(
+280:             'Dummy_row_bot', dummy_row.NAME,
+281:             *dummy_connections_bottom
+282:         )
+283:         return circuit
+284: 
+285:     def create_dummy_row_2(self, circuit: Circuit):
+286:         """"""Create dummy rows on RWL""""""
+287:         # Create dummy row instances
+288:         dummy_row_2 = DummyRowFactory(
+289:             num_cols=self.num_cols-1,
+290:             pd_nmos_model=self.sram_config.sram_6t_cell.nmos_model.value[0],
+291:             pu_pmos_model=self.sram_config.sram_6t_cell.pmos_model.value,
+292:             pg_nmos_model=self.sram_config.sram_6t_cell.nmos_model.value[1],
+293:             pd_width=self.sram_config.sram_6t_cell.nmos_width.value[0],
+294:             pu_width=self.sram_config.sram_6t_cell.pmos_width.value,
+295:             pg_width=self.sram_config.sram_6t_cell.nmos_width.value[1],
+296:             length=self.sram_config.sram_6t_cell.length.value,
+297:             w_rc=self.w_rc,
+298:         ).create()
+299:         # Add subcircuit definition to this testbench.
+300:         circuit.subcircuit(dummy_row_2)
+301: 
+302:         # Connections for middle dummy row (connected to RWL)
+303:         dummy_connections = [
+304:             self.power_node, self.gnd_node,  # VDD, VSS
+305:             *[f'BL{i}' for i in range(self.num_cols)],  # BL0 to BL(num_cols-1)
+306:             *[f'BLB{i}' for i in range(self.num_cols)],  # BLB0 to BLB(num_cols-1)
+307:             'RWL'  # RWL as shared WL
+308:         ]
+309: 
+310:         circuit.X(
+311:             'Dummy_row', dummy_row_2.NAME,
+312:             *dummy_connections
+313:         )
+314:         return circuit
+315: 
+316:     def create_and2_for_rwl(self, circuit: Circuit):
+317:         """"""Create AND2_FOR_RWL subcircuit and instance for RWL control""""""
+318:         # Create AND2_FOR_RWL instance
+319:         and2_for_rwl = AND2(
+320:             nmos_model_nand=""NMOS_VTG"",
+321:             pmos_model_nand=""PMOS_VTG"",
+322:             nmos_model_inv=""NMOS_VTG"",
+323:             pmos_model_inv=""PMOS_VTG"",
+324:             )
+325: 
+326:         # Add subcircuit definition to this testbench
+327:         circuit.subcircuit(and2_for_rwl)
+328: 
+329:         # Connect XRWL instance to circuit
+330:         circuit.X(
+331:             'RWL', and2_for_rwl.NAME,
+332:             'VDD', 'VSS', 'wl_en', 'VDD', 'RWL'
+333:         )
+334:         return circuit
+335: 
+336:     def create_decoder(self, circuit: Circuit):
+337:         decoder_config = self.sram_config.decoder    #从总config类里提取decoder部分参数
+338:         decoder = DecoderCascadeFactory(
+339:             nmos_model_inv=decoder_config.nmos_model.value[0],
+340:             pmos_model_inv=decoder_config.pmos_model.value[0],
+341:             nmos_model_nand=decoder_config.nmos_model.value[0],
+342:             pmos_model_nand=decoder_config.pmos_model.value[0],
+343:             num_rows=self.num_rows,
+344:             nand_pmos_width=decoder_config.pmos_width.value[0],
+345:             nand_nmos_width=decoder_config.nmos_width.value[0],
+346:             inv_pmos_width=decoder_config.pmos_width.value[1],
+347:             inv_nmos_width =decoder_config.nmos_width.value[1],
+348:             length=decoder_config.length.value,
+349:             w_rc=False,  # default `w_rc` is False,暂时不支持
+350:             sweep_decoder=self.sweep_decoder,
+351:             pmos_choices = self.sram_config.senseamp.pmos_model.choices,
+352:             nmos_choices = self.sram_config.senseamp.nmos_model.choices,
+353:             param_model_file =self.sim_path + '/param_sweep_models.data',
+354:         ).create()
+355:         circuit.subcircuit(decoder)   #添加到主电路
+356:         # 计算地址位数
+357:         n_bits = ceil(log2(self.num_rows)) if self.num_rows > 1 else 1
+358:           # 地址节点
+359:         address_nodes = [f'A_dff{i}' for i in range(n_bits)]
+360: 
+361:         # # 设置地址信号（目标行地址）
+362:         # address_nodes = []
+363:         # for bit in range(n_bits):
+364:         #     bit_val = (target_row >> bit) & 1  # 提取每一位的值
+365:         #     node_name = f'A{bit}'
+366:         #     if bit_val:
+367:         #         circuit.V(f'ADDR_{bit}', node_name, self.gnd_node, self.vdd)
+368:         #     else:
+369:         #         circuit.V(f'ADDR_{bit}', node_name, self.gnd_node, 0 @ u_V)
+370:         #     address_nodes.append(node_name)
+371: 
+372:         # 添加使能信号 - 始终使能
+373:         #circuit.V('DEC_EN', 'EN', self.gnd_node, self.vdd @ u_V)
+374: 
+375:         # 字线节点
+376:         wl_nodes = [f'DEC_WL{i}' for i in range(self.num_rows)]
+377: 
+378:         # 实例化译码器
+379:         circuit.X(
+380:             'DECODER', decoder.NAME,
+381:             self.power_node, self.gnd_node,  # VDD, VSS
+382:             *address_nodes,                  # 地址信号
+383:             *wl_nodes                       # 字线输出
+384:         )
+385:          # 保存译码器输出节点供字线驱动器使用
+386:         self.decoder_wl_nodes = wl_nodes
+387: 
+388:         return circuit
+389: 
+390:     def create_wl_driver(self, circuit: Circuit, target_row: int):  #创造字线驱动电路函数
+391:         """"""Create wordline driver for the target/standby row""""""
+392:         wl_config = self.sram_config.wordline_driver    #从总config类里提取wordline部分参数
+393:         wldrv = WordlineDriverFactory(
+394:             nmos_model=wl_config.nmos_model.value[0],
+395:             pmos_model=wl_config.pmos_model.value[0],
+396:             nand_pmos_width=wl_config.pmos_width.value[0],
+397:             nand_nmos_width=wl_config.nmos_width.value[0],
+398:             inv_pmos_width=wl_config.pmos_width.value[1],
+399:             inv_nmos_width =wl_config.nmos_width.value[1],
+400:             length=wl_config.length.value,
+401:             num_cols=self.num_cols,
+402:             w_rc=self.w_rc,
+403:             sweep_wordlinedriver = self.sweep_wordlinrdriver,
+404:             pmos_modle_choices = self.sram_config.senseamp.pmos_model.choices,
+405:             nmos_modle_choices = self.sram_config.senseamp.nmos_model.choices,
+406:             param_model_file =self.sim_path + '/param_sweep_models.data',
+407:         ).create()
+408:         circuit.subcircuit(wldrv)   #添加到主电路
+409: 
+410:         # Wordline control & drivers
+411:         for row in range(self.num_rows):
+412:             # 使用译码器输出作为使能信号
+413:             decoder_enable = self.decoder_wl_nodes[row]
+414:                 # Add pulse source for the target row 实例化字线驱动器
+415:          # 添加字线驱动器
+416:             circuit.X(
+417:                 f'WL_DRV_{row}', wldrv.name,
+418:                 self.power_node, self.gnd_node,
+419:                 decoder_enable,    # 来自译码器的使能信号
+420:                 'WL_EN',   # 内部使能（始终有效）
+421:                 f'WL{row}',        # 输出到SRAM阵列
+422:             )
+423:             # else:
+424:             #     # Tie idle wordlines to ground 非目标行将字线接地
+425:             #     circuit.V(f'WL{row}_gnd', f'WL{row}', self.gnd_node, 0 @ u_V)
+426:         return circuit
+427: 
+428:     def create_D_latch(self, circuit: Circuit, target_col: int):
+429:         """"""Create D_latch subcircuit and instance""""""
+430:         # Create D_latch instance
+431:         d_latch = D_latch(
+432:             nmos_model=""NMOS_VTG"",
+433:             pmos_model=""PMOS_VTG"")
+434: 
+435:         # Add subcircuit definition to this testbench
+436:         circuit.subcircuit(d_latch)
+437: 
+438:         # Connect D_latch instance to circuit
+439:         circuit.X(
+440:             'D_LATCH', d_latch.NAME,
+441:             'VDD', 'VSS', f'SA_Q{target_col}', 'S_EN', 'OUT', 'OUT_B'
+442:         )",1cccbb8842d1f62ea08d571c08a1d7a8128132a6d49fa92495376fb5b314538f,RAW_NETLIST_ENTRY,MEDIUM,True,False,DOUT[i],read_data_observation,column_path_to_top_io,True,column_path_to_top_io,False,
+PINBIND_031_ALL_MODULES,VDD,power_distribution,SRAM_TOP:VDD->ALL_MODULES:VDD,/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/base_subcircuit.py,10,10,"9:     NAME = 'BASE_SUBCKT'
+10:     # The first and second nodes are always power and ground nodes,VDD and VSS
+11:     NODES = ('VDD', 'VSS')",42356bcc3cd53798fde7e513670873d6ca5cda74f5be861aa7617387821e5440,RAW_MODULE_DEFINITION,HIGH,True,False,VDD,power_distribution,top_level_rails_and_stitches,True,top_level_rails_and_stitches,False,
+PINBIND_032_ALL_MODULES,VSS,ground_distribution,SRAM_TOP:VSS->ALL_MODULES:GND,/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/base_subcircuit.py,10,10,"9:     NAME = 'BASE_SUBCKT'
+10:     # The first and second nodes are always power and ground nodes,VDD and VSS
+11:     NODES = ('VDD', 'VSS')",42356bcc3cd53798fde7e513670873d6ca5cda74f5be861aa7617387821e5440,RAW_MODULE_DEFINITION,HIGH,True,False,GND,ground_distribution,top_level_rails_and_stitches,True,top_level_rails_and_stitches,False,
+PINBIND_033_DELAY_CHAIN,RBL,replica_timing_distribution,replica_array:RBL->DELAY_CHAIN:rbl,/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/replica_column.py,17,17,"16:     NAME = 'Replica_CELL'
+17:     NODES = ('VDD', 'VSS', 'RBL', 'RBLB', 'WL')
+18: ",711c936a5d8dbb5a785c7f2316f0a24accde4d848f5a55170281dbb04a8eae8b,RAW_CLASS_OR_FUNCTION,HIGH,True,False,rbl,replica_timing_distribution,replica_chain_periphery_route,True,replica_chain_periphery_route,False,
+PINBIND_033_CONTROL_LOGIC,RBL,replica_timing_distribution,replica_array:RBL->CONTROL_LOGIC:delay_in,/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/replica_column.py,17,17,"16:     NAME = 'Replica_CELL'
+17:     NODES = ('VDD', 'VSS', 'RBL', 'RBLB', 'WL')
+18: ",711c936a5d8dbb5a785c7f2316f0a24accde4d848f5a55170281dbb04a8eae8b,RAW_CLASS_OR_FUNCTION,HIGH,True,False,delay_in,replica_timing_distribution,replica_chain_periphery_route,True,replica_chain_periphery_route,False,

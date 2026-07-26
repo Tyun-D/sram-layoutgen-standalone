@@ -1,0 +1,6 @@
+next_stage,depends_on,why_needed,human_review_required
+L0,PROJECT_LAYOUTGEN_OPENYIELD_STATUS.* + review GDS + module GDS inventory + generator code inventory,Audit real generator path and first-round module validity before any new physical generation.,True
+L1,L0 audit results + OpenYield semantics + layoutgen capability map,Bind OpenYield module/net semantics onto real layoutgen generator hooks.,True
+L2,L1 bindings + first-round module replacement decisions,Regenerate OpenYield real module GDS through layoutgen-based path.,True
+L3,L2 real module GDS + layoutgen top-level assembly path,Generate layoutgen-based OpenYield SRAM top GDS.,True
+L4,L3 top GDS + real signal/power integration,"Do final real connection, power, validation, and delivery.",True

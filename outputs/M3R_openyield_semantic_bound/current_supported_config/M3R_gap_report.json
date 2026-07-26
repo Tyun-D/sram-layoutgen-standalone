@@ -1,0 +1,18 @@
+{
+  "remaining_gaps": [
+    {
+      "gap_id": "M3R_GAP_001",
+      "category": "review_gate",
+      "severity": "review_only",
+      "description": "Human KLayout review is still required to confirm that OpenYield semantic labels and hierarchy traces match user expectations on the preserved SRAM macro.",
+      "blocks_M3R_gate": false
+    },
+    {
+      "gap_id": "M3R_GAP_002",
+      "category": "signoff",
+      "severity": "review_only",
+      "description": "M3R binds semantics onto the physical backbone but does not claim DRC/LVS/signoff closure for the semantic export layer.",
+      "blocks_M3R_gate": false
+    }
+  ]
+}

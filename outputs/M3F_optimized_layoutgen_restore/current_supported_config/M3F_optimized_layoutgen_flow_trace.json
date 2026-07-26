@@ -1,0 +1,63 @@
+{
+  "m3r_review_failure_recorded": true,
+  "optimized_layoutgen_flow_found": true,
+  "optimized_layoutgen_reference_gds_found": true,
+  "optimized_layoutgen_code_found": true,
+  "optimized_reference_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+  "optimized_reference_report": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.report.json",
+  "final_generation_entry": "sram_layoutgen.standalone.write_standalone",
+  "final_generation_spec": {
+    "word_size": 8,
+    "num_words": 64,
+    "words_per_row": 4,
+    "name": "openyield_optimized_layoutgen_sram",
+    "enable_openyield_array_aggregation": true,
+    "enable_openyield_senseamp_adapter": true,
+    "enable_openyield_columnmux_adapter": true,
+    "enable_openyield_writedriver_adapter": true,
+    "enable_openyield_wordlinedriver_adapter": true,
+    "enable_openyield_gate_row_packing": true,
+    "enable_openyield_rail_to_rail_abutment": true,
+    "enable_openyield_power_rail_overlap_packing": true,
+    "enable_openyield_dff_row_packing": true,
+    "exclude_dff_vertical_overlap": true,
+    "openyield_storage_row_orientation_policy": "alternating_mx"
+  },
+  "flow_steps": [
+    {
+      "component": "optimized_reference_gds",
+      "path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+      "found": true,
+      "reuse_in_M3F": "reference_and_comparison",
+      "evidence": "hybrid_openyield_rail_overlap.complete.gds was found and used as optimized comparator"
+    },
+    {
+      "component": "layout_prototype.generate_layout_prototype",
+      "path": "sram_layoutgen/openyield_adapter/layout_prototype.py",
+      "found": true,
+      "reuse_in_M3F": "flow_trace_and_helper_logic",
+      "evidence": "build_module_coverage and packing-plan reconstruction reused"
+    },
+    {
+      "component": "standalone.write_standalone",
+      "path": "sram_layoutgen/standalone.py",
+      "found": true,
+      "reuse_in_M3F": "direct_final_generation",
+      "evidence": "StandaloneSpec recreated optimized hybrid flags with final top name"
+    },
+    {
+      "component": "gate_row_vertical_abutment_report",
+      "path": "sram_layoutgen/openyield_adapter/gate_row_packer.py",
+      "found": true,
+      "reuse_in_M3F": "direct_final_power_restore_audit",
+      "evidence": "same_net_power_rail_overlap_packing report regenerated for final M3F GDS"
+    },
+    {
+      "component": "cell_rail_overlap_eligibility",
+      "path": "sram_layoutgen/openyield_adapter/cell_rail_overlap_eligibility.py",
+      "found": true,
+      "reuse_in_M3F": "audit_input",
+      "evidence": "eligibility data consumed by row-abutment audit"
+    }
+  ]
+}

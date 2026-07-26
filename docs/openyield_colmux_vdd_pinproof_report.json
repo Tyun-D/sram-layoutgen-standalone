@@ -1,0 +1,305 @@
+{
+  "scope": "step5_6_columnmux_vdd_pinproof_repair",
+  "inputs": {
+    "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+    "source_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_col_mux.gds",
+    "power_report": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_columnmux_power_metadata_report.json",
+    "label_name": "vdd",
+    "label_layer": 11,
+    "label_texttype": 0
+  },
+  "modified_original_gds": false,
+  "source_gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_col_mux.gds",
+  "repaired_candidate_gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_colmux_repair\\gen_col_mux_vdd_labeled.gds",
+  "selected_candidate_shape": {
+    "source": "power_report_suspected_shape",
+    "bbox": {
+      "x0": 0.14,
+      "y0": 1.6275,
+      "x1": 0.46,
+      "y1": 1.6925000000000001
+    },
+    "center": {
+      "x": 0.3,
+      "y": 1.66
+    },
+    "reason": "unlabeled_m1_shape_near_top_boundary"
+  },
+  "new_text_label": {
+    "name": "vdd",
+    "layer": 11,
+    "texttype": 0,
+    "x": 0.3,
+    "y": 1.66
+  },
+  "labels_before": [
+    {
+      "text": "sel",
+      "layer": 9,
+      "texttype": 0,
+      "x": 0.3525,
+      "y": 0.0525
+    },
+    {
+      "text": "bl",
+      "layer": 13,
+      "texttype": 0,
+      "x": 0.17500000000000002,
+      "y": 1.73
+    },
+    {
+      "text": "br",
+      "layer": 13,
+      "texttype": 0,
+      "x": 0.6,
+      "y": 1.73
+    },
+    {
+      "text": "bl_out",
+      "layer": 13,
+      "texttype": 0,
+      "x": 0.17500000000000002,
+      "y": 0.07
+    },
+    {
+      "text": "br_out",
+      "layer": 13,
+      "texttype": 0,
+      "x": 0.6,
+      "y": 0.07
+    },
+    {
+      "text": "gnd",
+      "layer": 11,
+      "texttype": 0,
+      "x": 0.705,
+      "y": 0.87
+    },
+    {
+      "text": "G",
+      "layer": 9,
+      "texttype": 0,
+      "x": 0.1525,
+      "y": 0.36
+    },
+    {
+      "text": "S",
+      "layer": 11,
+      "texttype": 0,
+      "x": 0.045,
+      "y": 0.36
+    },
+    {
+      "text": "D",
+      "layer": 11,
+      "texttype": 0,
+      "x": 0.26,
+      "y": 0.36
+    }
+  ],
+  "labels_after": [
+    {
+      "text": "sel",
+      "layer": 9,
+      "texttype": 0,
+      "x": 0.3525,
+      "y": 0.0525
+    },
+    {
+      "text": "bl",
+      "layer": 13,
+      "texttype": 0,
+      "x": 0.17500000000000002,
+      "y": 1.73
+    },
+    {
+      "text": "br",
+      "layer": 13,
+      "texttype": 0,
+      "x": 0.6,
+      "y": 1.73
+    },
+    {
+      "text": "bl_out",
+      "layer": 13,
+      "texttype": 0,
+      "x": 0.17500000000000002,
+      "y": 0.07
+    },
+    {
+      "text": "br_out",
+      "layer": 13,
+      "texttype": 0,
+      "x": 0.6,
+      "y": 0.07
+    },
+    {
+      "text": "gnd",
+      "layer": 11,
+      "texttype": 0,
+      "x": 0.705,
+      "y": 0.87
+    },
+    {
+      "text": "vdd",
+      "layer": 11,
+      "texttype": 0,
+      "x": 0.3,
+      "y": 1.6600000000000001
+    },
+    {
+      "text": "G",
+      "layer": 9,
+      "texttype": 0,
+      "x": 0.1525,
+      "y": 0.36
+    },
+    {
+      "text": "S",
+      "layer": 11,
+      "texttype": 0,
+      "x": 0.045,
+      "y": 0.36
+    },
+    {
+      "text": "D",
+      "layer": 11,
+      "texttype": 0,
+      "x": 0.26,
+      "y": 0.36
+    }
+  ],
+  "polygon_count_before": 50,
+  "polygon_count_after": 50,
+  "text_count_before": 9,
+  "text_count_after": 10,
+  "bbox_before": {
+    "x0": -0.08,
+    "y0": -0.08,
+    "x1": 0.7375,
+    "y1": 1.8
+  },
+  "bbox_after": {
+    "x0": -0.08,
+    "y0": -0.08,
+    "x1": 0.7375,
+    "y1": 1.8
+  },
+  "vdd_label_present_before": false,
+  "vdd_label_present_after": true,
+  "vdd_shape_candidate_present_before": true,
+  "vdd_shape_candidate_present_after": true,
+  "vdd_label_matches_m1_shape": true,
+  "vdd_label_inside_candidate_shape": true,
+  "power_status_before": "vdd_shape_unlabeled",
+  "power_status_after": "vdd_label_present",
+  "safe_for_physical_mapping": true,
+  "safe_for_shared_rail": false,
+  "can_enter_columnmux_placement": "limited_or_metadata_only",
+  "requires_metadata_fix": false,
+  "recommended_integration": "add_repaired_macro_alias",
+  "polygon_count_unchanged": true,
+  "labels_added_count": 1,
+  "layout_hierarchy_before": {
+    "structure_count": 5,
+    "structures": [
+      "gen_col_mux",
+      "sram_1rw_32x16_freepdk45_contact_10",
+      "sram_1rw_32x16_freepdk45_contact_17",
+      "sram_1rw_32x16_freepdk45_contact_24",
+      "sram_1rw_32x16_freepdk45_nmos_m1_w0_720_sm1_dm1"
+    ],
+    "reference_counts": {
+      "sram_1rw_32x16_freepdk45_contact_10": 2,
+      "sram_1rw_32x16_freepdk45_contact_17": 5,
+      "sram_1rw_32x16_freepdk45_contact_24": 1,
+      "sram_1rw_32x16_freepdk45_nmos_m1_w0_720_sm1_dm1": 2
+    },
+    "text_count": 9,
+    "labels": {
+      "D": 1,
+      "G": 1,
+      "S": 1,
+      "bl": 1,
+      "bl_out": 1,
+      "br": 1,
+      "br_out": 1,
+      "gnd": 1,
+      "sel": 1
+    }
+  },
+  "layout_hierarchy_after": {
+    "structure_count": 5,
+    "structures": [
+      "gen_col_mux",
+      "sram_1rw_32x16_freepdk45_contact_10",
+      "sram_1rw_32x16_freepdk45_contact_17",
+      "sram_1rw_32x16_freepdk45_contact_24",
+      "sram_1rw_32x16_freepdk45_nmos_m1_w0_720_sm1_dm1"
+    ],
+    "reference_counts": {
+      "sram_1rw_32x16_freepdk45_contact_10": 2,
+      "sram_1rw_32x16_freepdk45_contact_17": 5,
+      "sram_1rw_32x16_freepdk45_contact_24": 1,
+      "sram_1rw_32x16_freepdk45_nmos_m1_w0_720_sm1_dm1": 2
+    },
+    "text_count": 10,
+    "labels": {
+      "D": 1,
+      "G": 1,
+      "S": 1,
+      "bl": 1,
+      "bl_out": 1,
+      "br": 1,
+      "br_out": 1,
+      "gnd": 1,
+      "sel": 1,
+      "vdd": 1
+    }
+  },
+  "layer_summary_before": {
+    "boundary": {
+      "1/0": 3,
+      "10/0": 2,
+      "11/0": 12,
+      "12/0": 1,
+      "13/0": 15,
+      "2/0": 4,
+      "239/0": 5,
+      "4/0": 2,
+      "5/0": 1,
+      "6/0": 1,
+      "9/0": 4
+    },
+    "text": {
+      "11/0": 3,
+      "13/0": 4,
+      "9/0": 2
+    }
+  },
+  "layer_summary_after": {
+    "boundary": {
+      "1/0": 3,
+      "10/0": 2,
+      "11/0": 12,
+      "12/0": 1,
+      "13/0": 15,
+      "2/0": 4,
+      "239/0": 5,
+      "4/0": 2,
+      "5/0": 1,
+      "6/0": 1,
+      "9/0": 4
+    },
+    "text": {
+      "11/0": 4,
+      "13/0": 4,
+      "9/0": 2
+    }
+  },
+  "notes": [
+    "The repair only appends one TEXT element; no polygon coordinates are changed.",
+    "The candidate is proof-only and does not modify the original replacement GDS or replacement_macros.json.",
+    "Shared rail still remains unproven; this repair only upgrades pin metadata from unlabeled shape to label-backed pin."
+  ]
+}

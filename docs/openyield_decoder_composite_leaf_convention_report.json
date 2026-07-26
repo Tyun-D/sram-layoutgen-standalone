@@ -1,0 +1,225 @@
+{
+  "scope": "step6_12_openyield_decoder_composite_leaf_convention_audit",
+  "recommended_decoder_logic_strategy": "metadata_composite_nand2_inv",
+  "decoder_composite_leaf_conventions_available": true,
+  "pnand3_composite_convention_available": true,
+  "and3_composite_convention_available": true,
+  "leaf_pin_metadata_complete": true,
+  "leaf_power_metadata_complete": true,
+  "composite_pin_convention_available": true,
+  "composite_power_policy_available": true,
+  "composite_internal_net_routing_proven": false,
+  "composite_rail_continuity_proven": false,
+  "leaf_macro_reference": {
+    "gen_nand2": {
+      "leaf_macro": "gen_nand2",
+      "leaf_bbox": {
+        "x0": -0.08,
+        "y0": -0.08,
+        "x1": 0.9575,
+        "y1": 1.4000000000000001
+      },
+      "leaf_width": 1.0375,
+      "leaf_height": 1.4800000000000002
+    },
+    "gen_inv": {
+      "leaf_macro": "gen_inv",
+      "leaf_bbox": {
+        "x0": -0.08,
+        "y0": -0.08,
+        "x1": 0.7425,
+        "y1": 1.4000000000000001
+      },
+      "leaf_width": 0.8225,
+      "leaf_height": 1.4800000000000002
+    }
+  },
+  "composite_leaf_conventions": [
+    {
+      "convention_name": "PNAND3_COMPOSITE_NAND2_INV",
+      "target_logic": "pnand3",
+      "input_pins": [
+        "A",
+        "B",
+        "C"
+      ],
+      "output_pin": "Z",
+      "internal_nets": [
+        "ab_n",
+        "ab"
+      ],
+      "leaf_instances": [
+        "Xpnand3_nab",
+        "Xpnand3_inv_ab",
+        "Xpnand3_z"
+      ],
+      "leaf_instance_order": [
+        "Xpnand3_nab",
+        "Xpnand3_inv_ab",
+        "Xpnand3_z"
+      ],
+      "leaf_macro_sequence": [
+        "gen_nand2",
+        "gen_inv",
+        "gen_nand2"
+      ],
+      "pin_side_convention": {
+        "input_side": "west",
+        "output_side": "east",
+        "power_side_vdd": "top",
+        "power_side_gnd": "bottom",
+        "internal_nets_inside_bbox": "required"
+      },
+      "power_policy": {
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "policy": "local_horizontal_rails_only",
+        "shared_rail_disabled": true,
+        "rail_continuity_proven": false,
+        "metadata_only": true
+      },
+      "local_keepout": {
+        "keepout_name": "PNAND3_INTERNAL_KEEPOUT",
+        "target_convention": "PNAND3_COMPOSITE_NAND2_INV",
+        "purpose": "reserve_internal_net_channel",
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 3.2975,
+        "y1": 1.48,
+        "reserved_internal_nets": [
+          "ab_n",
+          "ab"
+        ],
+        "metadata_only": true,
+        "keepout_enforced_in_layout": false,
+        "physical_routing_proven": false
+      },
+      "bbox_proxy": {
+        "bbox_proxy_policy": "horizontal_leaf_chain",
+        "bbox_proxy_width": 3.2975,
+        "bbox_proxy_height": 1.48,
+        "internal_gap": 0.2,
+        "bbox_proxy_is_metadata_only": true
+      },
+      "logic_equivalence_metadata_proven": true,
+      "pin_metadata_complete": true,
+      "power_metadata_complete": true,
+      "internal_routing_proven": false,
+      "rail_continuity_proven": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "ab_n = NAND2(A, B), ab = INV(ab_n), Z = NAND2(ab, C).",
+        "A/B/C enter from west; Z exits east; internal nets remain within composite bbox."
+      ]
+    },
+    {
+      "convention_name": "AND3_COMPOSITE_NAND2_INV",
+      "target_logic": "and3",
+      "input_pins": [
+        "A",
+        "B",
+        "C"
+      ],
+      "output_pin": "Z",
+      "internal_nets": [
+        "ab_n",
+        "ab",
+        "abc_n"
+      ],
+      "leaf_instances": [
+        "Xand3_nab",
+        "Xand3_inv_ab",
+        "Xand3_nabc",
+        "Xand3_inv_z"
+      ],
+      "leaf_instance_order": [
+        "Xand3_nab",
+        "Xand3_inv_ab",
+        "Xand3_nabc",
+        "Xand3_inv_z"
+      ],
+      "leaf_macro_sequence": [
+        "gen_nand2",
+        "gen_inv",
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "pin_side_convention": {
+        "input_side": "west",
+        "output_side": "east",
+        "power_side_vdd": "top",
+        "power_side_gnd": "bottom",
+        "internal_nets_inside_bbox": "required"
+      },
+      "power_policy": {
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "policy": "local_horizontal_rails_only",
+        "shared_rail_disabled": true,
+        "rail_continuity_proven": false,
+        "metadata_only": true
+      },
+      "local_keepout": {
+        "keepout_name": "AND3_INTERNAL_KEEPOUT",
+        "target_convention": "AND3_COMPOSITE_NAND2_INV",
+        "purpose": "reserve_internal_net_channel",
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 4.32,
+        "y1": 1.48,
+        "reserved_internal_nets": [
+          "ab_n",
+          "ab",
+          "abc_n"
+        ],
+        "metadata_only": true,
+        "keepout_enforced_in_layout": false,
+        "physical_routing_proven": false
+      },
+      "bbox_proxy": {
+        "bbox_proxy_policy": "horizontal_leaf_chain",
+        "bbox_proxy_width": 4.32,
+        "bbox_proxy_height": 1.48,
+        "internal_gap": 0.2,
+        "bbox_proxy_is_metadata_only": true
+      },
+      "logic_equivalence_metadata_proven": true,
+      "pin_metadata_complete": true,
+      "power_metadata_complete": true,
+      "internal_routing_proven": false,
+      "rail_continuity_proven": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "ab_n = NAND2(A, B), ab = INV(ab_n), abc_n = NAND2(ab, C), Z = INV(abc_n).",
+        "A/B/C enter from west; Z exits east; internal nets remain within composite bbox."
+      ]
+    }
+  ],
+  "stage_impact_refresh": {
+    "per_stage_gen_inv": 27,
+    "per_stage_gen_nand2": 24,
+    "per_stage_composite_and3": 8,
+    "per_stage_composite_pnand3": 0,
+    "per_stage_total_leafs": 51,
+    "cascade_total_gen_inv": 135,
+    "cascade_total_gen_nand2": 120,
+    "cascade_total_composite_and3": 40,
+    "cascade_total_leafs": 255,
+    "stage_formula": "3x Pinv + 8x AND2 + 8x AND3_COMPOSITE_NAND2_INV"
+  },
+  "can_enter_decoder_generated_block_planning": true,
+  "can_enter_physical_decoder_placement": false,
+  "can_enter_very_limited_control_row_smoke": false,
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "blocker_list": [
+    "Composite pin and power conventions are available, but internal net routing is still metadata-only.",
+    "Composite rail continuity is not proven, so shared rail remains disabled.",
+    "BBox proxy and keepout are planning aids only, not legal placement proof.",
+    "Physical decoder placement and control-row smoke remain blocked."
+  ],
+  "step_6_13_recommendation": "Bind these composite leaf conventions into decoder-stage metadata templates next, including per-stage pin slots and internal-net reservation rules."
+}

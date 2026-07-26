@@ -1,0 +1,7 @@
+# M6 Power Rail Overlap Matrix
+
+| metric | generated_value | reference_value | match |
+| --- | --- | --- | --- |
+| vertical_abutment_policy | same_net_power_rail_overlap_packing | same_net_power_rail_overlap_packing | True |
+| checked_boundaries | 15 | None | False |
+| all_row_boundaries_pass | True | None | False |

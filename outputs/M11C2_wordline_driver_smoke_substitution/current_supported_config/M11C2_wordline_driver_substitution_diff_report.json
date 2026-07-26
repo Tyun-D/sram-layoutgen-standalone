@@ -1,0 +1,57 @@
+[
+  {
+    "metric": "top_bbox",
+    "before": [
+      0.0,
+      0.0,
+      36.6225,
+      44.145
+    ],
+    "after": [
+      0.0,
+      0.0,
+      36.6225,
+      44.145
+    ],
+    "status": "EXACT_MATCH",
+    "notes": "Top bbox should remain exact because the replacement cell stays on the locked gen_wl_driver target bbox."
+  },
+  {
+    "metric": "wordline_driver_target_bbox",
+    "before": [
+      -0.055,
+      -0.0325,
+      3.02,
+      1.4
+    ],
+    "after": [
+      -0.055,
+      -0.033,
+      3.0195,
+      1.4
+    ],
+    "status": "DIFF",
+    "notes": "The replacement must preserve the gen_wl_driver bounding box while adding repaired D/G/S marker geometry."
+  },
+  {
+    "metric": "wordline_driver_target_polygon_count",
+    "before": 9,
+    "after": 12,
+    "status": "UPDATED",
+    "notes": "Three marker polygons from M11W are added to prove the wrapper pin exposure entered the SRAM hierarchy."
+  },
+  {
+    "metric": "wordline_driver_target_label_count",
+    "before": 5,
+    "after": 8,
+    "status": "UPDATED",
+    "notes": "D/G/S labels appear only after the M11W-derived replacement."
+  },
+  {
+    "metric": "wordline_driver_instance_count",
+    "before": 16,
+    "after": 16,
+    "status": "UNCHANGED",
+    "notes": "The number of gen_wl_driver placements must stay fixed at 16."
+  }
+]

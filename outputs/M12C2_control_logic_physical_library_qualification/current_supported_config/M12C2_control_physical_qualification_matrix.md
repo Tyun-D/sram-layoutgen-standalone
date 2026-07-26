@@ -1,0 +1,24 @@
+# M12C2 Control Physical Qualification Matrix
+
+- logical_module=ADDR_DFF, qualification_status=QUALIFIED_FOR_HIERARCHICAL_COMPOSITION
+- logical_module=AND2, qualification_status=REJECTED_SOURCE_MISMATCH
+- logical_module=AND3, qualification_status=REJECTED_SOURCE_MISMATCH
+- logical_module=DATA_DFF, qualification_status=QUALIFIED_FOR_HIERARCHICAL_COMPOSITION
+- logical_module=DFF, qualification_status=QUALIFIED_REFERENCE_ONLY
+- logical_module=DFF_BUF, qualification_status=PARTIAL_SOURCE_TRACE
+- logical_module=NMOS_VTG, qualification_status=DEVICE_MODEL_NOT_A_HARDMACRO
+- logical_module=PINV, qualification_status=QUALIFIED_REFERENCE_ONLY
+- logical_module=PINV1, qualification_status=REJECTED_SIZE_ALIAS_COLLISION
+- logical_module=PINV2, qualification_status=REJECTED_SIZE_ALIAS_COLLISION
+- logical_module=PINV3, qualification_status=REJECTED_SIZE_ALIAS_COLLISION
+- logical_module=PINV4, qualification_status=REJECTED_SIZE_ALIAS_COLLISION
+- logical_module=PINV_wl_en_bar, qualification_status=QUALIFIED_REFERENCE_ONLY
+- logical_module=PMOS_VTG, qualification_status=DEVICE_MODEL_NOT_A_HARDMACRO
+- logical_module=PNAND2, qualification_status=QUALIFIED_REFERENCE_ONLY
+- logical_module=PNAND3, qualification_status=REJECTED_SOURCE_MISMATCH
+- logical_module=TIME, qualification_status=CONNECTIVITY_UNPROVEN
+- logical_module=TRANSMISSION_GATE, qualification_status=MISSING_REQUIRES_GENERATOR
+- logical_module=delay_chain, qualification_status=QUALIFIED_FIXED_VARIANT_ONLY
+- logical_module=pdrive, qualification_status=REJECTED_SOURCE_MISMATCH
+- logical_module=pdrive2_for_pre, qualification_status=REJECTED_SOURCE_MISMATCH
+- logical_module=wl_pdrive, qualification_status=REJECTED_SOURCE_MISMATCH

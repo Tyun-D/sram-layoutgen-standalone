@@ -1,0 +1,41 @@
+{
+  "trace_name": "M9_netlist_to_layout_trace",
+  "openyield_source_and_intent": {
+    "module_binding_source": "docs/mapping/M1_openyield_to_layoutgen_binding.csv",
+    "net_binding_source": "docs/mapping/M1_openyield_net_to_layoutgen_pin_binding.csv",
+    "implementation_binding_source": "docs/mapping/M4E_openyield_to_layoutgen_implementation_binding.csv",
+    "layout_intent_dir": "outputs/openyield_layout_intent/current_supported_config"
+  },
+  "parsed_modules": {
+    "module_count": 20,
+    "module_binding_matrix": "outputs/M9_openyield_netlist_translator/current_supported_config/M9_module_binding_matrix.csv"
+  },
+  "parsed_nets": {
+    "net_count": 34,
+    "net_binding_matrix": "outputs/M9_openyield_netlist_translator/current_supported_config/M9_net_binding_matrix.csv"
+  },
+  "derived_sram_spec": {
+    "spec_path": "outputs/M9_openyield_netlist_translator/current_supported_config/M9_SRAM_SPEC.json",
+    "word_size": 8,
+    "num_words": 64,
+    "words_per_row": 4,
+    "top_cell_name": "openyield_netlist_translated_sram"
+  },
+  "layoutgen_generator_arguments": {
+    "generator": "sram_layoutgen.standalone.write_standalone",
+    "arguments_path": "outputs/M9_openyield_netlist_translator/current_supported_config/M9_SRAM_SPEC.json",
+    "locked_golden_flow_source_gds_path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds"
+  },
+  "generated_gds": {
+    "translated_gds_path": "outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram.gds",
+    "clean_review_gds_path": "outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram_clean_review.gds",
+    "annotated_debug_gds_path": "outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram_annotated_debug.gds",
+    "gds_sanity_status": "GDS_PARSED_SANITY_PASSED"
+  },
+  "module_and_net_binding_evidence": {
+    "module_binding_count": 20,
+    "net_binding_count": 34,
+    "placement_routing_power_intent_path": "outputs/M9_openyield_netlist_translator/current_supported_config/M9_placement_routing_power_intent.json",
+    "translator_report_path": "docs/M9_openyield_netlist_translator_report.json"
+  }
+}

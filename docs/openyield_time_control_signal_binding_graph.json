@@ -1,0 +1,168 @@
+{
+  "scope": "step6_24_openyield_time_control_signal_binding_audit",
+  "nodes": [
+    {
+      "id": "clk_buf",
+      "kind": "signal_contract",
+      "contract_name": "CLK_BUF_BINDING_CONTRACT"
+    },
+    {
+      "id": "clk_bar",
+      "kind": "signal_contract",
+      "contract_name": "CLK_BAR_BINDING_CONTRACT"
+    },
+    {
+      "id": "gated_clk_buf",
+      "kind": "signal_contract",
+      "contract_name": "GATED_CLK_BUF_BINDING_CONTRACT"
+    },
+    {
+      "id": "gated_clk_bar",
+      "kind": "signal_contract",
+      "contract_name": "GATED_CLK_BAR_BINDING_CONTRACT"
+    },
+    {
+      "id": "rbl_delay",
+      "kind": "signal_contract",
+      "contract_name": "RBL_DELAY_BINDING_CONTRACT"
+    },
+    {
+      "id": "rbl_delay_bar",
+      "kind": "signal_contract",
+      "contract_name": "RBL_DELAY_BAR_BINDING_CONTRACT"
+    },
+    {
+      "id": "wl_en",
+      "kind": "signal_contract",
+      "contract_name": "WORDLINE_ENABLE_BINDING_CONTRACT"
+    },
+    {
+      "id": "w_en",
+      "kind": "signal_contract",
+      "contract_name": "WRITE_ENABLE_BINDING_CONTRACT"
+    },
+    {
+      "id": "s_en",
+      "kind": "signal_contract",
+      "contract_name": "SENSE_ENABLE_BINDING_CONTRACT"
+    },
+    {
+      "id": "PRE",
+      "kind": "signal_contract",
+      "contract_name": "PRECHARGE_ENB_BINDING_CONTRACT"
+    },
+    {
+      "id": "rbl_delay_bar_wen",
+      "kind": "signal_contract",
+      "contract_name": "WEN_DELAY_CONDITIONAL_BINDING_CONTRACT"
+    }
+  ],
+  "edges": [
+    {
+      "source": "clk",
+      "via": "PDRIVE",
+      "target": "clk_buf",
+      "dependency_confirmed": true,
+      "metadata_only": true,
+      "physical_routing_proven": false
+    },
+    {
+      "source": "clk_buf",
+      "via": "Pinv",
+      "target": "clk_bar",
+      "dependency_confirmed": true,
+      "metadata_only": true,
+      "physical_routing_proven": false
+    },
+    {
+      "source": "clk_buf + cs",
+      "via": "AND2",
+      "target": "gated_clk_buf",
+      "dependency_confirmed": true,
+      "metadata_only": true,
+      "physical_routing_proven": false
+    },
+    {
+      "source": "clk_bar + cs",
+      "via": "AND2",
+      "target": "gated_clk_bar",
+      "dependency_confirmed": true,
+      "metadata_only": true,
+      "physical_routing_proven": false
+    },
+    {
+      "source": "gated_clk_bar",
+      "via": "WL_PDRIVE",
+      "target": "wl_en",
+      "dependency_confirmed": true,
+      "metadata_only": true,
+      "physical_routing_proven": false
+    },
+    {
+      "source": "wl_en",
+      "via": "Pinv",
+      "target": "wl_en_bar",
+      "dependency_confirmed": true,
+      "metadata_only": true,
+      "physical_routing_proven": false
+    },
+    {
+      "source": "rbl",
+      "via": "DELAY_CHAIN",
+      "target": "rbl_delay",
+      "dependency_confirmed": true,
+      "metadata_only": true,
+      "physical_routing_proven": false
+    },
+    {
+      "source": "rbl_delay",
+      "via": "Pinv",
+      "target": "rbl_delay_bar",
+      "dependency_confirmed": true,
+      "metadata_only": true,
+      "physical_routing_proven": false
+    },
+    {
+      "source": "rbl_delay_bar + gated_clk_bar + we",
+      "via": "AND3",
+      "target": "w_en",
+      "dependency_confirmed": true,
+      "metadata_only": true,
+      "physical_routing_proven": false
+    },
+    {
+      "source": "rbl_delay + gated_clk_bar + we_bar",
+      "via": "AND3",
+      "target": "s_en",
+      "dependency_confirmed": true,
+      "metadata_only": true,
+      "physical_routing_proven": false
+    },
+    {
+      "source": "gated_clk_buf + rbl_delay + wl_en_bar",
+      "via": "PNAND3",
+      "target": "PRE_UNBUF",
+      "dependency_confirmed": true,
+      "metadata_only": true,
+      "physical_routing_proven": false
+    },
+    {
+      "source": "PRE_UNBUF",
+      "via": "PDRIVE2_FOR_PRE",
+      "target": "PRE",
+      "dependency_confirmed": true,
+      "metadata_only": true,
+      "physical_routing_proven": false
+    }
+  ],
+  "summary": {
+    "time_control_signal_binding_available": true,
+    "time_as_single_macro_allowed": false,
+    "control_signal_binding_consistent": true,
+    "all_core_control_signals_have_binding_contract": true,
+    "partial_or_conditional_bindings_present": true,
+    "can_enter_time_control_signal_metadata_planning": true,
+    "can_enter_time_control_physical_placement": false,
+    "can_enter_standalone_control_placement": false
+  }
+}

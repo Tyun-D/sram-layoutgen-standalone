@@ -1,0 +1,14 @@
+# replica_array generation report
+
+- generation_status: `L3_GDS_GENERATED_WITH_CONTRACT_PINS`
+- generator_class: `ArrayModuleGenerator`
+- generation_strategy: `array_generator_with_l2_orientation_policy`
+- top_cell_name: `replica_array`
+- gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/replica_array/replica_array.gds`
+- bbox: `{'x0': 0.0, 'y0': 0.0, 'x1': 1.79, 'y1': 7.68, 'width': 1.79, 'height': 7.68, 'shape_count': 9}`
+- pin_count: `6`
+- rail_status: `module_boundary_rails_exported`
+- limitations: `Array dimensions are deterministic L3 standalone templates, not final top-level SRAM array sizing.`
+- not_DRC_clean_claimed: `True`
+- not_LVS_clean_claimed: `True`
+- geometry_is_L3_module_candidate: `False`

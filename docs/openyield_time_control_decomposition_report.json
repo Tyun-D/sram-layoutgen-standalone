@@ -1,0 +1,1329 @@
+{
+  "scope": "step6_1_time_control_decomposition_audit",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "source_files": {
+    "TIME": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\time_generate.py",
+    "DECODER": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\decoder.py",
+    "TESTBENCH": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\testbenches\\sram_6t_core_testbench.py"
+  },
+  "source_health": {
+    "TIME": true,
+    "DECODER": true,
+    "TESTBENCH": true
+  },
+  "time_decomposition_success": true,
+  "time_as_single_macro_allowed": false,
+  "can_enter_control_subblock_adapter_planning": true,
+  "can_enter_standalone_control_placement": false,
+  "manual_source_review_required": false,
+  "node_count": 22,
+  "edge_count": 36,
+  "signal_count": 9,
+  "nodes": [
+    {
+      "node_name": "TIME",
+      "node_type": "composite_control_block",
+      "openyield_source": "sram_compiler/subcircuits/time_generate.py::TIME",
+      "role": "control_timing",
+      "input_signals": [
+        "clk",
+        "csb",
+        "web",
+        "addr[*]",
+        "din[*]",
+        "rbl"
+      ],
+      "output_signals": [
+        "clk_buf",
+        "clk_bar",
+        "cs_bar",
+        "cs",
+        "we_bar",
+        "we",
+        "gated_clk_bar",
+        "gated_clk_buf",
+        "wl_en",
+        "addr_q[*]",
+        "din_q[*]",
+        "rbl_delay",
+        "rbl_delay_bar",
+        "sense_enable",
+        "write_enable",
+        "precharge_enb"
+      ],
+      "downstream_consumers": [
+        "ADDR_DFF",
+        "DATA_DFF",
+        "DECODER_CASCADE",
+        "PRECHARGE",
+        "SENSEAMP",
+        "WRITEDRIVER",
+        "WORDLINEDRIVER"
+      ],
+      "candidate_local_macro": "control_logic_contract",
+      "candidate_local_gds": null,
+      "candidate_local_spice": null,
+      "mapping_status": "composite_required",
+      "placement_feasibility": "not_placeable_as_single_macro",
+      "source_contract_status": "composite_required",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "source_class": "TIME",
+      "notes": [
+        "Composite control/timing module.",
+        "Composed from DFF arrays, delay chains, inverter chains, and logic gates.",
+        "Not a single flat physical macro."
+      ]
+    },
+    {
+      "node_name": "ADDR_DFF",
+      "node_type": "hierarchical_control_array",
+      "openyield_source": "sram_compiler/subcircuits/time_generate.py::ADDR_DFF",
+      "role": "control_timing",
+      "input_signals": [
+        "CLK",
+        "A[*]"
+      ],
+      "output_signals": [
+        "A_dff[*]"
+      ],
+      "downstream_consumers": [
+        "DECODER_CASCADE"
+      ],
+      "candidate_local_macro": "dff",
+      "candidate_local_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\dff.gds",
+      "candidate_local_spice": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+      "mapping_status": "composite_required",
+      "placement_feasibility": "row_based_generated_array",
+      "source_contract_status": "composite_required",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "source_class": "ADDR_DFF",
+      "notes": [
+        "Address latch array built from repeated DFF leaf cells.",
+        "Latched bus maps to decoder input, not to a single hard macro."
+      ]
+    },
+    {
+      "node_name": "DATA_DFF",
+      "node_type": "hierarchical_control_array",
+      "openyield_source": "sram_compiler/subcircuits/time_generate.py::DATA_DFF",
+      "role": "control_timing",
+      "input_signals": [
+        "CLK",
+        "DIN[*]"
+      ],
+      "output_signals": [
+        "DIN_dff[*]"
+      ],
+      "downstream_consumers": [
+        "WRITEDRIVER"
+      ],
+      "candidate_local_macro": "dff",
+      "candidate_local_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\dff.gds",
+      "candidate_local_spice": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+      "mapping_status": "composite_required",
+      "placement_feasibility": "row_based_generated_array",
+      "source_contract_status": "composite_required",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "source_class": "DATA_DFF",
+      "notes": [
+        "Data latch array built from repeated DFF leaf cells.",
+        "Latched data bus feeds the write driver."
+      ]
+    },
+    {
+      "node_name": "DFF",
+      "node_type": "primitive_hardcell",
+      "openyield_source": "sram_compiler/subcircuits/time_generate.py::dff",
+      "role": "control_timing",
+      "input_signals": [
+        "D",
+        "CLK"
+      ],
+      "output_signals": [
+        "Q"
+      ],
+      "downstream_consumers": [
+        "ADDR_DFF",
+        "DATA_DFF",
+        "DFF_BUF"
+      ],
+      "candidate_local_macro": "dff",
+      "candidate_local_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\dff.gds",
+      "candidate_local_spice": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+      "mapping_status": "direct_hardcell_available",
+      "placement_feasibility": "placeable_as_known_macro",
+      "source_contract_status": "macro_candidate",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "source_class": "dff",
+      "notes": [
+        "Local GDS/SPICE leaf exists.",
+        "Pin labels were previously audited as clk, D, Q, gnd, vdd."
+      ]
+    },
+    {
+      "node_name": "DFF_BUF",
+      "node_type": "hierarchical_buffered_flop",
+      "openyield_source": "sram_compiler/subcircuits/time_generate.py::DFF_BUF",
+      "role": "support_cell",
+      "input_signals": [
+        "D",
+        "CLK"
+      ],
+      "output_signals": [
+        "Q",
+        "QB"
+      ],
+      "downstream_consumers": [
+        "ADDR_DFF",
+        "DATA_DFF"
+      ],
+      "candidate_local_macro": "generated_dff_buffer",
+      "candidate_local_gds": null,
+      "candidate_local_spice": null,
+      "mapping_status": "generated_logic_available",
+      "placement_feasibility": "requires_generated_layout_or_stdcell_row",
+      "source_contract_status": "needs_stdcell_or_generated_layout",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "source_class": "DFF_BUF",
+      "notes": [
+        "One DFF plus two output inverters.",
+        "Acts as a buffered wrapper rather than a single hard macro."
+      ]
+    },
+    {
+      "node_name": "delay_chain",
+      "node_type": "delay_chain",
+      "openyield_source": "sram_compiler/subcircuits/time_generate.py::DelayChain",
+      "role": "control_timing",
+      "input_signals": [
+        "in"
+      ],
+      "output_signals": [
+        "out"
+      ],
+      "downstream_consumers": [
+        "TIME.rbl_delay"
+      ],
+      "candidate_local_macro": "generated_delay_chain",
+      "candidate_local_gds": null,
+      "candidate_local_spice": null,
+      "mapping_status": "generated_logic_available",
+      "placement_feasibility": "requires_generated_layout_or_stdcell_row",
+      "source_contract_status": "composite_required",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "source_class": "DelayChain",
+      "notes": [
+        "Nine-stage inverter delay chain with load taps.",
+        "Used to generate replica-bitline delay."
+      ]
+    },
+    {
+      "node_name": "wen_delay_chain",
+      "node_type": "delay_chain",
+      "openyield_source": "sram_compiler/subcircuits/time_generate.py::WenDelayChain",
+      "role": "control_timing",
+      "input_signals": [
+        "in"
+      ],
+      "output_signals": [
+        "out"
+      ],
+      "downstream_consumers": [
+        "TIME.w_en"
+      ],
+      "candidate_local_macro": "generated_delay_chain",
+      "candidate_local_gds": null,
+      "candidate_local_spice": null,
+      "mapping_status": "generated_logic_available",
+      "placement_feasibility": "requires_generated_layout_or_stdcell_row",
+      "source_contract_status": "composite_required",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "source_class": "WenDelayChain",
+      "notes": [
+        "Configurable inverter delay chain for write-enable timing.",
+        "Only used in the narrow write timing path."
+      ]
+    },
+    {
+      "node_name": "pdrive",
+      "node_type": "buffer_chain",
+      "openyield_source": "sram_compiler/subcircuits/time_generate.py::pdrive",
+      "role": "support_cell",
+      "input_signals": [
+        "A"
+      ],
+      "output_signals": [
+        "Z"
+      ],
+      "downstream_consumers": [
+        "TIME.clk_buf"
+      ],
+      "candidate_local_macro": "generated_clock_buffer_chain",
+      "candidate_local_gds": null,
+      "candidate_local_spice": null,
+      "mapping_status": "generated_logic_available",
+      "placement_feasibility": "requires_generated_layout_or_stdcell_row",
+      "source_contract_status": "needs_stdcell_or_generated_layout",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "source_class": "pdrive",
+      "notes": [
+        "Four-stage inverter buffer chain.",
+        "Used for clock buffering before internal gating."
+      ]
+    },
+    {
+      "node_name": "pdrive2_for_pre",
+      "node_type": "buffer_chain",
+      "openyield_source": "sram_compiler/subcircuits/time_generate.py::pdrive2_for_pre",
+      "role": "support_cell",
+      "input_signals": [
+        "A"
+      ],
+      "output_signals": [
+        "Z"
+      ],
+      "downstream_consumers": [
+        "TIME.PRE"
+      ],
+      "candidate_local_macro": "generated_precharge_buffer_chain",
+      "candidate_local_gds": null,
+      "candidate_local_spice": null,
+      "mapping_status": "generated_logic_available",
+      "placement_feasibility": "requires_generated_layout_or_stdcell_row",
+      "source_contract_status": "needs_stdcell_or_generated_layout",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "source_class": "pdrive2_for_pre",
+      "notes": [
+        "Two-stage inverter buffer chain.",
+        "Drives precharge control."
+      ]
+    },
+    {
+      "node_name": "wl_pdrive",
+      "node_type": "buffer_chain",
+      "openyield_source": "sram_compiler/subcircuits/time_generate.py::wl_pdrive",
+      "role": "support_cell",
+      "input_signals": [
+        "A"
+      ],
+      "output_signals": [
+        "Z"
+      ],
+      "downstream_consumers": [
+        "TIME.wl_en"
+      ],
+      "candidate_local_macro": "generated_wordline_buffer_chain",
+      "candidate_local_gds": null,
+      "candidate_local_spice": null,
+      "mapping_status": "generated_logic_available",
+      "placement_feasibility": "requires_generated_layout_or_stdcell_row",
+      "source_contract_status": "needs_stdcell_or_generated_layout",
+      "source_file": "sram_compiler/subcircuits/time_generate.py",
+      "source_class": "wl_pdrive",
+      "notes": [
+        "Two-stage inverter buffer chain for wordline enabling.",
+        "OpenYield source and testbench confirm active-high semantics."
+      ]
+    },
+    {
+      "node_name": "Pinv",
+      "node_type": "primitive_standard_cell",
+      "openyield_source": "sram_compiler/subcircuits/standard_cell.py::Pinv",
+      "role": "support_cell",
+      "input_signals": [
+        "A"
+      ],
+      "output_signals": [
+        "Z"
+      ],
+      "downstream_consumers": [
+        "DFF_BUF",
+        "DelayChain",
+        "WenDelayChain",
+        "pdrive",
+        "pdrive2_for_pre",
+        "wl_pdrive",
+        "AND2",
+        "AND3",
+        "DECODER3_8"
+      ],
+      "candidate_local_macro": "stdcell_inverter",
+      "candidate_local_gds": null,
+      "candidate_local_spice": null,
+      "mapping_status": "generated_logic_available",
+      "placement_feasibility": "stdcell_row_candidate",
+      "source_contract_status": "needs_stdcell_or_generated_layout",
+      "source_file": "sram_compiler/subcircuits/standard_cell.py",
+      "source_class": "Pinv",
+      "notes": [
+        "Leaf inverter primitive used throughout control logic.",
+        "No direct GDS leaf exists in the current tech bundle; it is a generated logic atom."
+      ]
+    },
+    {
+      "node_name": "PNAND2",
+      "node_type": "primitive_standard_cell",
+      "openyield_source": "sram_compiler/subcircuits/standard_cell.py::PNAND2",
+      "role": "support_cell",
+      "input_signals": [
+        "A",
+        "B"
+      ],
+      "output_signals": [
+        "Z"
+      ],
+      "downstream_consumers": [
+        "AND2",
+        "DECODER3_8"
+      ],
+      "candidate_local_macro": "stdcell_nand2",
+      "candidate_local_gds": null,
+      "candidate_local_spice": null,
+      "mapping_status": "generated_logic_available",
+      "placement_feasibility": "stdcell_row_candidate",
+      "source_contract_status": "needs_stdcell_or_generated_layout",
+      "source_file": "sram_compiler/subcircuits/standard_cell.py",
+      "source_class": "PNAND2",
+      "notes": [
+        "Leaf NAND2 primitive."
+      ]
+    },
+    {
+      "node_name": "PNAND3",
+      "node_type": "primitive_standard_cell",
+      "openyield_source": "sram_compiler/subcircuits/standard_cell.py::PNAND3",
+      "role": "support_cell",
+      "input_signals": [
+        "A",
+        "B",
+        "C"
+      ],
+      "output_signals": [
+        "Z"
+      ],
+      "downstream_consumers": [
+        "AND3",
+        "TIME"
+      ],
+      "candidate_local_macro": "stdcell_nand3",
+      "candidate_local_gds": null,
+      "candidate_local_spice": null,
+      "mapping_status": "generated_logic_available",
+      "placement_feasibility": "stdcell_row_candidate",
+      "source_contract_status": "needs_stdcell_or_generated_layout",
+      "source_file": "sram_compiler/subcircuits/standard_cell.py",
+      "source_class": "PNAND3",
+      "notes": [
+        "Leaf NAND3 primitive."
+      ]
+    },
+    {
+      "node_name": "AND2",
+      "node_type": "composite_logic_gate",
+      "openyield_source": "sram_compiler/subcircuits/standard_cell.py::AND2",
+      "role": "support_cell",
+      "input_signals": [
+        "A",
+        "B"
+      ],
+      "output_signals": [
+        "Z"
+      ],
+      "downstream_consumers": [
+        "TIME",
+        "DECODER3_8"
+      ],
+      "candidate_local_macro": "stdcell_and2_chain",
+      "candidate_local_gds": null,
+      "candidate_local_spice": null,
+      "mapping_status": "generated_logic_available",
+      "placement_feasibility": "stdcell_row_candidate",
+      "source_contract_status": "needs_stdcell_or_generated_layout",
+      "source_file": "sram_compiler/subcircuits/standard_cell.py",
+      "source_class": "AND2",
+      "notes": [
+        "PNAND2 followed by an inverter."
+      ]
+    },
+    {
+      "node_name": "AND3",
+      "node_type": "composite_logic_gate",
+      "openyield_source": "sram_compiler/subcircuits/standard_cell.py::AND3",
+      "role": "support_cell",
+      "input_signals": [
+        "A",
+        "B",
+        "C"
+      ],
+      "output_signals": [
+        "Z"
+      ],
+      "downstream_consumers": [
+        "TIME",
+        "DECODER3_8"
+      ],
+      "candidate_local_macro": "stdcell_and3_chain",
+      "candidate_local_gds": null,
+      "candidate_local_spice": null,
+      "mapping_status": "generated_logic_available",
+      "placement_feasibility": "stdcell_row_candidate",
+      "source_contract_status": "needs_stdcell_or_generated_layout",
+      "source_file": "sram_compiler/subcircuits/standard_cell.py",
+      "source_class": "AND3",
+      "notes": [
+        "PNAND3 followed by an inverter."
+      ]
+    },
+    {
+      "node_name": "DECODER3_8",
+      "node_type": "decoder_stage",
+      "openyield_source": "sram_compiler/subcircuits/decoder.py::DECODER3_8",
+      "role": "decoder",
+      "input_signals": [
+        "EN",
+        "A0",
+        "A1",
+        "A2"
+      ],
+      "output_signals": [
+        "WL0..WL7"
+      ],
+      "downstream_consumers": [
+        "DECODER_CASCADE"
+      ],
+      "candidate_local_macro": "row_decoder",
+      "candidate_local_gds": null,
+      "candidate_local_spice": null,
+      "mapping_status": "composite_required",
+      "placement_feasibility": "decoder_block_candidate",
+      "source_contract_status": "macro_candidate",
+      "source_file": "sram_compiler/subcircuits/decoder.py",
+      "source_class": "DECODER3_8",
+      "notes": [
+        "Built from three input inverters plus eight AND3 and eight AND2 blocks.",
+        "This is a decoder stage, not a single hard macro leaf."
+      ]
+    },
+    {
+      "node_name": "DECODER_CASCADE",
+      "node_type": "hierarchical_decoder",
+      "openyield_source": "sram_compiler/subcircuits/decoder.py::DECODER_CASCADE",
+      "role": "decoder",
+      "input_signals": [
+        "A[*]"
+      ],
+      "output_signals": [
+        "WL[*]"
+      ],
+      "downstream_consumers": [
+        "ADDR_DFF"
+      ],
+      "candidate_local_macro": "decoder_cascade_block",
+      "candidate_local_gds": null,
+      "candidate_local_spice": null,
+      "mapping_status": "composite_required",
+      "placement_feasibility": "decoder_block_candidate",
+      "source_contract_status": "composite_required",
+      "source_file": "sram_compiler/subcircuits/decoder.py",
+      "source_class": "DECODER_CASCADE",
+      "notes": [
+        "Hierarchical cascade of decoder stages.",
+        "Must be placed as a decoder subblock, not a single macro."
+      ]
+    },
+    {
+      "node_name": "PRECHARGE",
+      "node_type": "column_periphery_macro",
+      "openyield_source": "sram_compiler/subcircuits/precharge_and_write_driver.py::Precharge",
+      "role": "precharge",
+      "input_signals": [
+        "precharge_enb",
+        "bl",
+        "br"
+      ],
+      "output_signals": [
+        "bl",
+        "br"
+      ],
+      "downstream_consumers": [
+        "time.PRE"
+      ],
+      "candidate_local_macro": "gen_precharge",
+      "candidate_local_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_precharge.gds",
+      "candidate_local_spice": null,
+      "mapping_status": "macro_candidate",
+      "placement_feasibility": "needs_gds_pin_audit",
+      "source_contract_status": "macro_candidate",
+      "source_file": "sram_compiler/subcircuits/precharge_and_write_driver.py",
+      "source_class": "Precharge",
+      "notes": [
+        "OpenYield uses ENB as active-low precharge enable.",
+        "No local physical GDS leaf is bundled in the current tech directory."
+      ]
+    },
+    {
+      "node_name": "SENSEAMP",
+      "node_type": "column_periphery_macro",
+      "openyield_source": "sram_compiler/subcircuits/mux_and_sa.py::SenseAmp",
+      "role": "sense_amp",
+      "input_signals": [
+        "sense_enable",
+        "bl",
+        "br"
+      ],
+      "output_signals": [
+        "dout",
+        "dout_b"
+      ],
+      "downstream_consumers": [
+        "readout"
+      ],
+      "candidate_local_macro": "sense_amp",
+      "candidate_local_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\sense_amp.gds",
+      "candidate_local_spice": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+      "mapping_status": "direct_hardcell_available",
+      "placement_feasibility": "placeable_as_known_macro",
+      "source_contract_status": "macro_candidate",
+      "source_file": "sram_compiler/subcircuits/mux_and_sa.py",
+      "source_class": "SenseAmp",
+      "notes": [
+        "Local GDS/SPICE leaf exists.",
+        "Current architecture adapter keeps QB/dout_b as a dropped complementary output in the read path review."
+      ]
+    },
+    {
+      "node_name": "WRITEDRIVER",
+      "node_type": "column_periphery_macro",
+      "openyield_source": "sram_compiler/subcircuits/precharge_and_write_driver.py::WriteDriver",
+      "role": "write_driver",
+      "input_signals": [
+        "write_enable",
+        "din",
+        "bl",
+        "br"
+      ],
+      "output_signals": [
+        "bl",
+        "br"
+      ],
+      "downstream_consumers": [
+        "write_path"
+      ],
+      "candidate_local_macro": "write_driver",
+      "candidate_local_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\write_driver.gds",
+      "candidate_local_spice": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+      "mapping_status": "direct_hardcell_available",
+      "placement_feasibility": "placeable_as_known_macro",
+      "source_contract_status": "macro_candidate",
+      "source_file": "sram_compiler/subcircuits/precharge_and_write_driver.py",
+      "source_class": "WriteDriver",
+      "notes": [
+        "Local GDS/SPICE leaf exists.",
+        "OpenYield mapping uses DIN -> din, EN -> write_enable, BL -> bl, BLB -> br."
+      ]
+    },
+    {
+      "node_name": "WORDLINEDRIVER",
+      "node_type": "row_periphery_macro",
+      "openyield_source": "sram_compiler/subcircuits/wordline_driver.py::WordlineDriver",
+      "role": "wordline_driver",
+      "input_signals": [
+        "decoder_input",
+        "wordline_enable"
+      ],
+      "output_signals": [
+        "wl"
+      ],
+      "downstream_consumers": [
+        "ROW_WL"
+      ],
+      "candidate_local_macro": "gen_wl_driver",
+      "candidate_local_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_wl_driver.gds",
+      "candidate_local_spice": null,
+      "mapping_status": "macro_candidate",
+      "placement_feasibility": "needs_gds_pin_audit",
+      "source_contract_status": "macro_candidate",
+      "source_file": "sram_compiler/subcircuits/wordline_driver.py",
+      "source_class": "WordlineDriver",
+      "notes": [
+        "OpenYield source and testbench confirm A=decoder_input, B=wordline_enable, Z=wl.",
+        "B is active-high."
+      ]
+    },
+    {
+      "node_name": "COLUMNMUX*",
+      "node_type": "column_periphery_macro",
+      "openyield_source": "sram_compiler/subcircuits/mux_and_sa.py::ColumnMux",
+      "role": "column_mux",
+      "input_signals": [
+        "column_select",
+        "bl",
+        "br"
+      ],
+      "output_signals": [
+        "mux_out",
+        "mux_out_b"
+      ],
+      "downstream_consumers": [
+        "SENSEAMP"
+      ],
+      "candidate_local_macro": "gen_col_mux",
+      "candidate_local_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_col_mux.gds",
+      "candidate_local_spice": null,
+      "mapping_status": "macro_candidate",
+      "placement_feasibility": "needs_gds_pin_audit",
+      "source_contract_status": "macro_candidate",
+      "source_file": "sram_compiler/subcircuits/mux_and_sa.py",
+      "source_class": "ColumnMux",
+      "notes": [
+        "Column select is a separate control signal, not generated by TIME.",
+        "OpenYield adapter review keeps this as a read-path macro candidate, not a shared-rail block."
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "TIME",
+      "target": "ADDR_DFF",
+      "relation": "controls",
+      "signals": [
+        "clk",
+        "addr"
+      ],
+      "notes": [
+        "latches top-level address into addr_q."
+      ]
+    },
+    {
+      "source": "TIME",
+      "target": "DATA_DFF",
+      "relation": "controls",
+      "signals": [
+        "clk",
+        "din"
+      ],
+      "notes": [
+        "latches write data into din_q."
+      ]
+    },
+    {
+      "source": "TIME",
+      "target": "pdrive",
+      "relation": "implements",
+      "signals": [
+        "clk"
+      ],
+      "notes": [
+        "clock buffer chain."
+      ]
+    },
+    {
+      "source": "TIME",
+      "target": "DFF_BUF",
+      "relation": "uses",
+      "signals": [
+        "clk_buf",
+        "addr",
+        "din"
+      ],
+      "notes": [
+        "buffered flops in the control path."
+      ]
+    },
+    {
+      "source": "TIME",
+      "target": "DelayChain",
+      "relation": "uses",
+      "signals": [
+        "rbl"
+      ],
+      "notes": [
+        "replica bitline delay chain."
+      ]
+    },
+    {
+      "source": "TIME",
+      "target": "WenDelayChain",
+      "relation": "uses",
+      "signals": [
+        "rbl_delay_bar"
+      ],
+      "notes": [
+        "conditional write-enable delay path."
+      ]
+    },
+    {
+      "source": "TIME",
+      "target": "wl_pdrive",
+      "relation": "implements",
+      "signals": [
+        "gated_clk_bar"
+      ],
+      "notes": [
+        "wordline enable buffer."
+      ]
+    },
+    {
+      "source": "TIME",
+      "target": "AND2",
+      "relation": "implements",
+      "signals": [
+        "gated_clk_bar"
+      ],
+      "notes": [
+        "internal gate used in TIME."
+      ]
+    },
+    {
+      "source": "TIME",
+      "target": "AND3",
+      "relation": "implements",
+      "signals": [
+        "we",
+        "we_bar",
+        "rbl_delay"
+      ],
+      "notes": [
+        "internal gate used in TIME."
+      ]
+    },
+    {
+      "source": "TIME",
+      "target": "PNAND3",
+      "relation": "implements",
+      "signals": [
+        "pre_unbuf"
+      ],
+      "notes": [
+        "precharge gating NAND."
+      ]
+    },
+    {
+      "source": "ADDR_DFF",
+      "target": "DFF",
+      "relation": "decomposes_into",
+      "signals": [
+        "A[*]",
+        "CLK"
+      ],
+      "notes": [
+        "array of address flops built from a repeated DFF leaf."
+      ]
+    },
+    {
+      "source": "DATA_DFF",
+      "target": "DFF",
+      "relation": "decomposes_into",
+      "signals": [
+        "DIN[*]",
+        "CLK"
+      ],
+      "notes": [
+        "array of data flops built from a repeated DFF leaf."
+      ]
+    },
+    {
+      "source": "DFF_BUF",
+      "target": "DFF",
+      "relation": "contains",
+      "signals": [
+        "D",
+        "Q",
+        "QB",
+        "CLK"
+      ],
+      "notes": [
+        "buffered DFF wrapper."
+      ]
+    },
+    {
+      "source": "DFF_BUF",
+      "target": "Pinv",
+      "relation": "contains",
+      "signals": [
+        "Q",
+        "QB"
+      ],
+      "notes": [
+        "two output inverters after the DFF core."
+      ]
+    },
+    {
+      "source": "DelayChain",
+      "target": "Pinv",
+      "relation": "repeats",
+      "signals": [
+        "in",
+        "out"
+      ],
+      "notes": [
+        "nine-stage inverter delay chain with load taps."
+      ]
+    },
+    {
+      "source": "WenDelayChain",
+      "target": "Pinv",
+      "relation": "repeats",
+      "signals": [
+        "in",
+        "out"
+      ],
+      "notes": [
+        "configurable inverter delay chain."
+      ]
+    },
+    {
+      "source": "pdrive",
+      "target": "Pinv",
+      "relation": "repeats",
+      "signals": [
+        "A",
+        "Z"
+      ],
+      "notes": [
+        "four-stage inverter buffer chain."
+      ]
+    },
+    {
+      "source": "pdrive2_for_pre",
+      "target": "Pinv",
+      "relation": "repeats",
+      "signals": [
+        "A",
+        "Z"
+      ],
+      "notes": [
+        "two-stage precharge buffer chain."
+      ]
+    },
+    {
+      "source": "wl_pdrive",
+      "target": "Pinv",
+      "relation": "repeats",
+      "signals": [
+        "A",
+        "Z"
+      ],
+      "notes": [
+        "two-stage wordline buffer chain."
+      ]
+    },
+    {
+      "source": "AND2",
+      "target": "PNAND2",
+      "relation": "contains",
+      "signals": [
+        "A",
+        "B"
+      ],
+      "notes": [
+        "AND2 = PNAND2 + inverter."
+      ]
+    },
+    {
+      "source": "AND2",
+      "target": "Pinv",
+      "relation": "contains",
+      "signals": [
+        "Z"
+      ],
+      "notes": [
+        "AND2 output inverter."
+      ]
+    },
+    {
+      "source": "AND3",
+      "target": "PNAND3",
+      "relation": "contains",
+      "signals": [
+        "A",
+        "B",
+        "C"
+      ],
+      "notes": [
+        "AND3 = PNAND3 + inverter."
+      ]
+    },
+    {
+      "source": "AND3",
+      "target": "Pinv",
+      "relation": "contains",
+      "signals": [
+        "Z"
+      ],
+      "notes": [
+        "AND3 output inverter."
+      ]
+    },
+    {
+      "source": "DECODER3_8",
+      "target": "Pinv",
+      "relation": "contains",
+      "signals": [
+        "A0",
+        "A1",
+        "A2"
+      ],
+      "notes": [
+        "three input inverters for address decoding."
+      ]
+    },
+    {
+      "source": "DECODER3_8",
+      "target": "AND3",
+      "relation": "contains",
+      "signals": [
+        "A0",
+        "A1",
+        "A2"
+      ],
+      "notes": [
+        "eight 3-input AND gates."
+      ]
+    },
+    {
+      "source": "DECODER3_8",
+      "target": "AND2",
+      "relation": "contains",
+      "signals": [
+        "WL_pre",
+        "EN"
+      ],
+      "notes": [
+        "eight enable AND gates."
+      ]
+    },
+    {
+      "source": "DECODER_CASCADE",
+      "target": "DECODER3_8",
+      "relation": "repeats",
+      "signals": [
+        "A[*]",
+        "WL[*]"
+      ],
+      "notes": [
+        "hierarchical decoder built from 3-to-8 stages."
+      ]
+    },
+    {
+      "source": "TIME",
+      "target": "PRECHARGE",
+      "relation": "controls",
+      "signals": [
+        "PRE"
+      ],
+      "notes": [
+        "precharge enable."
+      ]
+    },
+    {
+      "source": "TIME",
+      "target": "SENSEAMP",
+      "relation": "controls",
+      "signals": [
+        "s_en"
+      ],
+      "notes": [
+        "sense amp enable."
+      ]
+    },
+    {
+      "source": "TIME",
+      "target": "WRITEDRIVER",
+      "relation": "controls",
+      "signals": [
+        "w_en"
+      ],
+      "notes": [
+        "write driver enable."
+      ]
+    },
+    {
+      "source": "TIME",
+      "target": "WORDLINEDRIVER",
+      "relation": "controls",
+      "signals": [
+        "wl_en"
+      ],
+      "notes": [
+        "wordline driver enable domain."
+      ]
+    },
+    {
+      "source": "TIME",
+      "target": "COLUMNMUX*",
+      "relation": "controls",
+      "signals": [
+        "column_select"
+      ],
+      "notes": [
+        "column select remains a separate read-path control."
+      ]
+    },
+    {
+      "source": "TIME",
+      "target": "DECODER_CASCADE",
+      "relation": "feeds",
+      "signals": [
+        "A_q[*]"
+      ],
+      "notes": [
+        "latched address enters decoder cascade."
+      ]
+    },
+    {
+      "source": "ADDR_DFF",
+      "target": "DECODER_CASCADE",
+      "relation": "feeds",
+      "signals": [
+        "addr_q[*]"
+      ],
+      "notes": [
+        "latched address bus."
+      ]
+    },
+    {
+      "source": "DATA_DFF",
+      "target": "WRITEDRIVER",
+      "relation": "feeds",
+      "signals": [
+        "din_q[*]"
+      ],
+      "notes": [
+        "latched write data bus."
+      ]
+    },
+    {
+      "source": "SENSEAMP",
+      "target": "output_enable",
+      "relation": "semantics",
+      "signals": [
+        "sense_enable"
+      ],
+      "notes": [
+        "OpenYield does not expose a literal output_enable net; sense_enable is the closest explicit control."
+      ]
+    }
+  ],
+  "signal_audit": [
+    {
+      "signal_name": "clk",
+      "source": "external top-level input -> TIME.clk",
+      "sinks": [
+        "TIME",
+        "ADDR_DFF",
+        "DATA_DFF",
+        "DFF core clocking via clk_buf"
+      ],
+      "status": "explicit",
+      "notes": [
+        "TIME generates clk_buf/clk_bar from clk and fans out to DFF arrays."
+      ]
+    },
+    {
+      "signal_name": "addr_latched",
+      "source": "TIME.ADDR_DFF.A_dff[*]",
+      "sinks": [
+        "DECODER_CASCADE.A[*]"
+      ],
+      "status": "explicit",
+      "notes": [
+        "Latched address bus is the decoder input domain."
+      ]
+    },
+    {
+      "signal_name": "data_latched",
+      "source": "TIME.DATA_DFF.DIN_dff[*]",
+      "sinks": [
+        "WRITEDRIVER.DIN"
+      ],
+      "status": "explicit",
+      "notes": [
+        "Latched write data feeds the write driver."
+      ]
+    },
+    {
+      "signal_name": "sense_enable",
+      "source": "TIME.s_en",
+      "sinks": [
+        "SENSEAMP.EN"
+      ],
+      "status": "explicit",
+      "notes": [
+        "Sense amp enable is explicitly generated by TIME."
+      ]
+    },
+    {
+      "signal_name": "write_enable",
+      "source": "TIME.w_en",
+      "sinks": [
+        "WRITEDRIVER.EN"
+      ],
+      "status": "explicit",
+      "notes": [
+        "Write driver enable is explicitly generated by TIME."
+      ]
+    },
+    {
+      "signal_name": "wordline_enable",
+      "source": "TIME.wl_en",
+      "sinks": [
+        "WORDLINEDRIVER.B",
+        "RWL AND2.B"
+      ],
+      "status": "explicit",
+      "notes": [
+        "Active-high wordline enable is produced by wl_pdrive."
+      ]
+    },
+    {
+      "signal_name": "precharge_enb",
+      "source": "TIME.PRE",
+      "sinks": [
+        "PRECHARGE.ENB"
+      ],
+      "status": "explicit",
+      "notes": [
+        "Active-low precharge enable feeds the precharge macro."
+      ]
+    },
+    {
+      "signal_name": "column_select",
+      "source": "separate read-path select logic",
+      "sinks": [
+        "COLUMNMUX*.SEL{i}"
+      ],
+      "status": "explicit_outside_time",
+      "notes": [
+        "Column select is not generated inside TIME; it is a separate read-path control signal."
+      ]
+    },
+    {
+      "signal_name": "output_enable",
+      "source": "not a named OpenYield TIME net",
+      "sinks": [
+        "SENSEAMP.EN",
+        "TIME.cs/TIME.cs_bar gating"
+      ],
+      "status": "implicit",
+      "notes": [
+        "The closest explicit control is sense_enable; output_enable is handled implicitly through control gating."
+      ]
+    }
+  ],
+  "signal_relationships": {
+    "addr_latched": {
+      "source": "TIME.ADDR_DFF.A_dff[*]",
+      "consumers": [
+        "DECODER_CASCADE.A[*]"
+      ],
+      "status": "explicit"
+    },
+    "data_latched": {
+      "source": "TIME.DATA_DFF.DIN_dff[*]",
+      "consumers": [
+        "WRITEDRIVER.DIN"
+      ],
+      "status": "explicit"
+    },
+    "sense_enable": {
+      "source": "TIME.s_en",
+      "consumers": [
+        "SENSEAMP.EN"
+      ],
+      "status": "explicit"
+    },
+    "write_enable": {
+      "source": "TIME.w_en",
+      "consumers": [
+        "WRITEDRIVER.EN"
+      ],
+      "status": "explicit"
+    },
+    "wordline_enable": {
+      "source": "TIME.wl_en",
+      "consumers": [
+        "WORDLINEDRIVER.B",
+        "RWL AND2.B"
+      ],
+      "status": "explicit"
+    },
+    "precharge_enable": {
+      "source": "TIME.PRE",
+      "consumers": [
+        "PRECHARGE.ENB"
+      ],
+      "status": "explicit"
+    },
+    "column_select": {
+      "source": "external read-path control",
+      "consumers": [
+        "COLUMNMUX*.SEL{i}"
+      ],
+      "status": "explicit_outside_time"
+    },
+    "output_enable": {
+      "source": "implicit via sense_enable and control gating",
+      "consumers": [
+        "SENSEAMP.EN"
+      ],
+      "status": "implicit"
+    }
+  },
+  "source_coverage": {
+    "TIME": {
+      "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\time_generate.py",
+      "present": true
+    },
+    "DECODER": {
+      "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\subcircuits\\decoder.py",
+      "present": true
+    },
+    "TESTBENCH": {
+      "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield\\sram_compiler\\testbenches\\sram_6t_core_testbench.py",
+      "present": true
+    }
+  },
+  "conclusions": {
+    "time_decomposition_success": true,
+    "time_as_single_macro_allowed": false,
+    "can_enter_control_subblock_adapter_planning": true,
+    "can_enter_standalone_control_placement": false,
+    "manual_source_review_required": false
+  },
+  "node_summary": {
+    "mapping_status_counts": {
+      "composite_required": 5,
+      "direct_hardcell_available": 3,
+      "generated_logic_available": 11,
+      "macro_candidate": 3
+    },
+    "direct_hardcells": [
+      "DFF",
+      "SENSEAMP",
+      "WRITEDRIVER"
+    ],
+    "composite_blocks": [
+      "TIME",
+      "ADDR_DFF",
+      "DATA_DFF",
+      "DECODER3_8",
+      "DECODER_CASCADE"
+    ],
+    "logic_blocks": [
+      "DFF_BUF",
+      "delay_chain",
+      "wen_delay_chain",
+      "pdrive",
+      "pdrive2_for_pre",
+      "wl_pdrive",
+      "Pinv",
+      "PNAND2",
+      "PNAND3",
+      "AND2",
+      "AND3"
+    ]
+  }
+}

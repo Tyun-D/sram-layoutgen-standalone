@@ -1,0 +1,17 @@
+# WRITE_ENABLE_PATH generation report
+
+- generation_status: `L3_GDS_GENERATED_CANDIDATE_GEOMETRY`
+- generator_class: `RowBasedCandidateGenerator`
+- generation_strategy: `control_composite_candidate_generator`
+- top_cell_name: `WRITE_ENABLE_PATH`
+- gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/WRITE_ENABLE_PATH/WRITE_ENABLE_PATH.gds`
+- bbox: `{'x0': 0.0, 'y0': 0.0, 'x1': 1.6625, 'y1': 6.76, 'width': 1.6625, 'height': 6.76, 'shape_count': 4}`
+- pin_count: `5`
+- rail_status: `candidate_row_rail_metadata_exported`
+- limitations: `Candidate geometry packs row leaves tightly under L2 rules but does not claim final routing or signoff.; Boundary pins are semantic/contract exports at the module edge.`
+- not_DRC_clean_claimed: `True`
+- not_LVS_clean_claimed: `True`
+- geometry_is_L3_module_candidate: `True`
+- row_count: `2`
+- intra_row_gap_after: `0.0`
+- rail_alignment_candidate: `alternating_R0_MX_same_row_abutment`

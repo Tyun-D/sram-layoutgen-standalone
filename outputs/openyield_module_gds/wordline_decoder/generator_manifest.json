@@ -1,0 +1,46 @@
+{
+  "module": "wordline_decoder",
+  "generator_class": "RowBasedCandidateGenerator",
+  "generator_source_file": "sram_layoutgen/openyield_adapter/module_gds_generators.py",
+  "input_contracts": [
+    "docs/mapping/openyield_canonical_sram_semantic_contract.json",
+    "docs/mapping/openyield_top_bank_semantic_contract.json",
+    "docs/mapping/openyield_time_control_decomposition_contract.json",
+    "docs/mapping/openyield_control_path_semantic_contracts.csv",
+    "docs/mapping/openyield_decoder_wordline_semantic_contract.json",
+    "technology/freepdk45/openyield_leaf_physical_library.json",
+    "technology/freepdk45/openyield_primitive_composition_library.json",
+    "docs/mapping/openyield_leaf_physical_readiness_matrix.csv",
+    "docs/mapping/openyield_module_to_primitive_dependency_matrix.csv"
+  ],
+  "input_rules": [
+    "technology/freepdk45/openyield_L2_placement_abutment_rule_library.json",
+    "docs/mapping/openyield_placement_rule_matrix.csv",
+    "docs/mapping/openyield_abutment_rule_matrix.csv",
+    "docs/mapping/openyield_rail_rule_matrix.csv",
+    "docs/mapping/openyield_orientation_policy_matrix.csv",
+    "docs/mapping/openyield_pin_access_rule_matrix.csv",
+    "docs/mapping/openyield_module_handoff_rule_matrix.csv",
+    "docs/openyield_L2_placement_abutment_rule_closure_report.json"
+  ],
+  "source_primitives": [
+    "and3",
+    "inv",
+    "nand3",
+    "wordline_decoder_leaf_gate"
+  ],
+  "generation_strategy": "gate_row_generator_with_L2_abutment_policy",
+  "generated_files": [
+    "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_decoder/wordline_decoder.gds",
+    "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_decoder/pins.json",
+    "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_decoder/bbox.json",
+    "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_decoder/rail_report.json",
+    "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_decoder/generation_report.md",
+    "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_decoder/generation_report.json"
+  ],
+  "reproducible_command": "python scripts/openyield_L3_module_generator_gds_generation.py --repo-root /data1/qujh/work/sram_layoutgen_step45_clean --openyield-root /data1/qujh/work/external/OpenYield --l0-contract-json /data1/qujh/work/sram_layoutgen_step45_clean/docs/mapping/openyield_canonical_sram_semantic_contract.json --l1-library-json /data1/qujh/work/sram_layoutgen_step45_clean/technology/freepdk45/openyield_leaf_physical_library.json --l1-composition-library-json /data1/qujh/work/sram_layoutgen_step45_clean/technology/freepdk45/openyield_primitive_composition_library.json --l2-rule-library-json /data1/qujh/work/sram_layoutgen_step45_clean/technology/freepdk45/openyield_L2_placement_abutment_rule_library.json --module-handoff-matrix /data1/qujh/work/sram_layoutgen_step45_clean/docs/mapping/openyield_module_handoff_rule_matrix.csv --out-dir /data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds --out-generator-inventory-csv /data1/qujh/work/sram_layoutgen_step45_clean/docs/mapping/openyield_module_generator_inventory.csv --out-generator-inventory-md /data1/qujh/work/sram_layoutgen_step45_clean/docs/mapping/openyield_module_generator_inventory.md --out-gds-inventory-csv /data1/qujh/work/sram_layoutgen_step45_clean/docs/mapping/openyield_module_gds_inventory.csv --out-gds-inventory-md /data1/qujh/work/sram_layoutgen_step45_clean/docs/mapping/openyield_module_gds_inventory.md --out-json /data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_L3_module_generator_gds_generation_report.json --out-report /data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_L3_module_generator_gds_generation_report.md",
+  "limitations": [
+    "Candidate geometry packs row leaves tightly under L2 rules but does not claim final routing or signoff.",
+    "Boundary pins are semantic/contract exports at the module edge."
+  ]
+}

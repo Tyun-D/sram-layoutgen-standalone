@@ -1,0 +1,112 @@
+[
+  {
+    "check": "m11bh_gate_loaded",
+    "status": true,
+    "notes": "M11BH report and scope lock were loaded."
+  },
+  {
+    "check": "m11c_scope_from_M11BH",
+    "status": true,
+    "notes": "sense_amp_only"
+  },
+  {
+    "check": "allowed_modules_from_M11BH",
+    "status": true,
+    "notes": "sense_amp"
+  },
+  {
+    "check": "sense_amp_openyield_gds_found",
+    "status": true,
+    "notes": "outputs/openyield_module_gds/sense_amp/sense_amp.gds"
+  },
+  {
+    "check": "sense_amp_openyield_gds_parsed",
+    "status": true,
+    "notes": "sense_amp"
+  },
+  {
+    "check": "sense_amp_metadata_loaded_from_M11B",
+    "status": true,
+    "notes": "rows=6"
+  },
+  {
+    "check": "sense_amp_golden_target_found",
+    "status": true,
+    "notes": "sense_amp"
+  },
+  {
+    "check": "replacement_target_not_unknown",
+    "status": true,
+    "notes": "Golden target is the concrete sense_amp leaf cell."
+  },
+  {
+    "check": "output_gds_generated",
+    "status": true,
+    "notes": "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram.gds"
+  },
+  {
+    "check": "output_gds_parsed",
+    "status": true,
+    "notes": "GDS_PARSED_SANITY_PASSED"
+  },
+  {
+    "check": "top_cell_exists",
+    "status": true,
+    "notes": "sram_8x64_wpr4_fd45"
+  },
+  {
+    "check": "top_bbox_checked",
+    "status": true,
+    "notes": "EXACT_MATCH"
+  },
+  {
+    "check": "no_access_module",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "no_floorplan_proxy",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "no_arbitrary_scatter",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "no_wordline_driver_substitution",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "no_column_mux_substitution",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "no_write_driver_substitution",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "only_sense_amp_substituted",
+    "status": true,
+    "notes": "All explicitly excluded modules remained unchanged."
+  },
+  {
+    "check": "sense_amp_instance_count",
+    "status": true,
+    "notes": "8"
+  },
+  {
+    "check": "vdd_gnd_rail_identifiable",
+    "status": true,
+    "notes": "Inherited from M11B ALIGNED rail rows."
+  },
+  {
+    "check": "pin_alignment_inherited_from_M11B",
+    "status": true,
+    "notes": "All sense_amp signal pins in M11B remained ALIGNED."
+  }
+]

@@ -1,0 +1,24 @@
+# M11C Machine Verification Report
+
+- `m11bh_gate_loaded` status=`True`
+- `m11c_scope_from_M11BH` status=`True`
+- `allowed_modules_from_M11BH` status=`True`
+- `sense_amp_openyield_gds_found` status=`True`
+- `sense_amp_openyield_gds_parsed` status=`True`
+- `sense_amp_metadata_loaded_from_M11B` status=`True`
+- `sense_amp_golden_target_found` status=`True`
+- `replacement_target_not_unknown` status=`True`
+- `output_gds_generated` status=`True`
+- `output_gds_parsed` status=`True`
+- `top_cell_exists` status=`True`
+- `top_bbox_checked` status=`True`
+- `no_access_module` status=`True`
+- `no_floorplan_proxy` status=`True`
+- `no_arbitrary_scatter` status=`True`
+- `no_wordline_driver_substitution` status=`True`
+- `no_column_mux_substitution` status=`True`
+- `no_write_driver_substitution` status=`True`
+- `only_sense_amp_substituted` status=`True`
+- `sense_amp_instance_count` status=`True`
+- `vdd_gnd_rail_identifiable` status=`True`
+- `pin_alignment_inherited_from_M11B` status=`True`

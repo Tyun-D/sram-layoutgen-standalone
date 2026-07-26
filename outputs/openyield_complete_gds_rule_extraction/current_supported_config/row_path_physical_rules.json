@@ -1,0 +1,58 @@
+{
+  "rules": [
+    {
+      "rule_name": "RowDecoderPlacement",
+      "source_evidence": "bank.compute_instance_port0_offsets / port_address.place_instances",
+      "rule_description": "Row decoder sits on the row-periphery side of the array and aligns to the main array vertical span.",
+      "required_geometry": "Decoder bbox, array edge alignment, decoder output access points.",
+      "required_metadata": "row decoder side, y-alignment anchor, decoder gap.",
+      "c0_blockers_addressed": "FLOORPLAN_NOT_SRAM_LIKE",
+      "implemented_in_stage": "C3"
+    },
+    {
+      "rule_name": "WordlineDriverPlacement",
+      "source_evidence": "local_bitcell_array.place; wordline_driver_array.place_drivers",
+      "rule_description": "Wordline drivers sit adjacent to the array with pitch-aware spacing and alternating row orientation.",
+      "required_geometry": "Driver array bbox, per-row output pins, spacing channel to array.",
+      "required_metadata": "driver_to_array_spacing, row order, mirror parity.",
+      "c0_blockers_addressed": "FLOORPLAN_NOT_SRAM_LIKE,MISSING_PIN_GEOMETRY",
+      "implemented_in_stage": "C2/C3"
+    },
+    {
+      "rule_name": "DecoderToDriverRouting",
+      "source_evidence": "port_address.route_internal",
+      "rule_description": "Decoder outputs connect to WL-driver inputs through explicit jog routes and via stacks.",
+      "required_geometry": "Pin-to-pin route segments between decode outputs and driver inputs.",
+      "required_metadata": "route layer, jog direction, per-row net mapping.",
+      "c0_blockers_addressed": "CONTRACT_ROUTE",
+      "implemented_in_stage": "C4"
+    },
+    {
+      "rule_name": "DriverToArrayWLRouting",
+      "source_evidence": "local_bitcell_array.route",
+      "rule_description": "Driver outputs land on array WL pins through local/global WL layer transitions, not through one abstract row stripe.",
+      "required_geometry": "Driver output access, WL vias, row-specific array landing geometry.",
+      "required_metadata": "global_wl_layer, local_wl_layer, row mapping.",
+      "c0_blockers_addressed": "CONTRACT_ROUTE,MISSING_PIN_GEOMETRY",
+      "implemented_in_stage": "C2/C4"
+    },
+    {
+      "rule_name": "RowPitchAlignment",
+      "source_evidence": "bitcell_base_array.place_array; wordline_driver_array.place_drivers",
+      "rule_description": "Each WL route and driver output must honor the underlying array row pitch.",
+      "required_geometry": "Uniform row-step geometry from array to row path.",
+      "required_metadata": "row_pitch and row index mapping.",
+      "c0_blockers_addressed": "PLACEHOLDER_VISUAL_GEOMETRY",
+      "implemented_in_stage": "C3/C4"
+    },
+    {
+      "rule_name": "RowPathPower",
+      "source_evidence": "port_address.route_supplies; wordline_driver_array.route_supplies",
+      "rule_description": "Row decoder and wordline-driver power rails must align with row-periphery geometry and remain stitchable to top rails.",
+      "required_geometry": "Continuous VDD/GND pins or rails over row path modules.",
+      "required_metadata": "power rail layer and connection side.",
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH",
+      "implemented_in_stage": "C2/C5"
+    }
+  ]
+}

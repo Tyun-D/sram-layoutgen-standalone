@@ -1,0 +1,2455 @@
+{
+  "project_goal": "基于原 layoutgen 版图生成器，将 OpenYield 的模块、网表语义和连接关系接入真实 SRAM GDS 生成主干，生成 OpenYield-driven layoutgen-based SRAM GDS。",
+  "current_route": "Wave3H1 reconciles the approved DFF_BUF reusable release evidence without reopening geometry generation.",
+  "current_stage": "Wave4A-R2 / ADDR_DFF_PHYSICAL_INTERFACE_AND_NEGATIVE_REGRESSION_RESTORE",
+  "next_stage": "Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION",
+  "must_read_this_file_before_every_task": true,
+  "must_update_this_file_after_every_task": true,
+  "human_klayout_review_required_every_stage": false,
+  "can_enter_next_stage_without_human_review": false,
+  "important_results": [
+    {
+      "result_name": "First-round OpenYield module GDS generation",
+      "path": "outputs/openyield_module_gds/",
+      "what_is_valid": "Module GDS files, pins/bbox/rail metadata, and generator manifests exist for 20 modules.",
+      "what_is_not_valid": "Not yet proven that every module is the right physical implementation for final SRAM assembly.",
+      "can_reuse": true,
+      "reuse_scope": "L0-L2 input audit and regeneration",
+      "risk": "Must distinguish real module vs candidate vs replaceable artifact."
+    },
+    {
+      "result_name": "R0 OpenRAM audit",
+      "path": "docs/ and OpenRAM source audit artifacts",
+      "what_is_valid": "Rule/reference understanding of SRAM physical organization.",
+      "what_is_not_valid": "OpenRAM output is not final OpenYield output.",
+      "can_reuse": true,
+      "reuse_scope": "L0-L4 reference only",
+      "risk": "Do not regress into OpenRAM black-box flow."
+    },
+    {
+      "result_name": "R1 layout intent",
+      "path": "outputs/openyield_layout_intent/current_supported_config/",
+      "what_is_valid": "OpenYield module/net semantics and intent mapping.",
+      "what_is_not_valid": "Intent alone is not physical proof.",
+      "can_reuse": true,
+      "reuse_scope": "L0-L4 semantic driver",
+      "risk": "Must be bound to real layoutgen generation path."
+    },
+    {
+      "result_name": "R2 generator architecture",
+      "path": "scripts/openyield_R2_generator_architecture_design.py + reports",
+      "what_is_valid": "Architecture decomposition and generator boundary planning.",
+      "what_is_not_valid": "Does not prove final GDS implementation quality.",
+      "can_reuse": true,
+      "reuse_scope": "L0-L4 planning",
+      "risk": "Must reconnect to real layoutgen assembly path."
+    },
+    {
+      "result_name": "C0 gap audit",
+      "path": "outputs/openyield_complete_gds_gap_audit/current_supported_config/",
+      "what_is_valid": "Accurate evidence for contract/approximate/missing pin gaps in old prototype route.",
+      "what_is_not_valid": "Its closure results must be reinterpreted after route reset.",
+      "can_reuse": true,
+      "reuse_scope": "L0-L4 risk baseline",
+      "risk": "Do not treat old closure counts as sufficient physical completeness proof."
+    },
+    {
+      "result_name": "C1 physical rule extraction",
+      "path": "outputs/openyield_complete_gds_rule_extraction/current_supported_config/",
+      "what_is_valid": "Useful rulebook and comparison baseline.",
+      "what_is_not_valid": "Not a substitute for real layoutgen generation.",
+      "can_reuse": true,
+      "reuse_scope": "L0-L4 rule reference",
+      "risk": "Must not drift into source-only mimicry."
+    },
+    {
+      "result_name": "C2 pin access repair",
+      "path": "outputs/openyield_pin_access_repair/current_supported_config/",
+      "what_is_valid": "Repaired/synthesized pin access metadata and access views.",
+      "what_is_not_valid": "Synthesized pin access cannot alone justify physical-complete claim.",
+      "can_reuse": true,
+      "reuse_scope": "L0-L2 audit input and optional metadata hints",
+      "risk": "Must be re-audited against real layoutgen module generation."
+    },
+    {
+      "result_name": "C3 floorplan reconstruction",
+      "path": "outputs/openyield_complete_floorplan/current_supported_config/",
+      "what_is_valid": "Useful placement/floorplan intent and review evidence.",
+      "what_is_not_valid": "Proxy-floorplan GDS is not final real macro assembly.",
+      "can_reuse": true,
+      "reuse_scope": "L0-L4 review/reference",
+      "risk": "Do not keep floorplan_proxy as implementation hierarchy."
+    },
+    {
+      "result_name": "C4 signal routing",
+      "path": "outputs/openyield_complete_signal_routing/current_supported_config/",
+      "what_is_valid": "Geometry-backed semantic routing prototype and validation schema.",
+      "what_is_not_valid": "Based on access-view modules, not final physical module hierarchy.",
+      "can_reuse": true,
+      "reuse_scope": "L0-L4 evidence/reference",
+      "risk": "Do not reuse as final physical routing implementation."
+    },
+    {
+      "result_name": "C5 power stitching",
+      "path": "outputs/openyield_complete_power_network/current_supported_config/",
+      "what_is_valid": "Geometry-backed semantic power connectivity prototype and validation schema.",
+      "what_is_not_valid": "Still layered on access-view hierarchy.",
+      "can_reuse": true,
+      "reuse_scope": "L0-L4 evidence/reference",
+      "risk": "Do not reuse as final physical power implementation."
+    },
+    {
+      "result_name": "C6 final access-view GDS",
+      "path": "outputs/openyield_complete_sram/current_supported_config/openyield_complete_sram.gds",
+      "what_is_valid": "A parseable OpenYield-connected access-view GDS prototype with report bundle.",
+      "what_is_not_valid": "Cannot be claimed as real complete SRAM GDS anymore.",
+      "can_reuse": true,
+      "reuse_scope": "Review/reference only",
+      "risk": "Must be explicitly downgraded."
+    },
+    {
+      "result_name": "M1 layoutgen path audit and OpenYield binding",
+      "path": "docs/M1_layoutgen_openyield_binding_report.json;docs/mapping/M1_*;outputs/M1_layoutgen_binding_review/current_supported_config/",
+      "what_is_valid": "Layoutgen generator inventory, first-round module physical audit, module binding table, and net-to-pin semantic binding are established.",
+      "what_is_not_valid": "No final SRAM top GDS is generated in M1 and no complete/DRC/LVS/signoff claim is made.",
+      "can_reuse": true,
+      "reuse_scope": "M2 regeneration planning",
+      "risk": "Bindings for row/control candidates still require real layoutgen regeneration rather than direct reuse."
+    }
+  ],
+  "reusable_artifacts": [
+    {
+      "artifact_name": "layoutgen_generator_code",
+      "path": "sram_layoutgen/",
+      "artifact_type": "generator_codebase",
+      "why_reusable": "This is the correct底座 for real SRAM GDS generation.",
+      "reuse_scope": "L0-L4",
+      "risk": "Must be re-bound to OpenYield semantics carefully."
+    },
+    {
+      "artifact_name": "first_round_openyield_module_gds",
+      "path": "outputs/openyield_module_gds/",
+      "artifact_type": "module_gds_input",
+      "why_reusable": "Important input candidates and metadata source.",
+      "reuse_scope": "L0-L2",
+      "risk": "Not all modules are guaranteed final physical implementations."
+    },
+    {
+      "artifact_name": "R1_layout_intent",
+      "path": "docs/ + outputs/openyield_layout_intent/current_supported_config/",
+      "artifact_type": "semantic_intent",
+      "why_reusable": "Carries OpenYield layout intent and role mapping.",
+      "reuse_scope": "L0-L4",
+      "risk": "Intent must be mapped onto real layoutgen generation flow."
+    },
+    {
+      "artifact_name": "R2_generator_architecture",
+      "path": "docs/ + scripts/openyield_R2_generator_architecture_design.py",
+      "artifact_type": "architecture",
+      "why_reusable": "Defines OpenYield-driven architecture concepts.",
+      "reuse_scope": "L0-L4",
+      "risk": "Architecture must not be confused with final physical proof."
+    },
+    {
+      "artifact_name": "C0_to_C6_validation_framework",
+      "path": "docs/ + scripts/ + tests/ + outputs/openyield_*",
+      "artifact_type": "audit_and_validation",
+      "why_reusable": "Provides reusable report schema and regression hooks.",
+      "reuse_scope": "L0-L4",
+      "risk": "Some report conclusions must be downgraded/reclassified."
+    },
+    {
+      "artifact_name": "openram_source_and_reference_gds",
+      "path": "/data1/qujh/OpenRAM + outputs/layout_prototype/baseline_legacy/",
+      "artifact_type": "reference_rule_sample",
+      "why_reusable": "Useful as rule/sample/visual reference only.",
+      "reuse_scope": "L0-L4",
+      "risk": "Must not be mistaken for final OpenYield GDS."
+    },
+    {
+      "artifact_name": "layoutgen_baseline_reference_gds",
+      "path": "outputs/layout_prototype/baseline_legacy/sram_8x64_wpr4_fd45.complete.gds",
+      "artifact_type": "visual_reference_sample",
+      "why_reusable": "Useful as review baseline and visual/structural comparator.",
+      "reuse_scope": "L0-L4 review",
+      "risk": "Do not use as final OpenYield output."
+    },
+    {
+      "artifact_name": "module_gds_generators_py",
+      "path": "sram_layoutgen/openyield_adapter/module_gds_generators.py",
+      "artifact_type": "module_generator",
+      "why_reusable": "Direct hook into first-round OpenYield module GDS generation.",
+      "reuse_scope": "L0-L2",
+      "risk": "Must re-audit generated modules before trust."
+    },
+    {
+      "artifact_name": "M1_binding_tables",
+      "path": "docs/mapping/M1_openyield_to_layoutgen_binding.csv;docs/mapping/M1_openyield_net_to_layoutgen_pin_binding.csv",
+      "artifact_type": "binding_spec",
+      "why_reusable": "These tables are the bridge from OpenYield semantics to layoutgen-based module regeneration.",
+      "reuse_scope": "M2+",
+      "risk": "Must be validated by human KLayout review before use."
+    }
+  ],
+  "deprecated_artifacts": [
+    {
+      "artifact_name": "openyield_complete_sram_gds_claim",
+      "path": "outputs/openyield_complete_sram/current_supported_config/openyield_complete_sram.gds",
+      "deprecated_reason": "Reclassified as OpenYield-connected access-view GDS prototype, not real complete SRAM GDS.",
+      "do_not_use_as_final": true
+    },
+    {
+      "artifact_name": "access_module_cells",
+      "path": "*_access_module",
+      "deprecated_reason": "Cannot serve as SRAM physical implementation主体.",
+      "do_not_use_as_final": true
+    },
+    {
+      "artifact_name": "floorplan_proxy_cells",
+      "path": "floorplan_proxy*",
+      "deprecated_reason": "Only acceptable for review/floorplan proof, not final physical module hierarchy.",
+      "do_not_use_as_final": true
+    },
+    {
+      "artifact_name": "access_view_route",
+      "path": "C4 access-view signal route shapes",
+      "deprecated_reason": "Useful as semantic/prototype evidence, not sufficient as physical complete claim basis.",
+      "do_not_use_as_final": true
+    },
+    {
+      "artifact_name": "access_view_power_stitch",
+      "path": "C5 access-view power stitch shapes",
+      "deprecated_reason": "Useful as prototype geometry evidence, not final physical implementation proof.",
+      "do_not_use_as_final": true
+    },
+    {
+      "artifact_name": "synthesized_pin_complete_claim_support",
+      "path": "C2 synthesized pin access",
+      "deprecated_reason": "Cannot alone support physical complete claim.",
+      "do_not_use_as_final": true
+    }
+  ],
+  "cannot_claim": [
+    "DRC clean",
+    "LVS clean",
+    "timing closure",
+    "signoff-ready",
+    "tapeout-ready"
+  ],
+  "last_user_correction": "M3F review:\n- optimized layoutgen flow has been restored;\n- power rail stitching / rail overlap flow has been recovered;\n- current GDS has reached the previous layoutgen optimization level;\n- but it still mainly uses original layoutgen modules;\n- next goal is to integrate OpenYield netlist-defined modules into the layoutgen physical generator;\n- because OpenYield module count/type/pin/connection may differ from layoutgen baseline, floorplan / placement / routing / power code may need modification;\n- only one feasibility evaluation is allowed before direct implementation.",
+  "current_wrong_route_to_avoid": "Do not add another evaluation stage after M4E. Move directly into the defined implementation scope, or stop if blockers are explicit.",
+  "next_task_summary": "Proceed to M10_HARDEN_RAW_OPENYIELD_NETLIST_TRACE_OR_TRANSLATOR_REFINEMENT on top of the confirmed M9 translator v1 baseline.",
+  "last_M2_report": {
+    "full_sram_review_gds_generated": true,
+    "full_sram_review_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/test_M2_layoutgen_full_trial/current_supported_config/openyield_layoutgen_full_trial_sram.gds",
+    "top_cell_name": "openyield_layoutgen_full_trial_sram",
+    "gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "temporary_wrapper_count": 12,
+    "human_klayout_review_required": true,
+    "can_enter_M3_before_human_review": false
+  },
+  "last_M2R_report": {
+    "locked_sram_spec_available": true,
+    "layoutgen_top_flow_used": true,
+    "arbitrary_module_scatter_used": false,
+    "full_sram_review_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/test_M2R_full_sram_regen/current_supported_config/openyield_layoutgen_full_sram_M2R.gds",
+    "top_cell_name": "openyield_layoutgen_full_sram_M2R",
+    "temporary_wrapper_count": 0,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false
+  },
+  "last_M3R_report": {
+    "semantic_bound_gds_generated": true,
+    "semantic_bound_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M3R_openyield_semantic_bound/current_supported_config/openyield_semantic_bound_full_sram.gds",
+    "top_cell_name": "openyield_semantic_bound_full_sram",
+    "gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "m2r_physical_backbone_preserved": true,
+    "layoutgen_top_flow_preserved": true,
+    "openyield_modules_bound_count": 20,
+    "openyield_net_bound_count": 34,
+    "first_round_openyield_gds_reused_count": 0,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false
+  },
+  "last_M3F_report": {
+    "optimized_layoutgen_flow_found": true,
+    "optimized_layoutgen_reference_gds_found": true,
+    "optimized_power_rail_stitch_flow_used": true,
+    "power_rail_stitch_restored": true,
+    "full_sram_review_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M3F_optimized_layoutgen_restore/current_supported_config/openyield_optimized_layoutgen_sram.gds",
+    "top_cell_name": "openyield_optimized_layoutgen_sram",
+    "openyield_physical_binding_count": 20,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false
+  },
+  "evaluation_only_once_enforced": true,
+  "no_more_evaluation_allowed_after_M4E": true,
+  "last_M4E_report": {
+    "go_nogo_decision": "PARTIAL_GO_WITH_DEFINED_SCOPE",
+    "allowed_next_stage": "M5_IMPLEMENT_OPENYIELD_LAYOUTGEN_INTEGRATION",
+    "review_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M4E_openyield_integration_eval/current_supported_config/openyield_integration_feasibility_review.gds",
+    "review_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "openyield_module_count": 20,
+    "direct_generator_binding_count": 3,
+    "parameterized_generator_binding_count": 6,
+    "real_cell_wrapper_count": 5,
+    "layoutgen_fallback_with_openyield_semantics_count": 6,
+    "not_implementable_now_count": 0,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false
+  },
+  "last_M5_report": {
+    "integrated_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M5_openyield_layoutgen_integration/current_supported_config/openyield_layoutgen_integrated_sram.gds",
+    "top_cell_name": "openyield_layoutgen_integrated_sram",
+    "gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "openyield_modules_implemented_count": 20,
+    "openyield_nets_implemented_count": 34,
+    "optimized_layoutgen_flow_preserved": true,
+    "optimized_power_rail_stitch_preserved": true,
+    "module_power_rail_connected_count": 20,
+    "rail_overlap_or_abutment_evidence_count": 15,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false
+  },
+  "last_M5_human_review": {
+    "current_gds_visually_cluttered_by_debug_text_labels": true,
+    "physical_hierarchy_still_mainly_uses_layoutgen_cells": true,
+    "final_gds_proven_openyield_netlist_driven": false,
+    "must_prove_integration_via_netlist_to_layout_trace_not_text_labels": true,
+    "bitcell_power_rail_merging_fully_restored": false,
+    "next_immediate_work": "cleanup + complete OpenYield file inventory"
+  },
+  "last_T1_report": {
+    "clean_review_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/T1_clean_m5_review/current_supported_config/openyield_layoutgen_integrated_sram_clean_review.gds",
+    "clean_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "removed_text_count": 74,
+    "physical_shape_preserved": true,
+    "cell_hierarchy_preserved": true,
+    "openyield_file_count_total": 130,
+    "openyield_source_file_count": 94,
+    "openyield_netlist_candidate_file_count": 37,
+    "next_stage_should_be_netlist_to_layout_translator": true,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false
+  },
+  "last_human_review": "M9H confirmation:\n- User confirmed outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram_clean_review.gds passed human KLayout review.\n- M9 clean GDS preserves the locked golden reference structure.\n- M9 uses no access_module, no floorplan_proxy, and no arbitrary scatter.\n- M9 is confirmed as OpenYield intent/module-net binding driven layoutgen translator v1.\n- M9 is not a complete raw OpenYield netlist compiler.\n- Next allowed stage is M10_HARDEN_RAW_OPENYIELD_NETLIST_TRACE_OR_TRANSLATOR_REFINEMENT.",
+  "last_M6_report": {
+    "sram_spec_json_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6_layoutgen_spec_reproduce/current_supported_config/SRAM_SPEC.json",
+    "layoutgen_optimized_reproduced_sram_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6_layoutgen_spec_reproduce/current_supported_config/layoutgen_optimized_reproduced_sram.gds",
+    "top_cell_name": "layoutgen_optimized_reproduced_sram",
+    "gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "power_rail_overlap_restored": true,
+    "column_mux_present": true,
+    "reference_comparison_match": true,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false
+  },
+  "last_M6R_report": {
+    "reference_copy_for_review_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6R_reference_locked_reproduce/current_supported_config/reference_copy_for_review.gds",
+    "m6_previous_output_for_review_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6R_reference_locked_reproduce/current_supported_config/m6_previous_output_for_review.gds",
+    "layoutgen_hybrid_reproduced_M6R_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6R_reference_locked_reproduce/current_supported_config/layoutgen_hybrid_reproduced_M6R.gds",
+    "m6_previous_matches_reference": false,
+    "reproduced_matches_reference": true,
+    "true_generation_entry_identified": true,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false
+  },
+  "current_golden_reference": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+  "historical_wrong_reference": "outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+  "next_route_constraint": "Next stage must reproduce the uploaded golden_reference.gds first, then compare any generated GDS against it before resuming OpenYield integration.",
+  "last_M7_report": {
+    "uploaded_zip_path": "/data1/qujh/work/sram_layoutgen_step45_clean/external_references/full_layout_collection.zip",
+    "golden_reference_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+    "golden_reference_top_cell": "sram_8x64_wpr4_fd45",
+    "golden_reference_size_bytes": 389826,
+    "hybrid_openyield_rail_overlap_is_golden": false,
+    "new_uploaded_reference_is_golden": true,
+    "next_repair_target_defined": true,
+    "human_klayout_review_required": false,
+    "can_enter_next_stage_before_human_review": true,
+    "remaining_M7_blockers": [],
+    "remaining_M7_blockers_count": 0
+  },
+  "next_stage_allowed": "Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION",
+  "golden_reference_user_confirmed": true,
+  "golden_reference_is_now_locked": true,
+  "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+  "current_golden_reference_clean_review_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference_clean_review.gds",
+  "hybrid_openyield_rail_overlap_is_golden": false,
+  "new_uploaded_reference_is_golden": true,
+  "next_stage_must_reproduce_uploaded_golden_reference": true,
+  "last_M7C_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "golden_reference_user_confirmed": true,
+    "golden_reference_is_now_locked": true,
+    "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+    "current_golden_reference_clean_review_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference_clean_review.gds",
+    "hybrid_openyield_rail_overlap_is_golden": false,
+    "new_uploaded_reference_is_golden": true,
+    "m7_blockers_before_count": 2,
+    "m7_blockers_after_count": 0,
+    "m7_blockers_cleared": [
+      "Human KLayout review of uploaded golden reference is required.",
+      "Next repair stage must reproduce the new uploaded golden reference instead of historical hybrid reference."
+    ],
+    "next_stage_allowed": "M8_REPRODUCE_UPLOADED_GOLDEN_REFERENCE",
+    "can_enter_M8_after_this_gate": true,
+    "human_klayout_review_required_for_M8_output": true,
+    "can_enter_next_stage_without_human_review": false
+  },
+  "last_M8_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "m7c_confirmation_loaded": true,
+    "golden_reference_user_confirmed": true,
+    "golden_reference_is_now_locked": true,
+    "golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+    "golden_reference_found": true,
+    "golden_reference_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "golden_reference_top_cell": "sram_8x64_wpr4_fd45",
+    "sram_spec_available": true,
+    "sram_spec_path": "outputs/M8_reproduce_uploaded_golden/current_supported_config/SRAM_SPEC.json",
+    "word_size": 8,
+    "num_words": 64,
+    "words_per_row": 4,
+    "num_rows": 16,
+    "num_cols": 32,
+    "tech": "freepdk45",
+    "top_cell_name_expected": "sram_8x64_wpr4_fd45",
+    "generation_entry_found": true,
+    "generator_entry_script": "sram_layoutgen/standalone.py",
+    "generator_function": "write_standalone",
+    "generator_arguments_available": true,
+    "generated_from_layoutgen_source": true,
+    "reference_file_copied_as_output": false,
+    "reproduced_gds_generated": true,
+    "reproduced_gds_path": "outputs/M8_reproduce_uploaded_golden/current_supported_config/layoutgen_reproduced_from_uploaded_golden.gds",
+    "clean_review_gds_path": "outputs/M8_reproduce_uploaded_golden/current_supported_config/layoutgen_reproduced_from_uploaded_golden_clean_review.gds",
+    "spec_annotated_gds_path": "outputs/M8_reproduce_uploaded_golden/current_supported_config/layoutgen_reproduced_from_uploaded_golden_spec_annotated.gds",
+    "reproduced_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "reproduced_top_cell": "sram_8x64_wpr4_fd45",
+    "reproduced_gds_size_bytes": 290242,
+    "reference_vs_reproduced_geometry_match": "STRUCTURAL_MATCH_WITH_GEOMETRY_DELTA",
+    "geometry_diff_available": true,
+    "column_mux_real_check_passed": true,
+    "column_mux_instance_count": 32,
+    "tri_gate_instance_count": 8,
+    "power_rail_overlap_real_check_passed": true,
+    "bitcell_rail_overlap_count": 33,
+    "module_boundary_rail_stitch_count": 0,
+    "can_use_this_flow_for_next_netlist_translator": false,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false,
+    "remaining_M8_blockers": [
+      "Current server-side layoutgen flow does not reproduce the uploaded golden reference as an exact byte/geometry match.",
+      "Human KLayout review is still required before any M9 step."
+    ],
+    "remaining_M8_blockers_count": 2
+  },
+  "m8_failure_recorded": true,
+  "m8_failure_summary": {
+    "generated_from_layoutgen_source": true,
+    "reference_file_copied_as_output": false,
+    "reproduced_top_cell_matches_golden": true,
+    "cell_count_and_sref_count_match": true,
+    "column_mux_and_bitcell_rail_overlap_checks_passed": true,
+    "reference_vs_reproduced_geometry_match": "STRUCTURAL_MATCH_WITH_GEOMETRY_DELTA",
+    "golden_boundary_count": 5418,
+    "reproduced_boundary_count": 3862,
+    "reproduced_missing_boundary_shapes": 1556,
+    "can_use_this_flow_for_next_netlist_translator": false
+  },
+  "last_M8R_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "m8_failure_recorded": true,
+    "golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+    "m8_reproduced_path": "outputs/M8_reproduce_uploaded_golden/current_supported_config/layoutgen_reproduced_from_uploaded_golden.gds",
+    "raw_gds_candidate_count": 7,
+    "best_raw_gds_candidate_path": "outputs/M8_reproduce_uploaded_golden/current_supported_config/_raw_generation/sram_8x64_wpr4_fd45.gds",
+    "best_raw_gds_candidate_match_status": "STRUCTURAL_MATCH_WITH_GEOMETRY_DELTA",
+    "missing_boundary_count_before": 1556,
+    "missing_boundary_count_after": 0,
+    "layer_delta_before": {
+      "1/0": 0,
+      "10/0": 0,
+      "11/0": 303,
+      "12/0": 160,
+      "13/0": 441,
+      "13/2": 0,
+      "14/0": 200,
+      "15/0": 223,
+      "15/2": 0,
+      "16/0": 176,
+      "17/0": 53,
+      "17/2": 0,
+      "2/0": 0,
+      "239/0": 0,
+      "3/0": 0,
+      "4/0": 0,
+      "5/0": 0,
+      "6/0": 0,
+      "9/0": 0
+    },
+    "layer_delta_after": {
+      "1/0": 0,
+      "10/0": 0,
+      "11/0": 0,
+      "12/0": 0,
+      "13/0": 0,
+      "13/2": 0,
+      "14/0": 0,
+      "15/0": 0,
+      "15/2": 0,
+      "16/0": 0,
+      "17/0": 0,
+      "17/2": 0,
+      "2/0": 0,
+      "239/0": 0,
+      "3/0": 0,
+      "4/0": 0,
+      "5/0": 0,
+      "6/0": 0,
+      "9/0": 0
+    },
+    "missing_geometry_classification_available": true,
+    "missing_geometry_major_category": "routing_geometry_and_power_rail_stitch_top_level_metals",
+    "fixed_reproduced_gds_generated": true,
+    "fixed_reproduced_gds_path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+    "fixed_clean_review_gds_path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed_clean_review.gds",
+    "fixed_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "fixed_top_cell": "sram_8x64_wpr4_fd45",
+    "reference_vs_m8_geometry_match": "STRUCTURAL_MATCH_WITH_GEOMETRY_DELTA",
+    "reference_vs_m8r_geometry_match": "EXACT_MATCH",
+    "exact_match_achieved": true,
+    "near_match_achieved": true,
+    "column_mux_real_check_passed": true,
+    "power_rail_overlap_real_check_passed": true,
+    "can_use_this_flow_for_next_netlist_translator": true,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false,
+    "remaining_M8R_blockers": [
+      "Human KLayout review is still required before any next-stage work."
+    ],
+    "remaining_M8R_blockers_count": 1
+  },
+  "current_reproducible_golden_gds_path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+  "current_reproducible_golden_clean_review_gds_path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed_clean_review.gds",
+  "current_reproducible_layoutgen_golden_flow_locked": true,
+  "m8r_exact_match_confirmed": true,
+  "m8r_user_klayout_review_passed": true,
+  "last_M8RC_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "m8r_exact_match_confirmed": true,
+    "m8r_user_klayout_review_passed": true,
+    "current_reproducible_golden_gds_path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+    "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+    "can_use_this_flow_for_next_netlist_translator": true,
+    "m8r_blockers_before_count": 1,
+    "m8r_blockers_after_count": 0,
+    "next_stage_allowed": "M9_OPENYIELD_NETLIST_TO_LAYOUT_TRANSLATOR",
+    "can_enter_M9_after_this_gate": true
+  },
+  "last_M9_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "m8rc_confirmation_loaded": true,
+    "golden_reference_user_confirmed": true,
+    "golden_reference_is_now_locked": true,
+    "m8r_exact_match_confirmed": true,
+    "m8r_user_klayout_review_passed": true,
+    "can_use_this_flow_for_next_netlist_translator": true,
+    "locked_golden_flow_used": true,
+    "generated_from_layoutgen_source": true,
+    "reference_file_copied_as_output": false,
+    "uses_access_module": false,
+    "uses_floorplan_proxy": false,
+    "arbitrary_module_scatter_used": false,
+    "label_only_binding_as_implementation_count": 0,
+    "openyield_module_binding_count": 20,
+    "openyield_net_binding_count": 34,
+    "translated_gds_path": "outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram.gds",
+    "clean_review_gds_path": "outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram_clean_review.gds",
+    "annotated_debug_gds_path": "outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram_annotated_debug.gds",
+    "translated_top_cell_name": "openyield_netlist_translated_sram",
+    "translated_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "annotated_debug_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "clean_review_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "translated_backbone_boundary_count": 5540,
+    "translated_backbone_sref_count": 1515,
+    "semantic_wrapper_group_count": 12,
+    "semantic_debug_module_cell_count": 20,
+    "semantic_debug_net_label_count": 34,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false,
+    "remaining_M9_blockers": [
+      "Human KLayout review is required for openyield_netlist_translated_sram_clean_review.gds before any post-M9 stage."
+    ],
+    "remaining_M9_blockers_count": 1
+  },
+  "last_M9C_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "m9_outputs_found": true,
+    "m9_trace_available": true,
+    "m9_clean_review_gds_found": true,
+    "m9_annotated_debug_gds_found": true,
+    "gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "generated_from_layoutgen_source": true,
+    "reference_file_copied_as_output": false,
+    "openyield_module_binding_count": 20,
+    "openyield_net_binding_count": 34,
+    "label_only_binding_as_implementation_count": 0,
+    "access_module_as_primary_count": 0,
+    "floorplan_proxy_count": 0,
+    "arbitrary_module_scatter_used": false,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false,
+    "commit_required": true,
+    "push_required": true,
+    "remaining_M9C_blockers": [
+      "Human KLayout review is still required before any post-M9 stage."
+    ],
+    "remaining_M9C_blockers_count": 1
+  },
+  "m9_clean_gds_user_review_passed": true,
+  "m9_translator_v1_confirmed": true,
+  "m9_is_raw_openyield_netlist_compiler": false,
+  "m9_uses_openyield_intent_binding": true,
+  "last_M9H_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "m9_clean_gds_user_review_passed": true,
+    "m9_translator_v1_confirmed": true,
+    "m9_is_raw_openyield_netlist_compiler": false,
+    "m9_uses_openyield_intent_binding": true,
+    "remaining_M9C_blockers_before_count": 1,
+    "remaining_M9C_blockers_after_count": 0,
+    "next_stage_allowed": "M10_HARDEN_RAW_OPENYIELD_NETLIST_TRACE_OR_TRANSLATOR_REFINEMENT",
+    "can_enter_next_stage_after_this_gate": true
+  },
+  "last_M10_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "m9h_gate_loaded": true,
+    "m9_translator_v1_confirmed": true,
+    "m9_is_raw_openyield_netlist_compiler": false,
+    "openyield_root_found": true,
+    "openyield_source_file_count_loaded": 94,
+    "openyield_key_entrypoints_loaded": 5,
+    "raw_source_trace_generated": true,
+    "module_source_trace_available": true,
+    "net_source_trace_available": true,
+    "instance_source_trace_available": true,
+    "config_source_trace_available": true,
+    "openyield_module_count": 20,
+    "source_backed_module_count": 20,
+    "inferred_module_count": 0,
+    "unknown_module_source_count": 0,
+    "openyield_net_count": 34,
+    "source_backed_net_count": 34,
+    "inferred_net_count": 0,
+    "unknown_net_source_count": 0,
+    "openyield_instance_count": 20,
+    "source_backed_instance_count": 20,
+    "capacity_config_fallback_used": true,
+    "fallback_reason": "OpenYield raw source did not provide sufficient capacity/config values; locked golden 8x64_wpr4 layoutgen configuration was used while binding OpenYield source-backed module/net semantics.",
+    "generated_from_raw_openyield_source_trace": true,
+    "full_raw_openyield_netlist_compiler": false,
+    "translator_generated_layoutgen_arguments": {
+      "word_size": 8,
+      "num_words": 64,
+      "words_per_row": 4,
+      "name": "sram_8x64_wpr4_fd45",
+      "enable_openyield_array_aggregation": true,
+      "enable_openyield_gate_row_packing": true,
+      "enable_openyield_power_rail_overlap_packing": true,
+      "enable_openyield_dff_row_packing": true,
+      "exclude_dff_vertical_overlap": true
+    },
+    "layoutgen_golden_flow_used": true,
+    "reference_file_copied_as_output": false,
+    "gds_generated": true,
+    "gds_path": "outputs/M10_raw_openyield_trace/current_supported_config/openyield_source_backed_translated_sram.gds",
+    "clean_review_gds_path": "outputs/M10_raw_openyield_trace/current_supported_config/openyield_source_backed_translated_sram_clean_review.gds",
+    "annotated_debug_gds_path": "outputs/M10_raw_openyield_trace/current_supported_config/openyield_source_backed_translated_sram_annotated_debug.gds",
+    "gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "top_cell_name": "sram_8x64_wpr4_fd45",
+    "access_module_as_primary_count": 0,
+    "floorplan_proxy_count": 0,
+    "arbitrary_module_scatter_used": false,
+    "label_only_binding_as_implementation_count": 0,
+    "reference_vs_m10_geometry_match": "EXACT_MATCH",
+    "geometry_diff_available": true,
+    "can_claim_source_backed_translator_v2": true,
+    "can_claim_full_raw_netlist_compiler": false,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false,
+    "remaining_M10_blockers": [
+      "Human KLayout review is required for openyield_source_backed_translated_sram_clean_review.gds before any post-M10 stage."
+    ],
+    "remaining_M10_blockers_count": 1
+  },
+  "current_goal": "M11V compared baseline, sense_amp-only, and wordline_driver-only smoke substitutions and found no new substitution-specific routing/power risk, but the baseline limitation still requires deeper connectivity extraction before any combined substitution.",
+  "m10_clean_gds_user_review_passed": true,
+  "m10_source_backed_translator_v2_confirmed": true,
+  "can_claim_source_backed_translator_v2": true,
+  "can_claim_full_raw_netlist_compiler": false,
+  "capacity_config_fallback_used": true,
+  "full_raw_openyield_netlist_compiler": false,
+  "remaining_M10_blockers_count": 0,
+  "remaining_M10_blockers": [],
+  "last_M10H_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "reused_previous_artifacts": [
+      {
+        "artifact": "M8R/M8RC locked golden layoutgen flow",
+        "path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+        "reuse_purpose": "locked exact-match geometry baseline for translator-backed physical delivery"
+      },
+      {
+        "artifact": "M9/M9H translator v1",
+        "path": "outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram.gds",
+        "reuse_purpose": "prior translator semantics, binding bridge, and reviewed translator framing"
+      },
+      {
+        "artifact": "M10 raw source-backed trace",
+        "path": "outputs/M10_raw_openyield_trace/current_supported_config/openyield_source_backed_translated_sram.gds",
+        "reuse_purpose": "source-backed module/net/instance/config trace and exact-match source-backed translator v2 evidence"
+      },
+      {
+        "artifact": "T1 OpenYield full file analysis",
+        "path": "docs/T1_openyield_full_file_report.json",
+        "reuse_purpose": "key entrypoints, source inventory, and recommended raw-source search set"
+      },
+      {
+        "artifact": "R1/M1 OpenYield intent and binding",
+        "path": "outputs/openyield_layout_intent/current_supported_config/;docs/mapping/M1_openyield_to_layoutgen_binding.csv;docs/mapping/M1_openyield_net_to_layoutgen_pin_binding.csv",
+        "reuse_purpose": "semantic role map and module/net binding inputs carried into M9 and hardened in M10"
+      },
+      {
+        "artifact": "M7 golden reference",
+        "path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+        "reuse_purpose": "locked physical comparison target and exact-match baseline"
+      }
+    ],
+    "deprecated_previous_artifacts": [
+      {
+        "artifact": "access_module cells",
+        "path": "*_access_module",
+        "deprecated_reason": "cannot be claimed as physical implementation in M10H gate closure"
+      },
+      {
+        "artifact": "floorplan_proxy cells",
+        "path": "floorplan_proxy*",
+        "deprecated_reason": "review-only proxy hierarchy, not valid implementation backing for M10H"
+      },
+      {
+        "artifact": "historical hybrid reference",
+        "path": "outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+        "deprecated_reason": "superseded by locked uploaded golden reference and M8R/M8RC exact-match flow"
+      }
+    ],
+    "m10_clean_gds_user_review_passed": true,
+    "m10_source_backed_translator_v2_confirmed": true,
+    "can_claim_source_backed_translator_v2": true,
+    "can_claim_full_raw_netlist_compiler": false,
+    "capacity_config_fallback_used": true,
+    "full_raw_openyield_netlist_compiler": false,
+    "source_backed_module_count": 20,
+    "source_backed_net_count": 34,
+    "source_backed_instance_count": 20,
+    "reference_vs_m10_geometry_match": "EXACT_MATCH",
+    "remaining_M10_blockers_before_count": 1,
+    "remaining_M10_blockers_after_count": 0,
+    "next_stage_allowed": "M11_OPENYIELD_CONFIG_EXTRACTION_OR_VARIATION_SUPPORT",
+    "can_enter_next_stage_after_this_gate": true
+  },
+  "last_M11_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "reused_previous_artifacts": [
+      {
+        "artifact": "M8R/M8RC locked golden layoutgen flow",
+        "path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+        "reuse_purpose": "locked exact-match geometry baseline for translator-backed physical delivery"
+      },
+      {
+        "artifact": "M9/M9H translator v1",
+        "path": "outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram.gds",
+        "reuse_purpose": "prior translator semantics, binding bridge, and reviewed translator framing"
+      },
+      {
+        "artifact": "M10 raw source-backed trace",
+        "path": "outputs/M10_raw_openyield_trace/current_supported_config/openyield_source_backed_translated_sram.gds",
+        "reuse_purpose": "source-backed module/net/instance/config trace and exact-match source-backed translator v2 evidence"
+      },
+      {
+        "artifact": "T1 OpenYield full file analysis",
+        "path": "docs/T1_openyield_full_file_report.json",
+        "reuse_purpose": "key entrypoints, source inventory, and recommended raw-source search set"
+      },
+      {
+        "artifact": "R1/M1 OpenYield intent and binding",
+        "path": "outputs/openyield_layout_intent/current_supported_config/;docs/mapping/M1_openyield_to_layoutgen_binding.csv;docs/mapping/M1_openyield_net_to_layoutgen_pin_binding.csv",
+        "reuse_purpose": "semantic role map and module/net binding inputs carried into M9 and hardened in M10"
+      },
+      {
+        "artifact": "M7 golden reference",
+        "path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+        "reuse_purpose": "locked physical comparison target and exact-match baseline"
+      }
+    ],
+    "deprecated_previous_artifacts": [
+      {
+        "artifact": "access_module cells",
+        "path": "*_access_module",
+        "deprecated_reason": "cannot be claimed as physical implementation in M10H gate closure"
+      },
+      {
+        "artifact": "floorplan_proxy cells",
+        "path": "floorplan_proxy*",
+        "deprecated_reason": "review-only proxy hierarchy, not valid implementation backing for M10H"
+      },
+      {
+        "artifact": "historical hybrid reference",
+        "path": "outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+        "deprecated_reason": "superseded by locked uploaded golden reference and M8R/M8RC exact-match flow"
+      }
+    ],
+    "current_stage_inputs": [
+      "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md",
+      "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json",
+      "docs/M10H_confirm_source_backed_translator_report.json",
+      "docs/M10_harden_raw_openyield_trace_report.json",
+      "outputs/M10_raw_openyield_trace/current_supported_config/",
+      "docs/M9H_confirm_translator_review_report.json",
+      "docs/M8RC_confirm_reproducible_golden_flow_report.json",
+      "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+      "outputs/T1_openyield_file_inventory/current_supported_config/openyield_full_file_inventory.csv",
+      "/data1/qujh/work/external/OpenYield"
+    ],
+    "current_stage_delta_from_M10": [
+      "M10 proved module/net/instance source backing but left capacity_config_fallback_used=True.",
+      "M11 scans raw OpenYield config/script/doc/optimization files and separates raw-backed architecture knobs from locked logical fallback fields.",
+      "M11 adds variation-aware translator input support and emits an OpenYield-config-derived SRAM spec plus source matrix."
+    ],
+    "why_this_task_advances_beyond_M10": "M10 stopped at source-backed semantics with locked logical capacity. M11 advances the route by proving which SRAM capacity/variation fields are actually present in raw OpenYield, which are only derivable, and which still require locked fallback.",
+    "m10h_gate_loaded": true,
+    "m10_source_backed_translator_v2_confirmed": true,
+    "openyield_root_found": true,
+    "config_candidate_count": 105,
+    "raw_config_file_count": 14,
+    "script_argument_config_count": 5,
+    "netlist_config_evidence_count": 1,
+    "openyield_capacity_config_found": true,
+    "word_size_source_backed": false,
+    "num_words_source_backed": false,
+    "words_per_row_source_backed": false,
+    "num_rows_source_backed": true,
+    "num_cols_source_backed": true,
+    "capacity_config_fallback_used_before_M11": true,
+    "capacity_config_fallback_used_after_M11": true,
+    "fallback_reduced_by_M11": true,
+    "fallback_eliminated_by_M11": false,
+    "openyield_config_derived_sram_spec_available": true,
+    "spec_field_source_matrix_available": true,
+    "variation_support_added": true,
+    "variation_count_supported": 3,
+    "supported_variations": [
+      "8x64_wpr4",
+      "4x32_wpr2",
+      "16x16_wpr1"
+    ],
+    "layoutgen_golden_flow_used": true,
+    "reference_file_copied_as_output": false,
+    "gds_generated": true,
+    "gds_path": "outputs/M11_openyield_config_variation/current_supported_config/openyield_config_derived_sram.gds",
+    "clean_review_gds_path": "outputs/M11_openyield_config_variation/current_supported_config/openyield_config_derived_sram_clean_review.gds",
+    "annotated_debug_gds_path": "outputs/M11_openyield_config_variation/current_supported_config/openyield_config_derived_sram_annotated_debug.gds",
+    "gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "top_cell_name": "sram_8x64_wpr4_fd45",
+    "reference_vs_m11_geometry_match": "EXACT_MATCH",
+    "can_claim_config_aware_translator_v3": true,
+    "can_claim_full_raw_netlist_compiler": false,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false,
+    "remaining_M11_blockers": [
+      "Human KLayout review is required for openyield_config_derived_sram_clean_review.gds before any post-M11 stage.",
+      "Fallback still required for: word_size, num_words, words_per_row, num_banks, num_ports, tech, top_cell_name, dummy_enabled, replica_enabled, precharge_enabled, sense_amp_enabled, write_driver_enabled, wordline_driver_enabled, decoder_enabled",
+      "OpenYield raw source exposes num_rows/num_cols/choose_columnmux and architecture variations, but current supported delivery still relies on locked 8x64_wpr4 logical capacity fallback."
+    ],
+    "remaining_M11_blockers_count": 3
+  },
+  "goal_files": [
+    "PROJECT_NETLIST_TO_LAYOUT_GOAL.md"
+  ],
+  "progress_files": [
+    "PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md"
+  ],
+  "ten_required_assets_for_netlist_to_layout": [
+    {
+      "asset_id": "NETLIST_SEMANTICS",
+      "asset_name": "网表 / module / instance / net / pin 连接语义",
+      "status_level": "COMPLETE",
+      "evidence_paths": [
+        "outputs/M10_raw_openyield_trace/current_supported_config/M10_source_backed_module_trace.csv",
+        "outputs/M10_raw_openyield_trace/current_supported_config/M10_source_backed_net_trace.csv",
+        "outputs/M10_raw_openyield_trace/current_supported_config/M10_source_backed_instance_trace.csv",
+        "outputs/M9_openyield_netlist_translator/current_supported_config/M9_net_binding_matrix.csv"
+      ],
+      "blocking_for_next_stage": false,
+      "next_action": "Freeze M10 source-backed trace as the semantic baseline for all later qualification work."
+    },
+    {
+      "asset_id": "PHYSICAL_IMPLEMENTATION_LIBRARY",
+      "asset_name": "模块物理实现库，包括 layoutgen cell、OpenYield module GDS、hardmacro 候选",
+      "status_level": "PARTIAL",
+      "evidence_paths": [
+        "docs/mapping/M11V_baseline_vs_substitution_risk_matrix.csv",
+        "docs/mapping/M11V_connectivity_heuristic_matrix.csv",
+        "docs/mapping/M11V_next_stage_decision.csv"
+      ],
+      "blocking_for_next_stage": false,
+      "next_action": "M11V2_DEEPER_CONNECTIVITY_EXTRACTION"
+    },
+    {
+      "asset_id": "PIN_BBOX_RAIL_METADATA",
+      "asset_name": "pin / bbox / rail / layer / access metadata",
+      "status_level": "PARTIAL",
+      "evidence_paths": [
+        "docs/mapping/M11V_power_rail_heuristic_matrix.csv",
+        "docs/mapping/M11V_connectivity_heuristic_matrix.csv",
+        "docs/mapping/M11C2H_routing_power_caveat.csv"
+      ],
+      "blocking_for_next_stage": false,
+      "next_action": "M11V2_DEEPER_CONNECTIVITY_EXTRACTION"
+    },
+    {
+      "asset_id": "SRAM_CONFIGURATION",
+      "asset_name": "SRAM 参数配置，包括 word_size、num_words、words_per_row、rows、cols、mux ratio",
+      "status_level": "PARTIAL",
+      "evidence_paths": [
+        "docs/M11_openyield_config_variation_report.json",
+        "docs/mapping/M11_spec_field_source_matrix.csv",
+        "outputs/M11_openyield_config_variation/current_supported_config/M11_variation_support_report.json"
+      ],
+      "blocking_for_next_stage": false,
+      "next_action": "No longer block M11A; revisit later only if full raw netlist compiler is required."
+    },
+    {
+      "asset_id": "FLOORPLAN_RULES",
+      "asset_name": "floorplan 规则，包括 array、row path、column path、control、top pin 区域",
+      "status_level": "PARTIAL",
+      "evidence_paths": [
+        "outputs/M9_openyield_netlist_translator/current_supported_config/M9_placement_routing_power_intent.json",
+        "outputs/M10_raw_openyield_trace/current_supported_config/M10_translator_generation_report.json",
+        "outputs/M11_openyield_config_variation/current_supported_config/M11_variation_support_report.json"
+      ],
+      "blocking_for_next_stage": true,
+      "next_action": "After M11A/M11B, run selective substitution smoke and variation generation to prove adaptive floorplan behavior."
+    },
+    {
+      "asset_id": "PLACEMENT_RULES",
+      "asset_name": "placement / abutment / orientation / pitch 对齐规则",
+      "status_level": "PARTIAL",
+      "evidence_paths": [
+        "docs/mapping/openyield_placement_rule_matrix.csv",
+        "outputs/M9_openyield_netlist_translator/current_supported_config/M9_module_binding_matrix.csv",
+        "outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json"
+      ],
+      "blocking_for_next_stage": true,
+      "next_action": "Use M11A/M11B outputs to rerun placement smoke for qualified substitution sites."
+    },
+    {
+      "asset_id": "ROUTING_RULES",
+      "asset_name": "WL、BL/BR、control、data、addr、enable 等 routing 规则",
+      "status_level": "PARTIAL",
+      "evidence_paths": [
+        "outputs/M9_openyield_netlist_translator/current_supported_config/M9_net_binding_matrix.csv",
+        "outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json",
+        "outputs/M10_raw_openyield_trace/current_supported_config/M10_vs_golden_geometry_diff_report.json"
+      ],
+      "blocking_for_next_stage": true,
+      "next_action": "Generate variation GDS and routing/power adaptation evidence after module qualification."
+    },
+    {
+      "asset_id": "POWER_PLAN",
+      "asset_name": "VDD/GND rail overlap、stitch、abutment、top power pin 策略",
+      "status_level": "PARTIAL",
+      "evidence_paths": [
+        "outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json",
+        "docs/mapping/openyield_rail_rule_matrix.csv",
+        "outputs/M9_openyield_netlist_translator/current_supported_config/M9_net_binding_matrix.csv"
+      ],
+      "blocking_for_next_stage": true,
+      "next_action": "After M11B metadata extraction, qualify rail overlap/stitch compatibility for each substitution candidate."
+    },
+    {
+      "asset_id": "GDS_GENERATION_FLOW",
+      "asset_name": "GDS generator / layoutgen golden flow / write_standalone 入口",
+      "status_level": "COMPLETE",
+      "evidence_paths": [
+        "sram_layoutgen/standalone.py",
+        "outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json",
+        "docs/M10H_confirm_source_backed_translator_report.json",
+        "docs/M11_openyield_config_variation_report.json"
+      ],
+      "blocking_for_next_stage": false,
+      "next_action": "Keep the locked golden flow unchanged while extending inputs around it."
+    },
+    {
+      "asset_id": "VERIFICATION_AND_TRACE",
+      "asset_name": "GDS sanity、golden diff、module/net trace、DRC/LVS feasibility、人工 KLayout review",
+      "status_level": "PARTIAL",
+      "evidence_paths": [
+        "docs/M11V_routing_power_connectivity_verification_report.json",
+        "docs/evidence/M11V_routing_power_connectivity_verification_summary.md",
+        "docs/mapping/M11V_drc_feasibility_matrix.csv",
+        "outputs/M11V_routing_power_connectivity_verification/current_supported_config/M11V_machine_verification_report.json"
+      ],
+      "blocking_for_next_stage": true,
+      "next_action": "M11V2_DEEPER_CONNECTIVITY_EXTRACTION"
+    }
+  ],
+  "current_missing_or_partial_assets": [
+    "PHYSICAL_IMPLEMENTATION_LIBRARY",
+    "PIN_BBOX_RAIL_METADATA",
+    "SRAM_CONFIGURATION",
+    "FLOORPLAN_RULES",
+    "PLACEMENT_RULES",
+    "ROUTING_RULES",
+    "POWER_PLAN",
+    "VERIFICATION_AND_TRACE"
+  ],
+  "next_assets_to_fill_in_order": [
+    "M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR",
+    "M12A_VARIATION_GDS_GENERATION",
+    "M12B_ROUTING_POWER_ADAPTATION",
+    "M13_DRC_LVS_FEASIBILITY_AND_EQUIVALENCE_TRACE"
+  ],
+  "cannot_claim_until_completed": [
+    "full raw OpenYield netlist compiler",
+    "qualified OpenYield module GDS hardmacro substitution",
+    "DRC clean",
+    "LVS clean",
+    "signoff ready"
+  ],
+  "current_claim_boundary": {
+    "can_claim_source_backed_translator_v2": true,
+    "can_claim_config_aware_translator_v3": true,
+    "can_claim_full_raw_openyield_netlist_compiler": false,
+    "can_claim_drc_clean": false,
+    "can_claim_lvs_clean": false,
+    "can_claim_signoff_ready": false,
+    "can_claim_openyield_module_gds_hardmacro_substitution": false
+  },
+  "last_M12_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "reused_previous_artifacts_available": true,
+    "deprecated_previous_artifacts_recorded": true,
+    "ten_required_assets_added_to_goal": true,
+    "ten_required_assets_added_to_progress": true,
+    "workdir_scan_completed": true,
+    "workdir_root": "/data1/qujh/work/sram_layoutgen_step45_clean",
+    "openyield_root_checked": "/data1/qujh/work/external/OpenYield",
+    "asset_count_total": 10,
+    "asset_complete_count": 2,
+    "asset_partial_count": 8,
+    "asset_missing_count": 0,
+    "asset_invalidated_count": 0,
+    "asset_needs_review_count": 0,
+    "blocking_asset_count": 8,
+    "missing_or_partial_assets": [
+      "PHYSICAL_IMPLEMENTATION_LIBRARY",
+      "PIN_BBOX_RAIL_METADATA",
+      "SRAM_CONFIGURATION",
+      "FLOORPLAN_RULES",
+      "PLACEMENT_RULES",
+      "ROUTING_RULES",
+      "POWER_PLAN",
+      "VERIFICATION_AND_TRACE"
+    ],
+    "next_assets_to_fill_in_order": [
+      "M11H",
+      "M11A",
+      "M11B",
+      "M11C",
+      "M12A",
+      "M12B",
+      "M13"
+    ],
+    "recommended_next_stage": "M11H",
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false,
+    "remaining_M12_blockers": [
+      "Human KLayout review remains required before entering any next stage.",
+      "M11H confirmation file is missing; config-aware v3 claim stays below gate.",
+      "OpenYield module GDS hardmacro substitution is still unqualified.",
+      "DRC/LVS/signoff claims remain unavailable."
+    ],
+    "remaining_M12_blockers_count": 4
+  },
+  "m11_clean_gds_user_review_passed": true,
+  "m11_config_aware_translator_v3_confirmed": true,
+  "can_claim_config_aware_translator_v3": true,
+  "can_claim_full_raw_openyield_netlist_compiler": false,
+  "capacity_config_fallback_used_after_M11": true,
+  "fallback_reduced_by_M11": true,
+  "fallback_eliminated_by_M11": false,
+  "variation_support_added": true,
+  "supported_variations": [
+    "8x64_wpr4",
+    "4x32_wpr2",
+    "16x16_wpr1"
+  ],
+  "last_M11H_report": {
+    "status_file_read": true,
+    "status_file_updated": false,
+    "goal_file_updated": false,
+    "progress_file_updated": false,
+    "reused_previous_artifacts": [
+      {
+        "artifact": "M8R/M8RC locked golden layoutgen flow",
+        "path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+        "reuse_purpose": "locked exact-match geometry baseline for translator-backed physical delivery"
+      },
+      {
+        "artifact": "M9/M9H translator v1",
+        "path": "outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram.gds",
+        "reuse_purpose": "prior translator semantics, binding bridge, and reviewed translator framing"
+      },
+      {
+        "artifact": "M10 raw source-backed trace",
+        "path": "outputs/M10_raw_openyield_trace/current_supported_config/openyield_source_backed_translated_sram.gds",
+        "reuse_purpose": "source-backed module/net/instance/config trace and exact-match source-backed translator v2 evidence"
+      },
+      {
+        "artifact": "T1 OpenYield full file analysis",
+        "path": "docs/T1_openyield_full_file_report.json",
+        "reuse_purpose": "key entrypoints, source inventory, and recommended raw-source search set"
+      },
+      {
+        "artifact": "R1/M1 OpenYield intent and binding",
+        "path": "outputs/openyield_layout_intent/current_supported_config/;docs/mapping/M1_openyield_to_layoutgen_binding.csv;docs/mapping/M1_openyield_net_to_layoutgen_pin_binding.csv",
+        "reuse_purpose": "semantic role map and module/net binding inputs carried into M9 and hardened in M10"
+      },
+      {
+        "artifact": "M7 golden reference",
+        "path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+        "reuse_purpose": "locked physical comparison target and exact-match baseline"
+      }
+    ],
+    "deprecated_previous_artifacts": [
+      {
+        "artifact": "access_module cells",
+        "path": "*_access_module",
+        "deprecated_reason": "cannot be claimed as physical implementation in M10H gate closure"
+      },
+      {
+        "artifact": "floorplan_proxy cells",
+        "path": "floorplan_proxy*",
+        "deprecated_reason": "review-only proxy hierarchy, not valid implementation backing for M10H"
+      },
+      {
+        "artifact": "historical hybrid reference",
+        "path": "outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+        "deprecated_reason": "superseded by locked uploaded golden reference and M8R/M8RC exact-match flow"
+      }
+    ],
+    "current_stage_inputs": [
+      "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md",
+      "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json",
+      "PROJECT_NETLIST_TO_LAYOUT_GOAL.md",
+      "PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md",
+      "docs/M11_openyield_config_variation_report.json",
+      "docs/M11_openyield_config_variation_report.md",
+      "docs/M12_ten_asset_audit_report.json",
+      "docs/mapping/M12_ten_required_assets_matrix.csv",
+      "docs/mapping/M12_missing_asset_backlog.csv",
+      "outputs/M11_openyield_config_variation/current_supported_config/",
+      "docs/M10H_confirm_source_backed_translator_report.json",
+      "docs/M10_harden_raw_openyield_trace_report.json",
+      "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds"
+    ],
+    "current_stage_delta_from_M11": [
+      "M11H does not add translator functionality; it converts the M11 human-review blocker into a confirmed gate state.",
+      "M11H locks can_claim_config_aware_translator_v3=True while preserving can_claim_full_raw_openyield_netlist_compiler=False.",
+      "M11H removes the M12 recommendation blocker that pointed to missing M11 confirmation."
+    ],
+    "why_M11H_is_needed": "M11 already produced the config-aware translator v3 outputs, but M12 still marked the route blocked because the dedicated confirmation gate file was missing. M11H is needed to record human KLayout review closure, lock the claim boundary, and allow M11A to start.",
+    "m11_clean_gds_user_review_passed": true,
+    "m11_config_aware_translator_v3_confirmed": true,
+    "can_claim_config_aware_translator_v3": true,
+    "can_claim_full_raw_netlist_compiler": false,
+    "capacity_config_fallback_used_after_M11": true,
+    "fallback_reduced_by_M11": true,
+    "fallback_eliminated_by_M11": false,
+    "word_size_source_backed": false,
+    "num_words_source_backed": false,
+    "words_per_row_source_backed": false,
+    "variation_support_added": true,
+    "supported_variations": [
+      "8x64_wpr4",
+      "4x32_wpr2",
+      "16x16_wpr1"
+    ],
+    "reference_vs_m11_geometry_match": "EXACT_MATCH",
+    "remaining_M11_blockers_before_count": 3,
+    "remaining_M11_blockers_after_count": 0,
+    "m12_recommended_next_stage_before": "M11H",
+    "m12_recommended_next_stage_after": "M11A_MODULE_GDS_QUALIFICATION",
+    "next_stage_allowed": "M11A_MODULE_GDS_QUALIFICATION",
+    "can_enter_M11A_after_this_gate": true,
+    "human_klayout_review_required_for_M11A_output": true,
+    "can_enter_next_stage_without_human_review": false,
+    "remaining_M11H_blockers": [],
+    "remaining_M11H_blockers_count": 0
+  },
+  "can_claim_openyield_module_gds_hardmacro_substitution": false,
+  "last_M11A_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "goal_file_read": true,
+    "goal_file_updated": true,
+    "progress_file_updated": true,
+    "module_gds_dir_found": true,
+    "module_gds_count": 20,
+    "expected_openyield_module_count": 20,
+    "all_expected_modules_have_gds": true,
+    "bbox_metadata_count": 20,
+    "pin_metadata_count": 20,
+    "rail_metadata_count": 20,
+    "generation_report_count": 20,
+    "direct_hardmacro_replace_count": 4,
+    "constraint_extraction_only_count": 4,
+    "semantic_reference_only_count": 12,
+    "rejected_count": 0,
+    "first_substitution_candidates": [
+      "column_mux",
+      "sense_amp",
+      "wordline_driver",
+      "write_driver"
+    ],
+    "safe_to_attempt_selective_substitution": true,
+    "must_run_M11B_before_substitution": true,
+    "review_gds_generated": true,
+    "review_gds_path": "outputs/M11A_module_gds_qualification/current_supported_config/module_gds_qualification_review.gds",
+    "clean_review_gds_path": "outputs/M11A_module_gds_qualification/current_supported_config/module_gds_qualification_clean_review.gds",
+    "annotated_debug_gds_path": "outputs/M11A_module_gds_qualification/current_supported_config/module_gds_qualification_annotated_debug.gds",
+    "review_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "can_claim_openyield_module_gds_hardmacro_substitution": false,
+    "can_enter_M11B_after_this_gate": true,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false,
+    "remaining_M11A_blockers": [
+      "M11B metadata extraction is still mandatory before any substitution attempt.",
+      "Human KLayout review of module_gds_qualification_review.gds is required.",
+      "OpenYield module GDS hardmacro substitution cannot yet be claimed complete at M11A."
+    ],
+    "remaining_M11A_blockers_count": 3
+  },
+  "last_M11AR_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "progress_file_updated": true,
+    "m11a_report_loaded": true,
+    "m11a_decision_matrix_loaded": true,
+    "human_review_applied": true,
+    "debug_marker_layer": "295/0",
+    "debug_marker_cell": "module_gds_qualification_debug",
+    "unknown_golden_region_markers_are_real_modules": false,
+    "control_logic_human_review_result": "SEMANTIC_REFERENCE_ONLY",
+    "sense_amp_human_review_result": "DIRECT_HARDMACRO_REPLACE",
+    "wordline_driver_human_review_result": "DIRECT_HARDMACRO_REPLACE",
+    "column_mux_human_review_result": "CONSTRAINT_EXTRACTION_ONLY",
+    "write_driver_human_review_result": "CONSTRAINT_EXTRACTION_ONLY",
+    "direct_hardmacro_replace_count_before": 4,
+    "direct_hardmacro_replace_count_after": 2,
+    "first_substitution_candidates_before": [
+      "column_mux",
+      "sense_amp",
+      "wordline_driver",
+      "write_driver"
+    ],
+    "first_substitution_candidates_after": [
+      "sense_amp",
+      "wordline_driver"
+    ],
+    "downgraded_modules": [
+      "column_mux",
+      "write_driver"
+    ],
+    "downgrade_reason": "downgraded_by_human_review: visible geometry appears incomplete.",
+    "safe_to_attempt_selective_substitution": true,
+    "safe_to_attempt_selective_substitution_scope": [
+      "sense_amp",
+      "wordline_driver"
+    ],
+    "must_run_M11B_before_substitution": true,
+    "can_claim_openyield_module_gds_hardmacro_substitution": false,
+    "next_stage_allowed": "M11B_PIN_BBOX_RAIL_METADATA_EXTRACTION_FOR_SENSE_AMP_AND_WORDLINE_DRIVER",
+    "can_enter_M11B_after_this_gate": true,
+    "human_klayout_review_required_for_M11B_output": true,
+    "can_enter_next_stage_without_human_review": false,
+    "remaining_M11AR_blockers": [
+      "M11B deep pin/bbox/rail metadata verification is limited to sense_amp and wordline_driver.",
+      "Human KLayout review is still required for any M11B output before continuing.",
+      "OpenYield module GDS hardmacro substitution still cannot be claimed complete."
+    ],
+    "remaining_M11AR_blockers_count": 3
+  },
+  "last_M11B_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "progress_file_updated": true,
+    "reused_previous_artifacts": [
+      {
+        "artifact": "M11AR corrected candidate gate",
+        "path": "docs/M11AR_human_review_correction_report.json",
+        "reuse_purpose": "locks the candidate scope to sense_amp and wordline_driver only"
+      },
+      {
+        "artifact": "M11AR corrected decision matrix",
+        "path": "docs/mapping/M11AR_corrected_hardmacro_substitution_decision.csv",
+        "reuse_purpose": "reuses human-reviewed candidate classification and wrapper notes"
+      },
+      {
+        "artifact": "M11A pin metadata seed",
+        "path": "docs/mapping/M11A_pin_bbox_rail_metadata.csv",
+        "reuse_purpose": "provides the previously exported point-based pin metadata baseline"
+      },
+      {
+        "artifact": "M11A golden comparison seed",
+        "path": "docs/mapping/M11A_module_vs_golden_leaf_comparison.csv",
+        "reuse_purpose": "reuses the golden target mapping from qualification stage"
+      },
+      {
+        "artifact": "OpenYield module GDS",
+        "path": "outputs/openyield_module_gds/",
+        "reuse_purpose": "source for deep pin/bbox/rail extraction on the two narrowed candidates"
+      },
+      {
+        "artifact": "M7 golden reference",
+        "path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+        "reuse_purpose": "golden hardmacro target for machine alignment checks"
+      },
+      {
+        "artifact": "M8R exact-match layoutgen flow",
+        "path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+        "reuse_purpose": "locked physical baseline proving the golden flow remains untouched"
+      },
+      {
+        "artifact": "M10 source-backed trace bundle",
+        "path": "outputs/M10_raw_openyield_trace/current_supported_config/",
+        "reuse_purpose": "keeps the source-backed translator trace in scope while M11B stays purely metadata-oriented"
+      }
+    ],
+    "deprecated_previous_artifacts": [
+      {
+        "artifact": "access_module cells",
+        "path": "*_access_module",
+        "deprecated_reason": "forbidden for M11B machine verification and substitution readiness claims"
+      },
+      {
+        "artifact": "floorplan_proxy cells",
+        "path": "floorplan_proxy*",
+        "deprecated_reason": "review-only artifacts that cannot satisfy deep metadata verification"
+      },
+      {
+        "artifact": "column_mux and write_driver as active substitution candidates",
+        "path": "docs/M11AR_human_review_correction_report.json",
+        "deprecated_reason": "M11AR already downgraded them; M11B cannot re-expand the candidate set"
+      },
+      {
+        "artifact": "contract pins as verified physical pins",
+        "path": "docs/mapping/M11A_pin_bbox_rail_metadata.csv",
+        "deprecated_reason": "M11B must distinguish script-exported points from machine-verified physical polygons"
+      }
+    ],
+    "m11ar_gate_loaded": true,
+    "candidate_modules_from_M11AR": [
+      "sense_amp",
+      "wordline_driver"
+    ],
+    "candidate_modules_processed": [
+      "sense_amp",
+      "wordline_driver"
+    ],
+    "sense_amp_metadata_extracted": true,
+    "wordline_driver_metadata_extracted": true,
+    "module_count_processed": 2,
+    "pin_metadata_entry_count": 14,
+    "rail_metadata_entry_count": 4,
+    "machine_verified_item_count": 42,
+    "human_review_required_item_count": 3,
+    "human_review_required_items": [
+      "Visual completeness of the sense_amp macro still requires KLayout confirmation even after machine pin/rail extraction.",
+      "Visual completeness of the wordline_driver wrapper shape remains a human review item because D/G/S pins are not machine-resolved in the parsed GDS.",
+      "Annotated debug readability in M11B_pin_bbox_rail_metadata_annotated_debug.gds still requires human KLayout review."
+    ],
+    "sense_amp_ready_for_M11C": true,
+    "wordline_driver_ready_for_M11C": false,
+    "ready_for_M11C_modules": [
+      "sense_amp"
+    ],
+    "not_ready_modules": [
+      "wordline_driver"
+    ],
+    "requires_wrapper_count": 1,
+    "contract_pin_count": 0,
+    "verified_physical_pin_count": 11,
+    "review_gds_generated": true,
+    "review_gds_path": "outputs/M11B_pin_bbox_rail_metadata/current_supported_config/M11B_pin_bbox_rail_metadata_review.gds",
+    "clean_review_gds_path": "outputs/M11B_pin_bbox_rail_metadata/current_supported_config/M11B_pin_bbox_rail_metadata_clean_review.gds",
+    "annotated_debug_gds_path": "outputs/M11B_pin_bbox_rail_metadata/current_supported_config/M11B_pin_bbox_rail_metadata_annotated_debug.gds",
+    "review_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "can_claim_openyield_module_gds_hardmacro_substitution": false,
+    "can_enter_M11C_after_this_gate": true,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false,
+    "remaining_M11B_blockers": [
+      "Human KLayout review remains required for the M11B review GDS outputs.",
+      "wordline_driver is not ready because wrapper pins D/G/S are not machine-resolved in the parsed candidate GDS.",
+      "OpenYield module GDS hardmacro substitution still cannot be claimed complete at M11B."
+    ],
+    "remaining_M11B_blockers_count": 3
+  },
+  "m11b_human_review_completed": true,
+  "m11b_sense_amp_visual_review_passed": true,
+  "m11b_wordline_driver_excluded_from_M11C": true,
+  "m11b_annotated_debug_readable": true,
+  "ready_for_M11C_modules_after_human_review": [
+    "sense_amp"
+  ],
+  "not_ready_modules_after_human_review": [
+    "wordline_driver"
+  ],
+  "can_enter_M11C_after_this_gate": true,
+  "last_M11BH_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "progress_file_updated": true,
+    "m11b_report_loaded": true,
+    "m11b_machine_verification_loaded": true,
+    "m11b_human_review_completed": true,
+    "human_review_items_before": [
+      "Visual completeness of the sense_amp macro still requires KLayout confirmation even after machine pin/rail extraction.",
+      "Visual completeness of the wordline_driver wrapper shape remains a human review item because D/G/S pins are not machine-resolved in the parsed GDS.",
+      "Annotated debug readability in M11B_pin_bbox_rail_metadata_annotated_debug.gds still requires human KLayout review."
+    ],
+    "human_review_items_after": [],
+    "sense_amp_visual_review_passed": true,
+    "sense_amp_annotated_debug_readable": true,
+    "sense_amp_ready_for_M11C_after_human_review": true,
+    "wordline_driver_excluded_from_M11C": true,
+    "wordline_driver_not_ready_reason": "Wrapper pins D/G/S are not machine-resolved in the parsed candidate GDS, so golden signal alignment cannot be fully verified.",
+    "wordline_driver_followup_required": true,
+    "ready_for_M11C_modules_before_human_review": [
+      "sense_amp"
+    ],
+    "ready_for_M11C_modules_after_human_review": [
+      "sense_amp"
+    ],
+    "not_ready_modules_before_human_review": [
+      "wordline_driver"
+    ],
+    "not_ready_modules_after_human_review": [
+      "wordline_driver"
+    ],
+    "M11C_scope": "sense_amp_only",
+    "M11C_scope_locked": true,
+    "can_claim_openyield_module_gds_hardmacro_substitution": false,
+    "can_enter_M11C_after_this_gate": true,
+    "remaining_M11B_blockers_before_count": 3,
+    "remaining_M11B_blockers_after_count": 0,
+    "next_stage_allowed": "M11C_SENSE_AMP_ONLY_SMOKE_SUBSTITUTION"
+  },
+  "last_M11C_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "progress_file_updated": true,
+    "m11bh_gate_loaded": true,
+    "m11c_scope_from_M11BH": "sense_amp_only",
+    "allowed_modules_from_M11BH": [
+      "sense_amp"
+    ],
+    "excluded_modules_from_M11BH": [
+      "wordline_driver"
+    ],
+    "sram_spec_generated": true,
+    "sram_spec_path": "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/SRAM_SPEC.json",
+    "sense_amp_openyield_gds_found": true,
+    "sense_amp_openyield_gds_parsed": true,
+    "sense_amp_metadata_loaded_from_M11B": true,
+    "sense_amp_golden_target_found": true,
+    "substitution_attempted": true,
+    "substitution_scope": [
+      "sense_amp"
+    ],
+    "substituted_modules": [
+      "sense_amp"
+    ],
+    "excluded_modules_confirmed": true,
+    "baseline_gds_loaded": true,
+    "baseline_top_cell": "sram_8x64_wpr4_fd45",
+    "output_gds_generated": true,
+    "output_gds_path": "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram.gds",
+    "clean_review_gds_path": "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram_clean_review.gds",
+    "annotated_debug_gds_path": "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram_annotated_debug.gds",
+    "output_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "top_bbox_before": [
+      0.0,
+      0.0,
+      36.6225,
+      44.145
+    ],
+    "top_bbox_after": [
+      0.0,
+      0.0,
+      36.6225,
+      44.145
+    ],
+    "top_bbox_match_status": "EXACT_MATCH",
+    "access_module_used": false,
+    "floorplan_proxy_used": false,
+    "arbitrary_scatter_used": false,
+    "wordline_driver_substituted": false,
+    "column_mux_substituted": false,
+    "write_driver_substituted": false,
+    "control_logic_substituted": false,
+    "sense_amp_substitution_smoke_status": "SMOKE_SUBSTITUTION_PASS",
+    "ready_for_human_klayout_review": true,
+    "machine_verified_item_count": 22,
+    "human_review_required_item_count": 3,
+    "human_review_required_items": [
+      "KLayout must confirm that the substituted sense_amp instances still look visually complete in the top context.",
+      "KLayout must confirm that the debug annotation around the 8 substituted sense_amp instances is readable and non-misleading.",
+      "KLayout must confirm that no visual power or routing damage was introduced around the substituted sense_amp row."
+    ],
+    "can_claim_sense_amp_smoke_substitution_attempted": true,
+    "can_claim_sense_amp_smoke_substitution_passed": true,
+    "can_claim_openyield_module_gds_hardmacro_substitution": false,
+    "can_claim_drc_clean": false,
+    "can_claim_lvs_clean": false,
+    "can_claim_signoff_ready": false,
+    "remaining_M11C_blockers": [],
+    "remaining_M11C_blockers_count": 3,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false,
+    "next_stage_allowed": "M11D_POST_SENSE_AMP_SUBSTITUTION_ANALYSIS_OR_NEXT_SAFE_CANDIDATE_PLANNING",
+    "m11c_human_review_completed": true,
+    "sense_amp_visual_review_passed": true,
+    "sense_amp_annotation_readable": true,
+    "sense_amp_nearby_power_routing_not_visually_broken": true,
+    "sense_amp_smoke_substitution_human_review_passed": true,
+    "remaining_M11C_blockers_before_count": 3,
+    "remaining_M11C_blockers_after_count": 0,
+    "human_review_items_after": [],
+    "can_enter_M11D_after_this_gate": true
+  },
+  "m11c_human_review_completed": true,
+  "m11c_sense_amp_visual_review_passed": true,
+  "m11c_sense_amp_annotation_readable": true,
+  "m11c_sense_amp_nearby_power_routing_not_visually_broken": true,
+  "sense_amp_smoke_substitution_human_review_passed": true,
+  "remaining_M11C_blockers_before_count": 3,
+  "remaining_M11C_blockers_after_count": 0,
+  "remaining_M11C_blockers": [],
+  "can_claim_sense_amp_smoke_substitution_attempted": true,
+  "can_claim_sense_amp_smoke_substitution_passed": true,
+  "can_claim_drc_clean": false,
+  "can_claim_lvs_clean": false,
+  "can_claim_signoff_ready": false,
+  "can_enter_M11D_after_this_gate": true,
+  "last_M11CH_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "progress_file_updated": true,
+    "m11c_report_loaded": true,
+    "m11c_human_review_completed": true,
+    "human_review_items_before": [
+      "KLayout must confirm that the substituted sense_amp instances still look visually complete in the top context.",
+      "KLayout must confirm that the debug annotation around the 8 substituted sense_amp instances is readable and non-misleading.",
+      "KLayout must confirm that no visual power or routing damage was introduced around the substituted sense_amp row."
+    ],
+    "human_review_items_after": [],
+    "sense_amp_visual_review_passed": true,
+    "sense_amp_annotation_readable": true,
+    "sense_amp_nearby_power_routing_not_visually_broken": true,
+    "sense_amp_smoke_substitution_attempted": true,
+    "sense_amp_smoke_substitution_passed": true,
+    "sense_amp_smoke_substitution_human_review_passed": true,
+    "substituted_modules": [
+      "sense_amp"
+    ],
+    "excluded_modules_confirmed": true,
+    "can_claim_sense_amp_smoke_substitution_attempted": true,
+    "can_claim_sense_amp_smoke_substitution_passed": true,
+    "can_claim_openyield_module_gds_hardmacro_substitution": false,
+    "can_claim_drc_clean": false,
+    "can_claim_lvs_clean": false,
+    "can_claim_signoff_ready": false,
+    "remaining_M11C_blockers_before_count": 3,
+    "remaining_M11C_blockers_after_count": 0,
+    "next_stage_allowed": "M11D_POST_SENSE_AMP_SUBSTITUTION_ANALYSIS_OR_NEXT_SAFE_CANDIDATE_PLANNING",
+    "can_enter_M11D_after_this_gate": true,
+    "human_review_source": "M11CH gate closure records the provided human review result for the existing M11C clean-review and annotated-debug GDS artifacts.",
+    "reviewed_gds_paths": [
+      "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram_clean_review.gds",
+      "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram_annotated_debug.gds"
+    ],
+    "m11c_manifest_artifact_count": 4,
+    "m11c_smoke_check_item_count": 22,
+    "m11c_diff_item_count": 4,
+    "excluded_modules": [
+      "wordline_driver",
+      "column_mux",
+      "write_driver",
+      "CONTROL_LOGIC"
+    ]
+  },
+  "real_substitution_proof_status": "PASS_GEOMETRY_FINGERPRINT_MATCH",
+  "openyield_sense_amp_fingerprint_found_in_M11C": true,
+  "sense_amp_substitution_analysis_status": "PASS_REAL_SUBSTITUTION_PROVEN",
+  "sense_amp_substitution_risk_level": "MEDIUM",
+  "recommended_next_stage": "Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION",
+  "recommended_next_stage_reason": "Wave3H1-R1 repaired evidence finalization has closed; locked wave plan proceeds to ADDR_DFF source-topology and binding lock before DATA_DFF.",
+  "remaining_M11D_blockers": [],
+  "remaining_M11D_blockers_count": 0,
+  "human_klayout_review_required": false,
+  "can_enter_next_stage_before_human_review": false,
+  "last_M11D_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "progress_file_updated": true,
+    "m11ch_gate_loaded": true,
+    "can_enter_M11D_from_M11CH": true,
+    "reused_previous_artifacts": [
+      {
+        "artifact": "M11CH human review closure",
+        "path": "docs/M11CH_confirm_M11C_human_review_report.json",
+        "reuse_purpose": "proves the M11C gate was already cleared before post-analysis starts"
+      },
+      {
+        "artifact": "M11CH entry gate matrix",
+        "path": "docs/mapping/M11CH_M11D_entry_gate.csv",
+        "reuse_purpose": "provides the machine-readable gate contract for entering M11D"
+      },
+      {
+        "artifact": "M11C smoke substitution report bundle",
+        "path": "docs/M11C_sense_amp_smoke_substitution_report.json + docs/mapping/M11C_*",
+        "reuse_purpose": "supplies the locked substitution scope, manifest, smoke checks, and baseline-vs-M11C diff contract"
+      },
+      {
+        "artifact": "M11B readiness and wrapper matrices",
+        "path": "docs/mapping/M11B_substitution_readiness_matrix.csv + docs/mapping/M11B_wrapper_requirement_matrix.csv",
+        "reuse_purpose": "anchors next-stage planning to the last machine-verified candidate readiness state"
+      },
+      {
+        "artifact": "M11AR corrected hardmacro decision matrix",
+        "path": "docs/mapping/M11AR_corrected_hardmacro_substitution_decision.csv",
+        "reuse_purpose": "keeps downgraded modules out of the next candidate recommendation set"
+      },
+      {
+        "artifact": "M8R locked baseline GDS",
+        "path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+        "reuse_purpose": "serves as the immutable before-image for all geometry and hierarchy delta checks"
+      },
+      {
+        "artifact": "M11C substituted SRAM GDS outputs",
+        "path": "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/",
+        "reuse_purpose": "provides the post-substitution target for in-hierarchy fingerprint proof and delta analysis"
+      },
+      {
+        "artifact": "OpenYield module GDS library",
+        "path": "outputs/openyield_module_gds/",
+        "reuse_purpose": "supplies the source sense_amp fingerprint used to prove that M11C was not label-only"
+      }
+    ],
+    "deprecated_previous_artifacts": [
+      {
+        "artifact": "new module substitution in M11D",
+        "path": "user-prohibited substitution expansion set",
+        "deprecated_reason": "M11D is analysis-only and must not generate a new substituted SRAM top"
+      },
+      {
+        "artifact": "wordline_driver replacement in M11D",
+        "path": "docs/mapping/M11B_substitution_readiness_matrix.csv",
+        "deprecated_reason": "wordline_driver still fails machine readiness because wrapper pins D/G/S are unresolved"
+      },
+      {
+        "artifact": "access_module cells",
+        "path": "*_access_module",
+        "deprecated_reason": "forbidden implementation route and disallowed proof basis for this stage"
+      },
+      {
+        "artifact": "floorplan_proxy cells",
+        "path": "floorplan_proxy*",
+        "deprecated_reason": "review-only proxies remain invalid for M11D physical proof"
+      }
+    ],
+    "current_stage_inputs": [
+      "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md",
+      "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json",
+      "PROJECT_NETLIST_TO_LAYOUT_GOAL.md",
+      "PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md",
+      "docs/M11CH_confirm_M11C_human_review_report.json",
+      "docs/mapping/M11CH_M11D_entry_gate.csv",
+      "docs/M11C_sense_amp_smoke_substitution_report.json",
+      "docs/mapping/M11C_sense_amp_substitution_manifest.csv",
+      "docs/mapping/M11C_sense_amp_smoke_check_matrix.csv",
+      "docs/mapping/M11C_sense_amp_diff_matrix.csv",
+      "docs/M11B_pin_bbox_rail_metadata_report.json",
+      "docs/mapping/M11B_substitution_readiness_matrix.csv",
+      "docs/mapping/M11B_wrapper_requirement_matrix.csv",
+      "docs/mapping/M11AR_corrected_hardmacro_substitution_decision.csv",
+      "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+      "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram.gds",
+      "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram_clean_review.gds",
+      "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram_annotated_debug.gds",
+      "outputs/openyield_module_gds/"
+    ],
+    "current_stage_delta_from_M11CH": [
+      "M11CH closed the human-review gate for the existing sense_amp-only smoke substitution; M11D turns that gated result into a machine-backed post-analysis record.",
+      "M11D does not generate a new replacement top and does not broaden module scope; it re-reads baseline, M11C, and OpenYield source GDS to prove what changed and what did not.",
+      "M11D adds next-stage planning based on M11B/M11C/M11CH evidence so that the next move is selected from a bounded safe-route set rather than from open-ended expansion."
+    ],
+    "why_M11D_is_analysis_not_new_substitution": "M11C already performed the only allowed sense_amp substitution attempt and M11CH already cleared its human gate. M11D therefore must operate as a read-only proof-and-planning stage: it confirms that the existing result is a real substitution, quantifies the delta, and selects the next safe route without touching the M11C GDS.",
+    "baseline_gds_loaded": true,
+    "m11c_gds_loaded": true,
+    "baseline_gds_parsed": true,
+    "m11c_gds_parsed": true,
+    "m11c_substituted_modules": [
+      "sense_amp"
+    ],
+    "m11c_scope_confirmed_sense_amp_only": true,
+    "real_substitution_proof_status": "PASS_GEOMETRY_FINGERPRINT_MATCH",
+    "openyield_sense_amp_fingerprint_found_in_M11C": true,
+    "label_only_substitution": false,
+    "outside_placement_substitution": false,
+    "top_bbox_before": [
+      0.0,
+      0.0,
+      36.6225,
+      44.145
+    ],
+    "top_bbox_after": [
+      0.0,
+      0.0,
+      36.6225,
+      44.145
+    ],
+    "top_bbox_match_status": "EXACT_MATCH",
+    "hierarchy_delta_status": "ONLY_SENSE_AMP_LEAF_FINGERPRINT_CHANGED",
+    "sense_amp_instance_count_before": 8,
+    "sense_amp_instance_count_after": 8,
+    "unexpected_non_sense_amp_change_count": 0,
+    "unexpected_non_sense_amp_change_summary": [],
+    "access_module_used": false,
+    "floorplan_proxy_used": false,
+    "arbitrary_scatter_used": false,
+    "wordline_driver_substituted": false,
+    "column_mux_substituted": false,
+    "write_driver_substituted": false,
+    "control_logic_substituted": false,
+    "machine_verified_item_count": 28,
+    "human_review_required_item_count": 0,
+    "human_review_required_items": [],
+    "sense_amp_substitution_analysis_status": "PASS_REAL_SUBSTITUTION_PROVEN",
+    "sense_amp_substitution_risk_level": "MEDIUM",
+    "candidate_modules_ready_after_M11D": [
+      "sense_amp"
+    ],
+    "candidate_modules_blocked_after_M11D": [
+      "wordline_driver",
+      "column_mux",
+      "write_driver",
+      "precharge",
+      "CONTROL_LOGIC",
+      "bitcell_array",
+      "dummy_array",
+      "replica_array"
+    ],
+    "recommended_next_stage": "M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR",
+    "recommended_next_stage_reason": "M11D proves that sense_amp was a real in-hierarchy OpenYield fingerprint replacement, but it does not make any new module ready. The only previously shortlisted next candidate remains wordline_driver, and M11B still blocks it on unresolved D/G/S wrapper pin geometry.",
+    "can_claim_sense_amp_smoke_substitution_passed": true,
+    "can_claim_openyield_module_gds_hardmacro_substitution": false,
+    "can_claim_drc_clean": false,
+    "can_claim_lvs_clean": false,
+    "can_claim_signoff_ready": false,
+    "review_gds_generated": true,
+    "review_gds_path": "outputs/M11D_post_sense_amp_analysis/current_supported_config/M11D_post_sense_amp_analysis_review.gds",
+    "clean_review_gds_path": "outputs/M11D_post_sense_amp_analysis/current_supported_config/M11D_post_sense_amp_analysis_clean_review.gds",
+    "annotated_debug_gds_path": "outputs/M11D_post_sense_amp_analysis/current_supported_config/M11D_post_sense_amp_analysis_annotated_debug.gds",
+    "review_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "remaining_M11D_blockers": [],
+    "remaining_M11D_blockers_count": 0,
+    "human_klayout_review_required": false,
+    "can_enter_next_stage_before_human_review": true
+  },
+  "wordline_driver_openyield_gds_found": true,
+  "wordline_driver_openyield_gds_parsed": true,
+  "golden_wordline_driver_target_found": true,
+  "wordline_driver_dgs_pins_resolved": true,
+  "wordline_driver_unresolved_pin_count": 0,
+  "wordline_driver_wrapper_generated": true,
+  "wordline_driver_ready_for_smoke_substitution": true,
+  "can_claim_wordline_driver_pin_repair_completed": true,
+  "can_claim_wordline_driver_smoke_substitution_ready": true,
+  "remaining_M11W_blockers": [],
+  "remaining_M11W_blockers_count": 0,
+  "last_M11W_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "progress_file_updated": true,
+    "m11d_report_loaded": true,
+    "m11d_recommended_next_stage": "M11W_WORDLINE_DRIVER_WRAPPER_PIN_REPAIR",
+    "m11w_scope": [
+      "wordline_driver"
+    ],
+    "reused_previous_artifacts": [
+      {
+        "artifact": "M11D next-stage decision",
+        "path": "docs/M11D_post_sense_amp_analysis_report.json;docs/mapping/M11D_next_stage_decision.csv",
+        "reuse_purpose": "locks M11W to wordline_driver-only repair work"
+      },
+      {
+        "artifact": "M11B wordline_driver metadata and readiness",
+        "path": "docs/M11B_pin_bbox_rail_metadata_report.json;docs/mapping/M11B_deep_pin_bbox_rail_metadata.csv;docs/mapping/M11B_substitution_readiness_matrix.csv;docs/mapping/M11B_wrapper_requirement_matrix.csv",
+        "reuse_purpose": "provides the failing D/G/S pin state, wrapper requirement, and pre-repair safety flags"
+      },
+      {
+        "artifact": "M11A qualification and golden comparison",
+        "path": "docs/M11A_module_gds_qualification_report.json;docs/mapping/M11A_pin_bbox_rail_metadata.csv;docs/mapping/M11A_module_vs_golden_leaf_comparison.csv",
+        "reuse_purpose": "keeps wordline_driver anchored to the exact golden target and the legacy pin-position hints"
+      },
+      {
+        "artifact": "OpenYield module GDS library",
+        "path": "outputs/openyield_module_gds/",
+        "reuse_purpose": "supplies the current wrapper shell and source metadata for wordline_driver"
+      },
+      {
+        "artifact": "OpenRAM replacement source macro",
+        "path": "technology/freepdk45/gds_lib/openram_replacements/gen_wl_driver.gds",
+        "reuse_purpose": "supplies the complete internal primitive geometry needed to resolve D/G/S pins"
+      },
+      {
+        "artifact": "Golden reference and locked baseline",
+        "path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds;outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+        "reuse_purpose": "provide the golden target cell and the untouched layoutgen baseline context"
+      }
+    ],
+    "deprecated_previous_artifacts": [
+      {
+        "artifact": "wordline_driver SRAM top substitution in M11W",
+        "path": "user-prohibited substitution expansion set",
+        "deprecated_reason": "M11W repairs metadata and wrapper exposure only; it must not produce a substituted SRAM top"
+      },
+      {
+        "artifact": "access_module cells",
+        "path": "*_access_module",
+        "deprecated_reason": "forbidden implementation route and invalid proof basis for M11W"
+      },
+      {
+        "artifact": "floorplan_proxy cells",
+        "path": "floorplan_proxy*",
+        "deprecated_reason": "review-only proxies cannot satisfy wordline_driver pin-repair proof"
+      },
+      {
+        "artifact": "fake D/G/S pins",
+        "path": "manual guess or label-only pin fabrication",
+        "deprecated_reason": "M11W must derive D/G/S from resolved internal geometry or report failure"
+      }
+    ],
+    "current_stage_inputs": [
+      "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md",
+      "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json",
+      "PROJECT_NETLIST_TO_LAYOUT_GOAL.md",
+      "PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md",
+      "docs/M11D_post_sense_amp_analysis_report.json",
+      "docs/mapping/M11D_next_stage_decision.csv",
+      "docs/M11B_pin_bbox_rail_metadata_report.json",
+      "docs/mapping/M11B_deep_pin_bbox_rail_metadata.csv",
+      "docs/mapping/M11B_substitution_readiness_matrix.csv",
+      "docs/mapping/M11B_wrapper_requirement_matrix.csv",
+      "docs/M11A_module_gds_qualification_report.json",
+      "docs/mapping/M11A_pin_bbox_rail_metadata.csv",
+      "docs/mapping/M11A_module_vs_golden_leaf_comparison.csv",
+      "docs/mapping/M11AR_corrected_hardmacro_substitution_decision.csv",
+      "outputs/openyield_module_gds/",
+      "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+      "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+      "outputs/M11B_pin_bbox_rail_metadata/current_supported_config/"
+    ],
+    "current_stage_delta_from_M11D": [
+      "M11D selected wordline_driver wrapper/pin repair as the next safe route; M11W converts that recommendation into an actual machine repair attempt on D/G/S metadata.",
+      "M11W does not touch sense_amp, does not build a substituted SRAM top, and does not broaden module scope beyond wordline_driver.",
+      "M11W reuses the existing OpenYield wrapper shell but supplements it with resolved internal primitive geometry from the source macro so that D/G/S can be exposed with real physical bboxes."
+    ],
+    "why_M11W_targets_wordline_driver_only": "M11D explicitly recommended M11W because wordline_driver was the only previously shortlisted next candidate and M11B showed that its sole blocking issue was unresolved D/G/S wrapper pins. No other module gained new readiness in M11D, so M11W must stay limited to wordline_driver.",
+    "wordline_driver_openyield_gds_found": true,
+    "wordline_driver_openyield_gds_parsed": true,
+    "golden_wordline_driver_target_found": true,
+    "repair_strategy_attempted": true,
+    "repair_strategy_used": "STRATEGY_B_WRAPPER_PIN_EXPOSURE",
+    "dgs_pins_resolved": true,
+    "unresolved_pin_count": 0,
+    "unresolved_pins": [],
+    "wrapper_required_before": true,
+    "wrapper_generated": true,
+    "wrapper_gds_path": "outputs/M11W_wordline_driver_wrapper_pin_repair/current_supported_config/M11W_wordline_driver_wrapper_candidate.gds",
+    "wrapper_gds_parsed": true,
+    "wrapper_required_after": false,
+    "pin_metadata_entry_count_before": 8,
+    "pin_metadata_entry_count_after": 8,
+    "rail_metadata_entry_count": 2,
+    "placement_safe_after_repair": true,
+    "routing_safe_after_repair": true,
+    "power_safe_after_repair": true,
+    "wordline_driver_ready_for_smoke_substitution": true,
+    "machine_verified_item_count": 23,
+    "human_review_required_item_count": 0,
+    "human_review_required_items": [],
+    "can_claim_wordline_driver_pin_repair_completed": true,
+    "can_claim_wordline_driver_smoke_substitution_ready": true,
+    "can_claim_openyield_module_gds_hardmacro_substitution": false,
+    "can_claim_drc_clean": false,
+    "can_claim_lvs_clean": false,
+    "can_claim_signoff_ready": false,
+    "review_gds_generated": true,
+    "review_gds_path": "outputs/M11W_wordline_driver_wrapper_pin_repair/current_supported_config/M11W_wordline_driver_wrapper_candidate.gds",
+    "clean_review_gds_path": "outputs/M11W_wordline_driver_wrapper_pin_repair/current_supported_config/M11W_wordline_driver_wrapper_candidate_clean_review.gds",
+    "annotated_debug_gds_path": "outputs/M11W_wordline_driver_wrapper_pin_repair/current_supported_config/M11W_wordline_driver_wrapper_candidate_annotated_debug.gds",
+    "review_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "remaining_M11W_blockers": [],
+    "remaining_M11W_blockers_count": 0,
+    "human_klayout_review_required": false,
+    "can_enter_next_stage_before_human_review": true,
+    "next_stage_allowed": "M11C2_WORDLINE_DRIVER_SMOKE_SUBSTITUTION"
+  },
+  "can_claim_wordline_driver_smoke_substitution_attempted": true,
+  "can_claim_wordline_driver_smoke_substitution_passed": true,
+  "last_M11C2_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "progress_file_updated": true,
+    "m11w_gate_loaded": true,
+    "m11w_next_stage_allowed": "M11C2_WORDLINE_DRIVER_SMOKE_SUBSTITUTION",
+    "m11w_wordline_driver_ready": true,
+    "sram_spec_generated": true,
+    "sram_spec_path": "outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/SRAM_SPEC.json",
+    "baseline_gds_loaded": true,
+    "baseline_top_cell": "sram_8x64_wpr4_fd45",
+    "wordline_driver_wrapper_gds_found": true,
+    "wordline_driver_wrapper_gds_parsed": true,
+    "wordline_driver_metadata_loaded_from_M11W": true,
+    "wordline_driver_golden_target_found": true,
+    "substitution_attempted": true,
+    "substitution_scope": [
+      "wordline_driver"
+    ],
+    "substituted_modules": [
+      "wordline_driver"
+    ],
+    "excluded_modules_confirmed": true,
+    "sense_amp_substituted": false,
+    "column_mux_substituted": false,
+    "write_driver_substituted": false,
+    "control_logic_substituted": false,
+    "output_gds_generated": true,
+    "output_gds_path": "outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/M11C2_wordline_driver_substituted_sram.gds",
+    "clean_review_gds_path": "outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/M11C2_wordline_driver_substituted_sram_clean_review.gds",
+    "annotated_debug_gds_path": "outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/M11C2_wordline_driver_substituted_sram_annotated_debug.gds",
+    "output_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "top_bbox_before": [
+      0.0,
+      0.0,
+      36.6225,
+      44.145
+    ],
+    "top_bbox_after": [
+      0.0,
+      0.0,
+      36.6225,
+      44.145
+    ],
+    "top_bbox_match_status": "EXACT_MATCH",
+    "wordline_driver_instance_count_before": 16,
+    "wordline_driver_instance_count_after": 16,
+    "real_substitution_proof_status": "PASS_WRAPPER_DGS_GEOMETRY_MATCH",
+    "openyield_wordline_driver_fingerprint_found_in_M11C2": true,
+    "label_only_substitution": false,
+    "outside_placement_substitution": false,
+    "unexpected_non_wordline_driver_change_count": 0,
+    "unexpected_non_wordline_driver_change_summary": [],
+    "access_module_used": false,
+    "floorplan_proxy_used": false,
+    "arbitrary_scatter_used": false,
+    "wordline_driver_substitution_smoke_status": "SMOKE_SUBSTITUTION_PASS",
+    "ready_for_human_klayout_review": true,
+    "machine_verified_item_count": 26,
+    "human_review_required_item_count": 3,
+    "human_review_required_items": [
+      "KLayout must confirm that the 16 substituted wordline_driver regions remain visually complete in the top SRAM context.",
+      "KLayout must confirm that the annotated debug markers around the substituted wordline_driver sites are readable and non-misleading.",
+      "KLayout must confirm that no visible power or routing damage appears around the substituted wordline_driver rows."
+    ],
+    "can_claim_wordline_driver_smoke_substitution_attempted": true,
+    "can_claim_wordline_driver_smoke_substitution_passed": true,
+    "can_claim_openyield_module_gds_hardmacro_substitution": false,
+    "can_claim_drc_clean": false,
+    "can_claim_lvs_clean": false,
+    "can_claim_signoff_ready": false,
+    "remaining_M11C2_blockers": [
+      "Human KLayout review is required for the substituted wordline_driver clean/annotated outputs.",
+      "This is only a wordline_driver smoke substitution; broader OpenYield hardmacro substitution remains unqualified.",
+      "DRC/LVS/signoff claims remain unavailable."
+    ],
+    "remaining_M11C2_blockers_count": 3,
+    "human_klayout_review_required": true,
+    "can_enter_next_stage_before_human_review": false,
+    "next_stage_allowed": "M11C2H_CONFIRM_M11C2_HUMAN_REVIEW"
+  },
+  "m11c2_human_review_completed": true,
+  "m11c2_wordline_driver_visual_review_passed": true,
+  "m11c2_wordline_driver_annotation_readable": true,
+  "m11c2_wordline_driver_nearby_power_routing_review_status": "INCONCLUSIVE_BASELINE_ROUTING_LIMITED",
+  "m11c2_no_obvious_new_break_reported_by_human": true,
+  "m11c2_nearby_power_routing_visually_confirmed_clean": false,
+  "remaining_M11C2_blockers_before_count": 3,
+  "remaining_M11C2_blockers_after_count": 0,
+  "can_claim_routing_clean": false,
+  "can_claim_power_clean": false,
+  "can_enter_M11V_after_this_gate": true,
+  "last_M11C2H_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "progress_file_updated": true,
+    "m11c2_report_loaded": true,
+    "m11c2_human_review_completed": true,
+    "human_review_items_before": [
+      "KLayout must confirm that the 16 substituted wordline_driver regions remain visually complete in the top SRAM context.",
+      "KLayout must confirm that the annotated debug markers around the substituted wordline_driver sites are readable and non-misleading.",
+      "KLayout must confirm that no visible power or routing damage appears around the substituted wordline_driver rows."
+    ],
+    "human_review_items_after": [],
+    "wordline_driver_visual_review_passed": true,
+    "wordline_driver_annotation_readable": true,
+    "wordline_driver_nearby_power_routing_review_status": "INCONCLUSIVE_BASELINE_ROUTING_LIMITED",
+    "wordline_driver_nearby_power_routing_visually_confirmed_clean": false,
+    "no_obvious_new_break_reported_by_human": true,
+    "routing_clean_cannot_be_claimed": true,
+    "power_clean_cannot_be_claimed": true,
+    "wordline_driver_smoke_substitution_attempted": true,
+    "wordline_driver_smoke_substitution_passed": true,
+    "wordline_driver_smoke_substitution_human_review_accepted_with_caveat": true,
+    "substituted_modules": [
+      "wordline_driver"
+    ],
+    "excluded_modules_confirmed": true,
+    "can_claim_wordline_driver_smoke_substitution_attempted": true,
+    "can_claim_wordline_driver_smoke_substitution_passed": true,
+    "can_claim_openyield_module_gds_hardmacro_substitution": false,
+    "can_claim_routing_clean": false,
+    "can_claim_power_clean": false,
+    "can_claim_drc_clean": false,
+    "can_claim_lvs_clean": false,
+    "can_claim_signoff_ready": false,
+    "remaining_M11C2_blockers_before_count": 3,
+    "remaining_M11C2_blockers_after_count": 0,
+    "recommended_next_stage": "M11V_ROUTING_POWER_CONNECTIVITY_VERIFICATION_DEEPENING",
+    "recommended_next_stage_reason": "Because M11C2 passed isolated wordline_driver smoke substitution, but nearby routing/power cleanliness remains visually inconclusive due to baseline layoutgen routing limitations. Verification should be deepened before expanding substitution scope.",
+    "next_stage_allowed": "M11V_ROUTING_POWER_CONNECTIVITY_VERIFICATION_DEEPENING",
+    "can_enter_M11V_after_this_gate": true,
+    "human_review_source": "M11C2H gate closure records the provided human review result for the existing M11C2 clean-review and annotated-debug GDS artifacts, with routing/power caveat preserved.",
+    "reviewed_gds_paths": [
+      "outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/M11C2_wordline_driver_substituted_sram_clean_review.gds",
+      "outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/M11C2_wordline_driver_substituted_sram_annotated_debug.gds"
+    ],
+    "m11c2_manifest_artifact_count": 4,
+    "m11c2_smoke_check_item_count": 26,
+    "m11c2_diff_item_count": 5,
+    "m11c2_proof_item_count": 7
+  },
+  "baseline_power_risk_level": "MEDIUM_BASELINE_LIMITED",
+  "baseline_routing_risk_level": "HIGH_BASELINE_LIMITED",
+  "baseline_not_routing_power_clean_proven": true,
+  "sense_amp_incremental_risk_level": "LOW_INCREMENTAL_RISK",
+  "wordline_driver_incremental_risk_level": "LOW_INCREMENTAL_RISK",
+  "last_M11V_report": {
+    "status_file_read": true,
+    "status_file_updated": true,
+    "progress_file_updated": true,
+    "m11c2h_gate_loaded": true,
+    "can_enter_M11V_from_M11C2H": true,
+    "reused_previous_artifacts": [
+      {
+        "artifact": "M11C2H human-review gate closure",
+        "path": "docs/M11C2H_confirm_wordline_driver_human_review_report.json;docs/mapping/M11C2H_*",
+        "reuse_purpose": "locks M11V to verification deepening after the accepted wordline_driver smoke substitution with caveat"
+      },
+      {
+        "artifact": "M11CH/M11D sense_amp closure and post-analysis",
+        "path": "docs/M11CH_confirm_M11C_human_review_report.json;docs/M11D_post_sense_amp_analysis_report.json",
+        "reuse_purpose": "anchors the earlier isolated sense_amp substitution proof and its cleared human gate"
+      },
+      {
+        "artifact": "M11C and M11C2 smoke substitution reports",
+        "path": "docs/M11C_sense_amp_smoke_substitution_report.json;docs/M11C2_wordline_driver_smoke_substitution_report.json",
+        "reuse_purpose": "provide the machine-locked substitution scope, diff summaries, and expected isolated-change boundaries"
+      },
+      {
+        "artifact": "M8R locked baseline GDS",
+        "path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+        "reuse_purpose": "serves as the immutable risk baseline for all incremental routing/power comparisons"
+      },
+      {
+        "artifact": "isolated substitution GDS outputs",
+        "path": "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram.gds;outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/M11C2_wordline_driver_substituted_sram.gds",
+        "reuse_purpose": "supply the post-substitution targets for incremental risk and connectivity heuristics"
+      }
+    ],
+    "deprecated_previous_artifacts": [
+      {
+        "artifact": "new module substitution in M11V",
+        "path": "user-prohibited substitution expansion set",
+        "deprecated_reason": "M11V is verification-only and must not generate any new substituted SRAM top"
+      },
+      {
+        "artifact": "combined sense_amp + wordline_driver smoke GDS in M11V",
+        "path": "future combined substitution candidate",
+        "deprecated_reason": "M11V must decide readiness for a later combined smoke step, not create it now"
+      },
+      {
+        "artifact": "access_module cells",
+        "path": "*_access_module",
+        "deprecated_reason": "forbidden implementation route and invalid proof basis for this verification stage"
+      },
+      {
+        "artifact": "floorplan_proxy cells",
+        "path": "floorplan_proxy*",
+        "deprecated_reason": "review-only proxies remain invalid for physical routing/power verification proof"
+      }
+    ],
+    "current_stage_inputs": [
+      "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md",
+      "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json",
+      "PROJECT_NETLIST_TO_LAYOUT_GOAL.md",
+      "PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md",
+      "docs/M11C2H_confirm_wordline_driver_human_review_report.json",
+      "docs/mapping/M11C2H_M11V_entry_gate.csv",
+      "docs/mapping/M11C2H_routing_power_caveat.csv",
+      "docs/M11CH_confirm_M11C_human_review_report.json",
+      "docs/M11D_post_sense_amp_analysis_report.json",
+      "docs/M11C_sense_amp_smoke_substitution_report.json",
+      "docs/M11C2_wordline_driver_smoke_substitution_report.json",
+      "docs/mapping/M11C_sense_amp_substitution_manifest.csv",
+      "docs/mapping/M11C_sense_amp_smoke_check_matrix.csv",
+      "docs/mapping/M11C_sense_amp_diff_matrix.csv",
+      "docs/mapping/M11C2_wordline_driver_substitution_manifest.csv",
+      "docs/mapping/M11C2_wordline_driver_smoke_check_matrix.csv",
+      "docs/mapping/M11C2_wordline_driver_diff_matrix.csv",
+      "docs/mapping/M11C2_real_substitution_proof.csv",
+      "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+      "outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram.gds",
+      "outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/M11C2_wordline_driver_substituted_sram.gds"
+    ],
+    "current_stage_delta_from_M11C2H": [
+      "M11C2H cleared the human gate for the isolated wordline_driver smoke substitution but preserved a routing/power caveat; M11V turns that caveat into a machine-focused verification deepening pass.",
+      "M11V compares baseline, sense_amp-only, and wordline_driver-only GDS outputs side by side instead of generating any new replacement top.",
+      "M11V adds baseline-vs-incremental risk classification, power-rail heuristics, and connectivity heuristics to decide whether combination is safe or whether deeper extraction is still required."
+    ],
+    "why_M11V_is_verification_not_new_substitution": "Both isolated substitutions already exist and their human gates have been handled. M11V therefore must stay read-only: it compares the locked baseline against those two outputs, classifies incremental routing/power risk, and chooses the next verification route without modifying any substitution GDS.",
+    "baseline_gds_loaded": true,
+    "m11c_sense_amp_gds_loaded": true,
+    "m11c2_wordline_driver_gds_loaded": true,
+    "baseline_gds_parsed": true,
+    "m11c_sense_amp_gds_parsed": true,
+    "m11c2_wordline_driver_gds_parsed": true,
+    "top_bbox_baseline": [
+      0.0,
+      0.0,
+      36.6225,
+      44.145
+    ],
+    "top_bbox_m11c": [
+      0.0,
+      0.0,
+      36.6225,
+      44.145
+    ],
+    "top_bbox_m11c2": [
+      0.0,
+      0.0,
+      36.6225,
+      44.145
+    ],
+    "top_bbox_match_status": "EXACT_MATCH",
+    "baseline_power_risk_level": "MEDIUM_BASELINE_LIMITED",
+    "baseline_routing_risk_level": "HIGH_BASELINE_LIMITED",
+    "baseline_not_routing_power_clean_proven": true,
+    "sense_amp_incremental_power_risk": "NO_NEW_POWER_RISK_DETECTED",
+    "sense_amp_incremental_routing_risk": "NO_NEW_ROUTING_RISK_DETECTED",
+    "sense_amp_incremental_risk_level": "LOW_INCREMENTAL_RISK",
+    "wordline_driver_incremental_power_risk": "NO_NEW_POWER_RISK_DETECTED",
+    "wordline_driver_incremental_routing_risk": "NO_NEW_ROUTING_RISK_DETECTED_WITH_BASELINE_LIMITATION",
+    "wordline_driver_incremental_risk_level": "LOW_INCREMENTAL_RISK",
+    "sense_amp_connectivity_heuristic_status": "PASS",
+    "wordline_driver_connectivity_heuristic_status": "INCONCLUSIVE_BASELINE_LIMITED",
+    "new_power_risk_introduced_by_sense_amp": false,
+    "new_routing_risk_introduced_by_sense_amp": false,
+    "new_power_risk_introduced_by_wordline_driver": false,
+    "new_routing_risk_introduced_by_wordline_driver": false,
+    "unexpected_non_target_change_count_m11c": 0,
+    "unexpected_non_target_change_count_m11c2": 0,
+    "access_module_used": false,
+    "floorplan_proxy_used": false,
+    "arbitrary_scatter_used": false,
+    "unauthorized_module_substitution_detected": false,
+    "drc_feasibility_run": true,
+    "drc_marker_count_compared": true,
+    "drc_feasibility_not_run_reason": "",
+    "machine_verified_item_count": 31,
+    "human_review_required_item_count": 0,
+    "human_review_required_items": [],
+    "verification_status": "INCONCLUSIVE",
+    "verification_risk_level": "MEDIUM",
+    "can_claim_sense_amp_smoke_substitution_passed": true,
+    "can_claim_wordline_driver_smoke_substitution_passed": true,
+    "can_claim_openyield_module_gds_hardmacro_substitution": false,
+    "can_claim_routing_clean": false,
+    "can_claim_power_clean": false,
+    "can_claim_drc_clean": false,
+    "can_claim_lvs_clean": false,
+    "can_claim_signoff_ready": false,
+    "review_gds_generated": true,
+    "review_gds_path": "outputs/M11V_routing_power_connectivity_verification/current_supported_config/M11V_routing_power_connectivity_review.gds",
+    "clean_review_gds_path": "outputs/M11V_routing_power_connectivity_verification/current_supported_config/M11V_routing_power_connectivity_clean_review.gds",
+    "annotated_debug_gds_path": "outputs/M11V_routing_power_connectivity_verification/current_supported_config/M11V_routing_power_connectivity_annotated_debug.gds",
+    "review_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+    "recommended_next_stage": "M11V2_DEEPER_CONNECTIVITY_EXTRACTION",
+    "recommended_next_stage_reason": "Both isolated substitutions keep top bbox, hierarchy placement, and non-target geometry stable, and no new substitution-specific power/routing risk is detected. However, the baseline layoutgen routing/power cleanliness is still not proven and the wordline_driver neighborhood remains machine-inconclusive under that baseline limitation. Deeper extracted connectivity evidence is required before attempting a combined substitution.",
+    "remaining_M11V_blockers": [
+      "Baseline routing/power cleanliness is still not proven, so isolated substitution stability does not yet justify a combined substitution smoke.",
+      "wordline_driver connectivity remains machine-inconclusive under the baseline routing limitation and needs deeper extracted evidence.",
+      "Routing clean, power clean, DRC clean, LVS clean, and signoff-ready claims remain unavailable."
+    ],
+    "remaining_M11V_blockers_count": 3,
+    "human_klayout_review_required": false,
+    "can_enter_next_stage_before_human_review": true
+  },
+  "openram_reference_gds_found": true,
+  "openyield_single_authoritative_netlist_proven": false,
+  "openyield_complete_sram_netlist_found": false,
+  "control_logic_gap_status": "OPENRAM_PRESENT_LAYOUTGEN_MISSING_OPENYIELD_PHYSICAL_UNQUALIFIED",
+  "layoutgen_missing_control_logic": true,
+  "openyield_control_logic_physical_ready": false,
+  "can_claim_custom_netlist_driven_layout_generation": false,
+  "can_claim_openyield_authoritative_netlist_locked": true,
+  "can_claim_full_openyield_module_gds_hardmacro_substitution": false,
+  "authoritative_netlist_lock_status": "PARTIAL_SUBCIRCUIT_LIBRARY_ONLY",
+  "authoritative_netlist_type": "TESTBENCH_BACKED_PARAMETERIZED_SPICE_GENERATOR",
+  "authoritative_entrypoint": "sram_compiler/testbenches/sram_6t_core_testbench.py",
+  "authoritative_top_class_or_function": "Sram6TCoreTestbench.create_testbench",
+  "openyield_parameterized_netlist_generator_proven": true,
+  "openyield_complete_sram_top_proven": false,
+  "openyield_control_logic_source_locked": true,
+  "can_claim_control_logic_mapping_ready": false,
+  "clean_top_locked": true,
+  "parameter_contract_v1_locked": true,
+  "time_control_role_status": "ON_CHIP_CONTROL_LOGIC",
+  "can_claim_parameterized_netlist_v1": true,
+  "openyield_local_sha": "1c34428d8b913963c4971d093b1a7c2df97a2509",
+  "openyield_expected_sha": "1c34428d8b913963c4971d093b1a7c2df97a2509",
+  "openyield_version_match": true,
+  "openyield_worktree_clean": true,
+  "time_role_requires_team_confirmation": false,
+  "time_control_role_evidence_complete": true,
+  "time_is_testbench_stimulus": false,
+  "time_is_design_subcircuit": true,
+  "time_is_instantiated_in_sram_design_graph": true,
+  "time_outputs_consumed_by_sram_periphery": true,
+  "openyield_control_logic_netlist_source_locked": true,
+  "openyield_control_logic_physical_implementation_ready": false,
+  "can_claim_openyield_clean_layout_facing_top_locked": true,
+  "can_claim_control_logic_source_locked": true,
+  "can_claim_control_logic_physical_ready": false,
+  "can_enter_M12C_after_this_gate": true,
+  "human_review_required": false,
+  "m12n2r_gate_passed": true,
+  "operation_topology_status": "READ_WRITE_SUPERSET_CANONICAL",
+  "canonical_physical_operation_topology": "READ_WRITE_SUPERSET",
+  "canonical_operation_topology_locked": true,
+  "physical_module_total_count": 22,
+  "physical_ready_for_qualification_count": 15,
+  "physical_partial_count": 3,
+  "physical_reference_only_count": 1,
+  "physical_missing_count": 3,
+  "bbox_metadata_coverage": "18/22",
+  "pin_geometry_coverage": "18/22",
+  "power_rail_metadata_coverage": "18/22",
+  "candidate_control_region_defined": true,
+  "top_bbox_change_expected": true,
+  "m12c_gate_passed": true,
+  "mos_model_names_removed_from_physical_module_set": true,
+  "qualified_direct_reuse_count": 0,
+  "qualified_fixed_variant_only_count": 1,
+  "qualified_hierarchical_composition_count": 2,
+  "qualified_reference_only_count": 4,
+  "rejected_candidate_count": 10,
+  "missing_requires_generator_count": 1,
+  "time_candidate_qualification_status": "CONNECTIVITY_UNPROVEN",
+  "transmission_gate_qualification_status": "MISSING_REQUIRES_GENERATOR",
+  "dff_qualification_status": "QUALIFIED_REFERENCE_ONLY",
+  "openyield_sha": "1c34428d8b913963c4971d093b1a7c2df97a2509",
+  "openyield_version_verified": true,
+  "can_claim_control_physical_library_qualification_audit_complete": true,
+  "can_claim_control_physical_library_reuse_ready": false,
+  "can_claim_parameterized_primitive_generator_locked": true,
+  "can_claim_parameterized_primitive_generator_implemented": false,
+  "can_claim_primitive_smoke_drc_clean": false,
+  "raw_candidate_drc_marker_count": 6661,
+  "duplicate_drc_artifact_detected": true,
+  "unique_candidate_drc_marker_count": 3422,
+  "physical_tech_contract_status": "LOCKED_FREEPDK45_V1",
+  "generator_architecture_decision": "OPENRAM_FREEPDK45_DEVICE_CONTACT_ADAPTER",
+  "primitive_smoke_generation_allowed": false,
+  "primitive_smoke_generation_attempted": false,
+  "original_m12c3_naming_contract_status": "SUPERSEDED_BY_M12C3R",
+  "corrected_parameterized_cell_naming_contract_locked": true,
+  "source_derived_variant_contract_locked": true,
+  "size_alias_collision_prevented_by_corrected_contract": true,
+  "fixed_channel_length_policy": "FIXED_TECH_MINIMUM",
+  "channel_length_nm": 50,
+  "recommended_adapter_execution_mode": "IN_PROCESS_OPENRAM_BOOTSTRAP",
+  "m12c3r_gate_passed": true,
+  "m12c3a_concrete_variant_resolution_completed": true,
+  "m12c3a_generated_cell_count": 10,
+  "m12c3a_generated_pinv_variant_count": 9,
+  "m12c3a_generated_transmission_gate_count": 1,
+  "m12c3a_primitive_smoke_total_drc_marker_count": 0,
+  "m12c3a_human_review_required": true,
+  "m12c3a_next_stage": "M12C3AH_PRIMITIVE_SMOKE_VISUAL_REVIEW",
+  "M12C3A": {
+    "machine_generated_and_drc_passed_before_human_review": true,
+    "pinv_human_review_passed": true,
+    "pinv_reviewed_variant_count": 9,
+    "transmission_gate_human_review_passed": false,
+    "original_transmission_gate_in_vdd_short_confirmed": true,
+    "original_transmission_gate_in_vss_short_confirmed": true,
+    "original_transmission_gate_vdd_vss_short_confirmed": true,
+    "original_ctr_p_poly_only_confirmed": true,
+    "original_ctr_n_poly_only_confirmed": true,
+    "m12c3a_human_verified_claim_revoked": true,
+    "m12c3a3_repair_complete": true,
+    "m12c3a3_human_review_still_required": true,
+    "composite_control_logic_started": false
+  },
+  "M12C3A4": {
+    "pinv_human_review_passed": true,
+    "transmission_gate_human_review_passed": true,
+    "m12c3a3h_human_gate_passed": true,
+    "duplicate_label_visual_artifact_detected": true,
+    "duplicate_label_affects_conductive_geometry": false,
+    "sanitized_reusable_primitive_exports_generated": true,
+    "original_debug_gds_quarantined": true,
+    "all_non_text_geometry_preserved": true,
+    "all_connectivity_graphs_preserved": true,
+    "can_enter_m12c4": true
+  },
+  "M12C3A4R": {
+    "review_atlas_reference_closure_passed": true,
+    "historical_current_review_state_separated": true,
+    "reusable_outputs_immutable": true,
+    "approved_reusable_cell_root": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells",
+    "can_claim_generated_p0_primitives_human_verified": true,
+    "can_claim_p0_primitives_reusable_for_composition": true
+  },
+  "M12C4": {
+    "approved_reusable_cell_count": 10,
+    "source_topology_extraction_completed": true,
+    "dependency_graph_acyclic": true,
+    "interface_compatibility_status": "PARTIAL_REQUIRES_INTERFACE_NORMALIZATION",
+    "routing_contract_status": "LOCKED_COMPOSITE_ROUTING_V1",
+    "gds_generated_in_M12C4": false
+  },
+  "M12C4R": {
+    "dff_ready_for_smoke_generation": true,
+    "recommended_next_stage": "M12C4A_DFF_COMPOSITE_GENERATION",
+    "routing_contract_status": "LOCKED_COMPOSITE_ROUTING_V1"
+  },
+  "M12C4R2": {
+    "dff_ready_for_smoke_generation": true,
+    "recommended_next_stage": "M12C4A_DFF_COMPOSITE_GENERATION",
+    "all_branch_source_coverage_complete": true
+  },
+  "M12C4A": {
+    "dff_generated": false,
+    "dff_drc_clean": false,
+    "human_review_required": false,
+    "recommended_next_stage": "M12C4AC_DFF_CONNECTIVITY_REPAIR"
+  },
+  "M12C4AC": {
+    "machine_verification_pass": true,
+    "dff_generated": true,
+    "dff_drc_clean": true,
+    "physical_connectivity_machine_verified": true,
+    "human_review_required": true,
+    "recommended_next_stage": "M12C4ACH_DFF_REPAIRED_VISUAL_REVIEW"
+  },
+  "last_M12C4ACH_report": "docs/M12C4ACH_dff_repaired_visual_review.json",
+  "M12C4ACH": {
+    "human_visual_review_pass": true,
+    "reviewed_physical_cell_name": "DFF_TG4_INV7_FPDK45_26d9543b82b7",
+    "dff_current_status": "HUMAN_REVIEWED_REUSABLE_COMPOSITE",
+    "reusable_release_clean_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4ACH_dff_reusable_release/DFF_reusable_clean.gds",
+    "can_claim_dff_human_verified": true,
+    "can_claim_dff_reusable_for_higher_composition": true,
+    "recommended_next_stage": "Wave3 / DFF_BUF",
+    "recommended_next_stage_reason": "Per the locked M12C4 composite implementation wave plan, Wave3 is the first post-DFF wave. Within Wave3, DFF_BUF is the minimal higher-level composite because it uses exactly one approved DFF plus two approved PINV children and does not depend on PNAND, TIME, or array-style replication.",
+    "remaining_blockers": [
+      "LVS remains not proven for the DFF composite.",
+      "Transistor-level functional/SPICE simulation remains not proven for the DFF composite.",
+      "Timing characterization including setup/hold and clock-to-Q remains incomplete."
+    ]
+  },
+  "dff_current_status": "HUMAN_REVIEWED_REUSABLE_COMPOSITE",
+  "current_human_reviewed_dff_reusable_clean_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4ACH_dff_reusable_release/DFF_reusable_clean.gds",
+  "can_claim_dff_human_verified": true,
+  "can_claim_dff_reusable_for_higher_composition": true,
+  "remaining_M12C4ACH_blockers_count": 3,
+  "remaining_M12C4ACH_blockers": [
+    "LVS remains not proven for the DFF composite.",
+    "Transistor-level functional/SPICE simulation remains not proven for the DFF composite.",
+    "Timing characterization including setup/hold and clock-to-Q remains incomplete."
+  ],
+  "Wave3_DFF_BUF": {
+    "current_status": "HUMAN_REVIEWED_REUSABLE_COMPOSITE"
+  },
+  "Wave3_DFF_BUF_failed_candidate": {
+    "current_status": "QUARANTINED_HUMAN_DETECTED_HIERARCHICAL_INTERNAL_SHORT",
+    "machine_pass_status": "REVOKED_DUE_TO_INCOMPLETE_HIERARCHICAL_CONNECTIVITY_MODEL"
+  },
+  "can_enter_next_stage": true,
+  "current_status": "PASS",
+  "locked_plan_next_wave": "Wave4 / ADDR_DFF / DATA_DFF",
+  "execution_next_stage": "Wave4A / ADDR_DFF_SOURCE_TOPOLOGY_AND_BINDING_LOCK",
+  "deferred_sibling_stage": "Wave4B / DATA_DFF",
+  "Wave3H1_geometry_gate": "PASS",
+  "Wave3H1_evidence_finalization": "PASS",
+  "ADDR_DFF_source_topology_status": "SOURCE_EXACT_TOPOLOGY_LOCKED",
+  "ADDR_DFF_physical_binding_status": "APPROVED_DFF_BINDING_LOCKED",
+  "ADDR_DFF_physical_GDS_status": "NOT_GENERATED",
+  "DATA_DFF_binding_status": "UNRESOLVED_REQUIRES_WAVE4B_SOURCE_BINDING_REVIEW",
+  "ADDR_DFF source topology status": "SOURCE_EXACT_TOPOLOGY_LOCKED",
+  "ADDR_DFF physical binding status": "APPROVED_DFF_BINDING_LOCKED",
+  "ADDR_DFF physical GDS status": "NOT_GENERATED",
+  "DATA_DFF binding status": "UNRESOLVED_REQUIRES_WAVE4B_SOURCE_BINDING_REVIEW",
+  "ADDR_DFF validator status": "SOURCE_BINDING_AND_NEGATIVE_REGRESSION_HARDENED",
+  "ADDR_DFF physical interface status": "COMPLETE_GDS_DERIVED_INTERFACE_LOCKED"
+}

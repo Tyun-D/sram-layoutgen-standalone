@@ -1,0 +1,9 @@
+{
+  "authoritative_netlist_lock_status": "PARTIAL_SUBCIRCUIT_LIBRARY_ONLY",
+  "authoritative_netlist_type": "TESTBENCH_BACKED_PARAMETERIZED_SPICE_GENERATOR",
+  "authoritative_entrypoint": "sram_compiler/testbenches/sram_6t_core_testbench.py",
+  "authoritative_top_class_or_function": "Sram6TCoreTestbench.create_testbench",
+  "authoritative_output_format": "PySpice Circuit rendered to SPICE testbench netlist (.sp)",
+  "recommended_next_stage": "M12C_CONTROL_LOGIC_GAP_DEFINITION",
+  "recommended_next_stage_reason": "M12N proves that OpenYield contains a parameterized Python SPICE/testbench generator chain centered on `Sram6TCoreTestbench.create_testbench`, and it can emit a sample SRAM-related netlist. However, that emitted artifact is still a simulation testbench netlist with supplies, stimuli, and measurement scaffolding rather than a locked pure SRAM top authority. The next blocking step is to define how the traced OpenYield control logic and enable paths map onto the OpenRAM/layoutgen control-logic gap before any custom netlist-driven layout flow can be claimed."
+}

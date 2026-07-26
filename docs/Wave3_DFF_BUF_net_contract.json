@@ -1,0 +1,55 @@
+{
+  "logical_module": "DFF_BUF",
+  "top_pin_contracts": {
+    "VDD": {
+      "pin_role": "POWER",
+      "connected_child_pins": [
+        "dff.VDD",
+        "inv1.VDD",
+        "inv2.VDD"
+      ]
+    },
+    "VSS": {
+      "pin_role": "GROUND",
+      "connected_child_pins": [
+        "dff.VSS",
+        "inv1.VSS",
+        "inv2.VSS"
+      ]
+    },
+    "D": {
+      "pin_role": "SIGNAL_INPUT",
+      "connected_child_pins": [
+        "dff.D"
+      ]
+    },
+    "Q": {
+      "pin_role": "SIGNAL_OUTPUT",
+      "connected_child_pins": [
+        "inv2.Z"
+      ]
+    },
+    "QB": {
+      "pin_role": "SIGNAL_OUTPUT",
+      "connected_child_pins": [
+        "inv1.Z",
+        "inv2.A"
+      ]
+    },
+    "CLK": {
+      "pin_role": "CLOCK_INPUT",
+      "connected_child_pins": [
+        "dff.CLK"
+      ]
+    }
+  },
+  "internal_nets": {
+    "qint": {
+      "connected_child_pins": [
+        "dff.Q",
+        "inv1.A"
+      ],
+      "net_role": "INTERNAL_SIGNAL"
+    }
+  }
+}

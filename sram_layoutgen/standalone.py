@@ -4,8 +4,10 @@ from __future__ import annotations
 
 import json
 import math
+import os
 from html import escape
 from dataclasses import dataclass
+from dataclasses import replace
 from pathlib import Path
 
 from .gds_writer import GDSWriter
@@ -13,7 +15,42 @@ from .gds_util import inspect_gds_hierarchy, inspect_gds_layers, inspect_gds_tex
 from .geometry import CellArray, Instance, LayoutDB, Point, Rect, Shape
 from .lef_writer import LEFWriter
 from .netlist_writer import NetlistWriter
+from .occupancy import analyze_floorplan_occupancy, write_occupancy_svg
 from .openram_placement import array_mirror, placed_bbox_from_openram_origin
+from .openyield_adapter.array_aggregation import (
+    ALLOWED_AGGREGATION_MACROS,
+    EXCLUDED_PERIPHERAL_MACROS,
+    build_standalone_storage_array_aggregation,
+    load_ready_storage_macro_specs,
+    orientation_for_row,
+)
+from .openyield_adapter.architecture_adapter import build_senseamp_architecture_adapter
+from .openyield_adapter.columnmux_placement import build_columnmux_limited_placement_plan
+from .openyield_adapter.cell_rail_overlap_eligibility import classify_cell_rail_overlap
+from .openyield_adapter.gate_row_packer import (
+    build_gate_cell_footprint,
+    build_gate_row_packing_plan,
+)
+from .openyield_adapter.writedriver_adapter import (
+    build_writedriver_adapter,
+    build_writedriver_contract_summary,
+    classify_writedriver_power_status,
+    inspect_local_writedriver_macro,
+)
+from .openyield_adapter.writedriver_placement import build_writedriver_limited_placement_plan
+from .openyield_adapter.wordlinedriver_adapter import (
+    build_wordlinedriver_adapter,
+    build_wordlinedriver_contract_summary,
+    classify_wordlinedriver_power_status,
+    inspect_local_wordlinedriver_macro,
+    inspect_openyield_wordlinedriver_source,
+    wordlinedriver_semantics,
+)
+from .openyield_adapter.wordlinedriver_placement import build_wordlinedriver_limited_placement_plan
+from .openyield_adapter.senseamp_placement import (
+    build_senseamp_placement_plan,
+    inspect_local_senseamp_macro,
+)
 from .stdcell import add_generated_cell, generated_cell_pins, generated_instance_pins
 from .tech import Tech
 from .verifier import Verifier
@@ -26,6 +63,18 @@ class StandaloneSpec:
     words_per_row: int | None = None
     name: str | None = None
     perimeter_pins: bool = True
+    enable_openyield_array_aggregation: bool = False
+    enable_openyield_senseamp_adapter: bool = False
+    enable_openyield_columnmux_adapter: bool = False
+    enable_openyield_writedriver_adapter: bool = False
+    enable_openyield_wordlinedriver_adapter: bool = False
+    enable_openyield_gate_row_packing: bool = False
+    enable_openyield_gate_row_vertical_abutment: bool = False
+    enable_openyield_rail_to_rail_abutment: bool = False
+    enable_openyield_power_rail_overlap_packing: bool = False
+    enable_openyield_dff_row_packing: bool = False
+    exclude_dff_vertical_overlap: bool = False
+    openyield_storage_row_orientation_policy: str = "all_r0"
 
     def __post_init__(self) -> None:
         if self.word_size <= 0:
@@ -36,6 +85,10 @@ class StandaloneSpec:
             raise ValueError("words_per_row must be positive when specified")
         if self.words_per_row is not None:
             self._validate_words_per_row(self.words_per_row)
+        if self.openyield_storage_row_orientation_policy not in {"all_r0", "alternating_mx"}:
+            raise ValueError(
+                "openyield_storage_row_orientation_policy must be one of: all_r0, alternating_mx"
+            )
 
     def legal_words_per_row(self) -> list[int]:
         return [wpr for wpr in (1, 2, 4, 8, 16) if self.num_words % wpr == 0 and self.num_words // wpr >= 16]
@@ -65,13 +118,122 @@ def package_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
 
+def repo_root() -> Path:
+    return package_root().parents[1]
+
+
 def default_pdk_root() -> Path:
     return package_root() / "technology" / "freepdk45"
+
+
+def default_openyield_root() -> Path:
+    candidates: list[Path] = []
+    env_root = os.environ.get("OPENYIELD_ROOT")
+    if env_root:
+        candidates.append(Path(env_root).expanduser())
+    candidates.extend([
+        package_root().parent / "external" / "OpenYield",
+        repo_root() / "external" / "OpenYield",
+        package_root() / "third_party" / "OpenYield",
+        repo_root() / "third_party" / "OpenYield",
+    ])
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate.resolve()
+    return candidates[0] if candidates else package_root().parent / "external" / "OpenYield"
+
+
+def columnmux_repaired_alias_path() -> Path:
+    return default_pdk_root() / "openyield_repaired_macro_aliases.json"
+
+
+def load_repaired_columnmux_alias(tech: Tech) -> dict[str, object]:
+    alias_path = columnmux_repaired_alias_path()
+    if not alias_path.exists():
+        raise ValueError(f"Missing repaired column mux alias metadata: {alias_path}")
+    payload = json.loads(alias_path.read_text(encoding="utf-8"))
+    aliases = payload.get("aliases", [])
+    alias = next((item for item in aliases if item.get("local_macro") == "gen_col_mux_vdd_labeled"), None)
+    if not isinstance(alias, dict):
+        raise ValueError(f"Repaired column mux alias not found in metadata: {alias_path}")
+    source_macro = tech.cell(str(alias.get("source_macro") or "gen_col_mux"))
+    candidate_gds = Path(str(alias.get("candidate_gds") or "")).expanduser()
+    if not candidate_gds.is_absolute():
+        candidate_gds = package_root() / candidate_gds
+    if not candidate_gds.exists():
+        raise ValueError(f"Repaired column mux candidate GDS not found: {candidate_gds}")
+    alias_cell = replace(
+        source_macro,
+        name=str(alias["local_macro"]),
+        gds_path=str(candidate_gds.resolve()),
+    )
+    tech.cells[alias_cell.name] = alias_cell
+    return {
+        "metadata_path": str(alias_path.resolve()),
+        "alias": alias,
+        "alias_cell": alias_cell,
+        "source_cell": source_macro,
+    }
+
+
+def writedriver_contracts_path() -> Path:
+    return package_root() / "docs" / "openyield_module_contracts.json"
+
+
+def load_writedriver_contract() -> dict[str, object]:
+    contracts_path = writedriver_contracts_path()
+    payload = json.loads(contracts_path.read_text(encoding="utf-8"))
+    contracts = payload if isinstance(payload, list) else payload.get("contracts", [])
+    for contract in contracts:
+        if contract.get("original_module_name") == "WRITEDRIVER":
+            contract_copy = dict(contract)
+            contract_copy["source_path"] = str(contracts_path.resolve())
+            return contract_copy
+    raise ValueError(f"Missing WRITEDRIVER contract in {contracts_path}")
+
+
+def load_wordlinedriver_contract() -> dict[str, object]:
+    contracts_path = writedriver_contracts_path()
+    payload = json.loads(contracts_path.read_text(encoding="utf-8"))
+    contracts = payload if isinstance(payload, list) else payload.get("contracts", [])
+    for contract in contracts:
+        if contract.get("original_module_name") == "WORDLINEDRIVER":
+            contract_copy = dict(contract)
+            contract_copy["source_path"] = str(contracts_path.resolve())
+            return contract_copy
+    raise ValueError(f"Missing WORDLINEDRIVER contract in {contracts_path}")
 
 
 def load_bundled_freepdk45() -> Tech:
     # Uses only files bundled inside this deliverable: technology/freepdk45/*.
     return Tech.freepdk45(package_root())
+
+
+def build_openyield_optimized_standalone_spec(
+    *,
+    name: str,
+    word_size: int,
+    num_words: int,
+    words_per_row: int,
+) -> StandaloneSpec:
+    return StandaloneSpec(
+        word_size=word_size,
+        num_words=num_words,
+        words_per_row=words_per_row,
+        name=name,
+        enable_openyield_array_aggregation=True,
+        enable_openyield_senseamp_adapter=True,
+        enable_openyield_columnmux_adapter=True,
+        enable_openyield_writedriver_adapter=True,
+        enable_openyield_wordlinedriver_adapter=True,
+        enable_openyield_gate_row_packing=True,
+        enable_openyield_gate_row_vertical_abutment=False,
+        enable_openyield_rail_to_rail_abutment=True,
+        enable_openyield_power_rail_overlap_packing=True,
+        enable_openyield_dff_row_packing=True,
+        exclude_dff_vertical_overlap=True,
+        openyield_storage_row_orientation_policy="alternating_mx",
+    )
 
 
 def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
@@ -95,7 +257,8 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     row_logic_keepout = strict_macro_spacing
     control_array_keepout = strict_macro_spacing
     replica_bitline_keepout = strict_macro_spacing
-    margin = 1.2
+    perimeter_pin_w = 0.16
+    perimeter_pin_h = 0.50
     addr_bits = max(1, (spec.num_words - 1).bit_length())
     row_addr_bits = max(1, (rows - 1).bit_length())
     col_addr_bits = max(0, (wpr - 1).bit_length())
@@ -135,6 +298,12 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     def snap_up(value: float) -> float:
         grid = tech.manufacturing_grid
         return math.ceil((value - 1e-12) / grid) * grid
+
+    power_ring_width = 0.20
+    boundary_margin = snap_up(max(
+        strict_macro_spacing,
+        power_ring_width + tech.layer("m4").min_space + tech.manufacturing_grid,
+    ))
 
     def required_pitch_gap(layer_name: str, conservative_well: bool = False) -> float:
         layer = tech.layer(layer_name)
@@ -222,15 +391,39 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
             return target_y0 - cell.height + cell.bbox_y1
         return target_y0 - cell.bbox_y0
 
+    openyield_storage_specs: dict[str, dict[str, float]] = {}
+    openyield_gds_pin_audit_path = package_root() / "docs" / "openyield_gds_pin_audit_report.json"
+    if spec.enable_openyield_array_aggregation:
+        openyield_storage_specs = load_ready_storage_macro_specs(openyield_gds_pin_audit_path)
+        missing_openyield_storage = [
+            name for name in ALLOWED_AGGREGATION_MACROS if name not in openyield_storage_specs
+        ]
+        if missing_openyield_storage:
+            raise ValueError(
+                "OpenYield array aggregation requires audited storage macros: "
+                + ", ".join(missing_openyield_storage)
+            )
     storage_cell_spacing = 0.0
     # OpenRAM tiles bitcells by their abstract module pitch, not by inserting
     # generic same-layer DRC spacing between hard cells. The bitcell GDS
     # intentionally overhangs its abstract boundary so adjacent cells can
     # stitch wells, implants, rails, and bitlines into a compact array.
-    bitcell_pitch_x = bitcell.width + storage_cell_spacing
-    bitcell_pitch_y = bitcell.height + storage_cell_spacing
-    array_w = (cols - 1) * bitcell_pitch_x + bitcell.width
-    array_h = (rows - 1) * bitcell_pitch_y + bitcell.height
+    if spec.enable_openyield_array_aggregation:
+        bitcell_pitch_x = openyield_storage_specs["cell_1rw"]["width"]
+        bitcell_pitch_y = openyield_storage_specs["cell_1rw"]["height"]
+        storage_cell_w = bitcell_pitch_x
+        storage_cell_h = bitcell_pitch_y
+        dummy_cell_pitch_x = openyield_storage_specs["dummy_cell_1rw"]["width"]
+        replica_cell_pitch_x = openyield_storage_specs["replica_cell_1rw"]["width"]
+    else:
+        bitcell_pitch_x = bitcell.width + storage_cell_spacing
+        bitcell_pitch_y = bitcell.height + storage_cell_spacing
+        storage_cell_w = bitcell.width
+        storage_cell_h = bitcell.height
+        dummy_cell_pitch_x = dummy_cell.width
+        replica_cell_pitch_x = replica_cell.width
+    array_w = (cols - 1) * bitcell_pitch_x + storage_cell_w
+    array_h = (rows - 1) * bitcell_pitch_y + storage_cell_h
     lower_rows = rows
     upper_rows = 0
     lower_array_h = array_h
@@ -268,24 +461,66 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     row_decode_cell = "gen_nand2"
     row_decode_to_driver_gap = 0.0
     decoder_w = physical_cell_width(row_decode_cell) + row_decode_to_driver_gap + physical_cell_width("gen_wl_driver")
+    gate_footprints = {
+        cell_name: build_gate_cell_footprint(
+            cell_name,
+            tech.cell(cell_name).width,
+            tech.cell(cell_name).height,
+            gds_path=tech.cell(cell_name).gds_path,
+            bbox_x0=tech.cell(cell_name).bbox_x0,
+            bbox_y0=tech.cell(cell_name).bbox_y0,
+            bbox_x1=tech.cell(cell_name).bbox_x1,
+            bbox_y1=tech.cell(cell_name).bbox_y1,
+        )
+        for cell_name in {"gen_inv", "gen_nand2", "gen_delay_inv", "gen_wl_driver"}
+    }
+    overlap_eligibility = {
+        cell_name: classify_cell_rail_overlap(Path(__file__).resolve().parents[1], cell_name)
+        for cell_name in {"gen_inv", "gen_nand2", "gen_delay_inv", "gen_wl_driver", "dff"}
+    }
+    dff_footprint = build_gate_cell_footprint(
+        "dff",
+        tech.cell("dff").width,
+        tech.cell("dff").height,
+        gds_path=tech.cell("dff").gds_path,
+        bbox_x0=tech.cell("dff").bbox_x0,
+        bbox_y0=tech.cell("dff").bbox_y0,
+        bbox_x1=tech.cell("dff").bbox_x1,
+        bbox_y1=tech.cell("dff").bbox_y1,
+    )
+
+    def gate_vertical_policy(domain_name: str) -> str:
+        if spec.enable_openyield_power_rail_overlap_packing and domain_name != "dff_domain":
+            return "same_net_power_rail_overlap_packing"
+        if spec.enable_openyield_rail_to_rail_abutment and domain_name != "dff_domain":
+            return "rail_to_rail_geometry_abutment"
+        if spec.enable_openyield_gate_row_vertical_abutment and domain_name != "dff_domain":
+            return "zero_gap_alternating_mx"
+        return "standard_row_spacing"
+    compact_gate_row_pitch = max(
+        legal_origin_delta_y(row_decode_cell, row_decode_cell, "R0", "MX"),
+        legal_origin_delta_y(row_decode_cell, row_decode_cell, "MX", "R0"),
+        legal_origin_delta_y("gen_wl_driver", "gen_wl_driver", "R0", "MX"),
+        legal_origin_delta_y("gen_wl_driver", "gen_wl_driver", "MX", "R0"),
+    )
     mux_h = tech.cell("gen_col_mux").height
     precharge_h = tech.cell("gen_precharge").height
     column_macro_pitch = bitcell_pitch_x
     column_macro_w = (cols - 1) * column_macro_pitch + max(physical_cell_width("gen_precharge"), physical_cell_width("gen_col_mux"))
-    row_logic_pitch = max(
-        bitcell_pitch_y,
-        legal_origin_delta_y(row_decode_cell, row_decode_cell, "R0", "MX"),
-        legal_origin_delta_y("gen_wl_driver", "gen_wl_driver", "R0", "MX"),
-        legal_origin_delta_y(row_decode_cell, row_decode_cell, "MX", "R0"),
-        legal_origin_delta_y("gen_wl_driver", "gen_wl_driver", "MX", "R0"),
+    row_logic_pitch = (
+        gate_footprints[row_decode_cell].bbox_height
+        if spec.enable_openyield_gate_row_vertical_abutment
+        else compact_gate_row_pitch
+        if spec.enable_openyield_gate_row_packing
+        else max(bitcell_pitch_y, compact_gate_row_pitch)
     )
-    row_logic_h = rows * row_logic_pitch
+    row_logic_h = (rows - 1) * row_logic_pitch + max(physical_cell_height(row_decode_cell), physical_cell_height("gen_wl_driver"))
     # Dummy, bitcell, and replica cells belong to one storage-array family.
     # Use the same native bitcell pitch across the whole family so the visual
     # array is a stitched OpenRAM-style fabric instead of separated islands.
-    left_dummy_to_array_delta = dummy_cell.width
-    array_to_replica_delta = bitcell.width
-    replica_to_right_dummy_delta = replica_cell.width
+    left_dummy_to_array_delta = dummy_cell_pitch_x
+    array_to_replica_delta = storage_cell_w
+    replica_to_right_dummy_delta = replica_cell_pitch_x
     array_edge_gap = max(left_dummy_to_array_delta - dummy_cell.width, tech.manufacturing_grid)
     bitcell_bl_x = local_text_pin_x("cell_1rw", {"bl"})
     bitcell_br_x = local_text_pin_x("cell_1rw", {"br"})
@@ -311,14 +546,8 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     column_hard_w = (spec.word_size - 1) * column_pitch + column_cell_w
     column_array_w = max(array_w, column_hard_w, column_macro_w)
     column_h = sense.height + gap + write_driver.height + gap + tri_gate.height
-    data_cols = min(spec.word_size, max(1, math.floor((column_hard_w + control_dff_pitch_x) / max(control_dff_pitch_x, 0.1))))
-    while data_cols > 1 and (data_cols - 1) * control_dff_pitch_x + dff.width > column_hard_w + 1e-9:
-        data_cols -= 1
-    data_rows = math.ceil(spec.word_size / data_cols)
-    data_w = (data_cols - 1) * control_dff_pitch_x + dff.width
-    data_h = (data_rows - 1) * dff_row_pitch + dff.height
 
-    x_control = margin
+    x_control = boundary_margin
     x_decoder = x_control + control_w + gap
     x_dummy_left = x_decoder + decoder_w + gap
     x_array = x_dummy_left + left_dummy_to_array_delta
@@ -331,7 +560,176 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         x_replica_precharge + tech.cell("gen_precharge").width,
         x_array + column_array_w,
     )
-    y_data = margin
+
+    row_decode_to_driver_delta_x = legal_origin_delta_x(row_decode_cell, "gen_wl_driver") + row_decode_to_driver_gap
+    folded_pair_step_x = (
+        row_decode_to_driver_delta_x
+        + legal_origin_delta_x("gen_wl_driver", row_decode_cell)
+        + strict_macro_spacing
+    )
+
+    def row_logic_plan(
+        candidate_y_array: float,
+        candidate_y_precharge: float,
+        candidate_macro_w: float,
+        enable_folding: bool = True,
+    ) -> dict[str, object]:
+        if spec.enable_openyield_gate_row_packing:
+            packing_plan = build_gate_row_packing_plan(
+                block_name="decoder_gate_rows",
+                row_cells=[[row_decode_cell, "gen_wl_driver"] for _ in range(rows)],
+                footprints=gate_footprints,
+                origin_x=x_decoder,
+                origin_y=candidate_y_array,
+                explicit_opt_in=True,
+                row_pitch=gate_footprints[row_decode_cell].bbox_height if spec.enable_openyield_gate_row_vertical_abutment else compact_gate_row_pitch,
+                vertical_abutment_policy=gate_vertical_policy("decoder_gate_domain"),
+                overlap_eligibility=overlap_eligibility,
+                row_domain="decoder_gate_domain",
+            )
+            positions = {
+                row_index: {
+                    "decoder_x": row.cells[0].x,
+                    "driver_x": row.cells[1].x,
+                    "origin_y": row.origin_y,
+                    "folded": False,
+                    "lane": 0,
+                    "band": 0,
+                    "mirror": row.mirror,
+                }
+                for row_index, row in enumerate(packing_plan.rows)
+            }
+            return {
+                "strategy": "gate_row_packer_compacted_decoder_rows",
+                "enabled": True,
+                "folded_rows": [],
+                "folded_row_count": 0,
+                "lanes": 1,
+                "top_um": candidate_y_array + packing_plan.total_height,
+                "right_um": x_decoder + packing_plan.total_width,
+                "positions": positions,
+                "packing_plan": packing_plan.to_dict(),
+            }
+        precharge_clear_y0 = candidate_y_precharge + precharge_h + strict_macro_spacing
+        folded_start: int | None = None
+        if enable_folding:
+            for row in range(rows):
+                mirror = "MX" if row % 2 else "R0"
+                origin_y = candidate_y_array + row * row_logic_pitch
+                driver_y0 = placed_bbox_from_openram_origin(tech.cell("gen_wl_driver"), 0.0, origin_y, mirror).y0
+                if driver_y0 >= precharge_clear_y0 - 1e-9:
+                    folded_start = row
+                    break
+        folded_rows = list(range(folded_start, rows)) if folded_start is not None else []
+        fold_origin_x0 = x_array - tech.cell(row_decode_cell).bbox_x0
+        fold_right_limit = candidate_macro_w - boundary_margin
+        lanes = max(1, int((fold_right_limit - fold_origin_x0) // max(folded_pair_step_x, tech.manufacturing_grid)) + 1)
+        positions: dict[int, dict[str, float | int | bool | str]] = {}
+        top = candidate_y_array
+        right = x_decoder
+        for row in range(rows):
+            mirror = "MX" if row % 2 else "R0"
+            if row in folded_rows:
+                lane = folded_rows.index(row) % lanes
+                band = folded_rows.index(row) // lanes
+                driver_target_y0 = precharge_clear_y0 + band * row_logic_pitch
+                origin_y = origin_y_for_bbox_y0("gen_wl_driver", driver_target_y0, mirror)
+                decoder_x = fold_origin_x0 + lane * folded_pair_step_x
+            else:
+                lane = 0
+                band = 0
+                origin_y = candidate_y_array + row * row_logic_pitch
+                decoder_x = x_decoder
+            driver_x = abutted_origin_x(decoder_x, row_decode_cell, "gen_wl_driver", row_decode_to_driver_gap)
+            decoder_rect = placed_bbox_from_openram_origin(tech.cell(row_decode_cell), decoder_x, origin_y, mirror)
+            driver_rect = placed_bbox_from_openram_origin(tech.cell("gen_wl_driver"), driver_x, origin_y, mirror)
+            top = max(top, decoder_rect.y1, driver_rect.y1)
+            right = max(right, decoder_rect.x1, driver_rect.x1)
+            positions[row] = {
+                "decoder_x": decoder_x,
+                "driver_x": driver_x,
+                "origin_y": origin_y,
+                "folded": row in folded_rows,
+                "lane": lane,
+                "band": band,
+                "mirror": mirror,
+            }
+        return {
+            "strategy": (
+                "fold top row drivers into occupancy gaps above precharge"
+                if enable_folding and folded_rows
+                else "linear row drivers"
+            ),
+            "enabled": enable_folding and bool(folded_rows),
+            "folded_rows": folded_rows,
+            "folded_row_count": len(folded_rows),
+            "lanes": lanes,
+            "top_um": top,
+            "right_um": right,
+            "positions": positions,
+        }
+
+    def data_dff_dimensions(candidate_cols: int) -> tuple[int, float, float]:
+        candidate_cols = max(1, min(spec.word_size, candidate_cols))
+        candidate_rows = math.ceil(spec.word_size / candidate_cols)
+        candidate_w = (candidate_cols - 1) * control_dff_pitch_x + dff.width
+        candidate_h = (candidate_rows - 1) * dff_row_pitch + dff.height
+        return candidate_rows, candidate_w, candidate_h
+
+    def score_data_dff_columns(candidate_cols: int) -> dict[str, object]:
+        candidate_rows, candidate_w, candidate_h = data_dff_dimensions(candidate_cols)
+        candidate_y_data = boundary_margin
+        candidate_y_column = candidate_y_data + candidate_h + gap
+        candidate_y_mux = candidate_y_column + column_h + gap
+        candidate_y_array = candidate_y_mux + mux_h + gap
+        candidate_y_array_top = candidate_y_array + lower_array_h + bank_channel_h + upper_array_h
+        candidate_y_precharge = candidate_y_array_top + gap
+        candidate_w_total = max(x_array + max(array_w, column_array_w, candidate_w), x_right_edge) + boundary_margin
+        variants = []
+        for enable_folding in (False, True):
+            candidate_row_logic_plan = row_logic_plan(candidate_y_array, candidate_y_precharge, candidate_w_total, enable_folding)
+            variant_w_total = max(candidate_w_total, float(candidate_row_logic_plan["right_um"]) + boundary_margin)
+            candidate_y_row_logic_top = float(candidate_row_logic_plan["top_um"])
+            candidate_h_total = max(
+                candidate_y_precharge + precharge_h + boundary_margin,
+                candidate_y_row_logic_top + boundary_margin,
+                candidate_y_data + control_h + module_stack_gap + control_glue_h + module_stack_gap + col_select_h + module_stack_gap + delay_chain_h + boundary_margin,
+            )
+            variants.append({
+                "columns": candidate_cols,
+                "rows": candidate_rows,
+                "data_width_um": round(candidate_w, 6),
+                "data_height_um": round(candidate_h, 6),
+                "macro_width_um": round(variant_w_total, 6),
+                "macro_height_um": round(candidate_h_total, 6),
+                "macro_area_um2": round(variant_w_total * candidate_h_total, 6),
+                "row_logic_folding_enabled": candidate_row_logic_plan["enabled"],
+                "folded_row_count": candidate_row_logic_plan["folded_row_count"],
+            })
+        return min(
+            variants,
+            key=lambda item: (
+                float(item["macro_area_um2"]),
+                float(item["macro_height_um"]),
+                float(item["macro_width_um"]),
+                int(item["columns"]),
+            ),
+        )
+
+    data_packing_candidates = [score_data_dff_columns(cols_) for cols_ in range(1, spec.word_size + 1)]
+    best_data_packing = min(
+        data_packing_candidates,
+        key=lambda item: (
+            float(item["macro_area_um2"]),
+            float(item["macro_height_um"]),
+            float(item["macro_width_um"]),
+            int(item["columns"]),
+        ),
+    )
+    data_cols = int(best_data_packing["columns"])
+    data_rows, data_w, data_h = data_dff_dimensions(data_cols)
+
+    y_data = boundary_margin
     y_column = y_data + data_h + gap
     y_mux = y_column + column_h + gap
     y_array = y_mux + mux_h + gap
@@ -345,18 +743,86 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     # row it drives, and the top-left void is reduced without overlapping the
     # lower control/data periphery.
     y_row_logic = y_array_lower
-    y_row_logic_top = y_row_logic + row_logic_h
     # OpenRAM anchors data-side circuitry to the bitcell array edge. A tall
     # decoder/wordline-driver stack may extend above the array on the left,
     # but it must not force the column-side precharge row upward because the
     # two regions are separated in X.
     y_precharge = y_array_top + gap
 
-    macro_w = max(x_array + max(array_w, column_array_w, data_w), x_right_edge) + margin
+    columnmux_alias_info: dict[str, object] | None = None
+    columnmux_limited_plan: object | None = None
+    columnmux_macro_name = "gen_col_mux"
+    if spec.enable_openyield_columnmux_adapter:
+        columnmux_alias_info = load_repaired_columnmux_alias(tech)
+        columnmux_macro_name = str(columnmux_alias_info["alias"]["local_macro"])
+        columnmux_limited_plan = build_columnmux_limited_placement_plan(
+            cols=cols,
+            mux_ratio=wpr,
+            origin_x=x_array,
+            origin_y=y_mux,
+            pitch_x=bitcell_pitch_x,
+            use_repaired_vdd_label=True,
+            power_status=str(columnmux_alias_info["alias"].get("power_status", "vdd_label_present")),
+            safe_for_physical_mapping=bool(columnmux_alias_info["alias"].get("safe_for_physical_mapping", True)),
+            safe_for_shared_rail=bool(columnmux_alias_info["alias"].get("safe_for_shared_rail", False)),
+        )
+
+    writedriver_contract_info: dict[str, object] | None = None
+    writedriver_local_macro: dict[str, object] | None = None
+    writedriver_adapter_info: object | None = None
+    writedriver_limited_plan: object | None = None
+    if spec.enable_openyield_writedriver_adapter:
+        writedriver_contract_info = load_writedriver_contract()
+        writedriver_local_macro = inspect_local_writedriver_macro(default_pdk_root())
+        writedriver_adapter_info = build_writedriver_adapter(writedriver_local_macro, writedriver_contract_info)
+        writedriver_limited_plan = build_writedriver_limited_placement_plan(
+            cols=spec.word_size,
+            mux_ratio=1,
+            origin_x=x_array,
+            origin_y=y_column + tri_gate.height + gap,
+            pitch_x=column_pitch,
+            power_status=writedriver_adapter_info.power_status,
+            safe_for_physical_mapping=writedriver_adapter_info.safe_for_physical_mapping,
+            safe_for_shared_rail=writedriver_adapter_info.safe_for_shared_rail,
+        )
+
+    wordlinedriver_contract_info: dict[str, object] | None = None
+    wordlinedriver_local_macro: dict[str, object] | None = None
+    wordlinedriver_source_audit: object | None = None
+    wordlinedriver_adapter_info: object | None = None
+    wordlinedriver_limited_plan: object | None = None
+    if spec.enable_openyield_wordlinedriver_adapter:
+        wordlinedriver_contract_info = load_wordlinedriver_contract()
+        wordlinedriver_local_macro = inspect_local_wordlinedriver_macro(default_pdk_root())
+        wordlinedriver_source_audit = inspect_openyield_wordlinedriver_source(default_openyield_root())
+        wordlinedriver_adapter_info = build_wordlinedriver_adapter(
+            wordlinedriver_local_macro,
+            wordlinedriver_contract_info,
+            wordlinedriver_source_audit,
+        )
+        wordlinedriver_limited_plan = build_wordlinedriver_limited_placement_plan(
+            rows=rows,
+            origin_x=x_decoder + row_decode_to_driver_delta_x,
+            origin_y=y_row_logic,
+            pitch_y=row_logic_pitch,
+            power_status=wordlinedriver_adapter_info.power_status,
+            safe_for_physical_mapping=wordlinedriver_adapter_info.safe_for_physical_mapping,
+            safe_for_shared_rail=wordlinedriver_adapter_info.safe_for_shared_rail,
+        )
+
+    macro_w = max(x_array + max(array_w, column_array_w, data_w), x_right_edge) + boundary_margin
+    selected_row_logic_plan = row_logic_plan(
+        y_row_logic,
+        y_precharge,
+        macro_w,
+        bool(best_data_packing.get("row_logic_folding_enabled")),
+    )
+    macro_w = max(macro_w, float(selected_row_logic_plan["right_um"]) + boundary_margin)
+    y_row_logic_top = float(selected_row_logic_plan["top_um"])
     macro_h = max(
-        y_precharge + precharge_h + margin,
-        y_row_logic_top + margin,
-        y_data + control_h + module_stack_gap + control_glue_h + module_stack_gap + col_select_h + module_stack_gap + delay_chain_h + margin,
+        y_precharge + precharge_h + boundary_margin,
+        y_row_logic_top + boundary_margin,
+        y_data + control_h + module_stack_gap + control_glue_h + module_stack_gap + col_select_h + module_stack_gap + delay_chain_h + boundary_margin,
     )
 
     db = LayoutDB(name)
@@ -366,9 +832,33 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         "num_words": spec.num_words,
         "words_per_row": wpr,
         "legal_words_per_row": spec.legal_words_per_row(),
+        "enable_openyield_senseamp_adapter": spec.enable_openyield_senseamp_adapter,
+        "enable_openyield_columnmux_adapter": spec.enable_openyield_columnmux_adapter,
+        "enable_openyield_writedriver_adapter": spec.enable_openyield_writedriver_adapter,
+        "enable_openyield_wordlinedriver_adapter": spec.enable_openyield_wordlinedriver_adapter,
+        "enable_openyield_gate_row_packing": spec.enable_openyield_gate_row_packing,
+        "enable_openyield_gate_row_vertical_abutment": spec.enable_openyield_gate_row_vertical_abutment,
+        "enable_openyield_rail_to_rail_abutment": spec.enable_openyield_rail_to_rail_abutment,
+        "enable_openyield_power_rail_overlap_packing": spec.enable_openyield_power_rail_overlap_packing,
+        "enable_openyield_dff_row_packing": spec.enable_openyield_dff_row_packing,
+        "exclude_dff_vertical_overlap": spec.exclude_dff_vertical_overlap,
         "num_rows": rows,
         "num_cols": cols,
         "bank_style": "contiguous-openram-origin-array",
+        "floorplan_compaction_strategy": "occupancy-guided compact perimeter margin",
+        "boundary_margin_um": boundary_margin,
+        "legacy_boundary_margin_um": 1.2,
+        "data_dff_packing_strategy": "global macro area search",
+        "data_dff_packing_candidates": data_packing_candidates,
+        "selected_data_dff_packing": best_data_packing,
+        "row_logic_folding": {
+            "strategy": selected_row_logic_plan["strategy"],
+            "enabled": selected_row_logic_plan["enabled"],
+            "folded_rows": selected_row_logic_plan["folded_rows"],
+            "folded_row_count": selected_row_logic_plan["folded_row_count"],
+            "lanes": selected_row_logic_plan["lanes"],
+        },
+        "gate_row_packing_plan": selected_row_logic_plan.get("packing_plan", {}),
         "lower_bank_rows": lower_rows,
         "upper_bank_rows": upper_rows,
         "bank_channel_height_um": bank_channel_h,
@@ -412,6 +902,156 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         "row_logic_origin_y_um": y_row_logic,
         "formal_gds_keeps_guides_separate": False,
     })
+    db.metadata["openyield_columnmux_adapter"] = {
+        "enabled": spec.enable_openyield_columnmux_adapter,
+        "local_macro": columnmux_macro_name,
+        "source_macro": "gen_col_mux",
+        "repaired_alias_metadata": columnmux_alias_info["metadata_path"] if columnmux_alias_info else None,
+        "power_status": columnmux_alias_info["alias"].get("power_status", "vdd_label_present") if columnmux_alias_info else "legacy_metadata_only",
+        "safe_for_physical_mapping": bool(columnmux_alias_info["alias"].get("safe_for_physical_mapping", True)) if columnmux_alias_info else False,
+        "safe_for_shared_rail": bool(columnmux_alias_info["alias"].get("safe_for_shared_rail", False)) if columnmux_alias_info else False,
+        "uses_repaired_alias": bool(spec.enable_openyield_columnmux_adapter),
+        "replacement_macros_modified": False,
+        "shared_rail_enabled": False,
+        "routing_changed": False,
+        "gds_writer_changed": False,
+        "write_driver_changed": False,
+        "wordline_driver_changed": False,
+        "senseamp_pairing": {
+            "IN": "mux_out[group]",
+            "INB": "mux_out_b[group]",
+            "Q": "dout[group]",
+            "QB": "dropped_complementary_output",
+        },
+        "limited_placement_plan": columnmux_limited_plan.to_dict() if columnmux_limited_plan is not None else {},
+    }
+    if spec.enable_openyield_writedriver_adapter and writedriver_adapter_info is not None and writedriver_contract_info is not None and writedriver_local_macro is not None:
+        db.metadata["openyield_writedriver_adapter"] = {
+            "enabled": True,
+            "contract_summary": build_writedriver_contract_summary(writedriver_contract_info),
+            "contract_path": writedriver_contract_info.get("source_path"),
+            "local_macro": writedriver_local_macro["macro_name"],
+            "gds_path": writedriver_local_macro["gds_path"],
+            "spice_path": writedriver_local_macro["spice_path"],
+            "power_status": writedriver_adapter_info.power_status,
+            "safe_for_physical_mapping": writedriver_adapter_info.safe_for_physical_mapping,
+            "safe_for_shared_rail": writedriver_adapter_info.safe_for_shared_rail,
+            "requires_netlist_rewrite": writedriver_adapter_info.requires_netlist_rewrite,
+            "pin_adaptations": [pin.to_dict() for pin in writedriver_adapter_info.pin_adaptations],
+            "notes": list(writedriver_adapter_info.notes),
+            "placement_plan": writedriver_limited_plan.to_dict() if writedriver_limited_plan is not None else {},
+            "placement_count": len(writedriver_limited_plan.placements) if writedriver_limited_plan is not None else 0,
+            "adapter_applied_to_placement": False,
+            "routing_changed": False,
+            "gds_writer_changed": False,
+            "shared_rail_enabled": False,
+            "write_driver_changed": False,
+            "column_mux_changed": spec.enable_openyield_columnmux_adapter,
+            "senseamp_changed": spec.enable_openyield_senseamp_adapter,
+            "storage_aggregation_enabled": spec.enable_openyield_array_aggregation,
+        }
+    else:
+        db.metadata["openyield_writedriver_adapter"] = {
+            "enabled": False,
+            "local_macro": "write_driver",
+            "power_status": "legacy_metadata_only",
+            "safe_for_physical_mapping": False,
+            "safe_for_shared_rail": False,
+            "requires_netlist_rewrite": False,
+            "pin_adaptations": [],
+            "notes": [
+                "Write driver adapter is opt-in only.",
+                "Legacy standalone write_driver placement remains unchanged until explicitly enabled.",
+            ],
+            "placement_plan": {},
+            "placement_count": 0,
+            "adapter_applied_to_placement": False,
+            "routing_changed": False,
+            "gds_writer_changed": False,
+            "shared_rail_enabled": False,
+            "write_driver_changed": False,
+            "column_mux_changed": spec.enable_openyield_columnmux_adapter,
+            "senseamp_changed": spec.enable_openyield_senseamp_adapter,
+            "storage_aggregation_enabled": spec.enable_openyield_array_aggregation,
+        }
+    if spec.enable_openyield_wordlinedriver_adapter and wordlinedriver_adapter_info is not None and wordlinedriver_contract_info is not None and wordlinedriver_local_macro is not None and wordlinedriver_source_audit is not None:
+        db.metadata["openyield_wordlinedriver_adapter"] = {
+            "enabled": True,
+            "contract_summary": build_wordlinedriver_contract_summary(wordlinedriver_contract_info),
+            "contract_path": wordlinedriver_contract_info.get("source_path"),
+            "local_macro": wordlinedriver_local_macro["macro_name"],
+            "gds_path": wordlinedriver_local_macro["gds_path"],
+            "spice_path": wordlinedriver_local_macro["spice_path"],
+            "power_status": wordlinedriver_adapter_info.power_status,
+            "safe_for_physical_mapping": wordlinedriver_adapter_info.safe_for_physical_mapping,
+            "safe_for_shared_rail": wordlinedriver_adapter_info.safe_for_shared_rail,
+            "can_enter_limited_placement": wordlinedriver_adapter_info.can_enter_limited_placement,
+            "pin_adaptations": [pin.to_dict() for pin in wordlinedriver_adapter_info.pin_adaptations],
+            "notes": list(wordlinedriver_adapter_info.notes) + list(wordlinedriver_source_audit.evidence),
+            "placement_plan": wordlinedriver_limited_plan.to_dict() if wordlinedriver_limited_plan is not None else {},
+            "placement_count": len(wordlinedriver_limited_plan.placements) if wordlinedriver_limited_plan is not None else 0,
+            "adapter_applied_to_placement": True,
+            "routing_changed": False,
+            "gds_writer_changed": False,
+            "shared_rail_enabled": False,
+            "write_driver_changed": False,
+            "column_mux_changed": spec.enable_openyield_columnmux_adapter,
+            "senseamp_changed": spec.enable_openyield_senseamp_adapter,
+            "storage_aggregation_enabled": spec.enable_openyield_array_aggregation,
+            "b_polarity": wordlinedriver_source_audit.b_polarity,
+            "semantic_confirmation": "confirmed_active_high",
+            "wordline_driver_changed": False,
+            "decoder_changed": False,
+            "time_control_changed": False,
+        }
+    else:
+        db.metadata["openyield_wordlinedriver_adapter"] = {
+            "enabled": False,
+            "local_macro": "gen_wl_driver",
+            "power_status": "legacy_metadata_only",
+            "safe_for_physical_mapping": False,
+            "safe_for_shared_rail": False,
+            "can_enter_limited_placement": False,
+            "pin_adaptations": [],
+            "notes": [
+                "Wordline driver adapter is opt-in only.",
+                "Legacy standalone wordline driver placement remains unchanged until explicitly enabled.",
+            ],
+            "placement_plan": {},
+            "placement_count": 0,
+            "adapter_applied_to_placement": False,
+            "routing_changed": False,
+            "gds_writer_changed": False,
+            "shared_rail_enabled": False,
+            "write_driver_changed": False,
+            "column_mux_changed": spec.enable_openyield_columnmux_adapter,
+            "senseamp_changed": spec.enable_openyield_senseamp_adapter,
+            "storage_aggregation_enabled": spec.enable_openyield_array_aggregation,
+            "wordline_driver_changed": False,
+            "decoder_changed": False,
+            "time_control_changed": False,
+        }
+    db.metadata["openyield_senseamp_adapter"] = {
+        "enabled": False,
+        "adapter_strategy": "single_ended_q_to_dout",
+        "q_to_dout": True,
+        "qb_to_dout_b": False,
+        "dropped_pins": {"QB": "dropped_complementary_output"},
+        "requires_netlist_rewrite": True,
+        "requires_layout_pin": False,
+        "generated_fake_dout_b": False,
+        "routing_changed": False,
+        "gds_writer_changed": False,
+        "write_driver_changed": False,
+        "column_mux_changed": spec.enable_openyield_columnmux_adapter,
+        "wordline_driver_changed": spec.enable_openyield_wordlinedriver_adapter,
+        "placement_count": 0,
+        "local_macro": "sense_amp",
+        "local_pins": ["bl", "br", "dout", "en", "vdd", "gnd"],
+        "plan": {},
+        "example_placements": [],
+        "adapter_applied_to_placement": False,
+    }
 
     db.add_shape("boundary", Rect(0, 0, macro_w, macro_h), "boundary", name="prBoundary")
 
@@ -461,11 +1101,95 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         )
         return rect
 
-    array_rect = add_hard_array("bitcell_array", "cell_1rw", x_array, y_array_lower, cols, rows, bitcell_pitch_x, bitcell_pitch_y, "bitcell_array", mirror_x=True)
+    if spec.enable_openyield_array_aggregation:
+        openyield_storage_aggregation = build_standalone_storage_array_aggregation(
+            rows,
+            cols,
+            enable_openyield_array_aggregation=True,
+            row_orientation_policy=spec.openyield_storage_row_orientation_policy,
+            gds_pin_audit_path=openyield_gds_pin_audit_path,
+            origins={
+                "bitcell_array": (x_array, y_array_lower),
+                "dummy_left_array": (x_dummy_left, y_array_lower),
+                "dummy_right_array": (x_dummy_right, y_array_lower),
+                "replica_bitline_array": (x_replica, y_array_lower),
+            },
+        )
+        plan_by_name = {plan.array_name: plan for plan in openyield_storage_aggregation.plans}
+        disallowed_storage_macros = sorted(
+            {
+                plan.cell_macro
+                for plan in openyield_storage_aggregation.plans
+                if plan.cell_macro not in ALLOWED_AGGREGATION_MACROS
+            }
+        )
+        if disallowed_storage_macros:
+            raise ValueError(
+                "OpenYield array aggregation produced disallowed storage macros: "
+                + ", ".join(disallowed_storage_macros)
+            )
+
+        def add_openyield_storage_array(array_name: str) -> Rect:
+            plan = plan_by_name[array_name]
+            return add_hard_array(
+                plan.array_name,
+                plan.cell_macro,
+                plan.origin_x,
+                plan.origin_y,
+                plan.cols,
+                plan.rows,
+                plan.pitch_x,
+                plan.pitch_y,
+                plan.role,
+                mirror_x=plan.row_orientation_policy == "alternating_mx",
+                mirror_y=False,
+            )
+
+        array_rect = add_openyield_storage_array("bitcell_array")
+        dummy_left_rect = add_openyield_storage_array("dummy_left_array")
+        dummy_right_rect = add_openyield_storage_array("dummy_right_array")
+        replica_rect = add_openyield_storage_array("replica_bitline_array")
+    else:
+        openyield_storage_aggregation = build_standalone_storage_array_aggregation(
+            rows,
+            cols,
+            enable_openyield_array_aggregation=False,
+            row_orientation_policy=spec.openyield_storage_row_orientation_policy,
+        )
+        array_rect = add_hard_array("bitcell_array", "cell_1rw", x_array, y_array_lower, cols, rows, bitcell_pitch_x, bitcell_pitch_y, "bitcell_array", mirror_x=True)
+        dummy_left_rect = add_hard_array("dummy_left_array", "dummy_cell_1rw", x_dummy_left, y_array_lower, 1, rows, bitcell_pitch_x, bitcell_pitch_y, "dummy_bitcell", mirror_x=True)
+        dummy_right_rect = add_hard_array("dummy_right_array", "dummy_cell_1rw", x_dummy_right, y_array_lower, 1, rows, bitcell_pitch_x, bitcell_pitch_y, "dummy_bitcell", mirror_x=True)
+        replica_rect = add_hard_array("replica_bitline_array", "replica_cell_1rw", x_replica, y_array_lower, 1, rows, bitcell_pitch_x, bitcell_pitch_y, "replica_bitline", mirror_x=True)
+    storage_macro_counts: dict[str, int] = {}
+    for plan in openyield_storage_aggregation.plans:
+        storage_macro_counts[plan.cell_macro] = storage_macro_counts.get(plan.cell_macro, 0) + plan.rows * plan.cols
+    db.metadata["openyield_array_aggregation_integration"] = {
+        "enabled": openyield_storage_aggregation.enabled,
+        "row_orientation_policy": openyield_storage_aggregation.row_orientation_policy,
+        "allowed_macros": list(ALLOWED_AGGREGATION_MACROS),
+        "excluded_peripheral_macros": dict(EXCLUDED_PERIPHERAL_MACROS),
+        "storage_only": True,
+        "peripherals_old_path": True,
+        "changed_gds_flow": openyield_storage_aggregation.changed_gds_flow,
+        "routing_changed": openyield_storage_aggregation.routing_changed,
+        "gds_writer_changed": False,
+        "shared_rail_merge": openyield_storage_aggregation.shared_rail_merge,
+        "generated_gds": False,
+        "cross_row_power_short_risk": openyield_storage_aggregation.cross_row_power_short_risk,
+        "storage_plan": openyield_storage_aggregation.to_dict(),
+        "storage_arrays": {
+            "bitcell_array": array_rect.to_dict(),
+            "dummy_left_array": dummy_left_rect.to_dict(),
+            "dummy_right_array": dummy_right_rect.to_dict(),
+            "replica_bitline_array": replica_rect.to_dict(),
+        },
+        "macro_counts": storage_macro_counts,
+        "instance_count": sum(storage_macro_counts.values()),
+        "pitch": {"x": bitcell_pitch_x, "y": bitcell_pitch_y},
+        "origin": {"x": x_array, "y": y_array_lower},
+        "power_rail_policy": openyield_storage_aggregation.power_rail_policy,
+    }
     db.add_shape("m1", array_rect, "module", name="ARRAY")
-    dummy_left_rect = add_hard_array("dummy_left_array", "dummy_cell_1rw", x_dummy_left, y_array_lower, 1, rows, bitcell_pitch_x, bitcell_pitch_y, "dummy_bitcell", mirror_x=True)
-    dummy_right_rect = add_hard_array("dummy_right_array", "dummy_cell_1rw", x_dummy_right, y_array_lower, 1, rows, bitcell_pitch_x, bitcell_pitch_y, "dummy_bitcell", mirror_x=True)
-    replica_rect = add_hard_array("replica_bitline_array", "replica_cell_1rw", x_replica, y_array_lower, 1, rows, bitcell_pitch_x, bitcell_pitch_y, "replica_bitline", mirror_x=True)
     db.add_shape("m1", dummy_left_rect, "module", name="dummy_left_bbox")
     db.add_shape("m1", dummy_right_rect, "module", name="dummy_right_bbox")
     db.add_shape("m1", replica_rect, "module", name="RBL")
@@ -492,6 +1216,19 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
             placement_mode="openram_origin",
         )
 
+    def add_hard_macro_instance(
+        name: str,
+        cell_name: str,
+        x: float,
+        y: float,
+        role: str,
+        mirror: str = "R0",
+    ) -> Rect:
+        cell = tech.cell(cell_name)
+        rect = placed_bbox_from_openram_origin(cell, x, y, mirror)
+        db.add_instance(Instance(name, cell_name, rect, role, mirror=mirror, placement_mode="openram_origin", origin=Point(x, y)))
+        return rect
+
     precharge_rects: list[Rect] = []
     column_mux_rects: list[Rect] = []
     for col in range(cols):
@@ -499,7 +1236,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         precharge_name = f"precharge_{col}"
         mux_name = f"column_mux_{col}"
         precharge_rects.append(add_openram_generated_cell(precharge_name, "gen_precharge", cell_x + precharge_x_offset, y_precharge, "precharge", mirror="MX"))
-        column_mux_rects.append(add_openram_generated_cell(mux_name, "gen_col_mux", cell_x + col_mux_x_offset, y_mux, "column_mux", mirror="MX"))
+        column_mux_rects.append(add_openram_generated_cell(mux_name, columnmux_macro_name, cell_x + col_mux_x_offset, y_mux, "column_mux", mirror="MX"))
         precharge_inst = next(inst for inst in db.instances if inst.name == precharge_name)
         mux_inst = next(inst for inst in db.instances if inst.name == mux_name)
         precharge_pins = {str(pin["name"]): pin for pin in generated_instance_pins(tech, precharge_inst)}
@@ -540,6 +1277,8 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         return y_array_lower + row * bitcell_pitch_y
 
     def storage_row_mirror(row: int) -> str:
+        if spec.enable_openyield_array_aggregation:
+            return orientation_for_row(row, openyield_storage_aggregation.row_orientation_policy)
         return array_mirror(row, 0, mirror_x=True)
 
     def storage_pin_y(row: int, cell, local_y: float) -> float:
@@ -567,7 +1306,52 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         return min(entry_x, min(xs) - extension), max(xs) + extension
 
     def row_logic_y(row: int) -> float:
-        return y_row_logic + row * row_logic_pitch
+        return float(selected_row_logic_plan["positions"][row]["origin_y"])  # type: ignore[index]
+
+    def row_decoder_x(row: int) -> float:
+        return float(selected_row_logic_plan["positions"][row]["decoder_x"])  # type: ignore[index]
+
+    def row_driver_x(row: int) -> float:
+        return float(selected_row_logic_plan["positions"][row]["driver_x"])  # type: ignore[index]
+
+    def add_gate_row_stitch_shapes(plan_dict: dict[str, object], name_prefix: str) -> None:
+        if spec.enable_openyield_gate_row_vertical_abutment or spec.enable_openyield_rail_to_rail_abutment or spec.enable_openyield_power_rail_overlap_packing:
+            return
+        rail_alignment = plan_dict.get("rail_alignment", {}) if isinstance(plan_dict, dict) else {}
+        rows_data = plan_dict.get("rows", []) if isinstance(plan_dict, dict) else []
+        rows_by_name = {
+            str(item.get("row_name")): item
+            for item in rows_data
+            if isinstance(item, dict) and item.get("row_name")
+        }
+        for index, boundary in enumerate(rail_alignment.get("boundaries", [])):
+            if not isinstance(boundary, dict) or not boundary.get("passed"):
+                continue
+            lower = rows_by_name.get(str(boundary.get("lower_row")))
+            upper = rows_by_name.get(str(boundary.get("upper_row")))
+            if lower is None or upper is None:
+                continue
+            x0 = max(float(lower.get("origin_x", 0.0)), float(upper.get("origin_x", 0.0)))
+            x1 = min(
+                float(lower.get("origin_x", 0.0)) + float(lower.get("width", 0.0)),
+                float(upper.get("origin_x", 0.0)) + float(upper.get("width", 0.0)),
+            )
+            y0 = float(boundary.get("lower_top_y1", 0.0))
+            y1 = float(boundary.get("upper_bottom_y0", 0.0))
+            if x1 <= x0 or y1 <= y0:
+                continue
+            net = str(boundary.get("stitch_net") or "")
+            if net not in {"vdd", "gnd"}:
+                continue
+            db.add_shape(
+                "m1",
+                Rect(x0, y0, x1, y1),
+                "route",
+                net=net,
+                name=f"{name_prefix}_{net}_stitch_{index}",
+            )
+
+    decoder_gate_packing = selected_row_logic_plan.get("packing_plan", {}) if spec.enable_openyield_gate_row_packing else {}
 
     row_decoder_rects: list[Rect] = []
     wordline_driver_rects: list[Rect] = []
@@ -576,8 +1360,9 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         wl_target_y = storage_wl_y(row)
         wl_target_x, _ = storage_wl_extent(row)
         row_mirror = "MX" if row % 2 else "R0"
-        row_decoder_rects.append(add_openram_generated_cell(f"row_decode_{row}", row_decode_cell, x_decoder, y, "row_decoder", mirror=row_mirror))
-        wl_driver_x = abutted_origin_x(x_decoder, row_decode_cell, "gen_wl_driver", row_decode_to_driver_gap)
+        row_decode_x = row_decoder_x(row)
+        row_decoder_rects.append(add_openram_generated_cell(f"row_decode_{row}", row_decode_cell, row_decode_x, y, "row_decoder", mirror=row_mirror))
+        wl_driver_x = row_driver_x(row)
         wordline_driver_rects.append(add_openram_generated_cell(
             f"wordline_driver_{row}",
             "gen_wl_driver",
@@ -587,7 +1372,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
             mirror=row_mirror,
         ))
         wl_y = y + tech.cell("gen_wl_driver").height * 0.5
-        decoder_z_x = x_decoder + tech.cell(row_decode_cell).width - 0.18
+        decoder_z_x = row_decode_x + tech.cell(row_decode_cell).width - 0.18
         driver_a_x = wl_driver_x + tech.cell("gen_wl_driver").width * 0.28
         driver_z_x = wl_driver_x + tech.cell("gen_wl_driver").width - 0.18
         db.add_shape("m1", Rect(decoder_z_x, wl_y - 0.045, driver_a_x, wl_y + 0.045), "route_guide", f"wl_decode[{row}]", f"wl_decode_route_{row}")
@@ -599,84 +1384,212 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
                 f"wl[{row}]",
                 f"wl_driver_jog_{row}",
             )
-        db.add_shape("m2", Rect(driver_z_x, wl_target_y - 0.07, wl_target_x, wl_target_y + 0.07), "route_guide", f"wl[{row}]", f"wl_route_{row}")
+        wl_x0, wl_x1 = sorted((driver_z_x, wl_target_x))
+        db.add_shape("m2", Rect(wl_x0, wl_target_y - 0.07, wl_x1, wl_target_y + 0.07), "route_guide", f"wl[{row}]", f"wl_route_{row}")
     db.add_shape("m2", Rect.union(row_decoder_rects), "module", name="DECODER")
     db.add_shape("m2", Rect.union(wordline_driver_rects), "module", name="WL_DRIVER")
+    if spec.enable_openyield_gate_row_packing and isinstance(decoder_gate_packing, dict):
+        add_gate_row_stitch_shapes(decoder_gate_packing, "decoder_gate_rows")
 
-    control_rect = add_hard_array(
-        "control_dff_array",
-        "dff",
-        x_control,
-        y_data,
-        control_cols,
-        control_rows,
-        control_dff_pitch_x,
-        dff_row_pitch,
-        "control_logic",
-        mirror_x=True,
-    )
+    control_dff_plan = None
+    data_dff_plan = None
+    if spec.enable_openyield_dff_row_packing:
+        control_dff_rows = [["dff" for _ in range(control_cols)] for _ in range(control_rows)]
+        control_dff_plan = build_gate_row_packing_plan(
+            block_name="control_dff",
+            row_cells=control_dff_rows,
+            footprints={"dff": dff_footprint},
+            origin_x=x_control,
+            origin_y=y_data,
+            explicit_opt_in=True,
+            row_pitch=dff_row_pitch,
+            vertical_abutment_policy="standard_row_spacing",
+            overlap_eligibility={"dff": overlap_eligibility["dff"]},
+            row_domain="dff_domain",
+        )
+        control_rects = []
+        control_dff_index = 0
+        for row in control_dff_plan.rows:
+            for placement in row.cells:
+                control_rects.append(add_hard_macro_instance(f"control_dff_{control_dff_index}", "dff", placement.x, placement.y, "control_logic", mirror=row.mirror))
+                control_dff_index += 1
+        control_rect = Rect.union(control_rects)
+    else:
+        control_rect = add_hard_array(
+            "control_dff_array",
+            "dff",
+            x_control,
+            y_data,
+            control_cols,
+            control_rows,
+            control_dff_pitch_x,
+            dff_row_pitch,
+            "control_logic",
+            mirror_x=True,
+        )
     db.add_shape("m3", control_rect, "module", name="control_dff_array")
     control_gate_y = origin_y_for_bbox_y0("gen_inv", control_rect.y1 + module_stack_gap, "R0")
     control_glue_rects: list[Rect] = []
     control_glue_rows = [["gen_inv", "gen_nand2"], ["gen_nand2", "gen_inv"]]
-    for row_i, row_cells in enumerate(control_glue_rows):
-        y = control_gate_y if row_i == 0 else abutted_origin_y(control_gate_y, "gen_inv", "gen_nand2", logic_group_gap, "R0", "MX")
-        x = x_control
-        previous_cell: str | None = None
-        for col_i, cell_name in enumerate(row_cells):
-            if previous_cell is not None:
-                x = abutted_origin_x(x, previous_cell, cell_name, logic_group_gap)
-            i = row_i * 2 + col_i
-            row_mirror = "MX" if row_i % 2 else "R0"
+    control_glue_packing = build_gate_row_packing_plan(
+        block_name="control_glue",
+        row_cells=control_glue_rows,
+        footprints=gate_footprints,
+        origin_x=x_control,
+        origin_y=control_gate_y,
+        explicit_opt_in=spec.enable_openyield_gate_row_packing,
+        row_pitch=gate_footprints["gen_inv"].bbox_height if spec.enable_openyield_gate_row_vertical_abutment else max(
+            legal_origin_delta_y("gen_inv", "gen_nand2", "R0", "MX"),
+            legal_origin_delta_y("gen_nand2", "gen_inv", "MX", "R0"),
+        ),
+        vertical_abutment_policy=gate_vertical_policy("control_gate_domain"),
+        overlap_eligibility=overlap_eligibility,
+        row_domain="control_gate_domain",
+    )
+    for row in control_glue_packing.rows:
+        for placement_index, placement in enumerate(row.cells):
             control_glue_rects.append(add_openram_generated_cell(
-                f"control_glue_{i}",
-                cell_name,
-                x,
-                y,
+                f"control_glue_{row.row_index * 2 + placement_index}",
+                placement.cell_name,
+                placement.x,
+                placement.y,
                 "control_glue",
-                mirror=row_mirror,
+                mirror=row.mirror,
             ))
-            previous_cell = cell_name
     db.add_shape("m3", Rect.union(control_glue_rects), "module", name="timing_control_glue_bbox")
+    if spec.enable_openyield_gate_row_packing:
+        add_gate_row_stitch_shapes(control_glue_packing.to_dict(), "control_glue")
     column_select_rects: list[Rect] = []
     column_select_y0 = origin_y_for_bbox_y0(column_select_cell, Rect.union(control_glue_rects).y1 + module_stack_gap, "R0")
-    for i in range(max(1, wpr)):
-        row = i // 2
-        col = i % 2
-        row_mirror = "MX" if row % 2 else "R0"
-        x = x_control if col == 0 else abutted_origin_x(x_control, column_select_cell, column_select_cell, logic_group_gap)
-        if row == 0:
-            y = column_select_y0
-        else:
-            y = column_select_y0 + row * column_select_row_pitch
-        column_select_rects.append(add_openram_generated_cell(
-            f"column_select_{i}",
-            column_select_cell,
-            x,
-            y,
-            "column_select",
-            mirror=row_mirror,
-        ))
+    column_select_rows_spec: list[list[str]] = []
+    for row in range(column_select_rows):
+        row_cells = [column_select_cell]
+        if row * 2 + 1 < max(1, wpr):
+            row_cells.append(column_select_cell)
+        column_select_rows_spec.append(row_cells)
+    column_select_packing = build_gate_row_packing_plan(
+        block_name="column_select",
+        row_cells=column_select_rows_spec,
+        footprints=gate_footprints,
+        origin_x=x_control,
+        origin_y=column_select_y0,
+        explicit_opt_in=spec.enable_openyield_gate_row_packing,
+        row_pitch=gate_footprints[column_select_cell].bbox_height if spec.enable_openyield_gate_row_vertical_abutment else column_select_row_pitch,
+        vertical_abutment_policy=gate_vertical_policy("control_gate_domain"),
+        overlap_eligibility=overlap_eligibility,
+        row_domain="control_gate_domain",
+    )
+    instance_index = 0
+    for row in column_select_packing.rows:
+        for placement in row.cells:
+            column_select_rects.append(add_openram_generated_cell(
+                f"column_select_{instance_index}",
+                placement.cell_name,
+                placement.x,
+                placement.y,
+                "column_select",
+                mirror=row.mirror,
+            ))
+            instance_index += 1
     db.add_shape("m3", Rect.union(column_select_rects), "module", name="column_select_logic_bbox")
+    if spec.enable_openyield_gate_row_packing:
+        add_gate_row_stitch_shapes(column_select_packing.to_dict(), "column_select")
     delay_y = origin_y_for_bbox_y0("gen_delay_inv", Rect.union(column_select_rects).y1 + module_stack_gap, "R0")
     delay_rects: list[Rect] = []
-    for i in range(6):
-        row = i // 3
-        col = i % 3
-        row_mirror = "MX" if row % 2 else "R0"
-        delay_rects.append(add_openram_generated_cell(
-            f"control_delay_{i}",
-            "gen_delay_inv",
-            x_control + col * legal_origin_delta_x("gen_delay_inv", "gen_delay_inv"),
-            delay_y + row * delay_row_pitch,
-            "delay_chain",
-            mirror=row_mirror,
-        ))
+    delay_packing = build_gate_row_packing_plan(
+        block_name="delay_chain",
+        row_cells=[["gen_delay_inv", "gen_delay_inv", "gen_delay_inv"], ["gen_delay_inv", "gen_delay_inv", "gen_delay_inv"]],
+        footprints=gate_footprints,
+        origin_x=x_control,
+        origin_y=delay_y,
+        explicit_opt_in=spec.enable_openyield_gate_row_packing,
+        row_pitch=gate_footprints["gen_delay_inv"].bbox_height if spec.enable_openyield_gate_row_vertical_abutment else delay_row_pitch,
+        vertical_abutment_policy=gate_vertical_policy("control_gate_domain"),
+        overlap_eligibility=overlap_eligibility,
+        row_domain="control_gate_domain",
+    )
+    delay_index = 0
+    for row in delay_packing.rows:
+        for placement in row.cells:
+            delay_rects.append(add_openram_generated_cell(
+                f"control_delay_{delay_index}",
+                placement.cell_name,
+                placement.x,
+                placement.y,
+                "delay_chain",
+                mirror=row.mirror,
+            ))
+            delay_index += 1
     db.add_shape("m3", Rect.union(delay_rects), "module", name="replica_timing_delay_bbox")
+    if spec.enable_openyield_gate_row_packing:
+        add_gate_row_stitch_shapes(delay_packing.to_dict(), "delay_chain")
     timing_control_rect = Rect.union([control_rect, Rect.union(control_glue_rects), Rect.union(column_select_rects), Rect.union(delay_rects)])
     db.add_shape("m3", timing_control_rect, "module", name="TIMING_CONTROL")
+    db.metadata["openyield_gate_row_packing"] = {
+        "enabled": bool(spec.enable_openyield_gate_row_packing),
+        "explicit_opt_in": bool(spec.enable_openyield_gate_row_packing),
+        "vertical_abutment_enabled": bool(spec.enable_openyield_gate_row_vertical_abutment),
+        "vertical_abutment_policy": gate_vertical_policy("control_gate_domain"),
+        "same_net_power_rail_overlap_packing_enabled": bool(spec.enable_openyield_power_rail_overlap_packing),
+        "exclude_dff_vertical_overlap": bool(spec.exclude_dff_vertical_overlap),
+        "legacy_default_behavior_preserved": True,
+        "adapter_applied_to_placement": bool(spec.enable_openyield_gate_row_packing),
+        "routing_changed": False,
+        "gds_writer_changed": False,
+        "shared_rail_enabled": False,
+        "decoder_plan": decoder_gate_packing if isinstance(decoder_gate_packing, dict) else {},
+        "control_glue_plan": control_glue_packing.to_dict(),
+        "column_select_plan": column_select_packing.to_dict(),
+        "delay_chain_plan": delay_packing.to_dict(),
+        "control_dff_plan": control_dff_plan.to_dict() if control_dff_plan is not None else {},
+        "data_dff_plan": data_dff_plan.to_dict() if data_dff_plan is not None else {},
+    }
 
-    sense_rect = add_hard_array("sense_amp_array", "sense_amp", x_array, y_column + write_driver.height + tri_gate.height + 2 * gap, spec.word_size, 1, column_pitch, sense.height, "sense_amp")
+    sense_origin_x = x_array
+    sense_origin_y = y_column + write_driver.height + tri_gate.height + 2 * gap
+    if spec.enable_openyield_senseamp_adapter:
+        senseamp_adapter = build_senseamp_architecture_adapter(qb_required_downstream=False)
+        senseamp_local_macro = inspect_local_senseamp_macro(default_pdk_root())
+        senseamp_plan = build_senseamp_placement_plan(
+            cols=cols,
+            mux_ratio=wpr,
+            origin_x=sense_origin_x,
+            origin_y=sense_origin_y,
+            pitch_x=column_pitch,
+            adapter=senseamp_adapter,
+            local_macro=senseamp_local_macro,
+        )
+        if len(senseamp_plan.placements) != spec.word_size:
+            raise ValueError(
+                f"sense_amp adapter placement count mismatch: expected {spec.word_size}, "
+                f"got {len(senseamp_plan.placements)}"
+            )
+        db.metadata["openyield_senseamp_adapter"] = {
+            "enabled": True,
+            "adapter_strategy": senseamp_plan.adapter_strategy,
+            "q_to_dout": senseamp_local_macro.q_to_dout_established,
+            "qb_to_dout_b": senseamp_local_macro.qb_to_dout_b_established,
+            "dropped_pins": {"QB": "dropped_complementary_output"},
+            "requires_netlist_rewrite": senseamp_plan.requires_netlist_rewrite,
+            "requires_layout_pin": senseamp_plan.requires_layout_pin,
+            "generated_fake_dout_b": False,
+            "routing_changed": False,
+            "gds_writer_changed": False,
+            "write_driver_changed": False,
+            "column_mux_changed": spec.enable_openyield_columnmux_adapter,
+            "wordline_driver_changed": False,
+            "placement_count": len(senseamp_plan.placements),
+            "local_macro": senseamp_local_macro.macro_name,
+            "local_pins": list(senseamp_local_macro.spice_pins),
+            "plan": senseamp_plan.to_dict(),
+            "example_placements": [item.to_dict() for item in senseamp_plan.placements[: min(4, len(senseamp_plan.placements))]],
+            "adapter_applied_to_placement": True,
+            "sense_rect_origin": {"x": sense_origin_x, "y": sense_origin_y},
+            "column_pitch_um": column_pitch,
+            "mux_ratio": wpr,
+            "storage_aggregation_enabled": spec.enable_openyield_array_aggregation,
+        }
+    sense_rect = add_hard_array("sense_amp_array", "sense_amp", sense_origin_x, sense_origin_y, spec.word_size, 1, column_pitch, sense.height, "sense_amp")
     write_rect = add_hard_array("write_driver_array", "write_driver", x_array, y_column + tri_gate.height + gap, spec.word_size, 1, column_pitch, write_driver.height, "write_driver")
     tri_rect = add_hard_array("tri_gate_array", "tri_gate", x_array, y_column, spec.word_size, 1, column_pitch, tri_gate.height, "tri_gate")
     periph_rect = Rect(x_array, y_column, max(sense_rect.x1, write_rect.x1, tri_rect.x1), sense_rect.y1)
@@ -714,18 +1627,41 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         sense_x = x_array + i * column_pitch + sense.width * 0.5
         db.add_shape("m2", Rect(sense_x - 0.035, y_column, sense_x + 0.035, y_mux), "route_guide", f"mux_d[{i}]", f"sense_drop_{i}")
 
-    for i in range(spec.word_size):
-        col = i % data_cols
-        row = i // data_cols
-        x = x_array + col * control_dff_pitch_x
-        y = y_data + row * dff_row_pitch
-        rect = Rect(x, y, x + physical_cell_width("dff"), y + physical_cell_height("dff"))
-        db.add_instance(Instance(f"data_dff_{i}", "dff", rect, "data_dff"))
-    data_rect = Rect(x_array, y_data, x_array + data_w, y_data + data_h)
+    if spec.enable_openyield_dff_row_packing:
+        data_dff_rows_spec = [["dff" for _ in range(min(data_cols, spec.word_size - row * data_cols))] for row in range(data_rows)]
+        data_dff_plan = build_gate_row_packing_plan(
+            block_name="data_dff",
+            row_cells=data_dff_rows_spec,
+            footprints={"dff": dff_footprint},
+            origin_x=x_array,
+            origin_y=y_data,
+            explicit_opt_in=True,
+            row_pitch=dff_row_pitch,
+            vertical_abutment_policy="standard_row_spacing",
+            overlap_eligibility={"dff": overlap_eligibility["dff"]},
+            row_domain="dff_domain",
+        )
+        data_rects = []
+        data_index = 0
+        for row in data_dff_plan.rows:
+            for placement in row.cells:
+                data_rects.append(add_hard_macro_instance(f"data_dff_{data_index}", "dff", placement.x, placement.y, "data_dff", mirror=row.mirror))
+                data_index += 1
+        data_rect = Rect.union(data_rects)
+    else:
+        data_dff_plan = None
+        for i in range(spec.word_size):
+            col = i % data_cols
+            row = i // data_cols
+            x = x_array + col * control_dff_pitch_x
+            y = y_data + row * dff_row_pitch
+            rect = Rect(x, y, x + physical_cell_width("dff"), y + physical_cell_height("dff"))
+            db.add_instance(Instance(f"data_dff_{i}", "dff", rect, "data_dff"))
+        data_rect = Rect(x_array, y_data, x_array + data_w, y_data + data_h)
     db.add_shape("m2", data_rect, "module", name="data_dff_array")
 
-    pin_w = 0.16
-    pin_h = 0.5
+    pin_w = perimeter_pin_w
+    pin_h = perimeter_pin_h
 
     # Top-level interconnect. These are intentionally visible macro-level straps
     # that bridge the hard macros and generated peripheral cells.
@@ -798,6 +1734,15 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
     def pin_access(layer: str, x: float, y: float, net: str, name: str, purpose: str = "route_guide") -> None:
         width = max(route_w, tech.layer(layer).min_width)
         db.add_shape(layer, Rect(x - width / 2, y - width / 2, x + width / 2, y + width / 2), purpose, net, name)
+
+    def wordline_escape_lane_x(row: int, driver_x: float, target_x: float) -> float:
+        if bool(selected_row_logic_plan["positions"][row]["folded"]):  # type: ignore[index]
+            return tech.snap(driver_x)
+        pitch = max(route_width("m3") + tech.layer("m3").min_space, 0.21)
+        left = min(driver_x, target_x)
+        right = macro_w - boundary_margin - pitch
+        lanes = max(1, int((right - left) // pitch) + 1)
+        return tech.snap(left + (row % lanes) * pitch)
 
     def route_generated_pin_to_m3(
         pin: dict[str, object],
@@ -895,7 +1840,7 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
                 net = f"mux_d[{index // max(1, wpr)}]"
             else:
                 net = f"{pin_name.lower()}[{index}]"
-            pin_access(str(pin["layer"]), float(pin["x"]), float(pin["y"]), net, f"{instance.name}_{pin_name.lower()}_access")
+            pin_access(str(pin["layer"]), float(pin["x"]), float(pin["y"]), net, f"{instance.name}_{pin_name.lower()}_access", "route")
 
     for instance in [inst for inst in db.instances if inst.role == "row_decoder"]:
         row_index = int(instance.name.rsplit("_", 1)[-1]) if instance.name.rsplit("_", 1)[-1].isdigit() else -1
@@ -923,11 +1868,16 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
             net = f"wl[{row_index}]"
             wl_target_y = storage_wl_y(row_index)
             wl_rail_x0, wl_rail_x1 = storage_wl_extent(row_index)
-            wl_m2_width = via_w + 2 * via_enclosure
-            pin_access(str(drv_z["layer"]), float(drv_z["x"]), float(drv_z["y"]), net, f"{driver.name}_z_access", "route")
-            via("via1", float(drv_z["x"]), float(drv_z["y"]), net, f"{driver.name}_z_via1", "route")
-            vroute_with_width("m2", float(drv_z["x"]), float(drv_z["y"]), wl_target_y, wl_m2_width, net, f"{driver.name}_z_escape", "route")
-            hroute_with_width("m2", float(drv_z["x"]), wl_rail_x0, wl_target_y, wl_m2_width, net, f"{driver.name}_to_array", "route")
+            drv_z_x = float(drv_z["x"])
+            drv_z_y = float(drv_z["y"])
+            lane_x = wordline_escape_lane_x(row_index, drv_z_x, wl_rail_x0)
+            pin_access(str(drv_z["layer"]), drv_z_x, drv_z_y, net, f"{driver.name}_z_access", "route")
+            via("via1", drv_z_x, drv_z_y, net, f"{driver.name}_z_via1", "route")
+            via("via2", drv_z_x, drv_z_y, net, f"{driver.name}_z_via2", "route")
+            hroute("m3", drv_z_x, lane_x, drv_z_y, net, f"{driver.name}_z_to_escape_lane", "route")
+            vroute("m3", lane_x, drv_z_y, wl_target_y, net, f"{driver.name}_z_escape", "route")
+            via("via2", lane_x, wl_target_y, net, f"{driver.name}_escape_lane_via2", "route")
+            hroute("m2", lane_x, wl_rail_x0, wl_target_y, net, f"{driver.name}_to_array", "route")
             via("via1", wl_rail_x0, wl_target_y, net, f"{driver.name}_array_entry_via1", "route")
             hroute("m1", wl_rail_x0, wl_rail_x1, wl_target_y, net, f"wl_row_rail_{row_index}", "route")
 
@@ -941,7 +1891,9 @@ def build_layout(spec: StandaloneSpec, tech: Tech) -> LayoutDB:
         via("via2", decoder_bus_x, y + pin_h * 0.5, net, f"addr_{i}_decoder_via")
     for row in range(rows):
         y = row_y(row) + bitcell.height * 0.35
-        hroute("m3", x_decoder, x_decoder + tech.cell(row_decode_cell).width, y, f"dec_in[{row}]", f"row_decode_input_{row}")
+        decoder = row_decoders.get(f"row_decode_{row}")
+        if decoder is not None:
+            hroute("m3", decoder.rect.x0, decoder.rect.x1, y, f"dec_in[{row}]", f"row_decode_input_{row}")
 
     # Column-select rails drive every column mux group.
     sel_source_y = control_gate_y + control_glue_h + gap + tech.cell("gen_inv").height * 0.5
@@ -1139,6 +2091,7 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
     integration_gds = out_dir / f"{name}.integration.gds"
     architecture_gds = out_dir / f"{name}.architecture.gds"
     architecture_svg = out_dir / f"{name}.architecture.svg"
+    occupancy_svg = out_dir / f"{name}.occupancy.svg"
     route_guide_gds = out_dir / f"{name}.route_guides.gds"
     lef = out_dir / f"{name}.lef"
     layout_json = out_dir / f"{name}.layout.json"
@@ -1169,6 +2122,12 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
     layout.write_json(layout_json)
     drc = Verifier(tech).run(layout)
     bounds = layout.bounds
+    boundary_margin = float(layout.metadata.get("boundary_margin_um", 0.0) or 0.0)
+    legacy_boundary_margin = float(layout.metadata.get("legacy_boundary_margin_um", boundary_margin) or boundary_margin)
+    legacy_margin_delta = max(0.0, legacy_boundary_margin - boundary_margin)
+    estimated_legacy_w = bounds.width + 2 * legacy_margin_delta
+    estimated_legacy_h = bounds.height + 2 * legacy_margin_delta
+    estimated_legacy_area = estimated_legacy_w * estimated_legacy_h
     useful = spec.word_size * spec.num_words * tech.cell("cell_1rw").area
     hardcell_arrays: dict[str, int] = {}
     for array in layout.cell_arrays:
@@ -1250,6 +2209,8 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
     openram_cell_source_audit = _audit_openram_cell_sources(tech, used_gds_cells, generated_instances, abstract_instances)
     architecture_quality = _audit_architecture(layout)
     geometry_audit = _audit_geometry(layout, tech)
+    occupancy_audit = analyze_floorplan_occupancy(layout)
+    write_occupancy_svg(occupancy_svg, occupancy_audit)
     cell_array_mirror_audit = _audit_cell_array_mirroring(layout)
     cell_array_layer_audit = _audit_cell_array_layer_abutment(tech, layout)
     structural_audit = _audit_structural_consistency(tech, layout)
@@ -1303,7 +2264,34 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
         "num_words": spec.num_words,
         "words_per_row": spec.resolved_words_per_row(),
         "legal_words_per_row": spec.legal_words_per_row(),
+        "enable_openyield_array_aggregation": spec.enable_openyield_array_aggregation,
+        "enable_openyield_senseamp_adapter": spec.enable_openyield_senseamp_adapter,
+        "enable_openyield_columnmux_adapter": spec.enable_openyield_columnmux_adapter,
+        "enable_openyield_writedriver_adapter": spec.enable_openyield_writedriver_adapter,
+        "enable_openyield_wordlinedriver_adapter": spec.enable_openyield_wordlinedriver_adapter,
+        "enable_openyield_gate_row_packing": spec.enable_openyield_gate_row_packing,
+        "enable_openyield_gate_row_vertical_abutment": spec.enable_openyield_gate_row_vertical_abutment,
+        "enable_openyield_rail_to_rail_abutment": spec.enable_openyield_rail_to_rail_abutment,
+        "enable_openyield_power_rail_overlap_packing": spec.enable_openyield_power_rail_overlap_packing,
+        "enable_openyield_dff_row_packing": spec.enable_openyield_dff_row_packing,
+        "exclude_dff_vertical_overlap": spec.exclude_dff_vertical_overlap,
+        "openyield_storage_row_orientation_policy": spec.openyield_storage_row_orientation_policy,
         "bank_style": layout.metadata.get("bank_style"),
+        "floorplan_compaction_strategy": layout.metadata.get("floorplan_compaction_strategy"),
+        "boundary_margin_um": boundary_margin,
+        "legacy_boundary_margin_um": legacy_boundary_margin,
+        "data_dff_packing_strategy": layout.metadata.get("data_dff_packing_strategy"),
+        "selected_data_dff_packing": layout.metadata.get("selected_data_dff_packing", {}),
+        "data_dff_packing_candidates": layout.metadata.get("data_dff_packing_candidates", []),
+        "row_logic_folding": layout.metadata.get("row_logic_folding", {}),
+        "gate_row_packing_plan": layout.metadata.get("gate_row_packing_plan", {}),
+        "estimated_legacy_width_um": estimated_legacy_w,
+        "estimated_legacy_height_um": estimated_legacy_h,
+        "estimated_legacy_macro_area_um2": estimated_legacy_area,
+        "estimated_compaction_area_savings_um2": estimated_legacy_area - bounds.area,
+        "estimated_compaction_area_savings_percent": (
+            (estimated_legacy_area - bounds.area) / estimated_legacy_area if estimated_legacy_area else 0.0
+        ),
         "lower_bank_rows": layout.metadata.get("lower_bank_rows"),
         "upper_bank_rows": layout.metadata.get("upper_bank_rows"),
         "bank_channel_height_um": layout.metadata.get("bank_channel_height_um"),
@@ -1337,9 +2325,16 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
         },
         "routing_track_selection": layout.metadata.get("routing_track_selection", {}),
         "route_guide_promotion": route_guide_promotion,
+        "openyield_columnmux_adapter": layout.metadata.get("openyield_columnmux_adapter", {}),
+        "openyield_array_aggregation_integration": layout.metadata.get("openyield_array_aggregation_integration", {}),
+        "openyield_senseamp_adapter": layout.metadata.get("openyield_senseamp_adapter", {}),
+        "openyield_writedriver_adapter": layout.metadata.get("openyield_writedriver_adapter", {}),
+        "openyield_wordlinedriver_adapter": layout.metadata.get("openyield_wordlinedriver_adapter", {}),
+        "openyield_gate_row_packing": layout.metadata.get("openyield_gate_row_packing", {}),
         "architecture_modules": _collect_architecture_modules(layout),
         "architecture_quality": architecture_quality,
         "geometry_audit": geometry_audit,
+        "floorplan_occupancy": occupancy_audit,
         "cell_array_mirror_audit": cell_array_mirror_audit,
         "cell_array_layer_audit": cell_array_layer_audit,
         "structural_audit": structural_audit,
@@ -1365,6 +2360,7 @@ def write_standalone(spec: StandaloneSpec, out_dir: Path) -> dict:
         "integration_gds": str(integration_gds),
         "architecture_gds": str(architecture_gds),
         "architecture_svg": str(architecture_svg),
+        "occupancy_svg": str(occupancy_svg),
         "route_guide_gds": str(route_guide_gds),
         "lef": str(lef),
         "spice": str(spice),
@@ -1990,16 +2986,22 @@ def _audit_geometry(layout: LayoutDB, tech: Tech) -> dict[str, object]:
 
     modules = {shape.name: shape.rect for shape in layout.shapes if shape.purpose == "module" and shape.name}
     data_overhangs: list[dict[str, object]] = []
+    allowed_data_overhangs: list[dict[str, object]] = []
     data_dff = modules.get("data_dff_array")
     data_path = modules.get("SA_SWITCH_LATCH_MUX")
     if data_dff is not None and data_path is not None and data_dff.x1 > data_path.x1 + 1e-9:
-        data_overhangs.append({
+        item = {
             "module": "data_dff_array",
             "reference": "SA_SWITCH_LATCH_MUX",
             "overhang_um": round(data_dff.x1 - data_path.x1, 6),
             "module_rect": data_dff.to_dict(),
             "reference_rect": data_path.to_dict(),
-        })
+        }
+        if layout.metadata.get("data_dff_packing_strategy") == "global macro area search" and contains(pr_boundary, data_dff):
+            item["reason"] = "occupancy_guided_global_data_dff_packing"
+            allowed_data_overhangs.append(item)
+        else:
+            data_overhangs.append(item)
 
     return {
         "pr_boundary": pr_boundary.to_dict(),
@@ -2007,6 +3009,8 @@ def _audit_geometry(layout: LayoutDB, tech: Tech) -> dict[str, object]:
         "objects_outside_pr_boundary_count": len(outside),
         "data_periphery_overhangs": data_overhangs,
         "data_periphery_overhang_count": len(data_overhangs),
+        "allowed_data_periphery_overhangs": allowed_data_overhangs,
+        "allowed_data_periphery_overhang_count": len(allowed_data_overhangs),
         "cell_array_pitch_violations": cell_array_pitch_violations,
         "cell_array_pitch_violation_count": len(cell_array_pitch_violations),
         "allowed_cell_array_pitch_shortfalls": allowed_cell_array_pitch_shortfalls,
@@ -2097,9 +3101,17 @@ def _audit_cell_bboxes(tech: Tech, used_gds_cells: list[str]) -> dict[str, objec
 
 def _audit_cell_array_mirroring(layout: LayoutDB) -> dict[str, object]:
     expected_mirror_x_roles = {"bitcell_array", "dummy_bitcell", "replica_bitline"}
+    openyield_aggregation = layout.metadata.get("openyield_array_aggregation_integration", {})
+    openyield_storage_enabled = bool(openyield_aggregation.get("enabled"))
+    openyield_storage_policy = str(openyield_aggregation.get("row_orientation_policy", "all_r0"))
+    openyield_storage_r0 = openyield_storage_enabled and openyield_storage_policy == "all_r0"
+    openyield_storage_names = {"bitcell_array", "dummy_left_array", "dummy_right_array", "replica_bitline_array"}
     arrays: list[dict[str, object]] = []
     missing: list[dict[str, object]] = []
     for array in layout.cell_arrays:
+        expected_openram_row_mirror = array.role in expected_mirror_x_roles and not (
+            openyield_storage_r0 and array.name in openyield_storage_names
+        )
         info = {
             "array": array.name,
             "cell": array.cell,
@@ -2110,7 +3122,9 @@ def _audit_cell_array_mirroring(layout: LayoutDB) -> dict[str, object]:
             "mirror_y": array.mirror_y,
             "row_offset": array.row_offset,
             "column_offset": array.column_offset,
-            "expected_openram_row_mirror": array.role in expected_mirror_x_roles,
+            "expected_openram_row_mirror": expected_openram_row_mirror,
+            "openyield_storage_r0_exception": openyield_storage_r0 and array.name in openyield_storage_names,
+            "openyield_storage_policy": openyield_storage_policy if openyield_storage_enabled and array.name in openyield_storage_names else None,
         }
         arrays.append(info)
         if info["expected_openram_row_mirror"] and array.rows > 1 and not array.mirror_x:
@@ -2118,7 +3132,10 @@ def _audit_cell_array_mirroring(layout: LayoutDB) -> dict[str, object]:
     return {
         "method": (
             "OpenRAM FreePDK45 bitcell placement mirror.x=True, mirror.y=False: "
-            "alternate rows use MX while columns remain R0"
+            "alternate rows use MX while columns remain R0. When limited OpenYield "
+            "storage aggregation is explicitly enabled, storage cells follow the "
+            "configured row_orientation_policy while keeping peripheral arrays on "
+            "the legacy path."
         ),
         "clean": not missing,
         "missing_required_row_mirror_count": len(missing),
@@ -2824,6 +3841,7 @@ def _format_report_md(metrics: dict) -> str:
         f"- Integration DRC GDS: `{metrics.get('integration_gds', 'none')}`",
         f"- Architecture-view GDS: `{metrics.get('architecture_gds', 'none')}`",
         f"- Architecture SVG: `{metrics.get('architecture_svg', 'none')}`",
+        f"- Occupancy SVG: `{metrics.get('occupancy_svg', 'none')}`",
         f"- Route-guide debug GDS: `{metrics.get('route_guide_gds', 'none')}`",
         "",
         "## Hardcell usage",
@@ -2864,6 +3882,65 @@ def _format_report_md(metrics: dict) -> str:
             lines.append(f"- `{cell}`: {count}")
     else:
         lines.append("- none; non-OpenRAM generated stdcell geometry is not emitted in formal GDS")
+    columnmux_adapter = metrics.get("openyield_columnmux_adapter", {})
+    if columnmux_adapter:
+        lines.extend(["", "## OpenYield column mux adapter", ""])
+        lines.append(f"- enabled: `{columnmux_adapter.get('enabled')}`")
+        lines.append(f"- local macro: `{columnmux_adapter.get('local_macro', 'gen_col_mux')}`")
+        lines.append(f"- source macro: `{columnmux_adapter.get('source_macro', 'gen_col_mux')}`")
+        lines.append(f"- repaired alias metadata: `{columnmux_adapter.get('repaired_alias_metadata')}`")
+        lines.append(f"- power status: `{columnmux_adapter.get('power_status')}`")
+        lines.append(f"- safe_for_physical_mapping: `{columnmux_adapter.get('safe_for_physical_mapping')}`")
+        lines.append(f"- safe_for_shared_rail: `{columnmux_adapter.get('safe_for_shared_rail')}`")
+        lines.append(f"- uses repaired alias: `{columnmux_adapter.get('uses_repaired_alias')}`")
+        lines.append(f"- shared rail enabled: `{columnmux_adapter.get('shared_rail_enabled')}`")
+        lines.append(f"- routing changed: `{columnmux_adapter.get('routing_changed')}`")
+        lines.append(f"- gds writer changed: `{columnmux_adapter.get('gds_writer_changed')}`")
+        lines.append(f"- write_driver changed: `{columnmux_adapter.get('write_driver_changed')}`")
+        lines.append(f"- wordline_driver changed: `{columnmux_adapter.get('wordline_driver_changed')}`")
+        lines.append(f"- limited placement plan count: `{len((columnmux_adapter.get('limited_placement_plan') or {}).get('placements', []))}`")
+    writedriver_adapter = metrics.get("openyield_writedriver_adapter", {})
+    if writedriver_adapter:
+        lines.extend(["", "## OpenYield write driver adapter", ""])
+        lines.append(f"- enabled: `{writedriver_adapter.get('enabled')}`")
+        lines.append(f"- local macro: `{writedriver_adapter.get('local_macro', 'write_driver')}`")
+        lines.append(f"- contract path: `{writedriver_adapter.get('contract_path')}`")
+        lines.append(f"- power status: `{writedriver_adapter.get('power_status')}`")
+        lines.append(f"- safe_for_physical_mapping: `{writedriver_adapter.get('safe_for_physical_mapping')}`")
+        lines.append(f"- safe_for_shared_rail: `{writedriver_adapter.get('safe_for_shared_rail')}`")
+        lines.append(f"- requires_netlist_rewrite: `{writedriver_adapter.get('requires_netlist_rewrite')}`")
+        lines.append(f"- placement count: `{writedriver_adapter.get('placement_count', 0)}`")
+        lines.append(f"- adapter applied to placement: `{writedriver_adapter.get('adapter_applied_to_placement')}`")
+        lines.append(f"- routing changed: `{writedriver_adapter.get('routing_changed')}`")
+        lines.append(f"- gds writer changed: `{writedriver_adapter.get('gds_writer_changed')}`")
+        lines.append(f"- shared rail enabled: `{writedriver_adapter.get('shared_rail_enabled')}`")
+        lines.append(f"- write_driver changed: `{writedriver_adapter.get('write_driver_changed')}`")
+        lines.append(f"- column mux changed: `{writedriver_adapter.get('column_mux_changed')}`")
+        lines.append(f"- senseamp changed: `{writedriver_adapter.get('senseamp_changed')}`")
+        lines.append(f"- storage aggregation enabled: `{writedriver_adapter.get('storage_aggregation_enabled')}`")
+    wordlinedriver_adapter = metrics.get("openyield_wordlinedriver_adapter", {})
+    if wordlinedriver_adapter:
+        lines.extend(["", "## OpenYield wordline driver adapter", ""])
+        lines.append(f"- enabled: `{wordlinedriver_adapter.get('enabled')}`")
+        lines.append(f"- local macro: `{wordlinedriver_adapter.get('local_macro', 'gen_wl_driver')}`")
+        lines.append(f"- contract path: `{wordlinedriver_adapter.get('contract_path')}`")
+        lines.append(f"- power status: `{wordlinedriver_adapter.get('power_status')}`")
+        lines.append(f"- safe_for_physical_mapping: `{wordlinedriver_adapter.get('safe_for_physical_mapping')}`")
+        lines.append(f"- safe_for_shared_rail: `{wordlinedriver_adapter.get('safe_for_shared_rail')}`")
+        lines.append(f"- can enter limited placement: `{wordlinedriver_adapter.get('can_enter_limited_placement')}`")
+        lines.append(f"- b polarity: `{wordlinedriver_adapter.get('b_polarity')}`")
+        lines.append(f"- semantic confirmation: `{wordlinedriver_adapter.get('semantic_confirmation')}`")
+        lines.append(f"- placement count: `{wordlinedriver_adapter.get('placement_count', 0)}`")
+        lines.append(f"- adapter applied to placement: `{wordlinedriver_adapter.get('adapter_applied_to_placement')}`")
+        lines.append(f"- routing changed: `{wordlinedriver_adapter.get('routing_changed')}`")
+        lines.append(f"- gds writer changed: `{wordlinedriver_adapter.get('gds_writer_changed')}`")
+        lines.append(f"- shared rail enabled: `{wordlinedriver_adapter.get('shared_rail_enabled')}`")
+        lines.append(f"- write_driver changed: `{wordlinedriver_adapter.get('write_driver_changed')}`")
+        lines.append(f"- column mux changed: `{wordlinedriver_adapter.get('column_mux_changed')}`")
+        lines.append(f"- senseamp changed: `{wordlinedriver_adapter.get('senseamp_changed')}`")
+        lines.append(f"- storage aggregation enabled: `{wordlinedriver_adapter.get('storage_aggregation_enabled')}`")
+        lines.append(f"- decoder changed: `{wordlinedriver_adapter.get('decoder_changed')}`")
+        lines.append(f"- time control changed: `{wordlinedriver_adapter.get('time_control_changed')}`")
     lines.extend(["", "## Remaining abstract blocks", ""])
     if metrics["abstract_instances"]:
         for cell, count in metrics["abstract_instances"].items():
@@ -2900,6 +3977,34 @@ def _format_report_md(metrics: dict) -> str:
     lines.append(f"- top-level route guides: `{completeness.get('route_guide_count', 0)}`")
     lines.extend(["", "## Banked architecture", ""])
     lines.append(f"- bank_style: `{metrics.get('bank_style', 'unknown')}`")
+    if metrics.get("floorplan_compaction_strategy"):
+        lines.append(f"- compaction strategy: `{metrics.get('floorplan_compaction_strategy')}`")
+        lines.append(
+            f"- boundary margin: `{metrics.get('boundary_margin_um')}`um "
+            f"(legacy `{metrics.get('legacy_boundary_margin_um')}`um)"
+        )
+        lines.append(
+            f"- estimated legacy size: `{float(metrics.get('estimated_legacy_width_um', 0.0)):.4f}um x "
+            f"{float(metrics.get('estimated_legacy_height_um', 0.0)):.4f}um`, "
+            f"area savings `{float(metrics.get('estimated_compaction_area_savings_um2', 0.0)):.4f}um^2` "
+            f"({float(metrics.get('estimated_compaction_area_savings_percent', 0.0)):.2%})"
+        )
+    selected_data_packing = metrics.get("selected_data_dff_packing", {})
+    if selected_data_packing:
+        lines.append(f"- data DFF packing strategy: `{metrics.get('data_dff_packing_strategy')}`")
+        lines.append(
+            f"- selected data DFF grid: `{selected_data_packing.get('columns')}` columns x "
+            f"`{selected_data_packing.get('rows')}` rows, "
+            f"estimated macro area `{float(selected_data_packing.get('macro_area_um2', 0.0)):.4f}um^2`"
+        )
+    row_folding = metrics.get("row_logic_folding", {})
+    if row_folding:
+        folded_rows = row_folding.get("folded_rows", [])
+        lines.append(f"- row-logic folding strategy: `{row_folding.get('strategy')}`")
+        lines.append(
+            f"- folded row drivers: `{', '.join(str(row) for row in folded_rows) if folded_rows else 'none'}` "
+            f"using `{row_folding.get('lanes')}` horizontal lanes"
+        )
     lines.append(f"- lower_bank_rows: `{metrics.get('lower_bank_rows', 'unknown')}`")
     lines.append(f"- upper_bank_rows: `{metrics.get('upper_bank_rows', 'unknown')}`")
     lines.append(f"- bank_channel_height_um: `{metrics.get('bank_channel_height_um', 'unknown')}`")
@@ -2915,6 +4020,7 @@ def _format_report_md(metrics: dict) -> str:
         lines.append(f"- clean: `{geometry.get('clean')}`")
         lines.append(f"- objects outside prBoundary: `{geometry.get('objects_outside_pr_boundary_count', 0)}`")
         lines.append(f"- data periphery overhangs: `{geometry.get('data_periphery_overhang_count', 0)}`")
+        lines.append(f"- allowed data periphery overhangs: `{geometry.get('allowed_data_periphery_overhang_count', 0)}`")
         lines.append(f"- cell-array pitch violations: `{geometry.get('cell_array_pitch_violation_count', 0)}`")
         lines.append(f"- placed cell bbox overlaps: `{geometry.get('placed_cell_overlap_count', 0)}`")
         lines.append(f"- generated/hardcell overlaps: `{geometry.get('generated_hardcell_overlap_count', 0)}`")
@@ -2927,6 +4033,11 @@ def _format_report_md(metrics: dict) -> str:
             lines.append(
                 f"- overhang `{item.get('module')}` beyond `{item.get('reference')}`: "
                 f"{float(item.get('overhang_um', 0.0)):.4f}um"
+            )
+        for item in geometry.get("allowed_data_periphery_overhangs", [])[:5]:
+            lines.append(
+                f"- allowed overhang `{item.get('module')}` beyond `{item.get('reference')}`: "
+                f"{float(item.get('overhang_um', 0.0)):.4f}um ({item.get('reason')})"
             )
         for item in geometry.get("cell_array_pitch_violations", [])[:5]:
             lines.append(
@@ -2945,6 +4056,45 @@ def _format_report_md(metrics: dict) -> str:
                 f"- close spacing `{item.get('generated_instance')}` to `{item.get('hardcell')}`: "
                 f"{float(item.get('spacing_um', 0.0)):.4f}um"
             )
+    occupancy = metrics.get("floorplan_occupancy", {})
+    if occupancy:
+        lines.extend(["", "## Global occupancy map", ""])
+        lines.append(f"- method: {occupancy.get('method')}")
+        lines.append(f"- occupied area: `{float(occupancy.get('occupied_area_um2', 0.0)):.4f}um^2`")
+        lines.append(f"- empty area: `{float(occupancy.get('empty_area_um2', 0.0)):.4f}um^2`")
+        lines.append(f"- occupancy ratio: `{float(occupancy.get('occupancy_ratio', 0.0)):.2%}`")
+        lines.append(f"- largest empty region: `{float(occupancy.get('largest_empty_area_um2', 0.0)):.4f}um^2`")
+        lines.append(f"- occupancy SVG: `{metrics.get('occupancy_svg', 'none')}`")
+        role_areas = occupancy.get("role_primary_area_um2", {})
+        if role_areas:
+            ranked_roles = sorted(role_areas.items(), key=lambda item: float(item[1]), reverse=True)[:10]
+            lines.append(
+                "- largest filled roles: "
+                + ", ".join(f"`{role}`={float(area):.4f}um^2" for role, area in ranked_roles)
+            )
+        for index, item in enumerate(occupancy.get("optimization_targets", [])[:6], start=1):
+            rect = item.get("rect", {})
+            nearest = item.get("nearest_filled_regions", [])
+            nearest_text = ", ".join(
+                f"`{entry.get('name')}`/{entry.get('role')}@{float(entry.get('spacing_um', 0.0)):.3f}um"
+                for entry in nearest[:3]
+            )
+            lines.append(
+                f"- empty target {index}: area={float(item.get('area_um2', 0.0)):.4f}um^2, "
+                f"rect=({float(rect.get('x0', 0.0)):.3f}, {float(rect.get('y0', 0.0)):.3f}) to "
+                f"({float(rect.get('x1', 0.0)):.3f}, {float(rect.get('y1', 0.0)):.3f}), "
+                f"nearest={nearest_text or 'none'}"
+            )
+        coarse = occupancy.get("coarse_map", {})
+        rows_text = coarse.get("rows_text", [])
+        legend = coarse.get("legend", {})
+        if rows_text:
+            lines.append("- coarse map (`.` means empty):")
+            lines.append("```text")
+            lines.extend(rows_text[:18])
+            lines.append("```")
+            legend_text = ", ".join(f"{symbol}={name}" for symbol, name in legend.items())
+            lines.append(f"- map legend: {legend_text}")
     mirror_audit = metrics.get("cell_array_mirror_audit", {})
     if mirror_audit:
         lines.extend(["", "## OpenRAM-style array mirror audit", ""])

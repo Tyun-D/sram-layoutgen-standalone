@@ -1,0 +1,21 @@
+# M6 Layoutgen Generation Trace
+
+- reference_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds`
+- reference_report_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/layout_prototype/hybrid_openyield_rail_overlap/prototype_result.json`
+- generator_entry_script: `/data1/qujh/work/sram_layoutgen_step45_clean/scripts/openyield_generate_layout_prototype.py`
+- generator_function: `sram_layoutgen.standalone.write_standalone`
+- top_cell_name: `layoutgen_optimized_reproduced_sram`
+- word_size: `8`
+- num_words: `64`
+- words_per_row: `4`
+- enable_openyield_gate_row_packing: `True`
+- enable_openyield_rail_to_rail_abutment: `True`
+- enable_openyield_power_rail_overlap_packing: `True`
+- enable_openyield_columnmux_adapter: `True`
+- enable_openyield_dff_row_packing: `True`
+- openyield_storage_row_orientation_policy: `alternating_mx`
+- generated_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6_layoutgen_spec_reproduce/current_supported_config/layoutgen_optimized_reproduced_sram.gds`
+- generated_layout_json_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6_layoutgen_spec_reproduce/current_supported_config/layoutgen_optimized_reproduced_sram.layout.json`
+- generated_report_md_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6_layoutgen_spec_reproduce/current_supported_config/layoutgen_optimized_reproduced_sram.report.md`
+- generated_complete_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6_layoutgen_spec_reproduce/current_supported_config/layoutgen_optimized_reproduced_sram.complete.gds`
+- generated_presentation_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6_layoutgen_spec_reproduce/current_supported_config/layoutgen_optimized_reproduced_sram.presentation.gds`

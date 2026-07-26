@@ -1,0 +1,132 @@
+[
+  {
+    "check": "m11w_gate_loaded",
+    "status": true,
+    "notes": "M11W report loaded."
+  },
+  {
+    "check": "m11w_next_stage_allowed",
+    "status": true,
+    "notes": "M11C2_WORDLINE_DRIVER_SMOKE_SUBSTITUTION"
+  },
+  {
+    "check": "m11w_wordline_driver_ready",
+    "status": true,
+    "notes": "True"
+  },
+  {
+    "check": "substitution_scope_only_wordline_driver",
+    "status": true,
+    "notes": "wordline_driver"
+  },
+  {
+    "check": "sense_amp_not_substituted",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "column_mux_not_substituted",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "write_driver_not_substituted",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "control_logic_not_substituted",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "wordline_driver_wrapper_gds_found",
+    "status": true,
+    "notes": "outputs/M11W_wordline_driver_wrapper_pin_repair/current_supported_config/M11W_wordline_driver_wrapper_candidate.gds"
+  },
+  {
+    "check": "wordline_driver_wrapper_gds_parsed",
+    "status": true,
+    "notes": "M11W_wordline_driver_wrapper_candidate"
+  },
+  {
+    "check": "wrapper_top_cell_correct",
+    "status": true,
+    "notes": "M11W_wordline_driver_wrapper_candidate"
+  },
+  {
+    "check": "m11w_pin_rail_metadata_loaded",
+    "status": true,
+    "notes": "metadata_rows=8 manifest_rows=4"
+  },
+  {
+    "check": "wordline_driver_golden_target_found",
+    "status": true,
+    "notes": "gen_wl_driver"
+  },
+  {
+    "check": "replacement_target_not_unknown",
+    "status": true,
+    "notes": "Golden target is the concrete gen_wl_driver leaf."
+  },
+  {
+    "check": "output_gds_parsed",
+    "status": true,
+    "notes": "GDS_PARSED_SANITY_PASSED"
+  },
+  {
+    "check": "top_bbox_checked",
+    "status": true,
+    "notes": "EXACT_MATCH"
+  },
+  {
+    "check": "no_access_module",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "no_floorplan_proxy",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "no_arbitrary_scatter",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "wordline_driver_instance_count_expected",
+    "status": true,
+    "notes": "16"
+  },
+  {
+    "check": "openyield_wordline_driver_wrapper_fingerprint_found_in_M11C2",
+    "status": true,
+    "notes": "D,G,S"
+  },
+  {
+    "check": "not_label_only",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "not_outside_placement",
+    "status": true,
+    "notes": "False"
+  },
+  {
+    "check": "dgs_pin_metadata_inherited_from_M11W",
+    "status": true,
+    "notes": "All D/G/S rows remain ALIGNED from M11W."
+  },
+  {
+    "check": "vdd_gnd_rail_still_identifiable",
+    "status": true,
+    "notes": "Inherited from M11W repaired metadata."
+  },
+  {
+    "check": "no_unexpected_non_wordline_driver_geometry_change",
+    "status": true,
+    "notes": "0"
+  }
+]

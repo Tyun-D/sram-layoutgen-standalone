@@ -1,0 +1,8 @@
+# M12O External Dependency Blockers
+
+1. Without a single authoritative OpenYield complete SRAM top netlist, full custom netlist-driven layout generation cannot be claimed.
+2. Without DRC deck, LVS extraction, and stable layer-map closure for the intended final flow, DRC/LVS/routing/power clean cannot be claimed.
+3. GDS alone cannot prove real netlist connectivity, so layout-only reverse inference is insufficient.
+4. CONTROL_LOGIC needs an OpenYield control-logic netlist source or an OpenRAM-aligned reference contract; candidate geometry alone is not enough.
+5. Because OpenRAM full reference and layoutgen golden are different specs, only structural/region comparison is justified, not exact geometry equivalence.
+6. Parameterized SRAM generation needs explicit mappings from parameters to rows, cols, mux ratio, array shape, periphery sizing, and top-pin contracts.

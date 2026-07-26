@@ -1,0 +1,58 @@
+{
+  "rules": [
+    {
+      "rule_name": "ArrayInternalRails",
+      "source_evidence": "bitcell_base_array.route_supplies; reference GDS bitcell/dummy rail propagation",
+      "rule_description": "Array-internal VDD/GND should propagate from the bitcell and dummy/replica children, preserving their orientation and edge reach.",
+      "required_geometry": "Array-local supply pins or continuous rails.",
+      "required_metadata": "rail layer, side/orientation, cell parity effects.",
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH,MISSING_PIN_GEOMETRY",
+      "implemented_in_stage": "C2/C5"
+    },
+    {
+      "rule_name": "RowPeripheryRails",
+      "source_evidence": "port_address.route_supplies; wordline_driver_array.route_supplies",
+      "rule_description": "Row decoder and wordline drivers need explicit row-periphery rails aligned for later top-level stitch.",
+      "required_geometry": "Vertical/horizontal row-periphery rails with true pins.",
+      "required_metadata": "rail orientation by module.",
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH",
+      "implemented_in_stage": "C2/C5"
+    },
+    {
+      "rule_name": "ColumnPeripheryRails",
+      "source_evidence": "precharge_array.route_supplies; sense_amp_array.route_supplies; write_driver_array.route_supplies",
+      "rule_description": "Precharge, mux, sense, and write stages require stage-local rails before top-level straps are added.",
+      "required_geometry": "Per-stage VDD/GND rails and tap points.",
+      "required_metadata": "column stage to rail mapping.",
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH,APPROXIMATE_POWER_GEOMETRY",
+      "implemented_in_stage": "C2/C5"
+    },
+    {
+      "rule_name": "ControlPeripheryRails",
+      "source_evidence": "sram_1bank.route_layout; supply_router",
+      "rule_description": "Control region needs its own stitchable rails or ring targets before top-level strap export.",
+      "required_geometry": "Control VDD/GND rails and side/ring targets.",
+      "required_metadata": "power pin type and stitch policy.",
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH,APPROXIMATE_POWER_GEOMETRY",
+      "implemented_in_stage": "C2/C5"
+    },
+    {
+      "rule_name": "TopLevelPowerStraps",
+      "source_evidence": "supply_router.add_side_pin/add_ring_pin",
+      "rule_description": "Top-level VDD/GND straps or rings should be created after sink rails are known and must connect through explicit taps/vias.",
+      "required_geometry": "Top straps, corner vias, module-rail taps.",
+      "required_metadata": "strap layer stack, side or ring selection.",
+      "c0_blockers_addressed": "APPROXIMATE_POWER_GEOMETRY,CONTRACT_POWER_STITCH",
+      "implemented_in_stage": "C5"
+    },
+    {
+      "rule_name": "TopPowerPins",
+      "source_evidence": "supply_router.route; hierarchy_layout.copy_power_pins",
+      "rule_description": "Top-level VDD/GND pins must coincide with real strap/ring geometry and not be isolated placeholders.",
+      "required_geometry": "Exported top VDD/GND pin rectangles on final strap/ring layers.",
+      "required_metadata": "top power pin layer/name mapping.",
+      "c0_blockers_addressed": "APPROXIMATE_POWER_GEOMETRY,MISSING_TOP_PIN_GEOMETRY",
+      "implemented_in_stage": "C5/C6"
+    }
+  ]
+}

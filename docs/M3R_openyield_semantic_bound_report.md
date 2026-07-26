@@ -1,0 +1,36 @@
+# M3R OpenYield Semantic Bound Report
+
+- status_file_read: `True`
+- status_file_updated: `True`
+- semantic_bound_gds_generated: `True`
+- semantic_bound_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M3R_openyield_semantic_bound/current_supported_config/openyield_semantic_bound_full_sram.gds`
+- semantic_bound_gds_size_bytes: `231514`
+- top_cell_name: `openyield_semantic_bound_full_sram`
+- gds_sanity_status: `GDS_PARSED_SANITY_PASSED`
+- m2r_physical_backbone_preserved: `True`
+- layoutgen_top_flow_preserved: `True`
+- arbitrary_module_scatter_used: `False`
+- bitcell_array_present: `True`
+- bitcell_array_is_dense主体: `True`
+- dummy_or_replica_present: `True`
+- row_path_present: `True`
+- column_path_present: `True`
+- control_region_present: `True`
+- openyield_module_binding_count: `20`
+- openyield_required_module_count: `20`
+- openyield_modules_bound_count: `20`
+- openyield_modules_unbound_count: `0`
+- openyield_net_binding_count: `34`
+- openyield_net_bound_count: `34`
+- openyield_net_unbound_count: `0`
+- first_round_openyield_gds_evaluated_count: `20`
+- first_round_openyield_gds_reused_count: `0`
+- first_round_openyield_gds_rejected_count: `20`
+- semantic_wrapper_or_label_count: `54`
+- access_module_as_primary_count: `0`
+- floorplan_proxy_count: `0`
+- temporary_empty_wrapper_count: `0`
+- human_klayout_review_required: `True`
+- can_enter_next_stage_before_human_review: `False`
+- remaining_M3R_blockers: `[]`
+- remaining_M3R_blockers_count: `0`

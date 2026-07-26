@@ -1,0 +1,24 @@
+# M11C Sense Amp Smoke Check Report
+
+- `m11bh_gate_loaded` status=`True` notes=`M11BH report and scope lock were loaded.`
+- `m11c_scope_from_M11BH` status=`True` notes=`sense_amp_only`
+- `allowed_modules_from_M11BH` status=`True` notes=`sense_amp`
+- `sense_amp_openyield_gds_found` status=`True` notes=`outputs/openyield_module_gds/sense_amp/sense_amp.gds`
+- `sense_amp_openyield_gds_parsed` status=`True` notes=`sense_amp`
+- `sense_amp_metadata_loaded_from_M11B` status=`True` notes=`rows=6`
+- `sense_amp_golden_target_found` status=`True` notes=`sense_amp`
+- `replacement_target_not_unknown` status=`True` notes=`Golden target is the concrete sense_amp leaf cell.`
+- `output_gds_generated` status=`True` notes=`outputs/M11C_sense_amp_smoke_substitution/current_supported_config/M11C_sense_amp_substituted_sram.gds`
+- `output_gds_parsed` status=`True` notes=`GDS_PARSED_SANITY_PASSED`
+- `top_cell_exists` status=`True` notes=`sram_8x64_wpr4_fd45`
+- `top_bbox_checked` status=`True` notes=`EXACT_MATCH`
+- `no_access_module` status=`True` notes=`False`
+- `no_floorplan_proxy` status=`True` notes=`False`
+- `no_arbitrary_scatter` status=`True` notes=`False`
+- `no_wordline_driver_substitution` status=`True` notes=`False`
+- `no_column_mux_substitution` status=`True` notes=`False`
+- `no_write_driver_substitution` status=`True` notes=`False`
+- `only_sense_amp_substituted` status=`True` notes=`All explicitly excluded modules remained unchanged.`
+- `sense_amp_instance_count` status=`True` notes=`8`
+- `vdd_gnd_rail_identifiable` status=`True` notes=`Inherited from M11B ALIGNED rail rows.`
+- `pin_alignment_inherited_from_M11B` status=`True` notes=`All sense_amp signal pins in M11B remained ALIGNED.`

@@ -1,0 +1,198 @@
+{
+  "row_pitch": 1.565,
+  "column_pitch": 0.895,
+  "num_rows": 4,
+  "num_cols": 4,
+  "results": [
+    {
+      "module_name": "bitcell_array",
+      "region": "ARRAY_CORE_REGION",
+      "row_pitch_alignment_status": "ALIGNED",
+      "column_pitch_alignment_status": "ALIGNED",
+      "row_pitch_reference": "row_pitch=1.565",
+      "column_pitch_reference": "column_pitch=0.895",
+      "next_required_action": "Use ARRAY_CORE as the placement and routing anchor for R4."
+    },
+    {
+      "module_name": "dummy_array",
+      "region": "ARRAY_DUMMY_REGION",
+      "row_pitch_alignment_status": "ALIGNED",
+      "column_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "row_pitch_reference": "row_pitch=1.565",
+      "column_pitch_reference": "column_pitch=0.895",
+      "next_required_action": "Tighten dummy-boundary ownership when the array wrapper is upgraded in R4/R5."
+    },
+    {
+      "module_name": "replica_array",
+      "region": "ARRAY_REPLICA_REGION",
+      "row_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "column_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "row_pitch_reference": "row_pitch=1.565",
+      "column_pitch_reference": "column_pitch=0.895",
+      "next_required_action": "Preserve replica timing semantics and add explicit coupling routes in R4."
+    },
+    {
+      "module_name": "row_decoder",
+      "region": "ROW_PERIPHERY_REGION",
+      "row_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "row_pitch_reference": "row_pitch=1.565",
+      "column_pitch_reference": "column_pitch=0.895",
+      "next_required_action": "Refine row-pitch ownership with explicit WL routing and tighter abutment proof in R4."
+    },
+    {
+      "module_name": "wordline_decoder",
+      "region": "ROW_PERIPHERY_REGION",
+      "row_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "row_pitch_reference": "row_pitch=1.565",
+      "column_pitch_reference": "column_pitch=0.895",
+      "next_required_action": "Refine row-pitch ownership with explicit WL routing and tighter abutment proof in R4."
+    },
+    {
+      "module_name": "decoder_gate_cells",
+      "region": "ROW_PERIPHERY_REGION",
+      "row_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "row_pitch_reference": "row_pitch=1.565",
+      "column_pitch_reference": "column_pitch=0.895",
+      "next_required_action": "Refine row-pitch ownership with explicit WL routing and tighter abutment proof in R4."
+    },
+    {
+      "module_name": "wordline_driver",
+      "region": "ROW_PERIPHERY_REGION",
+      "row_pitch_alignment_status": "ALIGNED",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "row_pitch_reference": "row_pitch=1.565",
+      "column_pitch_reference": "column_pitch=0.895",
+      "next_required_action": "Refine row-pitch ownership with explicit WL routing and tighter abutment proof in R4."
+    },
+    {
+      "module_name": "wordline_driver_gate_cells",
+      "region": "ROW_PERIPHERY_REGION",
+      "row_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "row_pitch_reference": "row_pitch=1.565",
+      "column_pitch_reference": "column_pitch=0.895",
+      "next_required_action": "Refine row-pitch ownership with explicit WL routing and tighter abutment proof in R4."
+    },
+    {
+      "module_name": "precharge",
+      "region": "COLUMN_PERIPHERY_REGION",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "row_pitch_reference": "row_pitch=1.565",
+      "column_pitch_reference": "column_pitch=0.895",
+      "next_required_action": "Refine per-column ownership when BL/BR and optional mux routing are implemented in R4."
+    },
+    {
+      "module_name": "column_mux",
+      "region": "COLUMN_PERIPHERY_REGION",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "row_pitch_reference": "row_pitch=1.565",
+      "column_pitch_reference": "column_pitch=0.895",
+      "next_required_action": "Refine per-column ownership when BL/BR and optional mux routing are implemented in R4."
+    },
+    {
+      "module_name": "sense_amp",
+      "region": "COLUMN_PERIPHERY_REGION",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "row_pitch_reference": "row_pitch=1.565",
+      "column_pitch_reference": "column_pitch=0.895",
+      "next_required_action": "Refine per-column ownership when BL/BR and optional mux routing are implemented in R4."
+    },
+    {
+      "module_name": "write_driver",
+      "region": "COLUMN_PERIPHERY_REGION",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "APPROXIMATE_FOR_R3",
+      "row_pitch_reference": "row_pitch=1.565",
+      "column_pitch_reference": "column_pitch=0.895",
+      "next_required_action": "Refine per-column ownership when BL/BR and optional mux routing are implemented in R4."
+    },
+    {
+      "module_name": "CONTROL_LOGIC",
+      "region": "CONTROL_PERIPHERY_REGION",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "row_pitch_reference": "row_pitch=1.565",
+      "column_pitch_reference": "column_pitch=0.895",
+      "next_required_action": "Keep control modules inside the control region and add explicit control/power connectivity in R4."
+    },
+    {
+      "module_name": "DELAY_CHAIN",
+      "region": "CONTROL_PERIPHERY_REGION",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "row_pitch_reference": "row_pitch=1.565",
+      "column_pitch_reference": "column_pitch=0.895",
+      "next_required_action": "Keep control modules inside the control region and add explicit control/power connectivity in R4."
+    },
+    {
+      "module_name": "PRECHARGE_ENABLE_PATH",
+      "region": "CONTROL_PERIPHERY_REGION",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "row_pitch_reference": "row_pitch=1.565",
+      "column_pitch_reference": "column_pitch=0.895",
+      "next_required_action": "Keep control modules inside the control region and add explicit control/power connectivity in R4."
+    },
+    {
+      "module_name": "SENSE_ENABLE_PATH",
+      "region": "CONTROL_PERIPHERY_REGION",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "row_pitch_reference": "row_pitch=1.565",
+      "column_pitch_reference": "column_pitch=0.895",
+      "next_required_action": "Keep control modules inside the control region and add explicit control/power connectivity in R4."
+    },
+    {
+      "module_name": "WRITE_ENABLE_PATH",
+      "region": "CONTROL_PERIPHERY_REGION",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "row_pitch_reference": "row_pitch=1.565",
+      "column_pitch_reference": "column_pitch=0.895",
+      "next_required_action": "Keep control modules inside the control region and add explicit control/power connectivity in R4."
+    },
+    {
+      "module_name": "WORDLINE_ENABLE_PATH",
+      "region": "CONTROL_PERIPHERY_REGION",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "row_pitch_reference": "row_pitch=1.565",
+      "column_pitch_reference": "column_pitch=0.895",
+      "next_required_action": "Keep control modules inside the control region and add explicit control/power connectivity in R4."
+    },
+    {
+      "module_name": "GATED_CLOCK_PATH",
+      "region": "CONTROL_PERIPHERY_REGION",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "row_pitch_reference": "row_pitch=1.565",
+      "column_pitch_reference": "column_pitch=0.895",
+      "next_required_action": "Keep control modules inside the control region and add explicit control/power connectivity in R4."
+    },
+    {
+      "module_name": "DFF_ROW",
+      "region": "CONTROL_PERIPHERY_REGION",
+      "row_pitch_alignment_status": "NOT_APPLICABLE",
+      "column_pitch_alignment_status": "NOT_APPLICABLE",
+      "row_pitch_reference": "row_pitch=1.565",
+      "column_pitch_reference": "column_pitch=0.895",
+      "next_required_action": "Keep control modules inside the control region and add explicit control/power connectivity in R4."
+    }
+  ],
+  "blocked_alignment_count": 0,
+  "approximate_alignment_count": 10,
+  "topology_checks": {
+    "row_path_modules_aligned_to_array_pitch": true,
+    "wordline_driver_row_ownership_matches_num_rows": true,
+    "column_path_modules_aligned_to_array_pitch": true,
+    "column_ownership_matches_num_cols_word_size_words_per_row": true,
+    "dummy_and_replica_have_boundary_relation": true,
+    "control_modules_in_control_region": true
+  }
+}

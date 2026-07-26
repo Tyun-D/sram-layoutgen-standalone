@@ -1,0 +1,134 @@
+{
+  "scope": "selected_control_path_spice_smoke_precharge",
+  "repo_root": "/data1/qujh/work/sram_layoutgen_step45_clean",
+  "repo_head": "176e685ef14355915430a3185a0a25c8590c4689",
+  "openyield_source_path": "/data1/qujh/work/external/OpenYield",
+  "openyield_source_head": "1c34428d8b913963c4971d093b1a7c2df97a2509",
+  "precharge_source": {
+    "source_path": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/precharge_and_write_driver.py",
+    "class_line": 5,
+    "nodes_line": 10,
+    "ports": [
+      "VDD",
+      "ENB",
+      "BL",
+      "BLB"
+    ],
+    "transistors": [
+      {
+        "name": "M1",
+        "line": 39,
+        "role": "Precharge BL",
+        "drain": "BL",
+        "gate": "ENB",
+        "source": "VDD",
+        "bulk": "VDD"
+      },
+      {
+        "name": "M2",
+        "line": 43,
+        "role": "Precharge BLB",
+        "drain": "BLB",
+        "gate": "ENB",
+        "source": "VDD",
+        "bulk": "VDD"
+      },
+      {
+        "name": "M3",
+        "line": 47,
+        "role": "Equalize BL and BLB",
+        "drain": "BL",
+        "gate": "ENB",
+        "source": "BLB",
+        "bulk": "VDD"
+      }
+    ],
+    "pmos_model": "PMOS_VTG",
+    "pmos_width": 2.7e-07,
+    "length": 5e-08,
+    "yaml_path": "/data1/qujh/work/external/OpenYield/sram_compiler/config_yaml/precharge.yaml",
+    "yaml_defaults": {
+      "pmos_model": "value: 'PMOS_VTG'",
+      "pmos_width": 2.7e-07,
+      "length": 5e-08
+    },
+    "enb_polarity": "active_low",
+    "enb_polarity_inference_basis": "All three devices are PMOS with source/bulk tied to VDD and gate tied to ENB; PMOS turns on when gate is driven low relative to source, so ENB is inferred active-low.",
+    "bl_blb_behavior_expectation": "When ENB is low, BL and BLB should charge toward VDD and equalize.",
+    "candidate_spice_recoverable": true
+  },
+  "candidate_spice_path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/candidate_spice/control_paths/precharge_candidate_ngspice.sp",
+  "testbench_path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/candidate_spice/control_paths/precharge_smoke_ngspice.sp",
+  "ngspice_log_path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/candidate_spice/control_paths/precharge_smoke_ngspice.log",
+  "syntax_transient_attempted": true,
+  "parse_result": {
+    "run_pass": true,
+    "enb_waveform_observed": true,
+    "bl_waveform_observed": true,
+    "blb_waveform_observed": true,
+    "bl_final_voltage": 1.05414,
+    "blb_final_voltage": 1.053581,
+    "active_window_end_bl": 1.019577,
+    "active_window_end_blb": 1.019392,
+    "behavior_plausible": true,
+    "measures": {
+      "smoke_bl_rise_s": 3.436477e-11,
+      "smoke_blb_rise_s": 3.441418e-11
+    },
+    "python_rise": {
+      "bl_rise_10_90_s": 3.4364774021091995e-11,
+      "blb_rise_10_90_s": 3.441417843366007e-11
+    },
+    "warnings": [],
+    "errors": [],
+    "log_excerpt": "1972\t3.883000e-09\t1.000000e+00\t1.054161e+00\t1.053601e+00\t\n1973\t3.885000e-09\t1.000000e+00\t1.054161e+00\t1.053601e+00\t\n1974\t3.887000e-09\t1.000000e+00\t1.054161e+00\t1.053600e+00\t\n1975\t3.889000e-09\t1.000000e+00\t1.054160e+00\t1.053600e+00\t\n1976\t3.891000e-09\t1.000000e+00\t1.054160e+00\t1.053600e+00\t\n1977\t3.893000e-09\t1.000000e+00\t1.054160e+00\t1.053599e+00\t\n1978\t3.895000e-09\t1.000000e+00\t1.054159e+00\t1.053599e+00\t\n1979\t3.897000e-09\t1.000000e+00\t1.054159e+00\t1.053599e+00\t\n1980\t3.899000e-09\t1.000000e+00\t1.054159e+00\t1.053598e+00\t\n1981\t3.901000e-09\t1.000000e+00\t1.054158e+00\t1.053598e+00\t\n1982\t3.903000e-09\t1.000000e+00\t1.054158e+00\t1.053598e+00\t\n1983\t3.905000e-09\t1.000000e+00\t1.054157e+00\t1.053597e+00\t\n1984\t3.907000e-09\t1.000000e+00\t1.054157e+00\t1.053597e+00\t\n1985\t3.909000e-09\t1.000000e+00\t1.054157e+00\t1.053597e+00\t\n1986\t3.911000e-09\t1.000000e+00\t1.054156e+00\t1.053596e+00\t\n1987\t3.913000e-09\t1.000000e+00\t1.054156e+00\t1.053596e+00\t\n1988\t3.915000e-09\t1.000000e+00\t1.054156e+00\t1.053596e+00\t\n1989\t3.917000e-09\t1.000000e+00\t1.054155e+00\t1.053595e+00\t\n1990\t3.919000e-09\t1.000000e+00\t1.054155e+00\t1.053595e+00\t\n1991\t3.921000e-09\t1.000000e+00\t1.054155e+00\t1.053595e+00\t\n1992\t3.923000e-09\t1.000000e+00\t1.054154e+00\t1.053594e+00\t\n1993\t3.925000e-09\t1.000000e+00\t1.054154e+00\t1.053594e+00\t\n1994\t3.927000e-09\t1.000000e+00\t1.054153e+00\t1.053594e+00\t\n1995\t3.929000e-09\t1.000000e+00\t1.054153e+00\t1.053593e+00\t\n1996\t3.931000e-09\t1.000000e+00\t1.054153e+00\t1.053593e+00\t\n1997\t3.933000e-09\t1.000000e+00\t1.054152e+00\t1.053593e+00\t\n1998\t3.935000e-09\t1.000000e+00\t1.054152e+00\t1.053592e+00\t\n1999\t3.937000e-09\t1.000000e+00\t1.054152e+00\t1.053592e+00\t\n2000\t3.939000e-09\t1.000000e+00\t1.054151e+00\t1.053592e+00\t\n2001\t3.941000e-09\t1.000000e+00\t1.054151e+00\t1.053591e+00\t\n2002\t3.943000e-09\t1.000000e+00\t1.054151e+00\t1.053591e+00\t\n2003\t3.945000e-09\t1.000000e+00\t1.054150e+00\t1.053591e+00\t\n2004\t3.947000e-09\t1.000000e+00\t1.054150e+00\t1.053590e+00\t\n2005\t3.949000e-09\t1.000000e+00\t1.054149e+00\t1.053590e+00\t\n2006\t3.951000e-09\t1.000000e+00\t1.054149e+00\t1.053590e+00\t\n2007\t3.953000e-09\t1.000000e+00\t1.054149e+00\t1.053589e+00\t\n2008\t3.955000e-09\t1.000000e+00\t1.054148e+00\t1.053589e+00\t\n2009\t3.957000e-09\t1.000000e+00\t1.054148e+00\t1.053589e+00\t\n2010\t3.959000e-09\t1.000000e+00\t1.054148e+00\t1.053588e+00\t\n2011\t3.961000e-09\t1.000000e+00\t1.054147e+00\t1.053588e+00\t\n2012\t3.963000e-09\t1.000000e+00\t1.054147e+00\t1.053588e+00\t\n2013\t3.965000e-09\t1.000000e+00\t1.054147e+00\t1.053587e+00\t\n2014\t3.967000e-09\t1.000000e+00\t1.054146e+00\t1.053587e+00\t\n2015\t3.969000e-09\t1.000000e+00\t1.054146e+00\t1.053587e+00\t\n2016\t3.971000e-09\t1.000000e+00\t1.054145e+00\t1.053586e+00\t\n2017\t3.973000e-09\t1.000000e+00\t1.054145e+00\t1.053586e+00\t\n2018\t3.975000e-09\t1.000000e+00\t1.054145e+00\t1.053586e+00\t\n2019\t3.977000e-09\t1.000000e+00\t1.054144e+00\t1.053585e+00\t\n2020\t3.979000e-09\t1.000000e+00\t1.054144e+00\t1.053585e+00\t\n2021\t3.981000e-09\t1.000000e+00\t1.054144e+00\t1.053585e+00\t\n2022\t3.983000e-09\t1.000000e+00\t1.054143e+00\t1.053584e+00\t\n2023\t3.985000e-09\t1.000000e+00\t1.054143e+00\t1.053584e+00\t\n2024\t3.987000e-09\t1.000000e+00\t1.054143e+00\t1.053584e+00\t\n2025\t3.989000e-09\t1.000000e+00\t1.054142e+00\t1.053583e+00\t\n2026\t3.991000e-09\t1.000000e+00\t1.054142e+00\t1.053583e+00\t\n\n\nIndex   time            v(enb)          v(bl)           v(blb)          \n--------------------------------------------------------------------------------\n2027\t3.993000e-09\t1.000000e+00\t1.054141e+00\t1.053583e+00\t\n2028\t3.995000e-09\t1.000000e+00\t1.054141e+00\t1.053582e+00\t\n2029\t3.997000e-09\t1.000000e+00\t1.054141e+00\t1.053582e+00\t\n2030\t3.999000e-09\t1.000000e+00\t1.054140e+00\t1.053582e+00\t\n2031\t4.000000e-09\t1.000000e+00\t1.054140e+00\t1.053581e+00\t\n\n\nTotal analysis time (seconds) = 0.027\n\nTotal elapsed time (seconds) = 0.035 \n\nTotal DRAM available = 515580.883 MB.\nDRAM currently available = 76477.355 MB.\nMaximum ngspice program size =   28.605 MB.\nCurrent ngspice program size =   12.902 MB.\n\nShared ngspice pages =   10.738 MB.\nText (code) pages =    5.316 MB.\nStack = 0 bytes.\nLibrary pages =   10.352 MB.\n"
+  },
+  "contracts_status": {
+    "control_object": "PRECHARGE",
+    "mapping_evidence_status": "source_linked_candidate_spice_smoke_available",
+    "mapping_candidate_artifact": "docs/candidate_spice/control_paths/precharge_candidate_ngspice.sp",
+    "mapping_next_required_action": "run_precharge_enable_path_smoke;add_realistic_bitline_rc;confirm_pin_polarity",
+    "contract_evidence_status": "source_linked_candidate_spice_smoke_available",
+    "contract_candidate_artifact": "docs/candidate_spice/control_paths/precharge_candidate_ngspice.sp",
+    "contract_recovery_status": "ngspice_smoke_passed_not_validated",
+    "contract_next_required_action": "run_precharge_enable_path_smoke;add_realistic_bitline_rc;confirm_pin_polarity",
+    "ready_for_metadata_consumption": false,
+    "ready_for_physical_integration": false,
+    "forbidden_claims": [
+      "no_delay_proof",
+      "no_timing_closure",
+      "no_physical_integration",
+      "no_time_control_gds"
+    ]
+  },
+  "what_is_still_not_validated": [
+    "No real bitline RC or array-level load has been used.",
+    "No formal functional proof or timing proof has been established.",
+    "PRECHARGE_ENABLE_PATH has not been separately smoked yet.",
+    "No physical integration or standalone integration is enabled."
+  ],
+  "next_required_action": "run_precharge_enable_path_smoke",
+  "gates": {
+    "selected_control_path_spice_smoke_precharge_available": true,
+    "precharge_source_found": true,
+    "precharge_ports_recorded": true,
+    "precharge_enb_polarity_inferred": true,
+    "precharge_candidate_spice_generated": true,
+    "precharge_ngspice_deck_generated": true,
+    "precharge_ngspice_run_attempted": true,
+    "precharge_ngspice_run_pass": true,
+    "precharge_bl_observed": true,
+    "precharge_blb_observed": true,
+    "precharge_behavior_plausible": true,
+    "precharge_smoke_timing_available": true,
+    "precharge_contract_status_updated": true,
+    "metadata_consumer_precharge_status_updated": true,
+    "can_enter_precharge_enable_path_smoke": true,
+    "can_enter_next_control_path_spice_smoke": true,
+    "can_enter_guarded_adapter_registry": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_claim_openyield_full_integration_now": false,
+    "can_claim_timing_closure_now": false
+  }
+}

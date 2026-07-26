@@ -1,0 +1,14 @@
+# M2 Visual Structure Check Report
+
+- top_cell_name: `openyield_layoutgen_full_trial_sram`
+- array_core_region_modules: `['bitcell_array', 'dummy_array', 'replica_array']`
+- row_path_modules: `['row_decoder', 'wordline_decoder', 'decoder_gate_cells', 'wordline_driver', 'wordline_driver_gate_cells']`
+- column_path_modules: `['precharge', 'column_mux', 'sense_amp', 'write_driver']`
+- control_modules: `['CONTROL_LOGIC', 'DELAY_CHAIN', 'PRECHARGE_ENABLE_PATH', 'SENSE_ENABLE_PATH', 'WRITE_ENABLE_PATH', 'WORDLINE_ENABLE_PATH', 'GATED_CLOCK_PATH', 'DFF_ROW']`
+- bitcell_array_present: `True`
+- dummy_or_replica_present: `True`
+- row_path_present: `True`
+- column_path_present: `True`
+- control_region_present: `True`
+
+Array is central, row path sits on one side, column path sits above the array, and control wrappers are kept in an outer periphery cluster.

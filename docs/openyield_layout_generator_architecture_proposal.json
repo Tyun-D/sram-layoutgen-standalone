@@ -1,0 +1,126 @@
+{
+  "goal": "Extract the key SRAM GDS generation mechanisms from OpenRAM and combine them with OpenYield semantics to design a lighter OpenYield-specific self-developed SRAM layout generator.",
+  "constraints": {
+    "do_not_copy_openram_wholesale": true,
+    "do_not_continue_candidate_gds_repairs": true,
+    "do_not_add_signoff_claims": true
+  },
+  "evidence_basis": [
+    "/data1/qujh/OpenRAM/sram_compiler.py:18-64",
+    "/data1/qujh/OpenRAM/compiler/sram.py:23-158",
+    "/data1/qujh/OpenRAM/compiler/sram_config.py:14-214",
+    "/data1/qujh/OpenRAM/compiler/modules/sram_1bank.py:209-1296",
+    "/data1/qujh/OpenRAM/compiler/modules/bank.py:291-1033",
+    "/data1/qujh/OpenRAM/compiler/modules/port_address.py:159-260",
+    "/data1/qujh/OpenRAM/compiler/modules/port_data.py:193-823",
+    "/data1/qujh/OpenRAM/compiler/base/hierarchy_layout.py:1135-1615",
+    "/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/openyield_adapter/module_gds_generators.py:151-1227",
+    "/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/openyield_adapter/top_level_assembly.py:280-1467",
+    "/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/gds_writer.py:16-318"
+  ],
+  "proposed_modules": [
+    {
+      "name": "OpenYield netlist parser",
+      "responsibility": "Parse OpenYield netlist semantics, module hierarchy, port roles, and SRAM topology intent.",
+      "current_status": "NOT_FOUND",
+      "why_it_matters": "A full physical generator needs an explicit semantic front end."
+    },
+    {
+      "name": "canonical SRAM parameter model",
+      "responsibility": "Derive num_rows, num_cols, mux ratio, address widths, and physical array shape from semantic SRAM parameters.",
+      "current_status": "NOT_FOUND",
+      "why_it_matters": "OpenRAM shows that a canonical parameter model is the backbone of the entire flow."
+    },
+    {
+      "name": "module generator registry",
+      "responsibility": "Dispatch array, row-path, column-path, control-path, bank, and top-level generators.",
+      "current_status": "partial_exists",
+      "evidence_file": "/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/openyield_adapter/module_gds_generators.py:151-1227",
+      "why_it_matters": "The existing registry pattern should be extended instead of discarded."
+    },
+    {
+      "name": "topology-aware floorplanner",
+      "responsibility": "Place array, decoder, WL driver, precharge, sense amp, write driver, and control logic using SRAM-specific topology rules.",
+      "current_status": "candidate_only_partial_exists",
+      "evidence_file": "/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/openyield_adapter/top_level_assembly.py:380-590",
+      "why_it_matters": "Candidate assembly floorplanning exists, but not a full SRAM floorplanner."
+    },
+    {
+      "name": "SRAM-specialized router",
+      "responsibility": "Route WL, BL/BR, column select, control, and clock with deterministic SRAM-specific strategies.",
+      "current_status": "NOT_FOUND",
+      "why_it_matters": "A full generic router is unnecessary, but SRAM routing logic is mandatory."
+    },
+    {
+      "name": "power planner",
+      "responsibility": "Handle VDD/GND rails, tap and well contact strategy, and top-level power export.",
+      "current_status": "rail_metadata_exists_but_planner_not_found",
+      "why_it_matters": "Current project has rail metadata but not a full power planning engine."
+    },
+    {
+      "name": "pin/label exporter",
+      "responsibility": "Export top-level pins, pin shapes, labels, LEF pins, and LVS-consistent names.",
+      "current_status": "partial_exists",
+      "evidence_file": "/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/lef_writer.py:12-79",
+      "why_it_matters": "Pin and naming consistency must be maintained across GDS, LEF, and LVS collateral."
+    },
+    {
+      "name": "GDS writer",
+      "responsibility": "Serialize hierarchical layout objects into GDS.",
+      "current_status": "exists",
+      "evidence_file": "/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/gds_writer.py:16-318",
+      "why_it_matters": "A custom GDS backend already exists and should be retained."
+    },
+    {
+      "name": "DRC/LVS hooks",
+      "responsibility": "Provide optional external verification hooks without embedding closure claims into the generator core.",
+      "current_status": "partial_exists_in_project_reports_only",
+      "why_it_matters": "Verification should be hookable but remain outside physical generation claims."
+    }
+  ],
+  "first_supported_scope": {
+    "single_bank": true,
+    "num_ports_supported": 1,
+    "single_implicit_read_write_port": true,
+    "words_per_row_supported": [
+      1,
+      2
+    ],
+    "column_mux_ratio_supported": [
+      1,
+      2
+    ],
+    "write_mask_supported": false,
+    "multi_bank_supported": false,
+    "multi_port_supported": false
+  },
+  "keep_existing_components": [
+    "/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/gds_writer.py",
+    "/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/lef_writer.py",
+    "/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/openram_placement.py",
+    "/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/openyield_adapter/module_gds_generators.py",
+    "/data1/qujh/work/sram_layoutgen_step45_clean/sram_layoutgen/openyield_adapter/top_level_assembly.py"
+  ],
+  "recommended_new_components": [
+    "openyield_semantic_parser.py",
+    "canonical_sram_parameters.py",
+    "sram_module_registry.py",
+    "array_wrapper_generator.py",
+    "row_path_generator.py",
+    "column_path_generator.py",
+    "control_path_generator.py",
+    "bank_generator.py",
+    "top_level_sram_generator.py",
+    "sram_router.py",
+    "power_planner.py",
+    "pin_exporter.py"
+  ],
+  "should_not_add_yet": [
+    "full generic global router",
+    "multi-bank support",
+    "multi-port support",
+    "automatic timing closure logic",
+    "signoff-claiming DRC/LVS closure logic"
+  ],
+  "final_recommendation": "Retain the current GDSWriter, registry pattern, and evidence/report infrastructure. Add a new OpenYield-specific SRAM physical generation core instead of continuing to patch the candidate assembly flow into a full SRAM layout generator."
+}

@@ -1,0 +1,2667 @@
+{
+  "scope": "candidate_spice_generation_and_pdk_model_search",
+  "repo_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean",
+  "searched_pdk_directories": [
+    "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45",
+    "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45"
+  ],
+  "input_reports_and_assets": {
+    "gen_delay_inv_recovery": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_gen_delay_inv_netlist_recovery_report.json",
+    "four_load_plan": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_four_load_inverter_stage_model_report.json",
+    "delay_chain_plan": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_delay_chain_testbench_plan_report.json",
+    "openram_tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45",
+    "local_tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+    "candidate_spice_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\candidate_spice"
+  },
+  "audit_summary": {
+    "pdk_model_search_completed": true,
+    "candidate_spice_generation_available": true,
+    "gen_delay_inv_candidate_spice_emitted": true,
+    "delay_chain_symbolic_tb_emitted": true,
+    "device_model_include_found": true,
+    "nmos_vtg_bound": true,
+    "pmos_vtg_bound": true,
+    "needs_model_alias_mapping": false,
+    "can_run_candidate_spice_now": false,
+    "can_run_delay_chain_testbench_now": false,
+    "can_claim_delay_proof_now": false,
+    "can_claim_timing_closure_now": false,
+    "needs_teacher_or_project_provider": false,
+    "can_enter_candidate_spice_syntax_check": true,
+    "can_enter_pvt_corner_definition": true,
+    "can_enter_delay_chain_smoke_simulation": false,
+    "can_enter_physical_timing_closure_now": false,
+    "can_enter_physical_routing_now": false,
+    "can_enter_physical_placement_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_modify_standalone_now": false
+  },
+  "model_search_results": {
+    "match_table": [
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_ff.include",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 2,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_ff/NMOS_VTG.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_ff.include",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 3,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_ff/PMOS_VTG.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_ff.include",
+        "matched_keyword": "nmos",
+        "line_number": 5,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_ff/NMOS_VTL.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_ff.include",
+        "matched_keyword": "pmos",
+        "line_number": 6,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_ff/PMOS_VTL.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_ff.include",
+        "matched_keyword": "nmos",
+        "line_number": 8,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_ff/NMOS_VTH.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_ff.include",
+        "matched_keyword": "pmos",
+        "line_number": 9,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_ff/PMOS_VTH.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_ff.include",
+        "matched_keyword": "nmos",
+        "line_number": 11,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_ff/NMOS_THKOX.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_ff.include",
+        "matched_keyword": "pmos",
+        "line_number": 12,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_ff/PMOS_THKOX.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_nom.include",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 2,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_nom/NMOS_VTG.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_nom.include",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 3,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_nom/PMOS_VTG.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_nom.include",
+        "matched_keyword": "nmos",
+        "line_number": 5,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_nom/NMOS_VTL.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_nom.include",
+        "matched_keyword": "pmos",
+        "line_number": 6,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_nom/PMOS_VTL.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_nom.include",
+        "matched_keyword": "nmos",
+        "line_number": 8,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_nom/NMOS_VTH.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_nom.include",
+        "matched_keyword": "pmos",
+        "line_number": 9,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_nom/PMOS_VTH.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_nom.include",
+        "matched_keyword": "nmos",
+        "line_number": 11,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_nom/NMOS_THKOX.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_nom.include",
+        "matched_keyword": "pmos",
+        "line_number": 12,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_nom/PMOS_THKOX.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_ss.include",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 2,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_ss/NMOS_VTG.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_ss.include",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 3,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_ss/PMOS_VTG.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_ss.include",
+        "matched_keyword": "nmos",
+        "line_number": 5,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_ss/NMOS_VTL.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_ss.include",
+        "matched_keyword": "pmos",
+        "line_number": 6,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_ss/PMOS_VTL.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_ss.include",
+        "matched_keyword": "nmos",
+        "line_number": 8,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_ss/NMOS_VTH.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_ss.include",
+        "matched_keyword": "pmos",
+        "line_number": 9,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_ss/PMOS_VTH.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_ss.include",
+        "matched_keyword": "nmos",
+        "line_number": 11,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_ss/NMOS_THKOX.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_ss.include",
+        "matched_keyword": "pmos",
+        "line_number": 12,
+        "line_excerpt": ".inc '$PDK_DIR/ncsu_basekit/models/hspice/tran_models/models_ss/PMOS_THKOX.inc",
+        "candidate_model_type": "corner_include",
+        "usable_as_device_model_include": true,
+        "notes": "Corner include references NMOS_VTG / PMOS_VTG."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 4,
+        "line_excerpt": "MM0 Q_bar Q gnd gnd NMOS_VTG W=205.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\cell_1rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 5,
+        "line_excerpt": "MM4 Q_bar Q vdd vdd PMOS_VTG W=90n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 8,
+        "line_excerpt": "MM1 Q Q_bar gnd gnd NMOS_VTG W=205.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\cell_1rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 9,
+        "line_excerpt": "MM5 Q Q_bar vdd vdd PMOS_VTG W=90n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 12,
+        "line_excerpt": "MM3 bl wl Q gnd NMOS_VTG W=135.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 13,
+        "line_excerpt": "MM2 br wl Q_bar gnd NMOS_VTG W=135.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 3,
+        "line_excerpt": "MM9 RA_to_R_right wl1 br1 gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 4,
+        "line_excerpt": "MM8 RA_to_R_right Q gnd gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 5,
+        "line_excerpt": "MM7 RA_to_R_left Q_bar gnd gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 6,
+        "line_excerpt": "MM6 RA_to_R_left wl1 bl1 gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 7,
+        "line_excerpt": "MM5 Q wl0 bl0 gnd NMOS_VTG W=135.00n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 8,
+        "line_excerpt": "MM4 Q_bar wl0 br0 gnd NMOS_VTG W=135.00n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 9,
+        "line_excerpt": "MM1 Q Q_bar gnd gnd NMOS_VTG W=205.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 10,
+        "line_excerpt": "MM0 Q_bar Q gnd gnd NMOS_VTG W=205.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 11,
+        "line_excerpt": "MM3 Q Q_bar vdd vdd PMOS_VTG W=90n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 12,
+        "line_excerpt": "MM2 Q_bar Q vdd vdd PMOS_VTG W=90n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 8,
+        "line_excerpt": "MM21 Q a_66_6# gnd gnd NMOS_VTG L=5e-08 W=5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 9,
+        "line_excerpt": "MM19 a_76_6# a_2_6# a_66_6# gnd NMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 10,
+        "line_excerpt": "MM20 gnd Q a_76_6# gnd NMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 11,
+        "line_excerpt": "MM18 a_66_6# clk a_61_6# gnd NMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 12,
+        "line_excerpt": "MM17 a_61_6# a_34_4# gnd gnd NMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 13,
+        "line_excerpt": "MM10 gnd clk a_2_6# gnd NMOS_VTG L=5e-08 W=5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 14,
+        "line_excerpt": "MM16 a_34_4# a_22_6# gnd gnd NMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 15,
+        "line_excerpt": "MM15 gnd a_34_4# a_31_6# gnd NMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 16,
+        "line_excerpt": "MM14 a_31_6# clk a_22_6# gnd NMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 17,
+        "line_excerpt": "MM13 a_22_6# a_2_6# a_17_6# gnd NMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 18,
+        "line_excerpt": "MM12 a_17_6# D gnd gnd NMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 19,
+        "line_excerpt": "MM11 Q a_66_6# vdd vdd PMOS_VTG L=5e-08 W=1e-06",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 20,
+        "line_excerpt": "MM9 vdd Q a_76_84# vdd PMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 21,
+        "line_excerpt": "MM8 a_76_84# clk a_66_6# vdd PMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 22,
+        "line_excerpt": "MM7 a_66_6# a_2_6# a_61_74# vdd PMOS_VTG L=5e-08 W=5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 23,
+        "line_excerpt": "MM6 a_61_74# a_34_4# vdd vdd PMOS_VTG L=5e-08 W=5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 24,
+        "line_excerpt": "MM0 vdd clk a_2_6# vdd PMOS_VTG L=5e-08 W=1e-06",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 25,
+        "line_excerpt": "MM5 a_34_4# a_22_6# vdd vdd PMOS_VTG L=5e-08 W=5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 26,
+        "line_excerpt": "MM4 vdd a_34_4# a_31_74# vdd PMOS_VTG L=5e-08 W=5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 27,
+        "line_excerpt": "MM3 a_31_74# a_2_6# a_22_6# vdd PMOS_VTG L=5e-08 W=5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 28,
+        "line_excerpt": "MM2 a_22_6# clk a_17_74# vdd PMOS_VTG L=5e-08 W=5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 29,
+        "line_excerpt": "MM1 a_17_74# D vdd vdd PMOS_VTG L=5e-08 W=5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dummy_cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 4,
+        "line_excerpt": "MM0 Q_bar Q gnd gnd NMOS_VTG W=205.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dummy_cell_1rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 5,
+        "line_excerpt": "MM4 Q_bar Q vdd vdd PMOS_VTG W=90n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dummy_cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 8,
+        "line_excerpt": "MM1 Q Q_bar gnd gnd NMOS_VTG W=205.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dummy_cell_1rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 9,
+        "line_excerpt": "MM5 Q Q_bar vdd vdd PMOS_VTG W=90n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dummy_cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 12,
+        "line_excerpt": "MM3 bl_noconn wl Q gnd NMOS_VTG W=135.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dummy_cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 13,
+        "line_excerpt": "MM2 br_noconn wl Q_bar gnd NMOS_VTG W=135.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 3,
+        "line_excerpt": "MM9 RA_to_R_right wl1 br1_noconn gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 4,
+        "line_excerpt": "MM8 RA_to_R_right Q gnd gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 5,
+        "line_excerpt": "MM7 RA_to_R_left Q_bar gnd gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 6,
+        "line_excerpt": "MM6 RA_to_R_left wl1 bl1_noconn gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 7,
+        "line_excerpt": "MM5 Q wl0 bl0_noconn gnd NMOS_VTG W=135.00n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 8,
+        "line_excerpt": "MM4 Q_bar wl0 br0_noconn gnd NMOS_VTG W=135.00n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 9,
+        "line_excerpt": "MM1 Q Q_bar gnd gnd NMOS_VTG W=205.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 10,
+        "line_excerpt": "MM0 Q_bar Q gnd gnd NMOS_VTG W=205.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 11,
+        "line_excerpt": "MM3 Q Q_bar vdd vdd PMOS_VTG W=90n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 12,
+        "line_excerpt": "MM2 Q_bar Q vdd vdd PMOS_VTG W=90n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\replica_cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 4,
+        "line_excerpt": "MM0 vdd Q gnd gnd NMOS_VTG W=205.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\replica_cell_1rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 5,
+        "line_excerpt": "MM4 vdd Q vdd vdd PMOS_VTG W=90n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\replica_cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 8,
+        "line_excerpt": "MM1 Q vdd gnd gnd NMOS_VTG W=205.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\replica_cell_1rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 9,
+        "line_excerpt": "MM5 Q vdd vdd vdd PMOS_VTG W=90n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\replica_cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 12,
+        "line_excerpt": "MM3 bl wl Q gnd NMOS_VTG W=135.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\replica_cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 13,
+        "line_excerpt": "MM2 br wl vdd gnd NMOS_VTG W=135.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 3,
+        "line_excerpt": "MM9 RA_to_R_right wl1 br1 gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 4,
+        "line_excerpt": "MM8 RA_to_R_right Q gnd gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 5,
+        "line_excerpt": "MM7 RA_to_R_left vdd gnd gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 6,
+        "line_excerpt": "MM6 RA_to_R_left wl1 bl1 gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 7,
+        "line_excerpt": "MM5 Q wl0 bl0 gnd NMOS_VTG W=135.00n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 8,
+        "line_excerpt": "MM4 vdd wl0 br0 gnd NMOS_VTG W=135.00n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 9,
+        "line_excerpt": "MM1 Q vdd gnd gnd NMOS_VTG W=205.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 10,
+        "line_excerpt": "MM0 vdd Q gnd gnd NMOS_VTG W=205.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 11,
+        "line_excerpt": "MM3 Q vdd vdd vdd PMOS_VTG W=90n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 12,
+        "line_excerpt": "MM2 vdd Q vdd vdd PMOS_VTG W=90n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 3,
+        "line_excerpt": "M_1 dint net_1 vdd vdd pmos_vtg w=540.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 4,
+        "line_excerpt": "M_3 net_1 dint vdd vdd pmos_vtg w=540.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 5,
+        "line_excerpt": "M_2 dint net_1 net_2 gnd nmos_vtg w=270.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 6,
+        "line_excerpt": "M_8 net_1 dint net_2 gnd nmos_vtg w=270.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 7,
+        "line_excerpt": "M_5 bl en dint vdd pmos_vtg w=720.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 8,
+        "line_excerpt": "M_6 br en net_1 vdd pmos_vtg w=720.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 9,
+        "line_excerpt": "M_7 net_2 en gnd gnd nmos_vtg w=270.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 11,
+        "line_excerpt": "M_9 dout_bar dint vdd vdd pmos_vtg w=180.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 12,
+        "line_excerpt": "M_10 dout_bar dint gnd gnd nmos_vtg w=90.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 13,
+        "line_excerpt": "M_11 dout dout_bar vdd vdd pmos_vtg w=540.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 14,
+        "line_excerpt": "M_12 dout dout_bar gnd gnd nmos_vtg w=270.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\tri_gate.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 3,
+        "line_excerpt": "M_1 net_2 in_inv gnd gnd NMOS_VTG W=180.000000n L=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\tri_gate.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 4,
+        "line_excerpt": "M_2 out en net_2 gnd NMOS_VTG W=180.000000n L=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\tri_gate.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 5,
+        "line_excerpt": "M_3 net_3 in_inv vdd vdd PMOS_VTG W=360.000000n L=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\tri_gate.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 6,
+        "line_excerpt": "M_4 out en_bar net_3 vdd PMOS_VTG W=360.000000n L=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\tri_gate.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 7,
+        "line_excerpt": "M_5 in_inv in vdd vdd PMOS_VTG W=180.000000n L=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\tri_gate.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 8,
+        "line_excerpt": "M_6 in_inv in gnd gnd NMOS_VTG W=90.000000n L=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 4,
+        "line_excerpt": "minP bl_bar din vdd vdd pmos_vtg w=360.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 5,
+        "line_excerpt": "minN bl_bar din gnd gnd nmos_vtg w=180.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 6,
+        "line_excerpt": "moutP en_bar en vdd vdd pmos_vtg w=360.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 7,
+        "line_excerpt": "moutN en_bar en gnd gnd nmos_vtg w=180.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 10,
+        "line_excerpt": "mout0P int1 bl_bar vdd vdd pmos_vtg w=360.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 11,
+        "line_excerpt": "mout0P2 bl en_bar int1 vdd pmos_vtg w=360.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 12,
+        "line_excerpt": "mout0N bl en int2 gnd nmos_vtg w=180.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 13,
+        "line_excerpt": "mout0N2 int2 bl_bar gnd gnd nmos_vtg w=180.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 16,
+        "line_excerpt": "mout1P int3 din vdd vdd pmos_vtg w=360.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 17,
+        "line_excerpt": "mout1P2 br en_bar int3 vdd pmos_vtg w=360.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 18,
+        "line_excerpt": "mout1N br en int4 gnd nmos_vtg w=180.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 19,
+        "line_excerpt": "mout1N2 int4 din gnd gnd nmos_vtg w=180.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\tf\\README.txt",
+        "matched_keyword": "freepdk45",
+        "line_number": 1,
+        "line_excerpt": "These technology files are from the FreePDK45nm design kit.",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": false,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\tf\\README.txt",
+        "matched_keyword": "freepdk45",
+        "line_number": 47,
+        "line_excerpt": "FreePDK45.lyp is converted automatically from the .tf using:",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": false,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\tf\\README.txt",
+        "matched_keyword": "freepdk45",
+        "line_number": 50,
+        "line_excerpt": "klayout -z -rd tf_file=FreePDK45.tf -rd lyp_file=FreePDK45.lyp",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": false,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\tf\\README.txt",
+        "matched_keyword": "freepdk45",
+        "line_number": 54,
+        "line_excerpt": "glade_freepdk45.py is a script for Glade:",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": false,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\tf\\README.txt",
+        "matched_keyword": "freepdk45",
+        "line_number": 57,
+        "line_excerpt": "glade -script ~/openram/technology/freepdk45/tf/glade_freepdk45.py -gds file.gds",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": false,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ff\\NMOS_THKOX.inc",
+        "matched_keyword": "nmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 NMOS: ff",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ff\\NMOS_THKOX.inc",
+        "matched_keyword": ".model",
+        "line_number": 3,
+        "line_excerpt": ".model  NMOS_THKOX  nmos  level = 54",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ff\\NMOS_VTG.inc",
+        "matched_keyword": "nmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 NMOS ff",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ff\\NMOS_VTG.inc",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 3,
+        "line_excerpt": ".model  NMOS_VTG  nmos  level = 54",
+        "candidate_model_type": "device_model_definition",
+        "usable_as_device_model_include": true,
+        "notes": "Direct model definition."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ff\\NMOS_VTH.inc",
+        "matched_keyword": "nmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 NMOS NMOS_VTH ff",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ff\\NMOS_VTH.inc",
+        "matched_keyword": ".model",
+        "line_number": 3,
+        "line_excerpt": ".model  NMOS_VTH  nmos  level = 54",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ff\\NMOS_VTL.inc",
+        "matched_keyword": "nmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 NMOS ff",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ff\\NMOS_VTL.inc",
+        "matched_keyword": ".model",
+        "line_number": 3,
+        "line_excerpt": ".model  NMOS_VTL  nmos  level = 54",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ff\\PMOS_THKOX.inc",
+        "matched_keyword": "pmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 PMOS: ff",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ff\\PMOS_THKOX.inc",
+        "matched_keyword": ".model",
+        "line_number": 3,
+        "line_excerpt": ".model  PMOS_THKOX  pmos  level = 54",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ff\\PMOS_VTG.inc",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 PMOS PMOS_VTG ff",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ff\\PMOS_VTG.inc",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 3,
+        "line_excerpt": ".model  PMOS_VTG  pmos  level = 54",
+        "candidate_model_type": "device_model_definition",
+        "usable_as_device_model_include": true,
+        "notes": "Direct model definition."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ff\\PMOS_VTH.inc",
+        "matched_keyword": "pmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 PMOS PMOS_VTH ff",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ff\\PMOS_VTH.inc",
+        "matched_keyword": ".model",
+        "line_number": 3,
+        "line_excerpt": ".model  PMOS_VTH  pmos  level = 54",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ff\\PMOS_VTL.inc",
+        "matched_keyword": "pmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 PMOS ff",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ff\\PMOS_VTL.inc",
+        "matched_keyword": ".model",
+        "line_number": 3,
+        "line_excerpt": ".model  PMOS_VTL  pmos  level = 54",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_nom\\NMOS_THKOX.inc",
+        "matched_keyword": "nmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 NMOS NMOS_THKOX",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_nom\\NMOS_THKOX.inc",
+        "matched_keyword": ".model",
+        "line_number": 3,
+        "line_excerpt": ".model  NMOS_THKOX  nmos  level = 54",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_nom\\NMOS_VTG.inc",
+        "matched_keyword": "nmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 NMOS nom",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_nom\\NMOS_VTG.inc",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 3,
+        "line_excerpt": ".model  NMOS_VTG  nmos  level = 54",
+        "candidate_model_type": "device_model_definition",
+        "usable_as_device_model_include": true,
+        "notes": "Direct model definition."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_nom\\NMOS_VTH.inc",
+        "matched_keyword": "nmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 NMOS NMOS_VTH",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_nom\\NMOS_VTH.inc",
+        "matched_keyword": ".model",
+        "line_number": 3,
+        "line_excerpt": ".model  NMOS_VTH  nmos  level = 54",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_nom\\NMOS_VTL.inc",
+        "matched_keyword": "nmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 NMOS nom",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_nom\\NMOS_VTL.inc",
+        "matched_keyword": ".model",
+        "line_number": 3,
+        "line_excerpt": ".model  NMOS_VTL  nmos  level = 54",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_nom\\PMOS_THKOX.inc",
+        "matched_keyword": "pmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 PMOS PMOS_THKOX",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_nom\\PMOS_THKOX.inc",
+        "matched_keyword": ".model",
+        "line_number": 3,
+        "line_excerpt": ".model  PMOS_THKOX  pmos  level = 54",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_nom\\PMOS_VTG.inc",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 PMOS PMOS_VTG",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_nom\\PMOS_VTG.inc",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 3,
+        "line_excerpt": ".model  PMOS_VTG  pmos  level = 54",
+        "candidate_model_type": "device_model_definition",
+        "usable_as_device_model_include": true,
+        "notes": "Direct model definition."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_nom\\PMOS_VTH.inc",
+        "matched_keyword": "pmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 PMOS PMOS_VTH",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_nom\\PMOS_VTH.inc",
+        "matched_keyword": ".model",
+        "line_number": 3,
+        "line_excerpt": ".model  PMOS_VTH  pmos  level = 54",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_nom\\PMOS_VTL.inc",
+        "matched_keyword": "pmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 PMOS",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_nom\\PMOS_VTL.inc",
+        "matched_keyword": ".model",
+        "line_number": 3,
+        "line_excerpt": ".model  PMOS_VTL  pmos  level = 54",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ss\\NMOS_THKOX.inc",
+        "matched_keyword": "nmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 NMOS: ss",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ss\\NMOS_THKOX.inc",
+        "matched_keyword": ".model",
+        "line_number": 3,
+        "line_excerpt": ".model  NMOS_THKOX  nmos  level = 54",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ss\\NMOS_VTG.inc",
+        "matched_keyword": "nmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 NMOS ss",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ss\\NMOS_VTG.inc",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 3,
+        "line_excerpt": ".model  NMOS_VTG  nmos  level = 54",
+        "candidate_model_type": "device_model_definition",
+        "usable_as_device_model_include": true,
+        "notes": "Direct model definition."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ss\\NMOS_VTH.inc",
+        "matched_keyword": "nmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 NMOS NMOS_VTH ss",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ss\\NMOS_VTH.inc",
+        "matched_keyword": ".model",
+        "line_number": 3,
+        "line_excerpt": ".model  NMOS_VTH  nmos  level = 54",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ss\\NMOS_VTL.inc",
+        "matched_keyword": "nmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 NMOS ss",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ss\\NMOS_VTL.inc",
+        "matched_keyword": ".model",
+        "line_number": 3,
+        "line_excerpt": ".model  NMOS_VTL  nmos  level = 54",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ss\\PMOS_THKOX.inc",
+        "matched_keyword": "pmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 PMOS: ss",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ss\\PMOS_THKOX.inc",
+        "matched_keyword": ".model",
+        "line_number": 3,
+        "line_excerpt": ".model  PMOS_THKOX  pmos  level = 54",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ss\\PMOS_VTG.inc",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 PMOS PMOS_VTG ss",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ss\\PMOS_VTG.inc",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 3,
+        "line_excerpt": ".model  PMOS_VTG  pmos  level = 54",
+        "candidate_model_type": "device_model_definition",
+        "usable_as_device_model_include": true,
+        "notes": "Direct model definition."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ss\\PMOS_VTH.inc",
+        "matched_keyword": "pmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 PMOS PMOS_VTH",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ss\\PMOS_VTH.inc",
+        "matched_keyword": ".model",
+        "line_number": 3,
+        "line_excerpt": ".model  PMOS_VTH  pmos  level = 54",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ss\\PMOS_VTL.inc",
+        "matched_keyword": "pmos",
+        "line_number": 1,
+        "line_excerpt": "* Customized PTM 45 PMOS ss",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ss\\PMOS_VTL.inc",
+        "matched_keyword": ".model",
+        "line_number": 3,
+        "line_excerpt": ".model  PMOS_VTL  pmos  level = 54",
+        "candidate_model_type": "metadata_or_reference",
+        "usable_as_device_model_include": true,
+        "notes": "Reference match."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 4,
+        "line_excerpt": "MM0 Q_bar Q gnd gnd NMOS_VTG W=205.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_1rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 5,
+        "line_excerpt": "MM4 Q_bar Q vdd vdd PMOS_VTG W=90n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 8,
+        "line_excerpt": "MM1 Q Q_bar gnd gnd NMOS_VTG W=205.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_1rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 9,
+        "line_excerpt": "MM5 Q Q_bar vdd vdd PMOS_VTG W=90n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 12,
+        "line_excerpt": "MM3 bl wl Q gnd NMOS_VTG W=135.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 13,
+        "line_excerpt": "MM2 br wl Q_bar gnd NMOS_VTG W=135.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 3,
+        "line_excerpt": "MM9 RA_to_R_right wl1 br1 gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 4,
+        "line_excerpt": "MM8 RA_to_R_right Q gnd gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 5,
+        "line_excerpt": "MM7 RA_to_R_left Q_bar gnd gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 6,
+        "line_excerpt": "MM6 RA_to_R_left wl1 bl1 gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 7,
+        "line_excerpt": "MM5 Q wl0 bl0 gnd NMOS_VTG W=135.00n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 8,
+        "line_excerpt": "MM4 Q_bar wl0 br0 gnd NMOS_VTG W=135.00n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 9,
+        "line_excerpt": "MM1 Q Q_bar gnd gnd NMOS_VTG W=205.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 10,
+        "line_excerpt": "MM0 Q_bar Q gnd gnd NMOS_VTG W=205.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 11,
+        "line_excerpt": "MM3 Q Q_bar vdd vdd PMOS_VTG W=90n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\cell_2rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 12,
+        "line_excerpt": "MM2 Q_bar Q vdd vdd PMOS_VTG W=90n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 8,
+        "line_excerpt": "MM21 Q a_66_6# gnd gnd NMOS_VTG L=5e-08 W=5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 9,
+        "line_excerpt": "MM19 a_76_6# a_2_6# a_66_6# gnd NMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 10,
+        "line_excerpt": "MM20 gnd Q a_76_6# gnd NMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 11,
+        "line_excerpt": "MM18 a_66_6# clk a_61_6# gnd NMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 12,
+        "line_excerpt": "MM17 a_61_6# a_34_4# gnd gnd NMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 13,
+        "line_excerpt": "MM10 gnd clk a_2_6# gnd NMOS_VTG L=5e-08 W=5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 14,
+        "line_excerpt": "MM16 a_34_4# a_22_6# gnd gnd NMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 15,
+        "line_excerpt": "MM15 gnd a_34_4# a_31_6# gnd NMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 16,
+        "line_excerpt": "MM14 a_31_6# clk a_22_6# gnd NMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 17,
+        "line_excerpt": "MM13 a_22_6# a_2_6# a_17_6# gnd NMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 18,
+        "line_excerpt": "MM12 a_17_6# D gnd gnd NMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 19,
+        "line_excerpt": "MM11 Q a_66_6# vdd vdd PMOS_VTG L=5e-08 W=1e-06",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 20,
+        "line_excerpt": "MM9 vdd Q a_76_84# vdd PMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 21,
+        "line_excerpt": "MM8 a_76_84# clk a_66_6# vdd PMOS_VTG L=5e-08 W=2.5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 22,
+        "line_excerpt": "MM7 a_66_6# a_2_6# a_61_74# vdd PMOS_VTG L=5e-08 W=5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 23,
+        "line_excerpt": "MM6 a_61_74# a_34_4# vdd vdd PMOS_VTG L=5e-08 W=5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 24,
+        "line_excerpt": "MM0 vdd clk a_2_6# vdd PMOS_VTG L=5e-08 W=1e-06",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 25,
+        "line_excerpt": "MM5 a_34_4# a_22_6# vdd vdd PMOS_VTG L=5e-08 W=5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 26,
+        "line_excerpt": "MM4 vdd a_34_4# a_31_74# vdd PMOS_VTG L=5e-08 W=5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 27,
+        "line_excerpt": "MM3 a_31_74# a_2_6# a_22_6# vdd PMOS_VTG L=5e-08 W=5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 28,
+        "line_excerpt": "MM2 a_22_6# clk a_17_74# vdd PMOS_VTG L=5e-08 W=5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dff.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 29,
+        "line_excerpt": "MM1 a_17_74# D vdd vdd PMOS_VTG L=5e-08 W=5e-07",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dummy_cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 4,
+        "line_excerpt": "MM0 Q_bar Q gnd gnd NMOS_VTG W=205.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dummy_cell_1rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 5,
+        "line_excerpt": "MM4 Q_bar Q vdd vdd PMOS_VTG W=90n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dummy_cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 8,
+        "line_excerpt": "MM1 Q Q_bar gnd gnd NMOS_VTG W=205.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dummy_cell_1rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 9,
+        "line_excerpt": "MM5 Q Q_bar vdd vdd PMOS_VTG W=90n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dummy_cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 12,
+        "line_excerpt": "MM3 bl_noconn wl Q gnd NMOS_VTG W=135.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dummy_cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 13,
+        "line_excerpt": "MM2 br_noconn wl Q_bar gnd NMOS_VTG W=135.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 3,
+        "line_excerpt": "MM9 RA_to_R_right wl1 br1_noconn gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 4,
+        "line_excerpt": "MM8 RA_to_R_right Q gnd gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 5,
+        "line_excerpt": "MM7 RA_to_R_left Q_bar gnd gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 6,
+        "line_excerpt": "MM6 RA_to_R_left wl1 bl1_noconn gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 7,
+        "line_excerpt": "MM5 Q wl0 bl0_noconn gnd NMOS_VTG W=135.00n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 8,
+        "line_excerpt": "MM4 Q_bar wl0 br0_noconn gnd NMOS_VTG W=135.00n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 9,
+        "line_excerpt": "MM1 Q Q_bar gnd gnd NMOS_VTG W=205.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 10,
+        "line_excerpt": "MM0 Q_bar Q gnd gnd NMOS_VTG W=205.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 11,
+        "line_excerpt": "MM3 Q Q_bar vdd vdd PMOS_VTG W=90n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\dummy_cell_2rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 12,
+        "line_excerpt": "MM2 Q_bar Q vdd vdd PMOS_VTG W=90n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 4,
+        "line_excerpt": "MM0 vdd Q gnd gnd NMOS_VTG W=205.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_1rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 5,
+        "line_excerpt": "MM4 vdd Q vdd vdd PMOS_VTG W=90n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 8,
+        "line_excerpt": "MM1 Q vdd gnd gnd NMOS_VTG W=205.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_1rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 9,
+        "line_excerpt": "MM5 Q vdd vdd vdd PMOS_VTG W=90n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 12,
+        "line_excerpt": "MM3 bl wl Q gnd NMOS_VTG W=135.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_1rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 13,
+        "line_excerpt": "MM2 br wl vdd gnd NMOS_VTG W=135.00n L=50n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 3,
+        "line_excerpt": "MM9 RA_to_R_right wl1 br1 gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 4,
+        "line_excerpt": "MM8 RA_to_R_right Q gnd gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 5,
+        "line_excerpt": "MM7 RA_to_R_left vdd gnd gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 6,
+        "line_excerpt": "MM6 RA_to_R_left wl1 bl1 gnd NMOS_VTG W=180.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 7,
+        "line_excerpt": "MM5 Q wl0 bl0 gnd NMOS_VTG W=135.00n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 8,
+        "line_excerpt": "MM4 vdd wl0 br0 gnd NMOS_VTG W=135.00n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 9,
+        "line_excerpt": "MM1 Q vdd gnd gnd NMOS_VTG W=205.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 10,
+        "line_excerpt": "MM0 vdd Q gnd gnd NMOS_VTG W=205.0n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 11,
+        "line_excerpt": "MM3 Q vdd vdd vdd PMOS_VTG W=90n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\replica_cell_2rw.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 12,
+        "line_excerpt": "MM2 vdd Q vdd vdd PMOS_VTG W=90n L=50n m=1",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 3,
+        "line_excerpt": "M_1 dint net_1 vdd vdd pmos_vtg w=540.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 4,
+        "line_excerpt": "M_3 net_1 dint vdd vdd pmos_vtg w=540.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 5,
+        "line_excerpt": "M_2 dint net_1 net_2 gnd nmos_vtg w=270.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 6,
+        "line_excerpt": "M_8 net_1 dint net_2 gnd nmos_vtg w=270.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 7,
+        "line_excerpt": "M_5 bl en dint vdd pmos_vtg w=720.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 8,
+        "line_excerpt": "M_6 br en net_1 vdd pmos_vtg w=720.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 9,
+        "line_excerpt": "M_7 net_2 en gnd gnd nmos_vtg w=270.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 11,
+        "line_excerpt": "M_9 dout_bar dint vdd vdd pmos_vtg w=180.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 12,
+        "line_excerpt": "M_10 dout_bar dint gnd gnd nmos_vtg w=90.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 13,
+        "line_excerpt": "M_11 dout dout_bar vdd vdd pmos_vtg w=540.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\sense_amp.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 14,
+        "line_excerpt": "M_12 dout dout_bar gnd gnd nmos_vtg w=270.0n l=50.0n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\tri_gate.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 3,
+        "line_excerpt": "M_1 net_2 in_inv gnd gnd NMOS_VTG W=180.000000n L=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\tri_gate.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 4,
+        "line_excerpt": "M_2 out en net_2 gnd NMOS_VTG W=180.000000n L=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\tri_gate.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 5,
+        "line_excerpt": "M_3 net_3 in_inv vdd vdd PMOS_VTG W=360.000000n L=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\tri_gate.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 6,
+        "line_excerpt": "M_4 out en_bar net_3 vdd PMOS_VTG W=360.000000n L=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\tri_gate.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 7,
+        "line_excerpt": "M_5 in_inv in vdd vdd PMOS_VTG W=180.000000n L=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\tri_gate.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 8,
+        "line_excerpt": "M_6 in_inv in gnd gnd NMOS_VTG W=90.000000n L=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 4,
+        "line_excerpt": "minP bl_bar din vdd vdd pmos_vtg w=360.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 5,
+        "line_excerpt": "minN bl_bar din gnd gnd nmos_vtg w=180.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 6,
+        "line_excerpt": "moutP en_bar en vdd vdd pmos_vtg w=360.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 7,
+        "line_excerpt": "moutN en_bar en gnd gnd nmos_vtg w=180.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 10,
+        "line_excerpt": "mout0P int1 bl_bar vdd vdd pmos_vtg w=360.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 11,
+        "line_excerpt": "mout0P2 bl en_bar int1 vdd pmos_vtg w=360.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 12,
+        "line_excerpt": "mout0N bl en int2 gnd nmos_vtg w=180.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 13,
+        "line_excerpt": "mout0N2 int2 bl_bar gnd gnd nmos_vtg w=180.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 16,
+        "line_excerpt": "mout1P int3 din vdd vdd pmos_vtg w=360.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "PMOS_VTG",
+        "line_number": 17,
+        "line_excerpt": "mout1P2 br en_bar int3 vdd pmos_vtg w=360.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 18,
+        "line_excerpt": "mout1N br en int4 gnd nmos_vtg w=180.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      },
+      {
+        "file_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\sp_lib\\write_driver.sp",
+        "matched_keyword": "NMOS_VTG",
+        "line_number": 19,
+        "line_excerpt": "mout1N2 int4 din gnd gnd nmos_vtg w=180.000000n l=50.000000n",
+        "candidate_model_type": "transistor_netlist_usage",
+        "usable_as_device_model_include": false,
+        "notes": "Netlist instance usage proves model names are expected by project SPICE."
+      }
+    ],
+    "has_nmos_vtg_model": true,
+    "has_pmos_vtg_model": true,
+    "has_generic_nmos_pmos_model": true,
+    "has_model_include_file": true,
+    "has_lib_corner_file": true
+  },
+  "device_model_binding_decision": {
+    "has_nmos_vtg_model": true,
+    "has_pmos_vtg_model": true,
+    "has_generic_nmos_pmos_model": true,
+    "has_model_include_file": true,
+    "has_lib_corner_file": true,
+    "device_model_include_found": true,
+    "nmos_vtg_bound": true,
+    "pmos_vtg_bound": true,
+    "can_bind_openyield_model_names_directly": true,
+    "needs_model_alias_mapping": false,
+    "needs_teacher_or_pdk_confirmation": false,
+    "needs_teacher_or_project_provider": false,
+    "preferred_corner_include": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_nom.include",
+    "available_corner_includes": [
+      "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_nom.include",
+      "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_ff.include",
+      "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\hspice_ss.include"
+    ],
+    "direct_model_include_paths": {
+      "TT": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_nom\\PMOS_VTG.inc",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_nom\\NMOS_VTG.inc"
+      ],
+      "FF": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ff\\PMOS_VTG.inc",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ff\\NMOS_VTG.inc"
+      ],
+      "SS": [
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ss\\PMOS_VTG.inc",
+        "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\technology\\freepdk45\\models\\tran_models\\models_ss\\NMOS_VTG.inc"
+      ]
+    },
+    "notes": [
+      "OpenRAM FreePDK45 already contains direct NMOS_VTG / PMOS_VTG model definition files.",
+      "No alias mapping is needed for the OpenYield Pinv source names.",
+      "Simulation is still blocked by missing simulator choice, VDD, PVT selection, and measurement thresholds."
+    ]
+  },
+  "generated_candidate_files": {
+    "files": [
+      {
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\candidate_spice\\gen_delay_inv_candidate.sp",
+        "kind": "candidate_subckt",
+        "exists": true,
+        "notes": "Planning-only inverter leaf."
+      },
+      {
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\candidate_spice\\delay_chain_symbolic_tb.sp",
+        "kind": "symbolic_testbench",
+        "exists": true,
+        "notes": "Nine-stage DELAY_CHAIN with four loads per stage."
+      },
+      {
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\candidate_spice\\delay_chain_measure.inc",
+        "kind": "measure_template",
+        "exists": true,
+        "notes": "Planning-only .measure placeholders."
+      },
+      {
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\candidate_spice\\delay_chain_corner_placeholder.inc",
+        "kind": "corner_placeholder",
+        "exists": true,
+        "notes": "PDK include plus TBD corner placeholders."
+      },
+      {
+        "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\candidate_spice\\README.md",
+        "kind": "readme",
+        "exists": true,
+        "notes": "Usage boundary and missing input checklist."
+      }
+    ]
+  },
+  "gen_delay_inv_candidate_spice_summary": {
+    "subckt_name": "gen_delay_inv",
+    "pin_order": [
+      "A",
+      "Z",
+      "vdd",
+      "gnd"
+    ],
+    "transistor_model_names": [
+      "PMOS_VTG",
+      "NMOS_VTG"
+    ],
+    "transistor_sizes_from_source": {
+      "nmos_width": "0.9e-07",
+      "pmos_width": "2.7e-07",
+      "length": "0.05e-6"
+    },
+    "validated_spice": false,
+    "timing_proof": false
+  },
+  "delay_chain_symbolic_testbench_summary": {
+    "stage_count": 9,
+    "four_loads_per_stage": true,
+    "stage_instances": [
+      "dinv0",
+      "dinv1",
+      "dinv2",
+      "dinv3",
+      "dinv4",
+      "dinv5",
+      "dinv6",
+      "dinv7",
+      "dinv8"
+    ],
+    "load_policy": "four same-source inverter loads per stage output",
+    "placeholder_params": [
+      "VDD_VALUE",
+      "TEMP_VALUE",
+      "RBL_INPUT_SLEW"
+    ],
+    "validated_spice": false,
+    "timing_proof": false
+  },
+  "missing_files_or_decisions": [
+    "Project-specified simulator (ngspice / hspice / spectre) is still unknown.",
+    "Project-specified VDD is still unknown.",
+    "Project-specified PVT corner selection is still unknown.",
+    "Measurement threshold policy is still unknown."
+  ],
+  "what_codex_can_do_now": [
+    "Search and bind FreePDK45 NMOS_VTG / PMOS_VTG model include files",
+    "Emit candidate gen_delay_inv transistor subckt template",
+    "Emit planning-only DELAY_CHAIN symbolic testbench template",
+    "Emit placeholder measurement and corner include files"
+  ],
+  "what_needs_user_teacher_or_project_provider": [
+    "1. Confirm the intended FreePDK45 model include and simulator syntax",
+    "2. Project-specified simulator: ngspice / hspice / spectre",
+    "3. Project-specified VDD",
+    "4. Project-specified PVT corner",
+    "5. Measurement threshold policy, e.g. 50% VDD or 10%-90% slew"
+  ],
+  "next_recommended_task": "candidate_spice_syntax_check_or_pvt_corner_definition",
+  "boundary_assertions": {
+    "candidate_spice_is_not_validated_spice": true,
+    "candidate_testbench_is_not_timing_proof": true,
+    "no_simulation_has_been_run": true,
+    "standalone_modified": false,
+    "routing_modified": false,
+    "gds_writer_modified": false
+  }
+}

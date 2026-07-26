@@ -1,0 +1,176 @@
+{
+  "top_bbox": {
+    "x0": 2.5375,
+    "y0": 0.425,
+    "x1": 57.7525,
+    "y1": 32.07,
+    "width": 55.215,
+    "height": 31.645
+  },
+  "array_region": {
+    "x0": 13.62,
+    "y0": 13.25,
+    "x1": 24.17,
+    "y1": 21.01,
+    "width": 10.55,
+    "height": 7.76
+  },
+  "row_path_region": {
+    "x0": 7.5375,
+    "y0": 8.2215,
+    "x1": 12.82,
+    "y1": 26.0385,
+    "width": 5.2825,
+    "height": 17.817
+  },
+  "column_path_region": {
+    "x0": 16.68125,
+    "y0": 21.06,
+    "x1": 22.89875,
+    "y1": 27.07,
+    "width": 6.2175,
+    "height": 6.01
+  },
+  "control_region": {
+    "x0": 6.5375,
+    "y0": 4.425,
+    "x1": 53.7525,
+    "y1": 12.0,
+    "width": 47.215,
+    "height": 7.575
+  },
+  "routing_channels": {
+    "WL_ROUTING_CHANNEL": {
+      "x0": 12.82,
+      "y0": 14.0,
+      "x1": 18.0,
+      "y1": 20.26,
+      "is_guide_geometry": true
+    },
+    "BLBR_VERTICAL_ROUTING_CHANNEL": {
+      "x0": 18.0,
+      "y0": 20.26,
+      "x1": 21.58,
+      "y1": 21.06,
+      "is_guide_geometry": true
+    },
+    "CONTROL_ROUTING_CHANNEL": {
+      "x0": 6.5375,
+      "y0": 12.0,
+      "x1": 53.7525,
+      "y1": 14.0,
+      "is_guide_geometry": true
+    },
+    "TOP_IO_ROUTING_CHANNEL": {
+      "x0": 2.5375,
+      "y0": 27.07,
+      "x1": 57.7525,
+      "y1": 32.07,
+      "is_guide_geometry": true
+    }
+  },
+  "power_regions": {
+    "VDD_STRAP_REGION": {
+      "x0": 2.5375,
+      "y0": 31.27,
+      "x1": 57.7525,
+      "y1": 31.77,
+      "is_guide_geometry": true
+    },
+    "GND_STRAP_REGION": {
+      "x0": 2.5375,
+      "y0": 0.725,
+      "x1": 57.7525,
+      "y1": 1.225,
+      "is_guide_geometry": true
+    },
+    "MODULE_RAIL_STITCH_LANDING_AREA": {
+      "x0": 13.12,
+      "y0": 12.0,
+      "x1": 24.67,
+      "y1": 21.06,
+      "is_guide_geometry": true
+    }
+  },
+  "top_io_plan": [
+    {
+      "pin_name": "address",
+      "pin_category": "ADDRESS",
+      "planned_top_edge": "left",
+      "planned_layer": "M4",
+      "source_internal_net": "A[*]",
+      "source_internal_access": "DFF_ROW:D[0]",
+      "pin_status": "GEOMETRY_BACKED_PIN",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    },
+    {
+      "pin_name": "din",
+      "pin_category": "DATA_IN",
+      "planned_top_edge": "left",
+      "planned_layer": "M4",
+      "source_internal_net": "DIN[*]",
+      "source_internal_access": "write_driver:din",
+      "pin_status": "GEOMETRY_BACKED_PIN",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    },
+    {
+      "pin_name": "dout",
+      "pin_category": "DATA_OUT",
+      "planned_top_edge": "right",
+      "planned_layer": "M4",
+      "source_internal_net": "DOUT[*]",
+      "source_internal_access": "sense_amp:dout",
+      "pin_status": "GEOMETRY_BACKED_PIN",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    },
+    {
+      "pin_name": "clk",
+      "pin_category": "CLOCK",
+      "planned_top_edge": "top",
+      "planned_layer": "M4",
+      "source_internal_net": "clk",
+      "source_internal_access": "CONTROL_LOGIC:clk",
+      "pin_status": "GEOMETRY_BACKED_PIN",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    },
+    {
+      "pin_name": "control",
+      "pin_category": "CONTROL",
+      "planned_top_edge": "top",
+      "planned_layer": "M4",
+      "source_internal_net": "control[*]",
+      "source_internal_access": "CONTROL_LOGIC:precharge_en",
+      "pin_status": "SYNTHESIZED_PIN_FOR_CURRENT_GENERATOR",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    },
+    {
+      "pin_name": "VDD",
+      "pin_category": "POWER",
+      "planned_top_edge": "top",
+      "planned_layer": "M5",
+      "source_internal_net": "VDD",
+      "source_internal_access": "bitcell_array:VDD",
+      "pin_status": "GEOMETRY_BACKED_PIN",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    },
+    {
+      "pin_name": "GND",
+      "pin_category": "GROUND",
+      "planned_top_edge": "bottom",
+      "planned_layer": "M5",
+      "source_internal_net": "GND",
+      "source_internal_access": "bitcell_array:GND",
+      "pin_status": "GEOMETRY_BACKED_PIN",
+      "usable_for_C4_or_C5": true,
+      "remaining_gap": ""
+    }
+  ],
+  "placeholder_overlay_removed_or_isolated": true,
+  "is_final_complete_gds": false
+}

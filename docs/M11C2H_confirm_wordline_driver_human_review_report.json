@@ -1,0 +1,50 @@
+{
+  "status_file_read": true,
+  "status_file_updated": true,
+  "progress_file_updated": true,
+  "m11c2_report_loaded": true,
+  "m11c2_human_review_completed": true,
+  "human_review_items_before": [
+    "KLayout must confirm that the 16 substituted wordline_driver regions remain visually complete in the top SRAM context.",
+    "KLayout must confirm that the annotated debug markers around the substituted wordline_driver sites are readable and non-misleading.",
+    "KLayout must confirm that no visible power or routing damage appears around the substituted wordline_driver rows."
+  ],
+  "human_review_items_after": [],
+  "wordline_driver_visual_review_passed": true,
+  "wordline_driver_annotation_readable": true,
+  "wordline_driver_nearby_power_routing_review_status": "INCONCLUSIVE_BASELINE_ROUTING_LIMITED",
+  "wordline_driver_nearby_power_routing_visually_confirmed_clean": false,
+  "no_obvious_new_break_reported_by_human": true,
+  "routing_clean_cannot_be_claimed": true,
+  "power_clean_cannot_be_claimed": true,
+  "wordline_driver_smoke_substitution_attempted": true,
+  "wordline_driver_smoke_substitution_passed": true,
+  "wordline_driver_smoke_substitution_human_review_accepted_with_caveat": true,
+  "substituted_modules": [
+    "wordline_driver"
+  ],
+  "excluded_modules_confirmed": true,
+  "can_claim_wordline_driver_smoke_substitution_attempted": true,
+  "can_claim_wordline_driver_smoke_substitution_passed": true,
+  "can_claim_openyield_module_gds_hardmacro_substitution": false,
+  "can_claim_routing_clean": false,
+  "can_claim_power_clean": false,
+  "can_claim_drc_clean": false,
+  "can_claim_lvs_clean": false,
+  "can_claim_signoff_ready": false,
+  "remaining_M11C2_blockers_before_count": 3,
+  "remaining_M11C2_blockers_after_count": 0,
+  "recommended_next_stage": "M11V_ROUTING_POWER_CONNECTIVITY_VERIFICATION_DEEPENING",
+  "recommended_next_stage_reason": "Because M11C2 passed isolated wordline_driver smoke substitution, but nearby routing/power cleanliness remains visually inconclusive due to baseline layoutgen routing limitations. Verification should be deepened before expanding substitution scope.",
+  "next_stage_allowed": "M11V_ROUTING_POWER_CONNECTIVITY_VERIFICATION_DEEPENING",
+  "can_enter_M11V_after_this_gate": true,
+  "human_review_source": "M11C2H gate closure records the provided human review result for the existing M11C2 clean-review and annotated-debug GDS artifacts, with routing/power caveat preserved.",
+  "reviewed_gds_paths": [
+    "outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/M11C2_wordline_driver_substituted_sram_clean_review.gds",
+    "outputs/M11C2_wordline_driver_smoke_substitution/current_supported_config/M11C2_wordline_driver_substituted_sram_annotated_debug.gds"
+  ],
+  "m11c2_manifest_artifact_count": 4,
+  "m11c2_smoke_check_item_count": 26,
+  "m11c2_diff_item_count": 5,
+  "m11c2_proof_item_count": 7
+}

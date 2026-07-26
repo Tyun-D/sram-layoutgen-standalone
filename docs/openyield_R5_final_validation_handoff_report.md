@@ -1,0 +1,41 @@
+# OpenYield R5 Final Validation Handoff Report
+
+- R5_final_validation_handoff_available: `True`
+- final_gds_sanity_report_available: `True`
+- final_hierarchy_validation_report_available: `True`
+- final_topology_validation_report_available: `True`
+- final_routing_completeness_audit_available: `True`
+- final_power_continuity_audit_available: `True`
+- final_pin_export_audit_available: `True`
+- final_net_mapping_audit_available: `True`
+- final_gds_comparison_report_available: `True`
+- final_risk_register_available: `True`
+- final_project_summary_available: `True`
+- final_delivery_checklist_available: `True`
+- final_validation_matrix_available: `True`
+- final_gds_path: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_routing_power_pin/current_supported_config/openyield_routed_power_pin_sram.gds`
+- final_gds_size_bytes: `354478`
+- final_gds_sanity_status: `PASSED`
+- final_top_cell_name: `openyield_routed_power_pin_sram`
+- final_recursive_module_count: `699`
+- required_module_count: `20`
+- required_modules_found_in_recursive_gds_count: `20`
+- required_modules_missing_from_recursive_gds: `[]`
+- topology_validation_status: `PASSED`
+- routing_completeness_audit_status: `PASSED`
+- power_continuity_audit_status: `PASSED`
+- pin_export_audit_status: `PASSED`
+- net_mapping_audit_status: `PASSED`
+- residual_risk_count: `11`
+- remaining_R5_blockers: `[]`
+- remaining_R5_blockers_count: `0`
+- can_claim_openyield_oriented_structure_complete_sram_gds_prototype_now: `True`
+- can_claim_routing_power_pin_mapping_evidence_now: `True`
+- can_claim_final_handoff_completed_now: `True`
+- can_claim_detailed_routing_complete_now: `False`
+- can_claim_power_network_signoff_now: `False`
+- can_claim_drc_clean_now: `False`
+- can_claim_lvs_clean_now: `False`
+- can_claim_timing_closure_now: `False`
+- can_claim_signoff_ready_now: `False`
+- project_final_status: `OpenYield-oriented structure-complete SRAM GDS prototype generated; routing/power/pin/net mapping evidence available; DRC/LVS/timing signoff not claimed.`

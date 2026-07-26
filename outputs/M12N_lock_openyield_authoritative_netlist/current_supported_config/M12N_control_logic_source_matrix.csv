@@ -1,0 +1,7 @@
+control_logic_function,source_file,source_symbol,locked_status,notes
+clock buffer / gated clock,sram_compiler/subcircuits/time_generate.py,TIME / pdrive / gating chain inside time_generate,LOCKED_SEMANTIC_SOURCE,"Present in generated testbench graph, but not yet isolated as a pure authoritative layout top block."
+wordline enable path,sram_compiler/subcircuits/time_generate.py,wl_en output within TIME,LOCKED_SEMANTIC_SOURCE,Traced semantically through TIME and create_wl_driver.
+precharge enable path,sram_compiler/subcircuits/time_generate.py,PRE output within TIME,LOCKED_SEMANTIC_SOURCE,Traced semantically to PRECHARGE instantiations.
+sense enable path,sram_compiler/subcircuits/time_generate.py,s_en output within TIME,LOCKED_SEMANTIC_SOURCE,Traced semantically to SENSEAMP instantiations.
+write enable path,sram_compiler/subcircuits/time_generate.py,w_en output within TIME,LOCKED_SEMANTIC_SOURCE,Traced semantically to write-periphery path.
+address/data flop path,sram_compiler/testbenches/sram_6t_core_testbench.py,create_time_circuit + create_D_latch,LOCKED_TESTBENCH_SOURCE,"Available in generator chain, but still testbench-wrapped."

@@ -1,0 +1,4 @@
+gap_id,gap_type,severity,status,details
+M11_GAP_001,HUMAN_REVIEW_REQUIRED,BLOCKER,OPEN,Human KLayout review is required for openyield_config_derived_sram_clean_review.gds before any post-M11 stage.
+M11_GAP_002,LOGICAL_CAPACITY_FIELDS_STILL_FALLBACK,NON_BLOCKING_SCOPE_LIMIT,OPEN,"Fallback still required for: word_size, num_words, words_per_row, num_banks, num_ports, tech, top_cell_name, dummy_enabled, replica_enabled, precharge_enabled, sense_amp_enabled, write_driver_enabled, wordline_driver_enabled, decoder_enabled"
+M11_GAP_003,FULL_RAW_COMPILER_NOT_CLAIMED,NON_BLOCKING_SCOPE_LIMIT,OPEN,"OpenYield raw source exposes num_rows/num_cols/choose_columnmux and architecture variations, but current supported delivery still relies on locked 8x64_wpr4 logical capacity fallback."

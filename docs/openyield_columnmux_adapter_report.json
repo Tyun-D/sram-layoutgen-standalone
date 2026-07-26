@@ -1,0 +1,249 @@
+{
+  "scope": "step5_4_columnmux_adapter_power_metadata_audit",
+  "inputs": {
+    "contracts": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+    "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+    "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_col_mux.gds",
+    "replacement_macro_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\replacement_macros.json"
+  },
+  "openyield_columnmux_module_names": [
+    "COLUMNMUX*",
+    "ColumnMuxFactory"
+  ],
+  "openyield_pin_list": [
+    "VDD",
+    "VSS",
+    "SA_IN",
+    "SA_INB",
+    "SEL{i}",
+    "BL{i}",
+    "BLB{i}"
+  ],
+  "openyield_power_pins": {
+    "VDD": "vdd",
+    "VSS": "gnd"
+  },
+  "local_gen_col_mux_gds_labels": [
+    "sel",
+    "bl",
+    "br",
+    "bl_out",
+    "br_out",
+    "gnd",
+    "G",
+    "S",
+    "D"
+  ],
+  "local_gen_col_mux_gds_canonical_pins": [
+    {
+      "pin": "VDD",
+      "canonical": "vdd",
+      "shape_source": "missing",
+      "shape_bbox": null
+    },
+    {
+      "pin": "gnd",
+      "canonical": "gnd",
+      "shape_source": "label_plus_shape",
+      "shape_bbox": {
+        "x0": 0.6725,
+        "y0": 0.8375,
+        "x1": 0.7375,
+        "y1": 0.9025
+      }
+    },
+    {
+      "pin": "BL",
+      "canonical": "bl",
+      "shape_source": "label_plus_shape",
+      "shape_bbox": {
+        "x0": 0.14,
+        "y0": 1.6600000000000001,
+        "x1": 0.21,
+        "y1": 1.8
+      }
+    },
+    {
+      "pin": "BR",
+      "canonical": "br",
+      "shape_source": "label_plus_shape",
+      "shape_bbox": {
+        "x0": 0.5650000000000001,
+        "y0": 1.6600000000000001,
+        "x1": 0.635,
+        "y1": 1.8
+      }
+    },
+    {
+      "pin": "OUT",
+      "canonical": "mux_out",
+      "shape_source": "label_plus_shape",
+      "shape_bbox": {
+        "x0": 0.14,
+        "y0": 0.0,
+        "x1": 0.21,
+        "y1": 0.14
+      }
+    },
+    {
+      "pin": "OUTB",
+      "canonical": "mux_out_b",
+      "shape_source": "label_plus_shape",
+      "shape_bbox": {
+        "x0": 0.5650000000000001,
+        "y0": 0.0,
+        "x1": 0.635,
+        "y1": 0.14
+      }
+    },
+    {
+      "pin": "SEL",
+      "canonical": "column_select",
+      "shape_source": "label_plus_shape",
+      "shape_bbox": {
+        "x0": 0.3275,
+        "y0": 0.025,
+        "x1": 0.3775,
+        "y1": 0.08
+      }
+    }
+  ],
+  "local_spice_pins": [],
+  "replacement_macro_pins": [
+    {
+      "name": "BL",
+      "layer": "m2",
+      "x": 0.175,
+      "y": 1.73,
+      "use": "SIGNAL"
+    },
+    {
+      "name": "BR",
+      "layer": "m2",
+      "x": 0.6,
+      "y": 1.73,
+      "use": "SIGNAL"
+    },
+    {
+      "name": "OUT",
+      "layer": "m2",
+      "x": 0.175,
+      "y": 0.07,
+      "use": "SIGNAL"
+    },
+    {
+      "name": "OUTB",
+      "layer": "m2",
+      "x": 0.6,
+      "y": 0.07,
+      "use": "SIGNAL"
+    },
+    {
+      "name": "SEL",
+      "layer": "poly",
+      "x": 0.3525,
+      "y": 0.0525,
+      "use": "SIGNAL"
+    },
+    {
+      "name": "gnd",
+      "layer": "m1",
+      "x": 0.705,
+      "y": 0.87,
+      "use": "GROUND"
+    }
+  ],
+  "pin_mapping_table": [
+    {
+      "openyield_pin": "VDD",
+      "local_pin": null,
+      "canonical_signal": "vdd",
+      "adaptation_type": "missing_power_metadata",
+      "required": false,
+      "notes": [
+        "OpenYield requires VDD.",
+        "Local gen_col_mux does not prove a VDD label-backed physical pin."
+      ]
+    },
+    {
+      "openyield_pin": "VSS",
+      "local_pin": "gnd",
+      "canonical_signal": "gnd",
+      "adaptation_type": "direct_physical_pin",
+      "required": true,
+      "notes": []
+    },
+    {
+      "openyield_pin": "BL",
+      "local_pin": "BL",
+      "canonical_signal": "bl",
+      "adaptation_type": "direct_physical_pin",
+      "required": true,
+      "notes": []
+    },
+    {
+      "openyield_pin": "BLB",
+      "local_pin": "BR",
+      "canonical_signal": "br",
+      "adaptation_type": "direct_physical_pin",
+      "required": true,
+      "notes": []
+    },
+    {
+      "openyield_pin": "SEL",
+      "local_pin": "SEL",
+      "canonical_signal": "column_select",
+      "adaptation_type": "direct_physical_pin",
+      "required": true,
+      "notes": []
+    },
+    {
+      "openyield_pin": "OUT",
+      "local_pin": "OUT",
+      "canonical_signal": "mux_out",
+      "adaptation_type": "direct_physical_pin",
+      "required": true,
+      "notes": []
+    },
+    {
+      "openyield_pin": "OUTB",
+      "local_pin": "OUTB",
+      "canonical_signal": "mux_out_b",
+      "adaptation_type": "direct_physical_pin",
+      "required": true,
+      "notes": []
+    }
+  ],
+  "semantics": {
+    "out_to_mux_out": true,
+    "outb_to_mux_out_b": true,
+    "sel_to_column_select": true,
+    "bl_to_bl": true,
+    "br_to_br": true,
+    "gnd_present": true,
+    "vdd_present": false
+  },
+  "out_to_mux_out_established": true,
+  "outb_to_mux_out_b_established": true,
+  "vdd_metadata_present": false,
+  "gnd_metadata_present": true,
+  "power_status": "missing_power_metadata",
+  "safe_for_physical_mapping": true,
+  "safe_for_shared_rail": false,
+  "requires_power_metadata_fix": true,
+  "senseamp_mux_interface": {
+    "IN": "mux_out[group]",
+    "INB": "mux_out_b[group]",
+    "Q": "dout[group]",
+    "QB": "dropped_complementary_output"
+  },
+  "columnmux_can_pair_with_senseamp_adapter": true,
+  "can_enter_columnmux_placement": "limited_or_metadata_only",
+  "notes": [
+    "OUT/OUTB semantics are evaluated independently from power metadata.",
+    "Do not allow shared rail or claim power-complete placement until VDD metadata is proven."
+  ],
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false
+}

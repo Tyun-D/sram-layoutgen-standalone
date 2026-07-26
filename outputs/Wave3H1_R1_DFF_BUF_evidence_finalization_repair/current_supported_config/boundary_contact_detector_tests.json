@@ -1,0 +1,262 @@
+{
+  "boundary_touch_detection_implemented": true,
+  "geometry_domain_contract_fail_closed": true,
+  "edge_touch_negative_test_passed": true,
+  "corner_touch_negative_test_passed": true,
+  "positive_clearance_test_passed": true,
+  "cross_layer_without_via_test_passed": true,
+  "via1_m1_test_passed": true,
+  "via1_m2_test_passed": true,
+  "cross_layer_with_via_test_passed": true,
+  "non_rectangular_polygon_false_overlap_rejected": true,
+  "missing_rectangle_contract_rejected": true,
+  "epsilon_inside_test_passed": true,
+  "epsilon_outside_test_passed": true,
+  "same_unexpected_net_multi_shape_dedup_test_passed": true,
+  "same_route_multi_foreign_net_count_test_passed": true,
+  "raw": {
+    "edge": {
+      "contact_bbox": [
+        1.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "contact_area": 0.0,
+      "contact_kind": "edge_touch",
+      "electrically_connected": true,
+      "cross_layer_connection": false,
+      "reason": "same_layer_distance_zero"
+    },
+    "corner": {
+      "contact_bbox": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "contact_area": 0.0,
+      "contact_kind": "corner_touch",
+      "electrically_connected": true,
+      "cross_layer_connection": false,
+      "reason": "same_layer_distance_zero"
+    },
+    "gap": null,
+    "cross_no_via": {
+      "contact_bbox": [
+        0.2,
+        0.2,
+        0.8,
+        0.8
+      ],
+      "contact_area": 0.36,
+      "contact_kind": "area_overlap",
+      "electrically_connected": false,
+      "cross_layer_connection": true,
+      "reason": "cross_layer_without_via"
+    },
+    "via_m1": {
+      "contact_bbox": [
+        0.4,
+        0.4,
+        0.6,
+        0.6
+      ],
+      "contact_area": 0.04,
+      "contact_kind": "area_overlap",
+      "electrically_connected": true,
+      "cross_layer_connection": true,
+      "reason": "explicit_via_connection"
+    },
+    "via_m2": {
+      "contact_bbox": [
+        0.4,
+        0.4,
+        0.6,
+        0.6
+      ],
+      "contact_area": 0.04,
+      "contact_kind": "area_overlap",
+      "electrically_connected": true,
+      "cross_layer_connection": true,
+      "reason": "explicit_via_connection"
+    },
+    "epsilon_inside": {
+      "contact_bbox": [
+        1.000001,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "contact_area": 0.0,
+      "contact_kind": "edge_touch",
+      "electrically_connected": true,
+      "cross_layer_connection": false,
+      "reason": "same_layer_distance_zero"
+    },
+    "epsilon_outside": null,
+    "polygon_error": "conductive object rejected: shape_kind must be 'axis_aligned_rectangle' for bbox-based contact detection, got 'polygon'",
+    "missing_contract_error": "conductive object rejected: shape_kind must be 'axis_aligned_rectangle' for bbox-based contact detection, got None",
+    "same_net_dedup": {
+      "per_route": [
+        {
+          "parent_route_id": "r1",
+          "intended_net": "TOP::CLK",
+          "contacted_hierarchical_nets": [
+            "dff::CLKB_internal"
+          ],
+          "allowed_hierarchical_nets": [
+            "dff::CLK"
+          ],
+          "unexpected_hierarchical_nets": [
+            "dff::CLKB_internal"
+          ],
+          "overlap_layer": "m1",
+          "overlap_geometry": [
+            {
+              "contacted_hierarchical_net": "dff::CLKB_internal",
+              "child_instance": "dff",
+              "layer": "m1",
+              "obstacle_shape_id": "s1",
+              "contact_bbox": [
+                0.5,
+                0.0,
+                0.8,
+                1.0
+              ],
+              "contact_area": 0.3,
+              "overlap_bbox": [
+                0.5,
+                0.0,
+                0.8,
+                1.0
+              ],
+              "overlap_area": 0.3,
+              "contact_kind": "area_overlap",
+              "reason": "same_layer_distance_zero"
+            },
+            {
+              "contacted_hierarchical_net": "dff::CLKB_internal",
+              "child_instance": "dff",
+              "layer": "m1",
+              "obstacle_shape_id": "s2",
+              "contact_bbox": [
+                1.2,
+                0.0,
+                1.5,
+                1.0
+              ],
+              "contact_area": 0.3,
+              "overlap_bbox": [
+                1.2,
+                0.0,
+                1.5,
+                1.0
+              ],
+              "overlap_area": 0.3,
+              "contact_kind": "area_overlap",
+              "reason": "same_layer_distance_zero"
+            }
+          ],
+          "short_classification": "FOREIGN_NET_CONTACT"
+        }
+      ],
+      "hierarchical_foreign_net_contact_count": 1,
+      "unexpected_child_internal_net_contact_count": 1,
+      "unique_foreign_hierarchical_net_count": 1,
+      "unique_parent_route_foreign_net_pair_count": 1,
+      "raw_contacting_foreign_obstacle_shape_count": 2,
+      "unique_unexpected_child_internal_net_count": 1,
+      "unique_parent_route_unexpected_child_internal_net_pair_count": 1,
+      "clk_clkb_short_present": true,
+      "q_qb_internal_short_present": false,
+      "geometry_domain_contract": {
+        "shape_kind_required": "axis_aligned_rectangle",
+        "bbox_is_exact_geometry_required": true,
+        "epsilon": 1e-06
+      }
+    },
+    "multi_foreign": {
+      "per_route": [
+        {
+          "parent_route_id": "r2",
+          "intended_net": "PARENT::qint",
+          "contacted_hierarchical_nets": [
+            "dff::CLKB_internal",
+            "dff::QB_internal"
+          ],
+          "allowed_hierarchical_nets": [
+            "dff::Q",
+            "inv1::A"
+          ],
+          "unexpected_hierarchical_nets": [
+            "dff::CLKB_internal",
+            "dff::QB_internal"
+          ],
+          "overlap_layer": "m1",
+          "overlap_geometry": [
+            {
+              "contacted_hierarchical_net": "dff::QB_internal",
+              "child_instance": "dff",
+              "layer": "m1",
+              "obstacle_shape_id": "s3",
+              "contact_bbox": [
+                0.2,
+                0.0,
+                0.6,
+                1.0
+              ],
+              "contact_area": 0.4,
+              "overlap_bbox": [
+                0.2,
+                0.0,
+                0.6,
+                1.0
+              ],
+              "overlap_area": 0.4,
+              "contact_kind": "area_overlap",
+              "reason": "same_layer_distance_zero"
+            },
+            {
+              "contacted_hierarchical_net": "dff::CLKB_internal",
+              "child_instance": "dff",
+              "layer": "m1",
+              "obstacle_shape_id": "s4",
+              "contact_bbox": [
+                1.0,
+                0.0,
+                1.4,
+                1.0
+              ],
+              "contact_area": 0.4,
+              "overlap_bbox": [
+                1.0,
+                0.0,
+                1.4,
+                1.0
+              ],
+              "overlap_area": 0.4,
+              "contact_kind": "area_overlap",
+              "reason": "same_layer_distance_zero"
+            }
+          ],
+          "short_classification": "FOREIGN_NET_CONTACT"
+        }
+      ],
+      "hierarchical_foreign_net_contact_count": 2,
+      "unexpected_child_internal_net_contact_count": 2,
+      "unique_foreign_hierarchical_net_count": 2,
+      "unique_parent_route_foreign_net_pair_count": 2,
+      "raw_contacting_foreign_obstacle_shape_count": 2,
+      "unique_unexpected_child_internal_net_count": 2,
+      "unique_parent_route_unexpected_child_internal_net_pair_count": 2,
+      "clk_clkb_short_present": false,
+      "q_qb_internal_short_present": true,
+      "geometry_domain_contract": {
+        "shape_kind_required": "axis_aligned_rectangle",
+        "bbox_is_exact_geometry_required": true,
+        "epsilon": 1e-06
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "contract_name": "openyield_top_bank_semantic_contract",
+  "SRAM_TOP": {
+    "canonical_object": true,
+    "source_mapping": "Sram6TCoreTestbench.create_testbench()",
+    "bank_model": "contains exactly one implicit BANK object",
+    "ports": {
+      "power": [
+        "VDD",
+        "VSS"
+      ],
+      "clock": [
+        "clk"
+      ],
+      "control": [
+        "csb",
+        "web"
+      ],
+      "address": "A[i]",
+      "write_data": "DIN[i]",
+      "read_output_semantic_path": [
+        "sense_amp.Q",
+        "D_latch.OUT / observation path"
+      ],
+      "storage_array": [
+        "BL[i]",
+        "BLB[i]",
+        "WL[i]"
+      ],
+      "replica": [
+        "RBL",
+        "RBLB",
+        "RWL"
+      ],
+      "internal_control_timing": [
+        "gated_clk_bar",
+        "gated_clk_buf",
+        "wl_en",
+        "PRE",
+        "s_en",
+        "w_en",
+        "rbl_delay",
+        "rbl_delay_bar"
+      ]
+    },
+    "scope_rule": "closed_by_canonical_contract_single_bank_scope"
+  },
+  "BANK": {
+    "canonical_object": true,
+    "explicit_openyield_class_exists": false,
+    "semantic_mapping": "single implicit bank inside SRAM_TOP",
+    "bank_count_supported": 1,
+    "bank_count_gt_1": "unsupported",
+    "child_objects": [
+      "bitcell_array",
+      "replica_array",
+      "row_decoder",
+      "wordline_driver",
+      "precharge",
+      "column_mux",
+      "sense_amp",
+      "write_driver",
+      "CONTROL_LOGIC"
+    ],
+    "scope_rule": "closed_by_canonical_contract_single_bank_scope"
+  },
+  "source_evidence": [
+    "sram_compiler/testbenches/sram_6t_core_testbench.py:848-1060",
+    "main_sram.py:69-97"
+  ]
+}

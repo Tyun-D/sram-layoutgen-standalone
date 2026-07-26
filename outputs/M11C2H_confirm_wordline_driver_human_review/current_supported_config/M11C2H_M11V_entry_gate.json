@@ -1,0 +1,22 @@
+{
+  "stage": "M11C2H",
+  "gate_name": "Confirm M11C2 human review and clear wordline_driver smoke substitution gate with routing/power caveat",
+  "m11c2_human_review_completed": true,
+  "wordline_driver_smoke_substitution_human_review_accepted_with_caveat": true,
+  "substituted_modules": [
+    "wordline_driver"
+  ],
+  "excluded_modules_confirmed": true,
+  "remaining_M11C2_blockers_before_count": 3,
+  "remaining_M11C2_blockers_after_count": 0,
+  "recommended_next_stage": "M11V_ROUTING_POWER_CONNECTIVITY_VERIFICATION_DEEPENING",
+  "recommended_next_stage_reason": "Because M11C2 passed isolated wordline_driver smoke substitution, but nearby routing/power cleanliness remains visually inconclusive due to baseline layoutgen routing limitations. Verification should be deepened before expanding substitution scope.",
+  "next_stage_allowed": "M11V_ROUTING_POWER_CONNECTIVITY_VERIFICATION_DEEPENING",
+  "can_enter_M11V_after_this_gate": true,
+  "can_claim_openyield_module_gds_hardmacro_substitution": false,
+  "can_claim_routing_clean": false,
+  "can_claim_power_clean": false,
+  "can_claim_drc_clean": false,
+  "can_claim_lvs_clean": false,
+  "can_claim_signoff_ready": false
+}

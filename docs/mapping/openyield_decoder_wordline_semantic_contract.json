@@ -1,0 +1,53 @@
+{
+  "contract_name": "openyield_decoder_wordline_semantic_contract",
+  "flow": [
+    "address A[i] -> ADDR_DFF -> A_dff[i]",
+    "A_dff[i] -> DECODER_CASCADE",
+    "DECODER_CASCADE -> DEC_WL[i]",
+    "CONTROL_LOGIC.wl_en -> WORDLINEDRIVER.B",
+    "DEC_WL[i] -> WORDLINEDRIVER.A",
+    "WORDLINEDRIVER.Z -> WL[i]",
+    "WL[i] -> bitcell_array.WL[i]"
+  ],
+  "signal_contracts": [
+    {
+      "signal": "A[i]",
+      "source": "SRAM_TOP",
+      "sink": "DFF_ROW",
+      "role": "address_input"
+    },
+    {
+      "signal": "A_dff[i]",
+      "source": "DFF_ROW",
+      "sink": "row_decoder",
+      "role": "registered_row_address"
+    },
+    {
+      "signal": "DEC_WL[i]",
+      "source": "row_decoder",
+      "sink": "wordline_driver.A",
+      "role": "decoded_wordline_intent"
+    },
+    {
+      "signal": "wl_en",
+      "source": "CONTROL_LOGIC",
+      "sink": "wordline_driver.B",
+      "role": "wordline_enable"
+    },
+    {
+      "signal": "WL[i]",
+      "source": "wordline_driver.Z",
+      "sink": "bitcell_array.WL[i]",
+      "role": "physical_wordline"
+    }
+  ],
+  "leaf_contracts": {
+    "decoder_gate_cells": "Semantic leaf inventory is closed; physical gate-row composition remains later-layer work.",
+    "wordline_driver_gate_cells": "Semantic leaf inventory is closed; physical composition remains later-layer work."
+  },
+  "source_evidence": [
+    "sram_compiler/testbenches/sram_6t_core_testbench.py:336-426",
+    "sram_compiler/subcircuits/decoder.py:129-230",
+    "sram_compiler/subcircuits/wordline_driver.py:7-79"
+  ]
+}

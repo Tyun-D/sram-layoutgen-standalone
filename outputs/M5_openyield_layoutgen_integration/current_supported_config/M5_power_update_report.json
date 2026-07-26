@@ -1,0 +1,28 @@
+{
+  "power_code_modified": true,
+  "optimized_power_rail_stitch_preserved": true,
+  "module_power_rail_connected_count": 20,
+  "rail_overlap_or_abutment_evidence_count": 15,
+  "wrapper_power_gate_rows": [
+    {
+      "module": "column_mux",
+      "shared_rail_enabled": false,
+      "gate_reason": "shared rail remains disabled; preserve M3F optimized non-shared wrapper power policy"
+    },
+    {
+      "module": "write_driver",
+      "shared_rail_enabled": false,
+      "gate_reason": "shared rail remains disabled; preserve M3F optimized non-shared wrapper power policy"
+    },
+    {
+      "module": "wordline_driver",
+      "shared_rail_enabled": false,
+      "gate_reason": "shared rail remains disabled; preserve M3F optimized non-shared wrapper power policy"
+    },
+    {
+      "module": "precharge",
+      "shared_rail_enabled": false,
+      "gate_reason": "shared rail remains disabled; preserve M3F optimized non-shared wrapper power policy"
+    }
+  ]
+}

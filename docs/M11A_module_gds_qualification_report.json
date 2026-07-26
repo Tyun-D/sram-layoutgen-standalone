@@ -1,0 +1,141 @@
+{
+  "status_file_read": true,
+  "status_file_updated": true,
+  "goal_file_read": true,
+  "goal_file_updated": true,
+  "progress_file_updated": true,
+  "reused_previous_artifacts": [
+    {
+      "artifact": "M8R/M8RC locked golden layoutgen flow",
+      "path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+      "reuse_purpose": "locked exact-match geometry baseline for translator-backed physical delivery"
+    },
+    {
+      "artifact": "M9/M9H translator v1",
+      "path": "outputs/M9_openyield_netlist_translator/current_supported_config/openyield_netlist_translated_sram.gds",
+      "reuse_purpose": "prior translator semantics, binding bridge, and reviewed translator framing"
+    },
+    {
+      "artifact": "M10 raw source-backed trace",
+      "path": "outputs/M10_raw_openyield_trace/current_supported_config/openyield_source_backed_translated_sram.gds",
+      "reuse_purpose": "source-backed module/net/instance/config trace and exact-match source-backed translator v2 evidence"
+    },
+    {
+      "artifact": "T1 OpenYield full file analysis",
+      "path": "docs/T1_openyield_full_file_report.json",
+      "reuse_purpose": "key entrypoints, source inventory, and recommended raw-source search set"
+    },
+    {
+      "artifact": "R1/M1 OpenYield intent and binding",
+      "path": "outputs/openyield_layout_intent/current_supported_config/;docs/mapping/M1_openyield_to_layoutgen_binding.csv;docs/mapping/M1_openyield_net_to_layoutgen_pin_binding.csv",
+      "reuse_purpose": "semantic role map and module/net binding inputs carried into M9 and hardened in M10"
+    },
+    {
+      "artifact": "M7 golden reference",
+      "path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+      "reuse_purpose": "locked physical comparison target and exact-match baseline"
+    },
+    {
+      "artifact": "OpenYield module GDS inventory",
+      "path": "outputs/openyield_module_gds/",
+      "reuse_purpose": "per-module bbox/pins/rail/generation metadata and candidate hardmacro files for qualification only"
+    },
+    {
+      "artifact": "M9 module binding matrix",
+      "path": "outputs/M9_openyield_netlist_translator/current_supported_config/M9_module_binding_matrix.csv",
+      "reuse_purpose": "map each OpenYield module to its current layoutgen-backed physical target or fallback path"
+    },
+    {
+      "artifact": "M10 source-backed module trace",
+      "path": "docs/mapping/M10_source_backed_module_trace.csv",
+      "reuse_purpose": "verify each module remains source-backed while being qualified as a hardmacro candidate"
+    }
+  ],
+  "deprecated_previous_artifacts": [
+    {
+      "artifact": "access_module cells",
+      "path": "*_access_module",
+      "deprecated_reason": "cannot be claimed as physical implementation in M10H gate closure"
+    },
+    {
+      "artifact": "floorplan_proxy cells",
+      "path": "floorplan_proxy*",
+      "deprecated_reason": "review-only proxy hierarchy, not valid implementation backing for M10H"
+    },
+    {
+      "artifact": "historical hybrid reference",
+      "path": "outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+      "deprecated_reason": "superseded by locked uploaded golden reference and M8R/M8RC exact-match flow"
+    },
+    {
+      "artifact": "contract pins as verified physical pins",
+      "path": "module pins derived from module_contract_pin_map or composition contracts",
+      "deprecated_reason": "cannot be treated as fully verified physical substitution pins in M11A"
+    },
+    {
+      "artifact": "candidate geometry as direct hardmacro replacement",
+      "path": "L3_GDS_GENERATED_CANDIDATE_GEOMETRY modules",
+      "deprecated_reason": "candidate geometry remains unqualified for direct substitution in M11A"
+    }
+  ],
+  "current_stage_inputs": [
+    "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md",
+    "PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json",
+    "PROJECT_NETLIST_TO_LAYOUT_GOAL.md",
+    "PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md",
+    "docs/M11H_confirm_config_aware_translator_report.json",
+    "docs/mapping/M10_source_backed_module_trace.csv",
+    "docs/mapping/M10_source_backed_net_trace.csv",
+    "outputs/M9_openyield_netlist_translator/current_supported_config/M9_module_binding_matrix.csv",
+    "outputs/M9_openyield_netlist_translator/current_supported_config/M9_net_binding_matrix.csv",
+    "docs/mapping/M12_ten_required_assets_matrix.csv",
+    "docs/mapping/M12_missing_asset_backlog.csv",
+    "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+    "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+    "outputs/openyield_module_gds/"
+  ],
+  "current_stage_delta_from_M11H": [
+    "M11H cleared the config-aware translator gate; M11A uses that cleared state to qualify physical module GDS candidates rather than translator claims.",
+    "M11A does not expand claim boundaries to full substitution, DRC, LVS, or signoff; it only classifies module candidates and produces selective substitution prerequisites.",
+    "M11A adds a per-module decision matrix and review GDS against golden/layoutgen targets."
+  ],
+  "why_M11A_is_needed": "M12 marked the physical implementation library as partial because OpenYield module GDS existed but were not qualified for hardmacro substitution. M11A is needed to classify all 20 module GDS into direct replacement, constraint-only, semantic-only, or rejected buckets before M11B metadata extraction and any substitution smoke.",
+  "module_gds_dir_found": true,
+  "module_gds_count": 20,
+  "expected_openyield_module_count": 20,
+  "all_expected_modules_have_gds": true,
+  "bbox_metadata_count": 20,
+  "pin_metadata_count": 20,
+  "rail_metadata_count": 20,
+  "generation_report_count": 20,
+  "golden_reference_loaded": true,
+  "m10_module_trace_loaded": true,
+  "m9_module_binding_loaded": true,
+  "direct_hardmacro_replace_count": 4,
+  "constraint_extraction_only_count": 4,
+  "semantic_reference_only_count": 12,
+  "rejected_count": 0,
+  "first_substitution_candidates": [
+    "column_mux",
+    "sense_amp",
+    "wordline_driver",
+    "write_driver"
+  ],
+  "safe_to_attempt_selective_substitution": true,
+  "must_run_M11B_before_substitution": true,
+  "review_gds_generated": true,
+  "review_gds_path": "outputs/M11A_module_gds_qualification/current_supported_config/module_gds_qualification_review.gds",
+  "clean_review_gds_path": "outputs/M11A_module_gds_qualification/current_supported_config/module_gds_qualification_clean_review.gds",
+  "annotated_debug_gds_path": "outputs/M11A_module_gds_qualification/current_supported_config/module_gds_qualification_annotated_debug.gds",
+  "review_gds_sanity_status": "GDS_PARSED_SANITY_PASSED",
+  "can_claim_openyield_module_gds_hardmacro_substitution": false,
+  "can_enter_M11B_after_this_gate": true,
+  "human_klayout_review_required": true,
+  "can_enter_next_stage_before_human_review": false,
+  "remaining_M11A_blockers": [
+    "M11B metadata extraction is still mandatory before any substitution attempt.",
+    "Human KLayout review of module_gds_qualification_review.gds is required.",
+    "OpenYield module GDS hardmacro substitution cannot yet be claimed complete at M11A."
+  ],
+  "remaining_M11A_blockers_count": 3
+}

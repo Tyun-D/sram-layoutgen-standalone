@@ -1,0 +1,58 @@
+{
+  "routing_handoff_audit_status": "PASSED",
+  "entry_count": 26,
+  "required_semantic_nets_missing": [],
+  "entries_missing_source_or_target": [],
+  "contract_net_only": [
+    "A[i]",
+    "DIN[i]",
+    "SA_Q[*];SA_QB[*]"
+  ],
+  "detailed_routing_needed": [
+    "A_dff[i]",
+    "BL[i];BLB[i]",
+    "BL[i];BLB[i]",
+    "BL[i];BLB[i]",
+    "BL[i];BLB[i]",
+    "DEC_WL[i]",
+    "DIN_dff[i]",
+    "PRE",
+    "PRE",
+    "SA_IN[*];SA_INB[*]",
+    "WL[i]",
+    "WL_EN",
+    "clk_buf",
+    "gated_clk_bar;gated_clk_buf",
+    "rbl",
+    "rbl_delay",
+    "rbl_delay_bar",
+    "s_en",
+    "s_en",
+    "w_en",
+    "w_en",
+    "wl_en"
+  ],
+  "net_category_stats": {
+    "address": 2,
+    "bitline": 3,
+    "clock": 1,
+    "clock_control": 1,
+    "control_enable": 8,
+    "decoder_wordline": 1,
+    "power": 1,
+    "read_data": 3,
+    "timing_control": 2,
+    "timing_sense": 1,
+    "wordline": 1,
+    "write_data": 2
+  },
+  "timing_trace_expected_signals": {
+    "optionalrbl_delay_bar_wen": false,
+    "pre": true,
+    "rbl_delay": true,
+    "rbl_delay_bar": true,
+    "s_en": true,
+    "w_en": true,
+    "wl_en": true
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "scope": "step6_40_openyield_time_control_prototype_artifact_contract_audit",
+  "nodes": [
+    {
+      "id": "artifact_kind",
+      "kind": "required_key"
+    },
+    {
+      "id": "schema_version",
+      "kind": "required_key"
+    },
+    {
+      "id": "config_snapshot",
+      "kind": "required_key"
+    },
+    {
+      "id": "gate_snapshot",
+      "kind": "required_key"
+    },
+    {
+      "id": "regions",
+      "kind": "required_key"
+    },
+    {
+      "id": "subblocks",
+      "kind": "required_key"
+    },
+    {
+      "id": "handoffs",
+      "kind": "required_key"
+    },
+    {
+      "id": "group_order",
+      "kind": "required_key"
+    },
+    {
+      "id": "blocker_summary",
+      "kind": "required_key"
+    },
+    {
+      "id": "notes",
+      "kind": "required_key"
+    },
+    {
+      "id": "gds_path",
+      "kind": "forbidden_key"
+    },
+    {
+      "id": "topcell_name",
+      "kind": "forbidden_key"
+    },
+    {
+      "id": "routed_shapes",
+      "kind": "forbidden_key"
+    },
+    {
+      "id": "via_shapes",
+      "kind": "forbidden_key"
+    },
+    {
+      "id": "placed_instances",
+      "kind": "forbidden_key"
+    },
+    {
+      "id": "physical_bbox",
+      "kind": "forbidden_key"
+    },
+    {
+      "id": "standalone_patch",
+      "kind": "forbidden_key"
+    },
+    {
+      "id": "drc_result",
+      "kind": "forbidden_key"
+    },
+    {
+      "id": "lvs_result",
+      "kind": "forbidden_key"
+    },
+    {
+      "id": "config_snapshot",
+      "kind": "schema_section"
+    },
+    {
+      "id": "gate_snapshot",
+      "kind": "schema_section"
+    },
+    {
+      "id": "regions",
+      "kind": "schema_section"
+    },
+    {
+      "id": "subblocks",
+      "kind": "schema_section"
+    },
+    {
+      "id": "handoffs",
+      "kind": "schema_section"
+    }
+  ],
+  "edges": [
+    {
+      "source": "abstract_plan_bundle",
+      "target": "artifact_kind",
+      "relation": "requires_key"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "schema_version",
+      "relation": "requires_key"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "config_snapshot",
+      "relation": "requires_key"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "gate_snapshot",
+      "relation": "requires_key"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "regions",
+      "relation": "requires_key"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "subblocks",
+      "relation": "requires_key"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "handoffs",
+      "relation": "requires_key"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "group_order",
+      "relation": "requires_key"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "blocker_summary",
+      "relation": "requires_key"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "notes",
+      "relation": "requires_key"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "gds_path",
+      "relation": "forbids_key"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "topcell_name",
+      "relation": "forbids_key"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "routed_shapes",
+      "relation": "forbids_key"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "via_shapes",
+      "relation": "forbids_key"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "placed_instances",
+      "relation": "forbids_key"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "physical_bbox",
+      "relation": "forbids_key"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "standalone_patch",
+      "relation": "forbids_key"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "drc_result",
+      "relation": "forbids_key"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "lvs_result",
+      "relation": "forbids_key"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "config_snapshot",
+      "relation": "contains_section"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "gate_snapshot",
+      "relation": "contains_section"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "regions",
+      "relation": "contains_section"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "subblocks",
+      "relation": "contains_section"
+    },
+    {
+      "source": "abstract_plan_bundle",
+      "target": "handoffs",
+      "relation": "contains_section"
+    }
+  ],
+  "summary": {
+    "prototype_artifact_contract_audit_available": true,
+    "required_top_level_keys_explicit": true,
+    "forbidden_top_level_keys_explicit": true,
+    "gate_snapshot_closed": true,
+    "future_default_off_builder_artifact_contract_clean": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  }
+}

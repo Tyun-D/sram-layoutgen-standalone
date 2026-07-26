@@ -1,0 +1,201 @@
+{
+  "nodes": [
+    {
+      "id": "legal_readonly",
+      "label": "time_control_legal_placement_readonly_audit",
+      "kind": "root"
+    },
+    {
+      "id": "subblock:PINV",
+      "label": "PINV",
+      "kind": "subblock"
+    },
+    {
+      "id": "region:generated_logic_region",
+      "label": "generated_logic_region",
+      "kind": "region"
+    },
+    {
+      "id": "subblock:AND2",
+      "label": "AND2",
+      "kind": "subblock"
+    },
+    {
+      "id": "subblock:AND3_COMPOSITE",
+      "label": "AND3_COMPOSITE",
+      "kind": "subblock"
+    },
+    {
+      "id": "subblock:PNAND3_COMPOSITE",
+      "label": "PNAND3_COMPOSITE",
+      "kind": "subblock"
+    },
+    {
+      "id": "region:precharge_control_region",
+      "label": "precharge_control_region",
+      "kind": "region"
+    },
+    {
+      "id": "subblock:PDRIVE",
+      "label": "PDRIVE",
+      "kind": "subblock"
+    },
+    {
+      "id": "region:pdrive_region",
+      "label": "pdrive_region",
+      "kind": "region"
+    },
+    {
+      "id": "subblock:PDRIVE2_FOR_PRE",
+      "label": "PDRIVE2_FOR_PRE",
+      "kind": "subblock"
+    },
+    {
+      "id": "subblock:WL_PDRIVE",
+      "label": "WL_PDRIVE",
+      "kind": "subblock"
+    },
+    {
+      "id": "subblock:DELAY_CHAIN",
+      "label": "DELAY_CHAIN",
+      "kind": "subblock"
+    },
+    {
+      "id": "region:delay_chain_region",
+      "label": "delay_chain_region",
+      "kind": "region"
+    },
+    {
+      "id": "subblock:WEN_DELAY_CHAIN",
+      "label": "WEN_DELAY_CHAIN",
+      "kind": "subblock"
+    },
+    {
+      "id": "region:sense_write_enable_region",
+      "label": "sense_write_enable_region",
+      "kind": "region"
+    },
+    {
+      "id": "subblock:PRECHARGE",
+      "label": "PRECHARGE",
+      "kind": "subblock"
+    },
+    {
+      "id": "subblock:DFF_ROW",
+      "label": "DFF_ROW",
+      "kind": "subblock"
+    }
+  ],
+  "edges": [
+    {
+      "from": "legal_readonly",
+      "to": "subblock:PINV",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:PINV",
+      "to": "region:generated_logic_region",
+      "relation": "assigned_region"
+    },
+    {
+      "from": "legal_readonly",
+      "to": "subblock:AND2",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:AND2",
+      "to": "region:generated_logic_region",
+      "relation": "assigned_region"
+    },
+    {
+      "from": "legal_readonly",
+      "to": "subblock:AND3_COMPOSITE",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:AND3_COMPOSITE",
+      "to": "region:generated_logic_region",
+      "relation": "assigned_region"
+    },
+    {
+      "from": "legal_readonly",
+      "to": "subblock:PNAND3_COMPOSITE",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:PNAND3_COMPOSITE",
+      "to": "region:precharge_control_region",
+      "relation": "assigned_region"
+    },
+    {
+      "from": "legal_readonly",
+      "to": "subblock:PDRIVE",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:PDRIVE",
+      "to": "region:pdrive_region",
+      "relation": "assigned_region"
+    },
+    {
+      "from": "legal_readonly",
+      "to": "subblock:PDRIVE2_FOR_PRE",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:PDRIVE2_FOR_PRE",
+      "to": "region:precharge_control_region",
+      "relation": "assigned_region"
+    },
+    {
+      "from": "legal_readonly",
+      "to": "subblock:WL_PDRIVE",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:WL_PDRIVE",
+      "to": "region:pdrive_region",
+      "relation": "assigned_region"
+    },
+    {
+      "from": "legal_readonly",
+      "to": "subblock:DELAY_CHAIN",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:DELAY_CHAIN",
+      "to": "region:delay_chain_region",
+      "relation": "assigned_region"
+    },
+    {
+      "from": "legal_readonly",
+      "to": "subblock:WEN_DELAY_CHAIN",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:WEN_DELAY_CHAIN",
+      "to": "region:sense_write_enable_region",
+      "relation": "assigned_region"
+    },
+    {
+      "from": "legal_readonly",
+      "to": "subblock:PRECHARGE",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:PRECHARGE",
+      "to": "region:precharge_control_region",
+      "relation": "assigned_region"
+    },
+    {
+      "from": "legal_readonly",
+      "to": "subblock:DFF_ROW",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:DFF_ROW",
+      "to": "region:generated_logic_region",
+      "relation": "assigned_region"
+    }
+  ]
+}

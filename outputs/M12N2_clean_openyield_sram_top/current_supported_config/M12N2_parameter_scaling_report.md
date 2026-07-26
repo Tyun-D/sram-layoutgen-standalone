@@ -1,0 +1,7 @@
+# M12N2 Parameter Scaling Report
+
+- sample_16x16_generated: `True`
+- sample_64x8_generated: `True`
+- parameter_scaling_verified: `True`
+- sample_16x16: `{'bitcell_core_instance_count': 1, 'wordline_count': 16, 'bitline_count': 16, 'sense_amp_count': 16, 'write_driver_count': 16, 'wordline_driver_count': 16, 'address_width': 4, 'top_data_pin_count': 48, 'spec': {'num_rows': 16, 'num_cols': 16, 'num_words': 16, 'word_size': 16, 'words_per_row': 1, 'mux_ratio': 1, 'choose_columnmux': False, 'sram_cell_type': '6T'}}`
+- sample_64x8: `{'bitcell_core_instance_count': 1, 'wordline_count': 64, 'bitline_count': 8, 'sense_amp_count': 8, 'write_driver_count': 8, 'wordline_driver_count': 64, 'address_width': 6, 'top_data_pin_count': 24, 'spec': {'num_rows': 64, 'num_cols': 8, 'num_words': 64, 'word_size': 8, 'words_per_row': 1, 'mux_ratio': 1, 'choose_columnmux': False, 'sram_cell_type': '6T'}}`

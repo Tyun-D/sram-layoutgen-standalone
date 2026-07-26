@@ -1,0 +1,30 @@
+# SRAM_SPEC
+
+- word_size: `16`
+- num_words: `16`
+- words_per_row: `1`
+- rows: `16`
+- cols: `16`
+- tech: `FreePDK45`
+- mux: `1`
+- power: `VDD/VSS`
+- generator: `OPENRAM_FREEPDK45_DEVICE_CONTACT_ADAPTER`
+- output: `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A_parameterized_device_gate_generator/current_supported_config/cells/PINV_NW270_PW810_L50/PINV_NW270_PW810_L50.gds`
+- logical_module: `PINV`
+- canonical_physical_cell_name: `PINV_NW270_PW810_L50`
+- nmos_width_nm: `270`
+- pmos_width_nm: `810`
+- channel_length_nm: `50`
+- reference_config: `16x16`
+- reference_configs: `['16x16', '64x8']`
+- reference_operation: `read&write`
+- source_file: `time_generate.py/standard_cell.py`
+- source_class: `pdrive`
+- source_instance_paths: `['pdrive.inv2', 'pdrive2_for_pre.inv2']`
+- openram_backend: `pinv`
+- openram_source_fingerprint: `be15a9ec97bc467c6a9f709b`
+- pin_order: `['VDD', 'VSS', 'A', 'Z']`
+- pin_map: `{'VDD': [{'layer': 'm1', 'lx': 0.0, 'by': 1.7875, 'rx': 0.9625, 'uy': 1.8525}], 'VSS': [{'layer': 'm1', 'lx': 0.0, 'by': -0.0325, 'rx': 0.9625, 'uy': 0.0325}], 'A': [{'layer': 'm1', 'lx': 0.0725, 'by': 0.81, 'rx': 0.2075, 'uy': 0.875}], 'Z': [{'layer': 'm1', 'lx': 0.37, 'by': 0.81, 'rx': 0.435, 'uy': 0.875}]}`
+- rail_policy: `OpenRAM row rails on vdd/gnd`
+- contact_policy: `OpenRAM default pgate/ptx contact policy`
+- geometry_fingerprint: `None`

@@ -1,0 +1,1671 @@
+{
+  "scope": "time_control_leaf_bbox_pin_side_inventory",
+  "repo_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "input_reports_and_assets": {
+    "asset_inventory": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_repo_physical_asset_inventory_report.json",
+    "power_rail_audit": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_hardcell_power_rail_continuity_report.json",
+    "generated_logic_report": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_generated_logic_contract_report.json",
+    "abstract_payload_report": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_abstract_floorplan_payload_report.json",
+    "region_refinement_report": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_region_refinement_report.json"
+  },
+  "gds_geometry_parse_available": true,
+  "leaf_gds_bbox_pin_side_inventory": [
+    {
+      "macro_name": "gen_inv",
+      "variant_name": "openram_replacements",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_inv.gds",
+      "gds_exists": true,
+      "recommended_for_future_planning": true,
+      "top_cell": "gen_inv",
+      "bbox": {
+        "x0": -0.08,
+        "y0": -0.08,
+        "x1": 0.7425,
+        "y1": 1.4000000000000001
+      },
+      "width": 0.8225,
+      "height": 1.4800000000000002,
+      "origin_policy": "real_gds_bbox",
+      "pin_labels": [
+        "A",
+        "D",
+        "G",
+        "S",
+        "Z",
+        "gnd",
+        "vdd"
+      ],
+      "input_pins": [
+        "A"
+      ],
+      "output_pins": [
+        "Z"
+      ],
+      "bidirectional_pins": [],
+      "control_pins": [],
+      "vdd_pins": [
+        "vdd"
+      ],
+      "gnd_pins": [
+        "gnd"
+      ],
+      "pin_side_map": {
+        "A": "left",
+        "Z": "right",
+        "gnd": "bottom",
+        "vdd": "top",
+        "G": "bottom",
+        "S": "left",
+        "D": "bottom"
+      },
+      "input_pin_sides": {
+        "A": "left"
+      },
+      "output_pin_sides": {
+        "Z": "right"
+      },
+      "control_pin_sides": {},
+      "vdd_side": "top",
+      "gnd_side": "bottom",
+      "vdd_gnd_policy": "top_vdd_bottom_gnd",
+      "power_metadata_quality": "explicit_vdd_gnd",
+      "rail_evidence_status": "within_macro_only",
+      "within_macro_rail_evidence": true,
+      "across_abutment_rail_evidence": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "bbox inventory is geometry evidence only, not placement proof.",
+        "pin side inventory is access-side evidence only, not routing proof.",
+        "within-macro rail evidence does not prove abutment continuity.",
+        "recommended future planning variant is not automatically physical-ready."
+      ]
+    },
+    {
+      "macro_name": "gen_nand2",
+      "variant_name": "openram_replacements",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_nand2.gds",
+      "gds_exists": true,
+      "recommended_for_future_planning": true,
+      "top_cell": "gen_nand2",
+      "bbox": {
+        "x0": -0.08,
+        "y0": -0.08,
+        "x1": 0.9575,
+        "y1": 1.4000000000000001
+      },
+      "width": 1.0375,
+      "height": 1.4800000000000002,
+      "origin_policy": "real_gds_bbox",
+      "pin_labels": [
+        "A",
+        "B",
+        "D",
+        "G",
+        "S",
+        "Z",
+        "gnd",
+        "vdd"
+      ],
+      "input_pins": [
+        "A",
+        "B"
+      ],
+      "output_pins": [
+        "Z"
+      ],
+      "bidirectional_pins": [],
+      "control_pins": [],
+      "vdd_pins": [
+        "vdd"
+      ],
+      "gnd_pins": [
+        "gnd"
+      ],
+      "pin_side_map": {
+        "Z": "internal",
+        "gnd": "bottom",
+        "vdd": "top",
+        "A": "left",
+        "B": "internal",
+        "G": "bottom",
+        "S": "left",
+        "D": "bottom"
+      },
+      "input_pin_sides": {
+        "A": "left",
+        "B": "internal"
+      },
+      "output_pin_sides": {
+        "Z": "internal"
+      },
+      "control_pin_sides": {},
+      "vdd_side": "top",
+      "gnd_side": "bottom",
+      "vdd_gnd_policy": "top_vdd_bottom_gnd",
+      "power_metadata_quality": "explicit_vdd_gnd",
+      "rail_evidence_status": "within_macro_only",
+      "within_macro_rail_evidence": true,
+      "across_abutment_rail_evidence": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "bbox inventory is geometry evidence only, not placement proof.",
+        "pin side inventory is access-side evidence only, not routing proof.",
+        "within-macro rail evidence does not prove abutment continuity.",
+        "recommended future planning variant is not automatically physical-ready."
+      ]
+    },
+    {
+      "macro_name": "gen_delay_inv",
+      "variant_name": "openram_replacements",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_delay_inv.gds",
+      "gds_exists": true,
+      "recommended_for_future_planning": true,
+      "top_cell": "gen_delay_inv",
+      "bbox": {
+        "x0": -0.08,
+        "y0": -0.08,
+        "x1": 0.7425,
+        "y1": 2.505
+      },
+      "width": 0.8225,
+      "height": 2.585,
+      "origin_policy": "real_gds_bbox",
+      "pin_labels": [
+        "A",
+        "D",
+        "G",
+        "S",
+        "Z",
+        "gnd",
+        "vdd"
+      ],
+      "input_pins": [
+        "A"
+      ],
+      "output_pins": [
+        "Z"
+      ],
+      "bidirectional_pins": [],
+      "control_pins": [],
+      "vdd_pins": [
+        "vdd"
+      ],
+      "gnd_pins": [
+        "gnd"
+      ],
+      "pin_side_map": {
+        "A": "left",
+        "Z": "right",
+        "gnd": "bottom",
+        "vdd": "top",
+        "G": "bottom",
+        "S": "left",
+        "D": "bottom"
+      },
+      "input_pin_sides": {
+        "A": "left"
+      },
+      "output_pin_sides": {
+        "Z": "right"
+      },
+      "control_pin_sides": {},
+      "vdd_side": "top",
+      "gnd_side": "bottom",
+      "vdd_gnd_policy": "top_vdd_bottom_gnd",
+      "power_metadata_quality": "explicit_vdd_gnd",
+      "rail_evidence_status": "within_macro_only",
+      "within_macro_rail_evidence": true,
+      "across_abutment_rail_evidence": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "bbox inventory is geometry evidence only, not placement proof.",
+        "pin side inventory is access-side evidence only, not routing proof.",
+        "within-macro rail evidence does not prove abutment continuity.",
+        "recommended future planning variant is not automatically physical-ready."
+      ]
+    },
+    {
+      "macro_name": "gen_precharge",
+      "variant_name": "openram_replacements",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_precharge.gds",
+      "gds_exists": true,
+      "recommended_for_future_planning": true,
+      "top_cell": "gen_precharge",
+      "bbox": {
+        "x0": -0.08,
+        "y0": -0.08,
+        "x1": 0.705,
+        "y1": 1.34
+      },
+      "width": 0.7849999999999999,
+      "height": 1.4200000000000002,
+      "origin_policy": "real_gds_bbox",
+      "pin_labels": [
+        "D",
+        "G",
+        "S",
+        "bl",
+        "br",
+        "en_bar",
+        "vdd"
+      ],
+      "input_pins": [],
+      "output_pins": [
+        "BL",
+        "BR"
+      ],
+      "bidirectional_pins": [],
+      "control_pins": [
+        "EN",
+        "ENB",
+        "en_bar",
+        "precharge_enb",
+        "PRE"
+      ],
+      "vdd_pins": [
+        "vdd"
+      ],
+      "gnd_pins": [],
+      "pin_side_map": {
+        "en_bar": "bottom",
+        "vdd": "top",
+        "bl": "left",
+        "br": "right",
+        "G": "bottom",
+        "S": "left",
+        "D": "bottom"
+      },
+      "input_pin_sides": {},
+      "output_pin_sides": {},
+      "control_pin_sides": {
+        "en_bar": "bottom"
+      },
+      "vdd_side": "top",
+      "gnd_side": "unknown",
+      "vdd_gnd_policy": "unknown",
+      "power_metadata_quality": "vdd_only_exception",
+      "rail_evidence_status": "geometry_unproven",
+      "within_macro_rail_evidence": false,
+      "across_abutment_rail_evidence": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "bbox inventory is geometry evidence only, not placement proof.",
+        "pin side inventory is access-side evidence only, not routing proof.",
+        "recommended future planning variant is not automatically physical-ready.",
+        "PRECHARGE retains the no-local-GND metadata exception and stays non-physical-ready."
+      ]
+    },
+    {
+      "macro_name": "dff",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\dff.gds",
+      "gds_exists": true,
+      "recommended_for_future_planning": true,
+      "top_cell": "dff",
+      "bbox": {
+        "x0": 0.0,
+        "y0": -0.0999999999999994,
+        "x1": 2.8599999999999826,
+        "y1": 2.5699999999999843
+      },
+      "width": 2.8599999999999826,
+      "height": 2.6699999999999835,
+      "origin_policy": "real_gds_bbox",
+      "pin_labels": [
+        "D",
+        "Q",
+        "clk",
+        "gnd",
+        "vdd"
+      ],
+      "input_pins": [
+        "D",
+        "CLK"
+      ],
+      "output_pins": [
+        "Q"
+      ],
+      "bidirectional_pins": [],
+      "control_pins": [
+        "CLK"
+      ],
+      "vdd_pins": [
+        "vdd"
+      ],
+      "gnd_pins": [
+        "gnd"
+      ],
+      "pin_side_map": {
+        "clk": "internal",
+        "D": "left",
+        "Q": "right",
+        "gnd": "bottom",
+        "vdd": "top"
+      },
+      "input_pin_sides": {
+        "D": "left"
+      },
+      "output_pin_sides": {
+        "Q": "right"
+      },
+      "control_pin_sides": {},
+      "vdd_side": "top",
+      "gnd_side": "bottom",
+      "vdd_gnd_policy": "top_vdd_bottom_gnd",
+      "power_metadata_quality": "explicit_vdd_gnd",
+      "rail_evidence_status": "within_macro_only",
+      "within_macro_rail_evidence": true,
+      "across_abutment_rail_evidence": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "bbox inventory is geometry evidence only, not placement proof.",
+        "pin side inventory is access-side evidence only, not routing proof.",
+        "within-macro rail evidence does not prove abutment continuity.",
+        "recommended future planning variant is not automatically physical-ready."
+      ]
+    },
+    {
+      "macro_name": "gen_inv",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_inv.gds",
+      "gds_exists": true,
+      "recommended_for_future_planning": false,
+      "top_cell": "gen_inv",
+      "bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 1.1999999999999997,
+        "y1": 1.5649999999999997
+      },
+      "width": 1.1999999999999997,
+      "height": 1.5649999999999997,
+      "origin_policy": "real_gds_bbox",
+      "pin_labels": [],
+      "input_pins": [
+        "A"
+      ],
+      "output_pins": [
+        "Z"
+      ],
+      "bidirectional_pins": [],
+      "control_pins": [],
+      "vdd_pins": [],
+      "gnd_pins": [],
+      "pin_side_map": {},
+      "input_pin_sides": {},
+      "output_pin_sides": {},
+      "control_pin_sides": {},
+      "vdd_side": "top",
+      "gnd_side": "bottom",
+      "vdd_gnd_policy": "top_vdd_bottom_gnd",
+      "power_metadata_quality": "explicit_vdd_gnd",
+      "rail_evidence_status": "geometry_unproven",
+      "within_macro_rail_evidence": false,
+      "across_abutment_rail_evidence": false,
+      "safe_for_metadata_planning": false,
+      "safe_for_legal_placement_readonly": false,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "bbox inventory is geometry evidence only, not placement proof."
+      ]
+    },
+    {
+      "macro_name": "gen_nand2",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_nand2.gds",
+      "gds_exists": true,
+      "recommended_for_future_planning": false,
+      "top_cell": "gen_nand2",
+      "bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 1.6499999999999997,
+        "y1": 1.5649999999999997
+      },
+      "width": 1.6499999999999997,
+      "height": 1.5649999999999997,
+      "origin_policy": "real_gds_bbox",
+      "pin_labels": [],
+      "input_pins": [
+        "A",
+        "B"
+      ],
+      "output_pins": [
+        "Z"
+      ],
+      "bidirectional_pins": [],
+      "control_pins": [],
+      "vdd_pins": [],
+      "gnd_pins": [],
+      "pin_side_map": {},
+      "input_pin_sides": {},
+      "output_pin_sides": {},
+      "control_pin_sides": {},
+      "vdd_side": "top",
+      "gnd_side": "bottom",
+      "vdd_gnd_policy": "top_vdd_bottom_gnd",
+      "power_metadata_quality": "explicit_vdd_gnd",
+      "rail_evidence_status": "geometry_unproven",
+      "within_macro_rail_evidence": false,
+      "across_abutment_rail_evidence": false,
+      "safe_for_metadata_planning": false,
+      "safe_for_legal_placement_readonly": false,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "bbox inventory is geometry evidence only, not placement proof."
+      ]
+    },
+    {
+      "macro_name": "gen_delay_inv",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_delay_inv.gds",
+      "gds_exists": true,
+      "recommended_for_future_planning": false,
+      "top_cell": "gen_delay_inv",
+      "bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 1.1999999999999997,
+        "y1": 1.5649999999999997
+      },
+      "width": 1.1999999999999997,
+      "height": 1.5649999999999997,
+      "origin_policy": "real_gds_bbox",
+      "pin_labels": [],
+      "input_pins": [
+        "A"
+      ],
+      "output_pins": [
+        "Z"
+      ],
+      "bidirectional_pins": [],
+      "control_pins": [],
+      "vdd_pins": [],
+      "gnd_pins": [],
+      "pin_side_map": {},
+      "input_pin_sides": {},
+      "output_pin_sides": {},
+      "control_pin_sides": {},
+      "vdd_side": "left",
+      "gnd_side": "bottom",
+      "vdd_gnd_policy": "side_rails_or_mixed",
+      "power_metadata_quality": "explicit_vdd_gnd",
+      "rail_evidence_status": "geometry_unproven",
+      "within_macro_rail_evidence": false,
+      "across_abutment_rail_evidence": false,
+      "safe_for_metadata_planning": false,
+      "safe_for_legal_placement_readonly": false,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "bbox inventory is geometry evidence only, not placement proof."
+      ]
+    },
+    {
+      "macro_name": "gen_precharge",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\gen_precharge.gds",
+      "gds_exists": true,
+      "recommended_for_future_planning": false,
+      "top_cell": "gen_precharge",
+      "bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 0.8949999999999998,
+        "y1": 1.5649999999999997
+      },
+      "width": 0.8949999999999998,
+      "height": 1.5649999999999997,
+      "origin_policy": "real_gds_bbox",
+      "pin_labels": [],
+      "input_pins": [],
+      "output_pins": [
+        "BL",
+        "BR"
+      ],
+      "bidirectional_pins": [],
+      "control_pins": [
+        "EN",
+        "ENB",
+        "en_bar",
+        "precharge_enb",
+        "PRE"
+      ],
+      "vdd_pins": [],
+      "gnd_pins": [],
+      "pin_side_map": {},
+      "input_pin_sides": {},
+      "output_pin_sides": {},
+      "control_pin_sides": {},
+      "vdd_side": "left",
+      "gnd_side": "unknown",
+      "vdd_gnd_policy": "side_rails_or_mixed",
+      "power_metadata_quality": "vdd_only_exception",
+      "rail_evidence_status": "geometry_unproven",
+      "within_macro_rail_evidence": false,
+      "across_abutment_rail_evidence": false,
+      "safe_for_metadata_planning": false,
+      "safe_for_legal_placement_readonly": false,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "bbox inventory is geometry evidence only, not placement proof.",
+        "PRECHARGE retains the no-local-GND metadata exception and stays non-physical-ready."
+      ]
+    },
+    {
+      "macro_name": "sense_amp",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\sense_amp.gds",
+      "gds_exists": true,
+      "recommended_for_future_planning": true,
+      "top_cell": "sense_amp",
+      "bbox": {
+        "x0": -0.03499999999999979,
+        "y0": 0.0,
+        "x1": 0.7399999999999956,
+        "y1": 6.009999999999963
+      },
+      "width": 0.7749999999999954,
+      "height": 6.009999999999963,
+      "origin_policy": "real_gds_bbox",
+      "pin_labels": [
+        "bl",
+        "br",
+        "dout",
+        "en",
+        "gnd",
+        "vdd"
+      ],
+      "input_pins": [
+        "IN",
+        "INB",
+        "BL",
+        "BR"
+      ],
+      "output_pins": [
+        "Q",
+        "QB",
+        "dout"
+      ],
+      "bidirectional_pins": [],
+      "control_pins": [
+        "EN"
+      ],
+      "vdd_pins": [
+        "vdd"
+      ],
+      "gnd_pins": [
+        "gnd",
+        "gnd"
+      ],
+      "pin_side_map": {
+        "en": "top",
+        "dout": "left",
+        "gnd": "right",
+        "bl": "left",
+        "br": "right",
+        "vdd": "left"
+      },
+      "input_pin_sides": {},
+      "output_pin_sides": {
+        "dout": "left"
+      },
+      "control_pin_sides": {},
+      "vdd_side": "left",
+      "gnd_side": "right",
+      "vdd_gnd_policy": "side_rails_or_mixed",
+      "power_metadata_quality": "explicit_vdd_gnd",
+      "rail_evidence_status": "within_macro_only",
+      "within_macro_rail_evidence": true,
+      "across_abutment_rail_evidence": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "bbox inventory is geometry evidence only, not placement proof.",
+        "pin side inventory is access-side evidence only, not routing proof.",
+        "within-macro rail evidence does not prove abutment continuity.",
+        "recommended future planning variant is not automatically physical-ready."
+      ]
+    },
+    {
+      "macro_name": "write_driver",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\write_driver.gds",
+      "gds_exists": true,
+      "recommended_for_future_planning": true,
+      "top_cell": "write_driver",
+      "bbox": {
+        "x0": -0.0999999999999994,
+        "y0": 0.0,
+        "x1": 0.7399999999999956,
+        "y1": 4.174999999999975
+      },
+      "width": 0.839999999999995,
+      "height": 4.174999999999975,
+      "origin_policy": "real_gds_bbox",
+      "pin_labels": [
+        "bl",
+        "br",
+        "din",
+        "en",
+        "gnd",
+        "vdd"
+      ],
+      "input_pins": [
+        "DIN"
+      ],
+      "output_pins": [
+        "BL",
+        "BLB",
+        "BR"
+      ],
+      "bidirectional_pins": [],
+      "control_pins": [
+        "EN"
+      ],
+      "vdd_pins": [
+        "vdd"
+      ],
+      "gnd_pins": [
+        "gnd"
+      ],
+      "pin_side_map": {
+        "en": "bottom",
+        "din": "bottom",
+        "vdd": "left",
+        "br": "right",
+        "bl": "top",
+        "gnd": "left"
+      },
+      "input_pin_sides": {},
+      "output_pin_sides": {},
+      "control_pin_sides": {},
+      "vdd_side": "left",
+      "gnd_side": "left",
+      "vdd_gnd_policy": "side_rails_or_mixed",
+      "power_metadata_quality": "explicit_vdd_gnd",
+      "rail_evidence_status": "within_macro_only",
+      "within_macro_rail_evidence": true,
+      "across_abutment_rail_evidence": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "bbox inventory is geometry evidence only, not placement proof.",
+        "pin side inventory is access-side evidence only, not routing proof.",
+        "within-macro rail evidence does not prove abutment continuity.",
+        "recommended future planning variant is not automatically physical-ready."
+      ]
+    },
+    {
+      "macro_name": "gen_wl_driver",
+      "variant_name": "openram_replacements",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_wl_driver.gds",
+      "gds_exists": true,
+      "recommended_for_future_planning": true,
+      "top_cell": "gen_wl_driver",
+      "bbox": {
+        "x0": -0.08,
+        "y0": -0.105,
+        "x1": 2.965,
+        "y1": 1.4000000000000001
+      },
+      "width": 3.045,
+      "height": 1.5050000000000001,
+      "origin_policy": "real_gds_bbox",
+      "pin_labels": [
+        "A",
+        "B",
+        "D",
+        "G",
+        "S",
+        "Z",
+        "gnd",
+        "vdd"
+      ],
+      "input_pins": [
+        "A"
+      ],
+      "output_pins": [
+        "Z"
+      ],
+      "bidirectional_pins": [],
+      "control_pins": [
+        "B"
+      ],
+      "vdd_pins": [
+        "vdd",
+        "vdd",
+        "vdd"
+      ],
+      "gnd_pins": [
+        "gnd",
+        "gnd",
+        "gnd"
+      ],
+      "pin_side_map": {
+        "Z": "top",
+        "A": "left",
+        "B": "left",
+        "gnd": "bottom",
+        "vdd": "top",
+        "G": "bottom",
+        "S": "bottom",
+        "D": "bottom"
+      },
+      "input_pin_sides": {
+        "A": "left"
+      },
+      "output_pin_sides": {
+        "Z": "top"
+      },
+      "control_pin_sides": {
+        "B": "left"
+      },
+      "vdd_side": "top",
+      "gnd_side": "bottom",
+      "vdd_gnd_policy": "top_vdd_bottom_gnd",
+      "power_metadata_quality": "explicit_vdd_gnd",
+      "rail_evidence_status": "within_macro_only",
+      "within_macro_rail_evidence": true,
+      "across_abutment_rail_evidence": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "bbox inventory is geometry evidence only, not placement proof.",
+        "pin side inventory is access-side evidence only, not routing proof.",
+        "within-macro rail evidence does not prove abutment continuity.",
+        "recommended future planning variant is not automatically physical-ready."
+      ]
+    },
+    {
+      "macro_name": "gen_col_mux_vdd_labeled",
+      "variant_name": "openyield_repaired",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openyield_repaired\\gen_col_mux_vdd_labeled.gds",
+      "gds_exists": true,
+      "recommended_for_future_planning": true,
+      "top_cell": "gen_col_mux_vdd_labeled",
+      "bbox": {
+        "x0": -0.08,
+        "y0": -0.08,
+        "x1": 0.7375,
+        "y1": 1.8
+      },
+      "width": 0.8175,
+      "height": 1.8800000000000001,
+      "origin_policy": "real_gds_bbox",
+      "pin_labels": [
+        "D",
+        "G",
+        "S",
+        "bl",
+        "bl_out",
+        "br",
+        "br_out",
+        "gnd",
+        "sel",
+        "vdd"
+      ],
+      "input_pins": [
+        "BL",
+        "BR",
+        "SEL"
+      ],
+      "output_pins": [
+        "OUT",
+        "OUTB"
+      ],
+      "bidirectional_pins": [],
+      "control_pins": [
+        "SEL"
+      ],
+      "vdd_pins": [
+        "vdd"
+      ],
+      "gnd_pins": [
+        "gnd"
+      ],
+      "pin_side_map": {
+        "sel": "bottom",
+        "bl": "top",
+        "br": "top",
+        "bl_out": "bottom",
+        "br_out": "right",
+        "gnd": "right",
+        "vdd": "top",
+        "G": "left",
+        "S": "left",
+        "D": "left"
+      },
+      "input_pin_sides": {},
+      "output_pin_sides": {},
+      "control_pin_sides": {},
+      "vdd_side": "top",
+      "gnd_side": "right",
+      "vdd_gnd_policy": "side_rails_or_mixed",
+      "power_metadata_quality": "explicit_vdd_gnd",
+      "rail_evidence_status": "within_macro_only",
+      "within_macro_rail_evidence": true,
+      "across_abutment_rail_evidence": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "bbox inventory is geometry evidence only, not placement proof.",
+        "pin side inventory is access-side evidence only, not routing proof.",
+        "within-macro rail evidence does not prove abutment continuity.",
+        "recommended future planning variant is not automatically physical-ready."
+      ]
+    },
+    {
+      "macro_name": "cell_1rw",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\cell_1rw.gds",
+      "gds_exists": true,
+      "recommended_for_future_planning": true,
+      "top_cell": "cell_1rw",
+      "bbox": {
+        "x0": -0.095,
+        "y0": -0.1,
+        "x1": 0.8,
+        "y1": 1.465
+      },
+      "width": 0.895,
+      "height": 1.5650000000000002,
+      "origin_policy": "real_gds_bbox",
+      "pin_labels": [
+        "Q",
+        "Q_bar",
+        "bl",
+        "br",
+        "gnd",
+        "vdd",
+        "wl"
+      ],
+      "input_pins": [
+        "WL"
+      ],
+      "output_pins": [
+        "BL",
+        "BLB",
+        "BR",
+        "Q",
+        "Q_bar"
+      ],
+      "bidirectional_pins": [],
+      "control_pins": [
+        "WL"
+      ],
+      "vdd_pins": [
+        "vdd"
+      ],
+      "gnd_pins": [
+        "gnd"
+      ],
+      "pin_side_map": {
+        "gnd": "bottom",
+        "vdd": "top",
+        "Q_bar": "right",
+        "Q": "left",
+        "wl": "bottom",
+        "bl": "left",
+        "br": "right"
+      },
+      "input_pin_sides": {},
+      "output_pin_sides": {
+        "Q": "left",
+        "Q_bar": "right"
+      },
+      "control_pin_sides": {},
+      "vdd_side": "top",
+      "gnd_side": "bottom",
+      "vdd_gnd_policy": "top_vdd_bottom_gnd",
+      "power_metadata_quality": "explicit_vdd_gnd",
+      "rail_evidence_status": "across_abutment_proven",
+      "within_macro_rail_evidence": true,
+      "across_abutment_rail_evidence": true,
+      "safe_for_metadata_planning": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": true,
+      "notes": [
+        "bbox inventory is geometry evidence only, not placement proof.",
+        "pin side inventory is access-side evidence only, not routing proof."
+      ]
+    },
+    {
+      "macro_name": "dummy_cell_1rw",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\dummy_cell_1rw.gds",
+      "gds_exists": true,
+      "recommended_for_future_planning": true,
+      "top_cell": "dummy_cell_1rw",
+      "bbox": {
+        "x0": -0.09499999999999872,
+        "y0": -0.09999999999999866,
+        "x1": 0.7999999999999893,
+        "y1": 1.4649999999999803
+      },
+      "width": 0.894999999999988,
+      "height": 1.564999999999979,
+      "origin_policy": "real_gds_bbox",
+      "pin_labels": [
+        "bl",
+        "br",
+        "gnd",
+        "vdd",
+        "wl"
+      ],
+      "input_pins": [
+        "WL"
+      ],
+      "output_pins": [
+        "BL",
+        "BLB",
+        "BR"
+      ],
+      "bidirectional_pins": [],
+      "control_pins": [
+        "WL"
+      ],
+      "vdd_pins": [
+        "vdd"
+      ],
+      "gnd_pins": [
+        "gnd"
+      ],
+      "pin_side_map": {
+        "gnd": "bottom",
+        "vdd": "top",
+        "wl": "left",
+        "br": "bottom",
+        "bl": "bottom"
+      },
+      "input_pin_sides": {},
+      "output_pin_sides": {},
+      "control_pin_sides": {},
+      "vdd_side": "top",
+      "gnd_side": "bottom",
+      "vdd_gnd_policy": "top_vdd_bottom_gnd",
+      "power_metadata_quality": "explicit_vdd_gnd",
+      "rail_evidence_status": "across_abutment_proven",
+      "within_macro_rail_evidence": true,
+      "across_abutment_rail_evidence": true,
+      "safe_for_metadata_planning": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": true,
+      "notes": [
+        "bbox inventory is geometry evidence only, not placement proof.",
+        "pin side inventory is access-side evidence only, not routing proof."
+      ]
+    },
+    {
+      "macro_name": "replica_cell_1rw",
+      "variant_name": "default_gds_lib",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\replica_cell_1rw.gds",
+      "gds_exists": true,
+      "recommended_for_future_planning": true,
+      "top_cell": "replica_cell_1rw",
+      "bbox": {
+        "x0": -0.09499999999999872,
+        "y0": -0.09999999999999866,
+        "x1": 0.7999999999999893,
+        "y1": 1.4649999999999803
+      },
+      "width": 0.894999999999988,
+      "height": 1.564999999999979,
+      "origin_policy": "real_gds_bbox",
+      "pin_labels": [
+        "bl",
+        "br",
+        "gnd",
+        "vdd",
+        "wl"
+      ],
+      "input_pins": [
+        "WL"
+      ],
+      "output_pins": [
+        "RBL",
+        "RBLB",
+        "BL",
+        "BR"
+      ],
+      "bidirectional_pins": [],
+      "control_pins": [
+        "WL"
+      ],
+      "vdd_pins": [
+        "vdd"
+      ],
+      "gnd_pins": [
+        "gnd"
+      ],
+      "pin_side_map": {
+        "gnd": "bottom",
+        "vdd": "top",
+        "wl": "bottom",
+        "bl": "left",
+        "br": "right"
+      },
+      "input_pin_sides": {},
+      "output_pin_sides": {},
+      "control_pin_sides": {},
+      "vdd_side": "top",
+      "gnd_side": "bottom",
+      "vdd_gnd_policy": "top_vdd_bottom_gnd",
+      "power_metadata_quality": "explicit_vdd_gnd",
+      "rail_evidence_status": "across_abutment_proven",
+      "within_macro_rail_evidence": true,
+      "across_abutment_rail_evidence": true,
+      "safe_for_metadata_planning": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": true,
+      "notes": [
+        "bbox inventory is geometry evidence only, not placement proof.",
+        "pin side inventory is access-side evidence only, not routing proof."
+      ]
+    }
+  ],
+  "power_side_summary": {
+    "storage_reference_cells": [
+      {
+        "macro_name": "cell_1rw",
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "policy": "top_vdd_bottom_gnd"
+      },
+      {
+        "macro_name": "dummy_cell_1rw",
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "policy": "top_vdd_bottom_gnd"
+      },
+      {
+        "macro_name": "replica_cell_1rw",
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "policy": "top_vdd_bottom_gnd"
+      }
+    ],
+    "generated_logic_leaves": [
+      {
+        "macro_name": "gen_inv",
+        "variant_name": "openram_replacements",
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "quality": "explicit_vdd_gnd"
+      },
+      {
+        "macro_name": "gen_nand2",
+        "variant_name": "openram_replacements",
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "quality": "explicit_vdd_gnd"
+      },
+      {
+        "macro_name": "gen_delay_inv",
+        "variant_name": "openram_replacements",
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "quality": "explicit_vdd_gnd"
+      },
+      {
+        "macro_name": "gen_precharge",
+        "variant_name": "openram_replacements",
+        "vdd_side": "top",
+        "gnd_side": "unknown",
+        "quality": "vdd_only_exception"
+      },
+      {
+        "macro_name": "dff",
+        "variant_name": "default_gds_lib",
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "quality": "explicit_vdd_gnd"
+      },
+      {
+        "macro_name": "gen_inv",
+        "variant_name": "default_gds_lib",
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "quality": "explicit_vdd_gnd"
+      },
+      {
+        "macro_name": "gen_nand2",
+        "variant_name": "default_gds_lib",
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "quality": "explicit_vdd_gnd"
+      },
+      {
+        "macro_name": "gen_delay_inv",
+        "variant_name": "default_gds_lib",
+        "vdd_side": "left",
+        "gnd_side": "bottom",
+        "quality": "explicit_vdd_gnd"
+      },
+      {
+        "macro_name": "gen_precharge",
+        "variant_name": "default_gds_lib",
+        "vdd_side": "left",
+        "gnd_side": "unknown",
+        "quality": "vdd_only_exception"
+      }
+    ],
+    "consumer_hard_macros": [
+      {
+        "macro_name": "sense_amp",
+        "variant_name": "default_gds_lib",
+        "vdd_side": "left",
+        "gnd_side": "right",
+        "quality": "explicit_vdd_gnd"
+      },
+      {
+        "macro_name": "write_driver",
+        "variant_name": "default_gds_lib",
+        "vdd_side": "left",
+        "gnd_side": "left",
+        "quality": "explicit_vdd_gnd"
+      },
+      {
+        "macro_name": "gen_wl_driver",
+        "variant_name": "openram_replacements",
+        "vdd_side": "top",
+        "gnd_side": "bottom",
+        "quality": "explicit_vdd_gnd"
+      },
+      {
+        "macro_name": "gen_col_mux_vdd_labeled",
+        "variant_name": "openyield_repaired",
+        "vdd_side": "top",
+        "gnd_side": "right",
+        "quality": "explicit_vdd_gnd"
+      }
+    ]
+  },
+  "subblock_to_leaf_mapping": [
+    {
+      "subblock_name": "PINV",
+      "source_contract": "PINV_GENERATED_LOGIC_CONTRACT",
+      "candidate_leaf_macros": [
+        "gen_inv"
+      ],
+      "recommended_leaf_variants": [
+        "openram_replacements"
+      ],
+      "leaf_count_if_known": 1,
+      "bbox_inputs_available": true,
+      "pin_side_inputs_available": true,
+      "power_side_inputs_available": true,
+      "requires_composite_internal_placement": false,
+      "requires_chain_stage_ordering": false,
+      "requires_row_placement": false,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "blockers": []
+    },
+    {
+      "subblock_name": "AND2",
+      "source_contract": "AND2_GENERATED_LOGIC_CONTRACT",
+      "candidate_leaf_macros": [
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "recommended_leaf_variants": [
+        "openram_replacements",
+        "openram_replacements"
+      ],
+      "leaf_count_if_known": 2,
+      "bbox_inputs_available": true,
+      "pin_side_inputs_available": true,
+      "power_side_inputs_available": true,
+      "requires_composite_internal_placement": true,
+      "requires_chain_stage_ordering": false,
+      "requires_row_placement": false,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "blockers": [
+        "timing proof required",
+        "routing proof required"
+      ]
+    },
+    {
+      "subblock_name": "AND3_COMPOSITE",
+      "source_contract": "AND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+      "candidate_leaf_macros": [
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "recommended_leaf_variants": [
+        "openram_replacements",
+        "openram_replacements"
+      ],
+      "leaf_count_if_known": 2,
+      "bbox_inputs_available": true,
+      "pin_side_inputs_available": true,
+      "power_side_inputs_available": true,
+      "requires_composite_internal_placement": true,
+      "requires_chain_stage_ordering": false,
+      "requires_row_placement": false,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "blockers": [
+        "timing proof required",
+        "routing proof required"
+      ]
+    },
+    {
+      "subblock_name": "PNAND3_COMPOSITE",
+      "source_contract": "PNAND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+      "candidate_leaf_macros": [
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "recommended_leaf_variants": [
+        "openram_replacements",
+        "openram_replacements"
+      ],
+      "leaf_count_if_known": 2,
+      "bbox_inputs_available": true,
+      "pin_side_inputs_available": true,
+      "power_side_inputs_available": true,
+      "requires_composite_internal_placement": true,
+      "requires_chain_stage_ordering": false,
+      "requires_row_placement": false,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "blockers": [
+        "timing proof required",
+        "routing proof required"
+      ]
+    },
+    {
+      "subblock_name": "PDRIVE",
+      "source_contract": "PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "candidate_leaf_macros": [
+        "gen_inv"
+      ],
+      "recommended_leaf_variants": [
+        "openram_replacements"
+      ],
+      "leaf_count_if_known": 1,
+      "bbox_inputs_available": true,
+      "pin_side_inputs_available": true,
+      "power_side_inputs_available": true,
+      "requires_composite_internal_placement": true,
+      "requires_chain_stage_ordering": true,
+      "requires_row_placement": false,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "blockers": [
+        "timing proof required",
+        "routing proof required",
+        "no legal placement proof",
+        "no routing proof"
+      ]
+    },
+    {
+      "subblock_name": "PDRIVE2_FOR_PRE",
+      "source_contract": "PDRIVE2_FOR_PRE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "candidate_leaf_macros": [
+        "gen_inv",
+        "gen_precharge"
+      ],
+      "recommended_leaf_variants": [
+        "openram_replacements",
+        "openram_replacements"
+      ],
+      "leaf_count_if_known": 2,
+      "bbox_inputs_available": true,
+      "pin_side_inputs_available": true,
+      "power_side_inputs_available": true,
+      "requires_composite_internal_placement": true,
+      "requires_chain_stage_ordering": true,
+      "requires_row_placement": false,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "blockers": [
+        "timing proof required",
+        "routing proof required"
+      ]
+    },
+    {
+      "subblock_name": "WL_PDRIVE",
+      "source_contract": "WL_PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "candidate_leaf_macros": [
+        "gen_inv"
+      ],
+      "recommended_leaf_variants": [
+        "openram_replacements"
+      ],
+      "leaf_count_if_known": 1,
+      "bbox_inputs_available": true,
+      "pin_side_inputs_available": true,
+      "power_side_inputs_available": true,
+      "requires_composite_internal_placement": true,
+      "requires_chain_stage_ordering": true,
+      "requires_row_placement": false,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "blockers": [
+        "timing proof required",
+        "routing proof required"
+      ]
+    },
+    {
+      "subblock_name": "DELAY_CHAIN",
+      "source_contract": "DELAY_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "candidate_leaf_macros": [
+        "gen_delay_inv",
+        "gen_inv"
+      ],
+      "recommended_leaf_variants": [
+        "openram_replacements",
+        "openram_replacements"
+      ],
+      "leaf_count_if_known": 2,
+      "bbox_inputs_available": true,
+      "pin_side_inputs_available": true,
+      "power_side_inputs_available": true,
+      "requires_composite_internal_placement": true,
+      "requires_chain_stage_ordering": true,
+      "requires_row_placement": false,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "blockers": [
+        "timing proof required",
+        "routing proof required",
+        "delay timing proof missing",
+        "no legal placement proof",
+        "no routing proof"
+      ]
+    },
+    {
+      "subblock_name": "WEN_DELAY_CHAIN",
+      "source_contract": "WEN_DELAY_CHAIN_CONDITIONAL_GENERATED_LOGIC_CONTRACT",
+      "candidate_leaf_macros": [
+        "gen_delay_inv",
+        "gen_inv"
+      ],
+      "recommended_leaf_variants": [
+        "openram_replacements",
+        "openram_replacements"
+      ],
+      "leaf_count_if_known": 2,
+      "bbox_inputs_available": true,
+      "pin_side_inputs_available": true,
+      "power_side_inputs_available": true,
+      "requires_composite_internal_placement": true,
+      "requires_chain_stage_ordering": true,
+      "requires_row_placement": false,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "blockers": [
+        "timing proof required",
+        "routing proof required",
+        "wen-delay timing proof missing",
+        "no legal placement proof",
+        "no routing proof"
+      ]
+    },
+    {
+      "subblock_name": "PRECHARGE",
+      "source_contract": "metadata_source_not_found",
+      "candidate_leaf_macros": [
+        "gen_precharge"
+      ],
+      "recommended_leaf_variants": [
+        "openram_replacements"
+      ],
+      "leaf_count_if_known": 1,
+      "bbox_inputs_available": true,
+      "pin_side_inputs_available": true,
+      "power_side_inputs_available": true,
+      "requires_composite_internal_placement": false,
+      "requires_chain_stage_ordering": false,
+      "requires_row_placement": false,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "blockers": [
+        "blocked by precharge power exception",
+        "rail continuity proof missing",
+        "no legal routing proof",
+        "no physical placement proof",
+        "PRECHARGE adapter metadata may remain partial",
+        "PRECHARGE power-domain closure may remain incomplete",
+        "handoff constraints are metadata-only",
+        "channel reservation rules are not legal routing",
+        "control routing proof is missing",
+        "rail continuity proof is missing"
+      ]
+    },
+    {
+      "subblock_name": "DFF_ROW",
+      "source_contract": "metadata_source_not_found",
+      "candidate_leaf_macros": [
+        "dff"
+      ],
+      "recommended_leaf_variants": [
+        "default_gds_lib"
+      ],
+      "leaf_count_if_known": 1,
+      "bbox_inputs_available": true,
+      "pin_side_inputs_available": true,
+      "power_side_inputs_available": true,
+      "requires_composite_internal_placement": false,
+      "requires_chain_stage_ordering": false,
+      "requires_row_placement": true,
+      "requires_timing_proof": true,
+      "requires_routing_proof": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "blockers": [
+        "row placement proof required",
+        "no legal placement proof",
+        "no routing proof",
+        "no standalone integration"
+      ]
+    }
+  ],
+  "composite_readiness_classification": [
+    {
+      "subblock_name": "AND2",
+      "classification": "blocked_by_timing_requirement",
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "blockers": [
+        "timing proof required",
+        "routing proof required"
+      ]
+    },
+    {
+      "subblock_name": "AND3_COMPOSITE",
+      "classification": "blocked_by_timing_requirement",
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "blockers": [
+        "timing proof required",
+        "routing proof required"
+      ]
+    },
+    {
+      "subblock_name": "PNAND3_COMPOSITE",
+      "classification": "blocked_by_timing_requirement",
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "blockers": [
+        "timing proof required",
+        "routing proof required"
+      ]
+    },
+    {
+      "subblock_name": "PDRIVE",
+      "classification": "blocked_by_timing_requirement",
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "blockers": [
+        "timing proof required",
+        "routing proof required",
+        "no legal placement proof",
+        "no routing proof"
+      ]
+    },
+    {
+      "subblock_name": "PDRIVE2_FOR_PRE",
+      "classification": "blocked_by_timing_requirement",
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "blockers": [
+        "timing proof required",
+        "routing proof required"
+      ]
+    },
+    {
+      "subblock_name": "WL_PDRIVE",
+      "classification": "blocked_by_timing_requirement",
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "blockers": [
+        "timing proof required",
+        "routing proof required"
+      ]
+    },
+    {
+      "subblock_name": "DELAY_CHAIN",
+      "classification": "blocked_by_timing_requirement",
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "blockers": [
+        "timing proof required",
+        "routing proof required",
+        "delay timing proof missing",
+        "no legal placement proof",
+        "no routing proof"
+      ]
+    },
+    {
+      "subblock_name": "WEN_DELAY_CHAIN",
+      "classification": "blocked_by_timing_requirement",
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "blockers": [
+        "timing proof required",
+        "routing proof required",
+        "wen-delay timing proof missing",
+        "no legal placement proof",
+        "no routing proof"
+      ]
+    }
+  ],
+  "precharge_special_section": {
+    "precharge_leaf_bbox_known": true,
+    "precharge_en_pin_side_known": true,
+    "precharge_vdd_side_known": true,
+    "precharge_gnd_side_known": false,
+    "precharge_no_local_gnd_exception": true,
+    "precharge_safe_for_legal_placement_readonly": true,
+    "precharge_safe_for_physical_placement": false,
+    "precharge_blocker_for_physical_gate": "no local GND proof and no across-abutment rail continuity proof"
+  },
+  "blockers": [
+    "gen_inv:default_gds_lib is not ready for legal-placement readonly planning.",
+    "gen_nand2:default_gds_lib is not ready for legal-placement readonly planning.",
+    "gen_delay_inv:default_gds_lib is not ready for legal-placement readonly planning.",
+    "gen_precharge:default_gds_lib is not ready for legal-placement readonly planning.",
+    "AND2: timing proof required",
+    "AND2: routing proof required",
+    "AND3_COMPOSITE: timing proof required",
+    "AND3_COMPOSITE: routing proof required",
+    "PNAND3_COMPOSITE: timing proof required",
+    "PNAND3_COMPOSITE: routing proof required",
+    "PDRIVE: timing proof required",
+    "PDRIVE: routing proof required",
+    "PDRIVE: no legal placement proof",
+    "PDRIVE: no routing proof",
+    "PDRIVE2_FOR_PRE: timing proof required",
+    "PDRIVE2_FOR_PRE: routing proof required",
+    "WL_PDRIVE: timing proof required",
+    "WL_PDRIVE: routing proof required",
+    "DELAY_CHAIN: timing proof required",
+    "DELAY_CHAIN: routing proof required",
+    "DELAY_CHAIN: delay timing proof missing",
+    "DELAY_CHAIN: no legal placement proof",
+    "DELAY_CHAIN: no routing proof",
+    "WEN_DELAY_CHAIN: timing proof required",
+    "WEN_DELAY_CHAIN: routing proof required",
+    "WEN_DELAY_CHAIN: wen-delay timing proof missing",
+    "WEN_DELAY_CHAIN: no legal placement proof",
+    "WEN_DELAY_CHAIN: no routing proof",
+    "PRECHARGE: blocked by precharge power exception",
+    "PRECHARGE: rail continuity proof missing",
+    "PRECHARGE: no legal routing proof",
+    "PRECHARGE: no physical placement proof",
+    "PRECHARGE: PRECHARGE adapter metadata may remain partial",
+    "PRECHARGE: PRECHARGE power-domain closure may remain incomplete",
+    "PRECHARGE: handoff constraints are metadata-only",
+    "PRECHARGE: channel reservation rules are not legal routing",
+    "PRECHARGE: control routing proof is missing",
+    "PRECHARGE: rail continuity proof is missing",
+    "DFF_ROW: row placement proof required",
+    "DFF_ROW: no legal placement proof",
+    "DFF_ROW: no routing proof",
+    "DFF_ROW: no standalone integration"
+  ],
+  "next_recommended_proof_task": "time_control_composite_internal_placement_feasibility_audit",
+  "boundary_assertions": {
+    "can_enter_physical_placement_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_modify_standalone_now": false,
+    "standalone_modified": false,
+    "routing_modified": false,
+    "gds_writer_modified": false
+  },
+  "audit_summary": {
+    "time_control_leaf_bbox_pin_side_inventory_available": true,
+    "all_required_leaf_gds_found": true,
+    "all_recommended_leaf_variants_selected": true,
+    "all_required_leaf_bbox_known": true,
+    "all_required_leaf_pin_sides_known": false,
+    "all_required_leaf_power_sides_known_or_exception_recorded": true,
+    "precharge_exception_retained": true,
+    "all_subblocks_have_leaf_inventory": true,
+    "composite_readiness_classified": true,
+    "can_enter_composite_internal_placement_feasibility_audit": true,
+    "can_enter_legal_placement_readonly_audit": true,
+    "can_enter_physical_placement_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_modify_standalone_now": false
+  }
+}

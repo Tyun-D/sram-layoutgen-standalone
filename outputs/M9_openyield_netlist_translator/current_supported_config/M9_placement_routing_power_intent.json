@@ -1,0 +1,366 @@
+{
+  "locked_flow_usage": {
+    "locked_flow_source_gds_path": "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds",
+    "locked_flow_match_status": "EXACT_MATCH",
+    "generator_arguments": {
+      "word_size": 8,
+      "num_words": 64,
+      "words_per_row": 4,
+      "name": "openyield_netlist_translated_sram",
+      "enable_openyield_gate_row_packing": true,
+      "enable_openyield_power_rail_overlap_packing": true
+    }
+  },
+  "placement_intent": {
+    "row_path": {
+      "physical_role": "ROW_PATH",
+      "modules": [
+        "row_decoder",
+        "wordline_decoder",
+        "decoder_gate_cells",
+        "wordline_driver",
+        "wordline_driver_gate_cells"
+      ],
+      "address_relation": {
+        "row_decoder_and_wordline_decoder": "Consume row_address_width bits and expand into decoded row-select intent.",
+        "row_address_width": 2,
+        "evidence_file": "docs/mapping/openyield_decoder_wordline_semantic_contract.json"
+      },
+      "wordline_driver_relation": {
+        "value": "Wordline driver fanout must match num_rows and every WL[i] must map one-to-one onto a bitcell row.",
+        "evidence_file": "docs/mapping/openyield_decoder_wordline_semantic_contract.json;docs/openram_gds_generation_audit_report.json"
+      },
+      "pitch_alignment_expectation": "Row path geometry must align to bitcell array row pitch before structure-complete SRAM GDS can exist.",
+      "routing_expectation": "decoder output -> WL driver input -> WL[i] should remain an explicit R3/R4 routing chain with row-pitch alignment.",
+      "current_candidate_geometry_modules": [
+        "row_decoder",
+        "wordline_decoder",
+        "decoder_gate_cells",
+        "wordline_driver_gate_cells"
+      ],
+      "current_hardmacro_reference_modules": [
+        "wordline_driver"
+      ],
+      "r3_r4_required_work": [
+        "R3 must define a real row-path generator boundary for decoder stages and WL driver composition.",
+        "R3 must define row-pitch-owned placement anchors relative to ARRAY_CORE.",
+        "R4 must define decoder-to-driver and driver-to-WL routing implementation rather than contract-only handoff."
+      ]
+    },
+    "column_path": {
+      "physical_role": "COLUMN_PATH",
+      "modules": [
+        "precharge",
+        "column_mux",
+        "sense_amp",
+        "write_driver"
+      ],
+      "precharge_alignment": "precharge must align to BL/BR column pitch and sit on the bitline-side of the column path.",
+      "column_mux_relation": {
+        "words_per_row": 1,
+        "column_mux_ratio": 1,
+        "statement": "column_mux is structurally required only when words_per_row > 1 or column_mux_ratio > 1 in a future supported config.",
+        "evidence_file": "docs/mapping/openyield_logical_to_openyield_parameter_map.csv;docs/openram_gds_generation_audit_report.json"
+      },
+      "sense_amp_relation": "Each sense_amp data output bit belongs to one logical data_out bit after column selection.",
+      "write_driver_relation": "Each write_driver data input bit belongs to one logical data_in bit before write enable gating.",
+      "pitch_expectation": "Entire column path must be anchored on array column pitch, not on standalone wrapper width.",
+      "bitline_routing_expectation": "BL/BR and optional BL_out/BR_out must remain explicit R3/R4 routed nets with column-pitch alignment.",
+      "current_hardmacro_metadata_status": "Existing hardmacro wrappers provide reference bbox/pins/rails, but do not yet prove structure-complete column-path composition.",
+      "current_candidate_geometry_modules": [],
+      "r3_r4_required_work": [
+        "R3 must define real column-path composition rules relative to ARRAY_CORE column pitch.",
+        "R4 must define BL/BR, mux-select, sense, and write routing ownership.",
+        "R4 must define whether spare/replica timing coupling is explicit or out of current scope."
+      ]
+    },
+    "control_path": {
+      "physical_role": "CONTROL_PATH",
+      "modules": [
+        "CONTROL_LOGIC",
+        "DELAY_CHAIN",
+        "PRECHARGE_ENABLE_PATH",
+        "SENSE_ENABLE_PATH",
+        "WRITE_ENABLE_PATH",
+        "WORDLINE_ENABLE_PATH",
+        "GATED_CLOCK_PATH",
+        "DFF_ROW"
+      ],
+      "control_outputs": [
+        "precharge_en",
+        "sense_en",
+        "write_en",
+        "wordline_en",
+        "gated_clk",
+        "delay / replica timing signals"
+      ],
+      "downstream_expectations": {
+        "precharge_en": "precharge",
+        "sense_en": "sense_amp",
+        "write_en": "write_driver",
+        "wordline_en": "wordline_driver",
+        "gated_clk": "DFF_ROW and internal enable paths",
+        "delay_replica": "PRECHARGE_ENABLE_PATH;SENSE_ENABLE_PATH;WRITE_ENABLE_PATH"
+      },
+      "delay_chain_layout_expectation": "delay chain and replica timing path remain periphery control-path objects and must preserve causal order before final routing.",
+      "current_candidate_geometry_modules": [
+        "DELAY_CHAIN",
+        "PRECHARGE_ENABLE_PATH",
+        "SENSE_ENABLE_PATH",
+        "WRITE_ENABLE_PATH",
+        "WORDLINE_ENABLE_PATH",
+        "GATED_CLOCK_PATH",
+        "DFF_ROW",
+        "CONTROL_LOGIC"
+      ],
+      "contract_pin_modules": [
+        "DELAY_CHAIN",
+        "PRECHARGE_ENABLE_PATH",
+        "SENSE_ENABLE_PATH",
+        "WRITE_ENABLE_PATH",
+        "WORDLINE_ENABLE_PATH",
+        "GATED_CLOCK_PATH",
+        "DFF_ROW",
+        "CONTROL_LOGIC"
+      ],
+      "r4_router_requirements": [
+        "control router must connect control outputs into row/column/periphery modules through stable bus ownership",
+        "control router must preserve clock/control separation from power stitching",
+        "control router must preserve replica timing signals as dedicated semantic routes rather than collapsing them into generic nets"
+      ],
+      "evidence_file": "docs/mapping/openyield_time_control_decomposition_contract.json;docs/mapping/openyield_control_path_semantic_contracts.csv"
+    }
+  },
+  "power_intent": {
+    "vdd_net_names": [
+      "VDD"
+    ],
+    "gnd_net_names": [
+      "GND",
+      "VSS"
+    ],
+    "module_power_summary": [
+      {
+        "module_name": "bitcell_array",
+        "has_power_pins": true,
+        "power_pin_names": [
+          "GND",
+          "VDD"
+        ],
+        "rail_status": "module_boundary_rails_exported",
+        "uses_candidate_geometry": false
+      },
+      {
+        "module_name": "dummy_array",
+        "has_power_pins": true,
+        "power_pin_names": [
+          "GND",
+          "VDD"
+        ],
+        "rail_status": "module_boundary_rails_exported",
+        "uses_candidate_geometry": false
+      },
+      {
+        "module_name": "replica_array",
+        "has_power_pins": true,
+        "power_pin_names": [
+          "GND",
+          "VDD"
+        ],
+        "rail_status": "module_boundary_rails_exported",
+        "uses_candidate_geometry": false
+      },
+      {
+        "module_name": "row_decoder",
+        "has_power_pins": true,
+        "power_pin_names": [
+          "GND",
+          "VDD"
+        ],
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_candidate_geometry": true
+      },
+      {
+        "module_name": "wordline_decoder",
+        "has_power_pins": true,
+        "power_pin_names": [
+          "GND",
+          "VDD"
+        ],
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_candidate_geometry": true
+      },
+      {
+        "module_name": "decoder_gate_cells",
+        "has_power_pins": true,
+        "power_pin_names": [
+          "GND",
+          "VDD"
+        ],
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_candidate_geometry": true
+      },
+      {
+        "module_name": "wordline_driver",
+        "has_power_pins": true,
+        "power_pin_names": [
+          "GND",
+          "VDD"
+        ],
+        "rail_status": "hardmacro_wrapper_rail_metadata_exported",
+        "uses_candidate_geometry": false
+      },
+      {
+        "module_name": "wordline_driver_gate_cells",
+        "has_power_pins": true,
+        "power_pin_names": [
+          "GND",
+          "VDD"
+        ],
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_candidate_geometry": true
+      },
+      {
+        "module_name": "column_mux",
+        "has_power_pins": true,
+        "power_pin_names": [
+          "GND",
+          "VDD"
+        ],
+        "rail_status": "hardmacro_wrapper_rail_metadata_exported",
+        "uses_candidate_geometry": false
+      },
+      {
+        "module_name": "sense_amp",
+        "has_power_pins": true,
+        "power_pin_names": [
+          "GND",
+          "VDD"
+        ],
+        "rail_status": "hardmacro_wrapper_rail_metadata_exported",
+        "uses_candidate_geometry": false
+      },
+      {
+        "module_name": "write_driver",
+        "has_power_pins": true,
+        "power_pin_names": [
+          "GND",
+          "VDD"
+        ],
+        "rail_status": "hardmacro_wrapper_rail_metadata_exported",
+        "uses_candidate_geometry": false
+      },
+      {
+        "module_name": "precharge",
+        "has_power_pins": true,
+        "power_pin_names": [
+          "VDD"
+        ],
+        "rail_status": "hardmacro_wrapper_rail_metadata_exported",
+        "uses_candidate_geometry": false
+      },
+      {
+        "module_name": "DELAY_CHAIN",
+        "has_power_pins": true,
+        "power_pin_names": [
+          "GND",
+          "VDD"
+        ],
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_candidate_geometry": true
+      },
+      {
+        "module_name": "PRECHARGE_ENABLE_PATH",
+        "has_power_pins": true,
+        "power_pin_names": [
+          "GND",
+          "VDD"
+        ],
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_candidate_geometry": true
+      },
+      {
+        "module_name": "SENSE_ENABLE_PATH",
+        "has_power_pins": true,
+        "power_pin_names": [
+          "GND",
+          "VDD"
+        ],
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_candidate_geometry": true
+      },
+      {
+        "module_name": "WRITE_ENABLE_PATH",
+        "has_power_pins": true,
+        "power_pin_names": [
+          "GND",
+          "VDD"
+        ],
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_candidate_geometry": true
+      },
+      {
+        "module_name": "WORDLINE_ENABLE_PATH",
+        "has_power_pins": true,
+        "power_pin_names": [
+          "GND",
+          "VDD"
+        ],
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_candidate_geometry": true
+      },
+      {
+        "module_name": "GATED_CLOCK_PATH",
+        "has_power_pins": true,
+        "power_pin_names": [
+          "GND",
+          "VDD"
+        ],
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_candidate_geometry": true
+      },
+      {
+        "module_name": "DFF_ROW",
+        "has_power_pins": true,
+        "power_pin_names": [
+          "GND",
+          "VDD"
+        ],
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_candidate_geometry": true
+      },
+      {
+        "module_name": "CONTROL_LOGIC",
+        "has_power_pins": true,
+        "power_pin_names": [
+          "GND",
+          "VDD"
+        ],
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_candidate_geometry": true
+      }
+    ],
+    "array_rail_expectation": "ARRAY_CORE, ARRAY_DUMMY, and ARRAY_REPLICA must expose rail directions compatible with later top-level stitching.",
+    "row_path_rail_expectation": "ROW_PATH modules need rail continuity aligned with array-facing side placement.",
+    "column_path_rail_expectation": "COLUMN_PATH modules need rail continuity aligned with array-facing column pitch placement.",
+    "control_path_rail_expectation": "CONTROL_PATH rails remain periphery-distributed and must later stitch into top-level VDD/GND export.",
+    "top_level_power_pin_export_expectation": "Top-level VDD/GND pins must be exported by a future R4 power planner using real geometry proof.",
+    "power_stitching_owned_by_R4": true,
+    "metadata_only_now": [
+      "module boundary rails",
+      "rail_status fields from standalone module metadata"
+    ],
+    "requires_real_geometry_proof": [
+      "array-to-row-path power continuity",
+      "array-to-column-path power continuity",
+      "top-level VDD/GND export geometry"
+    ]
+  },
+  "translator_constraints": {
+    "uses_access_module": false,
+    "uses_floorplan_proxy": false,
+    "arbitrary_module_scatter_used": false,
+    "label_only_binding_as_implementation_count": 0,
+    "locked_golden_flow_used": true
+  }
+}

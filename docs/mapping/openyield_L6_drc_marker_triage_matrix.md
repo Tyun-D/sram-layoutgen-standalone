@@ -1,0 +1,9 @@
+# OpenYield L6 DRC Marker Triage Matrix
+
+| root_cause_category | marker_count | percentage | priority | dominant_rules | affected_modules | recommended_fix_layer |
+| --- | --- | --- | --- | --- | --- | --- |
+| LAYER_MAP_OR_DRC_DECK_INTERPRETATION | 12012 | 0.486572 | P1 | GRID: vertexes on layer metal1 not on grid of 0.0025; GRID: vertexes on layer cont not on grid of 0.0025; GRID: vertexes on layer active not on grid of 0.0025; GRID: vertexes on layer poly not on grid of 0.0025; GRID: vertexes on layer metal2 not on grid of 0.0025 | bitcell_array; dummy_array; replica_array; sense_amp; write_driver; wordline_driver; precharge; column_mux | L6/L7 DRC deck and imported source geometry review |
+| CONTRACT_PIN_GEOMETRY_PLACEHOLDER | 11944 | 0.483817 | P4 | GRID: vertexes on layer cont not on grid of 0.0025; GRID: vertexes on layer metal1 not on grid of 0.0025; GRID: vertexes on layer poly not on grid of 0.0025; GRID: vertexes on layer active not on grid of 0.0025; GRID: vertexes on layer pplus not on grid of 0.0025 | DFF_ROW; CONTROL_LOGIC; SENSE_ENABLE_PATH; WRITE_ENABLE_PATH; decoder_gate_cells; WORDLINE_ENABLE_PATH; wordline_driver_gate_cells; wordline_decoder | L3 pin export / L4 boundary pin realization |
+| CANDIDATE_GEOMETRY_INTERNAL | 666 | 0.026978 | P3 | GRID: vertexes on layer metal1 not on grid of 0.0025; GRID: vertexes on layer cont not on grid of 0.0025; GRID: vertexes on layer poly not on grid of 0.0025; GRID: vertexes on layer active not on grid of 0.0025; GRID: vertexes on layer nplus not on grid of 0.0025 | row_decoder | L3 module generator / candidate geometry |
+| MODULE_INTERNAL_HARDMACRO | 49 | 0.001985 | P3 | METAL1.1; CONTACT.1; POLY.1; METAL1.2; POLY.6 | wordline_driver; column_mux | Imported hardmacro or macro-local cleanup |
+| MODULE_WRAPPER_IMPORT | 16 | 0.000648 | P3 | VIA1.1; METAL1.1; CONTACT.1 | write_driver; sense_amp | L3/L4 wrapper import path |

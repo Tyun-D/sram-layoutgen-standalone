@@ -1,0 +1,6 @@
+{
+  "generator_architecture_decision": "OPENRAM_FREEPDK45_DEVICE_CONTACT_ADAPTER",
+  "generator_architecture_decision_reason": "OpenRAM already provides FreePDK45-backed transistor, contact, and inverter generators. The safest next step is a thin adapter that locks naming, source trace, and OpenYield-specific parameter contracts instead of drawing new proxy geometry.",
+  "generator_adapter_required": true,
+  "generator_implementation_ready": false
+}

@@ -1,0 +1,24 @@
+# M12C Time Hierarchy Inventory
+
+- ADDR_DFF: `1` | child_modules=`DFF` | consumer_modules=`TIME`
+- AND2: `2 in TIME for gated clocks plus decoder-side uses outside TIME closure` | child_modules=`PINV|PNAND2` | consumer_modules=`DECODER3_8|OPENYIELD_SRAM_TOP_V1|TIME`
+- AND3: `2 in TIME for w_en and s_en` | child_modules=`PINV|PNAND3` | consumer_modules=`DECODER3_8|TIME`
+- DATA_DFF: `1 if operation in {write, read&write} else 0` | child_modules=`DFF` | consumer_modules=`TIME`
+- DFF: `ceil(log2(num_rows)) + (num_cols if operation in {write, read&write} else 0) + 1 template in each DFF_BUF` | child_modules=`PINV1|TRANSMISSION_GATE` | consumer_modules=`ADDR_DFF|DATA_DFF|DFF_BUF`
+- DFF_BUF: `2 in TIME for cs/web register capture` | child_modules=`DFF|PINV1|PINV2` | consumer_modules=`TIME`
+- NMOS_VTG: `source-traced per generated subcircuit graph` | child_modules=`` | consumer_modules=`PINV|PINV1|PINV2|PINV3|PINV4|PINV_wl_en_bar|PNAND2|PNAND3|Replica_CELL|SENSEAMP|SRAM_6T_CELL|TRANSMISSION_GATE|WRITEDRIVER`
+- PINV: `operation- and topology-dependent support inverter count` | child_modules=`NMOS_VTG|PMOS_VTG` | consumer_modules=`AND2|AND3|DECODER3_8|D_LATCH|TIME|WORDLINEDRIVER`
+- PINV1: `source-traced per generated subcircuit graph` | child_modules=`NMOS_VTG|PMOS_VTG` | consumer_modules=`DFF|DFF_BUF|delay_chain|pdrive|pdrive2_for_pre|wl_pdrive`
+- PINV2: `source-traced per generated subcircuit graph` | child_modules=`NMOS_VTG|PMOS_VTG` | consumer_modules=`DFF_BUF|pdrive|pdrive2_for_pre|wl_pdrive`
+- PINV3: `source-traced per generated subcircuit graph` | child_modules=`NMOS_VTG|PMOS_VTG` | consumer_modules=`pdrive`
+- PINV4: `source-traced per generated subcircuit graph` | child_modules=`NMOS_VTG|PMOS_VTG` | consumer_modules=`pdrive`
+- PINV_wl_en_bar: `source-traced per generated subcircuit graph` | child_modules=`NMOS_VTG|PMOS_VTG` | consumer_modules=`TIME`
+- PMOS_VTG: `source-traced per generated subcircuit graph` | child_modules=`` | consumer_modules=`PINV|PINV1|PINV2|PINV3|PINV4|PINV_wl_en_bar|PNAND2|PNAND3|PRECHARGE|Replica_CELL|SENSEAMP|SRAM_6T_CELL|TRANSMISSION_GATE|WRITEDRIVER`
+- PNAND2: `per AND2 decomposition or latch/driver decomposition` | child_modules=`NMOS_VTG|PMOS_VTG` | consumer_modules=`AND2|D_LATCH|WORDLINEDRIVER`
+- PNAND3: `per AND3 decomposition plus PRE_UNBUF in TIME` | child_modules=`NMOS_VTG|PMOS_VTG` | consumer_modules=`AND3|TIME`
+- TIME: `1` | child_modules=`ADDR_DFF|AND2|AND3|DATA_DFF|DFF_BUF|PINV|PINV_wl_en_bar|PNAND3|delay_chain|pdrive|pdrive2_for_pre|wl_pdrive` | consumer_modules=`OPENYIELD_SRAM_TOP_V1`
+- TRANSMISSION_GATE: `4 per DFF template` | child_modules=`NMOS_VTG|PMOS_VTG` | consumer_modules=`DFF`
+- delay_chain: `1` | child_modules=`PINV1` | consumer_modules=`TIME`
+- pdrive: `1 with clk_dff_count/ref_dff_count drive scaling` | child_modules=`PINV1|PINV2|PINV3|PINV4` | consumer_modules=`TIME`
+- pdrive2_for_pre: `1 with pre_drive_scale derived from rows and cols` | child_modules=`PINV1|PINV2` | consumer_modules=`TIME`
+- wl_pdrive: `1` | child_modules=`PINV1|PINV2` | consumer_modules=`TIME`

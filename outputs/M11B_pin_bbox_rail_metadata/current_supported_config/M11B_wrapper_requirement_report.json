@@ -1,0 +1,18 @@
+[
+  {
+    "openyield_module": "sense_amp",
+    "requires_wrapper": false,
+    "wrapper_reason": "No wrapper required; machine-verified pins align directly with the golden sense_amp leaf.",
+    "placement_safe": true,
+    "routing_safe": true,
+    "power_safe": true
+  },
+  {
+    "openyield_module": "wordline_driver",
+    "requires_wrapper": true,
+    "wrapper_reason": "A wrapper remains required because D/G/S metadata pins are not machine-resolved in the parsed candidate geometry.",
+    "placement_safe": true,
+    "routing_safe": false,
+    "power_safe": true
+  }
+]

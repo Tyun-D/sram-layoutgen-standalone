@@ -1,0 +1,12 @@
+parameter_name,status,scope
+num_rows,SUPPORTED,verified by 16x16 and 64x8 generated samples
+num_cols,SUPPORTED,verified by 16x16 and 64x8 generated samples
+num_words,SUPPORTED_WITH_V1_CONSTRAINT,must equal num_rows
+word_size,SUPPORTED_WITH_V1_CONSTRAINT,must equal num_cols
+words_per_row,LOCKED_TO_1,V1 does not support >1
+mux_ratio,LOCKED_TO_1,V1 does not support arbitrary ratio
+choose_columnmux,LOCKED_TO_FALSE,V1 excludes column mux
+sram_cell_type,LOCKED_TO_6T,verified only for 6T
+corner,SUPPORTED_AS_SIMULATION_CONTEXT,propagated from OpenYield config
+temperature,SUPPORTED_AS_SIMULATION_CONTEXT,propagated from OpenYield config
+control_timing_parameters,SUPPORTED_AS_TRACEABLE_CONTEXT,"TIME/BaseTestbench derived, not yet a physical control contract"

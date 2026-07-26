@@ -1,0 +1,185 @@
+{
+  "scope": "stage_c_openyield_time_control_placement_readiness",
+  "nodes": [
+    {
+      "id": "ADDR_DFF_ROW",
+      "kind": "latched_address_array"
+    },
+    {
+      "id": "DATA_DFF_ROW",
+      "kind": "latched_write_data_array"
+    },
+    {
+      "id": "DELAY_CHAIN_CLUSTER",
+      "kind": "generated_logic_timing_chain"
+    },
+    {
+      "id": "WEN_DELAY_CHAIN_CLUSTER",
+      "kind": "generated_logic_timing_chain"
+    },
+    {
+      "id": "PDRIVE_CLUSTER",
+      "kind": "generated_logic_buffer_chain"
+    },
+    {
+      "id": "GENERATED_LOGIC_CLUSTER",
+      "kind": "nand_and_inverter_logic"
+    },
+    {
+      "id": "PRECHARGE_HANDOFF",
+      "kind": "consumer_macro_handoff"
+    },
+    {
+      "id": "SENSEAMP_HANDOFF",
+      "kind": "consumer_macro_handoff"
+    },
+    {
+      "id": "WRITEDRIVER_HANDOFF",
+      "kind": "consumer_macro_handoff"
+    },
+    {
+      "id": "WORDLINEDRIVER_HANDOFF",
+      "kind": "consumer_macro_handoff"
+    },
+    {
+      "id": "DECODER_INTERFACE",
+      "kind": "decoder_boundary_handoff"
+    }
+  ],
+  "edges": [
+    {
+      "source": "ADDR_DFF_ROW",
+      "target": "DFF",
+      "relation": "depends_on"
+    },
+    {
+      "source": "ADDR_DFF_ROW",
+      "target": "clk distribution metadata",
+      "relation": "depends_on"
+    },
+    {
+      "source": "ADDR_DFF_ROW",
+      "target": "addr bus isolation proof",
+      "relation": "depends_on"
+    },
+    {
+      "source": "DATA_DFF_ROW",
+      "target": "DFF",
+      "relation": "depends_on"
+    },
+    {
+      "source": "DATA_DFF_ROW",
+      "target": "clk distribution metadata",
+      "relation": "depends_on"
+    },
+    {
+      "source": "DATA_DFF_ROW",
+      "target": "din bus routing proof",
+      "relation": "depends_on"
+    },
+    {
+      "source": "DELAY_CHAIN_CLUSTER",
+      "target": "Pinv chain metadata",
+      "relation": "depends_on"
+    },
+    {
+      "source": "DELAY_CHAIN_CLUSTER",
+      "target": "rbl delay timing metadata",
+      "relation": "depends_on"
+    },
+    {
+      "source": "WEN_DELAY_CHAIN_CLUSTER",
+      "target": "Pinv chain metadata",
+      "relation": "depends_on"
+    },
+    {
+      "source": "WEN_DELAY_CHAIN_CLUSTER",
+      "target": "wen-delay metadata",
+      "relation": "depends_on"
+    },
+    {
+      "source": "PDRIVE_CLUSTER",
+      "target": "Pinv chain metadata",
+      "relation": "depends_on"
+    },
+    {
+      "source": "PDRIVE_CLUSTER",
+      "target": "clock buffer fanout metadata",
+      "relation": "depends_on"
+    },
+    {
+      "source": "GENERATED_LOGIC_CLUSTER",
+      "target": "PNAND2/PNAND3/Pinv abstract contracts",
+      "relation": "depends_on"
+    },
+    {
+      "source": "GENERATED_LOGIC_CLUSTER",
+      "target": "region adjacency metadata",
+      "relation": "depends_on"
+    },
+    {
+      "source": "PRECHARGE_HANDOFF",
+      "target": "PRE signal binding",
+      "relation": "depends_on"
+    },
+    {
+      "source": "PRECHARGE_HANDOFF",
+      "target": "consumer handoff metadata",
+      "relation": "depends_on"
+    },
+    {
+      "source": "PRECHARGE_HANDOFF",
+      "target": "precharge power semantics",
+      "relation": "depends_on"
+    },
+    {
+      "source": "SENSEAMP_HANDOFF",
+      "target": "sense_enable contract",
+      "relation": "depends_on"
+    },
+    {
+      "source": "SENSEAMP_HANDOFF",
+      "target": "consumer handoff metadata",
+      "relation": "depends_on"
+    },
+    {
+      "source": "WRITEDRIVER_HANDOFF",
+      "target": "write_enable contract",
+      "relation": "depends_on"
+    },
+    {
+      "source": "WRITEDRIVER_HANDOFF",
+      "target": "consumer handoff metadata",
+      "relation": "depends_on"
+    },
+    {
+      "source": "WORDLINEDRIVER_HANDOFF",
+      "target": "wordline_enable polarity metadata",
+      "relation": "depends_on"
+    },
+    {
+      "source": "WORDLINEDRIVER_HANDOFF",
+      "target": "consumer handoff metadata",
+      "relation": "depends_on"
+    },
+    {
+      "source": "DECODER_INTERFACE",
+      "target": "addr_q semantics",
+      "relation": "depends_on"
+    },
+    {
+      "source": "DECODER_INTERFACE",
+      "target": "decoder input contract",
+      "relation": "depends_on"
+    }
+  ],
+  "summary": {
+    "time_control_placement_readiness_available": true,
+    "metadata_ready_subblock_count": 11,
+    "partial_metadata_subblock_count": 0,
+    "can_create_experimental_opt_in_placement_plan": true,
+    "can_modify_standalone": false,
+    "can_generate_time_control_gds": false,
+    "can_enter_physical_placement": false
+  }
+}

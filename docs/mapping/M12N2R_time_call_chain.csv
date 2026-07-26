@@ -1,0 +1,6 @@
+step_index,source,symbol,role,downstream_symbol,why_it_matters
+1,/data1/qujh/work/external/OpenYield/readme_compiler.md,main_sram.py,simulation_entry,Sram6TCoreTestbench.create_testbench,The compiler guide separates simulation entry from circuit submodule generation.
+2,/data1/qujh/work/external/OpenYield/sram_compiler/testbenches/parameter_factor.py,TIMEFactory.create,subcircuit_factory,TIME,TIMEFactory.create returns the TIME subcircuit from sram_compiler.subcircuits.time_generate.
+3,/data1/qujh/work/external/OpenYield/sram_compiler/testbenches/sram_6t_core_testbench.py,Sram6TCoreTestbench.create_time_circuit,design_graph_instantiation,XTIME,The main SRAM circuit registers and instantiates TIME as part of the design graph.
+4,/data1/qujh/work/external/OpenYield/sram_compiler/testbenches/sram_6t_core_testbench.py,TIME outputs,consumer_connectivity,RWL/decoder/wordline_driver/precharge/sense_amp/write_driver,"wl_en, PRE, s_en, and w_en feed real SRAM periphery connectivity."
+5,/data1/qujh/work/external/OpenYield/sram_compiler/testbenches/sram_6t_core_testbench.py,PulseVoltageSource,external_stimulus,clk/csb/web/addr inputs,The explicit testbench stimuli are separate from the TIME subcircuit itself.

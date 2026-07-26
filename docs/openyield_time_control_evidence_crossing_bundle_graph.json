@@ -1,0 +1,173 @@
+{
+  "scope": "step6_30_openyield_time_evidence_crossing_bundle",
+  "nodes": [
+    {
+      "id": "PRECHARGE_GND_EVIDENCE_SEARCH",
+      "kind": "evidence_bundle"
+    },
+    {
+      "id": "CLK_TO_CLK_BUF",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "CLK_BUF_TO_CLK_BAR",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "CLK_BUF_CS_TO_GATED_CLK_BUF",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "CLK_BAR_CS_TO_GATED_CLK_BAR",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "GATED_CLK_BAR_TO_WL_EN",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "WL_EN_TO_WL_EN_BAR",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "RBL_TO_RBL_DELAY",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "RBL_DELAY_TO_RBL_DELAY_BAR",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "RBL_DELAY_BAR_GATED_CLK_BAR_WE_TO_W_EN",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "RBL_DELAY_GATED_CLK_BAR_WE_BAR_TO_S_EN",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "GATED_CLK_BUF_RBL_DELAY_WL_EN_BAR_TO_PRE_UNBUF",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "PRE_UNBUF_TO_PRE",
+      "kind": "dependency_edge"
+    },
+    {
+      "id": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+      "kind": "grouped_interface"
+    },
+    {
+      "id": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+      "kind": "grouped_interface"
+    },
+    {
+      "id": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "kind": "grouped_interface"
+    },
+    {
+      "id": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+      "kind": "grouped_interface"
+    }
+  ],
+  "edges": [
+    {
+      "source": "PRECHARGE_GND_EVIDENCE_SEARCH",
+      "target": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "relation": "gates_metadata_state"
+    },
+    {
+      "source": "pdrive_region",
+      "target": "pdrive_region",
+      "relation": "crossing_edge",
+      "edge_name": "CLK_TO_CLK_BUF"
+    },
+    {
+      "source": "pdrive_region",
+      "target": "generated_logic_region",
+      "relation": "crossing_edge",
+      "edge_name": "CLK_BUF_TO_CLK_BAR"
+    },
+    {
+      "source": "generated_logic_region",
+      "target": "generated_logic_region",
+      "relation": "crossing_edge",
+      "edge_name": "CLK_BUF_CS_TO_GATED_CLK_BUF"
+    },
+    {
+      "source": "generated_logic_region",
+      "target": "generated_logic_region",
+      "relation": "crossing_edge",
+      "edge_name": "CLK_BAR_CS_TO_GATED_CLK_BAR"
+    },
+    {
+      "source": "generated_logic_region",
+      "target": "wordline_enable_control_region",
+      "relation": "crossing_edge",
+      "edge_name": "GATED_CLK_BAR_TO_WL_EN"
+    },
+    {
+      "source": "wordline_enable_control_region",
+      "target": "wordline_enable_control_region",
+      "relation": "crossing_edge",
+      "edge_name": "WL_EN_TO_WL_EN_BAR"
+    },
+    {
+      "source": "delay_chain_region",
+      "target": "delay_chain_region",
+      "relation": "crossing_edge",
+      "edge_name": "RBL_TO_RBL_DELAY"
+    },
+    {
+      "source": "delay_chain_region",
+      "target": "generated_logic_region",
+      "relation": "crossing_edge",
+      "edge_name": "RBL_DELAY_TO_RBL_DELAY_BAR"
+    },
+    {
+      "source": "sense_write_enable_region",
+      "target": "sense_write_enable_region",
+      "relation": "crossing_edge",
+      "edge_name": "RBL_DELAY_BAR_GATED_CLK_BAR_WE_TO_W_EN"
+    },
+    {
+      "source": "sense_write_enable_region",
+      "target": "sense_write_enable_region",
+      "relation": "crossing_edge",
+      "edge_name": "RBL_DELAY_GATED_CLK_BAR_WE_BAR_TO_S_EN"
+    },
+    {
+      "source": "precharge_control_region",
+      "target": "precharge_control_region",
+      "relation": "crossing_edge",
+      "edge_name": "GATED_CLK_BUF_RBL_DELAY_WL_EN_BAR_TO_PRE_UNBUF"
+    },
+    {
+      "source": "precharge_control_region",
+      "target": "precharge_control_region",
+      "relation": "crossing_edge",
+      "edge_name": "PRE_UNBUF_TO_PRE"
+    },
+    {
+      "source": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "target": "WL_EN_TO_WL_EN_BAR",
+      "relation": "covered_by_interface"
+    },
+    {
+      "source": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "target": "GATED_CLK_BUF_RBL_DELAY_WL_EN_BAR_TO_PRE_UNBUF",
+      "relation": "covered_by_interface"
+    }
+  ],
+  "summary": {
+    "time_control_evidence_crossing_bundle_available": true,
+    "precharge_closure_status": "partial_missing_gnd",
+    "precharge_gnd_evidence_found": false,
+    "all_required_crossings_have_adjacency": false,
+    "all_required_crossings_have_handoff_or_reservation": true,
+    "all_crossing_budgets_pass": true,
+    "can_enter_time_control_metadata_closure": false,
+    "can_enter_time_control_physical_placement": false,
+    "can_enter_standalone_control_placement": false
+  }
+}

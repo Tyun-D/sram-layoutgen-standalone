@@ -1,0 +1,4 @@
+gap_id,gap_type,severity,status,details
+M10_GAP_001,HUMAN_REVIEW_REQUIRED,BLOCKER,OPEN,Human KLayout review is required for openyield_source_backed_translated_sram_clean_review.gds before any post-M10 stage.
+M10_GAP_002,FULL_RAW_COMPILER_NOT_CLAIMED,NON_BLOCKING_SCOPE_LIMIT,OPEN,M10 is a source-backed translator v2 but still not a full raw OpenYield netlist compiler.
+M10_GAP_003,CAPACITY_CONFIG_FALLBACK,NON_BLOCKING_SCOPE_LIMIT,OPEN,OpenYield raw source did not provide sufficient capacity/config values; locked golden 8x64_wpr4 layoutgen configuration was used while binding OpenYield source-backed module/net semantics.

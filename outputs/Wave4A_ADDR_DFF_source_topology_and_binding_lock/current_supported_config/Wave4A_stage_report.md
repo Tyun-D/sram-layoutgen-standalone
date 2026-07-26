@@ -1,0 +1,90 @@
+# Wave4A Stage Report
+
+- stage: `Wave4A-R1 / ADDR_DFF_SOURCE_BINDING_VALIDATOR_HARDENING`
+- current_status: `PASS`
+- project_branch: `feature/step45-clean-array-aggregation`
+- report_generation_base_commit: `f367eb3016e4bedee11f86977f44e08f4fbea347`
+- openyield_commit: `1c34428d8b913963c4971d093b1a7c2df97a2509`
+- locked_blob_sha: `16b38c5a5d3165f046557941d15d425bbcab20b5`
+- locked_source_file_sha256: `fa5277f078f79d5b43335c2dcd6e364625aa8ad17b7108d323b85e73dfeaae80`
+- source_snapshot_validator_result: `True`
+- source_snapshot_validator_rejection_reason: `None`
+- ast_topology_exact_identity: `True`
+- num_rows_resolution_passed: `True`
+- resolved_num_rows: `16`
+- resolved_n_bits: `4`
+- top_pin_order:
+```json
+[
+  "VDD",
+  "VSS",
+  "CLK",
+  "A0",
+  "A1",
+  "A2",
+  "A3",
+  "A_dff0",
+  "A_dff1",
+  "A_dff2",
+  "A_dff3"
+]
+```
+- child_instances:
+```json
+[
+  "dff_0",
+  "dff_1",
+  "dff_2",
+  "dff_3"
+]
+```
+- canonical_nets:
+```json
+[
+  "VDD",
+  "VSS",
+  "CLK",
+  "A0",
+  "A_dff0",
+  "A1",
+  "A_dff1",
+  "A2",
+  "A_dff2",
+  "A3",
+  "A_dff3"
+]
+```
+- approved_dff_sha256: `f6995536077a191c31e10644bbfcfb4075cda64b7da131987c70a59353c4e45d`
+- approved_dff_top: `DFF_TG4_INV7_FPDK45_26d9543b82b7`
+- approved_dff_status: `HUMAN_REVIEWED_REUSABLE_COMPOSITE`
+- constructor_parameter_binding:
+```json
+{
+  "source_constructor_call": "self.dff_addr = dff(nmos_model, pmos_model)",
+  "formal_to_actual_binding": {
+    "nmos_model": "nmos_model",
+    "pmos_model": "pmos_model",
+    "pmos_width": "default",
+    "nmos_width": "default",
+    "length": "default"
+  },
+  "default_values": {
+    "nmos_model": "'NMOS_VTG'",
+    "pmos_model": "'PMOS_VTG'",
+    "pmos_width": "5e-07",
+    "nmos_width": "2.5e-07",
+    "length": "5e-08"
+  },
+  "normalized_nm_values": {
+    "pmos_width_nm": 500,
+    "nmos_width_nm": 250,
+    "length_nm": 50
+  }
+}
+```
+- parameter_to_physical_binding_closure_passed: `True`
+- negative_test_count: `15`
+- hardcoded_negative_test_count: `0`
+- addr_dff_gds_generated: `False`
+- data_dff_work_performed: `False`
+- next_stage: `Wave4A2 / ADDR_DFF_CANDIDATE_GENERATION_AND_MACHINE_VERIFICATION`

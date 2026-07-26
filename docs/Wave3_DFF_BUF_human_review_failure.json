@@ -1,0 +1,121 @@
+{
+  "failed_candidate_sha256": "3c677aa1def66f0930a0f549120784cbea76095726d9d26ae8b81334b8b01536",
+  "failure_status": "QUARANTINED_HUMAN_DETECTED_HIERARCHICAL_INTERNAL_SHORT",
+  "failed_clean_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_hierarchical_pin_access_repair/quarantined_failed_candidate/DFF_BUF_clean.gds",
+  "failed_annotated_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_hierarchical_pin_access_repair/quarantined_failed_candidate/DFF_BUF_annotated.gds",
+  "failed_review_atlas_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_hierarchical_pin_access_repair/quarantined_failed_candidate/DFF_BUF_review_atlas.gds",
+  "reproduced_failures": [
+    {
+      "parent_route_id": "CLK_track",
+      "intended_net": "TOP::CLK",
+      "accidentally_touched_hierarchical_net": "dff::CLKB_internal",
+      "layer_datatype": "11/0",
+      "overlap_bbox": [
+        7.3575,
+        2.2575,
+        7.4925,
+        2.3225
+      ],
+      "overlap_area": 0.008775,
+      "electrical_short_conclusion": true
+    },
+    {
+      "parent_route_id": "CLK_track",
+      "intended_net": "TOP::CLK",
+      "accidentally_touched_hierarchical_net": "dff::CLKB_internal",
+      "layer_datatype": "11/0",
+      "overlap_bbox": [
+        9.8525,
+        2.2575,
+        9.9875,
+        2.3225
+      ],
+      "overlap_area": 0.008775,
+      "electrical_short_conclusion": true
+    },
+    {
+      "parent_route_id": "CLK_track",
+      "intended_net": "TOP::CLK",
+      "accidentally_touched_hierarchical_net": "dff::CLKB_internal",
+      "layer_datatype": "11/0",
+      "overlap_bbox": [
+        13.385,
+        2.2575,
+        13.52,
+        2.3225
+      ],
+      "overlap_area": 0.008775,
+      "electrical_short_conclusion": true
+    },
+    {
+      "parent_route_id": "CLK_track",
+      "intended_net": "TOP::CLK",
+      "accidentally_touched_hierarchical_net": "dff::CLKB_internal",
+      "layer_datatype": "11/0",
+      "overlap_bbox": [
+        6.7075,
+        2.2625,
+        13.745,
+        2.3225
+      ],
+      "overlap_area": 0.42225,
+      "electrical_short_conclusion": true
+    },
+    {
+      "parent_route_id": "dff.CLK:pin_access_landing",
+      "intended_net": "TOP::CLK",
+      "accidentally_touched_hierarchical_net": "dff::CLKB_internal",
+      "layer_datatype": "11/0",
+      "overlap_bbox": [
+        6.64,
+        2.2625,
+        6.775,
+        2.3275
+      ],
+      "overlap_area": 0.008775,
+      "electrical_short_conclusion": true
+    },
+    {
+      "parent_route_id": "dff.CLK:pin_access_escape",
+      "intended_net": "TOP::CLK",
+      "accidentally_touched_hierarchical_net": "dff::CLKB_internal",
+      "layer_datatype": "11/0",
+      "overlap_bbox": [
+        6.64,
+        2.2625,
+        6.775,
+        2.285
+      ],
+      "overlap_area": 0.003038,
+      "electrical_short_conclusion": true
+    },
+    {
+      "parent_route_id": "dff.Q:pin_access_landing",
+      "intended_net": "PARENT::qint",
+      "accidentally_touched_hierarchical_net": "dff::QB_internal",
+      "layer_datatype": "11/0",
+      "overlap_bbox": [
+        13.0275,
+        4.1525,
+        13.1625,
+        4.2175
+      ],
+      "overlap_area": 0.008775,
+      "electrical_short_conclusion": true
+    },
+    {
+      "parent_route_id": "dff.Q:pin_access_escape",
+      "intended_net": "PARENT::qint",
+      "accidentally_touched_hierarchical_net": "dff::QB_internal",
+      "layer_datatype": "11/0",
+      "overlap_bbox": [
+        13.0275,
+        4.1525,
+        13.1625,
+        4.175
+      ],
+      "overlap_area": 0.003037,
+      "electrical_short_conclusion": true
+    }
+  ]
+}

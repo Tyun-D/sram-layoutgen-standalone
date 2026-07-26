@@ -1,0 +1,709 @@
+{
+  "rows": 2,
+  "cols": 4,
+  "macros": [
+    "cell_1rw",
+    "dummy_cell_1rw",
+    "replica_cell_1rw"
+  ],
+  "macro_counts": {
+    "dummy_cell_1rw": 4,
+    "cell_1rw": 8,
+    "replica_cell_1rw": 2
+  },
+  "pitch": {
+    "x": 0.895,
+    "y": 1.565
+  },
+  "orientation": "R0",
+  "instance_count": {
+    "expected": {
+      "bitcell": 8,
+      "dummy_left": 2,
+      "dummy_right": 2,
+      "replica": 2,
+      "total": 14
+    },
+    "actual": {
+      "bitcell": 8,
+      "dummy_left_plus_right": 4,
+      "replica": 2,
+      "total": 14
+    },
+    "total": 14
+  },
+  "gds_output": {
+    "input_gds": null,
+    "input_source": "in_memory_storage_only_layout",
+    "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_2x4_stitched.gds",
+    "exists": true,
+    "size_bytes": 57170,
+    "smoke_output_not_final_signoff": true
+  },
+  "svg_output": {
+    "path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_2x4_stitched.svg",
+    "exists": true,
+    "size_bytes": 3756
+  },
+  "report_outputs": {
+    "json": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_storage_power_stitch_report.json",
+    "md": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_storage_power_stitch_report.md"
+  },
+  "layout_bbox": {
+    "x0": -0.095,
+    "y0": -0.1,
+    "x1": 6.17,
+    "y1": 3.03,
+    "width": 6.265,
+    "height": 3.13,
+    "area": 19.60945
+  },
+  "gds_bbox_measured_flat": {
+    "x0": -0.095,
+    "y0": -0.1,
+    "x1": 6.17,
+    "y1": 3.03,
+    "width": 6.265,
+    "height": 3.13,
+    "shape_count": 866
+  },
+  "cell_arrays": [
+    {
+      "name": "dummy_left",
+      "cell": "dummy_cell_1rw",
+      "role": "dummy_left",
+      "origin": {
+        "x": 0.0,
+        "y": 0.0
+      },
+      "columns": 1,
+      "rows": 2,
+      "pitch_x": 0.895,
+      "pitch_y": 1.565,
+      "rect": {
+        "x0": -0.095,
+        "y0": -0.1,
+        "x1": 0.8,
+        "y1": 3.0300000000000002
+      },
+      "mirror_x": false,
+      "mirror_y": false,
+      "row_offset": 0,
+      "column_offset": 0
+    },
+    {
+      "name": "bitcell_array",
+      "cell": "cell_1rw",
+      "role": "bitcell_array",
+      "origin": {
+        "x": 0.895,
+        "y": 0.0
+      },
+      "columns": 4,
+      "rows": 2,
+      "pitch_x": 0.895,
+      "pitch_y": 1.565,
+      "rect": {
+        "x0": 0.8,
+        "y0": -0.1,
+        "x1": 4.38,
+        "y1": 3.0300000000000002
+      },
+      "mirror_x": false,
+      "mirror_y": false,
+      "row_offset": 0,
+      "column_offset": 0
+    },
+    {
+      "name": "dummy_right",
+      "cell": "dummy_cell_1rw",
+      "role": "dummy_right",
+      "origin": {
+        "x": 4.475,
+        "y": 0.0
+      },
+      "columns": 1,
+      "rows": 2,
+      "pitch_x": 0.895,
+      "pitch_y": 1.565,
+      "rect": {
+        "x0": 4.38,
+        "y0": -0.1,
+        "x1": 5.2749999999999995,
+        "y1": 3.0300000000000002
+      },
+      "mirror_x": false,
+      "mirror_y": false,
+      "row_offset": 0,
+      "column_offset": 0
+    },
+    {
+      "name": "replica_column",
+      "cell": "replica_cell_1rw",
+      "role": "replica_column",
+      "origin": {
+        "x": 5.37,
+        "y": 0.0
+      },
+      "columns": 1,
+      "rows": 2,
+      "pitch_x": 0.895,
+      "pitch_y": 1.565,
+      "rect": {
+        "x0": 5.275,
+        "y0": -0.1,
+        "x1": 6.17,
+        "y1": 3.0300000000000002
+      },
+      "mirror_x": false,
+      "mirror_y": false,
+      "row_offset": 0,
+      "column_offset": 0
+    }
+  ],
+  "gds_hierarchy": {
+    "structure_count": 4,
+    "structures": [
+      "cell_1rw",
+      "dummy_cell_1rw",
+      "replica_cell_1rw",
+      "openyield_storage_only_2x4"
+    ],
+    "reference_counts": {
+      "cell_1rw": 8,
+      "dummy_cell_1rw": 4,
+      "replica_cell_1rw": 2
+    },
+    "text_count": 17,
+    "labels": {
+      "Q": 1,
+      "Q_bar": 1,
+      "bl": 3,
+      "br": 3,
+      "gnd": 3,
+      "vdd": 3,
+      "wl": 3
+    }
+  },
+  "only_allowed_macros": true,
+  "contains_peripheral_macro": false,
+  "peripheral_macros_observed": [],
+  "stitch_power_rails": true,
+  "power_rail_layer": "m1",
+  "power_stitches": {
+    "records": [
+      {
+        "name": "vdd_stitch_r0_dummy_left_r0_to_bit_r0_c0",
+        "net": "vdd",
+        "layer": "m1",
+        "row": 0,
+        "left_instance": "dummy_left_r0",
+        "right_instance": "bit_r0_c0",
+        "gap": 0.01,
+        "rect": {
+          "x0": 0.795,
+          "y0": 1.3325,
+          "x1": 0.805,
+          "y1": 1.3975,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "gnd_stitch_r0_dummy_left_r0_to_bit_r0_c0",
+        "net": "gnd",
+        "layer": "m1",
+        "row": 0,
+        "left_instance": "dummy_left_r0",
+        "right_instance": "bit_r0_c0",
+        "gap": 0.01,
+        "rect": {
+          "x0": 0.795,
+          "y0": -0.0325,
+          "x1": 0.805,
+          "y1": 0.0325,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "vdd_stitch_r0_bit_r0_c0_to_bit_r0_c1",
+        "net": "vdd",
+        "layer": "m1",
+        "row": 0,
+        "left_instance": "bit_r0_c0",
+        "right_instance": "bit_r0_c1",
+        "gap": 0.01,
+        "rect": {
+          "x0": 1.69,
+          "y0": 1.3325,
+          "x1": 1.7,
+          "y1": 1.3975,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "gnd_stitch_r0_bit_r0_c0_to_bit_r0_c1",
+        "net": "gnd",
+        "layer": "m1",
+        "row": 0,
+        "left_instance": "bit_r0_c0",
+        "right_instance": "bit_r0_c1",
+        "gap": 0.01,
+        "rect": {
+          "x0": 1.69,
+          "y0": -0.0325,
+          "x1": 1.7,
+          "y1": 0.0325,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "vdd_stitch_r0_bit_r0_c1_to_bit_r0_c2",
+        "net": "vdd",
+        "layer": "m1",
+        "row": 0,
+        "left_instance": "bit_r0_c1",
+        "right_instance": "bit_r0_c2",
+        "gap": 0.01,
+        "rect": {
+          "x0": 2.585,
+          "y0": 1.3325,
+          "x1": 2.595,
+          "y1": 1.3975,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "gnd_stitch_r0_bit_r0_c1_to_bit_r0_c2",
+        "net": "gnd",
+        "layer": "m1",
+        "row": 0,
+        "left_instance": "bit_r0_c1",
+        "right_instance": "bit_r0_c2",
+        "gap": 0.01,
+        "rect": {
+          "x0": 2.585,
+          "y0": -0.0325,
+          "x1": 2.595,
+          "y1": 0.0325,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "vdd_stitch_r0_bit_r0_c2_to_bit_r0_c3",
+        "net": "vdd",
+        "layer": "m1",
+        "row": 0,
+        "left_instance": "bit_r0_c2",
+        "right_instance": "bit_r0_c3",
+        "gap": 0.01,
+        "rect": {
+          "x0": 3.48,
+          "y0": 1.3325,
+          "x1": 3.49,
+          "y1": 1.3975,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "gnd_stitch_r0_bit_r0_c2_to_bit_r0_c3",
+        "net": "gnd",
+        "layer": "m1",
+        "row": 0,
+        "left_instance": "bit_r0_c2",
+        "right_instance": "bit_r0_c3",
+        "gap": 0.01,
+        "rect": {
+          "x0": 3.48,
+          "y0": -0.0325,
+          "x1": 3.49,
+          "y1": 0.0325,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "vdd_stitch_r0_bit_r0_c3_to_dummy_right_r0",
+        "net": "vdd",
+        "layer": "m1",
+        "row": 0,
+        "left_instance": "bit_r0_c3",
+        "right_instance": "dummy_right_r0",
+        "gap": 0.01,
+        "rect": {
+          "x0": 4.375,
+          "y0": 1.3325,
+          "x1": 4.385,
+          "y1": 1.3975,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "gnd_stitch_r0_bit_r0_c3_to_dummy_right_r0",
+        "net": "gnd",
+        "layer": "m1",
+        "row": 0,
+        "left_instance": "bit_r0_c3",
+        "right_instance": "dummy_right_r0",
+        "gap": 0.01,
+        "rect": {
+          "x0": 4.375,
+          "y0": -0.0325,
+          "x1": 4.385,
+          "y1": 0.0325,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "vdd_stitch_r0_dummy_right_r0_to_replica_r0",
+        "net": "vdd",
+        "layer": "m1",
+        "row": 0,
+        "left_instance": "dummy_right_r0",
+        "right_instance": "replica_r0",
+        "gap": 0.01,
+        "rect": {
+          "x0": 5.27,
+          "y0": 1.3325,
+          "x1": 5.28,
+          "y1": 1.3975,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "gnd_stitch_r0_dummy_right_r0_to_replica_r0",
+        "net": "gnd",
+        "layer": "m1",
+        "row": 0,
+        "left_instance": "dummy_right_r0",
+        "right_instance": "replica_r0",
+        "gap": 0.01,
+        "rect": {
+          "x0": 5.27,
+          "y0": -0.0325,
+          "x1": 5.28,
+          "y1": 0.0325,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "vdd_stitch_r1_dummy_left_r1_to_bit_r1_c0",
+        "net": "vdd",
+        "layer": "m1",
+        "row": 1,
+        "left_instance": "dummy_left_r1",
+        "right_instance": "bit_r1_c0",
+        "gap": 0.01,
+        "rect": {
+          "x0": 0.795,
+          "y0": 2.8975,
+          "x1": 0.805,
+          "y1": 2.9625,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "gnd_stitch_r1_dummy_left_r1_to_bit_r1_c0",
+        "net": "gnd",
+        "layer": "m1",
+        "row": 1,
+        "left_instance": "dummy_left_r1",
+        "right_instance": "bit_r1_c0",
+        "gap": 0.01,
+        "rect": {
+          "x0": 0.795,
+          "y0": 1.5325,
+          "x1": 0.805,
+          "y1": 1.5975,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "vdd_stitch_r1_bit_r1_c0_to_bit_r1_c1",
+        "net": "vdd",
+        "layer": "m1",
+        "row": 1,
+        "left_instance": "bit_r1_c0",
+        "right_instance": "bit_r1_c1",
+        "gap": 0.01,
+        "rect": {
+          "x0": 1.69,
+          "y0": 2.8975,
+          "x1": 1.7,
+          "y1": 2.9625,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "gnd_stitch_r1_bit_r1_c0_to_bit_r1_c1",
+        "net": "gnd",
+        "layer": "m1",
+        "row": 1,
+        "left_instance": "bit_r1_c0",
+        "right_instance": "bit_r1_c1",
+        "gap": 0.01,
+        "rect": {
+          "x0": 1.69,
+          "y0": 1.5325,
+          "x1": 1.7,
+          "y1": 1.5975,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "vdd_stitch_r1_bit_r1_c1_to_bit_r1_c2",
+        "net": "vdd",
+        "layer": "m1",
+        "row": 1,
+        "left_instance": "bit_r1_c1",
+        "right_instance": "bit_r1_c2",
+        "gap": 0.01,
+        "rect": {
+          "x0": 2.585,
+          "y0": 2.8975,
+          "x1": 2.595,
+          "y1": 2.9625,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "gnd_stitch_r1_bit_r1_c1_to_bit_r1_c2",
+        "net": "gnd",
+        "layer": "m1",
+        "row": 1,
+        "left_instance": "bit_r1_c1",
+        "right_instance": "bit_r1_c2",
+        "gap": 0.01,
+        "rect": {
+          "x0": 2.585,
+          "y0": 1.5325,
+          "x1": 2.595,
+          "y1": 1.5975,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "vdd_stitch_r1_bit_r1_c2_to_bit_r1_c3",
+        "net": "vdd",
+        "layer": "m1",
+        "row": 1,
+        "left_instance": "bit_r1_c2",
+        "right_instance": "bit_r1_c3",
+        "gap": 0.01,
+        "rect": {
+          "x0": 3.48,
+          "y0": 2.8975,
+          "x1": 3.49,
+          "y1": 2.9625,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "gnd_stitch_r1_bit_r1_c2_to_bit_r1_c3",
+        "net": "gnd",
+        "layer": "m1",
+        "row": 1,
+        "left_instance": "bit_r1_c2",
+        "right_instance": "bit_r1_c3",
+        "gap": 0.01,
+        "rect": {
+          "x0": 3.48,
+          "y0": 1.5325,
+          "x1": 3.49,
+          "y1": 1.5975,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "vdd_stitch_r1_bit_r1_c3_to_dummy_right_r1",
+        "net": "vdd",
+        "layer": "m1",
+        "row": 1,
+        "left_instance": "bit_r1_c3",
+        "right_instance": "dummy_right_r1",
+        "gap": 0.01,
+        "rect": {
+          "x0": 4.375,
+          "y0": 2.8975,
+          "x1": 4.385,
+          "y1": 2.9625,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "gnd_stitch_r1_bit_r1_c3_to_dummy_right_r1",
+        "net": "gnd",
+        "layer": "m1",
+        "row": 1,
+        "left_instance": "bit_r1_c3",
+        "right_instance": "dummy_right_r1",
+        "gap": 0.01,
+        "rect": {
+          "x0": 4.375,
+          "y0": 1.5325,
+          "x1": 4.385,
+          "y1": 1.5975,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "vdd_stitch_r1_dummy_right_r1_to_replica_r1",
+        "net": "vdd",
+        "layer": "m1",
+        "row": 1,
+        "left_instance": "dummy_right_r1",
+        "right_instance": "replica_r1",
+        "gap": 0.01,
+        "rect": {
+          "x0": 5.27,
+          "y0": 2.8975,
+          "x1": 5.28,
+          "y1": 2.9625,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      },
+      {
+        "name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+        "net": "gnd",
+        "layer": "m1",
+        "row": 1,
+        "left_instance": "dummy_right_r1",
+        "right_instance": "replica_r1",
+        "gap": 0.01,
+        "rect": {
+          "x0": 5.27,
+          "y0": 1.5325,
+          "x1": 5.28,
+          "y1": 1.5975,
+          "width": 0.01,
+          "height": 0.065,
+          "area": 0.00065
+        },
+        "same_net_power_only": true,
+        "touches_signal_pin": false
+      }
+    ],
+    "vdd_count": 12,
+    "gnd_count": 12,
+    "total_count": 24,
+    "same_net_power_only": true,
+    "crosses_bl_br_wl": false
+  },
+  "side_power_trunk_added": false,
+  "shared_rail_merge": false,
+  "routing_changed": false,
+  "main_gds_flow_changed": false,
+  "geometry_smoke_checks": {
+    "only_allowed_macros": true,
+    "no_peripheral_macros": true,
+    "instance_count_correct": true,
+    "pitch_correct": true,
+    "legacy_pitch_not_used": true,
+    "no_mirror_or_flip": true,
+    "shared_rail_merge_not_run": true,
+    "routing_not_changed": true,
+    "main_gds_flow_not_changed": true,
+    "stitch_shapes_power_only": true,
+    "no_vdd_gnd_cross_stitch": true,
+    "no_signal_pin_stitch": true,
+    "no_bl_br_wl_stitch": true,
+    "explicit_bridge_not_global_shared_rail_merge": true,
+    "gds_exists_nonempty": true,
+    "clean": true
+  },
+  "next_step_recommendations": [
+    "Open the smoke GDS in KLayout for visual inspection of full-bbox storage tiling.",
+    "If visual spacing is acceptable, keep full bbox pitch as the conservative OpenYield-enabled storage pitch.",
+    "Run a tiny storage-only DRC only as a smoke check; do not treat this GDS as final SRAM signoff."
+  ]
+}

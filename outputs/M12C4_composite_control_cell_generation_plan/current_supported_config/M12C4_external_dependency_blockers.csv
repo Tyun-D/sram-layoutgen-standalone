@@ -1,0 +1,16 @@
+blocker_id,description,current_status,machine_solvable,requires_external_tool,requires_human_review,resolution_stage,blocks_first_composite_gds,blocks_time_top,evidence
+M12C-B03,FreePDK45 physical abstraction remains limited,open,True,False,False,future composite implementation,False,False,historical blocker inheritance
+M12C-B04,DRC/LVS/extraction closure not complete for composites,open,False,True,False,post-composite generation,False,True,historical blocker inheritance
+M12C-B05,control physical not implemented,mitigated_by_planning_only,True,False,False,composite generation waves,False,True,M12C4 planning only
+M12C-B08,qualified/rejected split must remain enforced,open_guardrail,True,False,False,all future waves,False,False,composition input contract
+M12C-B09,metadata partial,reduced_not_closed,True,False,False,future module generation,False,False,source trace provenance split
+M12C-B10,top bbox impact unknown until composite placement,open,True,False,False,module implementation,False,True,planning only
+M12C-B12,primitive/size generator gaps,open,True,False,False,PNAND and new primitive generation,False,True,approved binding matrix
+M12C-B13,FreePDK45 tech binding constraints,open,True,False,False,routing backend implementation,False,True,routing contract
+M12C-B14,provenance/reuse boundaries,guarded,True,False,False,all future waves,False,False,approved root and forbidden roots
+M12C4-B01,Primitive interface height/rail/well compatibility unknown.,open_height_mismatch,True,False,False,M12C4T_PRIMITIVE_INTERFACE_NORMALIZATION,True,True,PARTIAL_REQUIRES_INTERFACE_NORMALIZATION
+M12C4-B02,Composite routing backend capability unknown.,planned_locked_v1,True,False,False,M12C4A_DFF_COMPOSITE_GENERATION,False,False,LOCKED_COMPOSITE_ROUTING_V1
+M12C4-B03,DFF source-exact physical composition contract not yet locked.,closed_for_planning,True,False,False,M12C4A_DFF_COMPOSITE_GENERATION,False,False,DFF contract matrix
+M12C4-B04,PNAND2/PNAND3 physical generators not yet qualified for OpenYield parameters.,open,True,False,False,M12C4N_PNAND2_PNAND3_GENERATOR_PLAN,False,True,binding matrix new primitive requirements
+M12C4-B05,Configuration-dependent buffer and delay-chain structures require concrete binding.,closed_for_16x16_and_64x8,True,False,False,buffer-chain generation wave,False,False,concrete expansions
+M12C4-B06,Composite connectivity can be structurally checked but is not LVS-proven.,open,False,True,False,post-generation verification,False,True,verification plan

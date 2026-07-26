@@ -1,0 +1,1809 @@
+{
+  "scope": "time_control_routing_obstacle_readonly_audit",
+  "repo_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "input_reports_and_assets": {
+    "legal_placement_readonly": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_legal_placement_readonly_report.json",
+    "composite_feasibility": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_composite_feasibility_report.json",
+    "leaf_inventory": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_leaf_inventory_report.json",
+    "region_refinement": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_region_refinement_report.json",
+    "metadata_closure": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_metadata_closure_report.json"
+  },
+  "control_net_routing_obstacle_table": [
+    {
+      "net_name": "clk",
+      "aliases": [
+        "clk"
+      ],
+      "source_subblock": "external_clock",
+      "target_subblocks": [
+        "PDRIVE"
+      ],
+      "source_region": "external",
+      "target_regions": [
+        "pdrive_region"
+      ],
+      "source_pin_if_known": null,
+      "target_pins_if_known": [],
+      "source_pin_side": "unknown",
+      "target_pin_sides": {},
+      "fanout_count": 1,
+      "crosses_region_boundary": true,
+      "crossing_edges": [],
+      "adjacency_available": false,
+      "handoff_constraint_available": false,
+      "reservation_rule_available": false,
+      "required_channel_width": null,
+      "reserved_channel_width": null,
+      "channel_margin": null,
+      "channel_risk_level": "unknown",
+      "pin_accessibility_status": "metadata_complete",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": true,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [
+        "dff_row_clock_data_pins",
+        "reserved_control_channels"
+      ],
+      "obstacle_risk_level": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "region adjacency metadata missing",
+        "no handoff constraint or reservation rule",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "net_name": "clk_buf",
+      "aliases": [
+        "clk_buf"
+      ],
+      "source_subblock": "PDRIVE",
+      "target_subblocks": [
+        "PINV",
+        "AND2",
+        "AND3_COMPOSITE"
+      ],
+      "source_region": "pdrive_region",
+      "target_regions": [
+        "generated_logic_region"
+      ],
+      "source_pin_if_known": "Z",
+      "target_pins_if_known": [],
+      "source_pin_side": "right",
+      "target_pin_sides": {},
+      "fanout_count": 3,
+      "crosses_region_boundary": true,
+      "crossing_edges": [
+        "PDRIVE_TO_GENERATED_LOGIC"
+      ],
+      "adjacency_available": true,
+      "handoff_constraint_available": false,
+      "reservation_rule_available": false,
+      "required_channel_width": 0.8,
+      "reserved_channel_width": 2.0,
+      "channel_margin": 1.2,
+      "channel_risk_level": "pass_moderate_margin",
+      "pin_accessibility_status": "metadata_complete",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": true,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [
+        "dff_row_clock_data_pins",
+        "reserved_control_channels"
+      ],
+      "obstacle_risk_level": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "no handoff constraint or reservation rule",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "net_name": "clk_bar",
+      "aliases": [
+        "clk_bar"
+      ],
+      "source_subblock": "PINV",
+      "target_subblocks": [
+        "AND2",
+        "AND3_COMPOSITE"
+      ],
+      "source_region": "generated_logic_region",
+      "target_regions": [
+        "generated_logic_region"
+      ],
+      "source_pin_if_known": "Z",
+      "target_pins_if_known": [],
+      "source_pin_side": "right",
+      "target_pin_sides": {},
+      "fanout_count": 2,
+      "crosses_region_boundary": false,
+      "crossing_edges": [],
+      "adjacency_available": true,
+      "handoff_constraint_available": false,
+      "reservation_rule_available": false,
+      "required_channel_width": null,
+      "reserved_channel_width": null,
+      "channel_margin": null,
+      "channel_risk_level": "unknown",
+      "pin_accessibility_status": "metadata_complete",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": false,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [
+        "dff_row_clock_data_pins",
+        "reserved_control_channels"
+      ],
+      "obstacle_risk_level": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "routing proof is missing"
+      ]
+    },
+    {
+      "net_name": "gated_clk_buf",
+      "aliases": [
+        "gated_clk_buf"
+      ],
+      "source_subblock": "AND2",
+      "target_subblocks": [
+        "PNAND3_COMPOSITE"
+      ],
+      "source_region": "generated_logic_region",
+      "target_regions": [
+        "precharge_control_region"
+      ],
+      "source_pin_if_known": "Z",
+      "target_pins_if_known": [],
+      "source_pin_side": "internal",
+      "target_pin_sides": {},
+      "fanout_count": 1,
+      "crosses_region_boundary": true,
+      "crossing_edges": [],
+      "adjacency_available": false,
+      "handoff_constraint_available": false,
+      "reservation_rule_available": false,
+      "required_channel_width": null,
+      "reserved_channel_width": null,
+      "channel_margin": null,
+      "channel_risk_level": "unknown",
+      "pin_accessibility_status": "metadata_complete",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": true,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [
+        "dff_row_clock_data_pins",
+        "reserved_control_channels"
+      ],
+      "obstacle_risk_level": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "region adjacency metadata missing",
+        "no handoff constraint or reservation rule",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "net_name": "gated_clk_bar",
+      "aliases": [
+        "gated_clk_bar"
+      ],
+      "source_subblock": "AND2",
+      "target_subblocks": [
+        "WL_PDRIVE",
+        "WEN_DELAY_CHAIN"
+      ],
+      "source_region": "generated_logic_region",
+      "target_regions": [
+        "pdrive_region",
+        "sense_write_enable_region"
+      ],
+      "source_pin_if_known": "Z",
+      "target_pins_if_known": [],
+      "source_pin_side": "internal",
+      "target_pin_sides": {},
+      "fanout_count": 2,
+      "crosses_region_boundary": true,
+      "crossing_edges": [],
+      "adjacency_available": false,
+      "handoff_constraint_available": false,
+      "reservation_rule_available": false,
+      "required_channel_width": null,
+      "reserved_channel_width": null,
+      "channel_margin": null,
+      "channel_risk_level": "unknown",
+      "pin_accessibility_status": "metadata_complete",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": true,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [
+        "dff_row_clock_data_pins",
+        "reserved_control_channels"
+      ],
+      "obstacle_risk_level": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "region adjacency metadata missing",
+        "no handoff constraint or reservation rule",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "net_name": "rbl",
+      "aliases": [
+        "rbl"
+      ],
+      "source_subblock": "replica_array",
+      "target_subblocks": [
+        "DELAY_CHAIN"
+      ],
+      "source_region": "storage_array_boundary",
+      "target_regions": [
+        "delay_chain_region"
+      ],
+      "source_pin_if_known": null,
+      "target_pins_if_known": [],
+      "source_pin_side": "unknown",
+      "target_pin_sides": {},
+      "fanout_count": 1,
+      "crosses_region_boundary": true,
+      "crossing_edges": [],
+      "adjacency_available": false,
+      "handoff_constraint_available": false,
+      "reservation_rule_available": false,
+      "required_channel_width": null,
+      "reserved_channel_width": null,
+      "channel_margin": null,
+      "channel_risk_level": "unknown",
+      "pin_accessibility_status": "metadata_complete",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": true,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [
+        "storage_array_boundary",
+        "bitcell_bl_br_verticals"
+      ],
+      "obstacle_risk_level": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "region adjacency metadata missing",
+        "no handoff constraint or reservation rule",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "net_name": "rbl_delay",
+      "aliases": [
+        "rbl_delay"
+      ],
+      "source_subblock": "DELAY_CHAIN",
+      "target_subblocks": [
+        "AND3_COMPOSITE",
+        "WEN_DELAY_CHAIN"
+      ],
+      "source_region": "delay_chain_region",
+      "target_regions": [
+        "generated_logic_region",
+        "sense_write_enable_region"
+      ],
+      "source_pin_if_known": "Z",
+      "target_pins_if_known": [],
+      "source_pin_side": "right",
+      "target_pin_sides": {},
+      "fanout_count": 2,
+      "crosses_region_boundary": true,
+      "crossing_edges": [
+        "DELAY_CHAIN_TO_GENERATED_LOGIC"
+      ],
+      "adjacency_available": true,
+      "handoff_constraint_available": false,
+      "reservation_rule_available": false,
+      "required_channel_width": 0.6,
+      "reserved_channel_width": 2.0,
+      "channel_margin": 1.4,
+      "channel_risk_level": "pass_moderate_margin",
+      "pin_accessibility_status": "metadata_complete",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": true,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [
+        "storage_array_boundary",
+        "bitcell_bl_br_verticals"
+      ],
+      "obstacle_risk_level": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "no handoff constraint or reservation rule",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "net_name": "rbl_delay_bar",
+      "aliases": [
+        "rbl_delay_bar"
+      ],
+      "source_subblock": "PINV",
+      "target_subblocks": [
+        "DELAY_CHAIN",
+        "WEN_DELAY_CHAIN"
+      ],
+      "source_region": "generated_logic_region",
+      "target_regions": [
+        "delay_chain_region",
+        "sense_write_enable_region"
+      ],
+      "source_pin_if_known": "Z",
+      "target_pins_if_known": [],
+      "source_pin_side": "right",
+      "target_pin_sides": {},
+      "fanout_count": 2,
+      "crosses_region_boundary": true,
+      "crossing_edges": [],
+      "adjacency_available": false,
+      "handoff_constraint_available": false,
+      "reservation_rule_available": false,
+      "required_channel_width": null,
+      "reserved_channel_width": null,
+      "channel_margin": null,
+      "channel_risk_level": "unknown",
+      "pin_accessibility_status": "metadata_complete",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": true,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [
+        "storage_array_boundary",
+        "bitcell_bl_br_verticals"
+      ],
+      "obstacle_risk_level": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "region adjacency metadata missing",
+        "no handoff constraint or reservation rule",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "net_name": "rbl_delay_bar_wen",
+      "aliases": [
+        "rbl_delay_bar_wen"
+      ],
+      "source_subblock": "DELAY_CHAIN",
+      "target_subblocks": [
+        "WEN_DELAY_CHAIN"
+      ],
+      "source_region": "delay_chain_region",
+      "target_regions": [
+        "sense_write_enable_region"
+      ],
+      "source_pin_if_known": "Z",
+      "target_pins_if_known": [],
+      "source_pin_side": "right",
+      "target_pin_sides": {},
+      "fanout_count": 1,
+      "crosses_region_boundary": true,
+      "crossing_edges": [
+        "DELAY_CHAIN_TO_GENERATED_LOGIC"
+      ],
+      "adjacency_available": true,
+      "handoff_constraint_available": false,
+      "reservation_rule_available": false,
+      "required_channel_width": 0.6,
+      "reserved_channel_width": 2.0,
+      "channel_margin": 1.4,
+      "channel_risk_level": "pass_moderate_margin",
+      "pin_accessibility_status": "metadata_complete",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": true,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [
+        "storage_array_boundary",
+        "bitcell_bl_br_verticals"
+      ],
+      "obstacle_risk_level": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "no handoff constraint or reservation rule",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "net_name": "we",
+      "aliases": [
+        "we"
+      ],
+      "source_subblock": "external_control",
+      "target_subblocks": [
+        "AND3_COMPOSITE",
+        "WEN_DELAY_CHAIN"
+      ],
+      "source_region": "external",
+      "target_regions": [
+        "generated_logic_region",
+        "sense_write_enable_region"
+      ],
+      "source_pin_if_known": null,
+      "target_pins_if_known": [],
+      "source_pin_side": "unknown",
+      "target_pin_sides": {},
+      "fanout_count": 2,
+      "crosses_region_boundary": true,
+      "crossing_edges": [],
+      "adjacency_available": false,
+      "handoff_constraint_available": false,
+      "reservation_rule_available": false,
+      "required_channel_width": null,
+      "reserved_channel_width": null,
+      "channel_margin": null,
+      "channel_risk_level": "unknown",
+      "pin_accessibility_status": "metadata_complete",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": true,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [],
+      "obstacle_risk_level": "low",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "region adjacency metadata missing",
+        "no handoff constraint or reservation rule",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "net_name": "we_bar",
+      "aliases": [
+        "we_bar"
+      ],
+      "source_subblock": "external_control",
+      "target_subblocks": [
+        "AND3_COMPOSITE",
+        "WEN_DELAY_CHAIN"
+      ],
+      "source_region": "external",
+      "target_regions": [
+        "generated_logic_region",
+        "sense_write_enable_region"
+      ],
+      "source_pin_if_known": null,
+      "target_pins_if_known": [],
+      "source_pin_side": "unknown",
+      "target_pin_sides": {},
+      "fanout_count": 2,
+      "crosses_region_boundary": true,
+      "crossing_edges": [],
+      "adjacency_available": false,
+      "handoff_constraint_available": false,
+      "reservation_rule_available": false,
+      "required_channel_width": null,
+      "reserved_channel_width": null,
+      "channel_margin": null,
+      "channel_risk_level": "unknown",
+      "pin_accessibility_status": "metadata_complete",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": true,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [],
+      "obstacle_risk_level": "low",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "region adjacency metadata missing",
+        "no handoff constraint or reservation rule",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "net_name": "w_en",
+      "aliases": [
+        "w_en"
+      ],
+      "source_subblock": "WEN_DELAY_CHAIN",
+      "target_subblocks": [
+        "write_driver"
+      ],
+      "source_region": "sense_write_enable_region",
+      "target_regions": [
+        "consumer_handoff_region"
+      ],
+      "source_pin_if_known": null,
+      "target_pins_if_known": [
+        "EN"
+      ],
+      "source_pin_side": "unknown",
+      "target_pin_sides": {
+        "EN": "bottom"
+      },
+      "fanout_count": 1,
+      "crosses_region_boundary": true,
+      "crossing_edges": [
+        "GENERATED_LOGIC_TO_CONSUMER_HANDOFF"
+      ],
+      "adjacency_available": true,
+      "handoff_constraint_available": false,
+      "reservation_rule_available": false,
+      "required_channel_width": 1.0,
+      "reserved_channel_width": 2.0,
+      "channel_margin": 1.0,
+      "channel_risk_level": "pass_moderate_margin",
+      "pin_accessibility_status": "partial",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": true,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [
+        "write_driver_pin_sides",
+        "reserved_control_channels"
+      ],
+      "obstacle_risk_level": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "pin-side metadata incomplete or partial",
+        "no handoff constraint or reservation rule",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "net_name": "write_enable",
+      "aliases": [
+        "w_en",
+        "write_enable"
+      ],
+      "source_subblock": "AND3_COMPOSITE",
+      "target_subblocks": [
+        "write_driver"
+      ],
+      "source_region": "generated_logic_region",
+      "target_regions": [
+        "consumer_handoff_region"
+      ],
+      "source_pin_if_known": "Z",
+      "target_pins_if_known": [
+        "EN"
+      ],
+      "source_pin_side": "internal",
+      "target_pin_sides": {
+        "EN": "bottom"
+      },
+      "fanout_count": 1,
+      "crosses_region_boundary": true,
+      "crossing_edges": [
+        "GENERATED_LOGIC_TO_CONSUMER_HANDOFF",
+        "SENSE_WRITE_ENABLE_TO_CONSUMER_HANDOFF"
+      ],
+      "adjacency_available": true,
+      "handoff_constraint_available": true,
+      "reservation_rule_available": true,
+      "required_channel_width": 1.0,
+      "reserved_channel_width": 2.0,
+      "channel_margin": 1.0,
+      "channel_risk_level": "pass_moderate_margin",
+      "pin_accessibility_status": "metadata_complete",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": true,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [
+        "write_driver_pin_sides",
+        "reserved_control_channels"
+      ],
+      "obstacle_risk_level": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "routing proof is missing"
+      ]
+    },
+    {
+      "net_name": "s_en",
+      "aliases": [
+        "s_en"
+      ],
+      "source_subblock": "WEN_DELAY_CHAIN",
+      "target_subblocks": [
+        "sense_amp"
+      ],
+      "source_region": "sense_write_enable_region",
+      "target_regions": [
+        "consumer_handoff_region"
+      ],
+      "source_pin_if_known": null,
+      "target_pins_if_known": [
+        "EN"
+      ],
+      "source_pin_side": "unknown",
+      "target_pin_sides": {
+        "EN": "top"
+      },
+      "fanout_count": 1,
+      "crosses_region_boundary": true,
+      "crossing_edges": [
+        "GENERATED_LOGIC_TO_CONSUMER_HANDOFF"
+      ],
+      "adjacency_available": true,
+      "handoff_constraint_available": false,
+      "reservation_rule_available": false,
+      "required_channel_width": 1.0,
+      "reserved_channel_width": 2.0,
+      "channel_margin": 1.0,
+      "channel_risk_level": "pass_moderate_margin",
+      "pin_accessibility_status": "partial",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": true,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [
+        "sense_amp_pin_sides",
+        "reserved_control_channels"
+      ],
+      "obstacle_risk_level": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "pin-side metadata incomplete or partial",
+        "no handoff constraint or reservation rule",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "net_name": "sense_enable",
+      "aliases": [
+        "s_en",
+        "sense_enable"
+      ],
+      "source_subblock": "AND3_COMPOSITE",
+      "target_subblocks": [
+        "sense_amp"
+      ],
+      "source_region": "generated_logic_region",
+      "target_regions": [
+        "consumer_handoff_region"
+      ],
+      "source_pin_if_known": "Z",
+      "target_pins_if_known": [
+        "EN"
+      ],
+      "source_pin_side": "internal",
+      "target_pin_sides": {
+        "EN": "top"
+      },
+      "fanout_count": 1,
+      "crosses_region_boundary": true,
+      "crossing_edges": [
+        "GENERATED_LOGIC_TO_CONSUMER_HANDOFF",
+        "SENSE_WRITE_ENABLE_TO_CONSUMER_HANDOFF"
+      ],
+      "adjacency_available": true,
+      "handoff_constraint_available": true,
+      "reservation_rule_available": true,
+      "required_channel_width": 1.0,
+      "reserved_channel_width": 2.0,
+      "channel_margin": 1.0,
+      "channel_risk_level": "pass_moderate_margin",
+      "pin_accessibility_status": "metadata_complete",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": true,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [
+        "sense_amp_pin_sides",
+        "reserved_control_channels"
+      ],
+      "obstacle_risk_level": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "routing proof is missing"
+      ]
+    },
+    {
+      "net_name": "PRE_UNBUF",
+      "aliases": [
+        "PRE_UNBUF"
+      ],
+      "source_subblock": "PNAND3_COMPOSITE",
+      "target_subblocks": [
+        "PDRIVE2_FOR_PRE"
+      ],
+      "source_region": "precharge_control_region",
+      "target_regions": [
+        "precharge_control_region"
+      ],
+      "source_pin_if_known": "Z",
+      "target_pins_if_known": [],
+      "source_pin_side": "unknown",
+      "target_pin_sides": {},
+      "fanout_count": 1,
+      "crosses_region_boundary": false,
+      "crossing_edges": [],
+      "adjacency_available": true,
+      "handoff_constraint_available": false,
+      "reservation_rule_available": false,
+      "required_channel_width": null,
+      "reserved_channel_width": null,
+      "channel_margin": null,
+      "channel_risk_level": "unknown",
+      "pin_accessibility_status": "partial",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": false,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [
+        "precharge_pin_side",
+        "power_rails",
+        "reserved_control_channels"
+      ],
+      "obstacle_risk_level": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "pin-side metadata incomplete or partial",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "net_name": "PRE",
+      "aliases": [
+        "PRE",
+        "precharge_enb"
+      ],
+      "source_subblock": "PDRIVE2_FOR_PRE",
+      "target_subblocks": [
+        "gen_precharge"
+      ],
+      "source_region": "precharge_control_region",
+      "target_regions": [
+        "consumer_handoff_region"
+      ],
+      "source_pin_if_known": "Z",
+      "target_pins_if_known": [
+        "ENB",
+        "PNAND3.C"
+      ],
+      "source_pin_side": "right",
+      "target_pin_sides": {
+        "ENB": "bottom",
+        "PNAND3.C": "unknown"
+      },
+      "fanout_count": 1,
+      "crosses_region_boundary": true,
+      "crossing_edges": [
+        "GENERATED_LOGIC_TO_CONSUMER_HANDOFF",
+        "PRECHARGE_CONTROL_TO_CONSUMER_HANDOFF"
+      ],
+      "adjacency_available": true,
+      "handoff_constraint_available": true,
+      "reservation_rule_available": true,
+      "required_channel_width": 1.0,
+      "reserved_channel_width": 2.0,
+      "channel_margin": 1.0,
+      "channel_risk_level": "pass_moderate_margin",
+      "pin_accessibility_status": "partial",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": true,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [
+        "precharge_pin_side",
+        "power_rails",
+        "reserved_control_channels"
+      ],
+      "obstacle_risk_level": "moderate_to_high",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "pin-side metadata incomplete or partial",
+        "precharge path retains metadata-only exception",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "net_name": "precharge_enb",
+      "aliases": [
+        "precharge_enb"
+      ],
+      "source_subblock": "PDRIVE2_FOR_PRE",
+      "target_subblocks": [
+        "gen_precharge"
+      ],
+      "source_region": "precharge_control_region",
+      "target_regions": [
+        "consumer_handoff_region"
+      ],
+      "source_pin_if_known": null,
+      "target_pins_if_known": [
+        "ENB",
+        "PNAND3.C"
+      ],
+      "source_pin_side": "unknown",
+      "target_pin_sides": {
+        "ENB": "bottom",
+        "PNAND3.C": "unknown"
+      },
+      "fanout_count": 1,
+      "crosses_region_boundary": true,
+      "crossing_edges": [
+        "PRECHARGE_CONTROL_TO_CONSUMER_HANDOFF"
+      ],
+      "adjacency_available": true,
+      "handoff_constraint_available": true,
+      "reservation_rule_available": true,
+      "required_channel_width": 0.4,
+      "reserved_channel_width": 2.0,
+      "channel_margin": 1.6,
+      "channel_risk_level": "pass_moderate_margin",
+      "pin_accessibility_status": "partial",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": true,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [
+        "precharge_pin_side",
+        "power_rails",
+        "reserved_control_channels"
+      ],
+      "obstacle_risk_level": "moderate_to_high",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "pin-side metadata incomplete or partial",
+        "precharge path retains metadata-only exception",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "net_name": "wl_en",
+      "aliases": [
+        "wl_en",
+        "wordline_enable"
+      ],
+      "source_subblock": "WL_PDRIVE",
+      "target_subblocks": [
+        "gen_wl_driver"
+      ],
+      "source_region": "pdrive_region",
+      "target_regions": [
+        "wordline_enable_control_region",
+        "consumer_handoff_region"
+      ],
+      "source_pin_if_known": "Z",
+      "target_pins_if_known": [
+        "B"
+      ],
+      "source_pin_side": "right",
+      "target_pin_sides": {
+        "B": "left"
+      },
+      "fanout_count": 1,
+      "crosses_region_boundary": true,
+      "crossing_edges": [
+        "PDRIVE_TO_GENERATED_LOGIC",
+        "GENERATED_LOGIC_TO_CONSUMER_HANDOFF",
+        "WORDLINE_ENABLE_TO_CONSUMER_HANDOFF"
+      ],
+      "adjacency_available": true,
+      "handoff_constraint_available": true,
+      "reservation_rule_available": true,
+      "required_channel_width": 0.8,
+      "reserved_channel_width": 2.0,
+      "channel_margin": 1.2,
+      "channel_risk_level": "pass_moderate_margin",
+      "pin_accessibility_status": "metadata_complete",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": true,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [
+        "wordline_horizontals",
+        "reserved_control_channels"
+      ],
+      "obstacle_risk_level": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "routing proof is missing"
+      ]
+    },
+    {
+      "net_name": "wordline_enable",
+      "aliases": [
+        "wordline_enable"
+      ],
+      "source_subblock": "WL_PDRIVE",
+      "target_subblocks": [
+        "gen_wl_driver"
+      ],
+      "source_region": "pdrive_region",
+      "target_regions": [
+        "wordline_enable_control_region",
+        "consumer_handoff_region"
+      ],
+      "source_pin_if_known": null,
+      "target_pins_if_known": [
+        "B"
+      ],
+      "source_pin_side": "unknown",
+      "target_pin_sides": {
+        "B": "left"
+      },
+      "fanout_count": 1,
+      "crosses_region_boundary": true,
+      "crossing_edges": [
+        "WORDLINE_ENABLE_TO_CONSUMER_HANDOFF"
+      ],
+      "adjacency_available": true,
+      "handoff_constraint_available": true,
+      "reservation_rule_available": true,
+      "required_channel_width": 0.4,
+      "reserved_channel_width": 2.0,
+      "channel_margin": 1.6,
+      "channel_risk_level": "pass_moderate_margin",
+      "pin_accessibility_status": "partial",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": true,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [
+        "wordline_horizontals",
+        "reserved_control_channels"
+      ],
+      "obstacle_risk_level": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "pin-side metadata incomplete or partial",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "net_name": "wl_en_bar",
+      "aliases": [
+        "wl_en_bar"
+      ],
+      "source_subblock": "PINV",
+      "target_subblocks": [
+        "PNAND3_COMPOSITE",
+        "gen_precharge"
+      ],
+      "source_region": "generated_logic_region",
+      "target_regions": [
+        "precharge_control_region"
+      ],
+      "source_pin_if_known": "Z",
+      "target_pins_if_known": [
+        "ENB",
+        "PNAND3.C"
+      ],
+      "source_pin_side": "right",
+      "target_pin_sides": {
+        "ENB": "bottom",
+        "PNAND3.C": "unknown"
+      },
+      "fanout_count": 2,
+      "crosses_region_boundary": true,
+      "crossing_edges": [
+        "WORDLINE_ENABLE_TO_PRECHARGE_CONTROL"
+      ],
+      "adjacency_available": true,
+      "handoff_constraint_available": true,
+      "reservation_rule_available": true,
+      "required_channel_width": 0.4,
+      "reserved_channel_width": 2.0,
+      "channel_margin": 1.6,
+      "channel_risk_level": "pass_moderate_margin",
+      "pin_accessibility_status": "partial",
+      "requires_layer_assignment": true,
+      "layer_assignment_available": false,
+      "requires_via_plan": true,
+      "via_plan_available": false,
+      "requires_obstacle_check": true,
+      "obstacle_inventory_available": true,
+      "known_obstacle_sources": [
+        "wordline_horizontals",
+        "reserved_control_channels"
+      ],
+      "obstacle_risk_level": "moderate_to_high",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "pin-side metadata incomplete or partial",
+        "precharge path retains metadata-only exception",
+        "routing proof is missing"
+      ]
+    }
+  ],
+  "region_crossing_adjacency_audit": [
+    {
+      "edge_name": "DELAY_CHAIN_TO_GENERATED_LOGIC",
+      "signal": "rbl_delay",
+      "source_region": "delay_chain_region",
+      "target_region": "generated_logic_region",
+      "adjacency_known": true,
+      "handoff_known": false,
+      "reservation_known": false,
+      "channel_margin": 1.4,
+      "covered_by_metadata": true,
+      "routing_obstacle_checked": true,
+      "routing_proof_available": false,
+      "blockers": [
+        "adjacency is metadata only",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "edge_name": "DELAY_CHAIN_TO_GENERATED_LOGIC",
+      "signal": "rbl_delay_bar_wen",
+      "source_region": "delay_chain_region",
+      "target_region": "generated_logic_region",
+      "adjacency_known": true,
+      "handoff_known": false,
+      "reservation_known": false,
+      "channel_margin": 1.4,
+      "covered_by_metadata": true,
+      "routing_obstacle_checked": true,
+      "routing_proof_available": false,
+      "blockers": [
+        "adjacency is metadata only",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "edge_name": "PDRIVE_TO_GENERATED_LOGIC",
+      "signal": "clk_buf",
+      "source_region": "pdrive_region",
+      "target_region": "generated_logic_region",
+      "adjacency_known": true,
+      "handoff_known": false,
+      "reservation_known": false,
+      "channel_margin": 1.2,
+      "covered_by_metadata": true,
+      "routing_obstacle_checked": true,
+      "routing_proof_available": false,
+      "blockers": [
+        "adjacency is metadata only",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "edge_name": "PDRIVE_TO_GENERATED_LOGIC",
+      "signal": "PRE",
+      "source_region": "pdrive_region",
+      "target_region": "generated_logic_region",
+      "adjacency_known": true,
+      "handoff_known": false,
+      "reservation_known": false,
+      "channel_margin": 1.2,
+      "covered_by_metadata": true,
+      "routing_obstacle_checked": true,
+      "routing_proof_available": false,
+      "blockers": [
+        "adjacency is metadata only",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "edge_name": "GATED_CLK_BAR_TO_WL_EN",
+      "signal": "wl_en",
+      "source_region": "generated_logic_region",
+      "target_region": "wordline_enable_control_region",
+      "adjacency_known": true,
+      "handoff_known": false,
+      "reservation_known": false,
+      "channel_margin": 1.2,
+      "covered_by_metadata": true,
+      "routing_obstacle_checked": true,
+      "routing_proof_available": false,
+      "blockers": [
+        "adjacency is metadata only",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "edge_name": "GENERATED_LOGIC_TO_CONSUMER_HANDOFF",
+      "signal": "w_en",
+      "source_region": "generated_logic_region",
+      "target_region": "consumer_handoff_region",
+      "adjacency_known": true,
+      "handoff_known": false,
+      "reservation_known": false,
+      "channel_margin": 1.0,
+      "covered_by_metadata": true,
+      "routing_obstacle_checked": true,
+      "routing_proof_available": false,
+      "blockers": [
+        "adjacency is metadata only",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "edge_name": "GENERATED_LOGIC_TO_CONSUMER_HANDOFF",
+      "signal": "s_en",
+      "source_region": "generated_logic_region",
+      "target_region": "consumer_handoff_region",
+      "adjacency_known": true,
+      "handoff_known": false,
+      "reservation_known": false,
+      "channel_margin": 1.0,
+      "covered_by_metadata": true,
+      "routing_obstacle_checked": true,
+      "routing_proof_available": false,
+      "blockers": [
+        "adjacency is metadata only",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "edge_name": "GENERATED_LOGIC_TO_CONSUMER_HANDOFF",
+      "signal": "PRE",
+      "source_region": "generated_logic_region",
+      "target_region": "consumer_handoff_region",
+      "adjacency_known": true,
+      "handoff_known": false,
+      "reservation_known": false,
+      "channel_margin": 1.0,
+      "covered_by_metadata": true,
+      "routing_obstacle_checked": true,
+      "routing_proof_available": false,
+      "blockers": [
+        "adjacency is metadata only",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "edge_name": "PRECHARGE_ENB_TO_CONSUMER_HANDOFF",
+      "signal": "precharge_enb",
+      "source_region": "precharge_control_region",
+      "target_region": "consumer_handoff_region",
+      "adjacency_known": true,
+      "handoff_known": true,
+      "reservation_known": true,
+      "channel_margin": 1.6,
+      "covered_by_metadata": true,
+      "routing_obstacle_checked": true,
+      "routing_proof_available": false,
+      "blockers": [
+        "adjacency is metadata only",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "edge_name": "WORDLINE_ENABLE_TO_CONSUMER_HANDOFF",
+      "signal": "wordline_enable",
+      "source_region": "wordline_enable_control_region",
+      "target_region": "consumer_handoff_region",
+      "adjacency_known": true,
+      "handoff_known": true,
+      "reservation_known": true,
+      "channel_margin": 1.6,
+      "covered_by_metadata": true,
+      "routing_obstacle_checked": true,
+      "routing_proof_available": false,
+      "blockers": [
+        "adjacency is metadata only",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "edge_name": "WRITE_ENABLE_TO_CONSUMER_HANDOFF",
+      "signal": "write_enable",
+      "source_region": "sense_write_enable_region",
+      "target_region": "consumer_handoff_region",
+      "adjacency_known": true,
+      "handoff_known": true,
+      "reservation_known": true,
+      "channel_margin": 1.4,
+      "covered_by_metadata": true,
+      "routing_obstacle_checked": true,
+      "routing_proof_available": false,
+      "blockers": [
+        "adjacency is metadata only",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "edge_name": "SENSE_ENABLE_TO_CONSUMER_HANDOFF",
+      "signal": "sense_enable",
+      "source_region": "sense_write_enable_region",
+      "target_region": "consumer_handoff_region",
+      "adjacency_known": true,
+      "handoff_known": true,
+      "reservation_known": true,
+      "channel_margin": 1.4,
+      "covered_by_metadata": true,
+      "routing_obstacle_checked": true,
+      "routing_proof_available": false,
+      "blockers": [
+        "adjacency is metadata only",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "edge_name": "WL_EN_BAR_TO_PRECHARGE_CONTROL",
+      "signal": "wl_en_bar",
+      "source_region": "wordline_enable_control_region",
+      "target_region": "precharge_control_region",
+      "adjacency_known": true,
+      "handoff_known": true,
+      "reservation_known": true,
+      "channel_margin": 1.6,
+      "covered_by_metadata": true,
+      "routing_obstacle_checked": true,
+      "routing_proof_available": false,
+      "blockers": [
+        "adjacency is metadata only",
+        "routing proof is missing"
+      ]
+    }
+  ],
+  "obstacle_source_inventory": [
+    {
+      "obstacle_name": "storage_array_boundary",
+      "source_type": "boundary",
+      "region_or_macro": "storage_array_boundary",
+      "layer_if_known": "unknown",
+      "direction_if_known": "vertical",
+      "bbox_or_proxy_if_known": null,
+      "obstacle_geometry_known": false,
+      "affects_nets": [
+        "rbl",
+        "rbl_delay",
+        "rbl_delay_bar"
+      ],
+      "obstacle_evidence_source": "region_refinement_or_logical_proxy_only",
+      "risk_level": "moderate",
+      "metadata_only": true
+    },
+    {
+      "obstacle_name": "bitcell_bl_br_verticals",
+      "source_type": "routing_trunk",
+      "region_or_macro": "storage_array_boundary",
+      "layer_if_known": "m2_or_m3_unknown",
+      "direction_if_known": "vertical",
+      "bbox_or_proxy_if_known": null,
+      "obstacle_geometry_known": false,
+      "affects_nets": [
+        "rbl",
+        "rbl_delay",
+        "rbl_delay_bar"
+      ],
+      "obstacle_evidence_source": "region_refinement_or_logical_proxy_only",
+      "risk_level": "moderate",
+      "metadata_only": true
+    },
+    {
+      "obstacle_name": "wordline_horizontals",
+      "source_type": "routing_trunk",
+      "region_or_macro": "storage_array_boundary",
+      "layer_if_known": "m1_or_m2_unknown",
+      "direction_if_known": "horizontal",
+      "bbox_or_proxy_if_known": null,
+      "obstacle_geometry_known": false,
+      "affects_nets": [
+        "wl_en",
+        "wl_en_bar",
+        "wordline_enable"
+      ],
+      "obstacle_evidence_source": "region_refinement_or_logical_proxy_only",
+      "risk_level": "moderate",
+      "metadata_only": true
+    },
+    {
+      "obstacle_name": "sense_amp_pin_sides",
+      "source_type": "consumer_macro_pin_side",
+      "region_or_macro": "sense_amp",
+      "layer_if_known": "unknown",
+      "direction_if_known": "unknown",
+      "bbox_or_proxy_if_known": {
+        "x0": -0.03499999999999979,
+        "y0": 0.0,
+        "x1": 0.7399999999999956,
+        "y1": 6.009999999999963
+      },
+      "obstacle_geometry_known": true,
+      "affects_nets": [
+        "sense_enable"
+      ],
+      "obstacle_evidence_source": "leaf_inventory_bbox_and_region_metadata",
+      "risk_level": "moderate",
+      "metadata_only": true
+    },
+    {
+      "obstacle_name": "column_mux_pin_sides",
+      "source_type": "consumer_macro_pin_side",
+      "region_or_macro": "gen_col_mux_vdd_labeled",
+      "layer_if_known": "unknown",
+      "direction_if_known": "unknown",
+      "bbox_or_proxy_if_known": {
+        "x0": -0.08,
+        "y0": -0.08,
+        "x1": 0.7375,
+        "y1": 1.8
+      },
+      "obstacle_geometry_known": true,
+      "affects_nets": [],
+      "obstacle_evidence_source": "leaf_inventory_bbox_and_region_metadata",
+      "risk_level": "low",
+      "metadata_only": true
+    },
+    {
+      "obstacle_name": "write_driver_pin_sides",
+      "source_type": "consumer_macro_pin_side",
+      "region_or_macro": "write_driver",
+      "layer_if_known": "unknown",
+      "direction_if_known": "unknown",
+      "bbox_or_proxy_if_known": {
+        "x0": -0.0999999999999994,
+        "y0": 0.0,
+        "x1": 0.7399999999999956,
+        "y1": 4.174999999999975
+      },
+      "obstacle_geometry_known": true,
+      "affects_nets": [
+        "write_enable"
+      ],
+      "obstacle_evidence_source": "leaf_inventory_bbox_and_region_metadata",
+      "risk_level": "moderate",
+      "metadata_only": true
+    },
+    {
+      "obstacle_name": "precharge_pin_side",
+      "source_type": "consumer_macro_pin_side",
+      "region_or_macro": "gen_precharge",
+      "layer_if_known": "unknown",
+      "direction_if_known": "unknown",
+      "bbox_or_proxy_if_known": {
+        "x0": -0.08,
+        "y0": -0.08,
+        "x1": 0.705,
+        "y1": 1.34
+      },
+      "obstacle_geometry_known": true,
+      "affects_nets": [
+        "PRE",
+        "precharge_enb",
+        "wl_en_bar"
+      ],
+      "obstacle_evidence_source": "leaf_inventory_bbox_and_region_metadata",
+      "risk_level": "moderate",
+      "metadata_only": true
+    },
+    {
+      "obstacle_name": "dff_row_clock_data_pins",
+      "source_type": "row_pin_bank",
+      "region_or_macro": "dff",
+      "layer_if_known": "unknown",
+      "direction_if_known": "unknown",
+      "bbox_or_proxy_if_known": {
+        "x0": 0.0,
+        "y0": -0.0999999999999994,
+        "x1": 2.8599999999999826,
+        "y1": 2.5699999999999843
+      },
+      "obstacle_geometry_known": true,
+      "affects_nets": [
+        "clk",
+        "clk_buf",
+        "clk_bar",
+        "gated_clk_buf",
+        "gated_clk_bar"
+      ],
+      "obstacle_evidence_source": "leaf_inventory_bbox_and_region_metadata",
+      "risk_level": "moderate",
+      "metadata_only": true
+    },
+    {
+      "obstacle_name": "power_rails",
+      "source_type": "power_rail",
+      "region_or_macro": "multiple_macros",
+      "layer_if_known": "unknown",
+      "direction_if_known": "horizontal_or_vertical_unknown",
+      "bbox_or_proxy_if_known": null,
+      "obstacle_geometry_known": false,
+      "affects_nets": [
+        "PRE",
+        "precharge_enb"
+      ],
+      "obstacle_evidence_source": "region_refinement_or_logical_proxy_only",
+      "risk_level": "moderate",
+      "metadata_only": true
+    },
+    {
+      "obstacle_name": "reserved_control_channels",
+      "source_type": "reservation_proxy",
+      "region_or_macro": "control_regions",
+      "layer_if_known": "unknown",
+      "direction_if_known": "unknown",
+      "bbox_or_proxy_if_known": null,
+      "obstacle_geometry_known": false,
+      "affects_nets": [
+        "write_enable",
+        "sense_enable",
+        "PRE",
+        "wl_en",
+        "wl_en_bar"
+      ],
+      "obstacle_evidence_source": "region_refinement_or_logical_proxy_only",
+      "risk_level": "moderate",
+      "metadata_only": true
+    }
+  ],
+  "consumer_handoff_audit": [
+    {
+      "handoff_name": "WRITE_ENABLE_TO_WRITEDRIVER_EN",
+      "control_signal": "write_enable",
+      "producer_subblock": "AND3_COMPOSITE",
+      "consumer_macro": "write_driver",
+      "consumer_pin": "EN",
+      "consumer_pin_side": "bottom",
+      "producer_region": "generated_logic_region",
+      "consumer_region": "consumer_handoff_region",
+      "region_adjacency": true,
+      "handoff_constraint_available": true,
+      "routing_channel_reserved": true,
+      "pin_access_risk": "low_to_moderate",
+      "routing_obstacle_risk": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "handoff constraints are metadata-only",
+        "channel reservation rules are not legal routing",
+        "control routing proof is missing",
+        "delay timing proof is missing",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "handoff_name": "SENSE_ENABLE_TO_SENSEAMP_EN",
+      "control_signal": "sense_enable",
+      "producer_subblock": "AND3_COMPOSITE",
+      "consumer_macro": "sense_amp",
+      "consumer_pin": "EN",
+      "consumer_pin_side": "top",
+      "producer_region": "generated_logic_region",
+      "consumer_region": "consumer_handoff_region",
+      "region_adjacency": true,
+      "handoff_constraint_available": true,
+      "routing_channel_reserved": true,
+      "pin_access_risk": "low_to_moderate",
+      "routing_obstacle_risk": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "handoff constraints are metadata-only",
+        "channel reservation rules are not legal routing",
+        "control routing proof is missing",
+        "delay timing proof is missing",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "handoff_name": "PRECHARGE_ENB_TO_PRECHARGE_ENB",
+      "control_signal": "precharge_enb",
+      "producer_subblock": "PDRIVE2_FOR_PRE",
+      "consumer_macro": "gen_precharge",
+      "consumer_pin": "ENB",
+      "consumer_pin_side": "bottom",
+      "producer_region": "precharge_control_region",
+      "consumer_region": "precharge_control_region",
+      "region_adjacency": true,
+      "handoff_constraint_available": true,
+      "routing_channel_reserved": true,
+      "pin_access_risk": "low_to_moderate",
+      "routing_obstacle_risk": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "PRECHARGE adapter metadata may remain partial",
+        "PRECHARGE power-domain closure may remain incomplete",
+        "handoff constraints are metadata-only",
+        "channel reservation rules are not legal routing",
+        "control routing proof is missing",
+        "rail continuity proof is missing",
+        "precharge path retains metadata-only exception",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "handoff_name": "WORDLINE_ENABLE_TO_WORDLINEDRIVER_B",
+      "control_signal": "wordline_enable",
+      "producer_subblock": "WL_PDRIVE",
+      "consumer_macro": "gen_wl_driver",
+      "consumer_pin": "B",
+      "consumer_pin_side": "left",
+      "producer_region": "pdrive_region",
+      "consumer_region": "wordline_enable_control_region",
+      "region_adjacency": true,
+      "handoff_constraint_available": true,
+      "routing_channel_reserved": true,
+      "pin_access_risk": "low_to_moderate",
+      "routing_obstacle_risk": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "handoff constraints are metadata-only",
+        "channel reservation rules are not legal routing",
+        "control routing proof is missing",
+        "delay timing proof is missing",
+        "routing proof is missing"
+      ]
+    },
+    {
+      "handoff_name": "WL_EN_BAR_TO_PRECHARGE_PNAND3_C",
+      "control_signal": "wl_en_bar",
+      "producer_subblock": "PINV",
+      "consumer_macro": "gen_precharge",
+      "consumer_pin": "PNAND3.C",
+      "consumer_pin_side": "unknown",
+      "producer_region": "generated_logic_region",
+      "consumer_region": "precharge_control_region",
+      "region_adjacency": true,
+      "handoff_constraint_available": true,
+      "routing_channel_reserved": true,
+      "pin_access_risk": "moderate",
+      "routing_obstacle_risk": "moderate",
+      "routing_proof_available_now": false,
+      "safe_for_routing_readonly_planning": true,
+      "safe_for_physical_routing": false,
+      "blockers": [
+        "PRECHARGE adapter metadata may remain partial",
+        "PRECHARGE power-domain closure may remain incomplete",
+        "handoff constraints are metadata-only",
+        "channel reservation rules are not legal routing",
+        "control routing proof is missing",
+        "rail continuity proof is missing",
+        "precharge path retains metadata-only exception",
+        "routing proof is missing"
+      ]
+    }
+  ],
+  "precharge_routing_exception_audit": {
+    "precharge_signal": "precharge_enb / PRE / wl_en_bar",
+    "precharge_pin": "ENB / en_bar / PNAND3.C",
+    "precharge_pin_side": "bottom",
+    "precharge_no_local_gnd_exception": true,
+    "precharge_power_side_status": "vdd_only_exception_metadata_only",
+    "precharge_region": "precharge_control_region",
+    "precharge_handoff_region": "consumer_handoff_region",
+    "precharge_routing_obstacle_risk": "moderate",
+    "precharge_rail_continuity_proven": false,
+    "precharge_routing_proof_available": false,
+    "precharge_safe_for_routing_readonly_planning": true,
+    "precharge_safe_for_physical_routing": false,
+    "precharge_blocks_physical_gate": true,
+    "blockers": [
+      "PRECHARGE adapter metadata may remain partial",
+      "PRECHARGE power-domain closure may remain incomplete",
+      "handoff constraints are metadata-only",
+      "channel reservation rules are not legal routing",
+      "control routing proof is missing",
+      "rail continuity proof is missing",
+      "precharge path retains metadata-only exception",
+      "routing proof is missing",
+      "no local GND proof and no across-abutment rail continuity proof"
+    ]
+  },
+  "blockers": [
+    "clk: region adjacency metadata missing",
+    "clk: no handoff constraint or reservation rule",
+    "clk: routing proof is missing",
+    "clk_buf: no handoff constraint or reservation rule",
+    "clk_buf: routing proof is missing",
+    "clk_bar: routing proof is missing",
+    "gated_clk_buf: region adjacency metadata missing",
+    "gated_clk_buf: no handoff constraint or reservation rule",
+    "gated_clk_buf: routing proof is missing",
+    "gated_clk_bar: region adjacency metadata missing",
+    "gated_clk_bar: no handoff constraint or reservation rule",
+    "gated_clk_bar: routing proof is missing",
+    "rbl: region adjacency metadata missing",
+    "rbl: no handoff constraint or reservation rule",
+    "rbl: routing proof is missing",
+    "rbl_delay: no handoff constraint or reservation rule",
+    "rbl_delay: routing proof is missing",
+    "rbl_delay_bar: region adjacency metadata missing",
+    "rbl_delay_bar: no handoff constraint or reservation rule",
+    "rbl_delay_bar: routing proof is missing",
+    "rbl_delay_bar_wen: no handoff constraint or reservation rule",
+    "rbl_delay_bar_wen: routing proof is missing",
+    "we: region adjacency metadata missing",
+    "we: no handoff constraint or reservation rule",
+    "we: routing proof is missing",
+    "we_bar: region adjacency metadata missing",
+    "we_bar: no handoff constraint or reservation rule",
+    "we_bar: routing proof is missing",
+    "w_en: pin-side metadata incomplete or partial",
+    "w_en: no handoff constraint or reservation rule",
+    "w_en: routing proof is missing",
+    "write_enable: routing proof is missing",
+    "s_en: pin-side metadata incomplete or partial",
+    "s_en: no handoff constraint or reservation rule",
+    "s_en: routing proof is missing",
+    "sense_enable: routing proof is missing",
+    "PRE_UNBUF: pin-side metadata incomplete or partial",
+    "PRE_UNBUF: routing proof is missing",
+    "PRE: pin-side metadata incomplete or partial",
+    "PRE: precharge path retains metadata-only exception",
+    "PRE: routing proof is missing",
+    "precharge_enb: pin-side metadata incomplete or partial",
+    "precharge_enb: precharge path retains metadata-only exception",
+    "precharge_enb: routing proof is missing",
+    "wl_en: routing proof is missing",
+    "wordline_enable: pin-side metadata incomplete or partial",
+    "wordline_enable: routing proof is missing",
+    "wl_en_bar: pin-side metadata incomplete or partial",
+    "wl_en_bar: precharge path retains metadata-only exception",
+    "wl_en_bar: routing proof is missing",
+    "DELAY_CHAIN_TO_GENERATED_LOGIC: adjacency is metadata only",
+    "DELAY_CHAIN_TO_GENERATED_LOGIC: routing proof is missing",
+    "PDRIVE_TO_GENERATED_LOGIC: adjacency is metadata only",
+    "PDRIVE_TO_GENERATED_LOGIC: routing proof is missing",
+    "GATED_CLK_BAR_TO_WL_EN: adjacency is metadata only",
+    "GATED_CLK_BAR_TO_WL_EN: routing proof is missing",
+    "GENERATED_LOGIC_TO_CONSUMER_HANDOFF: adjacency is metadata only",
+    "GENERATED_LOGIC_TO_CONSUMER_HANDOFF: routing proof is missing",
+    "PRECHARGE_ENB_TO_CONSUMER_HANDOFF: adjacency is metadata only",
+    "PRECHARGE_ENB_TO_CONSUMER_HANDOFF: routing proof is missing",
+    "WORDLINE_ENABLE_TO_CONSUMER_HANDOFF: adjacency is metadata only",
+    "WORDLINE_ENABLE_TO_CONSUMER_HANDOFF: routing proof is missing",
+    "WRITE_ENABLE_TO_CONSUMER_HANDOFF: adjacency is metadata only",
+    "WRITE_ENABLE_TO_CONSUMER_HANDOFF: routing proof is missing",
+    "SENSE_ENABLE_TO_CONSUMER_HANDOFF: adjacency is metadata only",
+    "SENSE_ENABLE_TO_CONSUMER_HANDOFF: routing proof is missing",
+    "WL_EN_BAR_TO_PRECHARGE_CONTROL: adjacency is metadata only",
+    "WL_EN_BAR_TO_PRECHARGE_CONTROL: routing proof is missing",
+    "WRITE_ENABLE_TO_WRITEDRIVER_EN: handoff constraints are metadata-only",
+    "WRITE_ENABLE_TO_WRITEDRIVER_EN: channel reservation rules are not legal routing",
+    "WRITE_ENABLE_TO_WRITEDRIVER_EN: control routing proof is missing",
+    "WRITE_ENABLE_TO_WRITEDRIVER_EN: delay timing proof is missing",
+    "WRITE_ENABLE_TO_WRITEDRIVER_EN: routing proof is missing",
+    "SENSE_ENABLE_TO_SENSEAMP_EN: handoff constraints are metadata-only",
+    "SENSE_ENABLE_TO_SENSEAMP_EN: channel reservation rules are not legal routing",
+    "SENSE_ENABLE_TO_SENSEAMP_EN: control routing proof is missing",
+    "SENSE_ENABLE_TO_SENSEAMP_EN: delay timing proof is missing",
+    "SENSE_ENABLE_TO_SENSEAMP_EN: routing proof is missing",
+    "PRECHARGE_ENB_TO_PRECHARGE_ENB: PRECHARGE adapter metadata may remain partial",
+    "PRECHARGE_ENB_TO_PRECHARGE_ENB: PRECHARGE power-domain closure may remain incomplete",
+    "PRECHARGE_ENB_TO_PRECHARGE_ENB: handoff constraints are metadata-only",
+    "PRECHARGE_ENB_TO_PRECHARGE_ENB: channel reservation rules are not legal routing",
+    "PRECHARGE_ENB_TO_PRECHARGE_ENB: control routing proof is missing",
+    "PRECHARGE_ENB_TO_PRECHARGE_ENB: rail continuity proof is missing",
+    "PRECHARGE_ENB_TO_PRECHARGE_ENB: precharge path retains metadata-only exception",
+    "PRECHARGE_ENB_TO_PRECHARGE_ENB: routing proof is missing",
+    "WORDLINE_ENABLE_TO_WORDLINEDRIVER_B: handoff constraints are metadata-only",
+    "WORDLINE_ENABLE_TO_WORDLINEDRIVER_B: channel reservation rules are not legal routing",
+    "WORDLINE_ENABLE_TO_WORDLINEDRIVER_B: control routing proof is missing",
+    "WORDLINE_ENABLE_TO_WORDLINEDRIVER_B: delay timing proof is missing",
+    "WORDLINE_ENABLE_TO_WORDLINEDRIVER_B: routing proof is missing",
+    "WL_EN_BAR_TO_PRECHARGE_PNAND3_C: PRECHARGE adapter metadata may remain partial",
+    "WL_EN_BAR_TO_PRECHARGE_PNAND3_C: PRECHARGE power-domain closure may remain incomplete",
+    "WL_EN_BAR_TO_PRECHARGE_PNAND3_C: handoff constraints are metadata-only",
+    "WL_EN_BAR_TO_PRECHARGE_PNAND3_C: channel reservation rules are not legal routing",
+    "WL_EN_BAR_TO_PRECHARGE_PNAND3_C: control routing proof is missing",
+    "WL_EN_BAR_TO_PRECHARGE_PNAND3_C: rail continuity proof is missing",
+    "WL_EN_BAR_TO_PRECHARGE_PNAND3_C: precharge path retains metadata-only exception",
+    "WL_EN_BAR_TO_PRECHARGE_PNAND3_C: routing proof is missing",
+    "storage_array_boundary: obstacle geometry not fully known",
+    "bitcell_bl_br_verticals: obstacle geometry not fully known",
+    "wordline_horizontals: obstacle geometry not fully known",
+    "power_rails: obstacle geometry not fully known",
+    "reserved_control_channels: obstacle geometry not fully known"
+  ],
+  "next_recommended_proof_task": "time_control_timing_metadata_inventory",
+  "boundary_assertions": {
+    "channel_margin_is_not_routing_proof": true,
+    "pin_side_metadata_is_not_pin_access_proof": true,
+    "obstacle_inventory_is_not_drc_clean": true,
+    "safe_for_routing_readonly_planning_is_not_physical_routing": true,
+    "standalone_modified": false,
+    "routing_modified": false,
+    "gds_writer_modified": false
+  },
+  "audit_summary": {
+    "time_control_routing_obstacle_readonly_audit_available": true,
+    "all_required_control_nets_analyzed": true,
+    "all_required_region_crossings_checked": true,
+    "all_required_handoffs_checked": true,
+    "obstacle_inventory_available": true,
+    "pin_access_risk_classified": true,
+    "channel_pressure_rechecked": true,
+    "routing_obstacle_readonly_candidate_available": true,
+    "routing_proof_available_now": false,
+    "can_enter_timing_metadata_inventory": true,
+    "can_enter_routing_proof_planning": true,
+    "can_enter_physical_routing_now": false,
+    "can_enter_physical_placement_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_modify_standalone_now": false
+  },
+  "metadata_inputs_snapshot": {
+    "control_region_crossing_coverage_complete": true,
+    "all_required_crossings_have_adjacency": true,
+    "all_required_crossings_have_handoff_or_reservation": true
+  }
+}

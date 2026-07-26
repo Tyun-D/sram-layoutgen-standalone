@@ -1,0 +1,1429 @@
+{
+  "source_rules": [
+    {
+      "rule_id": "SRC_001",
+      "rule_category": "PARAMETER_MODEL",
+      "openram_file": "/data1/qujh/OpenRAM/sram_compiler.py",
+      "class_or_function": "main flow",
+      "line_reference_or_pattern": "L73:s = sram()",
+      "rule_summary": "OpenRAM emits a full SRAM object and then saves GDS/LEF/SPICE from that assembled physical hierarchy.",
+      "why_it_matters_for_complete_gds": "Complete GDS requires one physical hierarchy that owns both module placement and exported geometry.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": true,
+      "c0_blockers_addressed": "GDS_HIERARCHY,VALIDATION",
+      "target_stage_C2_C6": "C6",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_002",
+      "rule_category": "PARAMETER_MODEL",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/sram.py",
+      "class_or_function": "sram.__init__",
+      "line_reference_or_pattern": "L54:self.s = sram(name, sram_config)",
+      "rule_summary": "Physical layout is instantiated from a config object and then netlist/layout are created from the same parameter set.",
+      "why_it_matters_for_complete_gds": "OpenYield must keep supported-config physical geometry tied to the same config used by routing and validation.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "VALIDATION",
+      "target_stage_C2_C6": "C6",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_003",
+      "rule_category": "VALIDATION",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/sram.py",
+      "class_or_function": "sram.save",
+      "line_reference_or_pattern": "L145:self.gds_write(gdsname)",
+      "rule_summary": "Reference GDS is emitted only after layout creation and alongside LVS-oriented SPICE/LEF artifacts.",
+      "why_it_matters_for_complete_gds": "C6 needs geometry-backed completion evidence, not a map-only handoff.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": true,
+      "c0_blockers_addressed": "MISSING_LVS_READY_NET_MAPPING,VALIDATION",
+      "target_stage_C2_C6": "C6",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_004",
+      "rule_category": "ARRAY_STRUCTURE",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/bitcell_base_array.py",
+      "class_or_function": "bitcell_base_array.create_all_bitline_names",
+      "line_reference_or_pattern": "L41:self.bitline_names[port].extend([\"bl_{0}_{1}\".format(port, col),",
+      "rule_summary": "Bitline naming is column-major and tied directly to bitcell column ownership.",
+      "why_it_matters_for_complete_gds": "Complete routing must preserve physical column ownership from array pins through column periphery.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_ROUTE,MISSING_PIN_GEOMETRY",
+      "target_stage_C2_C6": "C2/C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_005",
+      "rule_category": "ARRAY_STRUCTURE",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/bitcell_base_array.py",
+      "class_or_function": "bitcell_base_array.create_all_wordline_names",
+      "line_reference_or_pattern": "L52:self.wordline_names[port].append(\"wl_{0}_{1}\".format(port, row))",
+      "rule_summary": "Wordline naming is row-major and tied directly to bitcell row ownership.",
+      "why_it_matters_for_complete_gds": "WL geometry must map to per-row pitch and not to abstract row-wide stripes only.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_ROUTE,MISSING_PIN_GEOMETRY",
+      "target_stage_C2_C6": "C2/C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_006",
+      "rule_category": "PIN_LABEL_EXPORT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/bitcell_base_array.py",
+      "class_or_function": "bitcell_base_array.add_bitline_pins",
+      "line_reference_or_pattern": "L141:height=self.height)",
+      "rule_summary": "Array BL/BR pins are exported as full-height geometry aligned to real bitcell pin shapes.",
+      "why_it_matters_for_complete_gds": "This is the geometry-backed baseline missing from OpenYield contract-only BL/BR routes.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "MISSING_PIN_GEOMETRY,CONTRACT_ROUTE",
+      "target_stage_C2_C6": "C2",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_007",
+      "rule_category": "PIN_LABEL_EXPORT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/bitcell_base_array.py",
+      "class_or_function": "bitcell_base_array.add_wl_pins",
+      "line_reference_or_pattern": "L156:width=self.width,",
+      "rule_summary": "Array WL pins are exported as full-width geometry aligned to row pitch and cell access height.",
+      "why_it_matters_for_complete_gds": "OpenYield needs geometry-backed WL endpoints instead of bbox-only stripes.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "MISSING_PIN_GEOMETRY,CONTRACT_ROUTE",
+      "target_stage_C2_C6": "C2",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_008",
+      "rule_category": "POWER_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/bitcell_base_array.py",
+      "class_or_function": "bitcell_base_array.route_supplies",
+      "line_reference_or_pattern": "L162:self.copy_layout_pin(inst, pin_name)",
+      "rule_summary": "Array supply pins are propagated from real child instances rather than synthesized from abstract rails.",
+      "why_it_matters_for_complete_gds": "OpenYield power closure must connect to true child rail geometry.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH,APPROXIMATE_POWER_GEOMETRY",
+      "target_stage_C2_C6": "C2/C5",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_009",
+      "rule_category": "ARRAY_STRUCTURE",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/bitcell_base_array.py",
+      "class_or_function": "bitcell_base_array.place_array",
+      "line_reference_or_pattern": "L189:self.height = self.row_size * self.cell.height",
+      "rule_summary": "Array height/width derive directly from bitcell row and column pitch, with mirroring respecting bitcell orientation rules.",
+      "why_it_matters_for_complete_gds": "C3 must rebuild floorplan around real bitcell pitch rather than coarse region boxes.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "FLOORPLAN_NOT_SRAM_LIKE,PLACEHOLDER_VISUAL_GEOMETRY",
+      "target_stage_C2_C6": "C3",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_010",
+      "rule_category": "ARRAY_STRUCTURE",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/bitcell_array.py",
+      "class_or_function": "bitcell_array",
+      "line_reference_or_pattern": "L18:Assumes bit-lines and word lines are connected by abutment.",
+      "rule_summary": "The main array is the primary SRAM body and BL/WL continuity is achieved by cell abutment, not post-hoc overlay stripes.",
+      "why_it_matters_for_complete_gds": "OpenYield needs array-owned access geometry to anchor real routing.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "PLACEHOLDER_VISUAL_GEOMETRY,CONTRACT_ROUTE",
+      "target_stage_C2_C6": "C2/C3/C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_011",
+      "rule_category": "DUMMY_REPLICA_BOUNDARY",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/replica_bitcell_array.py",
+      "class_or_function": "replica_bitcell_array",
+      "line_reference_or_pattern": "PATTERN_NOT_FOUND",
+      "rule_summary": "Replica columns live on the left/right edges of the main array and dummy rows live on the top/bottom for RBL loading.",
+      "why_it_matters_for_complete_gds": "Replica and dummy structures are not arbitrary filler; they are part of timing and edge geometry organization.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "FLOORPLAN_NOT_SRAM_LIKE,MISSING_PIN_GEOMETRY",
+      "target_stage_C2_C6": "C3",
+      "evidence_status": "NOT_FOUND"
+    },
+    {
+      "rule_id": "SRC_012",
+      "rule_category": "DUMMY_REPLICA_BOUNDARY",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/replica_bitcell_array.py",
+      "class_or_function": "replica_bitcell_array.add_modules",
+      "line_reference_or_pattern": "L105:self.dummy_row = factory.create(module_type=\"dummy_array\",",
+      "rule_summary": "Dummy rows are explicitly instantiated to carry replica wordlines through the array edge.",
+      "why_it_matters_for_complete_gds": "C3 needs explicit boundary placement semantics for dummy/replica ownership.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "FLOORPLAN_NOT_SRAM_LIKE,PLACEHOLDER_VISUAL_GEOMETRY",
+      "target_stage_C2_C6": "C3",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_013",
+      "rule_category": "PIN_LABEL_EXPORT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/replica_bitcell_array.py",
+      "class_or_function": "replica_bitcell_array.add_layout_pins",
+      "line_reference_or_pattern": "L311:self.add_layout_pin(text=pin_name,",
+      "rule_summary": "Regular and replica WL/BL pins are exported from actual child pins with width/height expanded to the array span.",
+      "why_it_matters_for_complete_gds": "This is a direct precedent for geometry-backed boundary export instead of label-only pins.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "MISSING_PIN_GEOMETRY,MISSING_TOP_PIN_GEOMETRY",
+      "target_stage_C2_C6": "C2",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_014",
+      "rule_category": "POWER_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/replica_bitcell_array.py",
+      "class_or_function": "replica_bitcell_array.route_supplies",
+      "line_reference_or_pattern": "L354:self.copy_layout_pin(inst, pin_name)",
+      "rule_summary": "Supply export stays attached to child rail shapes even in replica/dummy-augmented arrays.",
+      "why_it_matters_for_complete_gds": "C5 needs rail-to-strap stitching to start from real module rails.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH,APPROXIMATE_POWER_GEOMETRY",
+      "target_stage_C2_C6": "C2/C5",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_015",
+      "rule_category": "DUMMY_REPLICA_BOUNDARY",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/capped_replica_bitcell_array.py",
+      "class_or_function": "capped_replica_bitcell_array.add_end_caps",
+      "line_reference_or_pattern": "L274:\"\"\" Add dummy cells or end caps around the array \"\"\"",
+      "rule_summary": "Boundary caps are explicitly added around replica arrays to define legal outer edge geometry.",
+      "why_it_matters_for_complete_gds": "C3 must replace visual placeholders with real boundary-cap organization.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "PLACEHOLDER_VISUAL_GEOMETRY,FLOORPLAN_NOT_SRAM_LIKE",
+      "target_stage_C2_C6": "C3",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_016",
+      "rule_category": "ROW_PATH_ALIGNMENT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/local_bitcell_array.py",
+      "class_or_function": "local_bitcell_array.place",
+      "line_reference_or_pattern": "L181:driver_to_array_spacing = 3 * self.m3_pitch",
+      "rule_summary": "Wordline driver array is placed adjacent to the array with technology-scaled spacing derived from routing pitch.",
+      "why_it_matters_for_complete_gds": "C3 needs row-periphery spacing rules tied to access/routing layers.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "FLOORPLAN_NOT_SRAM_LIKE,CONTRACT_ROUTE",
+      "target_stage_C2_C6": "C3",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_017",
+      "rule_category": "WORDLINE_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/local_bitcell_array.py",
+      "class_or_function": "local_bitcell_array.route",
+      "line_reference_or_pattern": "L213:global_wl_layer = layer_props.global_bitcell_array.wordline_layer",
+      "rule_summary": "OpenRAM separates local wordline buffering from global wordline export layers and uses explicit via stacks between them.",
+      "why_it_matters_for_complete_gds": "OpenYield WL closure needs real layer/direction/access ownership instead of one abstract stripe layer.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_ROUTE,PLACEHOLDER_VISUAL_GEOMETRY",
+      "target_stage_C2_C6": "C2/C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_018",
+      "rule_category": "WORDLINE_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/local_bitcell_array.py",
+      "class_or_function": "local_bitcell_array.route",
+      "line_reference_or_pattern": "L252:self.add_via_stack_center(from_layer=in_pin.layer,",
+      "rule_summary": "Global WL pins are created only after explicit local-to-global via stacks and short jogs from the driver input side.",
+      "why_it_matters_for_complete_gds": "C4 must create access-aware WL geometry rather than bbox-only row bars.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_ROUTE,MISSING_PIN_GEOMETRY",
+      "target_stage_C2_C6": "C2/C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_019",
+      "rule_category": "ARRAY_STRUCTURE",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/global_bitcell_array.py",
+      "class_or_function": "global_bitcell_array.add_modules",
+      "line_reference_or_pattern": "L87:# Always add the left RBLs to the first subarray",
+      "rule_summary": "When arrays are segmented, left/right replica ownership stays on the edge local arrays only.",
+      "why_it_matters_for_complete_gds": "C3 must keep replica timing structures at macro edges, not floating in generic control regions.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "FLOORPLAN_NOT_SRAM_LIKE",
+      "target_stage_C2_C6": "C3",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_020",
+      "rule_category": "WORDLINE_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/global_bitcell_array.py",
+      "class_or_function": "global_bitcell_array.add_layout_pins",
+      "line_reference_or_pattern": "L253:self.add_layout_pin_segment_center(text=wl_name,",
+      "rule_summary": "Global wordlines are stitched across local arrays on a dedicated layer and exported as single continuous pins.",
+      "why_it_matters_for_complete_gds": "Multi-slice WL geometry in OpenYield must become continuous physical nets, not separate report entries.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_ROUTE,PLACEHOLDER_VISUAL_GEOMETRY",
+      "target_stage_C2_C6": "C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_021",
+      "rule_category": "COLUMN_PATH_ALIGNMENT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/bank.py",
+      "class_or_function": "bank.compute_instance_offsets",
+      "line_reference_or_pattern": "L186:self.main_bitcell_array_top = self.bitcell_array.get_main_array_top()",
+      "rule_summary": "Bank floorplan is anchored to the main array edges, with row/column/control placement computed relative to those edges.",
+      "why_it_matters_for_complete_gds": "OpenYield C3 must floorplan from real array boundaries rather than independent region boxes.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "FLOORPLAN_NOT_SRAM_LIKE,PLACEHOLDER_VISUAL_GEOMETRY",
+      "target_stage_C2_C6": "C3",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_022",
+      "rule_category": "ROW_PATH_ALIGNMENT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/bank.py",
+      "class_or_function": "bank.compute_instance_port0_offsets",
+      "line_reference_or_pattern": "L224:self.port_address_offsets[port] = vector(-x_offset,",
+      "rule_summary": "Row-address path is placed to the left of the main array while column/data path is placed below for port0.",
+      "why_it_matters_for_complete_gds": "This defines SRAM-like relative organization for row and column periphery.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "FLOORPLAN_NOT_SRAM_LIKE",
+      "target_stage_C2_C6": "C3",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_023",
+      "rule_category": "COLUMN_PATH_ALIGNMENT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/bank.py",
+      "class_or_function": "bank.compute_instance_port1_offsets",
+      "line_reference_or_pattern": "L260:self.port_data_offsets[port] = vector(0, self.bitcell_array_top)",
+      "rule_summary": "For the second port, data path can move above the array while row path moves to the right, preserving array-centric organization.",
+      "why_it_matters_for_complete_gds": "The core principle is that array remains the center and periphery attaches to edges by function.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": true,
+      "c0_blockers_addressed": "FLOORPLAN_NOT_SRAM_LIKE",
+      "target_stage_C2_C6": "C3",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_024",
+      "rule_category": "BITLINE_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/bank.py",
+      "class_or_function": "bank.route_bitlines",
+      "line_reference_or_pattern": "L157:self.route_port_data_to_bitcell_array(port)",
+      "rule_summary": "Bitline path is routed as a structured chain from precharge/column mux/sense/write logic into the bitcell array.",
+      "why_it_matters_for_complete_gds": "OpenYield must replace one-step contract mapping with staged column-path connectivity.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_ROUTE,MISSING_PIN_GEOMETRY",
+      "target_stage_C2_C6": "C2/C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_025",
+      "rule_category": "CONTROL_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/bank.py",
+      "class_or_function": "bank.route_rbl",
+      "line_reference_or_pattern": "L145:self.add_layout_pin_segment_center(text=\"rbl_bl_{0}_{0}\".format(port),",
+      "rule_summary": "Replica bitline is exported to the bank boundary through explicit routed geometry and side pin placement.",
+      "why_it_matters_for_complete_gds": "Replica control/timing signals in OpenYield need geometry-backed routing and export, not report-only ownership.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_ROUTE,MISSING_PIN_GEOMETRY",
+      "target_stage_C2_C6": "C2/C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_026",
+      "rule_category": "ROW_PATH_ALIGNMENT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/port_address.py",
+      "class_or_function": "port_address.place_instances",
+      "line_reference_or_pattern": "L244:wordline_driver_array_offset = vector(self.row_decoder_inst.rx(), 0)",
+      "rule_summary": "Wordline driver is placed directly adjacent to the row decoder and then drives row-aligned outputs into the array edge.",
+      "why_it_matters_for_complete_gds": "Decoder and WL-driver cannot be treated as unrelated abstract blocks in C3/C4.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_ROUTE,FLOORPLAN_NOT_SRAM_LIKE",
+      "target_stage_C2_C6": "C3/C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_027",
+      "rule_category": "WORDLINE_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/port_address.py",
+      "class_or_function": "port_address.route_internal",
+      "line_reference_or_pattern": "L123:self.add_zjog(self.route_layer, decoder_out_pos, driver_in_pos, var_offset=0.3)",
+      "rule_summary": "Decoder outputs connect to wordline-driver inputs using explicit jog routing and via stacks between real pins.",
+      "why_it_matters_for_complete_gds": "OpenYield control/row path needs actual intermediate connectivity, not a single bbox for the whole fanout.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_ROUTE,MISSING_PIN_GEOMETRY",
+      "target_stage_C2_C6": "C2/C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_028",
+      "rule_category": "POWER_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/port_address.py",
+      "class_or_function": "port_address.route_supplies",
+      "line_reference_or_pattern": "L90:self.copy_layout_pin(self.wordline_driver_array_inst, \"vdd\")",
+      "rule_summary": "Row-path VDD/GND are propagated from decoder and wordline-driver geometry, with extra RBL rail stitching only where needed.",
+      "why_it_matters_for_complete_gds": "OpenYield must repair power continuity at module-rail granularity.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH,MISSING_PIN_GEOMETRY",
+      "target_stage_C2_C6": "C2/C5",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_029",
+      "rule_category": "COLUMN_PATH_ALIGNMENT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/port_data.py",
+      "class_or_function": "port_data.route_data_lines",
+      "line_reference_or_pattern": "L165:# (write_mask_and ->) write_driver -> sense_amp -> (column_mux ->) precharge -> bitcell_array",
+      "rule_summary": "Column path is an ordered physical chain; BL/BR do not jump directly from top-level net name to every consumer.",
+      "why_it_matters_for_complete_gds": "This directly addresses OpenYield’s contract-only BL/BR overlay.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_ROUTE",
+      "target_stage_C2_C6": "C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_030",
+      "rule_category": "COLUMN_PATH_ALIGNMENT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/port_data.py",
+      "class_or_function": "port_data.add_modules",
+      "line_reference_or_pattern": "L210:precharge_bit_offsets = [self.bit_offsets[0] - precharge_width] + self.bit_offsets",
+      "rule_summary": "Precharge, mux, sense amp, and write-driver arrays use common bit offsets derived from bitcell pitch and words-per-row ownership.",
+      "why_it_matters_for_complete_gds": "C3 must align column modules to array column pitch and mux ratio.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "FLOORPLAN_NOT_SRAM_LIKE,CONTRACT_ROUTE",
+      "target_stage_C2_C6": "C3/C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_031",
+      "rule_category": "COLUMN_PATH_ALIGNMENT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/precharge_array.py",
+      "class_or_function": "precharge_array.place_insts",
+      "line_reference_or_pattern": "L120:if self.cell.mirror.y and (i + self.column_offset) % 2:",
+      "rule_summary": "Precharge cells inherit bitcell mirror parity and column offset so BL/BR access stays aligned to the array.",
+      "why_it_matters_for_complete_gds": "Column-path modules must respect bitcell parity, not just nominal x pitch.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "MISSING_PIN_GEOMETRY,CONTRACT_ROUTE",
+      "target_stage_C2_C6": "C2/C3",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_032",
+      "rule_category": "POWER_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/precharge_array.py",
+      "class_or_function": "precharge_array.route_supplies",
+      "line_reference_or_pattern": "L98:self.route_horizontal_pins(\"vdd\")",
+      "rule_summary": "Precharge array exports a continuous horizontal VDD rail rather than an approximate top-level strap.",
+      "why_it_matters_for_complete_gds": "This is the kind of geometry-backed rail OpenYield needs before top-level stitching.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH,APPROXIMATE_POWER_GEOMETRY",
+      "target_stage_C2_C6": "C2/C5",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_033",
+      "rule_category": "COLUMN_PATH_ALIGNMENT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/sense_amp_array.py",
+      "class_or_function": "sense_amp_array.place_sense_amp_array",
+      "line_reference_or_pattern": "L130:for i, xoffset in enumerate(self.offsets[0:self.num_cols:self.words_per_row]):",
+      "rule_summary": "Sense amps are placed on word outputs, not every raw column, and words-per-row determines ownership grouping.",
+      "why_it_matters_for_complete_gds": "C3/C4 must account for mux ratio when aligning read path modules.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_ROUTE,FLOORPLAN_NOT_SRAM_LIKE",
+      "target_stage_C2_C6": "C3/C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_034",
+      "rule_category": "CONTROL_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/sense_amp_array.py",
+      "class_or_function": "sense_amp_array.route_rails",
+      "line_reference_or_pattern": "L185:self.add_layout_pin_segment_center(text=self.en_name,",
+      "rule_summary": "Sense-enable is distributed as explicit rail geometry with vias into each amplifier.",
+      "why_it_matters_for_complete_gds": "OpenYield control distribution must become per-consumer geometry, not one contract rectangle.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_ROUTE,MISSING_PIN_GEOMETRY",
+      "target_stage_C2_C6": "C2/C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_035",
+      "rule_category": "COLUMN_PATH_ALIGNMENT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/write_driver_array.py",
+      "class_or_function": "write_driver_array.place_write_array",
+      "line_reference_or_pattern": "L167:for i, xoffset in enumerate(self.offsets[0:self.columns:self.words_per_row]):",
+      "rule_summary": "Write drivers are placed per word output with words-per-row grouping and spare columns handled separately.",
+      "why_it_matters_for_complete_gds": "OpenYield write path must use word-owned geometry rather than every-column placeholder taps.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_ROUTE,FLOORPLAN_NOT_SRAM_LIKE",
+      "target_stage_C2_C6": "C3/C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_036",
+      "rule_category": "CONTROL_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/write_driver_array.py",
+      "class_or_function": "write_driver_array.add_layout_pins",
+      "line_reference_or_pattern": "L224:self.add_layout_pin(text=self.en_name + \"_{0}\".format(bit),",
+      "rule_summary": "Write-enable geometry is exported as a real rail segment, optionally partitioned by write-mask/spare ownership.",
+      "why_it_matters_for_complete_gds": "OpenYield write enable cannot remain a contract fanout box.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_ROUTE,MISSING_PIN_GEOMETRY",
+      "target_stage_C2_C6": "C2/C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_037",
+      "rule_category": "COLUMN_PATH_ALIGNMENT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/column_mux_array.py",
+      "class_or_function": "column_mux_array.setup_layout_constants",
+      "line_reference_or_pattern": "L98:self.route_height = (self.words_per_row + 3) * self.sel_pitch",
+      "rule_summary": "Column mux array reserves routing height proportional to words-per-row for select rails and output joins.",
+      "why_it_matters_for_complete_gds": "OpenYield C3/C4 must allocate real routing channels instead of overlay rectangles.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "PLACEHOLDER_VISUAL_GEOMETRY,CONTRACT_ROUTE",
+      "target_stage_C2_C6": "C3/C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_038",
+      "rule_category": "BITLINE_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/column_mux_array.py",
+      "class_or_function": "column_mux_array.route_bitlines",
+      "line_reference_or_pattern": "L210:self.add_layout_pin_segment_center(text=\"bl_out_{}\".format(int(j / self.words_per_row)),",
+      "rule_summary": "Mux outputs are formed by actual merged BL/BR output rails and via stacks across the grouped columns.",
+      "why_it_matters_for_complete_gds": "OpenYield needs true mux-output ownership instead of per-consumer duplicated BL/BR rectangles.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_ROUTE,PLACEHOLDER_VISUAL_GEOMETRY",
+      "target_stage_C2_C6": "C2/C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_039",
+      "rule_category": "CONTROL_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/column_mux_array.py",
+      "class_or_function": "column_mux_array.add_horizontal_input_rail",
+      "line_reference_or_pattern": "L163:self.add_layout_pin(text=\"sel_{}\".format(j),",
+      "rule_summary": "Column-select controls are distributed on dedicated horizontal rails under the mux array.",
+      "why_it_matters_for_complete_gds": "OpenYield control routing must use organized channel rails, not one large area fill.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_ROUTE,PLACEHOLDER_VISUAL_GEOMETRY",
+      "target_stage_C2_C6": "C3/C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_040",
+      "rule_category": "GDS_PRIMITIVE_API",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/base/hierarchy_layout.py",
+      "class_or_function": "copy_layout_pin",
+      "line_reference_or_pattern": "L647:self.add_layout_pin(new_name,",
+      "rule_summary": "Top-level pins are propagated by copying actual child pin shapes, preserving layer, width, and height.",
+      "why_it_matters_for_complete_gds": "OpenYield pin export must stay geometry-backed all the way up the hierarchy.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "MISSING_TOP_PIN_GEOMETRY,MISSING_PIN_GEOMETRY",
+      "target_stage_C2_C6": "C2/C6",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_041",
+      "rule_category": "PIN_LABEL_EXPORT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/base/hierarchy_layout.py",
+      "class_or_function": "add_layout_pin_segment_center",
+      "line_reference_or_pattern": "L1058:Creates a path like pin with center-line convention",
+      "rule_summary": "A real exported pin can be a routed segment with explicit layer and bbox, not just a text label.",
+      "why_it_matters_for_complete_gds": "This defines the minimum geometry-backed pin requirement for C2/C4/C5/C6.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "MISSING_PIN_GEOMETRY,MISSING_TOP_PIN_GEOMETRY",
+      "target_stage_C2_C6": "C2/C6",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_042",
+      "rule_category": "PIN_LABEL_EXPORT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/base/hierarchy_layout.py",
+      "class_or_function": "replace_layout_pin",
+      "line_reference_or_pattern": "L1122:Remove the old pin and replace with a new one",
+      "rule_summary": "Escape/perimeter pin relocation keeps the old geometry as wiring and replaces only the exported pin object.",
+      "why_it_matters_for_complete_gds": "OpenYield top-pin cleanup must distinguish internal route geometry from final external pin placement.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "MISSING_TOP_PIN_GEOMETRY,PLACEHOLDER_VISUAL_GEOMETRY",
+      "target_stage_C2_C6": "C4/C6",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_043",
+      "rule_category": "PIN_LABEL_EXPORT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/base/hierarchy_layout.py",
+      "class_or_function": "add_label_pin",
+      "line_reference_or_pattern": "PATTERN_NOT_FOUND",
+      "rule_summary": "Label-only correspondence points are explicitly distinguished from actual layout pins.",
+      "why_it_matters_for_complete_gds": "OpenYield must not treat label-only pins as sufficient evidence for complete GDS.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "MISSING_PIN_GEOMETRY",
+      "target_stage_C2_C6": "C2/C6",
+      "evidence_status": "NOT_FOUND"
+    },
+    {
+      "rule_id": "SRC_044",
+      "rule_category": "HIERARCHY_EXPORT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/base/hierarchy_layout.py",
+      "class_or_function": "gds_write",
+      "line_reference_or_pattern": "PATTERN_NOT_FOUND",
+      "rule_summary": "GDS export occurs from the assembled layout hierarchy after geometry and pin maps are finalized.",
+      "why_it_matters_for_complete_gds": "OpenYield complete-GDS claim must come only after geometry hierarchy is physically assembled.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "GDS_HIERARCHY,VALIDATION",
+      "target_stage_C2_C6": "C6",
+      "evidence_status": "NOT_FOUND"
+    },
+    {
+      "rule_id": "SRC_045",
+      "rule_category": "VALIDATION",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/base/hierarchy_layout.py",
+      "class_or_function": "add_boundary",
+      "line_reference_or_pattern": "PATTERN_NOT_FOUND",
+      "rule_summary": "Physical macros include an explicit boundary shape tied to the final extents of real geometry.",
+      "why_it_matters_for_complete_gds": "OpenYield macro bbox should follow actual assembled geometry, not placeholder extents.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "PLACEHOLDER_VISUAL_GEOMETRY",
+      "target_stage_C2_C6": "C3/C6",
+      "evidence_status": "NOT_FOUND"
+    },
+    {
+      "rule_id": "SRC_046",
+      "rule_category": "POWER_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/base/hierarchy_layout.py",
+      "class_or_function": "copy_power_pins",
+      "line_reference_or_pattern": "PATTERN_NOT_FOUND",
+      "rule_summary": "Power export can be copied from instance pin geometry before any higher-level stitching is added.",
+      "why_it_matters_for_complete_gds": "This is the baseline for geometry-backed VDD/GND pin ownership in C2/C5.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH,MISSING_PIN_GEOMETRY",
+      "target_stage_C2_C6": "C2/C5",
+      "evidence_status": "NOT_FOUND"
+    },
+    {
+      "rule_id": "SRC_047",
+      "rule_category": "PIN_LABEL_EXPORT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/base/hierarchy_layout.py",
+      "class_or_function": "add_io_pin",
+      "line_reference_or_pattern": "PATTERN_NOT_FOUND",
+      "rule_summary": "Top IO pins are derived from real instance pins and optionally escape-routed upward through specified layer stacks.",
+      "why_it_matters_for_complete_gds": "OpenYield top IO must be backed by internal geometry and routed escape, not map-only entries.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "MISSING_TOP_PIN_GEOMETRY,CONTRACT_ROUTE",
+      "target_stage_C2_C6": "C4/C6",
+      "evidence_status": "NOT_FOUND"
+    },
+    {
+      "rule_id": "SRC_048",
+      "rule_category": "CONTROL_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/sram_1bank.py",
+      "class_or_function": "place_control",
+      "line_reference_or_pattern": "L876:# The delay line is aligned with the bitcell array while the control logic is aligned with the port_data",
+      "rule_summary": "Control logic and delay chain placement are explicitly aligned against bank array geometry rather than free-placed.",
+      "why_it_matters_for_complete_gds": "OpenYield control region must be organized relative to array edges and replica timing structures.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "FLOORPLAN_NOT_SRAM_LIKE,CONTRACT_ROUTE",
+      "target_stage_C2_C6": "C3",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_049",
+      "rule_category": "CONTROL_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/sram_1bank.py",
+      "class_or_function": "route_clk",
+      "line_reference_or_pattern": "L1220:# This is something like a \"spine\" clock distribution. The two spines",
+      "rule_summary": "Clock distribution is implemented as explicit spine routing from control logic to DFF clusters.",
+      "why_it_matters_for_complete_gds": "OpenYield clk/gated_clk should become explicit routed spines, not contract boxes.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_ROUTE,PLACEHOLDER_VISUAL_GEOMETRY",
+      "target_stage_C2_C6": "C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_050",
+      "rule_category": "CONTROL_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/sram_1bank.py",
+      "class_or_function": "route_control_logic",
+      "line_reference_or_pattern": "L1280:self.connect_vbus(src_pin, dest_pin)",
+      "rule_summary": "Non-clock control signals are routed from control logic to bank on explicit vertical buses, while replica-bitline feedback uses a dedicated m3/m4 route.",
+      "why_it_matters_for_complete_gds": "OpenYield control paths need net-specific geometry and bus ownership.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_ROUTE,MISSING_PIN_GEOMETRY",
+      "target_stage_C2_C6": "C2/C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_051",
+      "rule_category": "CONTROL_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/sram_1bank.py",
+      "class_or_function": "route_row_addr_dff",
+      "line_reference_or_pattern": "L1312:self.add_path(\"m3\", [flop_pos, mid_pos])",
+      "rule_summary": "Address flops connect to bank row-address inputs with explicit intermediate metal and via stacks.",
+      "why_it_matters_for_complete_gds": "Address routing in OpenYield must be geometry-backed up to decoder inputs.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_ROUTE,MISSING_PIN_GEOMETRY",
+      "target_stage_C2_C6": "C2/C4",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_052",
+      "rule_category": "PIN_LABEL_EXPORT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/sram_1bank.py",
+      "class_or_function": "add_layout_pins",
+      "line_reference_or_pattern": "L1002:self.add_io_pin(self.control_logic_insts[port],",
+      "rule_summary": "Top-level addr/din/dout/control/spare pins are exported from specific child instances, not synthesized in isolation.",
+      "why_it_matters_for_complete_gds": "This is the physical precedent for OpenYield top-pin export in C4/C6.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "MISSING_TOP_PIN_GEOMETRY",
+      "target_stage_C2_C6": "C4/C6",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_053",
+      "rule_category": "PIN_LABEL_EXPORT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/sram_1bank.py",
+      "class_or_function": "route_escape_pins",
+      "line_reference_or_pattern": "L368:rtr.route(pins_to_route)",
+      "rule_summary": "Perimeter pin escape routing is a dedicated post-placement routing step, not a byproduct of block placement.",
+      "why_it_matters_for_complete_gds": "OpenYield top-level pin placement and escape must be explicit in C4/C6.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "MISSING_TOP_PIN_GEOMETRY,CONTRACT_ROUTE",
+      "target_stage_C2_C6": "C4/C6",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_054",
+      "rule_category": "POWER_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/modules/sram_1bank.py",
+      "class_or_function": "route_layout",
+      "line_reference_or_pattern": "L1079:if OPTS.route_supplies:",
+      "rule_summary": "Top-level supply routing is a distinct stage after signal geometry and top pins have been materialized.",
+      "why_it_matters_for_complete_gds": "OpenYield should do C5 after C4 geometry exists so strap stitching lands on real shapes.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": false,
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH,APPROXIMATE_POWER_GEOMETRY",
+      "target_stage_C2_C6": "C5",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_055",
+      "rule_category": "POWER_ROUTING",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/router/supply_router.py",
+      "class_or_function": "supply_router.route",
+      "line_reference_or_pattern": "L54:# Add side pins",
+      "rule_summary": "Supply routing can add side pins or rings and then route true pin sets through a graph-based path search.",
+      "why_it_matters_for_complete_gds": "OpenYield top-level power pins and straps should be driven by actual rail targets.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": true,
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH,APPROXIMATE_POWER_GEOMETRY",
+      "target_stage_C2_C6": "C5",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_056",
+      "rule_category": "PIN_LABEL_EXPORT",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/router/signal_escape_router.py",
+      "class_or_function": "signal_escape_router.route",
+      "line_reference_or_pattern": "L79:self.replace_layout_pins()",
+      "rule_summary": "Signal escape routing replaces original IO pins with perimeter-exported geometry only after successful routed escape.",
+      "why_it_matters_for_complete_gds": "Top pin geometry in OpenYield must reflect routed escape endpoints.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": true,
+      "c0_blockers_addressed": "MISSING_TOP_PIN_GEOMETRY,CONTRACT_ROUTE",
+      "target_stage_C2_C6": "C4/C6",
+      "evidence_status": "SOURCE_BACKED"
+    },
+    {
+      "rule_id": "SRC_057",
+      "rule_category": "VALIDATION",
+      "openram_file": "/data1/qujh/OpenRAM/compiler/base/channel_route.py",
+      "class_or_function": "channel_route",
+      "line_reference_or_pattern": "PATTERN_NOT_FOUND",
+      "rule_summary": "Structured channel routing is aware of pin conflicts, preferred directions, and track pitch rather than drawing a single placeholder rectangle.",
+      "why_it_matters_for_complete_gds": "OpenYield signal channels need geometry-aware routing ownership in C4.",
+      "can_adapt_to_openyield": true,
+      "should_not_copy_directly": true,
+      "c0_blockers_addressed": "PLACEHOLDER_VISUAL_GEOMETRY,CONTRACT_ROUTE",
+      "target_stage_C2_C6": "C4",
+      "evidence_status": "NOT_FOUND"
+    },
+    {
+      "rule_id": "SRC_058",
+      "rule_category": "VALIDATION",
+      "openram_file": "compiler/modules/decoder.py",
+      "class_or_function": "decoder",
+      "line_reference_or_pattern": "NOT_FOUND",
+      "rule_summary": "Requested decoder.py file is not present in this OpenRAM checkout; decoder behavior is likely provided by other modules such as hierarchical_decoder.",
+      "why_it_matters_for_complete_gds": "The audit must explicitly mark missing source references instead of inferring behavior from absent files.",
+      "can_adapt_to_openyield": false,
+      "should_not_copy_directly": true,
+      "c0_blockers_addressed": "VALIDATION",
+      "target_stage_C2_C6": "C1",
+      "evidence_status": "NOT_FOUND"
+    }
+  ],
+  "reference_gds": {
+    "reference_gds_status": "FOUND_EXISTING",
+    "reference_only": true,
+    "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/layout_prototype/baseline_legacy/sram_8x64_wpr4_fd45.complete.gds",
+    "top_cell": "sram_8x64_wpr4_fd45",
+    "bbox": {
+      "x0": 0.0,
+      "y0": 0.0,
+      "x1": 36.6225,
+      "y1": 45.95,
+      "width": 36.6225,
+      "height": 45.95
+    },
+    "cell_count": 33,
+    "recursive_instance_count": 2565,
+    "layer_summary": {
+      "boundary": {
+        "1/0": 358,
+        "10/0": 284,
+        "11/0": 780,
+        "12/0": 229,
+        "13/0": 1006,
+        "13/2": 11,
+        "14/0": 156,
+        "15/0": 327,
+        "15/2": 14,
+        "17/0": 20,
+        "17/2": 2,
+        "2/0": 57,
+        "239/0": 38,
+        "3/0": 45,
+        "4/0": 67,
+        "5/0": 58,
+        "6/0": 64,
+        "9/0": 345
+      },
+      "text": {
+        "1/0": 2,
+        "11/0": 67,
+        "13/0": 31,
+        "13/1": 11,
+        "15/1": 14,
+        "17/1": 2,
+        "9/0": 9
+      }
+    },
+    "array_like_dense_region_bbox": {
+      "x0": 11.905,
+      "y0": 20.0475,
+      "x1": 34.655,
+      "y1": 43.4525,
+      "width": 22.75,
+      "height": 23.405
+    },
+    "row_periphery_relative_location": "left",
+    "column_periphery_relative_location": "below",
+    "power_strap_or_rail_layers": [
+      "1/0",
+      "2/0",
+      "3/0"
+    ],
+    "top_pin_or_label_layers": [
+      "1/0",
+      "11/0",
+      "13/0",
+      "13/1",
+      "15/1",
+      "17/1",
+      "9/0"
+    ],
+    "largest_shapes": [
+      {
+        "shape_id": "ref_poly_0",
+        "layer_hint": "239/0",
+        "bbox": {
+          "x0": 0.0,
+          "y0": 0.0,
+          "x1": 36.6225,
+          "y1": 45.95,
+          "width": 36.6225,
+          "height": 45.95
+        },
+        "area": 1682.803875
+      },
+      {
+        "shape_id": "ref_poly_1647",
+        "layer_hint": "17/0",
+        "bbox": {
+          "x0": 0.3425,
+          "y0": 0.2,
+          "x1": 0.5025,
+          "y1": 45.75,
+          "width": 0.16,
+          "height": 45.55
+        },
+        "area": 7.288
+      },
+      {
+        "shape_id": "ref_poly_1648",
+        "layer_hint": "17/0",
+        "bbox": {
+          "x0": 12.0,
+          "y0": 0.2,
+          "x1": 12.16,
+          "y1": 45.75,
+          "width": 0.16,
+          "height": 45.55
+        },
+        "area": 7.288
+      },
+      {
+        "shape_id": "ref_poly_1649",
+        "layer_hint": "17/0",
+        "bbox": {
+          "x0": 34.56,
+          "y0": 0.2,
+          "x1": 34.72,
+          "y1": 45.75,
+          "width": 0.16,
+          "height": 45.55
+        },
+        "area": 7.288
+      },
+      {
+        "shape_id": "ref_poly_1645",
+        "layer_hint": "17/0",
+        "bbox": {
+          "x0": 0.05,
+          "y0": 0.0,
+          "x1": 0.2,
+          "y1": 45.95,
+          "width": 0.15,
+          "height": 45.95
+        },
+        "area": 6.8925
+      },
+      {
+        "shape_id": "ref_poly_1646",
+        "layer_hint": "17/0",
+        "bbox": {
+          "x0": 36.4225,
+          "y0": 0.0,
+          "x1": 36.5725,
+          "y1": 45.95,
+          "width": 0.15,
+          "height": 45.95
+        },
+        "area": 6.8925
+      },
+      {
+        "shape_id": "ref_poly_1643",
+        "layer_hint": "17/0",
+        "bbox": {
+          "x0": 0.0,
+          "y0": 45.75,
+          "x1": 36.6225,
+          "y1": 45.9,
+          "width": 36.6225,
+          "height": 0.15
+        },
+        "area": 5.493375
+      },
+      {
+        "shape_id": "ref_poly_1644",
+        "layer_hint": "17/0",
+        "bbox": {
+          "x0": 0.0,
+          "y0": 0.05,
+          "x1": 36.6225,
+          "y1": 0.2,
+          "width": 36.6225,
+          "height": 0.15
+        },
+        "area": 5.493375
+      },
+      {
+        "shape_id": "ref_poly_1675",
+        "layer_hint": "17/2",
+        "bbox": {
+          "x0": 0.0,
+          "y0": 45.75,
+          "x1": 36.6225,
+          "y1": 45.9,
+          "width": 36.6225,
+          "height": 0.15
+        },
+        "area": 5.493375
+      },
+      {
+        "shape_id": "ref_poly_1676",
+        "layer_hint": "17/2",
+        "bbox": {
+          "x0": 0.0,
+          "y0": 0.05,
+          "x1": 36.6225,
+          "y1": 0.2,
+          "width": 36.6225,
+          "height": 0.15
+        },
+        "area": 5.493375
+      },
+      {
+        "shape_id": "ref_poly_1043",
+        "layer_hint": "17/0",
+        "bbox": {
+          "x0": 0.2,
+          "y0": 0.3925,
+          "x1": 36.4225,
+          "y1": 0.5325,
+          "width": 36.2225,
+          "height": 0.14
+        },
+        "area": 5.07115
+      },
+      {
+        "shape_id": "ref_poly_1044",
+        "layer_hint": "17/0",
+        "bbox": {
+          "x0": 0.2,
+          "y0": 3.3375,
+          "x1": 36.4225,
+          "y1": 3.4775,
+          "width": 36.2225,
+          "height": 0.14
+        },
+        "area": 5.07115
+      }
+    ],
+    "visual_geometric_conclusions": [
+      "Reference macro `sram_8x64_wpr4_fd45` is array-centric: dense `cell_1rw` instances occupy bbox {'x0': 11.905, 'y0': 20.0475, 'x1': 34.655, 'y1': 43.4525, 'width': 22.75, 'height': 23.405}.",
+      "Row periphery sits `left` relative to the dense array region.",
+      "Column periphery sits `below` relative to the dense array region.",
+      "The macro shows repeated bitcell references plus narrow precharge/column/read/write bands instead of one overlay rectangle.",
+      "Top-level pin labels exist on dedicated label layers and accompany real geometry, not label-only inventory rows."
+    ]
+  },
+  "array_rules": [
+    {
+      "rule_name": "ArrayMainBody",
+      "source_evidence": "OpenRAM bitcell_array/replica_bitcell_array source; reference GDS dense bitcell region",
+      "rule_description": "Bitcell array must be the dominant physical core of the macro and own row/column pitch, BL/BR access, and WL access.",
+      "required_geometry": "Real bitcell-array boundary plus per-column BL/BR shapes and per-row WL shapes.",
+      "required_metadata": "row_pitch, column_pitch, bitcell orientation parity, array bbox.",
+      "c0_blockers_addressed": "FLOORPLAN_NOT_SRAM_LIKE,CONTRACT_ROUTE,MISSING_PIN_GEOMETRY",
+      "implemented_in_stage": "C2/C3"
+    },
+    {
+      "rule_name": "ArrayPitchSource",
+      "source_evidence": "bitcell_base_array.place_array; reference dense region spacing",
+      "rule_description": "Row pitch and column pitch must derive from placed bitcell geometry, not top-level heuristic spacing.",
+      "required_geometry": "Measured bitcell width/height and instance placement lattice.",
+      "required_metadata": "row_pitch_source, column_pitch_source, array origin.",
+      "c0_blockers_addressed": "PLACEHOLDER_VISUAL_GEOMETRY,FLOORPLAN_NOT_SRAM_LIKE",
+      "implemented_in_stage": "C3"
+    },
+    {
+      "rule_name": "ArrayBLBRAccess",
+      "source_evidence": "bitcell_base_array.add_bitline_pins; replica_bitcell_array.add_layout_pins",
+      "rule_description": "BL/BR access must be geometry-backed full-height array pins tied to real child pin layers.",
+      "required_geometry": "Vertical BL/BR pin rectangles aligned to bitcell access points.",
+      "required_metadata": "per-column net naming and source-target access ownership.",
+      "c0_blockers_addressed": "CONTRACT_ROUTE,MISSING_PIN_GEOMETRY",
+      "implemented_in_stage": "C2"
+    },
+    {
+      "rule_name": "ArrayWLAccess",
+      "source_evidence": "bitcell_base_array.add_wl_pins; local_bitcell_array.route",
+      "rule_description": "Each WL must have row-specific geometry-backed access aligned to row pitch.",
+      "required_geometry": "Per-row WL pin rectangles and driver landing shapes.",
+      "required_metadata": "row index to wl net map and row-order parity.",
+      "c0_blockers_addressed": "CONTRACT_ROUTE,MISSING_PIN_GEOMETRY",
+      "implemented_in_stage": "C2/C4"
+    },
+    {
+      "rule_name": "ArrayDummyReplicaBoundary",
+      "source_evidence": "replica_bitcell_array/capped_replica_bitcell_array",
+      "rule_description": "Dummy, replica, and cap structures must sit on array boundaries with defined timing/edge roles.",
+      "required_geometry": "Replica columns left/right, dummy rows top/bottom, optional cap cells around perimeter.",
+      "required_metadata": "which edges host replica or dummy structures and why.",
+      "c0_blockers_addressed": "FLOORPLAN_NOT_SRAM_LIKE,PLACEHOLDER_VISUAL_GEOMETRY",
+      "implemented_in_stage": "C3"
+    },
+    {
+      "rule_name": "ArraySupplyAccess",
+      "source_evidence": "bitcell_base_array.route_supplies; replica_bitcell_array.route_supplies",
+      "rule_description": "VDD/GND array access must be copied from real child rails before any top-level strap stitching.",
+      "required_geometry": "Per-instance supply pins or continuous rail shapes at the array edge.",
+      "required_metadata": "supply-layer ownership and tap candidates.",
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH,APPROXIMATE_POWER_GEOMETRY",
+      "implemented_in_stage": "C2/C5"
+    }
+  ],
+  "row_path_rules": [
+    {
+      "rule_name": "RowDecoderPlacement",
+      "source_evidence": "bank.compute_instance_port0_offsets / port_address.place_instances",
+      "rule_description": "Row decoder sits on the row-periphery side of the array and aligns to the main array vertical span.",
+      "required_geometry": "Decoder bbox, array edge alignment, decoder output access points.",
+      "required_metadata": "row decoder side, y-alignment anchor, decoder gap.",
+      "c0_blockers_addressed": "FLOORPLAN_NOT_SRAM_LIKE",
+      "implemented_in_stage": "C3"
+    },
+    {
+      "rule_name": "WordlineDriverPlacement",
+      "source_evidence": "local_bitcell_array.place; wordline_driver_array.place_drivers",
+      "rule_description": "Wordline drivers sit adjacent to the array with pitch-aware spacing and alternating row orientation.",
+      "required_geometry": "Driver array bbox, per-row output pins, spacing channel to array.",
+      "required_metadata": "driver_to_array_spacing, row order, mirror parity.",
+      "c0_blockers_addressed": "FLOORPLAN_NOT_SRAM_LIKE,MISSING_PIN_GEOMETRY",
+      "implemented_in_stage": "C2/C3"
+    },
+    {
+      "rule_name": "DecoderToDriverRouting",
+      "source_evidence": "port_address.route_internal",
+      "rule_description": "Decoder outputs connect to WL-driver inputs through explicit jog routes and via stacks.",
+      "required_geometry": "Pin-to-pin route segments between decode outputs and driver inputs.",
+      "required_metadata": "route layer, jog direction, per-row net mapping.",
+      "c0_blockers_addressed": "CONTRACT_ROUTE",
+      "implemented_in_stage": "C4"
+    },
+    {
+      "rule_name": "DriverToArrayWLRouting",
+      "source_evidence": "local_bitcell_array.route",
+      "rule_description": "Driver outputs land on array WL pins through local/global WL layer transitions, not through one abstract row stripe.",
+      "required_geometry": "Driver output access, WL vias, row-specific array landing geometry.",
+      "required_metadata": "global_wl_layer, local_wl_layer, row mapping.",
+      "c0_blockers_addressed": "CONTRACT_ROUTE,MISSING_PIN_GEOMETRY",
+      "implemented_in_stage": "C2/C4"
+    },
+    {
+      "rule_name": "RowPitchAlignment",
+      "source_evidence": "bitcell_base_array.place_array; wordline_driver_array.place_drivers",
+      "rule_description": "Each WL route and driver output must honor the underlying array row pitch.",
+      "required_geometry": "Uniform row-step geometry from array to row path.",
+      "required_metadata": "row_pitch and row index mapping.",
+      "c0_blockers_addressed": "PLACEHOLDER_VISUAL_GEOMETRY",
+      "implemented_in_stage": "C3/C4"
+    },
+    {
+      "rule_name": "RowPathPower",
+      "source_evidence": "port_address.route_supplies; wordline_driver_array.route_supplies",
+      "rule_description": "Row decoder and wordline-driver power rails must align with row-periphery geometry and remain stitchable to top rails.",
+      "required_geometry": "Continuous VDD/GND pins or rails over row path modules.",
+      "required_metadata": "power rail layer and connection side.",
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH",
+      "implemented_in_stage": "C2/C5"
+    }
+  ],
+  "column_path_rules": [
+    {
+      "rule_name": "PrechargePlacement",
+      "source_evidence": "port_data.add_modules; precharge_array.place_insts",
+      "rule_description": "Precharge cells align to raw bitline pitch at the array column edge, including optional replica-bitline extra column.",
+      "required_geometry": "Per-column precharge cell placement and BL/BR pin shapes.",
+      "required_metadata": "column offsets, column mirror parity, has_rbl side.",
+      "c0_blockers_addressed": "MISSING_PIN_GEOMETRY,CONTRACT_ROUTE",
+      "implemented_in_stage": "C2/C3"
+    },
+    {
+      "rule_name": "ColumnMuxPlacement",
+      "source_evidence": "column_mux_array.setup_layout_constants/place_array",
+      "rule_description": "Column mux sits between raw BL/BR and word-owned read/write stages, with reserved select/output routing height.",
+      "required_geometry": "Mux bbox, select rail channels, output join rails.",
+      "required_metadata": "words_per_row, select-layer pitch, mux grouping.",
+      "c0_blockers_addressed": "PLACEHOLDER_VISUAL_GEOMETRY,CONTRACT_ROUTE",
+      "implemented_in_stage": "C3/C4"
+    },
+    {
+      "rule_name": "SenseAmpPlacement",
+      "source_evidence": "sense_amp_array.place_sense_amp_array",
+      "rule_description": "Sense amps align to word outputs, not every raw column, so words-per-row controls their x ownership.",
+      "required_geometry": "Word-level sense amp positions and output pin geometry.",
+      "required_metadata": "words_per_row to column ownership map.",
+      "c0_blockers_addressed": "CONTRACT_ROUTE,FLOORPLAN_NOT_SRAM_LIKE",
+      "implemented_in_stage": "C3/C4"
+    },
+    {
+      "rule_name": "WriteDriverPlacement",
+      "source_evidence": "write_driver_array.place_write_array",
+      "rule_description": "Write drivers align to word outputs and handle spare columns separately from regular word lanes.",
+      "required_geometry": "Per-word write-driver geometry and enable rails.",
+      "required_metadata": "write_size, words_per_row, spare column ownership.",
+      "c0_blockers_addressed": "CONTRACT_ROUTE,FLOORPLAN_NOT_SRAM_LIKE",
+      "implemented_in_stage": "C3/C4"
+    },
+    {
+      "rule_name": "BLBRConnectivityChain",
+      "source_evidence": "port_data.route_data_lines",
+      "rule_description": "BL/BR must connect through a physical chain: array <-> precharge <-> mux/sense/write, depending on mode and words-per-row.",
+      "required_geometry": "Distinct pin-to-pin routes for each consumer stage.",
+      "required_metadata": "mode-aware chain ownership and net aliases.",
+      "c0_blockers_addressed": "CONTRACT_ROUTE",
+      "implemented_in_stage": "C4"
+    },
+    {
+      "rule_name": "ColumnPathPower",
+      "source_evidence": "precharge_array.route_supplies; sense_amp_array.route_supplies; write_driver_array.route_supplies",
+      "rule_description": "Each column path stage exports local VDD/GND rails that must be stitched to top-level power with real taps.",
+      "required_geometry": "Stage-local rail shapes and tap landing points.",
+      "required_metadata": "supply layer, edge orientation, top strap targets.",
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH,APPROXIMATE_POWER_GEOMETRY",
+      "implemented_in_stage": "C2/C5"
+    }
+  ],
+  "control_io_rules": [
+    {
+      "rule_name": "ControlLogicPlacement",
+      "source_evidence": "sram_1bank.place_control; bank.compute_instance_offsets",
+      "rule_description": "Control logic is placed relative to the bank array and row/data periphery so that control spines can reach both sides cleanly.",
+      "required_geometry": "Control logic bbox and anchor relative to array center.",
+      "required_metadata": "control_logic_center, bank array anchors.",
+      "c0_blockers_addressed": "FLOORPLAN_NOT_SRAM_LIKE",
+      "implemented_in_stage": "C3"
+    },
+    {
+      "rule_name": "DelayReplicaPlacement",
+      "source_evidence": "sram_1bank.place_control; bank.route_rbl",
+      "rule_description": "Delay/replica timing structures stay physically aligned to array-side replica geometry and feed control logic through explicit RBL routing.",
+      "required_geometry": "Replica BL geometry and delay-chain placement window.",
+      "required_metadata": "rbl source/target mapping and edge ownership.",
+      "c0_blockers_addressed": "CONTRACT_ROUTE,MISSING_PIN_GEOMETRY",
+      "implemented_in_stage": "C2/C3/C4"
+    },
+    {
+      "rule_name": "ControlEnableDistribution",
+      "source_evidence": "sram_1bank.route_control_logic; sense_amp_array.route_rails; write_driver_array.add_layout_pins",
+      "rule_description": "precharge_en/sense_en/write_en/wordline_en must be distributed on explicit buses or rails to actual sink pins.",
+      "required_geometry": "Control spine segments, vias, and sink landing shapes.",
+      "required_metadata": "sink list by net and route layer ownership.",
+      "c0_blockers_addressed": "CONTRACT_ROUTE",
+      "implemented_in_stage": "C2/C4"
+    },
+    {
+      "rule_name": "ClockSpineDistribution",
+      "source_evidence": "sram_1bank.route_clk",
+      "rule_description": "clk and buffered clock are routed as spines with defined branch points into control and DFF clusters.",
+      "required_geometry": "Clock trunk, branches, and via stacks.",
+      "required_metadata": "clock fanout map and route stack.",
+      "c0_blockers_addressed": "CONTRACT_ROUTE,PLACEHOLDER_VISUAL_GEOMETRY",
+      "implemented_in_stage": "C4"
+    },
+    {
+      "rule_name": "AddressDinDoutOrganization",
+      "source_evidence": "sram_1bank.add_layout_pins; route_row_addr_dff; route_data_dffs",
+      "rule_description": "addr, din, and dout should originate from the corresponding flop/bank child pins and then escape to the perimeter through explicit routing.",
+      "required_geometry": "Instance-backed IO pins and escape routes.",
+      "required_metadata": "which instance owns each external IO bit.",
+      "c0_blockers_addressed": "MISSING_TOP_PIN_GEOMETRY,MISSING_LVS_READY_NET_MAPPING",
+      "implemented_in_stage": "C4/C6"
+    },
+    {
+      "rule_name": "TopPinPlacement",
+      "source_evidence": "sram_1bank.route_escape_pins; signal_escape_router",
+      "rule_description": "Top-level pins belong on the perimeter after escape routing is complete and should correspond to routed internal geometry.",
+      "required_geometry": "Perimeter pin shapes and matching internal routes.",
+      "required_metadata": "top pin side, layer, net name, source instance.",
+      "c0_blockers_addressed": "MISSING_TOP_PIN_GEOMETRY",
+      "implemented_in_stage": "C4/C6"
+    }
+  ],
+  "power_rules": [
+    {
+      "rule_name": "ArrayInternalRails",
+      "source_evidence": "bitcell_base_array.route_supplies; reference GDS bitcell/dummy rail propagation",
+      "rule_description": "Array-internal VDD/GND should propagate from the bitcell and dummy/replica children, preserving their orientation and edge reach.",
+      "required_geometry": "Array-local supply pins or continuous rails.",
+      "required_metadata": "rail layer, side/orientation, cell parity effects.",
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH,MISSING_PIN_GEOMETRY",
+      "implemented_in_stage": "C2/C5"
+    },
+    {
+      "rule_name": "RowPeripheryRails",
+      "source_evidence": "port_address.route_supplies; wordline_driver_array.route_supplies",
+      "rule_description": "Row decoder and wordline drivers need explicit row-periphery rails aligned for later top-level stitch.",
+      "required_geometry": "Vertical/horizontal row-periphery rails with true pins.",
+      "required_metadata": "rail orientation by module.",
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH",
+      "implemented_in_stage": "C2/C5"
+    },
+    {
+      "rule_name": "ColumnPeripheryRails",
+      "source_evidence": "precharge_array.route_supplies; sense_amp_array.route_supplies; write_driver_array.route_supplies",
+      "rule_description": "Precharge, mux, sense, and write stages require stage-local rails before top-level straps are added.",
+      "required_geometry": "Per-stage VDD/GND rails and tap points.",
+      "required_metadata": "column stage to rail mapping.",
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH,APPROXIMATE_POWER_GEOMETRY",
+      "implemented_in_stage": "C2/C5"
+    },
+    {
+      "rule_name": "ControlPeripheryRails",
+      "source_evidence": "sram_1bank.route_layout; supply_router",
+      "rule_description": "Control region needs its own stitchable rails or ring targets before top-level strap export.",
+      "required_geometry": "Control VDD/GND rails and side/ring targets.",
+      "required_metadata": "power pin type and stitch policy.",
+      "c0_blockers_addressed": "CONTRACT_POWER_STITCH,APPROXIMATE_POWER_GEOMETRY",
+      "implemented_in_stage": "C2/C5"
+    },
+    {
+      "rule_name": "TopLevelPowerStraps",
+      "source_evidence": "supply_router.add_side_pin/add_ring_pin",
+      "rule_description": "Top-level VDD/GND straps or rings should be created after sink rails are known and must connect through explicit taps/vias.",
+      "required_geometry": "Top straps, corner vias, module-rail taps.",
+      "required_metadata": "strap layer stack, side or ring selection.",
+      "c0_blockers_addressed": "APPROXIMATE_POWER_GEOMETRY,CONTRACT_POWER_STITCH",
+      "implemented_in_stage": "C5"
+    },
+    {
+      "rule_name": "TopPowerPins",
+      "source_evidence": "supply_router.route; hierarchy_layout.copy_power_pins",
+      "rule_description": "Top-level VDD/GND pins must coincide with real strap/ring geometry and not be isolated placeholders.",
+      "required_geometry": "Exported top VDD/GND pin rectangles on final strap/ring layers.",
+      "required_metadata": "top power pin layer/name mapping.",
+      "c0_blockers_addressed": "APPROXIMATE_POWER_GEOMETRY,MISSING_TOP_PIN_GEOMETRY",
+      "implemented_in_stage": "C5/C6"
+    }
+  ],
+  "pin_label_layer_rules": [
+    {
+      "rule_name": "GeometryBackedMinimum",
+      "source_evidence": "hierarchy_layout.add_layout_pin / add_layout_pin_segment_center",
+      "rule_description": "A complete-GDS pin must have geometry bbox, layer, and stable net name. A label alone is insufficient.",
+      "required_geometry": "Pin rectangle or routed pin segment on a real layer.",
+      "required_metadata": "net name, bbox, layer, owning instance/module.",
+      "c0_blockers_addressed": "MISSING_PIN_GEOMETRY,MISSING_TOP_PIN_GEOMETRY",
+      "implemented_in_stage": "C2/C6"
+    },
+    {
+      "rule_name": "SynthesizedPinAllowance",
+      "source_evidence": "hierarchy_layout.copy_layout_pin / add_io_pin",
+      "rule_description": "Synthesized pins are only acceptable when they are copied or routed from real child geometry, not invented without a geometry source.",
+      "required_geometry": "Child-backed geometry and optional escape-routed replacement pin.",
+      "required_metadata": "source instance pin reference and replacement history.",
+      "c0_blockers_addressed": "MISSING_TOP_PIN_GEOMETRY",
+      "implemented_in_stage": "C2/C4/C6"
+    },
+    {
+      "rule_name": "LabelOnlyBoundary",
+      "source_evidence": "hierarchy_layout.add_label_pin",
+      "rule_description": "Label-only correspondence points can help debug LVS but cannot serve as complete-GDS connectivity evidence.",
+      "required_geometry": "None; this is explicitly non-sufficient.",
+      "required_metadata": "must be marked as label-only or correspondence-only.",
+      "c0_blockers_addressed": "MISSING_PIN_GEOMETRY",
+      "implemented_in_stage": "C6"
+    },
+    {
+      "rule_name": "PinShapeLabelConsistency",
+      "source_evidence": "hierarchy_layout.add_layout_pin / replace_layout_pin",
+      "rule_description": "Pin bbox, layer, label text, and net name must remain consistent when a pin is moved or replaced.",
+      "required_geometry": "Final pin shape plus any retained internal route geometry.",
+      "required_metadata": "pin-to-net and old-to-new pin mapping.",
+      "c0_blockers_addressed": "MISSING_LVS_READY_NET_MAPPING,MISSING_TOP_PIN_GEOMETRY",
+      "implemented_in_stage": "C4/C6"
+    },
+    {
+      "rule_name": "NetToShapeTruth",
+      "source_evidence": "hierarchy_layout.replace_layout_pin; signal_escape_router.replace_layout_pins",
+      "rule_description": "net_to_shape_map must point to real GDS shapes that survive into the final top cell, not to report-only bbox rows.",
+      "required_geometry": "GDS-resident shapes with stable bbox and layer.",
+      "required_metadata": "net_to_shape entry id, shape bbox, shape layer, source evidence path.",
+      "c0_blockers_addressed": "MISSING_LVS_READY_NET_MAPPING,PLACEHOLDER_VISUAL_GEOMETRY",
+      "implemented_in_stage": "C4/C6"
+    }
+  ],
+  "complete_gds_requirements": [
+    {
+      "requirement_id": "REQ_C2_01",
+      "requirement_area": "C2 pin access requirements",
+      "minimum_requirement": "Every WL/BL/BR/control/VDD/GND/top-IO sink or source needed by current supported config must have geometry-backed access or a geometry-backed synthesized replacement pin.",
+      "target_stage": "C2",
+      "evidence_needed": "Pin inventories updated to GEOMETRY_BACKED_PIN with bbox/layer/net ownership.",
+      "still_not_signoff_boundary": "This does not imply DRC/LVS closure."
+    },
+    {
+      "requirement_id": "REQ_C3_01",
+      "requirement_area": "C3 floorplan requirements",
+      "minimum_requirement": "Array must be the macro core; row, column, control, dummy, replica, and boundary structures must be placed relative to actual array pitch and edge access windows.",
+      "target_stage": "C3",
+      "evidence_needed": "Updated floorplan report and region bboxes derived from actual geometry.",
+      "still_not_signoff_boundary": "This does not imply congestion-free final routing."
+    },
+    {
+      "requirement_id": "REQ_C4_01",
+      "requirement_area": "C4 signal routing requirements",
+      "minimum_requirement": "WL/BL/BR/control/clk/addr/din/dout/top-IO routes must exist as real GDS geometry between source and target access points.",
+      "target_stage": "C4",
+      "evidence_needed": "Real geometry inventory with pin-to-pin routes and no contract-only dependencies for required nets.",
+      "still_not_signoff_boundary": "This does not imply timing closure or global route optimality."
+    },
+    {
+      "requirement_id": "REQ_C5_01",
+      "requirement_area": "C5 power network requirements",
+      "minimum_requirement": "VDD/GND must connect module rails to top-level straps/pins through real taps and vias; no contract-only power stitches may remain.",
+      "target_stage": "C5",
+      "evidence_needed": "Power continuity inventory with geometry-backed rails, taps, and top power pins.",
+      "still_not_signoff_boundary": "This does not imply EM/IR signoff."
+    },
+    {
+      "requirement_id": "REQ_C6_01",
+      "requirement_area": "C6 validation requirements",
+      "minimum_requirement": "Net-to-shape evidence must refer to actual GDS shapes, and the repaired top GDS must parse, map, and preserve hierarchy consistently for current supported config.",
+      "target_stage": "C6",
+      "evidence_needed": "Final geometry-backed audits and parsed GDS comparison.",
+      "still_not_signoff_boundary": "This does not imply full LVS-clean or DRC-clean status unless separately proven."
+    },
+    {
+      "requirement_id": "REQ_C6_02",
+      "requirement_area": "complete GDS claim requirements",
+      "minimum_requirement": "The minimum complete-GDS bar is geometry-backed connectivity for the current supported config across signal, power, and top pins.",
+      "target_stage": "C6",
+      "evidence_needed": "Contract/approximate counts reduced to zero for required complete-GDS claim scope.",
+      "still_not_signoff_boundary": "Complete GDS is not equivalent to timing signoff, DRC signoff, or LVS signoff."
+    }
+  ]
+}

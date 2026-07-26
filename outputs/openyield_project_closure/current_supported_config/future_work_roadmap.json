@@ -1,0 +1,162 @@
+{
+  "future_work_items": [
+    {
+      "phase": "DRC_CLEAN",
+      "order_index": 1,
+      "title": "DRC deck / layer map / source geometry grid audit",
+      "next_action": "先判断 FreePDK45 deck grid 与 imported source geometry 是否系统性不一致。",
+      "expected_outputs": [
+        "updated reports",
+        "new evidence",
+        "rerun validation/triage"
+      ]
+    },
+    {
+      "phase": "DRC_CLEAN",
+      "order_index": 2,
+      "title": "imported GDS off-grid snapping 或 deck policy decision",
+      "next_action": "确定是修 source geometry、做 grid snapping，还是调整 deck policy。",
+      "expected_outputs": [
+        "updated reports",
+        "new evidence",
+        "rerun validation/triage"
+      ]
+    },
+    {
+      "phase": "DRC_CLEAN",
+      "order_index": 3,
+      "title": "contract pins 转 geometry-backed pin",
+      "next_action": "把 contract pin 模块转成 geometry-backed pin/access proof。",
+      "expected_outputs": [
+        "updated reports",
+        "new evidence",
+        "rerun validation/triage"
+      ]
+    },
+    {
+      "phase": "DRC_CLEAN",
+      "order_index": 4,
+      "title": "row_decoder candidate geometry cleanup",
+      "next_action": "对 row_decoder 做 generator-level cleanup。",
+      "expected_outputs": [
+        "updated reports",
+        "new evidence",
+        "rerun validation/triage"
+      ]
+    },
+    {
+      "phase": "DRC_CLEAN",
+      "order_index": 5,
+      "title": "hardmacro internal DRC audit",
+      "next_action": "审计 wordline_driver / column_mux 的 imported hardmacro 内部 DRC。",
+      "expected_outputs": [
+        "updated reports",
+        "new evidence",
+        "rerun validation/triage"
+      ]
+    },
+    {
+      "phase": "DRC_CLEAN",
+      "order_index": 6,
+      "title": "wrapper import artifact review",
+      "next_action": "复核 write_driver / sense_amp 的 wrapper import artifact。",
+      "expected_outputs": [
+        "updated reports",
+        "new evidence",
+        "rerun validation/triage"
+      ]
+    },
+    {
+      "phase": "DRC_CLEAN",
+      "order_index": 7,
+      "title": "rerun DRC and compare marker deltas",
+      "next_action": "每轮修复后重新运行 DRC，并比较 marker delta。",
+      "expected_outputs": [
+        "updated reports",
+        "new evidence",
+        "rerun validation/triage"
+      ]
+    },
+    {
+      "phase": "DRC_CLEAN",
+      "order_index": 8,
+      "title": "repeat targeted generator repair until marker count substantially decreases",
+      "next_action": "持续按 root cause priority 迭代，直到系统性 marker 大幅下降。",
+      "expected_outputs": [
+        "updated reports",
+        "new evidence",
+        "rerun validation/triage"
+      ]
+    },
+    {
+      "phase": "LVS_TIMING",
+      "order_index": 1,
+      "title": "export consistent top-level netlist",
+      "next_action": "导出与当前 top-level GDS 对齐的顶层网表。",
+      "expected_outputs": [
+        "netlist evidence",
+        "LVS/timing reports"
+      ]
+    },
+    {
+      "phase": "LVS_TIMING",
+      "order_index": 2,
+      "title": "establish module-to-netlist mapping",
+      "next_action": "建立 module GDS 到 netlist object 的稳定映射。",
+      "expected_outputs": [
+        "netlist evidence",
+        "LVS/timing reports"
+      ]
+    },
+    {
+      "phase": "LVS_TIMING",
+      "order_index": 3,
+      "title": "build pin geometry to net mapping",
+      "next_action": "把 geometry-backed pins 映射到 netlist pins。",
+      "expected_outputs": [
+        "netlist evidence",
+        "LVS/timing reports"
+      ]
+    },
+    {
+      "phase": "LVS_TIMING",
+      "order_index": 4,
+      "title": "resolve contract pin modules",
+      "next_action": "先消除 contract pin 模块，再推进 LVS。",
+      "expected_outputs": [
+        "netlist evidence",
+        "LVS/timing reports"
+      ]
+    },
+    {
+      "phase": "LVS_TIMING",
+      "order_index": 5,
+      "title": "run LVS feasibility smoke",
+      "next_action": "在 consistent netlist 存在后先跑 feasibility smoke。",
+      "expected_outputs": [
+        "netlist evidence",
+        "LVS/timing reports"
+      ]
+    },
+    {
+      "phase": "LVS_TIMING",
+      "order_index": 6,
+      "title": "only after LVS feasibility, attempt LVS clean",
+      "next_action": "只有 feasibility 稳定后才进入 LVS clean 目标。",
+      "expected_outputs": [
+        "netlist evidence",
+        "LVS/timing reports"
+      ]
+    },
+    {
+      "phase": "LVS_TIMING",
+      "order_index": 7,
+      "title": "timing closure 需建立 path-level evidence",
+      "next_action": "后续 timing closure 需要 SPEF/RC/path-level evidence，当前不 claim。",
+      "expected_outputs": [
+        "netlist evidence",
+        "LVS/timing reports"
+      ]
+    }
+  ]
+}

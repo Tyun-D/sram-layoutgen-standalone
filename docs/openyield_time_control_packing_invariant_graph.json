@@ -1,0 +1,211 @@
+{
+  "scope": "step6_33_openyield_time_control_packing_invariant_audit",
+  "nodes": [
+    {
+      "id": "ADDR_DFF_ROW",
+      "kind": "subblock"
+    },
+    {
+      "id": "DATA_DFF_ROW",
+      "kind": "subblock"
+    },
+    {
+      "id": "DELAY_CHAIN_CLUSTER",
+      "kind": "subblock"
+    },
+    {
+      "id": "WEN_DELAY_CHAIN_CLUSTER",
+      "kind": "subblock"
+    },
+    {
+      "id": "PDRIVE_CLUSTER",
+      "kind": "subblock"
+    },
+    {
+      "id": "GENERATED_LOGIC_CLUSTER",
+      "kind": "subblock"
+    },
+    {
+      "id": "PRECHARGE_HANDOFF",
+      "kind": "subblock"
+    },
+    {
+      "id": "SENSEAMP_HANDOFF",
+      "kind": "subblock"
+    },
+    {
+      "id": "WRITEDRIVER_HANDOFF",
+      "kind": "subblock"
+    },
+    {
+      "id": "WORDLINEDRIVER_HANDOFF",
+      "kind": "subblock"
+    },
+    {
+      "id": "DECODER_INTERFACE",
+      "kind": "subblock"
+    },
+    {
+      "id": "delay_chain_region",
+      "kind": "region"
+    },
+    {
+      "id": "pdrive_region",
+      "kind": "region"
+    },
+    {
+      "id": "generated_logic_region",
+      "kind": "region"
+    },
+    {
+      "id": "consumer_handoff_region",
+      "kind": "region"
+    },
+    {
+      "id": "precharge_control_region",
+      "kind": "region"
+    },
+    {
+      "id": "wordline_enable_control_region",
+      "kind": "region"
+    },
+    {
+      "id": "sense_write_enable_region",
+      "kind": "region"
+    },
+    {
+      "id": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "kind": "handoff"
+    },
+    {
+      "id": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+      "kind": "handoff"
+    },
+    {
+      "id": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+      "kind": "handoff"
+    },
+    {
+      "id": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+      "kind": "handoff"
+    }
+  ],
+  "edges": [
+    {
+      "source": "ADDR_DFF_ROW",
+      "target": "generated_logic_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "DATA_DFF_ROW",
+      "target": "generated_logic_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "DELAY_CHAIN_CLUSTER",
+      "target": "delay_chain_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "WEN_DELAY_CHAIN_CLUSTER",
+      "target": "sense_write_enable_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "PDRIVE_CLUSTER",
+      "target": "pdrive_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "GENERATED_LOGIC_CLUSTER",
+      "target": "generated_logic_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "PRECHARGE_HANDOFF",
+      "target": "precharge_control_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "SENSEAMP_HANDOFF",
+      "target": "sense_write_enable_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "WRITEDRIVER_HANDOFF",
+      "target": "sense_write_enable_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "WORDLINEDRIVER_HANDOFF",
+      "target": "wordline_enable_control_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "DECODER_INTERFACE",
+      "target": "consumer_handoff_region",
+      "relation": "assigned_region"
+    },
+    {
+      "source": "PRECHARGE_HANDOFF",
+      "target": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "relation": "handoff_alignment"
+    },
+    {
+      "source": "SENSEAMP_HANDOFF",
+      "target": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+      "relation": "handoff_alignment"
+    },
+    {
+      "source": "WRITEDRIVER_HANDOFF",
+      "target": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+      "relation": "handoff_alignment"
+    },
+    {
+      "source": "WORDLINEDRIVER_HANDOFF",
+      "target": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+      "relation": "handoff_alignment"
+    },
+    {
+      "source": "DELAY_CHAIN_CLUSTER",
+      "target": "GENERATED_LOGIC_CLUSTER",
+      "relation": "adjacency_invariant"
+    },
+    {
+      "source": "PDRIVE_CLUSTER",
+      "target": "GENERATED_LOGIC_CLUSTER",
+      "relation": "adjacency_invariant"
+    },
+    {
+      "source": "GENERATED_LOGIC_CLUSTER",
+      "target": "DECODER_INTERFACE",
+      "relation": "adjacency_invariant"
+    },
+    {
+      "source": "GENERATED_LOGIC_CLUSTER",
+      "target": "PRECHARGE_HANDOFF",
+      "relation": "adjacency_invariant"
+    },
+    {
+      "source": "GENERATED_LOGIC_CLUSTER",
+      "target": "WORDLINEDRIVER_HANDOFF",
+      "relation": "adjacency_invariant"
+    },
+    {
+      "source": "SENSEAMP_HANDOFF",
+      "target": "WRITEDRIVER_HANDOFF",
+      "relation": "adjacency_invariant"
+    }
+  ],
+  "summary": {
+    "packing_invariant_audit_available": true,
+    "required_groups_present": true,
+    "consumer_handoff_regions_aligned": true,
+    "required_adjacency_invariants_hold": true,
+    "all_region_channel_margins_non_negative": true,
+    "invariants_clean": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  }
+}

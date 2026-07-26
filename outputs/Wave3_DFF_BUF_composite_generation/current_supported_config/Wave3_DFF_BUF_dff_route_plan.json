@@ -1,0 +1,1112 @@
+{
+  "routing_architecture": "M1_HORIZONTAL_TRACK_M2_VERTICAL_DROP",
+  "route_segments": [
+    {
+      "net_name": "CLK",
+      "layer": "m1",
+      "start": [
+        6.7075,
+        2.29
+      ],
+      "end": [
+        17.165,
+        2.29
+      ],
+      "width": 0.065,
+      "source_pin": "CLK_TRACK_START",
+      "destination_pin": "CLK_TRACK_END",
+      "obstacle_clearance": 0.065,
+      "route_order": 0,
+      "geometry_id": "CLK_track"
+    },
+    {
+      "net_name": "D",
+      "layer": "m1",
+      "start": [
+        -0.45,
+        2.5
+      ],
+      "end": [
+        16.715,
+        2.5
+      ],
+      "width": 0.065,
+      "source_pin": "D_TRACK_START",
+      "destination_pin": "D_TRACK_END",
+      "obstacle_clearance": 0.065,
+      "route_order": 1,
+      "geometry_id": "D_track"
+    },
+    {
+      "net_name": "qint",
+      "layer": "m1",
+      "start": [
+        13.095,
+        2.71
+      ],
+      "end": [
+        16.715,
+        2.71
+      ],
+      "width": 0.065,
+      "source_pin": "qint_TRACK_START",
+      "destination_pin": "qint_TRACK_END",
+      "obstacle_clearance": 0.065,
+      "route_order": 2,
+      "geometry_id": "qint_track"
+    },
+    {
+      "net_name": "qint",
+      "layer": "m2",
+      "start": [
+        13.095,
+        4.2425
+      ],
+      "end": [
+        13.095,
+        2.6425
+      ],
+      "width": 0.07,
+      "source_pin": "dff.Q",
+      "destination_pin": "qint_TRACK",
+      "obstacle_clearance": 0.07,
+      "route_order": 2,
+      "geometry_id": "qint_column_dff.Q"
+    },
+    {
+      "net_name": "qint",
+      "layer": "m2",
+      "start": [
+        14.09,
+        0.92
+      ],
+      "end": [
+        14.09,
+        2.6425
+      ],
+      "width": 0.07,
+      "source_pin": "inv1.A",
+      "destination_pin": "qint_TRACK",
+      "obstacle_clearance": 0.07,
+      "route_order": 2,
+      "geometry_id": "qint_column_inv1.A"
+    },
+    {
+      "net_name": "QB",
+      "layer": "m1",
+      "start": [
+        14.6875,
+        2.92
+      ],
+      "end": [
+        17.515,
+        2.92
+      ],
+      "width": 0.065,
+      "source_pin": "QB_TRACK_START",
+      "destination_pin": "QB_TRACK_END",
+      "obstacle_clearance": 0.065,
+      "route_order": 3,
+      "geometry_id": "QB_track"
+    },
+    {
+      "net_name": "QB",
+      "layer": "m2",
+      "start": [
+        14.6875,
+        0.92
+      ],
+      "end": [
+        14.6875,
+        2.8525
+      ],
+      "width": 0.07,
+      "source_pin": "inv1.Z",
+      "destination_pin": "QB_TRACK",
+      "obstacle_clearance": 0.07,
+      "route_order": 3,
+      "geometry_id": "QB_column_inv1.Z"
+    },
+    {
+      "net_name": "QB",
+      "layer": "m2",
+      "start": [
+        15.2375,
+        0.92
+      ],
+      "end": [
+        15.2375,
+        2.8525
+      ],
+      "width": 0.07,
+      "source_pin": "inv2.A",
+      "destination_pin": "QB_TRACK",
+      "obstacle_clearance": 0.07,
+      "route_order": 3,
+      "geometry_id": "QB_column_inv2.A"
+    },
+    {
+      "net_name": "Q",
+      "layer": "m1",
+      "start": [
+        15.865,
+        3.13
+      ],
+      "end": [
+        17.865,
+        3.13
+      ],
+      "width": 0.065,
+      "source_pin": "Q_TRACK_START",
+      "destination_pin": "Q_TRACK_END",
+      "obstacle_clearance": 0.065,
+      "route_order": 4,
+      "geometry_id": "Q_track"
+    },
+    {
+      "net_name": "Q",
+      "layer": "m2",
+      "start": [
+        15.865,
+        0.92
+      ],
+      "end": [
+        15.865,
+        3.0625
+      ],
+      "width": 0.07,
+      "source_pin": "inv2.Z",
+      "destination_pin": "Q_TRACK",
+      "obstacle_clearance": 0.07,
+      "route_order": 4,
+      "geometry_id": "Q_column_inv2.Z"
+    }
+  ],
+  "vias": [
+    {
+      "net_name": "qint",
+      "x": 13.095,
+      "y": 4.175,
+      "size": 0.065,
+      "landing": 0.135,
+      "route_order": 2,
+      "via_role": "pin_access"
+    },
+    {
+      "net_name": "qint",
+      "x": 13.095,
+      "y": 2.71,
+      "size": 0.065,
+      "landing": 0.135,
+      "route_order": 2,
+      "via_role": "track_drop"
+    },
+    {
+      "net_name": "qint",
+      "x": 14.09,
+      "y": 0.8525,
+      "size": 0.065,
+      "landing": 0.135,
+      "route_order": 2,
+      "via_role": "pin_access"
+    },
+    {
+      "net_name": "qint",
+      "x": 14.09,
+      "y": 2.71,
+      "size": 0.065,
+      "landing": 0.135,
+      "route_order": 2,
+      "via_role": "track_drop"
+    },
+    {
+      "net_name": "QB",
+      "x": 14.6875,
+      "y": 0.8525,
+      "size": 0.065,
+      "landing": 0.135,
+      "route_order": 3,
+      "via_role": "pin_access"
+    },
+    {
+      "net_name": "QB",
+      "x": 14.6875,
+      "y": 2.92,
+      "size": 0.065,
+      "landing": 0.135,
+      "route_order": 3,
+      "via_role": "track_drop"
+    },
+    {
+      "net_name": "QB",
+      "x": 15.2375,
+      "y": 0.8525,
+      "size": 0.065,
+      "landing": 0.135,
+      "route_order": 3,
+      "via_role": "pin_access"
+    },
+    {
+      "net_name": "QB",
+      "x": 15.2375,
+      "y": 2.92,
+      "size": 0.065,
+      "landing": 0.135,
+      "route_order": 3,
+      "via_role": "track_drop"
+    },
+    {
+      "net_name": "Q",
+      "x": 15.865,
+      "y": 0.8525,
+      "size": 0.065,
+      "landing": 0.135,
+      "route_order": 4,
+      "via_role": "pin_access"
+    },
+    {
+      "net_name": "Q",
+      "x": 15.865,
+      "y": 3.13,
+      "size": 0.065,
+      "landing": 0.135,
+      "route_order": 4,
+      "via_role": "track_drop"
+    }
+  ],
+  "route_graph": {
+    "nets": [
+      {
+        "net_name": "CLK",
+        "track_y": 2.29,
+        "endpoint_count": 2
+      },
+      {
+        "net_name": "D",
+        "track_y": 2.5,
+        "endpoint_count": 2
+      },
+      {
+        "net_name": "qint",
+        "track_y": 2.71,
+        "endpoint_count": 2
+      },
+      {
+        "net_name": "QB",
+        "track_y": 2.92,
+        "endpoint_count": 3
+      },
+      {
+        "net_name": "Q",
+        "track_y": 3.13,
+        "endpoint_count": 2
+      }
+    ]
+  },
+  "pin_access": {
+    "candidate_rows": [
+      {
+        "endpoint": "dff.CLK",
+        "instance_name": "dff",
+        "net_name": "CLK",
+        "candidate_direction": "up",
+        "selected_via_center": "[6.7075, 2.285]",
+        "m1_landing_bbox": "{'lx': 6.64, 'by': 2.2175, 'rx': 6.775, 'uy': 2.3525}",
+        "m2_landing_bbox": "{'lx': 6.64, 'by': 2.2175, 'rx': 6.775, 'uy': 2.3525}",
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "dff.CLK",
+        "instance_name": "dff",
+        "net_name": "CLK",
+        "candidate_direction": "left",
+        "selected_via_center": "[6.475, 2.085]",
+        "m1_landing_bbox": "{'lx': 6.4075, 'by': 2.0175, 'rx': 6.5425, 'uy': 2.1525}",
+        "m2_landing_bbox": "{'lx': 6.4075, 'by': 2.0175, 'rx': 6.5425, 'uy': 2.1525}",
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "dff.CLK",
+        "instance_name": "dff",
+        "net_name": "CLK",
+        "candidate_direction": "right",
+        "selected_via_center": "[6.94, 2.085]",
+        "m1_landing_bbox": "{'lx': 6.8725, 'by': 2.0175, 'rx': 7.0075, 'uy': 2.1525}",
+        "m2_landing_bbox": "{'lx': 6.8725, 'by': 2.0175, 'rx': 7.0075, 'uy': 2.1525}",
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "dff.D",
+        "instance_name": "dff",
+        "net_name": "D",
+        "candidate_direction": "up",
+        "selected_via_center": "[0.3225, 2.705]",
+        "m1_landing_bbox": "{'lx': 0.255, 'by': 2.6375, 'rx': 0.39, 'uy': 2.7725}",
+        "m2_landing_bbox": "{'lx': 0.255, 'by': 2.6375, 'rx': 0.39, 'uy': 2.7725}",
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "dff.D",
+        "instance_name": "dff",
+        "net_name": "D",
+        "candidate_direction": "left",
+        "selected_via_center": "[0.09, 2.505]",
+        "m1_landing_bbox": "{'lx': 0.0225, 'by': 2.4375, 'rx': 0.1575, 'uy': 2.5725}",
+        "m2_landing_bbox": "{'lx': 0.0225, 'by': 2.4375, 'rx': 0.1575, 'uy': 2.5725}",
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "dff.D",
+        "instance_name": "dff",
+        "net_name": "D",
+        "candidate_direction": "right",
+        "selected_via_center": "[0.555, 2.505]",
+        "m1_landing_bbox": "{'lx': 0.4875, 'by': 2.4375, 'rx': 0.6225, 'uy': 2.5725}",
+        "m2_landing_bbox": "{'lx': 0.4875, 'by': 2.4375, 'rx': 0.6225, 'uy': 2.5725}",
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "dff.Q",
+        "instance_name": "dff",
+        "net_name": "qint",
+        "candidate_direction": "up",
+        "selected_via_center": "[13.095, 4.175]",
+        "m1_landing_bbox": "{'lx': 13.0275, 'by': 4.1075, 'rx': 13.1625, 'uy': 4.2425}",
+        "m2_landing_bbox": "{'lx': 13.0275, 'by': 4.1075, 'rx': 13.1625, 'uy': 4.2425}",
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "dff.Q",
+        "instance_name": "dff",
+        "net_name": "qint",
+        "candidate_direction": "left",
+        "selected_via_center": "[12.8625, 3.975]",
+        "m1_landing_bbox": "{'lx': 12.795, 'by': 3.9075, 'rx': 12.93, 'uy': 4.0425}",
+        "m2_landing_bbox": "{'lx': 12.795, 'by': 3.9075, 'rx': 12.93, 'uy': 4.0425}",
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "dff.Q",
+        "instance_name": "dff",
+        "net_name": "qint",
+        "candidate_direction": "right",
+        "selected_via_center": "[13.3275, 3.975]",
+        "m1_landing_bbox": "{'lx': 13.26, 'by': 3.9075, 'rx': 13.395, 'uy': 4.0425}",
+        "m2_landing_bbox": "{'lx': 13.26, 'by': 3.9075, 'rx': 13.395, 'uy': 4.0425}",
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "inv1.A",
+        "instance_name": "inv1",
+        "net_name": "qint",
+        "candidate_direction": "left",
+        "selected_via_center": "[14.09, 0.8525]",
+        "m1_landing_bbox": "{'lx': 14.0225, 'by': 0.785, 'rx': 14.1575, 'uy': 0.92}",
+        "m2_landing_bbox": "{'lx': 14.0225, 'by': 0.785, 'rx': 14.1575, 'uy': 0.92}",
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "inv1.A",
+        "instance_name": "inv1",
+        "net_name": "qint",
+        "candidate_direction": "up",
+        "selected_via_center": "[14.29, 1.0175]",
+        "m1_landing_bbox": "{'lx': 14.2225, 'by': 0.95, 'rx': 14.3575, 'uy': 1.085}",
+        "m2_landing_bbox": "{'lx': 14.2225, 'by': 0.95, 'rx': 14.3575, 'uy': 1.085}",
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "inv1.A",
+        "instance_name": "inv1",
+        "net_name": "qint",
+        "candidate_direction": "right",
+        "selected_via_center": "[14.49, 0.8525]",
+        "m1_landing_bbox": "{'lx': 14.4225, 'by': 0.785, 'rx': 14.5575, 'uy': 0.92}",
+        "m2_landing_bbox": "{'lx': 14.4225, 'by': 0.785, 'rx': 14.5575, 'uy': 0.92}",
+        "grid_aligned": true,
+        "blocked": true
+      },
+      {
+        "endpoint": "inv1.Z",
+        "instance_name": "inv1",
+        "net_name": "QB",
+        "candidate_direction": "right",
+        "selected_via_center": "[14.6875, 0.8525]",
+        "m1_landing_bbox": "{'lx': 14.62, 'by': 0.785, 'rx': 14.755, 'uy': 0.92}",
+        "m2_landing_bbox": "{'lx': 14.62, 'by': 0.785, 'rx': 14.755, 'uy': 0.92}",
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "inv1.Z",
+        "instance_name": "inv1",
+        "net_name": "QB",
+        "candidate_direction": "up",
+        "selected_via_center": "[14.5225, 1.0175]",
+        "m1_landing_bbox": "{'lx': 14.455, 'by': 0.95, 'rx': 14.59, 'uy': 1.085}",
+        "m2_landing_bbox": "{'lx': 14.455, 'by': 0.95, 'rx': 14.59, 'uy': 1.085}",
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "inv1.Z",
+        "instance_name": "inv1",
+        "net_name": "QB",
+        "candidate_direction": "left",
+        "selected_via_center": "[14.3575, 0.8525]",
+        "m1_landing_bbox": "{'lx': 14.29, 'by': 0.785, 'rx': 14.425, 'uy': 0.92}",
+        "m2_landing_bbox": "{'lx': 14.29, 'by': 0.785, 'rx': 14.425, 'uy': 0.92}",
+        "grid_aligned": true,
+        "blocked": true
+      },
+      {
+        "endpoint": "inv2.A",
+        "instance_name": "inv2",
+        "net_name": "QB",
+        "candidate_direction": "left",
+        "selected_via_center": "[15.2375, 0.8525]",
+        "m1_landing_bbox": "{'lx': 15.17, 'by': 0.785, 'rx': 15.305, 'uy': 0.92}",
+        "m2_landing_bbox": "{'lx': 15.17, 'by': 0.785, 'rx': 15.305, 'uy': 0.92}",
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "inv2.A",
+        "instance_name": "inv2",
+        "net_name": "QB",
+        "candidate_direction": "up",
+        "selected_via_center": "[15.4375, 1.0175]",
+        "m1_landing_bbox": "{'lx': 15.37, 'by': 0.95, 'rx': 15.505, 'uy': 1.085}",
+        "m2_landing_bbox": "{'lx': 15.37, 'by': 0.95, 'rx': 15.505, 'uy': 1.085}",
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "inv2.A",
+        "instance_name": "inv2",
+        "net_name": "QB",
+        "candidate_direction": "right",
+        "selected_via_center": "[15.6375, 0.8525]",
+        "m1_landing_bbox": "{'lx': 15.57, 'by': 0.785, 'rx': 15.705, 'uy': 0.92}",
+        "m2_landing_bbox": "{'lx': 15.57, 'by': 0.785, 'rx': 15.705, 'uy': 0.92}",
+        "grid_aligned": true,
+        "blocked": true
+      },
+      {
+        "endpoint": "inv2.Z",
+        "instance_name": "inv2",
+        "net_name": "Q",
+        "candidate_direction": "right",
+        "selected_via_center": "[15.865, 0.8525]",
+        "m1_landing_bbox": "{'lx': 15.7975, 'by': 0.785, 'rx': 15.9325, 'uy': 0.92}",
+        "m2_landing_bbox": "{'lx': 15.7975, 'by': 0.785, 'rx': 15.9325, 'uy': 0.92}",
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "inv2.Z",
+        "instance_name": "inv2",
+        "net_name": "Q",
+        "candidate_direction": "up",
+        "selected_via_center": "[15.7, 1.0175]",
+        "m1_landing_bbox": "{'lx': 15.6325, 'by': 0.95, 'rx': 15.7675, 'uy': 1.085}",
+        "m2_landing_bbox": "{'lx': 15.6325, 'by': 0.95, 'rx': 15.7675, 'uy': 1.085}",
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "inv2.Z",
+        "instance_name": "inv2",
+        "net_name": "Q",
+        "candidate_direction": "left",
+        "selected_via_center": "[15.535, 0.8525]",
+        "m1_landing_bbox": "{'lx': 15.4675, 'by': 0.785, 'rx': 15.6025, 'uy': 0.92}",
+        "m2_landing_bbox": "{'lx': 15.4675, 'by': 0.785, 'rx': 15.6025, 'uy': 0.92}",
+        "grid_aligned": true,
+        "blocked": true
+      }
+    ],
+    "decision_rows": [
+      {
+        "endpoint": "dff.CLK",
+        "instance_name": "dff",
+        "net_name": "CLK",
+        "candidate_count": 3,
+        "selected_candidate": "up",
+        "selected_via_center": "[6.7075, 2.285]",
+        "m1_landing_bbox": "{'lx': 6.64, 'by': 2.2175, 'rx': 6.775, 'uy': 2.3525}",
+        "m2_landing_bbox": "{'lx': 6.64, 'by': 2.2175, 'rx': 6.775, 'uy': 2.3525}",
+        "escape_segment_bbox": "{'lx': 6.64, 'by': 2.0175, 'rx': 6.775, 'uy': 2.285}",
+        "nearest_m1_obstacle_distance": 0.065,
+        "nearest_m2_obstacle_distance": 0.065,
+        "grid_aligned": true,
+        "access_status": "PLANNED",
+        "failure_reason": ""
+      },
+      {
+        "endpoint": "dff.D",
+        "instance_name": "dff",
+        "net_name": "D",
+        "candidate_count": 3,
+        "selected_candidate": "up",
+        "selected_via_center": "[0.3225, 2.705]",
+        "m1_landing_bbox": "{'lx': 0.255, 'by': 2.6375, 'rx': 0.39, 'uy': 2.7725}",
+        "m2_landing_bbox": "{'lx': 0.255, 'by': 2.6375, 'rx': 0.39, 'uy': 2.7725}",
+        "escape_segment_bbox": "{'lx': 0.255, 'by': 2.4375, 'rx': 0.39, 'uy': 2.705}",
+        "nearest_m1_obstacle_distance": 0.065,
+        "nearest_m2_obstacle_distance": 0.065,
+        "grid_aligned": true,
+        "access_status": "PLANNED",
+        "failure_reason": ""
+      },
+      {
+        "endpoint": "dff.Q",
+        "instance_name": "dff",
+        "net_name": "qint",
+        "candidate_count": 3,
+        "selected_candidate": "up",
+        "selected_via_center": "[13.095, 4.175]",
+        "m1_landing_bbox": "{'lx': 13.0275, 'by': 4.1075, 'rx': 13.1625, 'uy': 4.2425}",
+        "m2_landing_bbox": "{'lx': 13.0275, 'by': 4.1075, 'rx': 13.1625, 'uy': 4.2425}",
+        "escape_segment_bbox": "{'lx': 13.0275, 'by': 3.9075, 'rx': 13.1625, 'uy': 4.175}",
+        "nearest_m1_obstacle_distance": 0.065,
+        "nearest_m2_obstacle_distance": 0.065,
+        "grid_aligned": true,
+        "access_status": "PLANNED",
+        "failure_reason": ""
+      },
+      {
+        "endpoint": "inv1.A",
+        "instance_name": "inv1",
+        "net_name": "qint",
+        "candidate_count": 3,
+        "selected_candidate": "left",
+        "selected_via_center": "[14.09, 0.8525]",
+        "m1_landing_bbox": "{'lx': 14.0225, 'by': 0.785, 'rx': 14.1575, 'uy': 0.92}",
+        "m2_landing_bbox": "{'lx': 14.0225, 'by': 0.785, 'rx': 14.1575, 'uy': 0.92}",
+        "escape_segment_bbox": "{'lx': 14.09, 'by': 0.785, 'rx': 14.3575, 'uy': 0.92}",
+        "nearest_m1_obstacle_distance": 0.065,
+        "nearest_m2_obstacle_distance": 0.065,
+        "grid_aligned": true,
+        "access_status": "PLANNED",
+        "failure_reason": ""
+      },
+      {
+        "endpoint": "inv1.Z",
+        "instance_name": "inv1",
+        "net_name": "QB",
+        "candidate_count": 3,
+        "selected_candidate": "right",
+        "selected_via_center": "[14.6875, 0.8525]",
+        "m1_landing_bbox": "{'lx': 14.62, 'by': 0.785, 'rx': 14.755, 'uy': 0.92}",
+        "m2_landing_bbox": "{'lx': 14.62, 'by': 0.785, 'rx': 14.755, 'uy': 0.92}",
+        "escape_segment_bbox": "{'lx': 14.49, 'by': 0.785, 'rx': 14.6875, 'uy': 0.92}",
+        "nearest_m1_obstacle_distance": 0.065,
+        "nearest_m2_obstacle_distance": 0.065,
+        "grid_aligned": true,
+        "access_status": "PLANNED",
+        "failure_reason": ""
+      },
+      {
+        "endpoint": "inv2.A",
+        "instance_name": "inv2",
+        "net_name": "QB",
+        "candidate_count": 3,
+        "selected_candidate": "left",
+        "selected_via_center": "[15.2375, 0.8525]",
+        "m1_landing_bbox": "{'lx': 15.17, 'by': 0.785, 'rx': 15.305, 'uy': 0.92}",
+        "m2_landing_bbox": "{'lx': 15.17, 'by': 0.785, 'rx': 15.305, 'uy': 0.92}",
+        "escape_segment_bbox": "{'lx': 15.2375, 'by': 0.785, 'rx': 15.505, 'uy': 0.92}",
+        "nearest_m1_obstacle_distance": 0.065,
+        "nearest_m2_obstacle_distance": 0.065,
+        "grid_aligned": true,
+        "access_status": "PLANNED",
+        "failure_reason": ""
+      },
+      {
+        "endpoint": "inv2.Z",
+        "instance_name": "inv2",
+        "net_name": "Q",
+        "candidate_count": 3,
+        "selected_candidate": "right",
+        "selected_via_center": "[15.865, 0.8525]",
+        "m1_landing_bbox": "{'lx': 15.7975, 'by': 0.785, 'rx': 15.9325, 'uy': 0.92}",
+        "m2_landing_bbox": "{'lx': 15.7975, 'by': 0.785, 'rx': 15.9325, 'uy': 0.92}",
+        "escape_segment_bbox": "{'lx': 15.6675, 'by': 0.785, 'rx': 15.865, 'uy': 0.92}",
+        "nearest_m1_obstacle_distance": 0.065,
+        "nearest_m2_obstacle_distance": 0.065,
+        "grid_aligned": true,
+        "access_status": "PLANNED",
+        "failure_reason": ""
+      }
+    ],
+    "selected_geometries": [
+      {
+        "endpoint": "dff.CLK",
+        "direction": "up",
+        "selected_via_center": [
+          6.7075,
+          2.285
+        ],
+        "m1_landing_bbox": {
+          "lx": 6.64,
+          "by": 2.2175,
+          "rx": 6.775,
+          "uy": 2.3525
+        },
+        "m2_landing_bbox": {
+          "lx": 6.64,
+          "by": 2.2175,
+          "rx": 6.775,
+          "uy": 2.3525
+        },
+        "via_bbox": {
+          "lx": 6.675,
+          "by": 2.2525,
+          "rx": 6.74,
+          "uy": 2.3175
+        },
+        "escape_segment_bbox": {
+          "lx": 6.64,
+          "by": 2.0175,
+          "rx": 6.775,
+          "uy": 2.285
+        },
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "dff.D",
+        "direction": "up",
+        "selected_via_center": [
+          0.3225,
+          2.705
+        ],
+        "m1_landing_bbox": {
+          "lx": 0.255,
+          "by": 2.6375,
+          "rx": 0.39,
+          "uy": 2.7725
+        },
+        "m2_landing_bbox": {
+          "lx": 0.255,
+          "by": 2.6375,
+          "rx": 0.39,
+          "uy": 2.7725
+        },
+        "via_bbox": {
+          "lx": 0.29,
+          "by": 2.6725,
+          "rx": 0.355,
+          "uy": 2.7375
+        },
+        "escape_segment_bbox": {
+          "lx": 0.255,
+          "by": 2.4375,
+          "rx": 0.39,
+          "uy": 2.705
+        },
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "dff.Q",
+        "direction": "up",
+        "selected_via_center": [
+          13.095,
+          4.175
+        ],
+        "m1_landing_bbox": {
+          "lx": 13.0275,
+          "by": 4.1075,
+          "rx": 13.1625,
+          "uy": 4.2425
+        },
+        "m2_landing_bbox": {
+          "lx": 13.0275,
+          "by": 4.1075,
+          "rx": 13.1625,
+          "uy": 4.2425
+        },
+        "via_bbox": {
+          "lx": 13.0625,
+          "by": 4.1425,
+          "rx": 13.1275,
+          "uy": 4.2075
+        },
+        "escape_segment_bbox": {
+          "lx": 13.0275,
+          "by": 3.9075,
+          "rx": 13.1625,
+          "uy": 4.175
+        },
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "inv1.A",
+        "direction": "left",
+        "selected_via_center": [
+          14.09,
+          0.8525
+        ],
+        "m1_landing_bbox": {
+          "lx": 14.0225,
+          "by": 0.785,
+          "rx": 14.1575,
+          "uy": 0.92
+        },
+        "m2_landing_bbox": {
+          "lx": 14.0225,
+          "by": 0.785,
+          "rx": 14.1575,
+          "uy": 0.92
+        },
+        "via_bbox": {
+          "lx": 14.0575,
+          "by": 0.82,
+          "rx": 14.1225,
+          "uy": 0.885
+        },
+        "escape_segment_bbox": {
+          "lx": 14.09,
+          "by": 0.785,
+          "rx": 14.3575,
+          "uy": 0.92
+        },
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "inv1.Z",
+        "direction": "right",
+        "selected_via_center": [
+          14.6875,
+          0.8525
+        ],
+        "m1_landing_bbox": {
+          "lx": 14.62,
+          "by": 0.785,
+          "rx": 14.755,
+          "uy": 0.92
+        },
+        "m2_landing_bbox": {
+          "lx": 14.62,
+          "by": 0.785,
+          "rx": 14.755,
+          "uy": 0.92
+        },
+        "via_bbox": {
+          "lx": 14.655,
+          "by": 0.82,
+          "rx": 14.72,
+          "uy": 0.885
+        },
+        "escape_segment_bbox": {
+          "lx": 14.49,
+          "by": 0.785,
+          "rx": 14.6875,
+          "uy": 0.92
+        },
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "inv2.A",
+        "direction": "left",
+        "selected_via_center": [
+          15.2375,
+          0.8525
+        ],
+        "m1_landing_bbox": {
+          "lx": 15.17,
+          "by": 0.785,
+          "rx": 15.305,
+          "uy": 0.92
+        },
+        "m2_landing_bbox": {
+          "lx": 15.17,
+          "by": 0.785,
+          "rx": 15.305,
+          "uy": 0.92
+        },
+        "via_bbox": {
+          "lx": 15.205,
+          "by": 0.82,
+          "rx": 15.27,
+          "uy": 0.885
+        },
+        "escape_segment_bbox": {
+          "lx": 15.2375,
+          "by": 0.785,
+          "rx": 15.505,
+          "uy": 0.92
+        },
+        "grid_aligned": true,
+        "blocked": false
+      },
+      {
+        "endpoint": "inv2.Z",
+        "direction": "right",
+        "selected_via_center": [
+          15.865,
+          0.8525
+        ],
+        "m1_landing_bbox": {
+          "lx": 15.7975,
+          "by": 0.785,
+          "rx": 15.9325,
+          "uy": 0.92
+        },
+        "m2_landing_bbox": {
+          "lx": 15.7975,
+          "by": 0.785,
+          "rx": 15.9325,
+          "uy": 0.92
+        },
+        "via_bbox": {
+          "lx": 15.8325,
+          "by": 0.82,
+          "rx": 15.8975,
+          "uy": 0.885
+        },
+        "escape_segment_bbox": {
+          "lx": 15.6675,
+          "by": 0.785,
+          "rx": 15.865,
+          "uy": 0.92
+        },
+        "grid_aligned": true,
+        "blocked": false
+      }
+    ],
+    "pin_access_planning_passed": true,
+    "failed_endpoint_count": 0
+  },
+  "column_allocation": {
+    "rows": [
+      {
+        "endpoint": "dff.D",
+        "instance_name": "dff",
+        "net_name": "D",
+        "candidate_count": 3,
+        "selected_candidate": "up",
+        "selected_via_center": "[0.3225, 2.705]",
+        "m1_landing_bbox": "{'lx': 0.255, 'by': 2.6375, 'rx': 0.39, 'uy': 2.7725}",
+        "m2_landing_bbox": "{'lx': 0.255, 'by': 2.6375, 'rx': 0.39, 'uy': 2.7725}",
+        "escape_segment_bbox": "{'lx': 0.255, 'by': 2.4375, 'rx': 0.39, 'uy': 2.705}",
+        "nearest_m1_obstacle_distance": 0.065,
+        "nearest_m2_obstacle_distance": 0.065,
+        "grid_aligned": true,
+        "access_status": "PLANNED",
+        "failure_reason": "",
+        "vertical_column_x": 0.3225,
+        "overlap_adjustment": 0.0
+      },
+      {
+        "endpoint": "dff.CLK",
+        "instance_name": "dff",
+        "net_name": "CLK",
+        "candidate_count": 3,
+        "selected_candidate": "up",
+        "selected_via_center": "[6.7075, 2.285]",
+        "m1_landing_bbox": "{'lx': 6.64, 'by': 2.2175, 'rx': 6.775, 'uy': 2.3525}",
+        "m2_landing_bbox": "{'lx': 6.64, 'by': 2.2175, 'rx': 6.775, 'uy': 2.3525}",
+        "escape_segment_bbox": "{'lx': 6.64, 'by': 2.0175, 'rx': 6.775, 'uy': 2.285}",
+        "nearest_m1_obstacle_distance": 0.065,
+        "nearest_m2_obstacle_distance": 0.065,
+        "grid_aligned": true,
+        "access_status": "PLANNED",
+        "failure_reason": "",
+        "vertical_column_x": 6.7075,
+        "overlap_adjustment": 0.0
+      },
+      {
+        "endpoint": "dff.Q",
+        "instance_name": "dff",
+        "net_name": "qint",
+        "candidate_count": 3,
+        "selected_candidate": "up",
+        "selected_via_center": "[13.095, 4.175]",
+        "m1_landing_bbox": "{'lx': 13.0275, 'by': 4.1075, 'rx': 13.1625, 'uy': 4.2425}",
+        "m2_landing_bbox": "{'lx': 13.0275, 'by': 4.1075, 'rx': 13.1625, 'uy': 4.2425}",
+        "escape_segment_bbox": "{'lx': 13.0275, 'by': 3.9075, 'rx': 13.1625, 'uy': 4.175}",
+        "nearest_m1_obstacle_distance": 0.065,
+        "nearest_m2_obstacle_distance": 0.065,
+        "grid_aligned": true,
+        "access_status": "PLANNED",
+        "failure_reason": "",
+        "vertical_column_x": 13.095,
+        "overlap_adjustment": 0.0
+      },
+      {
+        "endpoint": "inv1.A",
+        "instance_name": "inv1",
+        "net_name": "qint",
+        "candidate_count": 3,
+        "selected_candidate": "left",
+        "selected_via_center": "[14.09, 0.8525]",
+        "m1_landing_bbox": "{'lx': 14.0225, 'by': 0.785, 'rx': 14.1575, 'uy': 0.92}",
+        "m2_landing_bbox": "{'lx': 14.0225, 'by': 0.785, 'rx': 14.1575, 'uy': 0.92}",
+        "escape_segment_bbox": "{'lx': 14.09, 'by': 0.785, 'rx': 14.3575, 'uy': 0.92}",
+        "nearest_m1_obstacle_distance": 0.065,
+        "nearest_m2_obstacle_distance": 0.065,
+        "grid_aligned": true,
+        "access_status": "PLANNED",
+        "failure_reason": "",
+        "vertical_column_x": 14.09,
+        "overlap_adjustment": 0.0
+      },
+      {
+        "endpoint": "inv1.Z",
+        "instance_name": "inv1",
+        "net_name": "QB",
+        "candidate_count": 3,
+        "selected_candidate": "right",
+        "selected_via_center": "[14.6875, 0.8525]",
+        "m1_landing_bbox": "{'lx': 14.62, 'by': 0.785, 'rx': 14.755, 'uy': 0.92}",
+        "m2_landing_bbox": "{'lx': 14.62, 'by': 0.785, 'rx': 14.755, 'uy': 0.92}",
+        "escape_segment_bbox": "{'lx': 14.49, 'by': 0.785, 'rx': 14.6875, 'uy': 0.92}",
+        "nearest_m1_obstacle_distance": 0.065,
+        "nearest_m2_obstacle_distance": 0.065,
+        "grid_aligned": true,
+        "access_status": "PLANNED",
+        "failure_reason": "",
+        "vertical_column_x": 14.6875,
+        "overlap_adjustment": 0.0
+      },
+      {
+        "endpoint": "inv2.A",
+        "instance_name": "inv2",
+        "net_name": "QB",
+        "candidate_count": 3,
+        "selected_candidate": "left",
+        "selected_via_center": "[15.2375, 0.8525]",
+        "m1_landing_bbox": "{'lx': 15.17, 'by': 0.785, 'rx': 15.305, 'uy': 0.92}",
+        "m2_landing_bbox": "{'lx': 15.17, 'by': 0.785, 'rx': 15.305, 'uy': 0.92}",
+        "escape_segment_bbox": "{'lx': 15.2375, 'by': 0.785, 'rx': 15.505, 'uy': 0.92}",
+        "nearest_m1_obstacle_distance": 0.065,
+        "nearest_m2_obstacle_distance": 0.065,
+        "grid_aligned": true,
+        "access_status": "PLANNED",
+        "failure_reason": "",
+        "vertical_column_x": 15.2375,
+        "overlap_adjustment": 0.0
+      },
+      {
+        "endpoint": "inv2.Z",
+        "instance_name": "inv2",
+        "net_name": "Q",
+        "candidate_count": 3,
+        "selected_candidate": "right",
+        "selected_via_center": "[15.865, 0.8525]",
+        "m1_landing_bbox": "{'lx': 15.7975, 'by': 0.785, 'rx': 15.9325, 'uy': 0.92}",
+        "m2_landing_bbox": "{'lx': 15.7975, 'by': 0.785, 'rx': 15.9325, 'uy': 0.92}",
+        "escape_segment_bbox": "{'lx': 15.6675, 'by': 0.785, 'rx': 15.865, 'uy': 0.92}",
+        "nearest_m1_obstacle_distance": 0.065,
+        "nearest_m2_obstacle_distance": 0.065,
+        "grid_aligned": true,
+        "access_status": "PLANNED",
+        "failure_reason": "",
+        "vertical_column_x": 15.865,
+        "overlap_adjustment": 0.0
+      }
+    ],
+    "overlapping_different_net_vertical_column_count": 0,
+    "duplicate_column_x_count": 0
+  },
+  "track_allocation": {
+    "rows": [
+      {
+        "net_name": "CLK",
+        "track_layer": "m1",
+        "track_y": 2.29,
+        "track_width": 0.065,
+        "track_clearance": 0.145
+      },
+      {
+        "net_name": "D",
+        "track_layer": "m1",
+        "track_y": 2.5,
+        "track_width": 0.065,
+        "track_clearance": 0.145
+      },
+      {
+        "net_name": "qint",
+        "track_layer": "m1",
+        "track_y": 2.71,
+        "track_width": 0.065,
+        "track_clearance": 0.145
+      },
+      {
+        "net_name": "QB",
+        "track_layer": "m1",
+        "track_y": 2.92,
+        "track_width": 0.065,
+        "track_clearance": 0.145
+      },
+      {
+        "net_name": "Q",
+        "track_layer": "m1",
+        "track_y": 3.13,
+        "track_width": 0.065,
+        "track_clearance": 0.145
+      }
+    ],
+    "duplicate_track_y_count": 0
+  },
+  "routing_architecture_has_no_same_layer_crossovers": true,
+  "pin_access_planning_passed": true,
+  "off_grid_m1_vertex_count": 0,
+  "off_grid_m2_vertex_count": 0,
+  "off_grid_via1_vertex_count": 0,
+  "m1_route_count": 5,
+  "m2_route_count": 5,
+  "via1_count": 10,
+  "duplicate_track_y_count": 0,
+  "illegal_same_layer_crossing_count": 0,
+  "overlapping_different_net_vertical_column_count": 0,
+  "unintended_via_intersection_count": 0,
+  "selected_pin_access_directions": {
+    "up": 3,
+    "left": 2,
+    "right": 2
+  },
+  "top_pin_bboxes": {
+    "D": {
+      "lx": -0.45,
+      "by": 2.4325,
+      "rx": -0.25,
+      "uy": 2.5675
+    },
+    "CLK": {
+      "lx": 16.965,
+      "by": 2.2225,
+      "rx": 17.165,
+      "uy": 2.3575
+    },
+    "QB": {
+      "lx": 17.315,
+      "by": 2.8525,
+      "rx": 17.515,
+      "uy": 2.9875
+    },
+    "Q": {
+      "lx": 17.665,
+      "by": 3.0625,
+      "rx": 17.865,
+      "uy": 3.1975
+    }
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "source_topology_hash": "6058eaf43739",
+  "payload": {
+    "schema_version": "M12C4_COMPOSITE_TOPOLOGY_IDENTITY_V1",
+    "logical_module": "DFF_BUF",
+    "top_pin_order": [
+      "VDD",
+      "VSS",
+      "D",
+      "Q",
+      "QB",
+      "CLK"
+    ],
+    "internal_net_order": [
+      "qint"
+    ],
+    "ordered_child_instances": [
+      {
+        "instance_name": "dff",
+        "child_logical_module": "DFF",
+        "child_pin_order": [
+          "VDD",
+          "VSS",
+          "D",
+          "Q",
+          "CLK"
+        ],
+        "parent_net_connections": [
+          "VDD",
+          "VSS",
+          "D",
+          "qint",
+          "CLK"
+        ],
+        "source_line": 288
+      },
+      {
+        "instance_name": "inv1",
+        "child_logical_module": "PINV",
+        "child_pin_order": [
+          "VDD",
+          "VSS",
+          "A",
+          "Z"
+        ],
+        "parent_net_connections": [
+          "VDD",
+          "VSS",
+          "qint",
+          "QB"
+        ],
+        "source_line": 292
+      },
+      {
+        "instance_name": "inv2",
+        "child_logical_module": "PINV",
+        "child_pin_order": [
+          "VDD",
+          "VSS",
+          "A",
+          "Z"
+        ],
+        "parent_net_connections": [
+          "VDD",
+          "VSS",
+          "QB",
+          "Q"
+        ],
+        "source_line": 296
+      }
+    ],
+    "module_pin_role_registry_version": "M12C4A_PIN_ROLE_REGISTRY_V1",
+    "top_pin_contracts": {
+      "VDD": {
+        "pin_role": "POWER",
+        "connected_child_pins": [
+          "dff.VDD",
+          "inv1.VDD",
+          "inv2.VDD"
+        ]
+      },
+      "VSS": {
+        "pin_role": "GROUND",
+        "connected_child_pins": [
+          "dff.VSS",
+          "inv1.VSS",
+          "inv2.VSS"
+        ]
+      },
+      "D": {
+        "pin_role": "SIGNAL_INPUT",
+        "connected_child_pins": [
+          "dff.D"
+        ]
+      },
+      "Q": {
+        "pin_role": "SIGNAL_OUTPUT",
+        "connected_child_pins": [
+          "inv2.Z"
+        ]
+      },
+      "QB": {
+        "pin_role": "SIGNAL_OUTPUT",
+        "connected_child_pins": [
+          "inv1.Z",
+          "inv2.A"
+        ]
+      },
+      "CLK": {
+        "pin_role": "CLOCK_INPUT",
+        "connected_child_pins": [
+          "dff.CLK"
+        ]
+      }
+    },
+    "internal_net_contracts": {
+      "qint": {
+        "connected_child_pins": [
+          "dff.Q",
+          "inv1.A"
+        ],
+        "net_role": "INTERNAL_SIGNAL"
+      }
+    },
+    "openyield_source_provenance": [
+      {
+        "path": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py",
+        "sha256": "fa5277f078f79d5b43335c2dcd6e364625aa8ad17b7108d323b85e73dfeaae80"
+      },
+      {
+        "path": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/standard_cell.py",
+        "sha256": "5706996580091818ab2714468f87e78e7593469ac489f066ff060d224cf6932e"
+      },
+      {
+        "path": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/base_subcircuit.py",
+        "sha256": "535074a832a6ce9010b293e9566dbc205b2176be3b1502fc3bdd77107263252f"
+      }
+    ]
+  }
+}

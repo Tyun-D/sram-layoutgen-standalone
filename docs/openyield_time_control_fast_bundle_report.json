@@ -1,0 +1,446 @@
+{
+  "scope": "step6_27_openyield_time_control_fast_metadata_closure_bundle",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "bundle_mode": "fast_metadata_bundle",
+  "bundle_components": [
+    "precharge_consumer_pin_metadata_closure",
+    "wordline_secondary_consumer_closure",
+    "control_fanout_handoff_budget",
+    "control_row_abstract_placement_envelope"
+  ],
+  "source_reports": {
+    "time_control_consumer_contract": "step6_26_openyield_time_control_consumer_side_contract_normalization_audit",
+    "time_control_generated_logic_contract": "step6_25_openyield_time_control_generated_logic_contract_packaging_audit",
+    "time_control_signal_binding": "step6_24_openyield_time_control_signal_binding_audit",
+    "time_control_subblock_audit": "step6_23_openyield_time_control_subblock_adapter_audit",
+    "decoder_metadata_closure": "step6_22_openyield_decoder_metadata_closure",
+    "senseamp_adapter": "step5_1_senseamp_architecture_adapter_read_only",
+    "writedriver_adapter": "step5_10_writedriver_adapter_audit",
+    "wordlinedriver_adapter": "step5_13_wordlinedriver_adapter_audit"
+  },
+  "precharge_consumer_pin_metadata_closure": {
+    "control_signal": "PRE / precharge_enb",
+    "consumer_macro": "PRECHARGE",
+    "consumer_pin": "ENB",
+    "expected_active_level": "active_low",
+    "current_status": "source_level_metadata_only",
+    "precharge_consumer_pin_known": true,
+    "precharge_consumer_pin_side_known": true,
+    "precharge_power_domain_known": "partial",
+    "precharge_adapter_available": false,
+    "precharge_metadata_closure_available": "partial",
+    "precharge_safe_for_metadata_planning": "partial",
+    "precharge_safe_for_physical_placement": false,
+    "precharge_consumer_status": "source_level_plus_pin_metadata",
+    "notes": [
+      "PRECHARGE still has no dedicated adapter module in the current clean worktree.",
+      "GDS pin audit provides EN/precharge_enb pin metadata, but power-domain closure remains partial because GND metadata is not fully closed.",
+      "This closure is enough for metadata planning only."
+    ]
+  },
+  "wordline_secondary_consumer_closure": {
+    "control_signal": "wordline_enable / wl_en",
+    "wordline_primary_consumer_closed": true,
+    "primary_consumer": "WORDLINEDRIVER.B",
+    "wordline_secondary_consumers_available": true,
+    "secondary_consumers": [
+      "Pinv.A(wl_en_bar)",
+      "RWL_AND2.B"
+    ],
+    "wl_en_bar_secondary_targets": [
+      "PRECHARGE.PNAND3.C"
+    ],
+    "wl_en_bar_path_preserved": true,
+    "rwl_and2_consumer_preserved": true,
+    "wordline_fanout_metadata_complete": true,
+    "wordline_fanout_physical_routing_proven": false,
+    "source_evidence": [
+      "gated_clk_bar -> WL_PDRIVE -> wl_en; wl_en -> Pinv -> wl_en_bar",
+      "Consumer contract keeps WORDLINEDRIVER.B as primary while preserving wl_en_bar and RWL-side secondary paths."
+    ]
+  },
+  "control_fanout_budget": {
+    "assumptions": {
+      "route_pitch": 0.2,
+      "route_margin": 0.2,
+      "default_control_channel_width": 2.0,
+      "metadata_only": true,
+      "physical_routing_proven": false
+    },
+    "entries": [
+      {
+        "control_signal": "write_enable",
+        "fanout_count": 1,
+        "fanout_targets": [
+          "WRITEDRIVER.EN"
+        ],
+        "estimated_required_tracks": 1,
+        "route_pitch": 0.2,
+        "route_margin": 0.2,
+        "estimated_required_width": 0.4,
+        "available_metadata_channel_width": 2.0,
+        "budget_pass": true,
+        "budget_margin": 1.6,
+        "risk_level": "pass_moderate_margin",
+        "physical_routing_proven": false,
+        "metadata_only": true
+      },
+      {
+        "control_signal": "sense_enable",
+        "fanout_count": 1,
+        "fanout_targets": [
+          "SENSEAMP.EN"
+        ],
+        "estimated_required_tracks": 1,
+        "route_pitch": 0.2,
+        "route_margin": 0.2,
+        "estimated_required_width": 0.4,
+        "available_metadata_channel_width": 2.0,
+        "budget_pass": true,
+        "budget_margin": 1.6,
+        "risk_level": "pass_moderate_margin",
+        "physical_routing_proven": false,
+        "metadata_only": true
+      },
+      {
+        "control_signal": "precharge_enb",
+        "fanout_count": 1,
+        "fanout_targets": [
+          "PRECHARGE.ENB"
+        ],
+        "estimated_required_tracks": 1,
+        "route_pitch": 0.2,
+        "route_margin": 0.2,
+        "estimated_required_width": 0.4,
+        "available_metadata_channel_width": 2.0,
+        "budget_pass": true,
+        "budget_margin": 1.6,
+        "risk_level": "pass_moderate_margin",
+        "physical_routing_proven": false,
+        "metadata_only": true
+      },
+      {
+        "control_signal": "wordline_enable",
+        "fanout_count": 3,
+        "fanout_targets": [
+          "WORDLINEDRIVER.B",
+          "Pinv.A(wl_en_bar)",
+          "RWL_AND2.B"
+        ],
+        "estimated_required_tracks": 3,
+        "route_pitch": 0.2,
+        "route_margin": 0.2,
+        "estimated_required_width": 0.8,
+        "available_metadata_channel_width": 2.0,
+        "budget_pass": true,
+        "budget_margin": 1.2,
+        "risk_level": "pass_moderate_margin",
+        "physical_routing_proven": false,
+        "metadata_only": true
+      },
+      {
+        "control_signal": "wl_en_bar",
+        "fanout_count": 1,
+        "fanout_targets": [
+          "PRECHARGE.PNAND3.C"
+        ],
+        "estimated_required_tracks": 1,
+        "route_pitch": 0.2,
+        "route_margin": 0.2,
+        "estimated_required_width": 0.4,
+        "available_metadata_channel_width": 2.0,
+        "budget_pass": true,
+        "budget_margin": 1.6,
+        "risk_level": "pass_moderate_margin",
+        "physical_routing_proven": false,
+        "metadata_only": true
+      }
+    ],
+    "fanout_budget_metadata_pass": true
+  },
+  "control_row_abstract_placement_envelope": {
+    "envelope_name": "TIME_CONTROL_ABSTRACT_ENVELOPE",
+    "scope": "TIME remaining control subblocks",
+    "metadata_only": true,
+    "legal_physical_placement": false,
+    "physical_routing_proven": false,
+    "regions": [
+      {
+        "region_name": "delay_chain_region",
+        "source_contracts": [
+          "RBL_DELAY_BINDING_CONTRACT",
+          "WEN_DELAY_CONDITIONAL_BINDING_CONTRACT",
+          "DELAY_CHAIN_GENERATED_LOGIC_CONTRACT",
+          "WEN_DELAY_CHAIN_CONDITIONAL_GENERATED_LOGIC_CONTRACT"
+        ],
+        "input_signals": [
+          "rbl",
+          "rbl_delay_bar"
+        ],
+        "output_signals": [
+          "rbl_delay",
+          "rbl_delay_bar_wen"
+        ],
+        "consumer_targets": [
+          "WRITE_ENABLE_CONSUMER_CONTRACT",
+          "SENSE_ENABLE_CONSUMER_CONTRACT"
+        ],
+        "bbox_proxy_available": true,
+        "bbox_proxy_policy": "track_count_and_stage_count_proxy_only",
+        "metadata_only": true,
+        "legal_physical_placement": false,
+        "requires_generated_layout_or_stdcell_row": true,
+        "requires_routing_proof": true,
+        "requires_timing_proof": true
+      },
+      {
+        "region_name": "pdrive_region",
+        "source_contracts": [
+          "CLK_BUF_BINDING_CONTRACT",
+          "PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+          "PDRIVE2_FOR_PRE_CHAIN_GENERATED_LOGIC_CONTRACT",
+          "WL_PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT"
+        ],
+        "input_signals": [
+          "clk",
+          "PRE_UNBUF",
+          "gated_clk_bar"
+        ],
+        "output_signals": [
+          "clk_buf",
+          "PRE",
+          "wl_en"
+        ],
+        "consumer_targets": [
+          "WRITE_ENABLE_CONSUMER_CONTRACT",
+          "SENSE_ENABLE_CONSUMER_CONTRACT",
+          "PRECHARGE_ENB_CONSUMER_CONTRACT",
+          "WORDLINE_ENABLE_CONSUMER_CONTRACT"
+        ],
+        "bbox_proxy_available": true,
+        "bbox_proxy_policy": "buffer_chain_stage_proxy_only",
+        "metadata_only": true,
+        "legal_physical_placement": false,
+        "requires_generated_layout_or_stdcell_row": true,
+        "requires_routing_proof": true,
+        "requires_timing_proof": true
+      },
+      {
+        "region_name": "generated_logic_region",
+        "source_contracts": [
+          "AND2_GENERATED_LOGIC_CONTRACT",
+          "AND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+          "PNAND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+          "PINV_GENERATED_LOGIC_CONTRACT"
+        ],
+        "input_signals": [
+          "cs",
+          "clk_buf",
+          "clk_bar",
+          "we",
+          "we_bar",
+          "wl_en",
+          "rbl_delay"
+        ],
+        "output_signals": [
+          "gated_clk_buf",
+          "gated_clk_bar",
+          "w_en",
+          "s_en",
+          "PRE_UNBUF",
+          "wl_en_bar"
+        ],
+        "consumer_targets": [
+          "WRITE_ENABLE_CONSUMER_CONTRACT",
+          "SENSE_ENABLE_CONSUMER_CONTRACT",
+          "PRECHARGE_ENB_CONSUMER_CONTRACT",
+          "WORDLINE_ENABLE_CONSUMER_CONTRACT"
+        ],
+        "bbox_proxy_available": true,
+        "bbox_proxy_policy": "composite_gate_count_proxy_only",
+        "metadata_only": true,
+        "legal_physical_placement": false,
+        "requires_generated_layout_or_stdcell_row": true,
+        "requires_routing_proof": true,
+        "requires_timing_proof": true
+      },
+      {
+        "region_name": "consumer_handoff_region",
+        "source_contracts": [
+          "WRITE_ENABLE_CONSUMER_CONTRACT",
+          "SENSE_ENABLE_CONSUMER_CONTRACT",
+          "PRECHARGE_ENB_CONSUMER_CONTRACT",
+          "WORDLINE_ENABLE_CONSUMER_CONTRACT"
+        ],
+        "input_signals": [
+          "w_en",
+          "s_en",
+          "PRE",
+          "wl_en"
+        ],
+        "output_signals": [
+          "WRITEDRIVER.EN",
+          "SENSEAMP.EN",
+          "PRECHARGE.ENB",
+          "WORDLINEDRIVER.B"
+        ],
+        "consumer_targets": [
+          "peripheral hard macro pin access"
+        ],
+        "bbox_proxy_available": true,
+        "bbox_proxy_policy": "macro_pin_side_and_fanout_proxy_only",
+        "metadata_only": true,
+        "legal_physical_placement": false,
+        "requires_generated_layout_or_stdcell_row": false,
+        "requires_routing_proof": true,
+        "requires_timing_proof": true
+      },
+      {
+        "region_name": "precharge_control_region",
+        "source_contracts": [
+          "PRECHARGE_ENB_BINDING_CONTRACT",
+          "PRECHARGE_ENB_CONSUMER_CONTRACT"
+        ],
+        "input_signals": [
+          "gated_clk_buf",
+          "rbl_delay",
+          "wl_en_bar"
+        ],
+        "output_signals": [
+          "PRE_UNBUF",
+          "PRE"
+        ],
+        "consumer_targets": [
+          "PRECHARGE.ENB",
+          "PRECHARGE.PNAND3.C"
+        ],
+        "bbox_proxy_available": true,
+        "bbox_proxy_policy": "source_level_plus_pin_metadata_only",
+        "metadata_only": true,
+        "legal_physical_placement": false,
+        "requires_generated_layout_or_stdcell_row": true,
+        "requires_routing_proof": true,
+        "requires_timing_proof": true
+      },
+      {
+        "region_name": "wordline_enable_control_region",
+        "source_contracts": [
+          "WORDLINE_ENABLE_BINDING_CONTRACT",
+          "WORDLINE_ENABLE_CONSUMER_CONTRACT"
+        ],
+        "input_signals": [
+          "gated_clk_bar"
+        ],
+        "output_signals": [
+          "wl_en",
+          "wl_en_bar"
+        ],
+        "consumer_targets": [
+          "WORDLINEDRIVER.B",
+          "Pinv.A(wl_en_bar)",
+          "RWL_AND2.B"
+        ],
+        "bbox_proxy_available": true,
+        "bbox_proxy_policy": "primary_plus_secondary_fanout_proxy_only",
+        "metadata_only": true,
+        "legal_physical_placement": false,
+        "requires_generated_layout_or_stdcell_row": true,
+        "requires_routing_proof": true,
+        "requires_timing_proof": true
+      },
+      {
+        "region_name": "sense_write_enable_region",
+        "source_contracts": [
+          "WRITE_ENABLE_BINDING_CONTRACT",
+          "SENSE_ENABLE_BINDING_CONTRACT",
+          "WRITE_ENABLE_CONSUMER_CONTRACT",
+          "SENSE_ENABLE_CONSUMER_CONTRACT"
+        ],
+        "input_signals": [
+          "rbl_delay_bar",
+          "rbl_delay",
+          "gated_clk_bar",
+          "we",
+          "we_bar"
+        ],
+        "output_signals": [
+          "w_en",
+          "s_en"
+        ],
+        "consumer_targets": [
+          "WRITEDRIVER.EN",
+          "SENSEAMP.EN"
+        ],
+        "bbox_proxy_available": true,
+        "bbox_proxy_policy": "paired_enable_channel_proxy_only",
+        "metadata_only": true,
+        "legal_physical_placement": false,
+        "requires_generated_layout_or_stdcell_row": true,
+        "requires_routing_proof": true,
+        "requires_timing_proof": true
+      }
+    ]
+  },
+  "consistency_checks": {
+    "time_control_fast_bundle_available": true,
+    "precharge_consumer_metadata_closure_available": "partial",
+    "wordline_secondary_consumer_metadata_available": true,
+    "control_fanout_budget_available": true,
+    "control_abstract_envelope_available": true,
+    "all_primary_control_consumers_have_contract": true,
+    "consumer_contracts_complete_for_metadata_planning": true,
+    "generated_logic_contract_coverage_complete": true,
+    "control_signal_binding_consistent": true,
+    "control_signal_polarity_consistent": true,
+    "fanout_budget_metadata_pass": true,
+    "safe_for_metadata_planning": true,
+    "safe_for_physical_placement": false,
+    "can_enter_time_control_abstract_envelope_planning": true,
+    "can_enter_time_control_physical_placement": false,
+    "can_enter_standalone_control_placement": false
+  },
+  "unresolved_items": [
+    "PRECHARGE adapter may still be partial/source-level",
+    "fanout budget is metadata-only",
+    "abstract envelope is not legal placement",
+    "control routing proof is missing",
+    "delay timing proof is missing",
+    "wen-delay timing proof is missing",
+    "rail continuity proof is missing",
+    "shared rail is disabled",
+    "no DRC/LVS proof exists",
+    "standalone integration is not allowed yet"
+  ],
+  "audit_summary": {
+    "time_control_fast_bundle_available": true,
+    "precharge_metadata_closure_status": "partial",
+    "wordline_secondary_consumer_metadata_available": true,
+    "fanout_budget_metadata_pass": true,
+    "control_abstract_envelope_available": true,
+    "can_enter_time_control_abstract_envelope_planning": true,
+    "can_enter_time_control_physical_placement": false,
+    "can_enter_standalone_control_placement": false
+  },
+  "can_enter_time_control_abstract_envelope_planning": true,
+  "can_enter_time_control_physical_placement": false,
+  "can_enter_standalone_control_placement": false,
+  "step_6_28_recommendation": {
+    "recommended_next_phase": "time_control_precharge_adapter_audit_or_control_row_constraints",
+    "candidate_directions": [
+      "precharge_adapter_metadata_closure",
+      "control_row_handoff_constraints",
+      "control_channel_reservation_rules",
+      "time_control_grouped_planning_interfaces"
+    ],
+    "reason": [
+      "The fast bundle now closes the main metadata handoff story for TIME control signals.",
+      "PRECHARGE remains the least-closed consumer and is still not physical-ready.",
+      "The next step should refine abstract planning interfaces, not physical placement."
+    ]
+  },
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false
+}

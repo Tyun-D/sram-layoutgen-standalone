@@ -1,0 +1,23 @@
+[
+  {
+    "gap_id": "M10_GAP_001",
+    "gap_type": "HUMAN_REVIEW_REQUIRED",
+    "severity": "BLOCKER",
+    "status": "OPEN",
+    "details": "Human KLayout review is required for openyield_source_backed_translated_sram_clean_review.gds before any post-M10 stage."
+  },
+  {
+    "gap_id": "M10_GAP_002",
+    "gap_type": "FULL_RAW_COMPILER_NOT_CLAIMED",
+    "severity": "NON_BLOCKING_SCOPE_LIMIT",
+    "status": "OPEN",
+    "details": "M10 is a source-backed translator v2 but still not a full raw OpenYield netlist compiler."
+  },
+  {
+    "gap_id": "M10_GAP_003",
+    "gap_type": "CAPACITY_CONFIG_FALLBACK",
+    "severity": "NON_BLOCKING_SCOPE_LIMIT",
+    "status": "OPEN",
+    "details": "OpenYield raw source did not provide sufficient capacity/config values; locked golden 8x64_wpr4 layoutgen configuration was used while binding OpenYield source-backed module/net semantics."
+  }
+]

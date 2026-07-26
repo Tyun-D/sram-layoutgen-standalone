@@ -1,0 +1,3883 @@
+{
+  "inputs": {
+    "tech_dir": "technology\\freepdk45",
+    "macros": [
+      "cell_1rw",
+      "dummy_cell_1rw",
+      "replica_cell_1rw"
+    ],
+    "legacy_pitch": {
+      "x": 0.705,
+      "y": 1.365
+    },
+    "audit_bbox_pitch": {
+      "x": 0.895,
+      "y": 1.565
+    }
+  },
+  "recommended_storage_pitch_policy": "use_full_bbox_pitch",
+  "policy_reason": "Full bbox pitch is conservative and eliminates same-layer physical overlap.",
+  "area_impact": "Area increases by the amount measured in Step 4.6.",
+  "drc_risk": "low for cell-cell overlap, higher for global placement/routing impact.",
+  "lvs_risk": "low for pitch policy alone.",
+  "openyield_netlist_semantic_relation": "Pitch policy is physical-layout metadata only. It does not change OpenYield netlist hierarchy, ports, or instance connectivity.",
+  "keep_enable_openyield_array_aggregation_default_closed": true,
+  "connectivity_not_proven": true,
+  "manual_layout_review_required": true,
+  "macros": [
+    {
+      "macro": "cell_1rw",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\cell_1rw.gds",
+      "logical_marker_pitch": {
+        "x": 0.705,
+        "y": 1.365
+      },
+      "gds_bbox": {
+        "x0": -0.095,
+        "y0": -0.1,
+        "x1": 0.8,
+        "y1": 1.465,
+        "width": 0.895,
+        "height": 1.565,
+        "shape_count": 274
+      },
+      "text_marker_bbox": {
+        "x0": 0.0,
+        "y0": 0.02,
+        "x1": 0.705,
+        "y1": 1.365,
+        "width": 0.705,
+        "height": 1.345,
+        "shape_count": 1
+      },
+      "pin_or_rail_bbox": {
+        "gnd": {
+          "label": "gnd",
+          "lpp": "11/0",
+          "layer_name": "m1",
+          "text_point": {
+            "x": 0.345,
+            "y": 0.0
+          },
+          "bbox": {
+            "x0": -0.09,
+            "y0": -0.0325,
+            "x1": 0.795,
+            "y1": 0.0325,
+            "width": 0.885,
+            "height": 0.065,
+            "area": 0.057525
+          },
+          "found_boundary_shape": true
+        },
+        "vdd": {
+          "label": "vdd",
+          "lpp": "11/0",
+          "layer_name": "m1",
+          "text_point": {
+            "x": 0.345,
+            "y": 1.365
+          },
+          "bbox": {
+            "x0": -0.09,
+            "y0": 1.3325,
+            "x1": 0.795,
+            "y1": 1.3975,
+            "width": 0.885,
+            "height": 0.065,
+            "area": 0.057525
+          },
+          "found_boundary_shape": true
+        },
+        "q_bar": {
+          "label": "q_bar",
+          "lpp": "11/0",
+          "layer_name": "m1",
+          "text_point": {
+            "x": 0.625,
+            "y": 0.48
+          },
+          "bbox": {
+            "x0": 0.59,
+            "y0": 0.2775,
+            "x1": 0.66,
+            "y1": 0.5675,
+            "width": 0.07,
+            "height": 0.29,
+            "area": 0.0203
+          },
+          "found_boundary_shape": true
+        },
+        "q": {
+          "label": "q",
+          "lpp": "11/0",
+          "layer_name": "m1",
+          "text_point": {
+            "x": 0.0825,
+            "y": 0.46
+          },
+          "bbox": {
+            "x0": 0.05,
+            "y0": 0.2775,
+            "x1": 0.12,
+            "y1": 0.5675,
+            "width": 0.07,
+            "height": 0.29,
+            "area": 0.0203
+          },
+          "found_boundary_shape": true
+        },
+        "wl": {
+          "label": "wl",
+          "lpp": "11/0",
+          "layer_name": "m1",
+          "text_point": {
+            "x": -0.05,
+            "y": 0.167
+          },
+          "bbox": {
+            "x0": -0.09,
+            "y0": 0.1275,
+            "x1": 0.795,
+            "y1": 0.1925,
+            "width": 0.885,
+            "height": 0.065,
+            "area": 0.057525
+          },
+          "found_boundary_shape": true
+        },
+        "bl": {
+          "label": "bl",
+          "lpp": "13/0",
+          "layer_name": "m2",
+          "text_point": {
+            "x": 0.19,
+            "y": 0.003
+          },
+          "bbox": {
+            "x0": 0.15,
+            "y0": -0.08,
+            "x1": 0.22,
+            "y1": 1.465,
+            "width": 0.07,
+            "height": 1.545,
+            "area": 0.10815
+          },
+          "found_boundary_shape": true
+        },
+        "br": {
+          "label": "br",
+          "lpp": "13/0",
+          "layer_name": "m2",
+          "text_point": {
+            "x": 0.52,
+            "y": 0.003
+          },
+          "bbox": {
+            "x0": 0.485,
+            "y0": -0.08,
+            "x1": 0.555,
+            "y1": 1.465,
+            "width": 0.07,
+            "height": 1.545,
+            "area": 0.10815
+          },
+          "found_boundary_shape": true
+        }
+      },
+      "boundary_extension": {
+        "left": 0.095,
+        "right": 0.095,
+        "bottom": 0.1,
+        "top": 0.1,
+        "negative_origin": true
+      },
+      "legacy_pitch_overlap": {
+        "pitch_name": "legacy_logical_marker_pitch",
+        "pitch_x": 0.705,
+        "pitch_y": 1.365,
+        "bbox_overlap_x": 0.19,
+        "bbox_overlap_y": 0.2,
+        "horizontal_neighbor": {
+          "overlap_count": 687,
+          "total_overlap_area": 5.812404,
+          "overlap_layers": [
+            {
+              "layer": "active",
+              "lpp": "1/0",
+              "class": "active",
+              "count": 32,
+              "area": 0.2727,
+              "pin_labels": []
+            },
+            {
+              "layer": "contact",
+              "lpp": "10/0",
+              "class": "contact",
+              "count": 2,
+              "area": 0.00845,
+              "pin_labels": []
+            },
+            {
+              "layer": "m1",
+              "lpp": "11/0",
+              "class": "signal_metal",
+              "count": 291,
+              "area": 1.801056,
+              "pin_labels": [
+                "gnd",
+                "vdd",
+                "wl"
+              ]
+            },
+            {
+              "layer": "m2",
+              "lpp": "13/0",
+              "class": "signal_metal",
+              "count": 186,
+              "area": 1.9203,
+              "pin_labels": [
+                "gnd",
+                "vdd",
+                "wl"
+              ]
+            },
+            {
+              "layer": "nimplant",
+              "lpp": "4/0",
+              "class": "implant",
+              "count": 1,
+              "area": 0.01435,
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "count": 4,
+              "area": 0.177925,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "pimplant",
+              "lpp": "5/0",
+              "class": "implant",
+              "count": 1,
+              "area": 0.0063,
+              "pin_labels": []
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "count": 7,
+              "area": 0.405825,
+              "pin_labels": [
+                "gnd",
+                "q",
+                "q_bar",
+                "wl"
+              ]
+            },
+            {
+              "layer": "via1",
+              "lpp": "12/0",
+              "class": "via",
+              "count": 152,
+              "area": 0.6422,
+              "pin_labels": [
+                "gnd"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "count": 11,
+              "area": 0.5633,
+              "pin_labels": [
+                "gnd",
+                "q",
+                "q_bar",
+                "vdd",
+                "wl"
+              ]
+            }
+          ],
+          "risky_overlap_layers": [
+            {
+              "layer": "active",
+              "lpp": "1/0",
+              "class": "active",
+              "count": 32,
+              "area": 0.2727,
+              "pin_labels": []
+            },
+            {
+              "layer": "contact",
+              "lpp": "10/0",
+              "class": "contact",
+              "count": 2,
+              "area": 0.00845,
+              "pin_labels": []
+            },
+            {
+              "layer": "m1",
+              "lpp": "11/0",
+              "class": "signal_metal",
+              "count": 291,
+              "area": 1.801056,
+              "pin_labels": [
+                "gnd",
+                "vdd",
+                "wl"
+              ]
+            },
+            {
+              "layer": "m2",
+              "lpp": "13/0",
+              "class": "signal_metal",
+              "count": 186,
+              "area": 1.9203,
+              "pin_labels": [
+                "gnd",
+                "vdd",
+                "wl"
+              ]
+            },
+            {
+              "layer": "via1",
+              "lpp": "12/0",
+              "class": "via",
+              "count": 152,
+              "area": 0.6422,
+              "pin_labels": [
+                "gnd"
+              ]
+            }
+          ],
+          "power_or_boundary_overlap_layers": [
+            {
+              "layer": "nimplant",
+              "lpp": "4/0",
+              "class": "implant",
+              "count": 1,
+              "area": 0.01435,
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "count": 4,
+              "area": 0.177925,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "pimplant",
+              "lpp": "5/0",
+              "class": "implant",
+              "count": 1,
+              "area": 0.0063,
+              "pin_labels": []
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "count": 7,
+              "area": 0.405825,
+              "pin_labels": [
+                "gnd",
+                "q",
+                "q_bar",
+                "wl"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "count": 11,
+              "area": 0.5633,
+              "pin_labels": [
+                "gnd",
+                "q",
+                "q_bar",
+                "vdd",
+                "wl"
+              ]
+            }
+          ],
+          "sample_overlaps": [
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.176225,
+              "rect": {
+                "x0": 0.61,
+                "y0": -0.1,
+                "x1": 0.8,
+                "y1": 0.8275,
+                "width": 0.19,
+                "height": 0.9275,
+                "area": 0.176225
+              },
+              "pin_labels": [
+                "gnd",
+                "q",
+                "q_bar",
+                "wl"
+              ]
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.025725,
+              "rect": {
+                "x0": 0.695,
+                "y0": 0.1925,
+                "x1": 0.8,
+                "y1": 0.4375,
+                "width": 0.105,
+                "height": 0.245,
+                "area": 0.025725
+              },
+              "pin_labels": [
+                "q"
+              ]
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.058275,
+              "rect": {
+                "x0": 0.615,
+                "y0": 0.5125,
+                "x1": 0.8,
+                "y1": 0.8275,
+                "width": 0.185,
+                "height": 0.315,
+                "area": 0.058275
+              },
+              "pin_labels": [
+                "q",
+                "q_bar"
+              ]
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.025725,
+              "rect": {
+                "x0": 0.61,
+                "y0": 0.1925,
+                "x1": 0.715,
+                "y1": 0.4375,
+                "width": 0.105,
+                "height": 0.245,
+                "area": 0.025725
+              },
+              "pin_labels": [
+                "q_bar"
+              ]
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.0049,
+              "rect": {
+                "x0": 0.695,
+                "y0": 0.1925,
+                "x1": 0.715,
+                "y1": 0.4375,
+                "width": 0.02,
+                "height": 0.245,
+                "area": 0.0049
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.058275,
+              "rect": {
+                "x0": 0.61,
+                "y0": 0.5125,
+                "x1": 0.795,
+                "y1": 0.8275,
+                "width": 0.185,
+                "height": 0.315,
+                "area": 0.058275
+              },
+              "pin_labels": [
+                "q",
+                "q_bar"
+              ]
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.0567,
+              "rect": {
+                "x0": 0.615,
+                "y0": 0.5125,
+                "x1": 0.795,
+                "y1": 0.8275,
+                "width": 0.18,
+                "height": 0.315,
+                "area": 0.0567
+              },
+              "pin_labels": [
+                "q",
+                "q_bar"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.067925,
+              "rect": {
+                "x0": 0.61,
+                "y0": 1.1075,
+                "x1": 0.8,
+                "y1": 1.465,
+                "width": 0.19,
+                "height": 0.3575,
+                "area": 0.067925
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.037,
+              "rect": {
+                "x0": 0.615,
+                "y0": 1.1075,
+                "x1": 0.8,
+                "y1": 1.3075,
+                "width": 0.185,
+                "height": 0.2,
+                "area": 0.037
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.037,
+              "rect": {
+                "x0": 0.61,
+                "y0": 1.1075,
+                "x1": 0.795,
+                "y1": 1.3075,
+                "width": 0.185,
+                "height": 0.2,
+                "area": 0.037
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.036,
+              "rect": {
+                "x0": 0.615,
+                "y0": 1.1075,
+                "x1": 0.795,
+                "y1": 1.3075,
+                "width": 0.18,
+                "height": 0.2,
+                "area": 0.036
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.16695,
+              "rect": {
+                "x0": 0.615,
+                "y0": -0.1,
+                "x1": 0.795,
+                "y1": 0.8275,
+                "width": 0.18,
+                "height": 0.9275,
+                "area": 0.16695
+              },
+              "pin_labels": [
+                "gnd",
+                "q",
+                "q_bar",
+                "wl"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.0245,
+              "rect": {
+                "x0": 0.695,
+                "y0": 0.1925,
+                "x1": 0.795,
+                "y1": 0.4375,
+                "width": 0.1,
+                "height": 0.245,
+                "area": 0.0245
+              },
+              "pin_labels": [
+                "q"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.0567,
+              "rect": {
+                "x0": 0.615,
+                "y0": 0.5125,
+                "x1": 0.795,
+                "y1": 0.8275,
+                "width": 0.18,
+                "height": 0.315,
+                "area": 0.0567
+              },
+              "pin_labels": [
+                "q",
+                "q_bar"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.06435,
+              "rect": {
+                "x0": 0.615,
+                "y0": 1.1075,
+                "x1": 0.795,
+                "y1": 1.465,
+                "width": 0.18,
+                "height": 0.3575,
+                "area": 0.06435
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.036,
+              "rect": {
+                "x0": 0.615,
+                "y0": 1.1075,
+                "x1": 0.795,
+                "y1": 1.3075,
+                "width": 0.18,
+                "height": 0.2,
+                "area": 0.036
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.0245,
+              "rect": {
+                "x0": 0.615,
+                "y0": 0.1925,
+                "x1": 0.715,
+                "y1": 0.4375,
+                "width": 0.1,
+                "height": 0.245,
+                "area": 0.0245
+              },
+              "pin_labels": [
+                "q_bar"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.0049,
+              "rect": {
+                "x0": 0.695,
+                "y0": 0.1925,
+                "x1": 0.715,
+                "y1": 0.4375,
+                "width": 0.02,
+                "height": 0.245,
+                "area": 0.0049
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.0567,
+              "rect": {
+                "x0": 0.615,
+                "y0": 0.5125,
+                "x1": 0.795,
+                "y1": 0.8275,
+                "width": 0.18,
+                "height": 0.315,
+                "area": 0.0567
+              },
+              "pin_labels": [
+                "q",
+                "q_bar"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.0567,
+              "rect": {
+                "x0": 0.615,
+                "y0": 0.5125,
+                "x1": 0.795,
+                "y1": 0.8275,
+                "width": 0.18,
+                "height": 0.315,
+                "area": 0.0567
+              },
+              "pin_labels": [
+                "q",
+                "q_bar"
+              ]
+            }
+          ]
+        },
+        "vertical_neighbor_r0_to_mx": {
+          "overlap_count": 43,
+          "total_overlap_area": 1.016798,
+          "overlap_layers": [
+            {
+              "layer": "active",
+              "lpp": "1/0",
+              "class": "active",
+              "count": 4,
+              "area": 0.0324,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "contact",
+              "lpp": "10/0",
+              "class": "contact",
+              "count": 1,
+              "area": 0.004225,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "m1",
+              "lpp": "11/0",
+              "class": "power_rail",
+              "count": 1,
+              "area": 0.057525,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            },
+            {
+              "layer": "m2",
+              "lpp": "13/0",
+              "class": "power_rail",
+              "count": 7,
+              "area": 0.0791,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nimplant",
+              "lpp": "4/0",
+              "class": "implant",
+              "count": 4,
+              "area": 0.0324,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "count": 21,
+              "area": 0.57125,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "count": 5,
+              "area": 0.2399,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            }
+          ],
+          "risky_overlap_layers": [
+            {
+              "layer": "active",
+              "lpp": "1/0",
+              "class": "active",
+              "count": 4,
+              "area": 0.0324,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "contact",
+              "lpp": "10/0",
+              "class": "contact",
+              "count": 1,
+              "area": 0.004225,
+              "pin_labels": [
+                "vdd"
+              ]
+            }
+          ],
+          "power_or_boundary_overlap_layers": [
+            {
+              "layer": "m1",
+              "lpp": "11/0",
+              "class": "power_rail",
+              "count": 1,
+              "area": 0.057525,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            },
+            {
+              "layer": "m2",
+              "lpp": "13/0",
+              "class": "power_rail",
+              "count": 7,
+              "area": 0.0791,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nimplant",
+              "lpp": "4/0",
+              "class": "implant",
+              "count": 4,
+              "area": 0.0324,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "count": 21,
+              "area": 0.57125,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "count": 5,
+              "area": 0.2399,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            }
+          ],
+          "sample_overlaps": [
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.179,
+              "rect": {
+                "x0": -0.095,
+                "y0": 1.265,
+                "x1": 0.8,
+                "y1": 1.465,
+                "width": 0.895,
+                "height": 0.2,
+                "area": 0.179
+              },
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.015725,
+              "rect": {
+                "x0": -0.09,
+                "y0": 1.4225,
+                "x1": 0.28,
+                "y1": 1.465,
+                "width": 0.37,
+                "height": 0.0425,
+                "area": 0.015725
+              },
+              "pin_labels": [
+                "bl"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.015725,
+              "rect": {
+                "x0": 0.425,
+                "y0": 1.4225,
+                "x1": 0.795,
+                "y1": 1.465,
+                "width": 0.37,
+                "height": 0.0425,
+                "area": 0.015725
+              },
+              "pin_labels": [
+                "br"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.001381,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.4225,
+                "x1": 0.28,
+                "y1": 1.465,
+                "width": 0.0325,
+                "height": 0.0425,
+                "area": 0.001381
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.000956,
+              "rect": {
+                "x0": 0.425,
+                "y0": 1.4225,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.0225,
+                "height": 0.0425,
+                "area": 0.000956
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.001381,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.4225,
+                "x1": 0.28,
+                "y1": 1.465,
+                "width": 0.0325,
+                "height": 0.0425,
+                "area": 0.001381
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.000956,
+              "rect": {
+                "x0": 0.425,
+                "y0": 1.4225,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.0225,
+                "height": 0.0425,
+                "area": 0.000956
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.015725,
+              "rect": {
+                "x0": -0.09,
+                "y0": 1.265,
+                "x1": 0.28,
+                "y1": 1.3075,
+                "width": 0.37,
+                "height": 0.0425,
+                "area": 0.015725
+              },
+              "pin_labels": [
+                "bl"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.001381,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.28,
+                "y1": 1.3075,
+                "width": 0.0325,
+                "height": 0.0425,
+                "area": 0.001381
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.001381,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.28,
+                "y1": 1.3075,
+                "width": 0.0325,
+                "height": 0.0425,
+                "area": 0.001381
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.015725,
+              "rect": {
+                "x0": 0.425,
+                "y0": 1.265,
+                "x1": 0.795,
+                "y1": 1.3075,
+                "width": 0.37,
+                "height": 0.0425,
+                "area": 0.015725
+              },
+              "pin_labels": [
+                "br"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.000956,
+              "rect": {
+                "x0": 0.425,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.3075,
+                "width": 0.0225,
+                "height": 0.0425,
+                "area": 0.000956
+              },
+              "pin_labels": []
+            }
+          ]
+        },
+        "fully_bbox_separated": false,
+        "extra_gap_x": 0.0,
+        "extra_gap_y": 0.0,
+        "classification": {
+          "has_real_shape_overlap": true,
+          "risky_layers": [
+            "active",
+            "contact",
+            "m1",
+            "m2",
+            "via1"
+          ],
+          "mostly_power_or_boundary": false,
+          "acceptable_as_legal_abutment": false,
+          "connectivity_not_proven": true,
+          "manual_layout_review_required": true,
+          "reason": "Risk layers overlap; manual GDS/DRC review is required."
+        }
+      },
+      "audit_bbox_pitch_overlap": {
+        "pitch_name": "audit_full_bbox_pitch",
+        "pitch_x": 0.895,
+        "pitch_y": 1.565,
+        "bbox_overlap_x": 0.0,
+        "bbox_overlap_y": 0.0,
+        "horizontal_neighbor": {
+          "overlap_count": 0,
+          "total_overlap_area": 0.0,
+          "overlap_layers": [],
+          "risky_overlap_layers": [],
+          "power_or_boundary_overlap_layers": [],
+          "sample_overlaps": []
+        },
+        "vertical_neighbor_r0_to_mx": {
+          "overlap_count": 0,
+          "total_overlap_area": 0.0,
+          "overlap_layers": [],
+          "risky_overlap_layers": [],
+          "power_or_boundary_overlap_layers": [],
+          "sample_overlaps": []
+        },
+        "fully_bbox_separated": true,
+        "extra_gap_x": 0.0,
+        "extra_gap_y": 0.0,
+        "classification": {
+          "has_real_shape_overlap": false,
+          "risky_layers": [],
+          "mostly_power_or_boundary": false,
+          "acceptable_as_legal_abutment": false,
+          "connectivity_not_proven": true,
+          "manual_layout_review_required": false,
+          "reason": "No same-layer shape overlap was found."
+        }
+      },
+      "recommended_pitch_x": 0.895,
+      "recommended_pitch_y": 1.565,
+      "confidence": "medium",
+      "reason": "Full bbox pitch eliminates same-layer physical overlap; legacy pitch has risky overlaps.",
+      "connectivity_not_proven": true,
+      "manual_layout_review_required": true
+    },
+    {
+      "macro": "dummy_cell_1rw",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\dummy_cell_1rw.gds",
+      "logical_marker_pitch": {
+        "x": 0.705,
+        "y": 1.365
+      },
+      "gds_bbox": {
+        "x0": -0.095,
+        "y0": -0.1,
+        "x1": 0.8,
+        "y1": 1.465,
+        "width": 0.895,
+        "height": 1.565,
+        "shape_count": 282
+      },
+      "text_marker_bbox": {
+        "x0": 0.0,
+        "y0": 0.02,
+        "x1": 0.705,
+        "y1": 1.365,
+        "width": 0.705,
+        "height": 1.345,
+        "shape_count": 1
+      },
+      "pin_or_rail_bbox": {
+        "gnd": {
+          "label": "gnd",
+          "lpp": "11/0",
+          "layer_name": "m1",
+          "text_point": {
+            "x": 0.345,
+            "y": 0.0
+          },
+          "bbox": {
+            "x0": -0.09,
+            "y0": -0.0325,
+            "x1": 0.795,
+            "y1": 0.0325,
+            "width": 0.885,
+            "height": 0.065,
+            "area": 0.057525
+          },
+          "found_boundary_shape": true
+        },
+        "vdd": {
+          "label": "vdd",
+          "lpp": "11/0",
+          "layer_name": "m1",
+          "text_point": {
+            "x": 0.345,
+            "y": 1.365
+          },
+          "bbox": {
+            "x0": -0.09,
+            "y0": 1.3325,
+            "x1": 0.795,
+            "y1": 1.3975,
+            "width": 0.885,
+            "height": 0.065,
+            "area": 0.057525
+          },
+          "found_boundary_shape": true
+        },
+        "wl": {
+          "label": "wl",
+          "lpp": "11/0",
+          "layer_name": "m1",
+          "text_point": {
+            "x": -0.05,
+            "y": 0.167
+          },
+          "bbox": {
+            "x0": -0.09,
+            "y0": 0.1275,
+            "x1": 0.795,
+            "y1": 0.1925,
+            "width": 0.885,
+            "height": 0.065,
+            "area": 0.057525
+          },
+          "found_boundary_shape": true
+        },
+        "br": {
+          "label": "br",
+          "lpp": "13/0",
+          "layer_name": "m2",
+          "text_point": {
+            "x": 0.52,
+            "y": 0.003
+          },
+          "bbox": {
+            "x0": 0.485,
+            "y0": -0.08,
+            "x1": 0.555,
+            "y1": 1.465,
+            "width": 0.07,
+            "height": 1.545,
+            "area": 0.10815
+          },
+          "found_boundary_shape": true
+        },
+        "bl": {
+          "label": "bl",
+          "lpp": "13/0",
+          "layer_name": "m2",
+          "text_point": {
+            "x": 0.19,
+            "y": 0.003
+          },
+          "bbox": {
+            "x0": 0.15,
+            "y0": -0.08,
+            "x1": 0.22,
+            "y1": 1.465,
+            "width": 0.07,
+            "height": 1.545,
+            "area": 0.10815
+          },
+          "found_boundary_shape": true
+        }
+      },
+      "boundary_extension": {
+        "left": 0.095,
+        "right": 0.095,
+        "bottom": 0.1,
+        "top": 0.1,
+        "negative_origin": true
+      },
+      "legacy_pitch_overlap": {
+        "pitch_name": "legacy_logical_marker_pitch",
+        "pitch_x": 0.705,
+        "pitch_y": 1.365,
+        "bbox_overlap_x": 0.19,
+        "bbox_overlap_y": 0.2,
+        "horizontal_neighbor": {
+          "overlap_count": 699,
+          "total_overlap_area": 5.877856,
+          "overlap_layers": [
+            {
+              "layer": "active",
+              "lpp": "1/0",
+              "class": "active",
+              "count": 32,
+              "area": 0.2697,
+              "pin_labels": []
+            },
+            {
+              "layer": "contact",
+              "lpp": "10/0",
+              "class": "contact",
+              "count": 2,
+              "area": 0.00845,
+              "pin_labels": []
+            },
+            {
+              "layer": "m1",
+              "lpp": "11/0",
+              "class": "signal_metal",
+              "count": 295,
+              "area": 1.836156,
+              "pin_labels": [
+                "gnd",
+                "vdd",
+                "wl"
+              ]
+            },
+            {
+              "layer": "m2",
+              "lpp": "13/0",
+              "class": "signal_metal",
+              "count": 194,
+              "area": 1.9537,
+              "pin_labels": [
+                "gnd",
+                "vdd",
+                "wl"
+              ]
+            },
+            {
+              "layer": "nimplant",
+              "lpp": "4/0",
+              "class": "implant",
+              "count": 1,
+              "area": 0.01435,
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "count": 4,
+              "area": 0.177925,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "pimplant",
+              "lpp": "5/0",
+              "class": "implant",
+              "count": 1,
+              "area": 0.0063,
+              "pin_labels": []
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "count": 7,
+              "area": 0.405825,
+              "pin_labels": [
+                "gnd",
+                "wl"
+              ]
+            },
+            {
+              "layer": "via1",
+              "lpp": "12/0",
+              "class": "via",
+              "count": 152,
+              "area": 0.6422,
+              "pin_labels": [
+                "gnd"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "count": 11,
+              "area": 0.5633,
+              "pin_labels": [
+                "gnd",
+                "vdd",
+                "wl"
+              ]
+            }
+          ],
+          "risky_overlap_layers": [
+            {
+              "layer": "active",
+              "lpp": "1/0",
+              "class": "active",
+              "count": 32,
+              "area": 0.2697,
+              "pin_labels": []
+            },
+            {
+              "layer": "contact",
+              "lpp": "10/0",
+              "class": "contact",
+              "count": 2,
+              "area": 0.00845,
+              "pin_labels": []
+            },
+            {
+              "layer": "m1",
+              "lpp": "11/0",
+              "class": "signal_metal",
+              "count": 295,
+              "area": 1.836156,
+              "pin_labels": [
+                "gnd",
+                "vdd",
+                "wl"
+              ]
+            },
+            {
+              "layer": "m2",
+              "lpp": "13/0",
+              "class": "signal_metal",
+              "count": 194,
+              "area": 1.9537,
+              "pin_labels": [
+                "gnd",
+                "vdd",
+                "wl"
+              ]
+            },
+            {
+              "layer": "via1",
+              "lpp": "12/0",
+              "class": "via",
+              "count": 152,
+              "area": 0.6422,
+              "pin_labels": [
+                "gnd"
+              ]
+            }
+          ],
+          "power_or_boundary_overlap_layers": [
+            {
+              "layer": "nimplant",
+              "lpp": "4/0",
+              "class": "implant",
+              "count": 1,
+              "area": 0.01435,
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "count": 4,
+              "area": 0.177925,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "pimplant",
+              "lpp": "5/0",
+              "class": "implant",
+              "count": 1,
+              "area": 0.0063,
+              "pin_labels": []
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "count": 7,
+              "area": 0.405825,
+              "pin_labels": [
+                "gnd",
+                "wl"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "count": 11,
+              "area": 0.5633,
+              "pin_labels": [
+                "gnd",
+                "vdd",
+                "wl"
+              ]
+            }
+          ],
+          "sample_overlaps": [
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.0567,
+              "rect": {
+                "x0": 0.615,
+                "y0": 0.5125,
+                "x1": 0.795,
+                "y1": 0.8275,
+                "width": 0.18,
+                "height": 0.315,
+                "area": 0.0567
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.058275,
+              "rect": {
+                "x0": 0.61,
+                "y0": 0.5125,
+                "x1": 0.795,
+                "y1": 0.8275,
+                "width": 0.185,
+                "height": 0.315,
+                "area": 0.058275
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.0049,
+              "rect": {
+                "x0": 0.695,
+                "y0": 0.1925,
+                "x1": 0.715,
+                "y1": 0.4375,
+                "width": 0.02,
+                "height": 0.245,
+                "area": 0.0049
+              },
+              "pin_labels": [
+                "wl"
+              ]
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.025725,
+              "rect": {
+                "x0": 0.61,
+                "y0": 0.1925,
+                "x1": 0.715,
+                "y1": 0.4375,
+                "width": 0.105,
+                "height": 0.245,
+                "area": 0.025725
+              },
+              "pin_labels": [
+                "wl"
+              ]
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.058275,
+              "rect": {
+                "x0": 0.615,
+                "y0": 0.5125,
+                "x1": 0.8,
+                "y1": 0.8275,
+                "width": 0.185,
+                "height": 0.315,
+                "area": 0.058275
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.025725,
+              "rect": {
+                "x0": 0.695,
+                "y0": 0.1925,
+                "x1": 0.8,
+                "y1": 0.4375,
+                "width": 0.105,
+                "height": 0.245,
+                "area": 0.025725
+              },
+              "pin_labels": [
+                "wl"
+              ]
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.176225,
+              "rect": {
+                "x0": 0.61,
+                "y0": -0.1,
+                "x1": 0.8,
+                "y1": 0.8275,
+                "width": 0.19,
+                "height": 0.9275,
+                "area": 0.176225
+              },
+              "pin_labels": [
+                "gnd",
+                "wl"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.036,
+              "rect": {
+                "x0": 0.615,
+                "y0": 1.1075,
+                "x1": 0.795,
+                "y1": 1.3075,
+                "width": 0.18,
+                "height": 0.2,
+                "area": 0.036
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.037,
+              "rect": {
+                "x0": 0.61,
+                "y0": 1.1075,
+                "x1": 0.795,
+                "y1": 1.3075,
+                "width": 0.185,
+                "height": 0.2,
+                "area": 0.037
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.037,
+              "rect": {
+                "x0": 0.615,
+                "y0": 1.1075,
+                "x1": 0.8,
+                "y1": 1.3075,
+                "width": 0.185,
+                "height": 0.2,
+                "area": 0.037
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.067925,
+              "rect": {
+                "x0": 0.61,
+                "y0": 1.1075,
+                "x1": 0.8,
+                "y1": 1.465,
+                "width": 0.19,
+                "height": 0.3575,
+                "area": 0.067925
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.036,
+              "rect": {
+                "x0": 0.615,
+                "y0": 1.1075,
+                "x1": 0.795,
+                "y1": 1.3075,
+                "width": 0.18,
+                "height": 0.2,
+                "area": 0.036
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.036,
+              "rect": {
+                "x0": 0.615,
+                "y0": 1.1075,
+                "x1": 0.795,
+                "y1": 1.3075,
+                "width": 0.18,
+                "height": 0.2,
+                "area": 0.036
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.0567,
+              "rect": {
+                "x0": 0.615,
+                "y0": 0.5125,
+                "x1": 0.795,
+                "y1": 0.8275,
+                "width": 0.18,
+                "height": 0.315,
+                "area": 0.0567
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.0567,
+              "rect": {
+                "x0": 0.615,
+                "y0": 0.5125,
+                "x1": 0.795,
+                "y1": 0.8275,
+                "width": 0.18,
+                "height": 0.315,
+                "area": 0.0567
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.0049,
+              "rect": {
+                "x0": 0.695,
+                "y0": 0.1925,
+                "x1": 0.715,
+                "y1": 0.4375,
+                "width": 0.02,
+                "height": 0.245,
+                "area": 0.0049
+              },
+              "pin_labels": [
+                "wl"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.0245,
+              "rect": {
+                "x0": 0.615,
+                "y0": 0.1925,
+                "x1": 0.715,
+                "y1": 0.4375,
+                "width": 0.1,
+                "height": 0.245,
+                "area": 0.0245
+              },
+              "pin_labels": [
+                "wl"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.036,
+              "rect": {
+                "x0": 0.615,
+                "y0": 1.1075,
+                "x1": 0.795,
+                "y1": 1.3075,
+                "width": 0.18,
+                "height": 0.2,
+                "area": 0.036
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.06435,
+              "rect": {
+                "x0": 0.615,
+                "y0": 1.1075,
+                "x1": 0.795,
+                "y1": 1.465,
+                "width": 0.18,
+                "height": 0.3575,
+                "area": 0.06435
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.0567,
+              "rect": {
+                "x0": 0.615,
+                "y0": 0.5125,
+                "x1": 0.795,
+                "y1": 0.8275,
+                "width": 0.18,
+                "height": 0.315,
+                "area": 0.0567
+              },
+              "pin_labels": []
+            }
+          ]
+        },
+        "vertical_neighbor_r0_to_mx": {
+          "overlap_count": 43,
+          "total_overlap_area": 1.016798,
+          "overlap_layers": [
+            {
+              "layer": "active",
+              "lpp": "1/0",
+              "class": "active",
+              "count": 4,
+              "area": 0.0324,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "contact",
+              "lpp": "10/0",
+              "class": "contact",
+              "count": 1,
+              "area": 0.004225,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "m1",
+              "lpp": "11/0",
+              "class": "power_rail",
+              "count": 1,
+              "area": 0.057525,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            },
+            {
+              "layer": "m2",
+              "lpp": "13/0",
+              "class": "power_rail",
+              "count": 7,
+              "area": 0.0791,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nimplant",
+              "lpp": "4/0",
+              "class": "implant",
+              "count": 4,
+              "area": 0.0324,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "count": 21,
+              "area": 0.57125,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "count": 5,
+              "area": 0.2399,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            }
+          ],
+          "risky_overlap_layers": [
+            {
+              "layer": "active",
+              "lpp": "1/0",
+              "class": "active",
+              "count": 4,
+              "area": 0.0324,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "contact",
+              "lpp": "10/0",
+              "class": "contact",
+              "count": 1,
+              "area": 0.004225,
+              "pin_labels": [
+                "vdd"
+              ]
+            }
+          ],
+          "power_or_boundary_overlap_layers": [
+            {
+              "layer": "m1",
+              "lpp": "11/0",
+              "class": "power_rail",
+              "count": 1,
+              "area": 0.057525,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            },
+            {
+              "layer": "m2",
+              "lpp": "13/0",
+              "class": "power_rail",
+              "count": 7,
+              "area": 0.0791,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nimplant",
+              "lpp": "4/0",
+              "class": "implant",
+              "count": 4,
+              "area": 0.0324,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "count": 21,
+              "area": 0.57125,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "count": 5,
+              "area": 0.2399,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            }
+          ],
+          "sample_overlaps": [
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.000956,
+              "rect": {
+                "x0": 0.425,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.3075,
+                "width": 0.0225,
+                "height": 0.0425,
+                "area": 0.000956
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.000956,
+              "rect": {
+                "x0": 0.425,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.3075,
+                "width": 0.0225,
+                "height": 0.0425,
+                "area": 0.000956
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.015725,
+              "rect": {
+                "x0": 0.425,
+                "y0": 1.265,
+                "x1": 0.795,
+                "y1": 1.3075,
+                "width": 0.37,
+                "height": 0.0425,
+                "area": 0.015725
+              },
+              "pin_labels": [
+                "br"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.001381,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.28,
+                "y1": 1.3075,
+                "width": 0.0325,
+                "height": 0.0425,
+                "area": 0.001381
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.001381,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.28,
+                "y1": 1.3075,
+                "width": 0.0325,
+                "height": 0.0425,
+                "area": 0.001381
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.015725,
+              "rect": {
+                "x0": -0.09,
+                "y0": 1.265,
+                "x1": 0.28,
+                "y1": 1.3075,
+                "width": 0.37,
+                "height": 0.0425,
+                "area": 0.015725
+              },
+              "pin_labels": [
+                "bl"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.000956,
+              "rect": {
+                "x0": 0.425,
+                "y0": 1.4225,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.0225,
+                "height": 0.0425,
+                "area": 0.000956
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.001381,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.4225,
+                "x1": 0.28,
+                "y1": 1.465,
+                "width": 0.0325,
+                "height": 0.0425,
+                "area": 0.001381
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.000956,
+              "rect": {
+                "x0": 0.425,
+                "y0": 1.4225,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.0225,
+                "height": 0.0425,
+                "area": 0.000956
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.001381,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.4225,
+                "x1": 0.28,
+                "y1": 1.465,
+                "width": 0.0325,
+                "height": 0.0425,
+                "area": 0.001381
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.015725,
+              "rect": {
+                "x0": 0.425,
+                "y0": 1.4225,
+                "x1": 0.795,
+                "y1": 1.465,
+                "width": 0.37,
+                "height": 0.0425,
+                "area": 0.015725
+              },
+              "pin_labels": [
+                "br"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.015725,
+              "rect": {
+                "x0": -0.09,
+                "y0": 1.4225,
+                "x1": 0.28,
+                "y1": 1.465,
+                "width": 0.37,
+                "height": 0.0425,
+                "area": 0.015725
+              },
+              "pin_labels": [
+                "bl"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            }
+          ]
+        },
+        "fully_bbox_separated": false,
+        "extra_gap_x": 0.0,
+        "extra_gap_y": 0.0,
+        "classification": {
+          "has_real_shape_overlap": true,
+          "risky_layers": [
+            "active",
+            "contact",
+            "m1",
+            "m2",
+            "via1"
+          ],
+          "mostly_power_or_boundary": false,
+          "acceptable_as_legal_abutment": false,
+          "connectivity_not_proven": true,
+          "manual_layout_review_required": true,
+          "reason": "Risk layers overlap; manual GDS/DRC review is required."
+        }
+      },
+      "audit_bbox_pitch_overlap": {
+        "pitch_name": "audit_full_bbox_pitch",
+        "pitch_x": 0.895,
+        "pitch_y": 1.565,
+        "bbox_overlap_x": 0.0,
+        "bbox_overlap_y": 0.0,
+        "horizontal_neighbor": {
+          "overlap_count": 0,
+          "total_overlap_area": 0.0,
+          "overlap_layers": [],
+          "risky_overlap_layers": [],
+          "power_or_boundary_overlap_layers": [],
+          "sample_overlaps": []
+        },
+        "vertical_neighbor_r0_to_mx": {
+          "overlap_count": 0,
+          "total_overlap_area": 0.0,
+          "overlap_layers": [],
+          "risky_overlap_layers": [],
+          "power_or_boundary_overlap_layers": [],
+          "sample_overlaps": []
+        },
+        "fully_bbox_separated": true,
+        "extra_gap_x": 0.0,
+        "extra_gap_y": 0.0,
+        "classification": {
+          "has_real_shape_overlap": false,
+          "risky_layers": [],
+          "mostly_power_or_boundary": false,
+          "acceptable_as_legal_abutment": false,
+          "connectivity_not_proven": true,
+          "manual_layout_review_required": false,
+          "reason": "No same-layer shape overlap was found."
+        }
+      },
+      "recommended_pitch_x": 0.895,
+      "recommended_pitch_y": 1.565,
+      "confidence": "medium",
+      "reason": "Full bbox pitch eliminates same-layer physical overlap; legacy pitch has risky overlaps.",
+      "connectivity_not_proven": true,
+      "manual_layout_review_required": true
+    },
+    {
+      "macro": "replica_cell_1rw",
+      "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\replica_cell_1rw.gds",
+      "logical_marker_pitch": {
+        "x": 0.705,
+        "y": 1.365
+      },
+      "gds_bbox": {
+        "x0": -0.095,
+        "y0": -0.1,
+        "x1": 0.8,
+        "y1": 1.465,
+        "width": 0.895,
+        "height": 1.565,
+        "shape_count": 282
+      },
+      "text_marker_bbox": {
+        "x0": 0.0,
+        "y0": 0.02,
+        "x1": 0.705,
+        "y1": 1.365,
+        "width": 0.705,
+        "height": 1.345,
+        "shape_count": 1
+      },
+      "pin_or_rail_bbox": {
+        "gnd": {
+          "label": "gnd",
+          "lpp": "11/0",
+          "layer_name": "m1",
+          "text_point": {
+            "x": 0.345,
+            "y": 0.0
+          },
+          "bbox": {
+            "x0": -0.09,
+            "y0": -0.0325,
+            "x1": 0.795,
+            "y1": 0.0325,
+            "width": 0.885,
+            "height": 0.065,
+            "area": 0.057525
+          },
+          "found_boundary_shape": true
+        },
+        "vdd": {
+          "label": "vdd",
+          "lpp": "11/0",
+          "layer_name": "m1",
+          "text_point": {
+            "x": 0.35,
+            "y": 1.365
+          },
+          "bbox": {
+            "x0": -0.09,
+            "y0": 1.3325,
+            "x1": 0.795,
+            "y1": 1.3975,
+            "width": 0.885,
+            "height": 0.065,
+            "area": 0.057525
+          },
+          "found_boundary_shape": true
+        },
+        "wl": {
+          "label": "wl",
+          "lpp": "11/0",
+          "layer_name": "m1",
+          "text_point": {
+            "x": -0.05,
+            "y": 0.167
+          },
+          "bbox": {
+            "x0": -0.09,
+            "y0": 0.1275,
+            "x1": 0.795,
+            "y1": 0.1925,
+            "width": 0.885,
+            "height": 0.065,
+            "area": 0.057525
+          },
+          "found_boundary_shape": true
+        },
+        "bl": {
+          "label": "bl",
+          "lpp": "13/0",
+          "layer_name": "m2",
+          "text_point": {
+            "x": 0.19,
+            "y": 0.003
+          },
+          "bbox": {
+            "x0": 0.15,
+            "y0": -0.08,
+            "x1": 0.22,
+            "y1": 1.465,
+            "width": 0.07,
+            "height": 1.545,
+            "area": 0.10815
+          },
+          "found_boundary_shape": true
+        },
+        "br": {
+          "label": "br",
+          "lpp": "13/0",
+          "layer_name": "m2",
+          "text_point": {
+            "x": 0.52,
+            "y": 0.003
+          },
+          "bbox": {
+            "x0": 0.485,
+            "y0": -0.08,
+            "x1": 0.555,
+            "y1": 1.465,
+            "width": 0.07,
+            "height": 1.545,
+            "area": 0.10815
+          },
+          "found_boundary_shape": true
+        }
+      },
+      "boundary_extension": {
+        "left": 0.095,
+        "right": 0.095,
+        "bottom": 0.1,
+        "top": 0.1,
+        "negative_origin": true
+      },
+      "legacy_pitch_overlap": {
+        "pitch_name": "legacy_logical_marker_pitch",
+        "pitch_x": 0.705,
+        "pitch_y": 1.365,
+        "bbox_overlap_x": 0.19,
+        "bbox_overlap_y": 0.2,
+        "horizontal_neighbor": {
+          "overlap_count": 699,
+          "total_overlap_area": 5.877856,
+          "overlap_layers": [
+            {
+              "layer": "active",
+              "lpp": "1/0",
+              "class": "active",
+              "count": 32,
+              "area": 0.2697,
+              "pin_labels": []
+            },
+            {
+              "layer": "contact",
+              "lpp": "10/0",
+              "class": "contact",
+              "count": 2,
+              "area": 0.00845,
+              "pin_labels": []
+            },
+            {
+              "layer": "m1",
+              "lpp": "11/0",
+              "class": "signal_metal",
+              "count": 295,
+              "area": 1.836156,
+              "pin_labels": [
+                "gnd",
+                "vdd",
+                "wl"
+              ]
+            },
+            {
+              "layer": "m2",
+              "lpp": "13/0",
+              "class": "signal_metal",
+              "count": 194,
+              "area": 1.9537,
+              "pin_labels": [
+                "gnd",
+                "vdd",
+                "wl"
+              ]
+            },
+            {
+              "layer": "nimplant",
+              "lpp": "4/0",
+              "class": "implant",
+              "count": 1,
+              "area": 0.01435,
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "count": 4,
+              "area": 0.177925,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "pimplant",
+              "lpp": "5/0",
+              "class": "implant",
+              "count": 1,
+              "area": 0.0063,
+              "pin_labels": []
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "count": 7,
+              "area": 0.405825,
+              "pin_labels": [
+                "gnd",
+                "wl"
+              ]
+            },
+            {
+              "layer": "via1",
+              "lpp": "12/0",
+              "class": "via",
+              "count": 152,
+              "area": 0.6422,
+              "pin_labels": [
+                "gnd"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "count": 11,
+              "area": 0.5633,
+              "pin_labels": [
+                "gnd",
+                "vdd",
+                "wl"
+              ]
+            }
+          ],
+          "risky_overlap_layers": [
+            {
+              "layer": "active",
+              "lpp": "1/0",
+              "class": "active",
+              "count": 32,
+              "area": 0.2697,
+              "pin_labels": []
+            },
+            {
+              "layer": "contact",
+              "lpp": "10/0",
+              "class": "contact",
+              "count": 2,
+              "area": 0.00845,
+              "pin_labels": []
+            },
+            {
+              "layer": "m1",
+              "lpp": "11/0",
+              "class": "signal_metal",
+              "count": 295,
+              "area": 1.836156,
+              "pin_labels": [
+                "gnd",
+                "vdd",
+                "wl"
+              ]
+            },
+            {
+              "layer": "m2",
+              "lpp": "13/0",
+              "class": "signal_metal",
+              "count": 194,
+              "area": 1.9537,
+              "pin_labels": [
+                "gnd",
+                "vdd",
+                "wl"
+              ]
+            },
+            {
+              "layer": "via1",
+              "lpp": "12/0",
+              "class": "via",
+              "count": 152,
+              "area": 0.6422,
+              "pin_labels": [
+                "gnd"
+              ]
+            }
+          ],
+          "power_or_boundary_overlap_layers": [
+            {
+              "layer": "nimplant",
+              "lpp": "4/0",
+              "class": "implant",
+              "count": 1,
+              "area": 0.01435,
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "count": 4,
+              "area": 0.177925,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "pimplant",
+              "lpp": "5/0",
+              "class": "implant",
+              "count": 1,
+              "area": 0.0063,
+              "pin_labels": []
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "count": 7,
+              "area": 0.405825,
+              "pin_labels": [
+                "gnd",
+                "wl"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "count": 11,
+              "area": 0.5633,
+              "pin_labels": [
+                "gnd",
+                "vdd",
+                "wl"
+              ]
+            }
+          ],
+          "sample_overlaps": [
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.176225,
+              "rect": {
+                "x0": 0.61,
+                "y0": -0.1,
+                "x1": 0.8,
+                "y1": 0.8275,
+                "width": 0.19,
+                "height": 0.9275,
+                "area": 0.176225
+              },
+              "pin_labels": [
+                "gnd",
+                "wl"
+              ]
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.025725,
+              "rect": {
+                "x0": 0.695,
+                "y0": 0.1925,
+                "x1": 0.8,
+                "y1": 0.4375,
+                "width": 0.105,
+                "height": 0.245,
+                "area": 0.025725
+              },
+              "pin_labels": [
+                "wl"
+              ]
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.058275,
+              "rect": {
+                "x0": 0.615,
+                "y0": 0.5125,
+                "x1": 0.8,
+                "y1": 0.8275,
+                "width": 0.185,
+                "height": 0.315,
+                "area": 0.058275
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.025725,
+              "rect": {
+                "x0": 0.61,
+                "y0": 0.1925,
+                "x1": 0.715,
+                "y1": 0.4375,
+                "width": 0.105,
+                "height": 0.245,
+                "area": 0.025725
+              },
+              "pin_labels": [
+                "wl"
+              ]
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.0049,
+              "rect": {
+                "x0": 0.695,
+                "y0": 0.1925,
+                "x1": 0.715,
+                "y1": 0.4375,
+                "width": 0.02,
+                "height": 0.245,
+                "area": 0.0049
+              },
+              "pin_labels": [
+                "wl"
+              ]
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.058275,
+              "rect": {
+                "x0": 0.61,
+                "y0": 0.5125,
+                "x1": 0.795,
+                "y1": 0.8275,
+                "width": 0.185,
+                "height": 0.315,
+                "area": 0.058275
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "pwell",
+              "lpp": "2/0",
+              "class": "well",
+              "area": 0.0567,
+              "rect": {
+                "x0": 0.615,
+                "y0": 0.5125,
+                "x1": 0.795,
+                "y1": 0.8275,
+                "width": 0.18,
+                "height": 0.315,
+                "area": 0.0567
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.067925,
+              "rect": {
+                "x0": 0.61,
+                "y0": 1.1075,
+                "x1": 0.8,
+                "y1": 1.465,
+                "width": 0.19,
+                "height": 0.3575,
+                "area": 0.067925
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.037,
+              "rect": {
+                "x0": 0.615,
+                "y0": 1.1075,
+                "x1": 0.8,
+                "y1": 1.3075,
+                "width": 0.185,
+                "height": 0.2,
+                "area": 0.037
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.037,
+              "rect": {
+                "x0": 0.61,
+                "y0": 1.1075,
+                "x1": 0.795,
+                "y1": 1.3075,
+                "width": 0.185,
+                "height": 0.2,
+                "area": 0.037
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.036,
+              "rect": {
+                "x0": 0.615,
+                "y0": 1.1075,
+                "x1": 0.795,
+                "y1": 1.3075,
+                "width": 0.18,
+                "height": 0.2,
+                "area": 0.036
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.16695,
+              "rect": {
+                "x0": 0.615,
+                "y0": -0.1,
+                "x1": 0.795,
+                "y1": 0.8275,
+                "width": 0.18,
+                "height": 0.9275,
+                "area": 0.16695
+              },
+              "pin_labels": [
+                "gnd",
+                "wl"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.0245,
+              "rect": {
+                "x0": 0.695,
+                "y0": 0.1925,
+                "x1": 0.795,
+                "y1": 0.4375,
+                "width": 0.1,
+                "height": 0.245,
+                "area": 0.0245
+              },
+              "pin_labels": [
+                "wl"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.0567,
+              "rect": {
+                "x0": 0.615,
+                "y0": 0.5125,
+                "x1": 0.795,
+                "y1": 0.8275,
+                "width": 0.18,
+                "height": 0.315,
+                "area": 0.0567
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.06435,
+              "rect": {
+                "x0": 0.615,
+                "y0": 1.1075,
+                "x1": 0.795,
+                "y1": 1.465,
+                "width": 0.18,
+                "height": 0.3575,
+                "area": 0.06435
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.036,
+              "rect": {
+                "x0": 0.615,
+                "y0": 1.1075,
+                "x1": 0.795,
+                "y1": 1.3075,
+                "width": 0.18,
+                "height": 0.2,
+                "area": 0.036
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.0245,
+              "rect": {
+                "x0": 0.615,
+                "y0": 0.1925,
+                "x1": 0.715,
+                "y1": 0.4375,
+                "width": 0.1,
+                "height": 0.245,
+                "area": 0.0245
+              },
+              "pin_labels": [
+                "wl"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.0049,
+              "rect": {
+                "x0": 0.695,
+                "y0": 0.1925,
+                "x1": 0.715,
+                "y1": 0.4375,
+                "width": 0.02,
+                "height": 0.245,
+                "area": 0.0049
+              },
+              "pin_labels": [
+                "wl"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.0567,
+              "rect": {
+                "x0": 0.615,
+                "y0": 0.5125,
+                "x1": 0.795,
+                "y1": 0.8275,
+                "width": 0.18,
+                "height": 0.315,
+                "area": 0.0567
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "area": 0.0567,
+              "rect": {
+                "x0": 0.615,
+                "y0": 0.5125,
+                "x1": 0.795,
+                "y1": 0.8275,
+                "width": 0.18,
+                "height": 0.315,
+                "area": 0.0567
+              },
+              "pin_labels": []
+            }
+          ]
+        },
+        "vertical_neighbor_r0_to_mx": {
+          "overlap_count": 45,
+          "total_overlap_area": 1.018422,
+          "overlap_layers": [
+            {
+              "layer": "active",
+              "lpp": "1/0",
+              "class": "active",
+              "count": 4,
+              "area": 0.0324,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "contact",
+              "lpp": "10/0",
+              "class": "contact",
+              "count": 1,
+              "area": 0.004225,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "m1",
+              "lpp": "11/0",
+              "class": "power_rail",
+              "count": 3,
+              "area": 0.05915,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            },
+            {
+              "layer": "m2",
+              "lpp": "13/0",
+              "class": "power_rail",
+              "count": 7,
+              "area": 0.0791,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nimplant",
+              "lpp": "4/0",
+              "class": "implant",
+              "count": 4,
+              "area": 0.0324,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "count": 21,
+              "area": 0.57125,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "count": 5,
+              "area": 0.2399,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            }
+          ],
+          "risky_overlap_layers": [
+            {
+              "layer": "active",
+              "lpp": "1/0",
+              "class": "active",
+              "count": 4,
+              "area": 0.0324,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "contact",
+              "lpp": "10/0",
+              "class": "contact",
+              "count": 1,
+              "area": 0.004225,
+              "pin_labels": [
+                "vdd"
+              ]
+            }
+          ],
+          "power_or_boundary_overlap_layers": [
+            {
+              "layer": "m1",
+              "lpp": "11/0",
+              "class": "power_rail",
+              "count": 3,
+              "area": 0.05915,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            },
+            {
+              "layer": "m2",
+              "lpp": "13/0",
+              "class": "power_rail",
+              "count": 7,
+              "area": 0.0791,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nimplant",
+              "lpp": "4/0",
+              "class": "implant",
+              "count": 4,
+              "area": 0.0324,
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "count": 21,
+              "area": 0.57125,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            },
+            {
+              "layer": "vtg",
+              "lpp": "6/0",
+              "class": "threshold",
+              "count": 5,
+              "area": 0.2399,
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            }
+          ],
+          "sample_overlaps": [
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.179,
+              "rect": {
+                "x0": -0.095,
+                "y0": 1.265,
+                "x1": 0.8,
+                "y1": 1.465,
+                "width": 0.895,
+                "height": 0.2,
+                "area": 0.179
+              },
+              "pin_labels": [
+                "bl",
+                "br",
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.015725,
+              "rect": {
+                "x0": -0.09,
+                "y0": 1.4225,
+                "x1": 0.28,
+                "y1": 1.465,
+                "width": 0.37,
+                "height": 0.0425,
+                "area": 0.015725
+              },
+              "pin_labels": [
+                "bl"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.015725,
+              "rect": {
+                "x0": 0.425,
+                "y0": 1.4225,
+                "x1": 0.795,
+                "y1": 1.465,
+                "width": 0.37,
+                "height": 0.0425,
+                "area": 0.015725
+              },
+              "pin_labels": [
+                "br"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.001381,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.4225,
+                "x1": 0.28,
+                "y1": 1.465,
+                "width": 0.0325,
+                "height": 0.0425,
+                "area": 0.001381
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.000956,
+              "rect": {
+                "x0": 0.425,
+                "y0": 1.4225,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.0225,
+                "height": 0.0425,
+                "area": 0.000956
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.04,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.2,
+                "height": 0.2,
+                "area": 0.04
+              },
+              "pin_labels": [
+                "vdd"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.001381,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.4225,
+                "x1": 0.28,
+                "y1": 1.465,
+                "width": 0.0325,
+                "height": 0.0425,
+                "area": 0.001381
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.000956,
+              "rect": {
+                "x0": 0.425,
+                "y0": 1.4225,
+                "x1": 0.4475,
+                "y1": 1.465,
+                "width": 0.0225,
+                "height": 0.0425,
+                "area": 0.000956
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.015725,
+              "rect": {
+                "x0": -0.09,
+                "y0": 1.265,
+                "x1": 0.28,
+                "y1": 1.3075,
+                "width": 0.37,
+                "height": 0.0425,
+                "area": 0.015725
+              },
+              "pin_labels": [
+                "bl"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.001381,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.28,
+                "y1": 1.3075,
+                "width": 0.0325,
+                "height": 0.0425,
+                "area": 0.001381
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.001381,
+              "rect": {
+                "x0": 0.2475,
+                "y0": 1.265,
+                "x1": 0.28,
+                "y1": 1.3075,
+                "width": 0.0325,
+                "height": 0.0425,
+                "area": 0.001381
+              },
+              "pin_labels": []
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.015725,
+              "rect": {
+                "x0": 0.425,
+                "y0": 1.265,
+                "x1": 0.795,
+                "y1": 1.3075,
+                "width": 0.37,
+                "height": 0.0425,
+                "area": 0.015725
+              },
+              "pin_labels": [
+                "br"
+              ]
+            },
+            {
+              "layer": "nwell",
+              "lpp": "3/0",
+              "class": "well",
+              "area": 0.000956,
+              "rect": {
+                "x0": 0.425,
+                "y0": 1.265,
+                "x1": 0.4475,
+                "y1": 1.3075,
+                "width": 0.0225,
+                "height": 0.0425,
+                "area": 0.000956
+              },
+              "pin_labels": []
+            }
+          ]
+        },
+        "fully_bbox_separated": false,
+        "extra_gap_x": 0.0,
+        "extra_gap_y": 0.0,
+        "classification": {
+          "has_real_shape_overlap": true,
+          "risky_layers": [
+            "active",
+            "contact",
+            "m1",
+            "m2",
+            "via1"
+          ],
+          "mostly_power_or_boundary": false,
+          "acceptable_as_legal_abutment": false,
+          "connectivity_not_proven": true,
+          "manual_layout_review_required": true,
+          "reason": "Risk layers overlap; manual GDS/DRC review is required."
+        }
+      },
+      "audit_bbox_pitch_overlap": {
+        "pitch_name": "audit_full_bbox_pitch",
+        "pitch_x": 0.895,
+        "pitch_y": 1.565,
+        "bbox_overlap_x": 0.0,
+        "bbox_overlap_y": 0.0,
+        "horizontal_neighbor": {
+          "overlap_count": 0,
+          "total_overlap_area": 0.0,
+          "overlap_layers": [],
+          "risky_overlap_layers": [],
+          "power_or_boundary_overlap_layers": [],
+          "sample_overlaps": []
+        },
+        "vertical_neighbor_r0_to_mx": {
+          "overlap_count": 0,
+          "total_overlap_area": 0.0,
+          "overlap_layers": [],
+          "risky_overlap_layers": [],
+          "power_or_boundary_overlap_layers": [],
+          "sample_overlaps": []
+        },
+        "fully_bbox_separated": true,
+        "extra_gap_x": 0.0,
+        "extra_gap_y": 0.0,
+        "classification": {
+          "has_real_shape_overlap": false,
+          "risky_layers": [],
+          "mostly_power_or_boundary": false,
+          "acceptable_as_legal_abutment": false,
+          "connectivity_not_proven": true,
+          "manual_layout_review_required": false,
+          "reason": "No same-layer shape overlap was found."
+        }
+      },
+      "recommended_pitch_x": 0.895,
+      "recommended_pitch_y": 1.565,
+      "confidence": "medium",
+      "reason": "Full bbox pitch eliminates same-layer physical overlap; legacy pitch has risky overlaps.",
+      "connectivity_not_proven": true,
+      "manual_layout_review_required": true
+    }
+  ],
+  "should_modify_array_aggregation_py": false,
+  "array_aggregation_py_recommendation": "Do not change array_aggregation.py yet. First decide whether to add separate physical_bbox_pitch, legal_abutment_pitch, routing_keepout_pitch, and report_bbox_pitch metadata.",
+  "next_step_recommendations": [
+    "Keep the OpenYield enabled path on full bbox pitch for now; use legacy logical marker pitch only as an area baseline unless DRC/manual review proves the overlap is legal.",
+    "Add explicit pitch metadata fields before changing the enabled OpenYield aggregation path.",
+    "Run KLayout visual/DRC review on a tiny storage-only array to classify well/implant/rail stitching versus illegal active/poly overlap."
+  ]
+}

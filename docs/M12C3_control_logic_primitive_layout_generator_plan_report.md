@@ -1,0 +1,96 @@
+# M12C3 Control Logic Primitive Layout Generator Plan Report
+
+- status_file_read: `True`
+- status_file_updated: `True`
+- goal_file_read: `True`
+- goal_file_updated: `True`
+- progress_file_updated: `True`
+- m12c2_report_loaded: `True`
+- m12c2_gate_passed: `True`
+- can_enter_M12C3_from_M12C2: `True`
+- current_stage_delta_from_M12C2: `M12C3 locks the FreePDK45-aware primitive-generator architecture, audits actual generator backends, deduplicates candidate-cell DRC artifacts, and prevents false reuse-ready claims.`
+- why_qualification_audit_complete_does_not_mean_reuse_ready: `M12C2 proved audit coverage, not trustworthy parameterized primitive generation, connectivity proof, or DRC-clean reusable cells.`
+- why_primitive_generator_architecture_must_precede_control_logic_assembly: `Without a locked device/contact/gate generator contract, later control-logic assembly would continue to collide size aliases, fake reuse parameterization, and technology-binding gaps.`
+- openyield_version_verified: `True`
+- openyield_sha: `1c34428d8b913963c4971d093b1a7c2df97a2509`
+- qualification_audit_complete: `True`
+- control_physical_library_reuse_ready: `False`
+- control_physical_library_drc_qualified: `False`
+- control_physical_library_connectivity_qualified: `False`
+- control_physical_library_parameter_complete: `False`
+- raw_candidate_drc_marker_count: `6661`
+- duplicate_drc_artifact_detected: `True`
+- unique_candidate_drc_marker_count: `3422`
+- deduplication_scope: `candidate top-cell DRC artifacts only`
+- repo_root: `/data1/qujh/work/sram_layoutgen_step45_clean`
+- existing_generator_scan_completed: `True`
+- existing_generator_candidate_count: `11`
+- trusted_device_generator_found: `True`
+- trusted_device_generator_path: `/data1/qujh/OpenRAM/compiler/modules/ptx.py`
+- trusted_gate_generator_found: `True`
+- contact_via_generator_found: `True`
+- well_implant_generation_supported: `True`
+- parameterized_width_supported: `True`
+- parameterized_length_supported: `False`
+- openram_device_generator_found: `True`
+- openram_device_generator_path: `/data1/qujh/OpenRAM/compiler/modules/ptx.py`
+- openram_device_generator_technology: `FreePDK45`
+- openram_device_generator_parameterized_width: `True`
+- openram_device_generator_parameterized_length: `False`
+- openram_contact_generator_found: `True`
+- openram_standard_cell_generator_found: `True`
+- openram_control_logic_generator_found: `False`
+- openram_generator_can_be_called_outside_openram: `False`
+- openram_generator_license_or_reuse_boundary_known: `True`
+- openram_generator_reuse_recommended: `REUSE_AFTER_ADAPTER`
+- physical_tech_contract_generated: `True`
+- physical_tech_contract_status: `LOCKED_FREEPDK45_V1`
+- technology_rule_count: `39`
+- technology_rule_conflict_count: `0`
+- layer_map_complete: `True`
+- contact_via_rules_complete: `True`
+- device_rules_complete: `True`
+- primitive_requirement_matrix_generated: `True`
+- primitive_requirement_count: `25`
+- p0_primitive_count: `14`
+- p1_primitive_count: `4`
+- p2_primitive_count: `7`
+- parameterized_cell_naming_contract_locked: `True`
+- size_alias_collision_prevented_by_contract: `True`
+- generator_architecture_decision: `OPENRAM_FREEPDK45_DEVICE_CONTACT_ADAPTER`
+- generator_architecture_decision_reason: `OpenRAM already provides FreePDK45-backed transistor, contact, and inverter generators. The safest next step is a thin adapter that locks naming, source trace, and OpenYield-specific parameter contracts instead of drawing new proxy geometry.`
+- generator_adapter_required: `True`
+- generator_implementation_ready: `False`
+- primitive_smoke_generation_allowed: `False`
+- primitive_smoke_generation_attempted: `False`
+- transmission_gate_smoke_generated: `False`
+- pinv1_smoke_generated: `False`
+- pinv2_smoke_generated: `False`
+- pinv3_smoke_generated: `False`
+- pinv4_smoke_generated: `False`
+- distinct_variant_fingerprints_verified: `False`
+- deterministic_regeneration_verified: `False`
+- primitive_pin_sets_verified: `False`
+- primitive_power_rails_verified: `False`
+- primitive_device_counts_verified: `False`
+- primitive_smoke_drc_run: `False`
+- primitive_smoke_total_drc_marker_count: `0`
+- primitive_smoke_drc_passed: `False`
+- reason: `Smoke generation is blocked because the trusted generator path is not fully parameter-complete.`
+- external_dependency_blockers_count: `12`
+- human_review_required_item_count: `0`
+- can_claim_control_physical_library_qualification_audit_complete: `True`
+- can_claim_control_physical_library_reuse_ready: `False`
+- can_claim_parameterized_primitive_generator_locked: `True`
+- can_claim_parameterized_primitive_generator_implemented: `False`
+- can_claim_primitive_smoke_drc_clean: `False`
+- can_claim_control_logic_mapping_ready: `False`
+- can_claim_control_logic_physical_ready: `False`
+- can_claim_custom_netlist_driven_layout_generation: `False`
+- can_claim_lvs_clean: `False`
+- can_claim_signoff_ready: `False`
+- recommended_next_stage: `M12C3A_IMPLEMENT_PARAMETERIZED_DEVICE_AND_GATE_GENERATOR`
+- recommended_next_stage_reason: `The FreePDK45 tech contract and primitive-generator architecture are locked, but the trusted OpenRAM-backed path still lacks callable adapter implementation and channel-length parameter completeness, so the next step is to implement the bounded adapter-backed primitive generator.`
+- remaining_M12C3_blockers_count: `10`
+- human_review_required: `False`
+- can_enter_next_stage_before_human_review: `True`

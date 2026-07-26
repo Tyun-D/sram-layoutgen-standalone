@@ -1,0 +1,16 @@
+logical_module,physical_cell_name,qualification_status,allowed_use,known_limitations
+AND2,decoder_gate_cells,REJECTED_SOURCE_MISMATCH,DO_NOT_USE,Candidate file represents a broader path/composite or the wrong primitive type.
+AND3,decoder_gate_cells,REJECTED_SOURCE_MISMATCH,DO_NOT_USE,Candidate file represents a broader path/composite or the wrong primitive type.
+DFF_BUF,DFF_ROW,PARTIAL_SOURCE_TRACE,DO_NOT_USE,"Candidate composite provides some geometry, but source-to-physical trace is incomplete for exact logical reuse."
+NMOS_VTG,,DEVICE_MODEL_NOT_A_HARDMACRO,DO_NOT_USE,"SPICE device model name, not a placeable hardmacro."
+PINV1,wordline_driver_gate_cells,REJECTED_SIZE_ALIAS_COLLISION,DO_NOT_USE,One fixed candidate GDS was mapped to multiple logically distinct size variants.
+PINV2,wordline_driver_gate_cells,REJECTED_SIZE_ALIAS_COLLISION,DO_NOT_USE,One fixed candidate GDS was mapped to multiple logically distinct size variants.
+PINV3,wordline_driver_gate_cells,REJECTED_SIZE_ALIAS_COLLISION,DO_NOT_USE,One fixed candidate GDS was mapped to multiple logically distinct size variants.
+PINV4,wordline_driver_gate_cells,REJECTED_SIZE_ALIAS_COLLISION,DO_NOT_USE,One fixed candidate GDS was mapped to multiple logically distinct size variants.
+PMOS_VTG,,DEVICE_MODEL_NOT_A_HARDMACRO,DO_NOT_USE,"SPICE device model name, not a placeable hardmacro."
+PNAND3,decoder_gate_cells,REJECTED_SOURCE_MISMATCH,DO_NOT_USE,Candidate file represents a broader path/composite or the wrong primitive type.
+TIME,CONTROL_LOGIC,CONNECTIVITY_UNPROVEN,DO_NOT_USE,Top composite exists only as candidate assembly; electrical equivalence is not proven.
+TRANSMISSION_GATE,,MISSING_REQUIRES_GENERATOR,DO_NOT_USE,No standalone candidate GDS or qualified primitive layout generator exists.
+pdrive,GATED_CLOCK_PATH,REJECTED_SOURCE_MISMATCH,DO_NOT_USE,Candidate file represents a broader path/composite or the wrong primitive type.
+pdrive2_for_pre,PRECHARGE_ENABLE_PATH,REJECTED_SOURCE_MISMATCH,DO_NOT_USE,Candidate file represents a broader path/composite or the wrong primitive type.
+wl_pdrive,WORDLINE_ENABLE_PATH,REJECTED_SOURCE_MISMATCH,DO_NOT_USE,Candidate file represents a broader path/composite or the wrong primitive type.

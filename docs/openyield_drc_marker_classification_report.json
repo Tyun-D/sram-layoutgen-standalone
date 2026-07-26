@@ -1,0 +1,3303 @@
+{
+  "inputs": {
+    "gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_2x4_stitched.gds",
+    "lyrdb": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_storage_only_smoke_2x4_stitched\\storage_only_2x4_stitched_drc.lyrdb",
+    "power_report": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_storage_power_stitch_report.json",
+    "lyrdb_exists": true
+  },
+  "summary": {
+    "total_markers": 40,
+    "rule_type_stats": {
+      "METAL1.2": 6,
+      "METAL2.2": 34
+    },
+    "location_class_stats": {
+      "array_outer_edge": 2,
+      "horizontal_cell_boundary": 4,
+      "vertical_row_boundary": 34
+    },
+    "likely_cause_stats": {
+      "abutment_boundary_spacing": 24,
+      "storage_only_missing_context": 16
+    },
+    "likely_layer_stats": {
+      "m1": 6,
+      "m2": 34
+    },
+    "power_stitch_overlap_count": 0,
+    "power_stitch_near_count": 2,
+    "power_pin_near_count": 0,
+    "bitline_pin_near_count": 14,
+    "row_boundary_count": 34,
+    "col_boundary_count": 4,
+    "array_edge_count": 2
+  },
+  "m1_marker_summary": {
+    "count": 6,
+    "location_class_stats": {
+      "array_outer_edge": 2,
+      "horizontal_cell_boundary": 4
+    },
+    "likely_cause_stats": {
+      "abutment_boundary_spacing": 4,
+      "storage_only_missing_context": 2
+    },
+    "near_power_stitch_count": 0,
+    "overlap_power_stitch_count": 0,
+    "near_power_pin_count": 0,
+    "near_bitline_pin_count": 0,
+    "markers": [
+      {
+        "marker_id": 1,
+        "center": [
+          4.38,
+          1.725
+        ],
+        "bbox": {
+          "x0": 4.375,
+          "y0": 1.6925,
+          "x1": 4.385,
+          "y1": 1.7575
+        },
+        "nearest_instance": "bit_r1_c3",
+        "nearest_macro": "cell_1rw",
+        "location_class": "horizontal_cell_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_bit_r1_c3_to_dummy_right_r1",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.095
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "dummy_right_r1",
+          "nearest_distance": 0.468188
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "br",
+          "nearest_instance": "bit_r1_c3",
+          "nearest_distance": 0.321012
+        }
+      },
+      {
+        "marker_id": 2,
+        "center": [
+          4.38,
+          0.16
+        ],
+        "bbox": {
+          "x0": 4.375,
+          "y0": 0.1275,
+          "x1": 4.385,
+          "y1": 0.1925
+        },
+        "nearest_instance": "bit_r0_c3",
+        "nearest_macro": "cell_1rw",
+        "location_class": "horizontal_cell_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r0_bit_r0_c3_to_dummy_right_r0",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.095
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "dummy_right_r0",
+          "nearest_distance": 0.468188
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "br",
+          "nearest_instance": "bit_r0_c3",
+          "nearest_distance": 0.321012
+        }
+      },
+      {
+        "marker_id": 3,
+        "center": [
+          0.8,
+          0.16
+        ],
+        "bbox": {
+          "x0": 0.795,
+          "y0": 0.1275,
+          "x1": 0.805,
+          "y1": 0.1925
+        },
+        "nearest_instance": "dummy_left_r0",
+        "nearest_macro": "dummy_cell_1rw",
+        "location_class": "horizontal_cell_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r0_dummy_left_r0_to_bit_r0_c0",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.095
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "bit_r0_c0",
+          "nearest_distance": 0.468188
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "br",
+          "nearest_instance": "dummy_left_r0",
+          "nearest_distance": 0.321012
+        }
+      },
+      {
+        "marker_id": 4,
+        "center": [
+          -0.095,
+          0.16
+        ],
+        "bbox": {
+          "x0": -0.1,
+          "y0": 0.1275,
+          "x1": -0.09,
+          "y1": 0.1925
+        },
+        "nearest_instance": "dummy_left_r0",
+        "nearest_macro": "dummy_cell_1rw",
+        "location_class": "array_outer_edge",
+        "likely_cause": "storage_only_missing_context",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r0_dummy_left_r0_to_bit_r0_c0",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.890084
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "dummy_left_r0",
+          "nearest_distance": 0.468188
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "bl",
+          "nearest_instance": "dummy_left_r0",
+          "nearest_distance": 0.325383
+        }
+      },
+      {
+        "marker_id": 5,
+        "center": [
+          0.8,
+          0.16
+        ],
+        "bbox": {
+          "x0": 0.795,
+          "y0": 0.1275,
+          "x1": 0.805,
+          "y1": 0.1925
+        },
+        "nearest_instance": "dummy_left_r0",
+        "nearest_macro": "dummy_cell_1rw",
+        "location_class": "horizontal_cell_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r0_dummy_left_r0_to_bit_r0_c0",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.095
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "bit_r0_c0",
+          "nearest_distance": 0.468188
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "br",
+          "nearest_instance": "dummy_left_r0",
+          "nearest_distance": 0.321012
+        }
+      },
+      {
+        "marker_id": 6,
+        "center": [
+          -0.095,
+          0.16
+        ],
+        "bbox": {
+          "x0": -0.1,
+          "y0": 0.1275,
+          "x1": -0.09,
+          "y1": 0.1925
+        },
+        "nearest_instance": "dummy_left_r0",
+        "nearest_macro": "dummy_cell_1rw",
+        "location_class": "array_outer_edge",
+        "likely_cause": "storage_only_missing_context",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r0_dummy_left_r0_to_bit_r0_c0",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.890084
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "dummy_left_r0",
+          "nearest_distance": 0.468188
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "bl",
+          "nearest_instance": "dummy_left_r0",
+          "nearest_distance": 0.325383
+        }
+      }
+    ]
+  },
+  "m2_marker_summary": {
+    "count": 34,
+    "location_class_stats": {
+      "vertical_row_boundary": 34
+    },
+    "likely_cause_stats": {
+      "abutment_boundary_spacing": 20,
+      "storage_only_missing_context": 14
+    },
+    "near_power_stitch_count": 2,
+    "overlap_power_stitch_count": 0,
+    "near_power_pin_count": 0,
+    "near_bitline_pin_count": 14,
+    "markers": [
+      {
+        "marker_id": 7,
+        "center": [
+          5.145,
+          1.4975
+        ],
+        "bbox": {
+          "x0": 5.119,
+          "y0": 1.465,
+          "x1": 5.171,
+          "y1": 1.53
+        },
+        "nearest_instance": "dummy_right_r1",
+        "nearest_macro": "dummy_cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.099032
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "dummy_right_r1",
+          "nearest_distance": 0.331936
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "br",
+          "nearest_instance": "dummy_right_r1",
+          "nearest_distance": 0.165742
+        }
+      },
+      {
+        "marker_id": 8,
+        "center": [
+          5.215,
+          1.4975
+        ],
+        "bbox": {
+          "x0": 5.189,
+          "y0": 1.465,
+          "x1": 5.241,
+          "y1": 1.53
+        },
+        "nearest_instance": "dummy_right_r1",
+        "nearest_macro": "dummy_cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": true,
+          "nearest_name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.029108
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "dummy_right_r1",
+          "nearest_distance": 0.400726
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "br",
+          "nearest_instance": "dummy_right_r1",
+          "nearest_distance": 0.23102
+        }
+      },
+      {
+        "marker_id": 9,
+        "center": [
+          4.995,
+          1.475
+        ],
+        "bbox": {
+          "x0": 4.96,
+          "y0": 1.465,
+          "x1": 5.03,
+          "y1": 1.485
+        },
+        "nearest_instance": "dummy_right_r1",
+        "nearest_macro": "dummy_cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "storage_only_missing_context",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.244655
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "dummy_right_r1",
+          "nearest_distance": 0.196787
+        },
+        "near_bitline_pin": {
+          "near": true,
+          "nearest_label": "br",
+          "nearest_instance": "dummy_right_r1",
+          "nearest_distance": 0.093
+        }
+      },
+      {
+        "marker_id": 10,
+        "center": [
+          4.475,
+          1.475
+        ],
+        "bbox": {
+          "x0": 4.44,
+          "y0": 1.465,
+          "x1": 4.51,
+          "y1": 1.485
+        },
+        "nearest_instance": "dummy_right_r1",
+        "nearest_macro": "dummy_cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_bit_r1_c3_to_dummy_right_r1",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.072672
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "dummy_right_r1",
+          "nearest_distance": 0.356546
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "bl",
+          "nearest_instance": "dummy_right_r1",
+          "nearest_distance": 0.21154
+        }
+      },
+      {
+        "marker_id": 11,
+        "center": [
+          2.31,
+          1.475
+        ],
+        "bbox": {
+          "x0": 2.275,
+          "y0": 1.465,
+          "x1": 2.345,
+          "y1": 1.485
+        },
+        "nearest_instance": "bit_r1_c1",
+        "nearest_macro": "cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "storage_only_missing_context",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_bit_r1_c1_to_bit_r1_c2",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.244655
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "bit_r1_c1",
+          "nearest_distance": 0.196787
+        },
+        "near_bitline_pin": {
+          "near": true,
+          "nearest_label": "br",
+          "nearest_instance": "bit_r1_c1",
+          "nearest_distance": 0.093
+        }
+      },
+      {
+        "marker_id": 12,
+        "center": [
+          5.37,
+          1.475
+        ],
+        "bbox": {
+          "x0": 5.335,
+          "y0": 1.465,
+          "x1": 5.405,
+          "y1": 1.485
+        },
+        "nearest_instance": "replica_r1",
+        "nearest_macro": "replica_cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.072672
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "replica_r1",
+          "nearest_distance": 0.356546
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "bl",
+          "nearest_instance": "replica_r1",
+          "nearest_distance": 0.21154
+        }
+      },
+      {
+        "marker_id": 13,
+        "center": [
+          0.185,
+          1.475
+        ],
+        "bbox": {
+          "x0": 0.15,
+          "y0": 1.465,
+          "x1": 0.22,
+          "y1": 1.485
+        },
+        "nearest_instance": "dummy_left_r1",
+        "nearest_macro": "dummy_cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "storage_only_missing_context",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_dummy_left_r1_to_bit_r1_c0",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.576959
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "dummy_left_r1",
+          "nearest_distance": 0.183576
+        },
+        "near_bitline_pin": {
+          "near": true,
+          "nearest_label": "bl",
+          "nearest_instance": "dummy_left_r1",
+          "nearest_distance": 0.093134
+        }
+      },
+      {
+        "marker_id": 14,
+        "center": [
+          0.67,
+          1.4975
+        ],
+        "bbox": {
+          "x0": 0.644,
+          "y0": 1.465,
+          "x1": 0.696,
+          "y1": 1.53
+        },
+        "nearest_instance": "dummy_left_r1",
+        "nearest_macro": "dummy_cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_dummy_left_r1_to_bit_r1_c0",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.099032
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "dummy_left_r1",
+          "nearest_distance": 0.331936
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "br",
+          "nearest_instance": "dummy_left_r1",
+          "nearest_distance": 0.165742
+        }
+      },
+      {
+        "marker_id": 15,
+        "center": [
+          6.11,
+          1.4975
+        ],
+        "bbox": {
+          "x0": 6.084,
+          "y0": 1.465,
+          "x1": 6.136,
+          "y1": 1.53
+        },
+        "nearest_instance": "replica_r1",
+        "nearest_macro": "replica_cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.804004
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "replica_r1",
+          "nearest_distance": 0.400726
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "br",
+          "nearest_instance": "replica_r1",
+          "nearest_distance": 0.23102
+        }
+      },
+      {
+        "marker_id": 16,
+        "center": [
+          0.705,
+          1.475
+        ],
+        "bbox": {
+          "x0": 0.67,
+          "y0": 1.465,
+          "x1": 0.74,
+          "y1": 1.485
+        },
+        "nearest_instance": "dummy_left_r1",
+        "nearest_macro": "dummy_cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_dummy_left_r1_to_bit_r1_c0",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.072672
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "dummy_left_r1",
+          "nearest_distance": 0.37108
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "br",
+          "nearest_instance": "dummy_left_r1",
+          "nearest_distance": 0.20706
+        }
+      },
+      {
+        "marker_id": 17,
+        "center": [
+          4.1,
+          1.475
+        ],
+        "bbox": {
+          "x0": 4.065,
+          "y0": 1.465,
+          "x1": 4.135,
+          "y1": 1.485
+        },
+        "nearest_instance": "bit_r1_c3",
+        "nearest_macro": "cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "storage_only_missing_context",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_bit_r1_c3_to_dummy_right_r1",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.244655
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "bit_r1_c3",
+          "nearest_distance": 0.196787
+        },
+        "near_bitline_pin": {
+          "near": true,
+          "nearest_label": "br",
+          "nearest_instance": "bit_r1_c3",
+          "nearest_distance": 0.093
+        }
+      },
+      {
+        "marker_id": 18,
+        "center": [
+          1.415,
+          1.475
+        ],
+        "bbox": {
+          "x0": 1.38,
+          "y0": 1.465,
+          "x1": 1.45,
+          "y1": 1.485
+        },
+        "nearest_instance": "bit_r1_c0",
+        "nearest_macro": "cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "storage_only_missing_context",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_bit_r1_c0_to_bit_r1_c1",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.244655
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "bit_r1_c0",
+          "nearest_distance": 0.196787
+        },
+        "near_bitline_pin": {
+          "near": true,
+          "nearest_label": "br",
+          "nearest_instance": "bit_r1_c0",
+          "nearest_distance": 0.093
+        }
+      },
+      {
+        "marker_id": 19,
+        "center": [
+          3.39,
+          1.475
+        ],
+        "bbox": {
+          "x0": 3.355,
+          "y0": 1.465,
+          "x1": 3.425,
+          "y1": 1.485
+        },
+        "nearest_instance": "bit_r1_c2",
+        "nearest_macro": "cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_bit_r1_c2_to_bit_r1_c3",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.072672
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "bit_r1_c2",
+          "nearest_distance": 0.37108
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "br",
+          "nearest_instance": "bit_r1_c2",
+          "nearest_distance": 0.20706
+        }
+      },
+      {
+        "marker_id": 20,
+        "center": [
+          2.87,
+          1.475
+        ],
+        "bbox": {
+          "x0": 2.835,
+          "y0": 1.465,
+          "x1": 2.905,
+          "y1": 1.485
+        },
+        "nearest_instance": "bit_r1_c2",
+        "nearest_macro": "cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "storage_only_missing_context",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_bit_r1_c1_to_bit_r1_c2",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.244655
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "bit_r1_c2",
+          "nearest_distance": 0.183576
+        },
+        "near_bitline_pin": {
+          "near": true,
+          "nearest_label": "bl",
+          "nearest_instance": "bit_r1_c2",
+          "nearest_distance": 0.093134
+        }
+      },
+      {
+        "marker_id": 21,
+        "center": [
+          1.08,
+          1.475
+        ],
+        "bbox": {
+          "x0": 1.045,
+          "y0": 1.465,
+          "x1": 1.115,
+          "y1": 1.485
+        },
+        "nearest_instance": "bit_r1_c0",
+        "nearest_macro": "cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "storage_only_missing_context",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_dummy_left_r1_to_bit_r1_c0",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.244655
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "bit_r1_c0",
+          "nearest_distance": 0.183576
+        },
+        "near_bitline_pin": {
+          "near": true,
+          "nearest_label": "bl",
+          "nearest_instance": "bit_r1_c0",
+          "nearest_distance": 0.093134
+        }
+      },
+      {
+        "marker_id": 22,
+        "center": [
+          2.685,
+          1.475
+        ],
+        "bbox": {
+          "x0": 2.65,
+          "y0": 1.465,
+          "x1": 2.72,
+          "y1": 1.485
+        },
+        "nearest_instance": "bit_r1_c2",
+        "nearest_macro": "cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_bit_r1_c1_to_bit_r1_c2",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.072672
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "bit_r1_c2",
+          "nearest_distance": 0.356546
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "bl",
+          "nearest_instance": "bit_r1_c2",
+          "nearest_distance": 0.21154
+        }
+      },
+      {
+        "marker_id": 23,
+        "center": [
+          0.74,
+          1.4975
+        ],
+        "bbox": {
+          "x0": 0.714,
+          "y0": 1.465,
+          "x1": 0.766,
+          "y1": 1.53
+        },
+        "nearest_instance": "dummy_left_r1",
+        "nearest_macro": "dummy_cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": true,
+          "nearest_name": "gnd_stitch_r1_dummy_left_r1_to_bit_r1_c0",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.029108
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "dummy_left_r1",
+          "nearest_distance": 0.400726
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "br",
+          "nearest_instance": "dummy_left_r1",
+          "nearest_distance": 0.23102
+        }
+      },
+      {
+        "marker_id": 24,
+        "center": [
+          3.205,
+          1.475
+        ],
+        "bbox": {
+          "x0": 3.17,
+          "y0": 1.465,
+          "x1": 3.24,
+          "y1": 1.485
+        },
+        "nearest_instance": "bit_r1_c2",
+        "nearest_macro": "cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "storage_only_missing_context",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_bit_r1_c2_to_bit_r1_c3",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.244655
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "bit_r1_c2",
+          "nearest_distance": 0.196787
+        },
+        "near_bitline_pin": {
+          "near": true,
+          "nearest_label": "br",
+          "nearest_instance": "bit_r1_c2",
+          "nearest_distance": 0.093
+        }
+      },
+      {
+        "marker_id": 25,
+        "center": [
+          4.66,
+          1.475
+        ],
+        "bbox": {
+          "x0": 4.625,
+          "y0": 1.465,
+          "x1": 4.695,
+          "y1": 1.485
+        },
+        "nearest_instance": "dummy_right_r1",
+        "nearest_macro": "dummy_cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "storage_only_missing_context",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_bit_r1_c3_to_dummy_right_r1",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.244655
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "dummy_right_r1",
+          "nearest_distance": 0.183576
+        },
+        "near_bitline_pin": {
+          "near": true,
+          "nearest_label": "bl",
+          "nearest_instance": "dummy_right_r1",
+          "nearest_distance": 0.093134
+        }
+      },
+      {
+        "marker_id": 26,
+        "center": [
+          3.765,
+          1.475
+        ],
+        "bbox": {
+          "x0": 3.73,
+          "y0": 1.465,
+          "x1": 3.8,
+          "y1": 1.485
+        },
+        "nearest_instance": "bit_r1_c3",
+        "nearest_macro": "cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "storage_only_missing_context",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_bit_r1_c2_to_bit_r1_c3",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.244655
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "bit_r1_c3",
+          "nearest_distance": 0.183576
+        },
+        "near_bitline_pin": {
+          "near": true,
+          "nearest_label": "bl",
+          "nearest_instance": "bit_r1_c3",
+          "nearest_distance": 0.093134
+        }
+      },
+      {
+        "marker_id": 27,
+        "center": [
+          0.52,
+          1.475
+        ],
+        "bbox": {
+          "x0": 0.485,
+          "y0": 1.465,
+          "x1": 0.555,
+          "y1": 1.485
+        },
+        "nearest_instance": "dummy_left_r1",
+        "nearest_macro": "dummy_cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "storage_only_missing_context",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_dummy_left_r1_to_bit_r1_c0",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.244655
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "dummy_left_r1",
+          "nearest_distance": 0.196787
+        },
+        "near_bitline_pin": {
+          "near": true,
+          "nearest_label": "br",
+          "nearest_instance": "dummy_left_r1",
+          "nearest_distance": 0.093
+        }
+      },
+      {
+        "marker_id": 28,
+        "center": [
+          1.6,
+          1.475
+        ],
+        "bbox": {
+          "x0": 1.565,
+          "y0": 1.465,
+          "x1": 1.635,
+          "y1": 1.485
+        },
+        "nearest_instance": "bit_r1_c0",
+        "nearest_macro": "cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_bit_r1_c0_to_bit_r1_c1",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.072672
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "bit_r1_c0",
+          "nearest_distance": 0.37108
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "br",
+          "nearest_instance": "bit_r1_c0",
+          "nearest_distance": 0.20706
+        }
+      },
+      {
+        "marker_id": 29,
+        "center": [
+          0.895,
+          1.475
+        ],
+        "bbox": {
+          "x0": 0.86,
+          "y0": 1.465,
+          "x1": 0.93,
+          "y1": 1.485
+        },
+        "nearest_instance": "bit_r1_c0",
+        "nearest_macro": "cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_dummy_left_r1_to_bit_r1_c0",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.072672
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "bit_r1_c0",
+          "nearest_distance": 0.356546
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "bl",
+          "nearest_instance": "bit_r1_c0",
+          "nearest_distance": 0.21154
+        }
+      },
+      {
+        "marker_id": 30,
+        "center": [
+          4.285,
+          1.475
+        ],
+        "bbox": {
+          "x0": 4.25,
+          "y0": 1.465,
+          "x1": 4.32,
+          "y1": 1.485
+        },
+        "nearest_instance": "bit_r1_c3",
+        "nearest_macro": "cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_bit_r1_c3_to_dummy_right_r1",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.072672
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "bit_r1_c3",
+          "nearest_distance": 0.37108
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "br",
+          "nearest_instance": "bit_r1_c3",
+          "nearest_distance": 0.20706
+        }
+      },
+      {
+        "marker_id": 31,
+        "center": [
+          1.975,
+          1.475
+        ],
+        "bbox": {
+          "x0": 1.94,
+          "y0": 1.465,
+          "x1": 2.01,
+          "y1": 1.485
+        },
+        "nearest_instance": "bit_r1_c1",
+        "nearest_macro": "cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "storage_only_missing_context",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_bit_r1_c0_to_bit_r1_c1",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.244655
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "bit_r1_c1",
+          "nearest_distance": 0.183576
+        },
+        "near_bitline_pin": {
+          "near": true,
+          "nearest_label": "bl",
+          "nearest_instance": "bit_r1_c1",
+          "nearest_distance": 0.093134
+        }
+      },
+      {
+        "marker_id": 32,
+        "center": [
+          5.555,
+          1.475
+        ],
+        "bbox": {
+          "x0": 5.52,
+          "y0": 1.465,
+          "x1": 5.59,
+          "y1": 1.485
+        },
+        "nearest_instance": "replica_r1",
+        "nearest_macro": "replica_cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "storage_only_missing_context",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.244655
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "replica_r1",
+          "nearest_distance": 0.183576
+        },
+        "near_bitline_pin": {
+          "near": true,
+          "nearest_label": "bl",
+          "nearest_instance": "replica_r1",
+          "nearest_distance": 0.093134
+        }
+      },
+      {
+        "marker_id": 33,
+        "center": [
+          1.79,
+          1.475
+        ],
+        "bbox": {
+          "x0": 1.755,
+          "y0": 1.465,
+          "x1": 1.825,
+          "y1": 1.485
+        },
+        "nearest_instance": "bit_r1_c1",
+        "nearest_macro": "cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_bit_r1_c0_to_bit_r1_c1",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.072672
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "bit_r1_c1",
+          "nearest_distance": 0.356546
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "bl",
+          "nearest_instance": "bit_r1_c1",
+          "nearest_distance": 0.21154
+        }
+      },
+      {
+        "marker_id": 34,
+        "center": [
+          2.495,
+          1.475
+        ],
+        "bbox": {
+          "x0": 2.46,
+          "y0": 1.465,
+          "x1": 2.53,
+          "y1": 1.485
+        },
+        "nearest_instance": "bit_r1_c1",
+        "nearest_macro": "cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_bit_r1_c1_to_bit_r1_c2",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.072672
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "bit_r1_c1",
+          "nearest_distance": 0.37108
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "br",
+          "nearest_instance": "bit_r1_c1",
+          "nearest_distance": 0.20706
+        }
+      },
+      {
+        "marker_id": 35,
+        "center": [
+          0.0,
+          1.475
+        ],
+        "bbox": {
+          "x0": -0.035,
+          "y0": 1.465,
+          "x1": 0.035,
+          "y1": 1.485
+        },
+        "nearest_instance": "dummy_left_r1",
+        "nearest_macro": "dummy_cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_dummy_left_r1_to_bit_r1_c0",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.761483
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "dummy_left_r1",
+          "nearest_distance": 0.356546
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "bl",
+          "nearest_instance": "dummy_left_r1",
+          "nearest_distance": 0.21154
+        }
+      },
+      {
+        "marker_id": 36,
+        "center": [
+          6.04,
+          1.4975
+        ],
+        "bbox": {
+          "x0": 6.014,
+          "y0": 1.465,
+          "x1": 6.066,
+          "y1": 1.53
+        },
+        "nearest_instance": "replica_r1",
+        "nearest_macro": "replica_cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.734004
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "replica_r1",
+          "nearest_distance": 0.331936
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "br",
+          "nearest_instance": "replica_r1",
+          "nearest_distance": 0.165742
+        }
+      },
+      {
+        "marker_id": 37,
+        "center": [
+          3.58,
+          1.475
+        ],
+        "bbox": {
+          "x0": 3.545,
+          "y0": 1.465,
+          "x1": 3.615,
+          "y1": 1.485
+        },
+        "nearest_instance": "bit_r1_c3",
+        "nearest_macro": "cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_bit_r1_c2_to_bit_r1_c3",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.072672
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "bit_r1_c3",
+          "nearest_distance": 0.356546
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "bl",
+          "nearest_instance": "bit_r1_c3",
+          "nearest_distance": 0.21154
+        }
+      },
+      {
+        "marker_id": 38,
+        "center": [
+          5.89,
+          1.475
+        ],
+        "bbox": {
+          "x0": 5.855,
+          "y0": 1.465,
+          "x1": 5.925,
+          "y1": 1.485
+        },
+        "nearest_instance": "replica_r1",
+        "nearest_macro": "replica_cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "storage_only_missing_context",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.576959
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "replica_r1",
+          "nearest_distance": 0.196787
+        },
+        "near_bitline_pin": {
+          "near": true,
+          "nearest_label": "br",
+          "nearest_instance": "replica_r1",
+          "nearest_distance": 0.093
+        }
+      },
+      {
+        "marker_id": 39,
+        "center": [
+          6.075,
+          1.475
+        ],
+        "bbox": {
+          "x0": 6.04,
+          "y0": 1.465,
+          "x1": 6.11,
+          "y1": 1.485
+        },
+        "nearest_instance": "replica_r1",
+        "nearest_macro": "replica_cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.761483
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "replica_r1",
+          "nearest_distance": 0.37108
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "br",
+          "nearest_instance": "replica_r1",
+          "nearest_distance": 0.20706
+        }
+      },
+      {
+        "marker_id": 40,
+        "center": [
+          5.18,
+          1.475
+        ],
+        "bbox": {
+          "x0": 5.145,
+          "y0": 1.465,
+          "x1": 5.215,
+          "y1": 1.485
+        },
+        "nearest_instance": "dummy_right_r1",
+        "nearest_macro": "dummy_cell_1rw",
+        "location_class": "vertical_row_boundary",
+        "likely_cause": "abutment_boundary_spacing",
+        "near_power_stitch": {
+          "overlap": false,
+          "near": false,
+          "nearest_name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+          "nearest_net": "gnd",
+          "nearest_distance": 0.072672
+        },
+        "near_power_pin": {
+          "near": false,
+          "nearest_label": "gnd",
+          "nearest_instance": "dummy_right_r1",
+          "nearest_distance": 0.37108
+        },
+        "near_bitline_pin": {
+          "near": false,
+          "nearest_label": "br",
+          "nearest_instance": "dummy_right_r1",
+          "nearest_distance": 0.20706
+        }
+      }
+    ]
+  },
+  "conclusions": {
+    "lyrdb_parse_success": true,
+    "power_stitch_safe_for_current_smoke": true,
+    "m1_markers_consistent_with_red_gap": true,
+    "m2_markers_bl_br_related": true,
+    "m2_markers_all_bl_br_related": false,
+    "current_pitch_definitely_too_small": false,
+    "current_pitch_needs_context_review": true,
+    "needs_stitch_change": false,
+    "needs_hardcell_level_drc_baseline": true,
+    "storage_aggregation_not_blocked_by_power_stitch": true,
+    "can_continue_storage_aggregation": false,
+    "manual_review_required": true
+  },
+  "classification_rules": {
+    "edge_eps_um": 0.035,
+    "row_eps_um": 0.035,
+    "stitch_near_eps_um": 0.05,
+    "pin_near_eps_um": 0.12,
+    "outer_eps_um": 0.04
+  },
+  "markers": [
+    {
+      "marker_id": 1,
+      "rule_name": "METAL1.2",
+      "rule_description": "METAL1.2 : Minimum spacing of metal1 : 65nm",
+      "bbox": {
+        "x0": 4.375,
+        "y0": 1.6925,
+        "x1": 4.385,
+        "y1": 1.7575
+      },
+      "center_x": 4.38,
+      "center_y": 1.725,
+      "nearest_instance": "bit_r1_c3",
+      "nearest_macro": "cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "horizontal_cell_boundary",
+      "likely_layer": "m1",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_bit_r1_c3_to_dummy_right_r1",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.095
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": false,
+      "near_col_boundary": true,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "dummy_right_r1",
+        "nearest_distance": 0.468188
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "br",
+        "nearest_instance": "bit_r1_c3",
+        "nearest_distance": 0.321012
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (4.385,1.6925;4.385,1.7575)|(4.375,1.7575;4.375,1.6925)"
+    },
+    {
+      "marker_id": 2,
+      "rule_name": "METAL1.2",
+      "rule_description": "METAL1.2 : Minimum spacing of metal1 : 65nm",
+      "bbox": {
+        "x0": 4.375,
+        "y0": 0.1275,
+        "x1": 4.385,
+        "y1": 0.1925
+      },
+      "center_x": 4.38,
+      "center_y": 0.16,
+      "nearest_instance": "bit_r0_c3",
+      "nearest_macro": "cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "horizontal_cell_boundary",
+      "likely_layer": "m1",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r0_bit_r0_c3_to_dummy_right_r0",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.095
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": false,
+      "near_col_boundary": true,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "dummy_right_r0",
+        "nearest_distance": 0.468188
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "br",
+        "nearest_instance": "bit_r0_c3",
+        "nearest_distance": 0.321012
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (4.385,0.1275;4.385,0.1925)|(4.375,0.1925;4.375,0.1275)"
+    },
+    {
+      "marker_id": 3,
+      "rule_name": "METAL1.2",
+      "rule_description": "METAL1.2 : Minimum spacing of metal1 : 65nm",
+      "bbox": {
+        "x0": 0.795,
+        "y0": 0.1275,
+        "x1": 0.805,
+        "y1": 0.1925
+      },
+      "center_x": 0.8,
+      "center_y": 0.16,
+      "nearest_instance": "dummy_left_r0",
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "horizontal_cell_boundary",
+      "likely_layer": "m1",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r0_dummy_left_r0_to_bit_r0_c0",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.095
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": false,
+      "near_col_boundary": true,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "bit_r0_c0",
+        "nearest_distance": 0.468188
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "br",
+        "nearest_instance": "dummy_left_r0",
+        "nearest_distance": 0.321012
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (0.805,0.1275;0.805,0.1925)|(0.795,0.1925;0.795,0.1275)"
+    },
+    {
+      "marker_id": 4,
+      "rule_name": "METAL1.2",
+      "rule_description": "METAL1.2 : Minimum spacing of metal1 : 65nm",
+      "bbox": {
+        "x0": -0.1,
+        "y0": 0.1275,
+        "x1": -0.09,
+        "y1": 0.1925
+      },
+      "center_x": -0.095,
+      "center_y": 0.16,
+      "nearest_instance": "dummy_left_r0",
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "array_outer_edge",
+      "likely_layer": "m1",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r0_dummy_left_r0_to_bit_r0_c0",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.890084
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": false,
+      "near_col_boundary": false,
+      "near_array_edge": true,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "dummy_left_r0",
+        "nearest_distance": 0.468188
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "bl",
+        "nearest_instance": "dummy_left_r0",
+        "nearest_distance": 0.325383
+      },
+      "likely_cause": "storage_only_missing_context",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (-0.09,0.1275;-0.09,0.1925)|(-0.1,0.1925;-0.1,0.1275)"
+    },
+    {
+      "marker_id": 5,
+      "rule_name": "METAL1.2",
+      "rule_description": "METAL1.2 : Minimum spacing of metal1 : 65nm",
+      "bbox": {
+        "x0": 0.795,
+        "y0": 0.1275,
+        "x1": 0.805,
+        "y1": 0.1925
+      },
+      "center_x": 0.8,
+      "center_y": 0.16,
+      "nearest_instance": "dummy_left_r0",
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "horizontal_cell_boundary",
+      "likely_layer": "m1",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r0_dummy_left_r0_to_bit_r0_c0",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.095
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": false,
+      "near_col_boundary": true,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "bit_r0_c0",
+        "nearest_distance": 0.468188
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "br",
+        "nearest_instance": "dummy_left_r0",
+        "nearest_distance": 0.321012
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (0.805,0.1275;0.805,0.1925)|(0.795,0.1925;0.795,0.1275)"
+    },
+    {
+      "marker_id": 6,
+      "rule_name": "METAL1.2",
+      "rule_description": "METAL1.2 : Minimum spacing of metal1 : 65nm",
+      "bbox": {
+        "x0": -0.1,
+        "y0": 0.1275,
+        "x1": -0.09,
+        "y1": 0.1925
+      },
+      "center_x": -0.095,
+      "center_y": 0.16,
+      "nearest_instance": "dummy_left_r0",
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "array_outer_edge",
+      "likely_layer": "m1",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r0_dummy_left_r0_to_bit_r0_c0",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.890084
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": false,
+      "near_col_boundary": false,
+      "near_array_edge": true,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "dummy_left_r0",
+        "nearest_distance": 0.468188
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "bl",
+        "nearest_instance": "dummy_left_r0",
+        "nearest_distance": 0.325383
+      },
+      "likely_cause": "storage_only_missing_context",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (-0.09,0.1275;-0.09,0.1925)|(-0.1,0.1925;-0.1,0.1275)"
+    },
+    {
+      "marker_id": 7,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 5.119,
+        "y0": 1.465,
+        "x1": 5.171,
+        "y1": 1.53
+      },
+      "center_x": 5.145,
+      "center_y": 1.4975,
+      "nearest_instance": "dummy_right_r1",
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.099032
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "dummy_right_r1",
+        "nearest_distance": 0.331936
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "br",
+        "nearest_instance": "dummy_right_r1",
+        "nearest_distance": 0.165742
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (5.145,1.465;5.171,1.465)|(5.145,1.53;5.119,1.53)"
+    },
+    {
+      "marker_id": 8,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 5.189,
+        "y0": 1.465,
+        "x1": 5.241,
+        "y1": 1.53
+      },
+      "center_x": 5.215,
+      "center_y": 1.4975,
+      "nearest_instance": "dummy_right_r1",
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": true,
+        "nearest_name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.029108
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "dummy_right_r1",
+        "nearest_distance": 0.400726
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "br",
+        "nearest_instance": "dummy_right_r1",
+        "nearest_distance": 0.23102
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (5.189,1.465;5.215,1.465)|(5.241,1.53;5.215,1.53)"
+    },
+    {
+      "marker_id": 9,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 4.96,
+        "y0": 1.465,
+        "x1": 5.03,
+        "y1": 1.485
+      },
+      "center_x": 4.995,
+      "center_y": 1.475,
+      "nearest_instance": "dummy_right_r1",
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.244655
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "dummy_right_r1",
+        "nearest_distance": 0.196787
+      },
+      "near_bitline_pin": {
+        "near": true,
+        "nearest_label": "br",
+        "nearest_instance": "dummy_right_r1",
+        "nearest_distance": 0.093
+      },
+      "likely_cause": "storage_only_missing_context",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (4.96,1.465;5.03,1.465)|(5.03,1.485;4.96,1.485)"
+    },
+    {
+      "marker_id": 10,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 4.44,
+        "y0": 1.465,
+        "x1": 4.51,
+        "y1": 1.485
+      },
+      "center_x": 4.475,
+      "center_y": 1.475,
+      "nearest_instance": "dummy_right_r1",
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_bit_r1_c3_to_dummy_right_r1",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.072672
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "dummy_right_r1",
+        "nearest_distance": 0.356546
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "bl",
+        "nearest_instance": "dummy_right_r1",
+        "nearest_distance": 0.21154
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (4.44,1.465;4.51,1.465)|(4.51,1.485;4.44,1.485)"
+    },
+    {
+      "marker_id": 11,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 2.275,
+        "y0": 1.465,
+        "x1": 2.345,
+        "y1": 1.485
+      },
+      "center_x": 2.31,
+      "center_y": 1.475,
+      "nearest_instance": "bit_r1_c1",
+      "nearest_macro": "cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_bit_r1_c1_to_bit_r1_c2",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.244655
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "bit_r1_c1",
+        "nearest_distance": 0.196787
+      },
+      "near_bitline_pin": {
+        "near": true,
+        "nearest_label": "br",
+        "nearest_instance": "bit_r1_c1",
+        "nearest_distance": 0.093
+      },
+      "likely_cause": "storage_only_missing_context",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (2.275,1.465;2.345,1.465)|(2.345,1.485;2.275,1.485)"
+    },
+    {
+      "marker_id": 12,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 5.335,
+        "y0": 1.465,
+        "x1": 5.405,
+        "y1": 1.485
+      },
+      "center_x": 5.37,
+      "center_y": 1.475,
+      "nearest_instance": "replica_r1",
+      "nearest_macro": "replica_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.072672
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "replica_r1",
+        "nearest_distance": 0.356546
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "bl",
+        "nearest_instance": "replica_r1",
+        "nearest_distance": 0.21154
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (5.335,1.465;5.405,1.465)|(5.405,1.485;5.335,1.485)"
+    },
+    {
+      "marker_id": 13,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 0.15,
+        "y0": 1.465,
+        "x1": 0.22,
+        "y1": 1.485
+      },
+      "center_x": 0.185,
+      "center_y": 1.475,
+      "nearest_instance": "dummy_left_r1",
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_dummy_left_r1_to_bit_r1_c0",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.576959
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "dummy_left_r1",
+        "nearest_distance": 0.183576
+      },
+      "near_bitline_pin": {
+        "near": true,
+        "nearest_label": "bl",
+        "nearest_instance": "dummy_left_r1",
+        "nearest_distance": 0.093134
+      },
+      "likely_cause": "storage_only_missing_context",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (0.15,1.465;0.22,1.465)|(0.22,1.485;0.15,1.485)"
+    },
+    {
+      "marker_id": 14,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 0.644,
+        "y0": 1.465,
+        "x1": 0.696,
+        "y1": 1.53
+      },
+      "center_x": 0.67,
+      "center_y": 1.4975,
+      "nearest_instance": "dummy_left_r1",
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_dummy_left_r1_to_bit_r1_c0",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.099032
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "dummy_left_r1",
+        "nearest_distance": 0.331936
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "br",
+        "nearest_instance": "dummy_left_r1",
+        "nearest_distance": 0.165742
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (0.67,1.465;0.696,1.465)|(0.67,1.53;0.644,1.53)"
+    },
+    {
+      "marker_id": 15,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 6.084,
+        "y0": 1.465,
+        "x1": 6.136,
+        "y1": 1.53
+      },
+      "center_x": 6.11,
+      "center_y": 1.4975,
+      "nearest_instance": "replica_r1",
+      "nearest_macro": "replica_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.804004
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "replica_r1",
+        "nearest_distance": 0.400726
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "br",
+        "nearest_instance": "replica_r1",
+        "nearest_distance": 0.23102
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (6.084,1.465;6.11,1.465)|(6.136,1.53;6.11,1.53)"
+    },
+    {
+      "marker_id": 16,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 0.67,
+        "y0": 1.465,
+        "x1": 0.74,
+        "y1": 1.485
+      },
+      "center_x": 0.705,
+      "center_y": 1.475,
+      "nearest_instance": "dummy_left_r1",
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_dummy_left_r1_to_bit_r1_c0",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.072672
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "dummy_left_r1",
+        "nearest_distance": 0.37108
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "br",
+        "nearest_instance": "dummy_left_r1",
+        "nearest_distance": 0.20706
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (0.67,1.465;0.74,1.465)|(0.74,1.485;0.67,1.485)"
+    },
+    {
+      "marker_id": 17,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 4.065,
+        "y0": 1.465,
+        "x1": 4.135,
+        "y1": 1.485
+      },
+      "center_x": 4.1,
+      "center_y": 1.475,
+      "nearest_instance": "bit_r1_c3",
+      "nearest_macro": "cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_bit_r1_c3_to_dummy_right_r1",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.244655
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "bit_r1_c3",
+        "nearest_distance": 0.196787
+      },
+      "near_bitline_pin": {
+        "near": true,
+        "nearest_label": "br",
+        "nearest_instance": "bit_r1_c3",
+        "nearest_distance": 0.093
+      },
+      "likely_cause": "storage_only_missing_context",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (4.065,1.465;4.135,1.465)|(4.135,1.485;4.065,1.485)"
+    },
+    {
+      "marker_id": 18,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 1.38,
+        "y0": 1.465,
+        "x1": 1.45,
+        "y1": 1.485
+      },
+      "center_x": 1.415,
+      "center_y": 1.475,
+      "nearest_instance": "bit_r1_c0",
+      "nearest_macro": "cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_bit_r1_c0_to_bit_r1_c1",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.244655
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "bit_r1_c0",
+        "nearest_distance": 0.196787
+      },
+      "near_bitline_pin": {
+        "near": true,
+        "nearest_label": "br",
+        "nearest_instance": "bit_r1_c0",
+        "nearest_distance": 0.093
+      },
+      "likely_cause": "storage_only_missing_context",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (1.38,1.465;1.45,1.465)|(1.45,1.485;1.38,1.485)"
+    },
+    {
+      "marker_id": 19,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 3.355,
+        "y0": 1.465,
+        "x1": 3.425,
+        "y1": 1.485
+      },
+      "center_x": 3.39,
+      "center_y": 1.475,
+      "nearest_instance": "bit_r1_c2",
+      "nearest_macro": "cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_bit_r1_c2_to_bit_r1_c3",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.072672
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "bit_r1_c2",
+        "nearest_distance": 0.37108
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "br",
+        "nearest_instance": "bit_r1_c2",
+        "nearest_distance": 0.20706
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (3.355,1.465;3.425,1.465)|(3.425,1.485;3.355,1.485)"
+    },
+    {
+      "marker_id": 20,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 2.835,
+        "y0": 1.465,
+        "x1": 2.905,
+        "y1": 1.485
+      },
+      "center_x": 2.87,
+      "center_y": 1.475,
+      "nearest_instance": "bit_r1_c2",
+      "nearest_macro": "cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_bit_r1_c1_to_bit_r1_c2",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.244655
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "bit_r1_c2",
+        "nearest_distance": 0.183576
+      },
+      "near_bitline_pin": {
+        "near": true,
+        "nearest_label": "bl",
+        "nearest_instance": "bit_r1_c2",
+        "nearest_distance": 0.093134
+      },
+      "likely_cause": "storage_only_missing_context",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (2.835,1.465;2.905,1.465)|(2.905,1.485;2.835,1.485)"
+    },
+    {
+      "marker_id": 21,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 1.045,
+        "y0": 1.465,
+        "x1": 1.115,
+        "y1": 1.485
+      },
+      "center_x": 1.08,
+      "center_y": 1.475,
+      "nearest_instance": "bit_r1_c0",
+      "nearest_macro": "cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_dummy_left_r1_to_bit_r1_c0",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.244655
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "bit_r1_c0",
+        "nearest_distance": 0.183576
+      },
+      "near_bitline_pin": {
+        "near": true,
+        "nearest_label": "bl",
+        "nearest_instance": "bit_r1_c0",
+        "nearest_distance": 0.093134
+      },
+      "likely_cause": "storage_only_missing_context",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (1.045,1.465;1.115,1.465)|(1.115,1.485;1.045,1.485)"
+    },
+    {
+      "marker_id": 22,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 2.65,
+        "y0": 1.465,
+        "x1": 2.72,
+        "y1": 1.485
+      },
+      "center_x": 2.685,
+      "center_y": 1.475,
+      "nearest_instance": "bit_r1_c2",
+      "nearest_macro": "cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_bit_r1_c1_to_bit_r1_c2",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.072672
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "bit_r1_c2",
+        "nearest_distance": 0.356546
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "bl",
+        "nearest_instance": "bit_r1_c2",
+        "nearest_distance": 0.21154
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (2.65,1.465;2.72,1.465)|(2.72,1.485;2.65,1.485)"
+    },
+    {
+      "marker_id": 23,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 0.714,
+        "y0": 1.465,
+        "x1": 0.766,
+        "y1": 1.53
+      },
+      "center_x": 0.74,
+      "center_y": 1.4975,
+      "nearest_instance": "dummy_left_r1",
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": true,
+        "nearest_name": "gnd_stitch_r1_dummy_left_r1_to_bit_r1_c0",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.029108
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "dummy_left_r1",
+        "nearest_distance": 0.400726
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "br",
+        "nearest_instance": "dummy_left_r1",
+        "nearest_distance": 0.23102
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (0.714,1.465;0.74,1.465)|(0.766,1.53;0.74,1.53)"
+    },
+    {
+      "marker_id": 24,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 3.17,
+        "y0": 1.465,
+        "x1": 3.24,
+        "y1": 1.485
+      },
+      "center_x": 3.205,
+      "center_y": 1.475,
+      "nearest_instance": "bit_r1_c2",
+      "nearest_macro": "cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_bit_r1_c2_to_bit_r1_c3",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.244655
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "bit_r1_c2",
+        "nearest_distance": 0.196787
+      },
+      "near_bitline_pin": {
+        "near": true,
+        "nearest_label": "br",
+        "nearest_instance": "bit_r1_c2",
+        "nearest_distance": 0.093
+      },
+      "likely_cause": "storage_only_missing_context",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (3.17,1.465;3.24,1.465)|(3.24,1.485;3.17,1.485)"
+    },
+    {
+      "marker_id": 25,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 4.625,
+        "y0": 1.465,
+        "x1": 4.695,
+        "y1": 1.485
+      },
+      "center_x": 4.66,
+      "center_y": 1.475,
+      "nearest_instance": "dummy_right_r1",
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_bit_r1_c3_to_dummy_right_r1",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.244655
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "dummy_right_r1",
+        "nearest_distance": 0.183576
+      },
+      "near_bitline_pin": {
+        "near": true,
+        "nearest_label": "bl",
+        "nearest_instance": "dummy_right_r1",
+        "nearest_distance": 0.093134
+      },
+      "likely_cause": "storage_only_missing_context",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (4.625,1.465;4.695,1.465)|(4.695,1.485;4.625,1.485)"
+    },
+    {
+      "marker_id": 26,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 3.73,
+        "y0": 1.465,
+        "x1": 3.8,
+        "y1": 1.485
+      },
+      "center_x": 3.765,
+      "center_y": 1.475,
+      "nearest_instance": "bit_r1_c3",
+      "nearest_macro": "cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_bit_r1_c2_to_bit_r1_c3",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.244655
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "bit_r1_c3",
+        "nearest_distance": 0.183576
+      },
+      "near_bitline_pin": {
+        "near": true,
+        "nearest_label": "bl",
+        "nearest_instance": "bit_r1_c3",
+        "nearest_distance": 0.093134
+      },
+      "likely_cause": "storage_only_missing_context",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (3.73,1.465;3.8,1.465)|(3.8,1.485;3.73,1.485)"
+    },
+    {
+      "marker_id": 27,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 0.485,
+        "y0": 1.465,
+        "x1": 0.555,
+        "y1": 1.485
+      },
+      "center_x": 0.52,
+      "center_y": 1.475,
+      "nearest_instance": "dummy_left_r1",
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_dummy_left_r1_to_bit_r1_c0",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.244655
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "dummy_left_r1",
+        "nearest_distance": 0.196787
+      },
+      "near_bitline_pin": {
+        "near": true,
+        "nearest_label": "br",
+        "nearest_instance": "dummy_left_r1",
+        "nearest_distance": 0.093
+      },
+      "likely_cause": "storage_only_missing_context",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (0.485,1.465;0.555,1.465)|(0.555,1.485;0.485,1.485)"
+    },
+    {
+      "marker_id": 28,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 1.565,
+        "y0": 1.465,
+        "x1": 1.635,
+        "y1": 1.485
+      },
+      "center_x": 1.6,
+      "center_y": 1.475,
+      "nearest_instance": "bit_r1_c0",
+      "nearest_macro": "cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_bit_r1_c0_to_bit_r1_c1",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.072672
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "bit_r1_c0",
+        "nearest_distance": 0.37108
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "br",
+        "nearest_instance": "bit_r1_c0",
+        "nearest_distance": 0.20706
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (1.565,1.465;1.635,1.465)|(1.635,1.485;1.565,1.485)"
+    },
+    {
+      "marker_id": 29,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 0.86,
+        "y0": 1.465,
+        "x1": 0.93,
+        "y1": 1.485
+      },
+      "center_x": 0.895,
+      "center_y": 1.475,
+      "nearest_instance": "bit_r1_c0",
+      "nearest_macro": "cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_dummy_left_r1_to_bit_r1_c0",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.072672
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "bit_r1_c0",
+        "nearest_distance": 0.356546
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "bl",
+        "nearest_instance": "bit_r1_c0",
+        "nearest_distance": 0.21154
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (0.86,1.465;0.93,1.465)|(0.93,1.485;0.86,1.485)"
+    },
+    {
+      "marker_id": 30,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 4.25,
+        "y0": 1.465,
+        "x1": 4.32,
+        "y1": 1.485
+      },
+      "center_x": 4.285,
+      "center_y": 1.475,
+      "nearest_instance": "bit_r1_c3",
+      "nearest_macro": "cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_bit_r1_c3_to_dummy_right_r1",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.072672
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "bit_r1_c3",
+        "nearest_distance": 0.37108
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "br",
+        "nearest_instance": "bit_r1_c3",
+        "nearest_distance": 0.20706
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (4.25,1.465;4.32,1.465)|(4.32,1.485;4.25,1.485)"
+    },
+    {
+      "marker_id": 31,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 1.94,
+        "y0": 1.465,
+        "x1": 2.01,
+        "y1": 1.485
+      },
+      "center_x": 1.975,
+      "center_y": 1.475,
+      "nearest_instance": "bit_r1_c1",
+      "nearest_macro": "cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_bit_r1_c0_to_bit_r1_c1",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.244655
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "bit_r1_c1",
+        "nearest_distance": 0.183576
+      },
+      "near_bitline_pin": {
+        "near": true,
+        "nearest_label": "bl",
+        "nearest_instance": "bit_r1_c1",
+        "nearest_distance": 0.093134
+      },
+      "likely_cause": "storage_only_missing_context",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (1.94,1.465;2.01,1.465)|(2.01,1.485;1.94,1.485)"
+    },
+    {
+      "marker_id": 32,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 5.52,
+        "y0": 1.465,
+        "x1": 5.59,
+        "y1": 1.485
+      },
+      "center_x": 5.555,
+      "center_y": 1.475,
+      "nearest_instance": "replica_r1",
+      "nearest_macro": "replica_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.244655
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "replica_r1",
+        "nearest_distance": 0.183576
+      },
+      "near_bitline_pin": {
+        "near": true,
+        "nearest_label": "bl",
+        "nearest_instance": "replica_r1",
+        "nearest_distance": 0.093134
+      },
+      "likely_cause": "storage_only_missing_context",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (5.52,1.465;5.59,1.465)|(5.59,1.485;5.52,1.485)"
+    },
+    {
+      "marker_id": 33,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 1.755,
+        "y0": 1.465,
+        "x1": 1.825,
+        "y1": 1.485
+      },
+      "center_x": 1.79,
+      "center_y": 1.475,
+      "nearest_instance": "bit_r1_c1",
+      "nearest_macro": "cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_bit_r1_c0_to_bit_r1_c1",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.072672
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "bit_r1_c1",
+        "nearest_distance": 0.356546
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "bl",
+        "nearest_instance": "bit_r1_c1",
+        "nearest_distance": 0.21154
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (1.755,1.465;1.825,1.465)|(1.825,1.485;1.755,1.485)"
+    },
+    {
+      "marker_id": 34,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 2.46,
+        "y0": 1.465,
+        "x1": 2.53,
+        "y1": 1.485
+      },
+      "center_x": 2.495,
+      "center_y": 1.475,
+      "nearest_instance": "bit_r1_c1",
+      "nearest_macro": "cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_bit_r1_c1_to_bit_r1_c2",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.072672
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "bit_r1_c1",
+        "nearest_distance": 0.37108
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "br",
+        "nearest_instance": "bit_r1_c1",
+        "nearest_distance": 0.20706
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (2.46,1.465;2.53,1.465)|(2.53,1.485;2.46,1.485)"
+    },
+    {
+      "marker_id": 35,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": -0.035,
+        "y0": 1.465,
+        "x1": 0.035,
+        "y1": 1.485
+      },
+      "center_x": 0.0,
+      "center_y": 1.475,
+      "nearest_instance": "dummy_left_r1",
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_dummy_left_r1_to_bit_r1_c0",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.761483
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "dummy_left_r1",
+        "nearest_distance": 0.356546
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "bl",
+        "nearest_instance": "dummy_left_r1",
+        "nearest_distance": 0.21154
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (-0.035,1.465;0.035,1.465)|(0.035,1.485;-0.035,1.485)"
+    },
+    {
+      "marker_id": 36,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 6.014,
+        "y0": 1.465,
+        "x1": 6.066,
+        "y1": 1.53
+      },
+      "center_x": 6.04,
+      "center_y": 1.4975,
+      "nearest_instance": "replica_r1",
+      "nearest_macro": "replica_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.734004
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "replica_r1",
+        "nearest_distance": 0.331936
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "br",
+        "nearest_instance": "replica_r1",
+        "nearest_distance": 0.165742
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (6.04,1.465;6.066,1.465)|(6.04,1.53;6.014,1.53)"
+    },
+    {
+      "marker_id": 37,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 3.545,
+        "y0": 1.465,
+        "x1": 3.615,
+        "y1": 1.485
+      },
+      "center_x": 3.58,
+      "center_y": 1.475,
+      "nearest_instance": "bit_r1_c3",
+      "nearest_macro": "cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_bit_r1_c2_to_bit_r1_c3",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.072672
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "bit_r1_c3",
+        "nearest_distance": 0.356546
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "bl",
+        "nearest_instance": "bit_r1_c3",
+        "nearest_distance": 0.21154
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (3.545,1.465;3.615,1.465)|(3.615,1.485;3.545,1.485)"
+    },
+    {
+      "marker_id": 38,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 5.855,
+        "y0": 1.465,
+        "x1": 5.925,
+        "y1": 1.485
+      },
+      "center_x": 5.89,
+      "center_y": 1.475,
+      "nearest_instance": "replica_r1",
+      "nearest_macro": "replica_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.576959
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "replica_r1",
+        "nearest_distance": 0.196787
+      },
+      "near_bitline_pin": {
+        "near": true,
+        "nearest_label": "br",
+        "nearest_instance": "replica_r1",
+        "nearest_distance": 0.093
+      },
+      "likely_cause": "storage_only_missing_context",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (5.855,1.465;5.925,1.465)|(5.925,1.485;5.855,1.485)"
+    },
+    {
+      "marker_id": 39,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 6.04,
+        "y0": 1.465,
+        "x1": 6.11,
+        "y1": 1.485
+      },
+      "center_x": 6.075,
+      "center_y": 1.475,
+      "nearest_instance": "replica_r1",
+      "nearest_macro": "replica_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.761483
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "replica_r1",
+        "nearest_distance": 0.37108
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "br",
+        "nearest_instance": "replica_r1",
+        "nearest_distance": 0.20706
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (6.04,1.465;6.11,1.465)|(6.11,1.485;6.04,1.485)"
+    },
+    {
+      "marker_id": 40,
+      "rule_name": "METAL2.2",
+      "rule_description": "METAL2.2 : Minimum spacing of intermediate metal2 : 70nm",
+      "bbox": {
+        "x0": 5.145,
+        "y0": 1.465,
+        "x1": 5.215,
+        "y1": 1.485
+      },
+      "center_x": 5.18,
+      "center_y": 1.475,
+      "nearest_instance": "dummy_right_r1",
+      "nearest_macro": "dummy_cell_1rw",
+      "nearest_instance_distance": 0.0,
+      "location_class": "vertical_row_boundary",
+      "likely_layer": "m2",
+      "near_power_stitch": {
+        "overlap": false,
+        "near": false,
+        "nearest_name": "gnd_stitch_r1_dummy_right_r1_to_replica_r1",
+        "nearest_net": "gnd",
+        "nearest_distance": 0.072672
+      },
+      "near_storage_boundary": true,
+      "near_row_boundary": true,
+      "near_col_boundary": false,
+      "near_array_edge": false,
+      "near_power_pin": {
+        "near": false,
+        "nearest_label": "gnd",
+        "nearest_instance": "dummy_right_r1",
+        "nearest_distance": 0.37108
+      },
+      "near_bitline_pin": {
+        "near": false,
+        "nearest_label": "br",
+        "nearest_instance": "dummy_right_r1",
+        "nearest_distance": 0.20706
+      },
+      "likely_cause": "abutment_boundary_spacing",
+      "confidence": "medium",
+      "raw_value": "edge-pair: (5.145,1.465;5.215,1.465)|(5.215,1.485;5.145,1.485)"
+    }
+  ],
+  "hardcell_baseline_plan": [
+    "Run the bundled FreePDK45 KLayout DRC deck on a standalone cell_1rw GDS instance.",
+    "Repeat for dummy_cell_1rw and replica_cell_1rw.",
+    "Compare single-cell METAL1.2/METAL2.2 markers against the storage-only marker coordinates.",
+    "If single-cell baselines already contain the same rules, do not attribute those markers to aggregation."
+  ],
+  "next_step_recommendations": [
+    "Do not add BL/BR/RBL/RBLB bridges.",
+    "Keep the current same-net M1 power stitch policy for this smoke because no marker overlaps a stitch bridge.",
+    "Before changing pitch, run hardcell-level DRC baselines and inspect M2 markers at the row boundary in KLayout.",
+    "Treat storage-only DRC as context smoke only, not final SRAM signoff."
+  ]
+}

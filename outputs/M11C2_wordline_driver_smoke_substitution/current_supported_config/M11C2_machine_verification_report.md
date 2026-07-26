@@ -1,0 +1,28 @@
+# M11C2 Machine Verification Report
+
+- `m11w_gate_loaded` status=`True`
+- `m11w_next_stage_allowed` status=`True`
+- `m11w_wordline_driver_ready` status=`True`
+- `substitution_scope_only_wordline_driver` status=`True`
+- `sense_amp_not_substituted` status=`True`
+- `column_mux_not_substituted` status=`True`
+- `write_driver_not_substituted` status=`True`
+- `control_logic_not_substituted` status=`True`
+- `wordline_driver_wrapper_gds_found` status=`True`
+- `wordline_driver_wrapper_gds_parsed` status=`True`
+- `wrapper_top_cell_correct` status=`True`
+- `m11w_pin_rail_metadata_loaded` status=`True`
+- `wordline_driver_golden_target_found` status=`True`
+- `replacement_target_not_unknown` status=`True`
+- `output_gds_parsed` status=`True`
+- `top_bbox_checked` status=`True`
+- `no_access_module` status=`True`
+- `no_floorplan_proxy` status=`True`
+- `no_arbitrary_scatter` status=`True`
+- `wordline_driver_instance_count_expected` status=`True`
+- `openyield_wordline_driver_wrapper_fingerprint_found_in_M11C2` status=`True`
+- `not_label_only` status=`True`
+- `not_outside_placement` status=`True`
+- `dgs_pin_metadata_inherited_from_M11W` status=`True`
+- `vdd_gnd_rail_still_identifiable` status=`True`
+- `no_unexpected_non_wordline_driver_geometry_change` status=`True`

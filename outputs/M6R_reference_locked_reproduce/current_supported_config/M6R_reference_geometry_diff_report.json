@@ -1,0 +1,529 @@
+{
+  "reference_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+  "m6_previous_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6_layoutgen_spec_reproduce/current_supported_config/layoutgen_optimized_reproduced_sram.gds",
+  "reproduced_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M6R_reference_locked_reproduce/current_supported_config/layoutgen_hybrid_reproduced_M6R.gds",
+  "m6_previous_vs_reference": [
+    {
+      "metric": "file_size_bytes",
+      "m6_previous": 223894,
+      "reference": 286992,
+      "match": false
+    },
+    {
+      "metric": "top_cell",
+      "m6_previous": "layoutgen_optimized_reproduced_sram",
+      "reference": "hybrid_openyield_rail_overlap",
+      "match": false
+    },
+    {
+      "metric": "cell_count",
+      "m6_previous": 30,
+      "reference": 30,
+      "match": true
+    },
+    {
+      "metric": "sref_count",
+      "m6_previous": 746,
+      "reference": 746,
+      "match": true
+    },
+    {
+      "metric": "boundary_count",
+      "m6_previous": 2868,
+      "reference": 3854,
+      "match": false
+    },
+    {
+      "metric": "path_count",
+      "m6_previous": 0,
+      "reference": 0,
+      "match": true
+    },
+    {
+      "metric": "text_count",
+      "m6_previous": 127,
+      "reference": 127,
+      "match": true
+    },
+    {
+      "metric": "bbox",
+      "m6_previous": {
+        "x0": -0.1,
+        "y0": -0.105,
+        "x1": 42.7725,
+        "y1": 47.345,
+        "width": 42.8725,
+        "height": 47.449999999999996,
+        "shape_count": 2868
+      },
+      "reference": {
+        "x0": -0.1,
+        "y0": -0.105,
+        "x1": 42.7725,
+        "y1": 47.345,
+        "width": 42.8725,
+        "height": 47.449999999999996,
+        "shape_count": 3854
+      },
+      "match": false
+    },
+    {
+      "metric": "layer_datatype_summary",
+      "m6_previous": {
+        "1/0": 356,
+        "10/0": 283,
+        "11/0": 736,
+        "12/0": 195,
+        "13/0": 483,
+        "13/2": 11,
+        "14/0": 32,
+        "15/0": 88,
+        "15/2": 14,
+        "17/0": 7,
+        "17/2": 2,
+        "2/0": 54,
+        "239/0": 35,
+        "3/0": 45,
+        "4/0": 66,
+        "5/0": 57,
+        "6/0": 63,
+        "9/0": 341
+      },
+      "reference": {
+        "1/0": 356,
+        "10/0": 283,
+        "11/0": 802,
+        "12/0": 229,
+        "13/0": 991,
+        "13/2": 11,
+        "14/0": 156,
+        "15/0": 329,
+        "15/2": 14,
+        "17/0": 20,
+        "17/2": 2,
+        "2/0": 54,
+        "239/0": 35,
+        "3/0": 45,
+        "4/0": 66,
+        "5/0": 57,
+        "6/0": 63,
+        "9/0": 341
+      },
+      "match": false
+    },
+    {
+      "metric": "per_layer_shape_count",
+      "m6_previous": {
+        "1/0": 356,
+        "10/0": 283,
+        "11/0": 736,
+        "12/0": 195,
+        "13/0": 483,
+        "13/2": 11,
+        "14/0": 32,
+        "15/0": 88,
+        "15/2": 14,
+        "17/0": 7,
+        "17/2": 2,
+        "2/0": 54,
+        "239/0": 35,
+        "3/0": 45,
+        "4/0": 66,
+        "5/0": 57,
+        "6/0": 63,
+        "9/0": 341
+      },
+      "reference": {
+        "1/0": 356,
+        "10/0": 283,
+        "11/0": 802,
+        "12/0": 229,
+        "13/0": 991,
+        "13/2": 11,
+        "14/0": 156,
+        "15/0": 329,
+        "15/2": 14,
+        "17/0": 20,
+        "17/2": 2,
+        "2/0": 54,
+        "239/0": 35,
+        "3/0": 45,
+        "4/0": 66,
+        "5/0": 57,
+        "6/0": 63,
+        "9/0": 341
+      },
+      "match": false
+    },
+    {
+      "metric": "instance_count_by_cell_name",
+      "m6_previous": {
+        "cell_1rw": 512,
+        "dff": 18,
+        "dummy_cell_1rw": 32,
+        "gen_delay_inv": 6,
+        "gen_inv": 2,
+        "gen_nand2": 22,
+        "gen_precharge": 33,
+        "gen_wl_driver": 16,
+        "replica_cell_1rw": 16,
+        "sense_amp": 8,
+        "sram_1rw_32x16_freepdk45_contact_10": 11,
+        "sram_1rw_32x16_freepdk45_contact_11": 11,
+        "sram_1rw_32x16_freepdk45_contact_12": 5,
+        "sram_1rw_32x16_freepdk45_contact_13": 5,
+        "sram_1rw_32x16_freepdk45_contact_14": 8,
+        "sram_1rw_32x16_freepdk45_contact_17": 1,
+        "sram_1rw_32x16_freepdk45_contact_22": 1,
+        "sram_1rw_32x16_freepdk45_contact_23": 4,
+        "sram_1rw_32x16_freepdk45_nmos_m1_w0_090_sm1_dm1_da_p": 2,
+        "sram_1rw_32x16_freepdk45_nmos_m1_w0_180_sactive_dm1": 2,
+        "sram_1rw_32x16_freepdk45_nmos_m1_w0_180_sm1_dactive": 2,
+        "sram_1rw_32x16_freepdk45_nmos_m6_w0_120_sm1_dm1_da_p": 1,
+        "sram_1rw_32x16_freepdk45_pinv_0": 1,
+        "sram_1rw_32x16_freepdk45_pmos_m1_w0_270_sm1_dm1": 7,
+        "sram_1rw_32x16_freepdk45_pmos_m1_w0_270_sm1_dm1_da_p": 2,
+        "sram_1rw_32x16_freepdk45_pmos_m6_w0_360_sm1_dm1_da_p": 1,
+        "sram_1rw_32x16_freepdk45_pnand2": 1,
+        "tri_gate": 8,
+        "write_driver": 8
+      },
+      "reference": {
+        "cell_1rw": 512,
+        "dff": 18,
+        "dummy_cell_1rw": 32,
+        "gen_delay_inv": 6,
+        "gen_inv": 2,
+        "gen_nand2": 22,
+        "gen_precharge": 33,
+        "gen_wl_driver": 16,
+        "replica_cell_1rw": 16,
+        "sense_amp": 8,
+        "sram_1rw_32x16_freepdk45_contact_10": 11,
+        "sram_1rw_32x16_freepdk45_contact_11": 11,
+        "sram_1rw_32x16_freepdk45_contact_12": 5,
+        "sram_1rw_32x16_freepdk45_contact_13": 5,
+        "sram_1rw_32x16_freepdk45_contact_14": 8,
+        "sram_1rw_32x16_freepdk45_contact_17": 1,
+        "sram_1rw_32x16_freepdk45_contact_22": 1,
+        "sram_1rw_32x16_freepdk45_contact_23": 4,
+        "sram_1rw_32x16_freepdk45_nmos_m1_w0_090_sm1_dm1_da_p": 2,
+        "sram_1rw_32x16_freepdk45_nmos_m1_w0_180_sactive_dm1": 2,
+        "sram_1rw_32x16_freepdk45_nmos_m1_w0_180_sm1_dactive": 2,
+        "sram_1rw_32x16_freepdk45_nmos_m6_w0_120_sm1_dm1_da_p": 1,
+        "sram_1rw_32x16_freepdk45_pinv_0": 1,
+        "sram_1rw_32x16_freepdk45_pmos_m1_w0_270_sm1_dm1": 7,
+        "sram_1rw_32x16_freepdk45_pmos_m1_w0_270_sm1_dm1_da_p": 2,
+        "sram_1rw_32x16_freepdk45_pmos_m6_w0_360_sm1_dm1_da_p": 1,
+        "sram_1rw_32x16_freepdk45_pnand2": 1,
+        "tri_gate": 8,
+        "write_driver": 8
+      },
+      "match": true
+    },
+    {
+      "metric": "gen_col_mux_hierarchy_presence",
+      "m6_previous": {
+        "exact_instance_count": 0,
+        "wrapper_instance_count": 0,
+        "wrapper_cell_names": [],
+        "present_in_top_hierarchy": false
+      },
+      "reference": {
+        "exact_instance_count": 0,
+        "wrapper_instance_count": 0,
+        "wrapper_cell_names": [],
+        "present_in_top_hierarchy": false
+      },
+      "match": true
+    },
+    {
+      "metric": "tri_gate_hierarchy_presence",
+      "m6_previous": {
+        "exact_instance_count": 8,
+        "wrapper_instance_count": 8,
+        "wrapper_cell_names": [
+          "tri_gate"
+        ],
+        "present_in_top_hierarchy": true
+      },
+      "reference": {
+        "exact_instance_count": 8,
+        "wrapper_instance_count": 8,
+        "wrapper_cell_names": [
+          "tri_gate"
+        ],
+        "present_in_top_hierarchy": true
+      },
+      "match": true
+    },
+    {
+      "metric": "cell_hierarchy",
+      "m6_previous": "DIFF",
+      "reference": "DIFF",
+      "match": false
+    }
+  ],
+  "reproduced_vs_reference": [
+    {
+      "metric": "file_size_bytes",
+      "reproduced": 286992,
+      "reference": 286992,
+      "match": true
+    },
+    {
+      "metric": "top_cell",
+      "reproduced": "hybrid_openyield_rail_overlap",
+      "reference": "hybrid_openyield_rail_overlap",
+      "match": true
+    },
+    {
+      "metric": "cell_count",
+      "reproduced": 30,
+      "reference": 30,
+      "match": true
+    },
+    {
+      "metric": "sref_count",
+      "reproduced": 746,
+      "reference": 746,
+      "match": true
+    },
+    {
+      "metric": "boundary_count",
+      "reproduced": 3854,
+      "reference": 3854,
+      "match": true
+    },
+    {
+      "metric": "path_count",
+      "reproduced": 0,
+      "reference": 0,
+      "match": true
+    },
+    {
+      "metric": "text_count",
+      "reproduced": 127,
+      "reference": 127,
+      "match": true
+    },
+    {
+      "metric": "bbox",
+      "reproduced": {
+        "x0": -0.1,
+        "y0": -0.105,
+        "x1": 42.7725,
+        "y1": 47.345,
+        "width": 42.8725,
+        "height": 47.449999999999996,
+        "shape_count": 3854
+      },
+      "reference": {
+        "x0": -0.1,
+        "y0": -0.105,
+        "x1": 42.7725,
+        "y1": 47.345,
+        "width": 42.8725,
+        "height": 47.449999999999996,
+        "shape_count": 3854
+      },
+      "match": true
+    },
+    {
+      "metric": "layer_datatype_summary",
+      "reproduced": {
+        "1/0": 356,
+        "10/0": 283,
+        "11/0": 802,
+        "12/0": 229,
+        "13/0": 991,
+        "13/2": 11,
+        "14/0": 156,
+        "15/0": 329,
+        "15/2": 14,
+        "17/0": 20,
+        "17/2": 2,
+        "2/0": 54,
+        "239/0": 35,
+        "3/0": 45,
+        "4/0": 66,
+        "5/0": 57,
+        "6/0": 63,
+        "9/0": 341
+      },
+      "reference": {
+        "1/0": 356,
+        "10/0": 283,
+        "11/0": 802,
+        "12/0": 229,
+        "13/0": 991,
+        "13/2": 11,
+        "14/0": 156,
+        "15/0": 329,
+        "15/2": 14,
+        "17/0": 20,
+        "17/2": 2,
+        "2/0": 54,
+        "239/0": 35,
+        "3/0": 45,
+        "4/0": 66,
+        "5/0": 57,
+        "6/0": 63,
+        "9/0": 341
+      },
+      "match": true
+    },
+    {
+      "metric": "per_layer_shape_count",
+      "reproduced": {
+        "1/0": 356,
+        "10/0": 283,
+        "11/0": 802,
+        "12/0": 229,
+        "13/0": 991,
+        "13/2": 11,
+        "14/0": 156,
+        "15/0": 329,
+        "15/2": 14,
+        "17/0": 20,
+        "17/2": 2,
+        "2/0": 54,
+        "239/0": 35,
+        "3/0": 45,
+        "4/0": 66,
+        "5/0": 57,
+        "6/0": 63,
+        "9/0": 341
+      },
+      "reference": {
+        "1/0": 356,
+        "10/0": 283,
+        "11/0": 802,
+        "12/0": 229,
+        "13/0": 991,
+        "13/2": 11,
+        "14/0": 156,
+        "15/0": 329,
+        "15/2": 14,
+        "17/0": 20,
+        "17/2": 2,
+        "2/0": 54,
+        "239/0": 35,
+        "3/0": 45,
+        "4/0": 66,
+        "5/0": 57,
+        "6/0": 63,
+        "9/0": 341
+      },
+      "match": true
+    },
+    {
+      "metric": "instance_count_by_cell_name",
+      "reproduced": {
+        "cell_1rw": 512,
+        "dff": 18,
+        "dummy_cell_1rw": 32,
+        "gen_delay_inv": 6,
+        "gen_inv": 2,
+        "gen_nand2": 22,
+        "gen_precharge": 33,
+        "gen_wl_driver": 16,
+        "replica_cell_1rw": 16,
+        "sense_amp": 8,
+        "sram_1rw_32x16_freepdk45_contact_10": 11,
+        "sram_1rw_32x16_freepdk45_contact_11": 11,
+        "sram_1rw_32x16_freepdk45_contact_12": 5,
+        "sram_1rw_32x16_freepdk45_contact_13": 5,
+        "sram_1rw_32x16_freepdk45_contact_14": 8,
+        "sram_1rw_32x16_freepdk45_contact_17": 1,
+        "sram_1rw_32x16_freepdk45_contact_22": 1,
+        "sram_1rw_32x16_freepdk45_contact_23": 4,
+        "sram_1rw_32x16_freepdk45_nmos_m1_w0_090_sm1_dm1_da_p": 2,
+        "sram_1rw_32x16_freepdk45_nmos_m1_w0_180_sactive_dm1": 2,
+        "sram_1rw_32x16_freepdk45_nmos_m1_w0_180_sm1_dactive": 2,
+        "sram_1rw_32x16_freepdk45_nmos_m6_w0_120_sm1_dm1_da_p": 1,
+        "sram_1rw_32x16_freepdk45_pinv_0": 1,
+        "sram_1rw_32x16_freepdk45_pmos_m1_w0_270_sm1_dm1": 7,
+        "sram_1rw_32x16_freepdk45_pmos_m1_w0_270_sm1_dm1_da_p": 2,
+        "sram_1rw_32x16_freepdk45_pmos_m6_w0_360_sm1_dm1_da_p": 1,
+        "sram_1rw_32x16_freepdk45_pnand2": 1,
+        "tri_gate": 8,
+        "write_driver": 8
+      },
+      "reference": {
+        "cell_1rw": 512,
+        "dff": 18,
+        "dummy_cell_1rw": 32,
+        "gen_delay_inv": 6,
+        "gen_inv": 2,
+        "gen_nand2": 22,
+        "gen_precharge": 33,
+        "gen_wl_driver": 16,
+        "replica_cell_1rw": 16,
+        "sense_amp": 8,
+        "sram_1rw_32x16_freepdk45_contact_10": 11,
+        "sram_1rw_32x16_freepdk45_contact_11": 11,
+        "sram_1rw_32x16_freepdk45_contact_12": 5,
+        "sram_1rw_32x16_freepdk45_contact_13": 5,
+        "sram_1rw_32x16_freepdk45_contact_14": 8,
+        "sram_1rw_32x16_freepdk45_contact_17": 1,
+        "sram_1rw_32x16_freepdk45_contact_22": 1,
+        "sram_1rw_32x16_freepdk45_contact_23": 4,
+        "sram_1rw_32x16_freepdk45_nmos_m1_w0_090_sm1_dm1_da_p": 2,
+        "sram_1rw_32x16_freepdk45_nmos_m1_w0_180_sactive_dm1": 2,
+        "sram_1rw_32x16_freepdk45_nmos_m1_w0_180_sm1_dactive": 2,
+        "sram_1rw_32x16_freepdk45_nmos_m6_w0_120_sm1_dm1_da_p": 1,
+        "sram_1rw_32x16_freepdk45_pinv_0": 1,
+        "sram_1rw_32x16_freepdk45_pmos_m1_w0_270_sm1_dm1": 7,
+        "sram_1rw_32x16_freepdk45_pmos_m1_w0_270_sm1_dm1_da_p": 2,
+        "sram_1rw_32x16_freepdk45_pmos_m6_w0_360_sm1_dm1_da_p": 1,
+        "sram_1rw_32x16_freepdk45_pnand2": 1,
+        "tri_gate": 8,
+        "write_driver": 8
+      },
+      "match": true
+    },
+    {
+      "metric": "gen_col_mux_hierarchy_presence",
+      "reproduced": {
+        "exact_instance_count": 0,
+        "wrapper_instance_count": 0,
+        "wrapper_cell_names": [],
+        "present_in_top_hierarchy": false
+      },
+      "reference": {
+        "exact_instance_count": 0,
+        "wrapper_instance_count": 0,
+        "wrapper_cell_names": [],
+        "present_in_top_hierarchy": false
+      },
+      "match": true
+    },
+    {
+      "metric": "tri_gate_hierarchy_presence",
+      "reproduced": {
+        "exact_instance_count": 8,
+        "wrapper_instance_count": 8,
+        "wrapper_cell_names": [
+          "tri_gate"
+        ],
+        "present_in_top_hierarchy": true
+      },
+      "reference": {
+        "exact_instance_count": 8,
+        "wrapper_instance_count": 8,
+        "wrapper_cell_names": [
+          "tri_gate"
+        ],
+        "present_in_top_hierarchy": true
+      },
+      "match": true
+    },
+    {
+      "metric": "cell_hierarchy",
+      "reproduced": "MATCH",
+      "reference": "MATCH",
+      "match": true
+    }
+  ]
+}

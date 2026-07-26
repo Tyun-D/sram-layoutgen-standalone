@@ -1,0 +1,173 @@
+{
+  "scope": "step6_36_openyield_time_control_payload_materialization_boundary_audit",
+  "nodes": [
+    {
+      "id": "front_end_registers",
+      "kind": "group"
+    },
+    {
+      "id": "timing_generation",
+      "kind": "group"
+    },
+    {
+      "id": "generated_logic_core",
+      "kind": "group"
+    },
+    {
+      "id": "consumer_handoff_boundary",
+      "kind": "group"
+    },
+    {
+      "id": "decoder_boundary",
+      "kind": "group"
+    },
+    {
+      "id": "delay_chain_region",
+      "kind": "region"
+    },
+    {
+      "id": "pdrive_region",
+      "kind": "region"
+    },
+    {
+      "id": "generated_logic_region",
+      "kind": "region"
+    },
+    {
+      "id": "consumer_handoff_region",
+      "kind": "region"
+    },
+    {
+      "id": "precharge_control_region",
+      "kind": "region"
+    },
+    {
+      "id": "wordline_enable_control_region",
+      "kind": "region"
+    },
+    {
+      "id": "sense_write_enable_region",
+      "kind": "region"
+    },
+    {
+      "id": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+      "kind": "handoff"
+    },
+    {
+      "id": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+      "kind": "handoff"
+    },
+    {
+      "id": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "kind": "handoff"
+    },
+    {
+      "id": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+      "kind": "handoff"
+    }
+  ],
+  "edges": [
+    {
+      "source": "front_end_registers",
+      "target": "ADDR_DFF_ROW",
+      "relation": "payload_order_member",
+      "payload_index": 0
+    },
+    {
+      "source": "front_end_registers",
+      "target": "DATA_DFF_ROW",
+      "relation": "payload_order_member",
+      "payload_index": 1
+    },
+    {
+      "source": "timing_generation",
+      "target": "DELAY_CHAIN_CLUSTER",
+      "relation": "payload_order_member",
+      "payload_index": 2
+    },
+    {
+      "source": "timing_generation",
+      "target": "WEN_DELAY_CHAIN_CLUSTER",
+      "relation": "payload_order_member",
+      "payload_index": 3
+    },
+    {
+      "source": "timing_generation",
+      "target": "PDRIVE_CLUSTER",
+      "relation": "payload_order_member",
+      "payload_index": 4
+    },
+    {
+      "source": "generated_logic_core",
+      "target": "GENERATED_LOGIC_CLUSTER",
+      "relation": "payload_order_member",
+      "payload_index": 5
+    },
+    {
+      "source": "consumer_handoff_boundary",
+      "target": "PRECHARGE_HANDOFF",
+      "relation": "payload_order_member",
+      "payload_index": 6
+    },
+    {
+      "source": "consumer_handoff_boundary",
+      "target": "SENSEAMP_HANDOFF",
+      "relation": "payload_order_member",
+      "payload_index": 7
+    },
+    {
+      "source": "consumer_handoff_boundary",
+      "target": "WRITEDRIVER_HANDOFF",
+      "relation": "payload_order_member",
+      "payload_index": 8
+    },
+    {
+      "source": "consumer_handoff_boundary",
+      "target": "WORDLINEDRIVER_HANDOFF",
+      "relation": "payload_order_member",
+      "payload_index": 9
+    },
+    {
+      "source": "decoder_boundary",
+      "target": "DECODER_INTERFACE",
+      "relation": "payload_order_member",
+      "payload_index": 10
+    },
+    {
+      "source": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+      "target": "sense_write_enable_region",
+      "relation": "handoff_source_region"
+    },
+    {
+      "source": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+      "target": "sense_write_enable_region",
+      "relation": "handoff_source_region"
+    },
+    {
+      "source": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "target": "precharge_control_region",
+      "relation": "handoff_source_region"
+    },
+    {
+      "source": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "target": "wordline_enable_control_region",
+      "relation": "handoff_source_region"
+    },
+    {
+      "source": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+      "target": "wordline_enable_control_region",
+      "relation": "handoff_source_region"
+    }
+  ],
+  "summary": {
+    "payload_materialization_boundary_audit_available": true,
+    "group_rank_deterministic": true,
+    "region_anchor_rules_explicit": true,
+    "handoff_anchor_rules_explicit": true,
+    "partial_precharge_propagation_explicit": true,
+    "future_default_off_builder_can_materialize_metadata_plan": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  }
+}

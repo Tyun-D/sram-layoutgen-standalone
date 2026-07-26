@@ -1,0 +1,163 @@
+{
+  "scope": "step6_25_openyield_time_control_generated_logic_contract_packaging_audit",
+  "nodes": [
+    {
+      "id": "PINV_GENERATED_LOGIC_CONTRACT",
+      "kind": "generated_logic_contract"
+    },
+    {
+      "id": "AND2_GENERATED_LOGIC_CONTRACT",
+      "kind": "generated_logic_contract"
+    },
+    {
+      "id": "AND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+      "kind": "generated_logic_contract"
+    },
+    {
+      "id": "PNAND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+      "kind": "generated_logic_contract"
+    },
+    {
+      "id": "PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "kind": "generated_logic_contract"
+    },
+    {
+      "id": "PDRIVE2_FOR_PRE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "kind": "generated_logic_contract"
+    },
+    {
+      "id": "WL_PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "kind": "generated_logic_contract"
+    },
+    {
+      "id": "DELAY_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "kind": "generated_logic_contract"
+    },
+    {
+      "id": "WEN_DELAY_CHAIN_CONDITIONAL_GENERATED_LOGIC_CONTRACT",
+      "kind": "generated_logic_contract"
+    },
+    {
+      "id": "CLK_BUF_BINDING_CONTRACT",
+      "kind": "signal_binding"
+    },
+    {
+      "id": "CLK_BAR_BINDING_CONTRACT",
+      "kind": "signal_binding"
+    },
+    {
+      "id": "GATED_CLK_BUF_BINDING_CONTRACT",
+      "kind": "signal_binding"
+    },
+    {
+      "id": "GATED_CLK_BAR_BINDING_CONTRACT",
+      "kind": "signal_binding"
+    },
+    {
+      "id": "RBL_DELAY_BINDING_CONTRACT",
+      "kind": "signal_binding"
+    },
+    {
+      "id": "RBL_DELAY_BAR_BINDING_CONTRACT",
+      "kind": "signal_binding"
+    },
+    {
+      "id": "WORDLINE_ENABLE_BINDING_CONTRACT",
+      "kind": "signal_binding"
+    },
+    {
+      "id": "WRITE_ENABLE_BINDING_CONTRACT",
+      "kind": "signal_binding"
+    },
+    {
+      "id": "SENSE_ENABLE_BINDING_CONTRACT",
+      "kind": "signal_binding"
+    },
+    {
+      "id": "PRECHARGE_ENB_BINDING_CONTRACT",
+      "kind": "signal_binding"
+    },
+    {
+      "id": "WEN_DELAY_CONDITIONAL_BINDING_CONTRACT",
+      "kind": "signal_binding"
+    }
+  ],
+  "edges": [
+    {
+      "source": "CLK_BUF_BINDING_CONTRACT",
+      "target": "PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "relation": "implemented_by"
+    },
+    {
+      "source": "CLK_BAR_BINDING_CONTRACT",
+      "target": "PINV_GENERATED_LOGIC_CONTRACT",
+      "relation": "implemented_by"
+    },
+    {
+      "source": "GATED_CLK_BUF_BINDING_CONTRACT",
+      "target": "AND2_GENERATED_LOGIC_CONTRACT",
+      "relation": "implemented_by"
+    },
+    {
+      "source": "GATED_CLK_BAR_BINDING_CONTRACT",
+      "target": "AND2_GENERATED_LOGIC_CONTRACT",
+      "relation": "implemented_by"
+    },
+    {
+      "source": "RBL_DELAY_BINDING_CONTRACT",
+      "target": "DELAY_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "relation": "implemented_by"
+    },
+    {
+      "source": "RBL_DELAY_BAR_BINDING_CONTRACT",
+      "target": "PINV_GENERATED_LOGIC_CONTRACT",
+      "relation": "implemented_by"
+    },
+    {
+      "source": "WORDLINE_ENABLE_BINDING_CONTRACT",
+      "target": "WL_PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "relation": "implemented_by"
+    },
+    {
+      "source": "WORDLINE_ENABLE_BINDING_CONTRACT",
+      "target": "PINV_GENERATED_LOGIC_CONTRACT",
+      "relation": "implemented_by"
+    },
+    {
+      "source": "WRITE_ENABLE_BINDING_CONTRACT",
+      "target": "AND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+      "relation": "implemented_by"
+    },
+    {
+      "source": "SENSE_ENABLE_BINDING_CONTRACT",
+      "target": "AND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+      "relation": "implemented_by"
+    },
+    {
+      "source": "PRECHARGE_ENB_BINDING_CONTRACT",
+      "target": "PNAND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+      "relation": "implemented_by"
+    },
+    {
+      "source": "PRECHARGE_ENB_BINDING_CONTRACT",
+      "target": "PDRIVE2_FOR_PRE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "relation": "implemented_by"
+    },
+    {
+      "source": "WEN_DELAY_CONDITIONAL_BINDING_CONTRACT",
+      "target": "WEN_DELAY_CHAIN_CONDITIONAL_GENERATED_LOGIC_CONTRACT",
+      "relation": "implemented_by"
+    }
+  ],
+  "summary": {
+    "time_control_generated_logic_contract_available": true,
+    "generated_logic_contract_packaging_available": true,
+    "all_core_logic_roles_have_contract": true,
+    "all_signal_bindings_have_generated_logic_contract": true,
+    "generated_logic_contract_coverage_complete": true,
+    "partial_generated_logic_contracts_present": true,
+    "can_enter_time_control_generated_logic_metadata_planning": true,
+    "can_enter_time_control_physical_placement": false,
+    "can_enter_standalone_control_placement": false
+  }
+}

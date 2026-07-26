@@ -1,0 +1,574 @@
+{
+  "scope": "time_control_timing_proof_planning",
+  "nodes": [
+    {
+      "id": "proof_planning",
+      "kind": "root",
+      "label": "time_control_timing_proof_planning"
+    },
+    {
+      "id": "target:DELAY_CHAIN",
+      "kind": "timing_target",
+      "label": "DELAY_CHAIN"
+    },
+    {
+      "id": "model:gen_delay_inv",
+      "kind": "model",
+      "label": "gen_delay_inv"
+    },
+    {
+      "id": "target:WEN_DELAY_CHAIN",
+      "kind": "timing_target",
+      "label": "WEN_DELAY_CHAIN"
+    },
+    {
+      "id": "target:PDRIVE",
+      "kind": "timing_target",
+      "label": "PDRIVE"
+    },
+    {
+      "id": "model:gen_inv",
+      "kind": "model",
+      "label": "gen_inv"
+    },
+    {
+      "id": "target:PDRIVE2_FOR_PRE",
+      "kind": "timing_target",
+      "label": "PDRIVE2_FOR_PRE"
+    },
+    {
+      "id": "target:WL_PDRIVE",
+      "kind": "timing_target",
+      "label": "WL_PDRIVE"
+    },
+    {
+      "id": "model:gen_wl_driver",
+      "kind": "model",
+      "label": "gen_wl_driver"
+    },
+    {
+      "id": "target:PINV",
+      "kind": "timing_target",
+      "label": "PINV"
+    },
+    {
+      "id": "target:AND2",
+      "kind": "timing_target",
+      "label": "AND2"
+    },
+    {
+      "id": "model:gen_nand2",
+      "kind": "model",
+      "label": "gen_nand2"
+    },
+    {
+      "id": "target:AND3_COMPOSITE",
+      "kind": "timing_target",
+      "label": "AND3_COMPOSITE"
+    },
+    {
+      "id": "target:PNAND3_COMPOSITE",
+      "kind": "timing_target",
+      "label": "PNAND3_COMPOSITE"
+    },
+    {
+      "id": "target:PRECHARGE",
+      "kind": "timing_target",
+      "label": "PRECHARGE"
+    },
+    {
+      "id": "model:gen_precharge",
+      "kind": "model",
+      "label": "gen_precharge"
+    },
+    {
+      "id": "target:DFF_ROW",
+      "kind": "timing_target",
+      "label": "DFF_ROW"
+    },
+    {
+      "id": "model:dff",
+      "kind": "model",
+      "label": "dff"
+    },
+    {
+      "id": "target:WRITE_ENABLE_PATH",
+      "kind": "timing_target",
+      "label": "WRITE_ENABLE_PATH"
+    },
+    {
+      "id": "model:write_driver",
+      "kind": "model",
+      "label": "write_driver"
+    },
+    {
+      "id": "model:sense_amp",
+      "kind": "model",
+      "label": "sense_amp"
+    },
+    {
+      "id": "target:SENSE_ENABLE_PATH",
+      "kind": "timing_target",
+      "label": "SENSE_ENABLE_PATH"
+    },
+    {
+      "id": "target:PRECHARGE_ENABLE_PATH",
+      "kind": "timing_target",
+      "label": "PRECHARGE_ENABLE_PATH"
+    },
+    {
+      "id": "target:WORDLINE_ENABLE_PATH",
+      "kind": "timing_target",
+      "label": "WORDLINE_ENABLE_PATH"
+    },
+    {
+      "id": "target:RBL_DELAY_PATH",
+      "kind": "timing_target",
+      "label": "RBL_DELAY_PATH"
+    },
+    {
+      "id": "target:GATED_CLOCK_PATH",
+      "kind": "timing_target",
+      "label": "GATED_CLOCK_PATH"
+    },
+    {
+      "id": "task:1",
+      "kind": "task",
+      "label": "recover_generated_logic_spice_or_timing_model_inventory"
+    },
+    {
+      "id": "task:2",
+      "kind": "task",
+      "label": "gen_inv_gen_nand2_gen_delay_inv_characterization_plan"
+    },
+    {
+      "id": "task:3",
+      "kind": "task",
+      "label": "delay_chain_spice_testbench_plan"
+    },
+    {
+      "id": "task:4",
+      "kind": "task",
+      "label": "wen_delay_chain_conditional_testbench_plan"
+    },
+    {
+      "id": "task:5",
+      "kind": "task",
+      "label": "pdrive_enable_path_load_model_plan"
+    },
+    {
+      "id": "task:6",
+      "kind": "task",
+      "label": "dff_clock_path_model_plan"
+    },
+    {
+      "id": "task:7",
+      "kind": "task",
+      "label": "precharge_timing_exception_resolution_plan"
+    }
+  ],
+  "edges": [
+    {
+      "from": "proof_planning",
+      "to": "target:DELAY_CHAIN",
+      "relation": "plans"
+    },
+    {
+      "from": "target:DELAY_CHAIN",
+      "to": "model:gen_delay_inv",
+      "relation": "requires_model"
+    },
+    {
+      "from": "proof_planning",
+      "to": "target:WEN_DELAY_CHAIN",
+      "relation": "plans"
+    },
+    {
+      "from": "target:WEN_DELAY_CHAIN",
+      "to": "model:gen_delay_inv",
+      "relation": "requires_model"
+    },
+    {
+      "from": "proof_planning",
+      "to": "target:PDRIVE",
+      "relation": "plans"
+    },
+    {
+      "from": "target:PDRIVE",
+      "to": "model:gen_inv",
+      "relation": "requires_model"
+    },
+    {
+      "from": "proof_planning",
+      "to": "target:PDRIVE2_FOR_PRE",
+      "relation": "plans"
+    },
+    {
+      "from": "target:PDRIVE2_FOR_PRE",
+      "to": "model:gen_inv",
+      "relation": "requires_model"
+    },
+    {
+      "from": "proof_planning",
+      "to": "target:WL_PDRIVE",
+      "relation": "plans"
+    },
+    {
+      "from": "target:WL_PDRIVE",
+      "to": "model:gen_inv",
+      "relation": "requires_model"
+    },
+    {
+      "from": "target:WL_PDRIVE",
+      "to": "model:gen_wl_driver",
+      "relation": "requires_model"
+    },
+    {
+      "from": "proof_planning",
+      "to": "target:PINV",
+      "relation": "plans"
+    },
+    {
+      "from": "target:PINV",
+      "to": "model:gen_inv",
+      "relation": "requires_model"
+    },
+    {
+      "from": "proof_planning",
+      "to": "target:AND2",
+      "relation": "plans"
+    },
+    {
+      "from": "target:AND2",
+      "to": "model:gen_nand2",
+      "relation": "requires_model"
+    },
+    {
+      "from": "target:AND2",
+      "to": "model:gen_inv",
+      "relation": "requires_model"
+    },
+    {
+      "from": "proof_planning",
+      "to": "target:AND3_COMPOSITE",
+      "relation": "plans"
+    },
+    {
+      "from": "target:AND3_COMPOSITE",
+      "to": "model:gen_nand2",
+      "relation": "requires_model"
+    },
+    {
+      "from": "target:AND3_COMPOSITE",
+      "to": "model:gen_inv",
+      "relation": "requires_model"
+    },
+    {
+      "from": "proof_planning",
+      "to": "target:PNAND3_COMPOSITE",
+      "relation": "plans"
+    },
+    {
+      "from": "target:PNAND3_COMPOSITE",
+      "to": "model:gen_nand2",
+      "relation": "requires_model"
+    },
+    {
+      "from": "target:PNAND3_COMPOSITE",
+      "to": "model:gen_inv",
+      "relation": "requires_model"
+    },
+    {
+      "from": "proof_planning",
+      "to": "target:PRECHARGE",
+      "relation": "plans"
+    },
+    {
+      "from": "target:PRECHARGE",
+      "to": "model:gen_precharge",
+      "relation": "requires_model"
+    },
+    {
+      "from": "proof_planning",
+      "to": "target:DFF_ROW",
+      "relation": "plans"
+    },
+    {
+      "from": "target:DFF_ROW",
+      "to": "model:dff",
+      "relation": "requires_model"
+    },
+    {
+      "from": "proof_planning",
+      "to": "target:WRITE_ENABLE_PATH",
+      "relation": "plans"
+    },
+    {
+      "from": "target:WRITE_ENABLE_PATH",
+      "to": "model:write_driver",
+      "relation": "requires_model"
+    },
+    {
+      "from": "target:WRITE_ENABLE_PATH",
+      "to": "model:sense_amp",
+      "relation": "requires_model"
+    },
+    {
+      "from": "proof_planning",
+      "to": "target:SENSE_ENABLE_PATH",
+      "relation": "plans"
+    },
+    {
+      "from": "target:SENSE_ENABLE_PATH",
+      "to": "model:write_driver",
+      "relation": "requires_model"
+    },
+    {
+      "from": "target:SENSE_ENABLE_PATH",
+      "to": "model:sense_amp",
+      "relation": "requires_model"
+    },
+    {
+      "from": "proof_planning",
+      "to": "target:PRECHARGE_ENABLE_PATH",
+      "relation": "plans"
+    },
+    {
+      "from": "target:PRECHARGE_ENABLE_PATH",
+      "to": "model:gen_precharge",
+      "relation": "requires_model"
+    },
+    {
+      "from": "proof_planning",
+      "to": "target:WORDLINE_ENABLE_PATH",
+      "relation": "plans"
+    },
+    {
+      "from": "target:WORDLINE_ENABLE_PATH",
+      "to": "model:gen_wl_driver",
+      "relation": "requires_model"
+    },
+    {
+      "from": "proof_planning",
+      "to": "target:RBL_DELAY_PATH",
+      "relation": "plans"
+    },
+    {
+      "from": "proof_planning",
+      "to": "target:GATED_CLOCK_PATH",
+      "relation": "plans"
+    },
+    {
+      "from": "target:GATED_CLOCK_PATH",
+      "to": "model:dff",
+      "relation": "requires_model"
+    },
+    {
+      "from": "proof_planning",
+      "to": "task:1",
+      "relation": "ranked_task"
+    },
+    {
+      "from": "task:1",
+      "to": "target:DELAY_CHAIN",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:1",
+      "to": "target:WEN_DELAY_CHAIN",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:1",
+      "to": "target:PDRIVE",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:1",
+      "to": "target:WL_PDRIVE",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:1",
+      "to": "target:PINV",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:1",
+      "to": "target:AND2",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:1",
+      "to": "target:AND3_COMPOSITE",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:1",
+      "to": "target:PNAND3_COMPOSITE",
+      "relation": "unblocks"
+    },
+    {
+      "from": "proof_planning",
+      "to": "task:2",
+      "relation": "ranked_task"
+    },
+    {
+      "from": "task:2",
+      "to": "target:PDRIVE",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:2",
+      "to": "target:WL_PDRIVE",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:2",
+      "to": "target:PINV",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:2",
+      "to": "target:AND2",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:2",
+      "to": "target:AND3_COMPOSITE",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:2",
+      "to": "target:PNAND3_COMPOSITE",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:2",
+      "to": "target:DELAY_CHAIN",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:2",
+      "to": "target:WEN_DELAY_CHAIN",
+      "relation": "unblocks"
+    },
+    {
+      "from": "proof_planning",
+      "to": "task:3",
+      "relation": "ranked_task"
+    },
+    {
+      "from": "task:3",
+      "to": "target:DELAY_CHAIN",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:3",
+      "to": "target:RBL_DELAY_PATH",
+      "relation": "unblocks"
+    },
+    {
+      "from": "proof_planning",
+      "to": "task:4",
+      "relation": "ranked_task"
+    },
+    {
+      "from": "task:4",
+      "to": "target:WEN_DELAY_CHAIN",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:4",
+      "to": "target:WRITE_ENABLE_PATH",
+      "relation": "unblocks"
+    },
+    {
+      "from": "proof_planning",
+      "to": "task:5",
+      "relation": "ranked_task"
+    },
+    {
+      "from": "task:5",
+      "to": "target:PDRIVE",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:5",
+      "to": "target:WL_PDRIVE",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:5",
+      "to": "target:WRITE_ENABLE_PATH",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:5",
+      "to": "target:SENSE_ENABLE_PATH",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:5",
+      "to": "target:WORDLINE_ENABLE_PATH",
+      "relation": "unblocks"
+    },
+    {
+      "from": "proof_planning",
+      "to": "task:6",
+      "relation": "ranked_task"
+    },
+    {
+      "from": "task:6",
+      "to": "target:DFF_ROW",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:6",
+      "to": "target:GATED_CLOCK_PATH",
+      "relation": "unblocks"
+    },
+    {
+      "from": "proof_planning",
+      "to": "task:7",
+      "relation": "ranked_task"
+    },
+    {
+      "from": "task:7",
+      "to": "target:PRECHARGE",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:7",
+      "to": "target:PRECHARGE_ENABLE_PATH",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:7",
+      "to": "target:PDRIVE2_FOR_PRE",
+      "relation": "unblocks"
+    },
+    {
+      "from": "task:7",
+      "to": "target:PNAND3_COMPOSITE",
+      "relation": "unblocks"
+    }
+  ],
+  "summary": {
+    "time_control_timing_proof_planning_available": true,
+    "all_required_timing_proof_targets_planned": true,
+    "all_required_models_identified": true,
+    "model_recovery_plan_available": true,
+    "proof_task_ranking_available": true,
+    "can_start_timing_proof_without_main_flow_changes": true,
+    "can_enter_generated_logic_model_recovery": true,
+    "can_enter_delay_chain_testbench_planning": true,
+    "timing_proof_available_now": false,
+    "can_enter_physical_timing_closure_now": false,
+    "can_enter_routing_proof_planning": true,
+    "can_enter_physical_routing_now": false,
+    "can_enter_physical_placement_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_modify_standalone_now": false
+  }
+}

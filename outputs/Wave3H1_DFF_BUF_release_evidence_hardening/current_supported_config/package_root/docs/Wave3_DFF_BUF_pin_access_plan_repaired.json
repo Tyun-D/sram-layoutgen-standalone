@@ -1,0 +1,932 @@
+{
+  "routing_architecture": "M1_HORIZONTAL_TRACK_M2_VERTICAL_DROP",
+  "decision_rows": [
+    {
+      "endpoint": "dff.CLK",
+      "instance_name": "dff",
+      "net_name": "CLK",
+      "access_mode": "direct_via1_to_m2_escape",
+      "candidate_count": 3,
+      "selected_candidate": "direct_left",
+      "selected_via_center": "[6.675, 2.085]",
+      "m1_landing_bbox": "{'lx': 6.6075, 'by': 2.0175, 'rx': 6.7425, 'uy': 2.1525}",
+      "m2_landing_bbox": "{'lx': 6.6075, 'by': 2.0175, 'rx': 6.7425, 'uy': 2.1525}",
+      "escape_segment_bbox": "{'lx': 6.6075, 'by': 2.0175, 'rx': 6.7425, 'uy': 2.1525}",
+      "nearest_m1_obstacle_distance": 0.065,
+      "nearest_m2_obstacle_distance": 0.065,
+      "grid_aligned": true,
+      "access_status": "PLANNED",
+      "failure_reason": ""
+    },
+    {
+      "endpoint": "dff.D",
+      "instance_name": "dff",
+      "net_name": "D",
+      "access_mode": "direct_via1_to_m2_escape",
+      "candidate_count": 3,
+      "selected_candidate": "direct_left",
+      "selected_via_center": "[0.29, 2.505]",
+      "m1_landing_bbox": "{'lx': 0.2225, 'by': 2.4375, 'rx': 0.3575, 'uy': 2.5725}",
+      "m2_landing_bbox": "{'lx': 0.2225, 'by': 2.4375, 'rx': 0.3575, 'uy': 2.5725}",
+      "escape_segment_bbox": "{'lx': 0.2225, 'by': 2.4375, 'rx': 0.3575, 'uy': 2.5725}",
+      "nearest_m1_obstacle_distance": 0.065,
+      "nearest_m2_obstacle_distance": 0.065,
+      "grid_aligned": true,
+      "access_status": "PLANNED",
+      "failure_reason": ""
+    },
+    {
+      "endpoint": "dff.Q",
+      "instance_name": "dff",
+      "net_name": "qint",
+      "access_mode": "direct_via1_to_m2_escape",
+      "candidate_count": 3,
+      "selected_candidate": "direct_left",
+      "selected_via_center": "[13.0625, 3.975]",
+      "m1_landing_bbox": "{'lx': 12.995, 'by': 3.9075, 'rx': 13.13, 'uy': 4.0425}",
+      "m2_landing_bbox": "{'lx': 12.995, 'by': 3.9075, 'rx': 13.13, 'uy': 4.0425}",
+      "escape_segment_bbox": "{'lx': 12.995, 'by': 3.9075, 'rx': 13.13, 'uy': 4.0425}",
+      "nearest_m1_obstacle_distance": 0.065,
+      "nearest_m2_obstacle_distance": 0.065,
+      "grid_aligned": true,
+      "access_status": "PLANNED",
+      "failure_reason": ""
+    },
+    {
+      "endpoint": "inv1.A",
+      "instance_name": "inv1",
+      "net_name": "qint",
+      "access_mode": "directional_escape",
+      "candidate_count": 3,
+      "selected_candidate": "left",
+      "selected_via_center": "[14.09, 0.8525]",
+      "m1_landing_bbox": "{'lx': 14.0225, 'by': 0.785, 'rx': 14.1575, 'uy': 0.92}",
+      "m2_landing_bbox": "{'lx': 14.0225, 'by': 0.785, 'rx': 14.1575, 'uy': 0.92}",
+      "escape_segment_bbox": "{'lx': 14.09, 'by': 0.785, 'rx': 14.3575, 'uy': 0.92}",
+      "nearest_m1_obstacle_distance": 0.065,
+      "nearest_m2_obstacle_distance": 0.065,
+      "grid_aligned": true,
+      "access_status": "PLANNED",
+      "failure_reason": ""
+    },
+    {
+      "endpoint": "inv1.Z",
+      "instance_name": "inv1",
+      "net_name": "QB",
+      "access_mode": "directional_escape",
+      "candidate_count": 3,
+      "selected_candidate": "right",
+      "selected_via_center": "[14.6875, 0.8525]",
+      "m1_landing_bbox": "{'lx': 14.62, 'by': 0.785, 'rx': 14.755, 'uy': 0.92}",
+      "m2_landing_bbox": "{'lx': 14.62, 'by': 0.785, 'rx': 14.755, 'uy': 0.92}",
+      "escape_segment_bbox": "{'lx': 14.49, 'by': 0.785, 'rx': 14.6875, 'uy': 0.92}",
+      "nearest_m1_obstacle_distance": 0.065,
+      "nearest_m2_obstacle_distance": 0.065,
+      "grid_aligned": true,
+      "access_status": "PLANNED",
+      "failure_reason": ""
+    },
+    {
+      "endpoint": "inv2.A",
+      "instance_name": "inv2",
+      "net_name": "QB",
+      "access_mode": "directional_escape",
+      "candidate_count": 3,
+      "selected_candidate": "left",
+      "selected_via_center": "[15.2375, 0.8525]",
+      "m1_landing_bbox": "{'lx': 15.17, 'by': 0.785, 'rx': 15.305, 'uy': 0.92}",
+      "m2_landing_bbox": "{'lx': 15.17, 'by': 0.785, 'rx': 15.305, 'uy': 0.92}",
+      "escape_segment_bbox": "{'lx': 15.2375, 'by': 0.785, 'rx': 15.505, 'uy': 0.92}",
+      "nearest_m1_obstacle_distance": 0.065,
+      "nearest_m2_obstacle_distance": 0.065,
+      "grid_aligned": true,
+      "access_status": "PLANNED",
+      "failure_reason": ""
+    },
+    {
+      "endpoint": "inv2.Z",
+      "instance_name": "inv2",
+      "net_name": "Q",
+      "access_mode": "directional_escape",
+      "candidate_count": 3,
+      "selected_candidate": "right",
+      "selected_via_center": "[15.865, 0.8525]",
+      "m1_landing_bbox": "{'lx': 15.7975, 'by': 0.785, 'rx': 15.9325, 'uy': 0.92}",
+      "m2_landing_bbox": "{'lx': 15.7975, 'by': 0.785, 'rx': 15.9325, 'uy': 0.92}",
+      "escape_segment_bbox": "{'lx': 15.6675, 'by': 0.785, 'rx': 15.865, 'uy': 0.92}",
+      "nearest_m1_obstacle_distance": 0.065,
+      "nearest_m2_obstacle_distance": 0.065,
+      "grid_aligned": true,
+      "access_status": "PLANNED",
+      "failure_reason": ""
+    }
+  ],
+  "route_objects": [
+    {
+      "route_object_id": "CLK:dff.CLK:m1_landing",
+      "net_name": "CLK",
+      "intended_hierarchical_net": "TOP::CLK",
+      "layer": "m1",
+      "bbox": [
+        6.6075,
+        2.0175,
+        6.7425,
+        2.1525
+      ],
+      "role": "pin_access_landing"
+    },
+    {
+      "route_object_id": "CLK:TOP:m1_pin",
+      "net_name": "CLK",
+      "intended_hierarchical_net": "TOP::CLK",
+      "layer": "m1",
+      "bbox": [
+        16.965,
+        4.535,
+        17.165,
+        4.67
+      ],
+      "role": "top_pin"
+    },
+    {
+      "route_object_id": "CLK:TRACK:m1",
+      "net_name": "CLK",
+      "intended_hierarchical_net": "TOP::CLK",
+      "layer": "m1",
+      "bbox": [
+        6.675,
+        4.57,
+        17.165,
+        4.635
+      ],
+      "role": "horizontal_track"
+    },
+    {
+      "route_object_id": "CLK:dff.CLK:via_pin",
+      "net_name": "CLK",
+      "intended_hierarchical_net": "TOP::CLK",
+      "layer": "via1",
+      "bbox": [
+        6.6425,
+        2.0525,
+        6.7075,
+        2.1175
+      ],
+      "role": "pin_access_via"
+    },
+    {
+      "route_object_id": "CLK:dff.CLK:m2_landing",
+      "net_name": "CLK",
+      "intended_hierarchical_net": "TOP::CLK",
+      "layer": "m2",
+      "bbox": [
+        6.6075,
+        2.0175,
+        6.7425,
+        2.1525
+      ],
+      "role": "pin_access_m2_landing"
+    },
+    {
+      "route_object_id": "CLK:dff.CLK:m2_escape",
+      "net_name": "CLK",
+      "intended_hierarchical_net": "TOP::CLK",
+      "layer": "m2",
+      "bbox": [
+        6.64,
+        2.1525,
+        6.71,
+        4.535
+      ],
+      "role": "vertical_escape"
+    },
+    {
+      "route_object_id": "CLK:dff.CLK:track_drop_m1",
+      "net_name": "CLK",
+      "intended_hierarchical_net": "TOP::CLK",
+      "layer": "m1",
+      "bbox": [
+        6.6075,
+        4.535,
+        6.7425,
+        4.67
+      ],
+      "role": "track_drop_m1_landing"
+    },
+    {
+      "route_object_id": "CLK:dff.CLK:track_drop_via",
+      "net_name": "CLK",
+      "intended_hierarchical_net": "TOP::CLK",
+      "layer": "via1",
+      "bbox": [
+        6.6425,
+        4.57,
+        6.7075,
+        4.635
+      ],
+      "role": "track_drop_via"
+    },
+    {
+      "route_object_id": "CLK:dff.CLK:track_drop_m2",
+      "net_name": "CLK",
+      "intended_hierarchical_net": "TOP::CLK",
+      "layer": "m2",
+      "bbox": [
+        6.6075,
+        4.535,
+        6.7425,
+        4.67
+      ],
+      "role": "track_drop_m2_landing"
+    },
+    {
+      "route_object_id": "D:dff.D:m1_landing",
+      "net_name": "D",
+      "intended_hierarchical_net": "TOP::D",
+      "layer": "m1",
+      "bbox": [
+        0.2225,
+        2.4375,
+        0.3575,
+        2.5725
+      ],
+      "role": "pin_access_landing"
+    },
+    {
+      "route_object_id": "D:TOP:m1_pin",
+      "net_name": "D",
+      "intended_hierarchical_net": "TOP::D",
+      "layer": "m1",
+      "bbox": [
+        -0.45,
+        4.745,
+        -0.25,
+        4.88
+      ],
+      "role": "top_pin"
+    },
+    {
+      "route_object_id": "D:TRACK:m1",
+      "net_name": "D",
+      "intended_hierarchical_net": "TOP::D",
+      "layer": "m1",
+      "bbox": [
+        -0.45,
+        4.78,
+        16.715,
+        4.845
+      ],
+      "role": "horizontal_track"
+    },
+    {
+      "route_object_id": "D:dff.D:via_pin",
+      "net_name": "D",
+      "intended_hierarchical_net": "TOP::D",
+      "layer": "via1",
+      "bbox": [
+        0.2575,
+        2.4725,
+        0.3225,
+        2.5375
+      ],
+      "role": "pin_access_via"
+    },
+    {
+      "route_object_id": "D:dff.D:m2_landing",
+      "net_name": "D",
+      "intended_hierarchical_net": "TOP::D",
+      "layer": "m2",
+      "bbox": [
+        0.2225,
+        2.4375,
+        0.3575,
+        2.5725
+      ],
+      "role": "pin_access_m2_landing"
+    },
+    {
+      "route_object_id": "D:dff.D:m2_escape",
+      "net_name": "D",
+      "intended_hierarchical_net": "TOP::D",
+      "layer": "m2",
+      "bbox": [
+        0.255,
+        2.5725,
+        0.325,
+        4.745
+      ],
+      "role": "vertical_escape"
+    },
+    {
+      "route_object_id": "D:dff.D:track_drop_m1",
+      "net_name": "D",
+      "intended_hierarchical_net": "TOP::D",
+      "layer": "m1",
+      "bbox": [
+        0.2225,
+        4.745,
+        0.3575,
+        4.88
+      ],
+      "role": "track_drop_m1_landing"
+    },
+    {
+      "route_object_id": "D:dff.D:track_drop_via",
+      "net_name": "D",
+      "intended_hierarchical_net": "TOP::D",
+      "layer": "via1",
+      "bbox": [
+        0.2575,
+        4.78,
+        0.3225,
+        4.845
+      ],
+      "role": "track_drop_via"
+    },
+    {
+      "route_object_id": "D:dff.D:track_drop_m2",
+      "net_name": "D",
+      "intended_hierarchical_net": "TOP::D",
+      "layer": "m2",
+      "bbox": [
+        0.2225,
+        4.745,
+        0.3575,
+        4.88
+      ],
+      "role": "track_drop_m2_landing"
+    },
+    {
+      "route_object_id": "qint:dff.Q:m1_landing",
+      "net_name": "qint",
+      "intended_hierarchical_net": "PARENT::qint",
+      "layer": "m1",
+      "bbox": [
+        12.995,
+        3.9075,
+        13.13,
+        4.0425
+      ],
+      "role": "pin_access_landing"
+    },
+    {
+      "route_object_id": "qint:inv1.A:m1_landing",
+      "net_name": "qint",
+      "intended_hierarchical_net": "PARENT::qint",
+      "layer": "m1",
+      "bbox": [
+        14.0225,
+        0.785,
+        14.1575,
+        0.92
+      ],
+      "role": "pin_access_landing"
+    },
+    {
+      "route_object_id": "qint:inv1.A:m1_escape",
+      "net_name": "qint",
+      "intended_hierarchical_net": "PARENT::qint",
+      "layer": "m1",
+      "bbox": [
+        14.09,
+        0.785,
+        14.3575,
+        0.92
+      ],
+      "role": "pin_access_escape"
+    },
+    {
+      "route_object_id": "qint:TRACK:m1",
+      "net_name": "qint",
+      "intended_hierarchical_net": "PARENT::qint",
+      "layer": "m1",
+      "bbox": [
+        13.0625,
+        4.99,
+        16.715,
+        5.055
+      ],
+      "role": "horizontal_track"
+    },
+    {
+      "route_object_id": "qint:dff.Q:via_pin",
+      "net_name": "qint",
+      "intended_hierarchical_net": "PARENT::qint",
+      "layer": "via1",
+      "bbox": [
+        13.03,
+        3.9425,
+        13.095,
+        4.0075
+      ],
+      "role": "pin_access_via"
+    },
+    {
+      "route_object_id": "qint:dff.Q:m2_landing",
+      "net_name": "qint",
+      "intended_hierarchical_net": "PARENT::qint",
+      "layer": "m2",
+      "bbox": [
+        12.995,
+        3.9075,
+        13.13,
+        4.0425
+      ],
+      "role": "pin_access_m2_landing"
+    },
+    {
+      "route_object_id": "qint:dff.Q:m2_escape",
+      "net_name": "qint",
+      "intended_hierarchical_net": "PARENT::qint",
+      "layer": "m2",
+      "bbox": [
+        13.0275,
+        4.0425,
+        13.0975,
+        4.955
+      ],
+      "role": "vertical_escape"
+    },
+    {
+      "route_object_id": "qint:dff.Q:track_drop_m1",
+      "net_name": "qint",
+      "intended_hierarchical_net": "PARENT::qint",
+      "layer": "m1",
+      "bbox": [
+        12.995,
+        4.955,
+        13.13,
+        5.09
+      ],
+      "role": "track_drop_m1_landing"
+    },
+    {
+      "route_object_id": "qint:dff.Q:track_drop_via",
+      "net_name": "qint",
+      "intended_hierarchical_net": "PARENT::qint",
+      "layer": "via1",
+      "bbox": [
+        13.03,
+        4.99,
+        13.095,
+        5.055
+      ],
+      "role": "track_drop_via"
+    },
+    {
+      "route_object_id": "qint:dff.Q:track_drop_m2",
+      "net_name": "qint",
+      "intended_hierarchical_net": "PARENT::qint",
+      "layer": "m2",
+      "bbox": [
+        12.995,
+        4.955,
+        13.13,
+        5.09
+      ],
+      "role": "track_drop_m2_landing"
+    },
+    {
+      "route_object_id": "qint:inv1.A:via_pin",
+      "net_name": "qint",
+      "intended_hierarchical_net": "PARENT::qint",
+      "layer": "via1",
+      "bbox": [
+        14.0575,
+        0.82,
+        14.1225,
+        0.885
+      ],
+      "role": "pin_access_via"
+    },
+    {
+      "route_object_id": "qint:inv1.A:m2_landing",
+      "net_name": "qint",
+      "intended_hierarchical_net": "PARENT::qint",
+      "layer": "m2",
+      "bbox": [
+        14.0225,
+        0.785,
+        14.1575,
+        0.92
+      ],
+      "role": "pin_access_m2_landing"
+    },
+    {
+      "route_object_id": "qint:inv1.A:m2_escape",
+      "net_name": "qint",
+      "intended_hierarchical_net": "PARENT::qint",
+      "layer": "m2",
+      "bbox": [
+        14.055,
+        0.92,
+        14.125,
+        4.955
+      ],
+      "role": "vertical_escape"
+    },
+    {
+      "route_object_id": "qint:inv1.A:track_drop_m1",
+      "net_name": "qint",
+      "intended_hierarchical_net": "PARENT::qint",
+      "layer": "m1",
+      "bbox": [
+        14.0225,
+        4.955,
+        14.1575,
+        5.09
+      ],
+      "role": "track_drop_m1_landing"
+    },
+    {
+      "route_object_id": "qint:inv1.A:track_drop_via",
+      "net_name": "qint",
+      "intended_hierarchical_net": "PARENT::qint",
+      "layer": "via1",
+      "bbox": [
+        14.0575,
+        4.99,
+        14.1225,
+        5.055
+      ],
+      "role": "track_drop_via"
+    },
+    {
+      "route_object_id": "qint:inv1.A:track_drop_m2",
+      "net_name": "qint",
+      "intended_hierarchical_net": "PARENT::qint",
+      "layer": "m2",
+      "bbox": [
+        14.0225,
+        4.955,
+        14.1575,
+        5.09
+      ],
+      "role": "track_drop_m2_landing"
+    },
+    {
+      "route_object_id": "QB:inv1.Z:m1_landing",
+      "net_name": "QB",
+      "intended_hierarchical_net": "TOP::QB",
+      "layer": "m1",
+      "bbox": [
+        14.62,
+        0.785,
+        14.755,
+        0.92
+      ],
+      "role": "pin_access_landing"
+    },
+    {
+      "route_object_id": "QB:inv1.Z:m1_escape",
+      "net_name": "QB",
+      "intended_hierarchical_net": "TOP::QB",
+      "layer": "m1",
+      "bbox": [
+        14.49,
+        0.785,
+        14.6875,
+        0.92
+      ],
+      "role": "pin_access_escape"
+    },
+    {
+      "route_object_id": "QB:inv2.A:m1_landing",
+      "net_name": "QB",
+      "intended_hierarchical_net": "TOP::QB",
+      "layer": "m1",
+      "bbox": [
+        15.17,
+        0.785,
+        15.305,
+        0.92
+      ],
+      "role": "pin_access_landing"
+    },
+    {
+      "route_object_id": "QB:inv2.A:m1_escape",
+      "net_name": "QB",
+      "intended_hierarchical_net": "TOP::QB",
+      "layer": "m1",
+      "bbox": [
+        15.2375,
+        0.785,
+        15.505,
+        0.92
+      ],
+      "role": "pin_access_escape"
+    },
+    {
+      "route_object_id": "QB:TOP:m1_pin",
+      "net_name": "QB",
+      "intended_hierarchical_net": "TOP::QB",
+      "layer": "m1",
+      "bbox": [
+        17.315,
+        5.165,
+        17.515,
+        5.3
+      ],
+      "role": "top_pin"
+    },
+    {
+      "route_object_id": "QB:TRACK:m1",
+      "net_name": "QB",
+      "intended_hierarchical_net": "TOP::QB",
+      "layer": "m1",
+      "bbox": [
+        14.6875,
+        5.2,
+        17.515,
+        5.265
+      ],
+      "role": "horizontal_track"
+    },
+    {
+      "route_object_id": "QB:inv1.Z:via_pin",
+      "net_name": "QB",
+      "intended_hierarchical_net": "TOP::QB",
+      "layer": "via1",
+      "bbox": [
+        14.655,
+        0.82,
+        14.72,
+        0.885
+      ],
+      "role": "pin_access_via"
+    },
+    {
+      "route_object_id": "QB:inv1.Z:m2_landing",
+      "net_name": "QB",
+      "intended_hierarchical_net": "TOP::QB",
+      "layer": "m2",
+      "bbox": [
+        14.62,
+        0.785,
+        14.755,
+        0.92
+      ],
+      "role": "pin_access_m2_landing"
+    },
+    {
+      "route_object_id": "QB:inv1.Z:m2_escape",
+      "net_name": "QB",
+      "intended_hierarchical_net": "TOP::QB",
+      "layer": "m2",
+      "bbox": [
+        14.6525,
+        0.92,
+        14.7225,
+        5.165
+      ],
+      "role": "vertical_escape"
+    },
+    {
+      "route_object_id": "QB:inv1.Z:track_drop_m1",
+      "net_name": "QB",
+      "intended_hierarchical_net": "TOP::QB",
+      "layer": "m1",
+      "bbox": [
+        14.62,
+        5.165,
+        14.755,
+        5.3
+      ],
+      "role": "track_drop_m1_landing"
+    },
+    {
+      "route_object_id": "QB:inv1.Z:track_drop_via",
+      "net_name": "QB",
+      "intended_hierarchical_net": "TOP::QB",
+      "layer": "via1",
+      "bbox": [
+        14.655,
+        5.2,
+        14.72,
+        5.265
+      ],
+      "role": "track_drop_via"
+    },
+    {
+      "route_object_id": "QB:inv1.Z:track_drop_m2",
+      "net_name": "QB",
+      "intended_hierarchical_net": "TOP::QB",
+      "layer": "m2",
+      "bbox": [
+        14.62,
+        5.165,
+        14.755,
+        5.3
+      ],
+      "role": "track_drop_m2_landing"
+    },
+    {
+      "route_object_id": "QB:inv2.A:via_pin",
+      "net_name": "QB",
+      "intended_hierarchical_net": "TOP::QB",
+      "layer": "via1",
+      "bbox": [
+        15.205,
+        0.82,
+        15.27,
+        0.885
+      ],
+      "role": "pin_access_via"
+    },
+    {
+      "route_object_id": "QB:inv2.A:m2_landing",
+      "net_name": "QB",
+      "intended_hierarchical_net": "TOP::QB",
+      "layer": "m2",
+      "bbox": [
+        15.17,
+        0.785,
+        15.305,
+        0.92
+      ],
+      "role": "pin_access_m2_landing"
+    },
+    {
+      "route_object_id": "QB:inv2.A:m2_escape",
+      "net_name": "QB",
+      "intended_hierarchical_net": "TOP::QB",
+      "layer": "m2",
+      "bbox": [
+        15.2025,
+        0.92,
+        15.2725,
+        5.165
+      ],
+      "role": "vertical_escape"
+    },
+    {
+      "route_object_id": "QB:inv2.A:track_drop_m1",
+      "net_name": "QB",
+      "intended_hierarchical_net": "TOP::QB",
+      "layer": "m1",
+      "bbox": [
+        15.17,
+        5.165,
+        15.305,
+        5.3
+      ],
+      "role": "track_drop_m1_landing"
+    },
+    {
+      "route_object_id": "QB:inv2.A:track_drop_via",
+      "net_name": "QB",
+      "intended_hierarchical_net": "TOP::QB",
+      "layer": "via1",
+      "bbox": [
+        15.205,
+        5.2,
+        15.27,
+        5.265
+      ],
+      "role": "track_drop_via"
+    },
+    {
+      "route_object_id": "QB:inv2.A:track_drop_m2",
+      "net_name": "QB",
+      "intended_hierarchical_net": "TOP::QB",
+      "layer": "m2",
+      "bbox": [
+        15.17,
+        5.165,
+        15.305,
+        5.3
+      ],
+      "role": "track_drop_m2_landing"
+    },
+    {
+      "route_object_id": "Q:inv2.Z:m1_landing",
+      "net_name": "Q",
+      "intended_hierarchical_net": "TOP::Q",
+      "layer": "m1",
+      "bbox": [
+        15.7975,
+        0.785,
+        15.9325,
+        0.92
+      ],
+      "role": "pin_access_landing"
+    },
+    {
+      "route_object_id": "Q:inv2.Z:m1_escape",
+      "net_name": "Q",
+      "intended_hierarchical_net": "TOP::Q",
+      "layer": "m1",
+      "bbox": [
+        15.6675,
+        0.785,
+        15.865,
+        0.92
+      ],
+      "role": "pin_access_escape"
+    },
+    {
+      "route_object_id": "Q:TOP:m1_pin",
+      "net_name": "Q",
+      "intended_hierarchical_net": "TOP::Q",
+      "layer": "m1",
+      "bbox": [
+        17.665,
+        5.375,
+        17.865,
+        5.51
+      ],
+      "role": "top_pin"
+    },
+    {
+      "route_object_id": "Q:TRACK:m1",
+      "net_name": "Q",
+      "intended_hierarchical_net": "TOP::Q",
+      "layer": "m1",
+      "bbox": [
+        15.865,
+        5.41,
+        17.865,
+        5.475
+      ],
+      "role": "horizontal_track"
+    },
+    {
+      "route_object_id": "Q:inv2.Z:via_pin",
+      "net_name": "Q",
+      "intended_hierarchical_net": "TOP::Q",
+      "layer": "via1",
+      "bbox": [
+        15.8325,
+        0.82,
+        15.8975,
+        0.885
+      ],
+      "role": "pin_access_via"
+    },
+    {
+      "route_object_id": "Q:inv2.Z:m2_landing",
+      "net_name": "Q",
+      "intended_hierarchical_net": "TOP::Q",
+      "layer": "m2",
+      "bbox": [
+        15.7975,
+        0.785,
+        15.9325,
+        0.92
+      ],
+      "role": "pin_access_m2_landing"
+    },
+    {
+      "route_object_id": "Q:inv2.Z:m2_escape",
+      "net_name": "Q",
+      "intended_hierarchical_net": "TOP::Q",
+      "layer": "m2",
+      "bbox": [
+        15.83,
+        0.92,
+        15.9,
+        5.375
+      ],
+      "role": "vertical_escape"
+    },
+    {
+      "route_object_id": "Q:inv2.Z:track_drop_m1",
+      "net_name": "Q",
+      "intended_hierarchical_net": "TOP::Q",
+      "layer": "m1",
+      "bbox": [
+        15.7975,
+        5.375,
+        15.9325,
+        5.51
+      ],
+      "role": "track_drop_m1_landing"
+    },
+    {
+      "route_object_id": "Q:inv2.Z:track_drop_via",
+      "net_name": "Q",
+      "intended_hierarchical_net": "TOP::Q",
+      "layer": "via1",
+      "bbox": [
+        15.8325,
+        5.41,
+        15.8975,
+        5.475
+      ],
+      "role": "track_drop_via"
+    },
+    {
+      "route_object_id": "Q:inv2.Z:track_drop_m2",
+      "net_name": "Q",
+      "intended_hierarchical_net": "TOP::Q",
+      "layer": "m2",
+      "bbox": [
+        15.7975,
+        5.375,
+        15.9325,
+        5.51
+      ],
+      "role": "track_drop_m2_landing"
+    }
+  ]
+}

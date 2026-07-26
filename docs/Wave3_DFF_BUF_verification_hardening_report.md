@@ -1,0 +1,40 @@
+- pre_hardening_clean_gds_sha256: `3c677aa1def66f0930a0f549120784cbea76095726d9d26ae8b81334b8b01536`
+- post_hardening_clean_gds_sha256: `3c677aa1def66f0930a0f549120784cbea76095726d9d26ae8b81334b8b01536`
+- clean_gds_geometry_unchanged: `True`
+- topology_hash_check_is_computed_not_hardcoded: `True`
+- topology_hash_positive_test_passed: `True`
+- topology_hash_negative_test_passed: `True`
+- child_geometry_modified_count_is_computed: `True`
+- child_geometry_modified_count: `0`
+- child_geometry_negative_test_passed: `True`
+- polarity_audit_is_computed_not_hardcoded: `True`
+- source_level_functional_polarity_audit_passed: `True`
+- polarity_negative_test_passed: `True`
+- machine_pass_includes_topology_hash_match: `True`
+- machine_pass_includes_child_geometry_immutability: `True`
+- machine_pass_includes_signal_routing_completed: `True`
+- machine_pass_includes_structural_match: `True`
+- failed_machine_gate_blocks_human_review: `True`
+- failed_machine_gate_blocks_next_stage: `True`
+- review_atlas_top_cell: `WAVE3_DFF_BUF_REVIEW_ATLAS`
+- review_atlas_panel_count: `8`
+- review_atlas_panel_names: `['CLEAN_FULL_VIEW', 'ANNOTATED_FULL_VIEW', 'CHILD_PLACEMENT_VIEW', 'POWER_ONLY_VIEW', 'SIGNAL_ROUTING_ONLY_VIEW', 'TOP_PIN_VIEW', 'DFF_INTERFACE_VIEW', 'PINV_INTERFACE_VIEW']`
+- atlas_missing_reference_target_count: `0`
+- atlas_reference_cycle_count: `0`
+- expected_net_count: `7`
+- actual_net_component_count: `7`
+- unexpected_net_merge_count: `0`
+- missing_expected_endpoint_count: `0`
+- unexpected_endpoint_count: `0`
+- physical_connectivity_verification_passed: `True`
+- hierarchy_closure_passed: `True`
+- drc_marker_count: `0`
+- drc_passed: `True`
+- deterministic_identity_preserved: `True`
+- can_claim_dff_buf_machine_verified: `True`
+- can_claim_dff_buf_human_verified: `False`
+- can_claim_dff_buf_reusable: `False`
+- human_review_required: `True`
+- can_enter_next_stage_before_human_review: `False`
+- recommended_next_stage: `Wave3 / DFF_BUF human visual review`
+- recommended_next_stage_reason: `Machine verification hardened successfully. The candidate now requires focused human visual review before any reusable or higher-wave claim.`

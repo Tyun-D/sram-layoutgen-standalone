@@ -1,0 +1,797 @@
+{
+  "config_name": "current_supported_config",
+  "instance_count": 20,
+  "instances": [
+    {
+      "module_name": "row_decoder",
+      "instance_name": "row_decoder_u0",
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/row_decoder/row_decoder.gds",
+      "origin_x": 0.0,
+      "origin_y": 0.0,
+      "orientation": "R0",
+      "bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 4.245,
+        "y1": 3.13,
+        "width": 4.245,
+        "height": 3.13
+      },
+      "placement_reason": "Left control column: keep decoder and wordline path macros near the storage edge.",
+      "input_pins": [
+        "A[*]",
+        "enable"
+      ],
+      "output_pins": [
+        "dec_out[*]"
+      ],
+      "power_pins": [
+        "GND",
+        "VDD"
+      ],
+      "rail_handoff": {
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_explicit_rail_handoff_contract": false,
+        "requires_L5_verification": true
+      },
+      "routing_handoff": [
+        "A_dff[i]",
+        "DEC_WL[i]"
+      ],
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true
+    },
+    {
+      "module_name": "dummy_array",
+      "instance_name": "dummy_array_u0",
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/dummy_array/dummy_array.gds",
+      "origin_x": 6.2825,
+      "origin_y": 0.0,
+      "orientation": "R0",
+      "bbox": {
+        "x0": 6.2825,
+        "y0": 0.0,
+        "x1": 9.8625,
+        "y1": 6.26,
+        "width": 3.58,
+        "height": 6.26
+      },
+      "placement_reason": "Center storage cluster: keep L3 standalone arrays intact and side-by-side for reproducible L4 assembly.",
+      "input_pins": [
+        "BL[*]",
+        "BR[*]",
+        "WL[*]"
+      ],
+      "output_pins": [],
+      "power_pins": [
+        "GND",
+        "VDD"
+      ],
+      "rail_handoff": {
+        "rail_status": "module_boundary_rails_exported",
+        "uses_explicit_rail_handoff_contract": false,
+        "requires_L5_verification": true
+      },
+      "routing_handoff": [],
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": true
+    },
+    {
+      "module_name": "bitcell_array",
+      "instance_name": "bitcell_array_u0",
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/bitcell_array/bitcell_array.gds",
+      "origin_x": 10.8625,
+      "origin_y": 0.0,
+      "orientation": "R0",
+      "bbox": {
+        "x0": 10.8625,
+        "y0": 0.0,
+        "x1": 14.4425,
+        "y1": 6.26,
+        "width": 3.58,
+        "height": 6.26
+      },
+      "placement_reason": "Center storage cluster: keep L3 standalone arrays intact and side-by-side for reproducible L4 assembly.",
+      "input_pins": [
+        "BL[*]",
+        "BR[*]",
+        "Q_bar[*]",
+        "WL[*]"
+      ],
+      "output_pins": [
+        "Q[*]"
+      ],
+      "power_pins": [
+        "GND",
+        "VDD"
+      ],
+      "rail_handoff": {
+        "rail_status": "module_boundary_rails_exported",
+        "uses_explicit_rail_handoff_contract": false,
+        "requires_L5_verification": true
+      },
+      "routing_handoff": [
+        "BL[i];BLB[i]",
+        "WL[i]"
+      ],
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": true
+    },
+    {
+      "module_name": "replica_array",
+      "instance_name": "replica_array_u0",
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/replica_array/replica_array.gds",
+      "origin_x": 15.4425,
+      "origin_y": 0.0,
+      "orientation": "R0",
+      "bbox": {
+        "x0": 15.4425,
+        "y0": 0.0,
+        "x1": 17.2325,
+        "y1": 7.68,
+        "width": 1.79,
+        "height": 7.68
+      },
+      "placement_reason": "Center storage cluster: keep L3 standalone arrays intact and side-by-side for reproducible L4 assembly.",
+      "input_pins": [
+        "BL[*]",
+        "BR[*]",
+        "RBL",
+        "WL[*]"
+      ],
+      "output_pins": [],
+      "power_pins": [
+        "GND",
+        "VDD"
+      ],
+      "rail_handoff": {
+        "rail_status": "module_boundary_rails_exported",
+        "uses_explicit_rail_handoff_contract": false,
+        "requires_L5_verification": true
+      },
+      "routing_handoff": [
+        "rbl"
+      ],
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": true
+    },
+    {
+      "module_name": "precharge",
+      "instance_name": "precharge_u0",
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/precharge/precharge.gds",
+      "origin_x": 18.2325,
+      "origin_y": 0.0,
+      "orientation": "R0",
+      "bbox": {
+        "x0": 18.2325,
+        "y0": 0.0,
+        "x1": 19.0175,
+        "y1": 1.42,
+        "width": 0.785,
+        "height": 1.42
+      },
+      "placement_reason": "Right data column: keep bitline precharge/mux/sense/write modules grouped for later routing closure.",
+      "input_pins": [
+        "bl",
+        "br",
+        "en_bar"
+      ],
+      "output_pins": [
+        "precharge_en"
+      ],
+      "power_pins": [
+        "VDD"
+      ],
+      "rail_handoff": {
+        "rail_status": "hardmacro_wrapper_rail_metadata_exported",
+        "uses_explicit_rail_handoff_contract": false,
+        "requires_L5_verification": true
+      },
+      "routing_handoff": [
+        "BL[i];BLB[i]",
+        "PRE"
+      ],
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": true
+    },
+    {
+      "module_name": "column_mux",
+      "instance_name": "column_mux_u0",
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/column_mux/column_mux.gds",
+      "origin_x": 18.2325,
+      "origin_y": 2.22,
+      "orientation": "R0",
+      "bbox": {
+        "x0": 18.2325,
+        "y0": 2.22,
+        "x1": 19.05,
+        "y1": 4.1,
+        "width": 0.8175,
+        "height": 1.88
+      },
+      "placement_reason": "Right data column: keep bitline precharge/mux/sense/write modules grouped for later routing closure.",
+      "input_pins": [
+        "D",
+        "G",
+        "S",
+        "bl",
+        "br",
+        "sel"
+      ],
+      "output_pins": [
+        "bl_out",
+        "br_out"
+      ],
+      "power_pins": [
+        "GND",
+        "VDD"
+      ],
+      "rail_handoff": {
+        "rail_status": "hardmacro_wrapper_rail_metadata_exported",
+        "uses_explicit_rail_handoff_contract": false,
+        "requires_L5_verification": true
+      },
+      "routing_handoff": [
+        "BL[i];BLB[i]",
+        "SA_IN[*];SA_INB[*]"
+      ],
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": false
+    },
+    {
+      "module_name": "wordline_decoder",
+      "instance_name": "wordline_decoder_u0",
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_decoder/wordline_decoder.gds",
+      "origin_x": 0.0,
+      "origin_y": 3.93,
+      "orientation": "R0",
+      "bbox": {
+        "x0": 0.0,
+        "y0": 3.93,
+        "x1": 4.245,
+        "y1": 6.975,
+        "width": 4.245,
+        "height": 3.045
+      },
+      "placement_reason": "Left control column: keep decoder and wordline path macros near the storage edge.",
+      "input_pins": [
+        "A[*]",
+        "DEC_WL[*]",
+        "enable"
+      ],
+      "output_pins": [],
+      "power_pins": [
+        "GND",
+        "VDD"
+      ],
+      "rail_handoff": {
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_explicit_rail_handoff_contract": false,
+        "requires_L5_verification": true
+      },
+      "routing_handoff": [],
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true
+    },
+    {
+      "module_name": "sense_amp",
+      "instance_name": "sense_amp_u0",
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/sense_amp/sense_amp.gds",
+      "origin_x": 18.2325,
+      "origin_y": 4.9,
+      "orientation": "R0",
+      "bbox": {
+        "x0": 18.2325,
+        "y0": 4.9,
+        "x1": 19.0075,
+        "y1": 10.91,
+        "width": 0.775,
+        "height": 6.01
+      },
+      "placement_reason": "Right data column: keep bitline precharge/mux/sense/write modules grouped for later routing closure.",
+      "input_pins": [
+        "bl",
+        "br",
+        "en"
+      ],
+      "output_pins": [
+        "dout"
+      ],
+      "power_pins": [
+        "GND",
+        "VDD"
+      ],
+      "rail_handoff": {
+        "rail_status": "hardmacro_wrapper_rail_metadata_exported",
+        "uses_explicit_rail_handoff_contract": false,
+        "requires_L5_verification": true
+      },
+      "routing_handoff": [
+        "BL[i];BLB[i]",
+        "SA_IN[*];SA_INB[*]",
+        "SA_Q[*];SA_QB[*]",
+        "s_en"
+      ],
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": false
+    },
+    {
+      "module_name": "decoder_gate_cells",
+      "instance_name": "decoder_gate_cells_u0",
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/decoder_gate_cells/decoder_gate_cells.gds",
+      "origin_x": 0.0,
+      "origin_y": 7.775,
+      "orientation": "R0",
+      "bbox": {
+        "x0": 0.0,
+        "y0": 7.775,
+        "x1": 5.2825,
+        "y1": 10.82,
+        "width": 5.2825,
+        "height": 3.045
+      },
+      "placement_reason": "Left control column: keep decoder and wordline path macros near the storage edge.",
+      "input_pins": [
+        "A[*]",
+        "dec_stage[*]",
+        "enable"
+      ],
+      "output_pins": [],
+      "power_pins": [
+        "GND",
+        "VDD"
+      ],
+      "rail_handoff": {
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_explicit_rail_handoff_contract": false,
+        "requires_L5_verification": true
+      },
+      "routing_handoff": [],
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true
+    },
+    {
+      "module_name": "wordline_driver",
+      "instance_name": "wordline_driver_u0",
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_driver/wordline_driver.gds",
+      "origin_x": 0.0,
+      "origin_y": 11.62,
+      "orientation": "R0",
+      "bbox": {
+        "x0": 0.0,
+        "y0": 11.62,
+        "x1": 3.045,
+        "y1": 13.125,
+        "width": 3.045,
+        "height": 1.505
+      },
+      "placement_reason": "Left control column: keep decoder and wordline path macros near the storage edge.",
+      "input_pins": [
+        "A",
+        "B",
+        "D",
+        "G",
+        "S"
+      ],
+      "output_pins": [
+        "Z"
+      ],
+      "power_pins": [
+        "GND",
+        "VDD"
+      ],
+      "rail_handoff": {
+        "rail_status": "hardmacro_wrapper_rail_metadata_exported",
+        "uses_explicit_rail_handoff_contract": false,
+        "requires_L5_verification": true
+      },
+      "routing_handoff": [
+        "DEC_WL[i]",
+        "WL[i]",
+        "WL_EN"
+      ],
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": false
+    },
+    {
+      "module_name": "write_driver",
+      "instance_name": "write_driver_u0",
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/write_driver/write_driver.gds",
+      "origin_x": 18.2325,
+      "origin_y": 11.71,
+      "orientation": "R0",
+      "bbox": {
+        "x0": 18.2325,
+        "y0": 11.71,
+        "x1": 19.0725,
+        "y1": 15.885,
+        "width": 0.84,
+        "height": 4.175
+      },
+      "placement_reason": "Right data column: keep bitline precharge/mux/sense/write modules grouped for later routing closure.",
+      "input_pins": [
+        "bl",
+        "br",
+        "din",
+        "en"
+      ],
+      "output_pins": [],
+      "power_pins": [
+        "GND",
+        "VDD"
+      ],
+      "rail_handoff": {
+        "rail_status": "hardmacro_wrapper_rail_metadata_exported",
+        "uses_explicit_rail_handoff_contract": false,
+        "requires_L5_verification": true
+      },
+      "routing_handoff": [
+        "BL[i];BLB[i]",
+        "DIN_dff[i]",
+        "w_en"
+      ],
+      "uses_candidate_geometry": false,
+      "uses_contract_pins": false
+    },
+    {
+      "module_name": "wordline_driver_gate_cells",
+      "instance_name": "wordline_driver_gate_cells_u0",
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/wordline_driver_gate_cells/wordline_driver_gate_cells.gds",
+      "origin_x": 0.0,
+      "origin_y": 13.925,
+      "orientation": "R0",
+      "bbox": {
+        "x0": 0.0,
+        "y0": 13.925,
+        "x1": 2.8975,
+        "y1": 16.885,
+        "width": 2.8975,
+        "height": 2.96
+      },
+      "placement_reason": "Left control column: keep decoder and wordline path macros near the storage edge.",
+      "input_pins": [
+        "DEC_WL[*]",
+        "WL_local[*]"
+      ],
+      "output_pins": [
+        "wl_en"
+      ],
+      "power_pins": [
+        "GND",
+        "VDD"
+      ],
+      "rail_handoff": {
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_explicit_rail_handoff_contract": false,
+        "requires_L5_verification": true
+      },
+      "routing_handoff": [],
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true
+    },
+    {
+      "module_name": "CONTROL_LOGIC",
+      "instance_name": "CONTROL_LOGIC_u0",
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/CONTROL_LOGIC/CONTROL_LOGIC.gds",
+      "origin_x": 0.0,
+      "origin_y": 17.685,
+      "orientation": "R0",
+      "bbox": {
+        "x0": 0.0,
+        "y0": 17.685,
+        "x1": 6.105,
+        "y1": 21.92,
+        "width": 6.105,
+        "height": 4.235
+      },
+      "placement_reason": "Top control ring: place control/timing helper modules above the bank to expose explicit routing and rail handoff boundaries.",
+      "input_pins": [
+        "A[*]",
+        "clk",
+        "cs",
+        "we"
+      ],
+      "output_pins": [
+        "gated_clk",
+        "precharge_en",
+        "sense_en",
+        "wl_en",
+        "write_en"
+      ],
+      "power_pins": [
+        "GND",
+        "VDD"
+      ],
+      "rail_handoff": {
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_explicit_rail_handoff_contract": false,
+        "requires_L5_verification": true
+      },
+      "routing_handoff": [
+        "PRE",
+        "WL_EN",
+        "clk_buf",
+        "gated_clk_bar;gated_clk_buf",
+        "s_en",
+        "w_en",
+        "wl_en"
+      ],
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true
+    },
+    {
+      "module_name": "DFF_ROW",
+      "instance_name": "DFF_ROW_u0",
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/DFF_ROW/DFF_ROW.gds",
+      "origin_x": 7.105,
+      "origin_y": 17.685,
+      "orientation": "R0",
+      "bbox": {
+        "x0": 7.105,
+        "y0": 17.685,
+        "x1": 18.545,
+        "y1": 20.355,
+        "width": 11.44,
+        "height": 2.67
+      },
+      "placement_reason": "Top control ring: place control/timing helper modules above the bank to expose explicit routing and rail handoff boundaries.",
+      "input_pins": [
+        "D[*]",
+        "clk"
+      ],
+      "output_pins": [
+        "Q[*]"
+      ],
+      "power_pins": [
+        "GND",
+        "VDD"
+      ],
+      "rail_handoff": {
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_explicit_rail_handoff_contract": false,
+        "requires_L5_verification": true
+      },
+      "routing_handoff": [
+        "A[i]",
+        "A_dff[i]",
+        "DIN[i]",
+        "DIN_dff[i]",
+        "clk_buf"
+      ],
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true
+    },
+    {
+      "module_name": "DELAY_CHAIN",
+      "instance_name": "DELAY_CHAIN_u0",
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/DELAY_CHAIN/DELAY_CHAIN.gds",
+      "origin_x": 19.545,
+      "origin_y": 17.685,
+      "orientation": "R0",
+      "bbox": {
+        "x0": 19.545,
+        "y0": 17.685,
+        "x1": 22.835,
+        "y1": 20.27,
+        "width": 3.29,
+        "height": 2.585
+      },
+      "placement_reason": "Top control ring: place control/timing helper modules above the bank to expose explicit routing and rail handoff boundaries.",
+      "input_pins": [
+        "delay_ctl",
+        "delay_in"
+      ],
+      "output_pins": [
+        "delay_out"
+      ],
+      "power_pins": [
+        "GND",
+        "VDD"
+      ],
+      "rail_handoff": {
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_explicit_rail_handoff_contract": false,
+        "requires_L5_verification": true
+      },
+      "routing_handoff": [
+        "rbl",
+        "rbl_delay",
+        "rbl_delay_bar"
+      ],
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true
+    },
+    {
+      "module_name": "GATED_CLOCK_PATH",
+      "instance_name": "GATED_CLOCK_PATH_u0",
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/GATED_CLOCK_PATH/GATED_CLOCK_PATH.gds",
+      "origin_x": 23.835,
+      "origin_y": 17.685,
+      "orientation": "R0",
+      "bbox": {
+        "x0": 23.835,
+        "y0": 17.685,
+        "x1": 26.5175,
+        "y1": 20.645,
+        "width": 2.6825,
+        "height": 2.96
+      },
+      "placement_reason": "Top control ring: place control/timing helper modules above the bank to expose explicit routing and rail handoff boundaries.",
+      "input_pins": [
+        "clk",
+        "gate"
+      ],
+      "output_pins": [
+        "gated_clk"
+      ],
+      "power_pins": [
+        "GND",
+        "VDD"
+      ],
+      "rail_handoff": {
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_explicit_rail_handoff_contract": false,
+        "requires_L5_verification": true
+      },
+      "routing_handoff": [
+        "gated_clk_bar;gated_clk_buf"
+      ],
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true
+    },
+    {
+      "module_name": "WORDLINE_ENABLE_PATH",
+      "instance_name": "WORDLINE_ENABLE_PATH_u0",
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/WORDLINE_ENABLE_PATH/WORDLINE_ENABLE_PATH.gds",
+      "origin_x": 27.5175,
+      "origin_y": 17.685,
+      "orientation": "R0",
+      "bbox": {
+        "x0": 27.5175,
+        "y0": 17.685,
+        "x1": 31.385,
+        "y1": 20.755,
+        "width": 3.8675,
+        "height": 3.07
+      },
+      "placement_reason": "Top control ring: place control/timing helper modules above the bank to expose explicit routing and rail handoff boundaries.",
+      "input_pins": [
+        "clk",
+        "cs"
+      ],
+      "output_pins": [
+        "wl_en"
+      ],
+      "power_pins": [
+        "GND",
+        "VDD"
+      ],
+      "rail_handoff": {
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_explicit_rail_handoff_contract": false,
+        "requires_L5_verification": true
+      },
+      "routing_handoff": [
+        "wl_en"
+      ],
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true
+    },
+    {
+      "module_name": "PRECHARGE_ENABLE_PATH",
+      "instance_name": "PRECHARGE_ENABLE_PATH_u0",
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/PRECHARGE_ENABLE_PATH/PRECHARGE_ENABLE_PATH.gds",
+      "origin_x": 32.385,
+      "origin_y": 17.685,
+      "orientation": "R0",
+      "bbox": {
+        "x0": 32.385,
+        "y0": 17.685,
+        "x1": 36.63,
+        "y1": 21.75,
+        "width": 4.245,
+        "height": 4.065
+      },
+      "placement_reason": "Top control ring: place control/timing helper modules above the bank to expose explicit routing and rail handoff boundaries.",
+      "input_pins": [
+        "clk",
+        "cs"
+      ],
+      "output_pins": [
+        "precharge_en"
+      ],
+      "power_pins": [
+        "GND",
+        "VDD"
+      ],
+      "rail_handoff": {
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_explicit_rail_handoff_contract": false,
+        "requires_L5_verification": true
+      },
+      "routing_handoff": [
+        "PRE"
+      ],
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true
+    },
+    {
+      "module_name": "SENSE_ENABLE_PATH",
+      "instance_name": "SENSE_ENABLE_PATH_u0",
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/SENSE_ENABLE_PATH/SENSE_ENABLE_PATH.gds",
+      "origin_x": 37.63,
+      "origin_y": 17.685,
+      "orientation": "R0",
+      "bbox": {
+        "x0": 37.63,
+        "y0": 17.685,
+        "x1": 41.0525,
+        "y1": 25.26,
+        "width": 3.4225,
+        "height": 7.575
+      },
+      "placement_reason": "Top control ring: place control/timing helper modules above the bank to expose explicit routing and rail handoff boundaries.",
+      "input_pins": [
+        "clk",
+        "cs"
+      ],
+      "output_pins": [
+        "sense_en"
+      ],
+      "power_pins": [
+        "GND",
+        "VDD"
+      ],
+      "rail_handoff": {
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_explicit_rail_handoff_contract": false,
+        "requires_L5_verification": true
+      },
+      "routing_handoff": [
+        "rbl_delay",
+        "s_en"
+      ],
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true
+    },
+    {
+      "module_name": "WRITE_ENABLE_PATH",
+      "instance_name": "WRITE_ENABLE_PATH_u0",
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_module_gds/WRITE_ENABLE_PATH/WRITE_ENABLE_PATH.gds",
+      "origin_x": 42.0525,
+      "origin_y": 17.685,
+      "orientation": "R0",
+      "bbox": {
+        "x0": 42.0525,
+        "y0": 17.685,
+        "x1": 43.715,
+        "y1": 24.445,
+        "width": 1.6625,
+        "height": 6.76
+      },
+      "placement_reason": "Top control ring: place control/timing helper modules above the bank to expose explicit routing and rail handoff boundaries.",
+      "input_pins": [
+        "clk",
+        "we"
+      ],
+      "output_pins": [
+        "write_en"
+      ],
+      "power_pins": [
+        "GND",
+        "VDD"
+      ],
+      "rail_handoff": {
+        "rail_status": "candidate_row_rail_metadata_exported",
+        "uses_explicit_rail_handoff_contract": false,
+        "requires_L5_verification": true
+      },
+      "routing_handoff": [
+        "rbl_delay_bar",
+        "w_en"
+      ],
+      "uses_candidate_geometry": true,
+      "uses_contract_pins": true
+    }
+  ]
+}

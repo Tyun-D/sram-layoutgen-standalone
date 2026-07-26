@@ -1,0 +1,286 @@
+# OpenYield SRAM Generator Architecture
+
+- intent_centric: `True`
+- openram_independent_main_flow: `True`
+- component_count: `17`
+
+## Architecture Constraints
+
+- Do not invoke the OpenRAM main compiler flow as a black-box layout generator.
+- Do not continue patching openyield_top_level_candidate.gds into the new SRAM generator path.
+- Do not claim structure-complete SRAM GDS, DRC clean, LVS clean, timing closure, or signoff-ready status in R2.
+- Keep the generator lightweight, but retain generator-owned placement, routing, power, and pin export boundaries.
+
+## Components
+
+### OpenYieldIntentLoader
+
+- category: `front_end`
+- responsibility: Load OpenYield semantic contracts and frozen R1 layout intent artifacts into a generator-owned input bundle.
+- input_artifacts: `openyield_sram_layout_intent.json; openyield_array_topology_contract.json; openyield_row_path_intent.json; openyield_column_path_intent.json; openyield_control_path_intent.json; openyield_power_intent.json; openyield_pin_intent.json`
+- output_artifacts: `LoadedLayoutIntent`
+- depends_on: ``
+- learned_from_openram_mechanism: OpenRAM starts from a compact semantic configuration before any geometry is created.
+- openyield_specific_behavior: Treat R1 artifacts as the authoritative input surface instead of parsing OpenRAM globals or config files.
+- reuse_existing_project_code: Adapt layout_intent.py loading helpers and report conventions.
+- new_code_required: `True`
+- required_for_R3: `True`
+- required_for_R4: `True`
+- risk: Low; schema drift between R1 and R2 must stay explicit.
+- implementation_notes: Own strict file existence checks and schema normalization.
+
+### CanonicalSramParameterModel
+
+- category: `parameter_model`
+- responsibility: Normalize canonical SRAM parameters, derived widths, and physical pitch requirements into a generator-owned model.
+- input_artifacts: `LoadedLayoutIntent`
+- output_artifacts: `CanonicalSramParameterModel`
+- depends_on: `OpenYieldIntentLoader`
+- learned_from_openram_mechanism: OpenRAM sram_config centralizes derived geometry-driving parameters before module creation.
+- openyield_specific_behavior: Keep the model parameterized beyond the 4x4 baseline while honoring the current supported single-bank single-port scope.
+- reuse_existing_project_code: Reuse parameter names and R1 canonical intent definitions; no direct OpenRAM state reuse.
+- new_code_required: `True`
+- required_for_R3: `True`
+- required_for_R4: `True`
+- risk: Low; incorrect derivation would misalign every downstream generator.
+- implementation_notes: Carry row and column address widths, mux ratio, and pitch requirements as first-class fields.
+
+### PhysicalModuleRegistry
+
+- category: `registry`
+- responsibility: Resolve which physical modules come from existing hardmacros, candidate geometry, or new R3/R4 generator code.
+- input_artifacts: `openyield_module_to_physical_role_map.csv; openyield_module_gds_inventory.csv; openyield_module_generator_inventory.csv`
+- output_artifacts: `available_hardmacros; candidate_geometry_modules; modules_requiring_new_generator; module_physical_roles`
+- depends_on: `OpenYieldIntentLoader`
+- learned_from_openram_mechanism: OpenRAM chooses concrete module variants before bank or top-level composition.
+- openyield_specific_behavior: Use the existing OpenYield module inventory as reusable metadata while reserving new composition ownership for bitcell-array and periphery generators plus later routers.
+- reuse_existing_project_code: Reuse module_gds_generators inventory/manifests and the R1 module-to-role map.
+- new_code_required: `True`
+- required_for_R3: `True`
+- required_for_R4: `True`
+- risk: Medium; misclassifying contract-only modules as geometry-complete would leak false readiness.
+- implementation_notes: Registry must distinguish reusable hardmacros from modules that only have candidate wrappers or contract pins.
+
+### BitcellArrayPhysicalGenerator
+
+- category: `physical_generator`
+- responsibility: Create the array-centric storage region including main bitcell array, dummy context, and replica context with pitch ownership.
+- input_artifacts: `CanonicalSramParameterModel; ArrayTopologyContract; PhysicalModuleRegistry`
+- output_artifacts: `structure_complete_module_layouts; placement_ready_module_geometry; pitch_aligned_boundaries`
+- depends_on: `CanonicalSramParameterModel; PhysicalModuleRegistry`
+- learned_from_openram_mechanism: OpenRAM wraps main, replica, and boundary array semantics around a pitch-owned bitcell fabric.
+- openyield_specific_behavior: Use OpenYield intent to define array-core ownership and preserve lightweight single-bank scope without importing OpenRAM bank flow.
+- reuse_existing_project_code: Adapt array metadata and standalone array generator knowledge from module_gds_generators.py.
+- new_code_required: `True`
+- required_for_R3: `True`
+- required_for_R4: `True`
+- risk: Medium; dummy and replica placement policy is necessary for structure-complete claims in R3.
+- implementation_notes: R3 may reuse existing array hardcells but must move to generator-owned wrapper composition.
+
+### RowPeripheryPhysicalGenerator
+
+- category: `physical_generator`
+- responsibility: Compose decoder stages and wordline driver structures into a row-pitch-aligned row periphery region.
+- input_artifacts: `CanonicalSramParameterModel; RowPathIntent; PhysicalModuleRegistry`
+- output_artifacts: `structure_complete_module_layouts; placement_ready_module_geometry; pitch_aligned_boundaries`
+- depends_on: `CanonicalSramParameterModel; PhysicalModuleRegistry; BitcellArrayPhysicalGenerator`
+- learned_from_openram_mechanism: OpenRAM treats address decode and wordline drive as one explicit row-path module boundary.
+- openyield_specific_behavior: Allow reuse of existing candidate row logic blocks but move pitch alignment ownership into the new generator.
+- reuse_existing_project_code: Adapt candidate module metadata and selected import/write utilities; do not reuse legacy placement strategy.
+- new_code_required: `True`
+- required_for_R3: `True`
+- required_for_R4: `True`
+- risk: Medium; row-pitch mismatch would break later wordline routing.
+- implementation_notes: Support row decoder, wordline decoder, gate rows, and hardmacro wordline driver under one generator boundary.
+
+### ColumnPeripheryPhysicalGenerator
+
+- category: `physical_generator`
+- responsibility: Compose precharge, column mux, sense amp, and write driver structures into a column-pitch-aligned column periphery region.
+- input_artifacts: `CanonicalSramParameterModel; ColumnPathIntent; PhysicalModuleRegistry`
+- output_artifacts: `structure_complete_module_layouts; placement_ready_module_geometry; pitch_aligned_boundaries`
+- depends_on: `CanonicalSramParameterModel; PhysicalModuleRegistry; BitcellArrayPhysicalGenerator`
+- learned_from_openram_mechanism: OpenRAM stacks column path blocks in a deterministic order driven by column pitch and mux topology.
+- openyield_specific_behavior: Preserve words_per_row and column_mux_ratio as generator inputs even when the baseline config is mux-free.
+- reuse_existing_project_code: Reuse hardmacro wrapper metadata for column_mux, sense_amp, write_driver, and precharge.
+- new_code_required: `True`
+- required_for_R3: `True`
+- required_for_R4: `True`
+- risk: Medium; wrapper width alone cannot guarantee column-pitch ownership.
+- implementation_notes: Generator must be able to degenerate cleanly when column mux is structurally absent.
+
+### ControlPeripheryPhysicalGenerator
+
+- category: `physical_generator`
+- responsibility: Compose control logic, delay chain, enable paths, and DFF rows into a peripheral control region with explicit bus ownership.
+- input_artifacts: `CanonicalSramParameterModel; ControlPathIntent; PhysicalModuleRegistry`
+- output_artifacts: `structure_complete_module_layouts; placement_ready_module_geometry; pitch_aligned_boundaries`
+- depends_on: `CanonicalSramParameterModel; PhysicalModuleRegistry`
+- learned_from_openram_mechanism: OpenRAM treats control logic and replica delay semantics as structured periphery objects, not loose modules.
+- openyield_specific_behavior: Preserve OpenYield-specific control net names and delay/replica semantics as explicit outputs for later routing.
+- reuse_existing_project_code: Adapt candidate control path metadata and selected sanity checks from top_level_validation.py.
+- new_code_required: `True`
+- required_for_R3: `True`
+- required_for_R4: `True`
+- risk: Medium; control buses can be semantically correct but physically unreachable without region planning.
+- implementation_notes: R3 only needs region-level physical completeness; detailed control routing is deferred to R4.
+
+### SRAMTopologyFloorplanner
+
+- category: `floorplan`
+- responsibility: Own the SRAM-specific region arrangement for array, row periphery, column periphery, control periphery, and power reservations.
+- input_artifacts: `CanonicalSramParameterModel; ArrayTopologyContract; RowPathIntent; ColumnPathIntent; ControlPathIntent; PhysicalModuleRegistry`
+- output_artifacts: `array_region; row_periphery_region; column_periphery_region; control_region; power_region; top_bbox; placement_plan`
+- depends_on: `CanonicalSramParameterModel; PhysicalModuleRegistry; BitcellArrayPhysicalGenerator; RowPeripheryPhysicalGenerator; ColumnPeripheryPhysicalGenerator; ControlPeripheryPhysicalGenerator`
+- learned_from_openram_mechanism: OpenRAM bank and sram_1bank place major regions with SRAM-specific quadrants and channels.
+- openyield_specific_behavior: Keep the topology array-centric and single-bank, avoiding OpenRAM multi-bank/global-state complexity.
+- reuse_existing_project_code: Adapt only low-level GDS import/write utilities from top_level_assembly.py; do not reuse its candidate-only placement strategy.
+- new_code_required: `True`
+- required_for_R3: `True`
+- required_for_R4: `True`
+- risk: High; poor region ownership would force later routers to become ad hoc patch layers.
+- implementation_notes: Floorplanner must output region contracts, not just instance coordinates.
+
+### WordlineRouter
+
+- category: `router`
+- responsibility: Connect wordline driver outputs to one physical WL per array row with row-pitch alignment.
+- input_artifacts: `placement_plan; RowPathIntent; CanonicalSramParameterModel`
+- output_artifacts: `wordline_routes`
+- depends_on: `SRAMTopologyFloorplanner; RowPeripheryPhysicalGenerator`
+- learned_from_openram_mechanism: OpenRAM keeps decoder-to-driver and driver-to-WL routing explicit and row aligned.
+- openyield_specific_behavior: Route only deterministic SRAM wordline patterns; avoid a generic router.
+- reuse_existing_project_code: Potentially reuse future primitive geometry emitters and validation hooks; no existing router should be treated as complete.
+- new_code_required: `True`
+- required_for_R3: `False`
+- required_for_R4: `True`
+- risk: Medium; routing policy must align with exported row pitch from the array generator.
+- implementation_notes: Each row owns exactly one WL in the current supported scope.
+
+### BitlineRouter
+
+- category: `router`
+- responsibility: Connect array BL/BR rails to precharge, optional column mux, sense amp, and write driver while preserving column pitch.
+- input_artifacts: `placement_plan; ColumnPathIntent; CanonicalSramParameterModel`
+- output_artifacts: `bitline_routes`
+- depends_on: `SRAMTopologyFloorplanner; ColumnPeripheryPhysicalGenerator`
+- learned_from_openram_mechanism: OpenRAM routes bitlines and mux-dependent column-path connectivity explicitly from topology.
+- openyield_specific_behavior: Support mux-free baseline and later mux-enabled configs through parameterized column routing ownership.
+- reuse_existing_project_code: Reuse hardmacro pin metadata and future GDS primitive backend only.
+- new_code_required: `True`
+- required_for_R3: `False`
+- required_for_R4: `True`
+- risk: High; column routing topology changes with mux ratio and directly impacts sense/write ownership.
+- implementation_notes: Keep BL/BR, BL_out/BR_out, and column-select semantics separate.
+
+### ControlRouter
+
+- category: `router`
+- responsibility: Distribute precharge_en, sense_en, write_en, wordline_en, clk, gated_clk, and replica timing nets across periphery regions.
+- input_artifacts: `placement_plan; ControlPathIntent; openyield_net_to_layout_role_map.csv`
+- output_artifacts: `control_routes`
+- depends_on: `SRAMTopologyFloorplanner; ControlPeripheryPhysicalGenerator`
+- learned_from_openram_mechanism: OpenRAM models control as structured buses and delay-driven periphery routes.
+- openyield_specific_behavior: Preserve OpenYield net names and semantic bus ownership in the route model for R5 validation.
+- reuse_existing_project_code: Reuse net role metadata and selected validation report patterns.
+- new_code_required: `True`
+- required_for_R3: `False`
+- required_for_R4: `True`
+- risk: Medium; semantic collapse of control and replica nets would undermine later validation.
+- implementation_notes: Separate control-route planning from power stitching and from data-path routing.
+
+### PowerPlanner
+
+- category: `power`
+- responsibility: Plan VDD/GND ownership, rail stitching, regional distribution, and top-level power export for array and periphery regions.
+- input_artifacts: `placement_plan; openyield_power_intent.json; PhysicalModuleRegistry`
+- output_artifacts: `power_routes; power_region; top_level_power_pins`
+- depends_on: `SRAMTopologyFloorplanner; BitcellArrayPhysicalGenerator; RowPeripheryPhysicalGenerator; ColumnPeripheryPhysicalGenerator; ControlPeripheryPhysicalGenerator`
+- learned_from_openram_mechanism: OpenRAM treats power export as a layered routing problem instead of pin copying.
+- openyield_specific_behavior: Use existing module rail metadata as input hints, but require generator-owned top-level stitching in R4.
+- reuse_existing_project_code: Adapt rail metadata, hierarchy export backend, and validation evidence framework.
+- new_code_required: `True`
+- required_for_R3: `False`
+- required_for_R4: `True`
+- risk: High; power continuity is a core boundary between prototype assembly and a real SRAM generator.
+- implementation_notes: Keep well/tap policy visible as an explicit future extension rather than hiding it in generic export code.
+
+### PinLabelExporter
+
+- category: `export`
+- responsibility: Export top-level pin shapes, labels, and naming-consistent IO/power metadata from routed geometry.
+- input_artifacts: `placement_plan; openyield_pin_intent.json; wordline_routes; bitline_routes; control_routes; power_routes`
+- output_artifacts: `top_level_pin_shapes; top_level_labels; pin_export_report`
+- depends_on: `WordlineRouter; BitlineRouter; ControlRouter; PowerPlanner`
+- learned_from_openram_mechanism: OpenRAM derives pin exports from layout-owned geometry and naming consistency rules.
+- openyield_specific_behavior: Use OpenYield addr/din/dout/control naming exactly as defined in R1 intent.
+- reuse_existing_project_code: Reuse custom GDS writer label capability and existing pin audit/report patterns.
+- new_code_required: `True`
+- required_for_R3: `False`
+- required_for_R4: `True`
+- risk: Medium; pin naming drift would break later LEF/LVS correlation.
+- implementation_notes: Exporter should emit geometry-backed labels only after routes or pin shapes exist.
+
+### NetToShapeMapper
+
+- category: `metadata`
+- responsibility: Map OpenYield semantic net names to source/target instance pins and produced geometry references.
+- input_artifacts: `openyield_net_to_layout_role_map.csv; wordline_routes; bitline_routes; control_routes; power_routes`
+- output_artifacts: `net_to_shape_map`
+- depends_on: `WordlineRouter; BitlineRouter; ControlRouter; PowerPlanner`
+- learned_from_openram_mechanism: OpenRAM relies on naming consistency at instantiation time and keeps route ownership aligned to module roles.
+- openyield_specific_behavior: Expose OpenYield net names, route status, and geometry ids or bbox handles as first-class evidence for R5.
+- reuse_existing_project_code: Reuse R1 net role mapping and report infrastructure.
+- new_code_required: `True`
+- required_for_R3: `False`
+- required_for_R4: `True`
+- risk: Medium; without this map R5 cannot audit semantic-to-physical correspondence cleanly.
+- implementation_notes: Allow unresolved or pending routes to remain explicit instead of silently dropping them.
+
+### InstanceMapper
+
+- category: `metadata`
+- responsibility: Track which logical SRAM roles instantiate which physical module implementations inside the generator-owned hierarchy.
+- input_artifacts: `PhysicalModuleRegistry; placement_plan`
+- output_artifacts: `instance_map`
+- depends_on: `PhysicalModuleRegistry; SRAMTopologyFloorplanner`
+- learned_from_openram_mechanism: OpenRAM composes layout through explicit instance ownership instead of top-level patching.
+- openyield_specific_behavior: Record when an OpenYield role uses existing hardmacro geometry versus new R3 composition code.
+- reuse_existing_project_code: Adapt generator manifests and module inventory metadata.
+- new_code_required: `True`
+- required_for_R3: `True`
+- required_for_R4: `True`
+- risk: Low; mapping gaps mainly hurt traceability rather than immediate geometry.
+- implementation_notes: This map becomes the bridge between registry decisions and validation evidence.
+
+### GDSBackend
+
+- category: `backend`
+- responsibility: Serialize the generator-owned hierarchical SRAM layout into a GDS artifact without re-entering the OpenRAM save() flow.
+- input_artifacts: `placement_plan; structure_complete_module_layouts; top_level_pin_shapes; top_level_labels`
+- output_artifacts: `structure_complete_sram_gds`
+- depends_on: `SRAMTopologyFloorplanner; PinLabelExporter`
+- learned_from_openram_mechanism: OpenRAM separates layout construction from recursive GDS serialization.
+- openyield_specific_behavior: Keep the backend thin and driven by generator-owned geometry objects rather than old candidate assembly state.
+- reuse_existing_project_code: Directly reuse sram_layoutgen.gds_writer and supporting hierarchy export experience.
+- new_code_required: `False`
+- required_for_R3: `True`
+- required_for_R4: `True`
+- risk: Low; the backend exists, but its call boundary must stay decoupled from legacy assembly flow.
+- implementation_notes: R3 can emit structure-complete prototype geometry through this backend once placement objects exist.
+
+### ValidationHookManager
+
+- category: `validation`
+- responsibility: Emit generator-stage sanity, topology, routing, power, and pin audit reports without upgrading R2 claims beyond prototype scope.
+- input_artifacts: `placement_plan; net_to_shape_map; pin_export_report; structure_complete_sram_gds`
+- output_artifacts: `sanity_report; topology_validation_report; routing_audit; power_audit; pin_audit`
+- depends_on: `GDSBackend; NetToShapeMapper; PinLabelExporter`
+- learned_from_openram_mechanism: OpenRAM routes verification through explicit hook points and backend dispatch rather than embedding closure claims everywhere.
+- openyield_specific_behavior: Keep evidence generation rich while preserving strict False gates for DRC/LVS/timing/signoff claims in R2 and baseline R3.
+- reuse_existing_project_code: Reuse top_level_validation.py checks, report layout, and docs/evidence workflow where applicable.
+- new_code_required: `False`
+- required_for_R3: `True`
+- required_for_R4: `True`
+- risk: Low; the main risk is overstating claims rather than missing geometry.
+- implementation_notes: Validation hooks should report readiness gaps, not silently skip them.

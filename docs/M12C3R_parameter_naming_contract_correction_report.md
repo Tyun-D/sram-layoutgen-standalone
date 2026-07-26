@@ -1,0 +1,69 @@
+# M12C3R Parameter Naming Contract Correction Report
+
+- status_file_read: `True`
+- status_file_updated: `True`
+- goal_file_read: `True`
+- goal_file_updated: `True`
+- progress_file_updated: `True`
+- m12c3_report_loaded: `True`
+- m12c3_architecture_decision_reused: `True`
+- reused_previous_artifacts: `['PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md', 'PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json', 'PROJECT_NETLIST_TO_LAYOUT_GOAL.md', 'PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md', 'docs/M12C3_control_logic_primitive_layout_generator_plan_report.json', 'docs/mapping/M12C3_primitive_generator_requirement_matrix.csv', 'outputs/M12C3_control_logic_primitive_layout_generator_plan/current_supported_config/M12C3_parameterized_cell_naming_contract.json', '/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py', '/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/standard_cell.py', '/data1/qujh/OpenRAM/compiler/modules/ptx.py', '/data1/qujh/OpenRAM/compiler/modules/pinv.py', '/data1/qujh/OpenRAM/compiler/base/contact.py', '/data1/qujh/OpenRAM/technology/freepdk45/tech/tech.py']`
+- deprecated_previous_artifacts: `['Original M12C3 naming contract booleans', 'Logical alias names as physical variant identifiers', 'Implicit or guessed unit conversions for physical dimensions']`
+- current_stage_inputs: `['PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md', 'PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json', 'PROJECT_NETLIST_TO_LAYOUT_GOAL.md', 'PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md', 'docs/M12C3_control_logic_primitive_layout_generator_plan_report.json', 'docs/mapping/M12C3_primitive_generator_requirement_matrix.csv', 'outputs/M12C3_control_logic_primitive_layout_generator_plan/current_supported_config/M12C3_parameterized_cell_naming_contract.json', '/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py', '/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/standard_cell.py', '/data1/qujh/OpenRAM/compiler/modules/ptx.py', '/data1/qujh/OpenRAM/compiler/modules/pinv.py', '/data1/qujh/OpenRAM/compiler/base/contact.py', '/data1/qujh/OpenRAM/technology/freepdk45/tech/tech.py']`
+- current_stage_delta_from_M12C3: `M12C3R replaces the incorrect unit-normalization and alias-based physical identity with source-derived variants, a fixed-50nm contract, and a verified OpenRAM bootstrap mode.`
+- why_M12C3A_is_blocked_until_this_correction: `Implementing the adapter on top of NW0/PW0/L0 names or alias-only PINV identities would lock the wrong cache keys and the wrong primitive variants into the generator.`
+- why_logical_alias_is_not_a_physical_variant_identifier: `OpenYield names like PINV1 are reused across multiple source contexts, so alias text alone does not uniquely encode transistor sizing, rail policy, or source role.`
+- original_naming_contract_loaded: `True`
+- original_naming_contract_valid: `False`
+- original_zero_dimension_token_detected: `True`
+- original_zero_dimension_token_count: `10`
+- original_naming_contract_superseded: `True`
+- unit_normalization_corrected: `True`
+- unit_normalization_test_count: `9`
+- unit_normalization_pass_count: `9`
+- unit_normalization_failure_count: `0`
+- nonzero_dimension_to_zero_count_after_fix: `0`
+- source_pinv_extraction_completed: `True`
+- source_pinv_instance_count: `19`
+- source_pinv_parameter_set_count: `12`
+- logical_name_collision_detected: `True`
+- logical_name_collision_count: `11`
+- logical_names_with_multiple_parameter_sets: `['PINV', 'PINV1', 'PINV2']`
+- corrected_physical_variant_matrix_generated: `True`
+- corrected_physical_variant_count: `19`
+- distinct_inverter_variant_count: `12`
+- all_source_instances_covered: `True`
+- corrected_parameterized_cell_naming_contract_locked: `True`
+- source_derived_variant_contract_locked: `True`
+- size_alias_collision_prevented_by_corrected_contract: `True`
+- deterministic_name_generation_verified: `True`
+- deterministic_cache_key_verified: `True`
+- channel_length_inventory_generated: `True`
+- required_channel_length_values_nm: `[50]`
+- all_current_v1_lengths_equal_50nm: `True`
+- freepdk45_minimum_channel_length_nm: `50`
+- openram_ptx_fixed_length_nm: `50`
+- arbitrary_channel_length_supported: `False`
+- current_v1_channel_length_requirement_satisfied: `True`
+- channel_length_blocks_M12C3A: `False`
+- future_non_50nm_request_policy: `REJECT_WITH_EXPLICIT_ERROR`
+- openram_adapter_bootstrap_attempted: `True`
+- openram_import_bootstrap_passed: `True`
+- ptx_import_passed: `True`
+- pinv_import_passed: `True`
+- contact_import_passed: `True`
+- in_process_adapter_possible: `True`
+- subprocess_adapter_possible: `True`
+- recommended_adapter_execution_mode: `IN_PROCESS_OPENRAM_BOOTSTRAP`
+- can_claim_parameterized_primitive_generator_locked: `True`
+- can_claim_parameterized_primitive_generator_implemented: `False`
+- can_claim_primitive_smoke_drc_clean: `False`
+- can_claim_control_logic_physical_ready: `False`
+- can_claim_custom_netlist_driven_layout_generation: `False`
+- human_review_required: `False`
+- human_review_required_items: `[]`
+- recommended_next_stage: `M12C3A_IMPLEMENT_PARAMETERIZED_DEVICE_AND_GATE_GENERATOR`
+- recommended_next_stage_reason: `Units, source-derived variants, corrected naming/cache identity, fixed-50nm policy, and OpenRAM bootstrap mode are all locked, so adapter implementation can start without reopening the naming or length contract.`
+- external_dependency_blockers_count: `15`
+- remaining_M12C3R_blockers_count: `10`
+- can_enter_next_stage_before_human_review: `True`

@@ -1,0 +1,52 @@
+[
+  {
+    "cell_type": "PINV",
+    "canonical_pin_names": [
+      "VDD",
+      "VSS",
+      "A",
+      "Z"
+    ],
+    "forbidden_aliases": [
+      "vdd",
+      "gnd"
+    ],
+    "internal_terminal_labels_forbidden": [
+      "D",
+      "G",
+      "S"
+    ],
+    "label_case_policy": "UPPERCASE_CANONICAL_ONLY",
+    "one_label_per_pin_policy": "EXACTLY_ONE",
+    "label_must_touch_canonical_pin_geometry": true,
+    "child_label_visibility_policy": "STRIP_FROM_REUSABLE_EXPORT"
+  },
+  {
+    "cell_type": "TRANSMISSION_GATE",
+    "canonical_pin_names": [
+      "VDD",
+      "VSS",
+      "IN",
+      "OUT",
+      "CTR_P",
+      "CTR_N"
+    ],
+    "forbidden_aliases": [
+      "vdd",
+      "gnd",
+      "in",
+      "out",
+      "ctr_p",
+      "ctr_n"
+    ],
+    "internal_terminal_labels_forbidden": [
+      "D",
+      "G",
+      "S"
+    ],
+    "label_case_policy": "UPPERCASE_CANONICAL_ONLY",
+    "one_label_per_pin_policy": "EXACTLY_ONE",
+    "label_must_touch_canonical_pin_geometry": true,
+    "child_label_visibility_policy": "STRIP_FROM_REUSABLE_EXPORT"
+  }
+]

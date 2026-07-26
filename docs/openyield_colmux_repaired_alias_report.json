@@ -1,0 +1,33 @@
+{
+  "scope": "step5_7_columnmux_repaired_alias_candidate",
+  "source_report": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_col_mux.gds",
+  "candidate_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_colmux_repair\\gen_col_mux_vdd_labeled.gds",
+  "repaired_alias_candidate": {
+    "openyield_module": "COLUMNMUX",
+    "local_macro": "gen_col_mux_vdd_labeled",
+    "source_macro": "gen_col_mux",
+    "source_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45\\gds_lib\\openram_replacements\\gen_col_mux.gds",
+    "candidate_gds": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_colmux_repair\\gen_col_mux_vdd_labeled.gds",
+    "repair_type": "add_vdd_text_label_only",
+    "polygon_changed": false,
+    "safe_for_physical_mapping": true,
+    "safe_for_shared_rail": false,
+    "power_status": "vdd_label_present",
+    "notes": [
+      "Proof candidate only; do not overwrite original replacement GDS.",
+      "Shared rail remains disabled.",
+      "Candidate GDS is the proof-only file produced in Step 5.6."
+    ]
+  },
+  "polygon_changed": false,
+  "power_status": "vdd_label_present",
+  "safe_for_physical_mapping": true,
+  "safe_for_shared_rail": false,
+  "recommended_integration": "add_repaired_macro_alias",
+  "notes": [
+    "Proof candidate only; do not overwrite original replacement GDS.",
+    "Shared rail remains disabled.",
+    "Candidate GDS is the proof-only file produced in Step 5.6.",
+    "This alias candidate is intentionally separate from replacement_macros.json."
+  ]
+}

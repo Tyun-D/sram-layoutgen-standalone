@@ -1,0 +1,343 @@
+{
+  "scope": "step6_11_openyield_decoder_logic_repair_audit",
+  "direct_pnand3_exists": false,
+  "direct_and3_exists": false,
+  "repair_options": [
+    {
+      "option_name": "direct_pnand3_and3_macro",
+      "status": "unavailable",
+      "pnand3_direct_macro_available": false,
+      "and3_direct_macro_available": false,
+      "safe_for_metadata_planning": false,
+      "safe_for_physical_placement": false,
+      "logic_equivalence_metadata_proven": null,
+      "required_cells": null,
+      "base_macro": null,
+      "intended_logic": null,
+      "unused_input_strategy": [],
+      "unused_input_tie_policy_proven": null,
+      "requires_pin_metadata_repair": false,
+      "requires_power_metadata_repair": false,
+      "requires_unused_input_tie_proof": false,
+      "gen_nand4_gds_available": null,
+      "gen_nand4_spice_available": null,
+      "gen_nand4_labels_available": null,
+      "gen_nand4_power_metadata_complete": null,
+      "gen_nand4_logic_polarity_confirmed": null,
+      "notes": [
+        "No direct local gen_nand3 / PNAND3 hard macro was found in technology/freepdk45/gds_lib or sp_lib.",
+        "No direct local AND3 hard macro was found either."
+      ]
+    },
+    {
+      "option_name": "gen_nand4_as_pnand3_proxy",
+      "status": "limited_proxy_only",
+      "pnand3_direct_macro_available": false,
+      "and3_direct_macro_available": false,
+      "safe_for_metadata_planning": "limited_proxy_only",
+      "safe_for_physical_placement": false,
+      "logic_equivalence_metadata_proven": null,
+      "required_cells": null,
+      "base_macro": "gen_nand4",
+      "intended_logic": "PNAND3 / NAND3-like upper-bound proxy",
+      "unused_input_strategy": [
+        "tie_unused_input_to_vdd",
+        "unknown_if_unproven"
+      ],
+      "unused_input_tie_policy_proven": false,
+      "requires_pin_metadata_repair": true,
+      "requires_power_metadata_repair": true,
+      "requires_unused_input_tie_proof": true,
+      "gen_nand4_gds_available": true,
+      "gen_nand4_spice_available": false,
+      "gen_nand4_labels_available": false,
+      "gen_nand4_power_metadata_complete": false,
+      "gen_nand4_logic_polarity_confirmed": false,
+      "notes": [
+        "A 4-input NAND could serve only as an upper-bound metadata proxy if an unused input is tied high.",
+        "That unused-input tie policy is not proven in local GDS/SPICE metadata.",
+        "Missing label/power metadata keeps this option out of physical placement."
+      ]
+    },
+    {
+      "option_name": "pnand3_from_nand2_inv",
+      "status": "metadata_composite_candidate",
+      "pnand3_direct_macro_available": false,
+      "and3_direct_macro_available": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "logic_equivalence_metadata_proven": true,
+      "required_cells": {
+        "gen_nand2": 2,
+        "gen_inv": 1
+      },
+      "base_macro": null,
+      "intended_logic": null,
+      "unused_input_strategy": [],
+      "unused_input_tie_policy_proven": null,
+      "requires_pin_metadata_repair": false,
+      "requires_power_metadata_repair": false,
+      "requires_unused_input_tie_proof": false,
+      "gen_nand4_gds_available": null,
+      "gen_nand4_spice_available": null,
+      "gen_nand4_labels_available": null,
+      "gen_nand4_power_metadata_complete": null,
+      "gen_nand4_logic_polarity_confirmed": null,
+      "notes": [
+        "Metadata proof uses ab_n=NAND2(A,B), ab=INV(ab_n), z=NAND2(ab,C), so z=~(A&B&C).",
+        "This proves logical equivalence only; it does not prove internal routing, legal row packing, or power-rail legality."
+      ]
+    },
+    {
+      "option_name": "and3_from_nand2_inv",
+      "status": "metadata_composite_candidate",
+      "pnand3_direct_macro_available": false,
+      "and3_direct_macro_available": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "logic_equivalence_metadata_proven": true,
+      "required_cells": {
+        "gen_nand2": 2,
+        "gen_inv": 2
+      },
+      "base_macro": null,
+      "intended_logic": null,
+      "unused_input_strategy": [],
+      "unused_input_tie_policy_proven": null,
+      "requires_pin_metadata_repair": false,
+      "requires_power_metadata_repair": false,
+      "requires_unused_input_tie_proof": false,
+      "gen_nand4_gds_available": null,
+      "gen_nand4_spice_available": null,
+      "gen_nand4_labels_available": null,
+      "gen_nand4_power_metadata_complete": null,
+      "gen_nand4_logic_polarity_confirmed": null,
+      "notes": [
+        "Metadata proof uses ab_n=NAND2(A,B), ab=INV(ab_n), abc_n=NAND2(ab,C), z=INV(abc_n).",
+        "This proves logical equivalence only; it does not prove internal routing, legal row packing, or power-rail legality."
+      ]
+    },
+    {
+      "option_name": "keep_and3_generated_logic_unresolved",
+      "status": "fallback",
+      "pnand3_direct_macro_available": false,
+      "and3_direct_macro_available": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "logic_equivalence_metadata_proven": null,
+      "required_cells": null,
+      "base_macro": null,
+      "intended_logic": null,
+      "unused_input_strategy": [],
+      "unused_input_tie_policy_proven": null,
+      "requires_pin_metadata_repair": false,
+      "requires_power_metadata_repair": false,
+      "requires_unused_input_tie_proof": false,
+      "gen_nand4_gds_available": null,
+      "gen_nand4_spice_available": null,
+      "gen_nand4_labels_available": null,
+      "gen_nand4_power_metadata_complete": null,
+      "gen_nand4_logic_polarity_confirmed": null,
+      "notes": [
+        "This keeps decoder planning conservative and avoids overclaiming any leaf repair.",
+        "It preserves row-rule metadata but blocks physical decoder smoke until macro repair/proof exists."
+      ]
+    }
+  ],
+  "per_option_stage_and_cascade_impact": {
+    "direct_pnand3_and3_macro": {
+      "per_stage_required_gen_inv": 0,
+      "per_stage_required_gen_nand2": 0,
+      "per_stage_required_gen_nand4": 0,
+      "per_stage_proxy_cell_count": 0,
+      "cascade_total_required_gen_inv": 0,
+      "cascade_total_required_gen_nand2": 0,
+      "cascade_total_required_gen_nand4": 0,
+      "cascade_total_proxy_cell_count": 0,
+      "stage_subcell_signature": {
+        "pinv": 3,
+        "and2": 8,
+        "and3": 8
+      }
+    },
+    "gen_nand4_as_pnand3_proxy": {
+      "per_stage_required_gen_inv": 19,
+      "per_stage_required_gen_nand2": 0,
+      "per_stage_required_gen_nand4": 8,
+      "per_stage_proxy_cell_count": 27,
+      "cascade_total_required_gen_inv": 95,
+      "cascade_total_required_gen_nand2": 0,
+      "cascade_total_required_gen_nand4": 40,
+      "cascade_total_proxy_cell_count": 135,
+      "stage_subcell_signature": {
+        "pinv": 3,
+        "and2": 8,
+        "and3": 8
+      }
+    },
+    "pnand3_from_nand2_inv": {
+      "per_stage_required_gen_inv": 19,
+      "per_stage_required_gen_nand2": 24,
+      "per_stage_required_gen_nand4": 0,
+      "per_stage_proxy_cell_count": 43,
+      "cascade_total_required_gen_inv": 95,
+      "cascade_total_required_gen_nand2": 120,
+      "cascade_total_required_gen_nand4": 0,
+      "cascade_total_proxy_cell_count": 215,
+      "stage_subcell_signature": {
+        "pinv": 3,
+        "and2": 8,
+        "and3": 8
+      }
+    },
+    "and3_from_nand2_inv": {
+      "per_stage_required_gen_inv": 27,
+      "per_stage_required_gen_nand2": 24,
+      "per_stage_required_gen_nand4": 0,
+      "per_stage_proxy_cell_count": 51,
+      "cascade_total_required_gen_inv": 135,
+      "cascade_total_required_gen_nand2": 120,
+      "cascade_total_required_gen_nand4": 0,
+      "cascade_total_proxy_cell_count": 255,
+      "stage_subcell_signature": {
+        "pinv": 3,
+        "and2": 8,
+        "and3": 8
+      }
+    },
+    "keep_and3_generated_logic_unresolved": {
+      "per_stage_required_gen_inv": 11,
+      "per_stage_required_gen_nand2": 8,
+      "per_stage_required_gen_nand4": 0,
+      "per_stage_proxy_cell_count": 27,
+      "cascade_total_required_gen_inv": 55,
+      "cascade_total_required_gen_nand2": 40,
+      "cascade_total_required_gen_nand4": 0,
+      "cascade_total_proxy_cell_count": 135,
+      "stage_subcell_signature": {
+        "pinv": 3,
+        "and2": 8,
+        "and3": 8
+      }
+    }
+  },
+  "pin_power_blocker_audit": [
+    {
+      "option_name": "direct_pnand3_and3_macro",
+      "pin_metadata_blockers": [],
+      "power_metadata_blockers": [],
+      "internal_net_routing_blockers": [],
+      "rail_continuity_blockers": [],
+      "unused_input_blockers": [],
+      "physical_placement_blockers": [
+        "physical_row_placement_unproven",
+        "internal_routing_unproven",
+        "shared_rail_forbidden",
+        "direct_leaf_macro_missing"
+      ]
+    },
+    {
+      "option_name": "gen_nand4_as_pnand3_proxy",
+      "pin_metadata_blockers": [
+        "gen_nand4_label_metadata_incomplete"
+      ],
+      "power_metadata_blockers": [
+        "gen_nand4_power_metadata_incomplete"
+      ],
+      "internal_net_routing_blockers": [
+        "unused_input_logic_polarity_unproven",
+        "proxy_internal_net_routing_unproven"
+      ],
+      "rail_continuity_blockers": [
+        "power_metadata_incomplete",
+        "rail_continuity_not_proven",
+        "shared_rail_not_allowed_for_decoder_generated_logic"
+      ],
+      "unused_input_blockers": [
+        "unused_input_tie_policy_not_proven"
+      ],
+      "physical_placement_blockers": [
+        "physical_row_placement_unproven",
+        "internal_routing_unproven",
+        "shared_rail_forbidden"
+      ]
+    },
+    {
+      "option_name": "pnand3_from_nand2_inv",
+      "pin_metadata_blockers": [],
+      "power_metadata_blockers": [],
+      "internal_net_routing_blockers": [
+        "composite_internal_nets_need_routing_convention",
+        "composite_row_packing_unproven"
+      ],
+      "rail_continuity_blockers": [
+        "rail_continuity_not_proven",
+        "shared_rail_not_allowed_for_decoder_generated_logic",
+        "rail_continuity_not_proven",
+        "shared_rail_not_allowed_for_decoder_generated_logic"
+      ],
+      "unused_input_blockers": [],
+      "physical_placement_blockers": [
+        "physical_row_placement_unproven",
+        "internal_routing_unproven",
+        "shared_rail_forbidden"
+      ]
+    },
+    {
+      "option_name": "and3_from_nand2_inv",
+      "pin_metadata_blockers": [],
+      "power_metadata_blockers": [],
+      "internal_net_routing_blockers": [
+        "composite_internal_nets_need_routing_convention",
+        "composite_row_packing_unproven"
+      ],
+      "rail_continuity_blockers": [
+        "rail_continuity_not_proven",
+        "shared_rail_not_allowed_for_decoder_generated_logic",
+        "rail_continuity_not_proven",
+        "shared_rail_not_allowed_for_decoder_generated_logic"
+      ],
+      "unused_input_blockers": [],
+      "physical_placement_blockers": [
+        "physical_row_placement_unproven",
+        "internal_routing_unproven",
+        "shared_rail_forbidden"
+      ]
+    },
+    {
+      "option_name": "keep_and3_generated_logic_unresolved",
+      "pin_metadata_blockers": [],
+      "power_metadata_blockers": [],
+      "internal_net_routing_blockers": [
+        "pnand3_leaf_unresolved"
+      ],
+      "rail_continuity_blockers": [],
+      "unused_input_blockers": [],
+      "physical_placement_blockers": [
+        "physical_row_placement_unproven",
+        "internal_routing_unproven",
+        "shared_rail_forbidden",
+        "decoder_logic_leaf_still_missing"
+      ]
+    }
+  ],
+  "recommended_decoder_logic_strategy": "metadata_composite_nand2_inv",
+  "decoder_logic_repair_options_available": true,
+  "pnand3_composite_metadata_available": true,
+  "and3_composite_metadata_available": true,
+  "gen_nand4_proxy_only": true,
+  "gen_nand4_safe_for_physical_substitution": false,
+  "can_enter_decoder_generated_block_planning": true,
+  "can_enter_physical_decoder_placement": false,
+  "can_enter_very_limited_control_row_smoke": false,
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "blocker_list": [
+    "Direct PNAND3 / AND3 local hard macros are still absent.",
+    "gen_nand4 remains only a limited metadata proxy because label, power, polarity, and unused-input tie proof are incomplete.",
+    "Composite gen_nand2 + gen_inv logic equivalence is metadata-proven, but physical row routing and rail legality are still unproven.",
+    "Decoder generated-block planning can continue, but physical decoder placement and control-row smoke remain blocked."
+  ],
+  "step_6_12_recommendation": "Refine composite decoder-leaf metadata next: add internal-net and pin-side conventions for the gen_nand2/gen_inv composition before any placement-oriented decoder prototype."
+}

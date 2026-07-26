@@ -1,0 +1,94 @@
+{
+  "wordline_driver_incremental_power_risk": "NO_NEW_POWER_RISK_DETECTED",
+  "wordline_driver_incremental_routing_risk": "NO_NEW_ROUTING_RISK_DETECTED_WITH_BASELINE_LIMITATION",
+  "wordline_driver_incremental_risk_level": "LOW_INCREMENTAL_RISK",
+  "wordline_driver_connectivity_heuristic_status": "INCONCLUSIVE_BASELINE_LIMITED",
+  "new_power_risk_introduced_by_wordline_driver": false,
+  "new_routing_risk_introduced_by_wordline_driver": false,
+  "wordline_driver_local_region_delta": {
+    "baseline_signature": {
+      "bbox": [
+        -0.055,
+        -0.0325,
+        3.02,
+        1.4
+      ],
+      "polygon_count": 9,
+      "path_count": 0,
+      "label_count": 5,
+      "reference_count": 2,
+      "layer_summary": {
+        "11/0": 8,
+        "239/0": 1
+      },
+      "label_summary": {
+        "A@11/0": 1,
+        "B@11/0": 1,
+        "Z@11/0": 1,
+        "gnd@11/0": 1,
+        "vdd@11/0": 1
+      }
+    },
+    "m11c_signature": {
+      "bbox": [
+        -0.055,
+        -0.0325,
+        3.02,
+        1.4
+      ],
+      "polygon_count": 9,
+      "path_count": 0,
+      "label_count": 5,
+      "reference_count": 2,
+      "layer_summary": {
+        "11/0": 8,
+        "239/0": 1
+      },
+      "label_summary": {
+        "A@11/0": 1,
+        "B@11/0": 1,
+        "Z@11/0": 1,
+        "gnd@11/0": 1,
+        "vdd@11/0": 1
+      }
+    },
+    "m11c2_signature": {
+      "bbox": [
+        -0.055,
+        -0.033,
+        3.0195,
+        1.4
+      ],
+      "polygon_count": 12,
+      "path_count": 0,
+      "label_count": 8,
+      "reference_count": 2,
+      "layer_summary": {
+        "9/0": 1,
+        "11/0": 10,
+        "239/0": 1
+      },
+      "label_summary": {
+        "A@11/0": 1,
+        "B@11/0": 1,
+        "D@11/0": 1,
+        "G@9/0": 1,
+        "S@11/0": 1,
+        "Z@11/0": 1,
+        "gnd@11/0": 1,
+        "vdd@11/0": 1
+      }
+    },
+    "unchanged_vs_m11c": true,
+    "expected_change_confined_to_m11c2": true
+  },
+  "human_caveat": {
+    "review_item": "nearby_power_routing_human_status",
+    "status": "INCONCLUSIVE_BASELINE_ROUTING_LIMITED",
+    "reason": "原始 layoutgen baseline 本身可能已有走线/布局问题，人工无法可靠区分是否由本次 wordline_driver 替换引入。",
+    "no_obvious_new_break_reported_by_human": "True",
+    "nearby_power_routing_visually_confirmed_clean": "False",
+    "routing_clean_cannot_be_claimed": "True",
+    "power_clean_cannot_be_claimed": "True"
+  }
+}

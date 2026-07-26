@@ -1,0 +1,12 @@
+instance,type,input_pins,output_pins,connected_nets,source_line
+inv1_clk,PINV,A,Z,VDD->VDD; VSS->VSS; A->CLK; Z->CLKB,216
+inv2_D,PINV,A,Z,VDD->VDD; VSS->VSS; A->D; Z->D_b,220
+tg1,TRANSMISSION_GATE,"CTR_P,CTR_N","IN,OUT (bidirectional)",VDD->VDD; VSS->VSS; IN->D_b; OUT->z1; CTR_P->CLK; CTR_N->CLKB,223
+inv3,PINV,A,Z,VDD->VDD; VSS->VSS; A->z1; Z->z2,227
+inv4,PINV,A,Z,VDD->VDD; VSS->VSS; A->z2; Z->z3,231
+tg2,TRANSMISSION_GATE,"CTR_P,CTR_N","IN,OUT (bidirectional)",VDD->VDD; VSS->VSS; IN->z3; OUT->z1; CTR_P->CLKB; CTR_N->CLK,234
+inv5,PINV,A,Z,VDD->VDD; VSS->VSS; A->z2; Z->z4,239
+tg3,TRANSMISSION_GATE,"CTR_P,CTR_N","IN,OUT (bidirectional)",VDD->VDD; VSS->VSS; IN->z4; OUT->z5; CTR_P->CLKB; CTR_N->CLK,242
+inv6,PINV,A,Z,VDD->VDD; VSS->VSS; A->z5; Z->Q,246
+inv7,PINV,A,Z,VDD->VDD; VSS->VSS; A->Q; Z->QB,250
+tg4,TRANSMISSION_GATE,"CTR_P,CTR_N","IN,OUT (bidirectional)",VDD->VDD; VSS->VSS; IN->QB; OUT->z5; CTR_P->CLK; CTR_N->CLKB,254

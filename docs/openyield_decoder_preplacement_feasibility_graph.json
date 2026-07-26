@@ -1,0 +1,119 @@
+{
+  "scope": "step6_18_openyield_decoder_preplacement_feasibility_audit",
+  "nodes": [
+    {
+      "id": "DECODER_CASCADE_PREPLACEMENT_FEASIBILITY_MODEL",
+      "kind": "model"
+    },
+    {
+      "id": "DECODER_PREPLACE_ROW_DEC_0_0",
+      "kind": "stage_row"
+    },
+    {
+      "id": "DECODER_PREPLACE_ROW_DEC_1_0",
+      "kind": "stage_row"
+    },
+    {
+      "id": "DECODER_PREPLACE_ROW_DEC_1_1",
+      "kind": "stage_row"
+    },
+    {
+      "id": "DECODER_PREPLACE_ROW_DEC_1_2",
+      "kind": "stage_row"
+    },
+    {
+      "id": "DECODER_PREPLACE_ROW_DEC_1_3",
+      "kind": "stage_row"
+    },
+    {
+      "id": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_0",
+      "kind": "handoff_channel"
+    },
+    {
+      "id": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_1",
+      "kind": "handoff_channel"
+    },
+    {
+      "id": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_2",
+      "kind": "handoff_channel"
+    },
+    {
+      "id": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_3",
+      "kind": "handoff_channel"
+    },
+    {
+      "id": "ENABLE_BUS_HANDOFF_WINDOW",
+      "kind": "enable_channel"
+    }
+  ],
+  "edges": [
+    {
+      "source": "DECODER_CASCADE_PREPLACEMENT_FEASIBILITY_MODEL",
+      "target": "DECODER_PREPLACE_ROW_DEC_0_0",
+      "relation": "contains"
+    },
+    {
+      "source": "DECODER_CASCADE_PREPLACEMENT_FEASIBILITY_MODEL",
+      "target": "DECODER_PREPLACE_ROW_DEC_1_0",
+      "relation": "contains"
+    },
+    {
+      "source": "DECODER_CASCADE_PREPLACEMENT_FEASIBILITY_MODEL",
+      "target": "DECODER_PREPLACE_ROW_DEC_1_1",
+      "relation": "contains"
+    },
+    {
+      "source": "DECODER_CASCADE_PREPLACEMENT_FEASIBILITY_MODEL",
+      "target": "DECODER_PREPLACE_ROW_DEC_1_2",
+      "relation": "contains"
+    },
+    {
+      "source": "DECODER_CASCADE_PREPLACEMENT_FEASIBILITY_MODEL",
+      "target": "DECODER_PREPLACE_ROW_DEC_1_3",
+      "relation": "contains"
+    },
+    {
+      "source": "DECODER_CASCADE_PREPLACEMENT_FEASIBILITY_MODEL",
+      "target": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_0",
+      "relation": "contains"
+    },
+    {
+      "source": "DECODER_CASCADE_PREPLACEMENT_FEASIBILITY_MODEL",
+      "target": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_1",
+      "relation": "contains"
+    },
+    {
+      "source": "DECODER_CASCADE_PREPLACEMENT_FEASIBILITY_MODEL",
+      "target": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_2",
+      "relation": "contains"
+    },
+    {
+      "source": "DECODER_CASCADE_PREPLACEMENT_FEASIBILITY_MODEL",
+      "target": "WORDLINE_OUTPUT_HANDOFF_WINDOW_GROUP_3",
+      "relation": "contains"
+    },
+    {
+      "source": "DECODER_CASCADE_PREPLACEMENT_FEASIBILITY_MODEL",
+      "target": "ENABLE_BUS_HANDOFF_WINDOW",
+      "relation": "contains"
+    }
+  ],
+  "risk_flags": {
+    "tight_wordline_budget": true,
+    "zero_wordline_budget_margin": true,
+    "stage_bbox_is_proxy": true,
+    "handoff_windows_are_proxy": true,
+    "internal_routing_unproven": true,
+    "rail_continuity_unproven": true,
+    "level1_enable_target_pin_side_unproven": true,
+    "physical_decoder_placement_blocked": true
+  },
+  "blockers": [
+    "Pre-placement rows are bbox proxies only and are not legal physical placement.",
+    "Wordline handoff budget has zero margin and must be treated as high-risk/tight.",
+    "Composite internal routing remains unproven inside decoder stages.",
+    "Rail continuity and shared-rail safety remain unproven.",
+    "Enable-bus and wordline handoff windows are metadata channels, not routed geometry.",
+    "Level1 enable target physical pin-side proof is still missing."
+  ]
+}

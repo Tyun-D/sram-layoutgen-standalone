@@ -1,0 +1,335 @@
+{
+  "asset_count_total": 10,
+  "asset_complete_count": 2,
+  "asset_partial_count": 8,
+  "asset_missing_count": 0,
+  "assets": [
+    {
+      "asset_id": "NETLIST_SEMANTICS",
+      "asset_name": "网表 / module / instance / net / pin 连接语义",
+      "required_for_netlist_to_layout": true,
+      "current_status": "COMPLETE",
+      "status_level": "COMPLETE",
+      "evidence_paths": [
+        "outputs/M10_raw_openyield_trace/current_supported_config/M10_source_backed_module_trace.csv",
+        "outputs/M10_raw_openyield_trace/current_supported_config/M10_source_backed_net_trace.csv",
+        "outputs/M10_raw_openyield_trace/current_supported_config/M10_source_backed_instance_trace.csv",
+        "outputs/M9_openyield_netlist_translator/current_supported_config/M9_net_binding_matrix.csv"
+      ],
+      "evidence_summary": "M10 source-backed module/net/instance trace and M9 net binding matrix cover the current supported translator semantics, but this does not expand into a full raw compiler claim.",
+      "source_stage": "M9/M10/M10H",
+      "is_complete": true,
+      "is_partial": false,
+      "is_missing": false,
+      "blocking_for_next_stage": false,
+      "blocking_reason": "Semantic trace is reusable for the locked supported config; remaining blocker is claim scope, not missing semantics evidence.",
+      "must_reuse_artifacts": [
+        "outputs/M10_raw_openyield_trace/current_supported_config/M10_source_backed_module_trace.csv",
+        "outputs/M10_raw_openyield_trace/current_supported_config/M10_source_backed_net_trace.csv",
+        "docs/M10H_confirm_source_backed_translator_report.json"
+      ],
+      "deprecated_artifacts_not_to_use": [
+        "outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+        "*_access_module",
+        "floorplan_proxy*",
+        "outputs/openyield_complete_sram/current_supported_config/openyield_complete_sram.gds"
+      ],
+      "next_action": "Freeze M10 source-backed trace as the semantic baseline for all later qualification work.",
+      "next_stage_to_fill": "REUSE_IN_M11A_AND_LATER",
+      "priority": "P1"
+    },
+    {
+      "asset_id": "PHYSICAL_IMPLEMENTATION_LIBRARY",
+      "asset_name": "模块物理实现库，包括 layoutgen cell、OpenYield module GDS、hardmacro 候选",
+      "required_for_netlist_to_layout": true,
+      "current_status": "PARTIAL",
+      "status_level": "PARTIAL",
+      "evidence_paths": [
+        "outputs/openyield_module_gds/",
+        "docs/mapping/openyield_module_gds_inventory.csv",
+        "outputs/M9_openyield_netlist_translator/current_supported_config/M9_module_binding_matrix.csv"
+      ],
+      "evidence_summary": "OpenYield module GDS inventory exists for 20 modules and M9 binds them semantically, but the library is not yet qualified for hardmacro substitution.",
+      "source_stage": "L3/M1/M9",
+      "is_complete": false,
+      "is_partial": true,
+      "is_missing": false,
+      "blocking_for_next_stage": true,
+      "blocking_reason": "Existing module GDS are candidates, not qualified replacements for final SRAM assembly or selective substitution.",
+      "must_reuse_artifacts": [
+        "outputs/openyield_module_gds/",
+        "docs/mapping/openyield_module_gds_inventory.csv",
+        "outputs/M9_openyield_netlist_translator/current_supported_config/M9_module_binding_matrix.csv"
+      ],
+      "deprecated_artifacts_not_to_use": [
+        "outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+        "*_access_module",
+        "floorplan_proxy*",
+        "outputs/openyield_complete_sram/current_supported_config/openyield_complete_sram.gds"
+      ],
+      "next_action": "Run M11A to qualify which OpenYield module GDS can be treated as reusable hardmacros versus fallback-only candidates.",
+      "next_stage_to_fill": "M11A",
+      "priority": "P0"
+    },
+    {
+      "asset_id": "PIN_BBOX_RAIL_METADATA",
+      "asset_name": "pin / bbox / rail / layer / access metadata",
+      "required_for_netlist_to_layout": true,
+      "current_status": "PARTIAL",
+      "status_level": "PARTIAL",
+      "evidence_paths": [
+        "outputs/openyield_module_gds/",
+        "docs/mapping/openyield_rail_rule_matrix.csv",
+        "outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json"
+      ],
+      "evidence_summary": "Per-module pins/bbox/rail artifacts exist and M8R proves top-level rail overlap recovery, but qualified module-by-module extraction and access validation are incomplete.",
+      "source_stage": "L3/M8R/M9",
+      "is_complete": false,
+      "is_partial": true,
+      "is_missing": false,
+      "blocking_for_next_stage": true,
+      "blocking_reason": "Metadata exists, but not every OpenYield module GDS pin/bbox/rail record has been qualification-checked for substitution use.",
+      "must_reuse_artifacts": [
+        "outputs/openyield_module_gds/*/pins.json",
+        "outputs/openyield_module_gds/*/bbox.json",
+        "outputs/openyield_module_gds/*/rail_report.json"
+      ],
+      "deprecated_artifacts_not_to_use": [
+        "outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+        "*_access_module",
+        "floorplan_proxy*",
+        "outputs/openyield_complete_sram/current_supported_config/openyield_complete_sram.gds"
+      ],
+      "next_action": "Run M11B on top of M11A results to extract and verify pin/bbox/rail metadata only from qualified module GDS.",
+      "next_stage_to_fill": "M11B",
+      "priority": "P0"
+    },
+    {
+      "asset_id": "SRAM_CONFIGURATION",
+      "asset_name": "SRAM 参数配置，包括 word_size、num_words、words_per_row、rows、cols、mux ratio",
+      "required_for_netlist_to_layout": true,
+      "current_status": "PARTIAL",
+      "status_level": "PARTIAL",
+      "evidence_paths": [
+        "docs/M11_openyield_config_variation_report.json",
+        "docs/mapping/M11_spec_field_source_matrix.csv",
+        "outputs/M11_openyield_config_variation/current_supported_config/M11_variation_support_report.json"
+      ],
+      "evidence_summary": "M11 adds variation support and can derive 8x64_wpr4, 4x32_wpr2, 16x16_wpr1, but word_size/num_words/words_per_row still rely on fallback and M11H gate is missing=True.",
+      "source_stage": "M11",
+      "is_complete": false,
+      "is_partial": true,
+      "is_missing": false,
+      "blocking_for_next_stage": true,
+      "blocking_reason": "Raw-backed capacity/config coverage is incomplete and M11H confirmation file does not exist.",
+      "must_reuse_artifacts": [
+        "docs/M11_openyield_config_variation_report.json",
+        "docs/mapping/M11_spec_field_source_matrix.csv",
+        "outputs/M11_openyield_config_variation/current_supported_config/M11_variation_support_report.json"
+      ],
+      "deprecated_artifacts_not_to_use": [
+        "outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+        "*_access_module",
+        "floorplan_proxy*",
+        "outputs/openyield_complete_sram/current_supported_config/openyield_complete_sram.gds"
+      ],
+      "next_action": "First clear M11H gate status, then keep narrowing fallback fields before claiming config-aware translator v3.",
+      "next_stage_to_fill": "M11H",
+      "priority": "P0"
+    },
+    {
+      "asset_id": "FLOORPLAN_RULES",
+      "asset_name": "floorplan 规则，包括 array、row path、column path、control、top pin 区域",
+      "required_for_netlist_to_layout": true,
+      "current_status": "PARTIAL",
+      "status_level": "PARTIAL",
+      "evidence_paths": [
+        "outputs/M9_openyield_netlist_translator/current_supported_config/M9_placement_routing_power_intent.json",
+        "outputs/M10_raw_openyield_trace/current_supported_config/M10_translator_generation_report.json",
+        "outputs/M11_openyield_config_variation/current_supported_config/M11_variation_support_report.json"
+      ],
+      "evidence_summary": "Locked golden flow reproduces the supported config exactly, but adaptive floorplan rules for variation output and selective hardmacro replacement are not yet proven.",
+      "source_stage": "M8R/M9/M10/M11",
+      "is_complete": false,
+      "is_partial": true,
+      "is_missing": false,
+      "blocking_for_next_stage": true,
+      "blocking_reason": "Current floorplan evidence is strong for the locked golden path only; generalized variation and substitution rules are not yet closed.",
+      "must_reuse_artifacts": [
+        "outputs/M9_openyield_netlist_translator/current_supported_config/M9_placement_routing_power_intent.json",
+        "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds"
+      ],
+      "deprecated_artifacts_not_to_use": [
+        "outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+        "*_access_module",
+        "floorplan_proxy*",
+        "outputs/openyield_complete_sram/current_supported_config/openyield_complete_sram.gds"
+      ],
+      "next_action": "After M11A/M11B, run selective substitution smoke and variation generation to prove adaptive floorplan behavior.",
+      "next_stage_to_fill": "M11C",
+      "priority": "P1"
+    },
+    {
+      "asset_id": "PLACEMENT_RULES",
+      "asset_name": "placement / abutment / orientation / pitch 对齐规则",
+      "required_for_netlist_to_layout": true,
+      "current_status": "PARTIAL",
+      "status_level": "PARTIAL",
+      "evidence_paths": [
+        "docs/mapping/openyield_placement_rule_matrix.csv",
+        "outputs/M9_openyield_netlist_translator/current_supported_config/M9_module_binding_matrix.csv",
+        "outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json"
+      ],
+      "evidence_summary": "Placement, abutment, orientation, and pitch rules are documented and reused by the locked translator path, but they are not proven under qualified OpenYield module substitution.",
+      "source_stage": "L2/L3/M8R/M9",
+      "is_complete": false,
+      "is_partial": true,
+      "is_missing": false,
+      "blocking_for_next_stage": true,
+      "blocking_reason": "Rulebooks exist, yet no qualified placement proof exists for selective OpenYield hardmacro insertion.",
+      "must_reuse_artifacts": [
+        "docs/mapping/openyield_placement_rule_matrix.csv",
+        "outputs/M9_openyield_netlist_translator/current_supported_config/M9_module_binding_matrix.csv"
+      ],
+      "deprecated_artifacts_not_to_use": [
+        "outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+        "*_access_module",
+        "floorplan_proxy*",
+        "outputs/openyield_complete_sram/current_supported_config/openyield_complete_sram.gds"
+      ],
+      "next_action": "Use M11A/M11B outputs to rerun placement smoke for qualified substitution sites.",
+      "next_stage_to_fill": "M11C",
+      "priority": "P1"
+    },
+    {
+      "asset_id": "ROUTING_RULES",
+      "asset_name": "WL、BL/BR、control、data、addr、enable 等 routing 规则",
+      "required_for_netlist_to_layout": true,
+      "current_status": "PARTIAL",
+      "status_level": "PARTIAL",
+      "evidence_paths": [
+        "outputs/M9_openyield_netlist_translator/current_supported_config/M9_net_binding_matrix.csv",
+        "outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json",
+        "outputs/M10_raw_openyield_trace/current_supported_config/M10_vs_golden_geometry_diff_report.json"
+      ],
+      "evidence_summary": "Routing semantics and exact-match locked flow are proven, but variable routing adaptation for non-locked variations and qualified module substitution is not yet demonstrated.",
+      "source_stage": "M8R/M9/M10/M11",
+      "is_complete": false,
+      "is_partial": true,
+      "is_missing": false,
+      "blocking_for_next_stage": true,
+      "blocking_reason": "Current routing proof is locked-flow exact match, not variation-aware or substitution-aware routing closure.",
+      "must_reuse_artifacts": [
+        "outputs/M9_openyield_netlist_translator/current_supported_config/M9_net_binding_matrix.csv",
+        "outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json"
+      ],
+      "deprecated_artifacts_not_to_use": [
+        "outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+        "*_access_module",
+        "floorplan_proxy*",
+        "outputs/openyield_complete_sram/current_supported_config/openyield_complete_sram.gds"
+      ],
+      "next_action": "Generate variation GDS and routing/power adaptation evidence after module qualification.",
+      "next_stage_to_fill": "M12B",
+      "priority": "P1"
+    },
+    {
+      "asset_id": "POWER_PLAN",
+      "asset_name": "VDD/GND rail overlap、stitch、abutment、top power pin 策略",
+      "required_for_netlist_to_layout": true,
+      "current_status": "PARTIAL",
+      "status_level": "PARTIAL",
+      "evidence_paths": [
+        "outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json",
+        "docs/mapping/openyield_rail_rule_matrix.csv",
+        "outputs/M9_openyield_netlist_translator/current_supported_config/M9_net_binding_matrix.csv"
+      ],
+      "evidence_summary": "M8R recovered the locked power rail overlap and top-level stitch geometry, but qualified module-boundary rail compatibility and substitution-era stitch policy remain open.",
+      "source_stage": "M8R/L2/L3/M9",
+      "is_complete": false,
+      "is_partial": true,
+      "is_missing": false,
+      "blocking_for_next_stage": true,
+      "blocking_reason": "Power evidence is exact for the locked baseline only; module boundary compatibility with OpenYield GDS candidates is not qualified.",
+      "must_reuse_artifacts": [
+        "outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json",
+        "docs/mapping/openyield_rail_rule_matrix.csv"
+      ],
+      "deprecated_artifacts_not_to_use": [
+        "outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+        "*_access_module",
+        "floorplan_proxy*",
+        "outputs/openyield_complete_sram/current_supported_config/openyield_complete_sram.gds"
+      ],
+      "next_action": "After M11B metadata extraction, qualify rail overlap/stitch compatibility for each substitution candidate.",
+      "next_stage_to_fill": "M12B",
+      "priority": "P1"
+    },
+    {
+      "asset_id": "GDS_GENERATION_FLOW",
+      "asset_name": "GDS generator / layoutgen golden flow / write_standalone 入口",
+      "required_for_netlist_to_layout": true,
+      "current_status": "COMPLETE",
+      "status_level": "COMPLETE",
+      "evidence_paths": [
+        "sram_layoutgen/standalone.py",
+        "outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json",
+        "docs/M10H_confirm_source_backed_translator_report.json",
+        "docs/M11_openyield_config_variation_report.json"
+      ],
+      "evidence_summary": "The locked layoutgen golden flow and write_standalone entry are proven and reused across M8R, M10, and M11 for current supported delivery.",
+      "source_stage": "M8R/M10/M11",
+      "is_complete": true,
+      "is_partial": false,
+      "is_missing": false,
+      "blocking_for_next_stage": false,
+      "blocking_reason": "Generation entry itself is not blocked; extension work is needed in other assets, not in the existence of the flow.",
+      "must_reuse_artifacts": [
+        "sram_layoutgen/standalone.py",
+        "outputs/M8R_fix_golden_geometry_delta/current_supported_config/m8r_reproduced_fixed.gds"
+      ],
+      "deprecated_artifacts_not_to_use": [
+        "outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+        "*_access_module",
+        "floorplan_proxy*",
+        "outputs/openyield_complete_sram/current_supported_config/openyield_complete_sram.gds"
+      ],
+      "next_action": "Keep the locked golden flow unchanged while extending inputs around it.",
+      "next_stage_to_fill": "REUSE_AS_BASELINE",
+      "priority": "P1"
+    },
+    {
+      "asset_id": "VERIFICATION_AND_TRACE",
+      "asset_name": "GDS sanity、golden diff、module/net trace、DRC/LVS feasibility、人工 KLayout review",
+      "required_for_netlist_to_layout": true,
+      "current_status": "PARTIAL",
+      "status_level": "PARTIAL",
+      "evidence_paths": [
+        "outputs/M10_raw_openyield_trace/current_supported_config/review_gds_manifest.json",
+        "outputs/M11_openyield_config_variation/current_supported_config/review_gds_manifest.json",
+        "docs/M10H_confirm_source_backed_translator_report.json",
+        "docs/M11_openyield_config_variation_report.json"
+      ],
+      "evidence_summary": "GDS sanity, exact-match diff, and source-backed trace exist, but DRC/LVS/signoff claims remain false and M11H confirmation present=False.",
+      "source_stage": "M8R/M10/M10H/M11",
+      "is_complete": false,
+      "is_partial": true,
+      "is_missing": false,
+      "blocking_for_next_stage": true,
+      "blocking_reason": "Human KLayout review is required and DRC/LVS/netlist-to-layout equivalence are not yet closed.",
+      "must_reuse_artifacts": [
+        "outputs/M10_raw_openyield_trace/current_supported_config/review_gds_manifest.json",
+        "outputs/M11_openyield_config_variation/current_supported_config/review_gds_manifest.json"
+      ],
+      "deprecated_artifacts_not_to_use": [
+        "outputs/layout_prototype/hybrid_openyield_rail_overlap/hybrid_openyield_rail_overlap.complete.gds",
+        "*_access_module",
+        "floorplan_proxy*",
+        "outputs/openyield_complete_sram/current_supported_config/openyield_complete_sram.gds"
+      ],
+      "next_action": "Keep review manifests and diff reports, then advance to DRC/LVS feasibility only after qualification and variation adaptation work.",
+      "next_stage_to_fill": "M13",
+      "priority": "P0"
+    }
+  ]
+}

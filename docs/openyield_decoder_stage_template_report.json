@@ -1,0 +1,1608 @@
+{
+  "scope": "step6_13_openyield_decoder_stage_template_audit",
+  "recommended_decoder_logic_strategy": "metadata_composite_nand2_inv",
+  "decoder_stage_templates_available": true,
+  "decoder_composite_leaf_conventions_bound": true,
+  "stage_pin_slots_available": true,
+  "stage_internal_net_zones_available": true,
+  "stage_bbox_proxy_available": true,
+  "stage_power_policy_available": true,
+  "stage_internal_routing_proven": false,
+  "stage_rail_continuity_proven": false,
+  "truth_table_binding_complete": false,
+  "requires_decoder_truth_table_binding": true,
+  "pin_slot_metadata_available": true,
+  "pin_slot_physical_access_proven": false,
+  "templates": [
+    {
+      "template_name": "DECODER3_8_STAGE_TEMPLATE",
+      "source_class": "DECODER3_8",
+      "stage_role": "decoder_stage",
+      "input_pin_slots": [
+        {
+          "slot_name": "EN",
+          "side": "north_or_west_enable_side",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "A0",
+          "side": "west",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "A1",
+          "side": "west",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "A2",
+          "side": "west",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "VDD",
+          "side": "top",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "VSS",
+          "side": "bottom",
+          "metadata_available": true,
+          "physical_access_proven": false
+        }
+      ],
+      "output_pin_slots": [
+        {
+          "slot_name": "WL0",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "WL1",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "WL2",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "WL3",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "WL4",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "WL5",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "WL6",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "WL7",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        }
+      ],
+      "enable_pin_slot": {
+        "slot_name": "EN",
+        "side": "north_or_west_enable_side",
+        "metadata_available": true,
+        "physical_access_proven": false
+      },
+      "leaf_slots": [
+        {
+          "slot_name": "Xdec_inv_a0",
+          "slot_type": "Pinv",
+          "macro_sequence": [
+            "gen_inv"
+          ],
+          "row_order_group": "input_inversion"
+        },
+        {
+          "slot_name": "Xdec_inv_a1",
+          "slot_type": "Pinv",
+          "macro_sequence": [
+            "gen_inv"
+          ],
+          "row_order_group": "input_inversion"
+        },
+        {
+          "slot_name": "Xdec_inv_a2",
+          "slot_type": "Pinv",
+          "macro_sequence": [
+            "gen_inv"
+          ],
+          "row_order_group": "input_inversion"
+        },
+        {
+          "slot_name": "Xdec_and3_wl0",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl1",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl2",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl3",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl4",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl5",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl6",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl7",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl0",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl1",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl2",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl3",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl4",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl5",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl6",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl7",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        }
+      ],
+      "leaf_slot_order": [
+        "Xdec_inv_a0",
+        "Xdec_inv_a1",
+        "Xdec_inv_a2",
+        "Xdec_and3_wl0",
+        "Xdec_and3_wl1",
+        "Xdec_and3_wl2",
+        "Xdec_and3_wl3",
+        "Xdec_and3_wl4",
+        "Xdec_and3_wl5",
+        "Xdec_and3_wl6",
+        "Xdec_and3_wl7",
+        "Xdec_and2_wl0",
+        "Xdec_and2_wl1",
+        "Xdec_and2_wl2",
+        "Xdec_and2_wl3",
+        "Xdec_and2_wl4",
+        "Xdec_and2_wl5",
+        "Xdec_and2_wl6",
+        "Xdec_and2_wl7"
+      ],
+      "internal_net_reservation_zones": [
+        {
+          "zone_name": "INPUT_INVERSION_ZONE",
+          "purpose": "reserve_input_inverter_outputs",
+          "reserved_nets": [
+            "A0_bar",
+            "A1_bar",
+            "A2_bar"
+          ],
+          "x0": 0.0,
+          "y0": 0.0,
+          "x1": 2.8,
+          "y1": 1.48,
+          "metadata_only": true,
+          "physical_routing_proven": false,
+          "overlap_policy": "no_output_zone_overlap"
+        },
+        {
+          "zone_name": "AND2_COMPOSITE_ZONE",
+          "purpose": "reserve_and2_composite_nets",
+          "reserved_nets": [
+            "wl0_and2_ab_n",
+            "wl1_and2_ab_n",
+            "wl2_and2_ab_n",
+            "wl3_and2_ab_n",
+            "wl4_and2_ab_n",
+            "wl5_and2_ab_n",
+            "wl6_and2_ab_n",
+            "wl7_and2_ab_n",
+            "wl0_and2_ab",
+            "wl1_and2_ab",
+            "wl2_and2_ab",
+            "wl3_and2_ab",
+            "wl4_and2_ab",
+            "wl5_and2_ab",
+            "wl6_and2_ab",
+            "wl7_and2_ab"
+          ],
+          "x0": 2.8,
+          "y0": 0.0,
+          "x1": 12.0,
+          "y1": 1.48,
+          "metadata_only": true,
+          "physical_routing_proven": false,
+          "overlap_policy": "adjacent_only_to_and3_zone"
+        },
+        {
+          "zone_name": "AND3_COMPOSITE_ZONE",
+          "purpose": "reserve_and3_composite_nets",
+          "reserved_nets": [
+            "wl0_and3_ab_n",
+            "wl1_and3_ab_n",
+            "wl2_and3_ab_n",
+            "wl3_and3_ab_n",
+            "wl4_and3_ab_n",
+            "wl5_and3_ab_n",
+            "wl6_and3_ab_n",
+            "wl7_and3_ab_n",
+            "wl0_and3_ab",
+            "wl1_and3_ab",
+            "wl2_and3_ab",
+            "wl3_and3_ab",
+            "wl4_and3_ab",
+            "wl5_and3_ab",
+            "wl6_and3_ab",
+            "wl7_and3_ab",
+            "wl0_and3_abc_n",
+            "wl1_and3_abc_n",
+            "wl2_and3_abc_n",
+            "wl3_and3_abc_n",
+            "wl4_and3_abc_n",
+            "wl5_and3_abc_n",
+            "wl6_and3_abc_n",
+            "wl7_and3_abc_n"
+          ],
+          "x0": 12.0,
+          "y0": 0.0,
+          "x1": 24.0,
+          "y1": 1.48,
+          "metadata_only": true,
+          "physical_routing_proven": false,
+          "overlap_policy": "adjacent_only_to_and2_zone"
+        },
+        {
+          "zone_name": "OUTPUT_HANDOFF_ZONE",
+          "purpose": "reserve_wl_output_slots",
+          "reserved_nets": [
+            "WL0",
+            "WL1",
+            "WL2",
+            "WL3",
+            "WL4",
+            "WL5",
+            "WL6",
+            "WL7"
+          ],
+          "x0": 24.0,
+          "y0": 0.0,
+          "x1": 27.0,
+          "y1": 1.48,
+          "metadata_only": true,
+          "physical_routing_proven": false,
+          "overlap_policy": "east_edge_only"
+        },
+        {
+          "zone_name": "ENABLE_DISTRIBUTION_ZONE",
+          "purpose": "reserve_enable_distribution",
+          "reserved_nets": [
+            "EN"
+          ],
+          "x0": 0.0,
+          "y0": 1.48,
+          "x1": 27.0,
+          "y1": 2.0,
+          "metadata_only": true,
+          "physical_routing_proven": false,
+          "overlap_policy": "top_strip_only"
+        }
+      ],
+      "stage_bbox_proxy": {
+        "stage_bbox_proxy_policy": "conservative_leaf_slot_sum",
+        "stage_bbox_width": 55.5075,
+        "stage_bbox_height": 2.0,
+        "internal_gap": 0.2,
+        "stage_bbox_proxy_is_metadata_only": true,
+        "stage_bbox_not_legal_physical_layout": true
+      },
+      "input_anchor": {
+        "anchor_name": "DECODER_STAGE_INPUT_ANCHOR",
+        "slot_names": [
+          "A0",
+          "A1",
+          "A2"
+        ],
+        "side": "west",
+        "metadata_only": true,
+        "physical_access_proven": false
+      },
+      "output_anchor": {
+        "anchor_name": "DECODER_STAGE_OUTPUT_ANCHOR",
+        "slot_names": [
+          "WL0",
+          "WL1",
+          "WL2",
+          "WL3",
+          "WL4",
+          "WL5",
+          "WL6",
+          "WL7"
+        ],
+        "side": "east",
+        "metadata_only": true,
+        "physical_access_proven": false
+      },
+      "enable_anchor": {
+        "anchor_name": "DECODER_STAGE_ENABLE_ANCHOR",
+        "slot_names": [
+          "EN"
+        ],
+        "side": "north_or_west_enable_side",
+        "metadata_only": true,
+        "physical_access_proven": false
+      },
+      "power_policy": {
+        "policy_name": "local_horizontal_vdd_gnd_only_no_shared_rail",
+        "safe_for_shared_rail": false,
+        "rail_continuity_proven": false,
+        "stage_power_policy_available": true,
+        "stage_power_physical_proven": false
+      },
+      "metadata_only": true,
+      "pin_proven": false,
+      "internal_routing_proven": false,
+      "rail_continuity_proven": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "Template binds Pinv, AND2, and AND3 composite slots into a decoder-stage shell.",
+        "truth_table_binding_complete remains false until WL polarity combinations are explicitly bound from decoder.py at per-output level."
+      ]
+    },
+    {
+      "template_name": "DECODER_LEVEL0_STAGE_TEMPLATE",
+      "source_class": "DECODER3_8",
+      "stage_role": "intermediate_enable_bus",
+      "input_pin_slots": [
+        {
+          "slot_name": "EN",
+          "side": "north_or_west_enable_side",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "A0",
+          "side": "west",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "A1",
+          "side": "west",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "A2",
+          "side": "west",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "VDD",
+          "side": "top",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "VSS",
+          "side": "bottom",
+          "metadata_available": true,
+          "physical_access_proven": false
+        }
+      ],
+      "output_pin_slots": [
+        {
+          "slot_name": "EN_0_0_0",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "EN_0_0_1",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "EN_0_0_2",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "EN_0_0_3",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "EN_0_0_4",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "EN_0_0_5",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "EN_0_0_6",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "EN_0_0_7",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        }
+      ],
+      "enable_pin_slot": {
+        "slot_name": "EN",
+        "side": "north_or_tiehigh_side",
+        "metadata_available": true,
+        "physical_access_proven": false
+      },
+      "leaf_slots": [
+        {
+          "slot_name": "Xdec_inv_a0",
+          "slot_type": "Pinv",
+          "macro_sequence": [
+            "gen_inv"
+          ],
+          "row_order_group": "input_inversion"
+        },
+        {
+          "slot_name": "Xdec_inv_a1",
+          "slot_type": "Pinv",
+          "macro_sequence": [
+            "gen_inv"
+          ],
+          "row_order_group": "input_inversion"
+        },
+        {
+          "slot_name": "Xdec_inv_a2",
+          "slot_type": "Pinv",
+          "macro_sequence": [
+            "gen_inv"
+          ],
+          "row_order_group": "input_inversion"
+        },
+        {
+          "slot_name": "Xdec_and3_wl0",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl1",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl2",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl3",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl4",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl5",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl6",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl7",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl0",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl1",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl2",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl3",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl4",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl5",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl6",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl7",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        }
+      ],
+      "leaf_slot_order": [
+        "Xdec_inv_a0",
+        "Xdec_inv_a1",
+        "Xdec_inv_a2",
+        "Xdec_and3_wl0",
+        "Xdec_and3_wl1",
+        "Xdec_and3_wl2",
+        "Xdec_and3_wl3",
+        "Xdec_and3_wl4",
+        "Xdec_and3_wl5",
+        "Xdec_and3_wl6",
+        "Xdec_and3_wl7",
+        "Xdec_and2_wl0",
+        "Xdec_and2_wl1",
+        "Xdec_and2_wl2",
+        "Xdec_and2_wl3",
+        "Xdec_and2_wl4",
+        "Xdec_and2_wl5",
+        "Xdec_and2_wl6",
+        "Xdec_and2_wl7"
+      ],
+      "internal_net_reservation_zones": [
+        {
+          "zone_name": "INPUT_INVERSION_ZONE",
+          "purpose": "reserve_input_inverter_outputs",
+          "reserved_nets": [
+            "A0_bar",
+            "A1_bar",
+            "A2_bar"
+          ],
+          "x0": 0.0,
+          "y0": 0.0,
+          "x1": 2.8,
+          "y1": 1.48,
+          "metadata_only": true,
+          "physical_routing_proven": false,
+          "overlap_policy": "no_output_zone_overlap"
+        },
+        {
+          "zone_name": "AND2_COMPOSITE_ZONE",
+          "purpose": "reserve_and2_composite_nets",
+          "reserved_nets": [
+            "wl0_and2_ab_n",
+            "wl1_and2_ab_n",
+            "wl2_and2_ab_n",
+            "wl3_and2_ab_n",
+            "wl4_and2_ab_n",
+            "wl5_and2_ab_n",
+            "wl6_and2_ab_n",
+            "wl7_and2_ab_n",
+            "wl0_and2_ab",
+            "wl1_and2_ab",
+            "wl2_and2_ab",
+            "wl3_and2_ab",
+            "wl4_and2_ab",
+            "wl5_and2_ab",
+            "wl6_and2_ab",
+            "wl7_and2_ab"
+          ],
+          "x0": 2.8,
+          "y0": 0.0,
+          "x1": 12.0,
+          "y1": 1.48,
+          "metadata_only": true,
+          "physical_routing_proven": false,
+          "overlap_policy": "adjacent_only_to_and3_zone"
+        },
+        {
+          "zone_name": "AND3_COMPOSITE_ZONE",
+          "purpose": "reserve_and3_composite_nets",
+          "reserved_nets": [
+            "wl0_and3_ab_n",
+            "wl1_and3_ab_n",
+            "wl2_and3_ab_n",
+            "wl3_and3_ab_n",
+            "wl4_and3_ab_n",
+            "wl5_and3_ab_n",
+            "wl6_and3_ab_n",
+            "wl7_and3_ab_n",
+            "wl0_and3_ab",
+            "wl1_and3_ab",
+            "wl2_and3_ab",
+            "wl3_and3_ab",
+            "wl4_and3_ab",
+            "wl5_and3_ab",
+            "wl6_and3_ab",
+            "wl7_and3_ab",
+            "wl0_and3_abc_n",
+            "wl1_and3_abc_n",
+            "wl2_and3_abc_n",
+            "wl3_and3_abc_n",
+            "wl4_and3_abc_n",
+            "wl5_and3_abc_n",
+            "wl6_and3_abc_n",
+            "wl7_and3_abc_n"
+          ],
+          "x0": 12.0,
+          "y0": 0.0,
+          "x1": 24.0,
+          "y1": 1.48,
+          "metadata_only": true,
+          "physical_routing_proven": false,
+          "overlap_policy": "adjacent_only_to_and2_zone"
+        },
+        {
+          "zone_name": "OUTPUT_HANDOFF_ZONE",
+          "purpose": "reserve_wl_output_slots",
+          "reserved_nets": [
+            "WL0",
+            "WL1",
+            "WL2",
+            "WL3",
+            "WL4",
+            "WL5",
+            "WL6",
+            "WL7"
+          ],
+          "x0": 24.0,
+          "y0": 0.0,
+          "x1": 27.0,
+          "y1": 1.48,
+          "metadata_only": true,
+          "physical_routing_proven": false,
+          "overlap_policy": "east_edge_only"
+        },
+        {
+          "zone_name": "ENABLE_DISTRIBUTION_ZONE",
+          "purpose": "reserve_enable_distribution",
+          "reserved_nets": [
+            "EN"
+          ],
+          "x0": 0.0,
+          "y0": 1.48,
+          "x1": 27.0,
+          "y1": 2.0,
+          "metadata_only": true,
+          "physical_routing_proven": false,
+          "overlap_policy": "top_strip_only"
+        }
+      ],
+      "stage_bbox_proxy": {
+        "stage_bbox_proxy_policy": "conservative_leaf_slot_sum",
+        "stage_bbox_width": 55.5075,
+        "stage_bbox_height": 2.0,
+        "internal_gap": 0.2,
+        "stage_bbox_proxy_is_metadata_only": true,
+        "stage_bbox_not_legal_physical_layout": true
+      },
+      "input_anchor": {
+        "anchor_name": "DECODER_INPUT_ANCHOR",
+        "slot_names": [
+          "A0",
+          "A1",
+          "A2"
+        ],
+        "side": "decoder_input_side",
+        "metadata_only": true,
+        "physical_access_proven": false
+      },
+      "output_anchor": {
+        "anchor_name": "EAST_ENABLE_BUS_ANCHOR",
+        "slot_names": [
+          "EN_0_0_0",
+          "EN_0_0_1",
+          "EN_0_0_2",
+          "EN_0_0_3",
+          "EN_0_0_4",
+          "EN_0_0_5",
+          "EN_0_0_6",
+          "EN_0_0_7"
+        ],
+        "side": "east_enable_bus_side",
+        "metadata_only": true,
+        "physical_access_proven": false
+      },
+      "enable_anchor": {
+        "anchor_name": "LEVEL0_TIEHIGH_ENABLE_ANCHOR",
+        "slot_names": [
+          "EN"
+        ],
+        "side": "north_or_tiehigh_side",
+        "metadata_only": true,
+        "physical_access_proven": false
+      },
+      "power_policy": {
+        "policy_name": "local_horizontal_vdd_gnd_only_no_shared_rail",
+        "safe_for_shared_rail": false,
+        "rail_continuity_proven": false,
+        "stage_power_policy_available": true,
+        "stage_power_physical_proven": false
+      },
+      "metadata_only": true,
+      "pin_proven": false,
+      "internal_routing_proven": false,
+      "rail_continuity_proven": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "Level 0 stage emits intermediate enable bus nets."
+      ]
+    },
+    {
+      "template_name": "DECODER_LEVEL1_STAGE_TEMPLATE",
+      "source_class": "DECODER3_8",
+      "stage_role": "wordline_outputs",
+      "input_pin_slots": [
+        {
+          "slot_name": "EN",
+          "side": "north_or_west_enable_side",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "A0",
+          "side": "west",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "A1",
+          "side": "west",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "A2",
+          "side": "west",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "VDD",
+          "side": "top",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "VSS",
+          "side": "bottom",
+          "metadata_available": true,
+          "physical_access_proven": false
+        }
+      ],
+      "output_pin_slots": [
+        {
+          "slot_name": "WL0",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "WL1",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "WL2",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "WL3",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "WL4",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "WL5",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "WL6",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        },
+        {
+          "slot_name": "WL7",
+          "side": "east",
+          "metadata_available": true,
+          "physical_access_proven": false
+        }
+      ],
+      "enable_pin_slot": {
+        "slot_name": "EN",
+        "side": "north_enable_bus_side",
+        "metadata_available": true,
+        "physical_access_proven": false
+      },
+      "leaf_slots": [
+        {
+          "slot_name": "Xdec_inv_a0",
+          "slot_type": "Pinv",
+          "macro_sequence": [
+            "gen_inv"
+          ],
+          "row_order_group": "input_inversion"
+        },
+        {
+          "slot_name": "Xdec_inv_a1",
+          "slot_type": "Pinv",
+          "macro_sequence": [
+            "gen_inv"
+          ],
+          "row_order_group": "input_inversion"
+        },
+        {
+          "slot_name": "Xdec_inv_a2",
+          "slot_type": "Pinv",
+          "macro_sequence": [
+            "gen_inv"
+          ],
+          "row_order_group": "input_inversion"
+        },
+        {
+          "slot_name": "Xdec_and3_wl0",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl1",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl2",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl3",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl4",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl5",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl6",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and3_wl7",
+          "slot_type": "AND3_COMPOSITE_NAND2_INV",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv",
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and3_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl0",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl1",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl2",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl3",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl4",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl5",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl6",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        },
+        {
+          "slot_name": "Xdec_and2_wl7",
+          "slot_type": "AND2",
+          "macro_sequence": [
+            "gen_nand2",
+            "gen_inv"
+          ],
+          "row_order_group": "and2_composite"
+        }
+      ],
+      "leaf_slot_order": [
+        "Xdec_inv_a0",
+        "Xdec_inv_a1",
+        "Xdec_inv_a2",
+        "Xdec_and3_wl0",
+        "Xdec_and3_wl1",
+        "Xdec_and3_wl2",
+        "Xdec_and3_wl3",
+        "Xdec_and3_wl4",
+        "Xdec_and3_wl5",
+        "Xdec_and3_wl6",
+        "Xdec_and3_wl7",
+        "Xdec_and2_wl0",
+        "Xdec_and2_wl1",
+        "Xdec_and2_wl2",
+        "Xdec_and2_wl3",
+        "Xdec_and2_wl4",
+        "Xdec_and2_wl5",
+        "Xdec_and2_wl6",
+        "Xdec_and2_wl7"
+      ],
+      "internal_net_reservation_zones": [
+        {
+          "zone_name": "INPUT_INVERSION_ZONE",
+          "purpose": "reserve_input_inverter_outputs",
+          "reserved_nets": [
+            "A0_bar",
+            "A1_bar",
+            "A2_bar"
+          ],
+          "x0": 0.0,
+          "y0": 0.0,
+          "x1": 2.8,
+          "y1": 1.48,
+          "metadata_only": true,
+          "physical_routing_proven": false,
+          "overlap_policy": "no_output_zone_overlap"
+        },
+        {
+          "zone_name": "AND2_COMPOSITE_ZONE",
+          "purpose": "reserve_and2_composite_nets",
+          "reserved_nets": [
+            "wl0_and2_ab_n",
+            "wl1_and2_ab_n",
+            "wl2_and2_ab_n",
+            "wl3_and2_ab_n",
+            "wl4_and2_ab_n",
+            "wl5_and2_ab_n",
+            "wl6_and2_ab_n",
+            "wl7_and2_ab_n",
+            "wl0_and2_ab",
+            "wl1_and2_ab",
+            "wl2_and2_ab",
+            "wl3_and2_ab",
+            "wl4_and2_ab",
+            "wl5_and2_ab",
+            "wl6_and2_ab",
+            "wl7_and2_ab"
+          ],
+          "x0": 2.8,
+          "y0": 0.0,
+          "x1": 12.0,
+          "y1": 1.48,
+          "metadata_only": true,
+          "physical_routing_proven": false,
+          "overlap_policy": "adjacent_only_to_and3_zone"
+        },
+        {
+          "zone_name": "AND3_COMPOSITE_ZONE",
+          "purpose": "reserve_and3_composite_nets",
+          "reserved_nets": [
+            "wl0_and3_ab_n",
+            "wl1_and3_ab_n",
+            "wl2_and3_ab_n",
+            "wl3_and3_ab_n",
+            "wl4_and3_ab_n",
+            "wl5_and3_ab_n",
+            "wl6_and3_ab_n",
+            "wl7_and3_ab_n",
+            "wl0_and3_ab",
+            "wl1_and3_ab",
+            "wl2_and3_ab",
+            "wl3_and3_ab",
+            "wl4_and3_ab",
+            "wl5_and3_ab",
+            "wl6_and3_ab",
+            "wl7_and3_ab",
+            "wl0_and3_abc_n",
+            "wl1_and3_abc_n",
+            "wl2_and3_abc_n",
+            "wl3_and3_abc_n",
+            "wl4_and3_abc_n",
+            "wl5_and3_abc_n",
+            "wl6_and3_abc_n",
+            "wl7_and3_abc_n"
+          ],
+          "x0": 12.0,
+          "y0": 0.0,
+          "x1": 24.0,
+          "y1": 1.48,
+          "metadata_only": true,
+          "physical_routing_proven": false,
+          "overlap_policy": "adjacent_only_to_and2_zone"
+        },
+        {
+          "zone_name": "OUTPUT_HANDOFF_ZONE",
+          "purpose": "reserve_wl_output_slots",
+          "reserved_nets": [
+            "WL0",
+            "WL1",
+            "WL2",
+            "WL3",
+            "WL4",
+            "WL5",
+            "WL6",
+            "WL7"
+          ],
+          "x0": 24.0,
+          "y0": 0.0,
+          "x1": 27.0,
+          "y1": 1.48,
+          "metadata_only": true,
+          "physical_routing_proven": false,
+          "overlap_policy": "east_edge_only"
+        },
+        {
+          "zone_name": "ENABLE_DISTRIBUTION_ZONE",
+          "purpose": "reserve_enable_distribution",
+          "reserved_nets": [
+            "EN"
+          ],
+          "x0": 0.0,
+          "y0": 1.48,
+          "x1": 27.0,
+          "y1": 2.0,
+          "metadata_only": true,
+          "physical_routing_proven": false,
+          "overlap_policy": "top_strip_only"
+        }
+      ],
+      "stage_bbox_proxy": {
+        "stage_bbox_proxy_policy": "conservative_leaf_slot_sum",
+        "stage_bbox_width": 55.5075,
+        "stage_bbox_height": 2.0,
+        "internal_gap": 0.2,
+        "stage_bbox_proxy_is_metadata_only": true,
+        "stage_bbox_not_legal_physical_layout": true
+      },
+      "input_anchor": {
+        "anchor_name": "LOCAL_ADDR_BUS_ANCHOR",
+        "slot_names": [
+          "A0",
+          "A1",
+          "A2"
+        ],
+        "side": "decoder_input_side",
+        "metadata_only": true,
+        "physical_access_proven": false
+      },
+      "output_anchor": {
+        "anchor_name": "WORDLINE_DRIVER_INPUT_HANDOFF_ANCHOR",
+        "slot_names": [
+          "WL0",
+          "WL1",
+          "WL2",
+          "WL3",
+          "WL4",
+          "WL5",
+          "WL6",
+          "WL7"
+        ],
+        "side": "wordline_driver_side",
+        "metadata_only": true,
+        "physical_access_proven": false
+      },
+      "enable_anchor": {
+        "anchor_name": "ENABLE_BUS_ANCHOR",
+        "slot_names": [
+          "EN"
+        ],
+        "side": "north_enable_bus_side",
+        "metadata_only": true,
+        "physical_access_proven": false
+      },
+      "power_policy": {
+        "policy_name": "local_horizontal_vdd_gnd_only_no_shared_rail",
+        "safe_for_shared_rail": false,
+        "rail_continuity_proven": false,
+        "stage_power_policy_available": true,
+        "stage_power_physical_proven": false
+      },
+      "metadata_only": true,
+      "pin_proven": false,
+      "internal_routing_proven": false,
+      "rail_continuity_proven": false,
+      "safe_for_metadata_planning": true,
+      "safe_for_physical_placement": false,
+      "notes": [
+        "Level 1 stages consume intermediate enable nets and drive WL outputs."
+      ]
+    }
+  ],
+  "level0_binding": {
+    "stage_name": "DEC_0_0",
+    "role": "intermediate_enable_bus",
+    "inputs": [
+      "A3",
+      "A4",
+      "VSS"
+    ],
+    "enable": "VDD",
+    "outputs": [
+      "EN_0_0_0",
+      "EN_0_0_1",
+      "EN_0_0_2",
+      "EN_0_0_3",
+      "EN_0_0_4",
+      "EN_0_0_5",
+      "EN_0_0_6",
+      "EN_0_0_7"
+    ],
+    "template": "DECODER_LEVEL0_STAGE_TEMPLATE",
+    "input_anchor": "DECODER_INPUT_ANCHOR",
+    "output_anchor": "EAST_ENABLE_BUS_ANCHOR"
+  },
+  "level1_binding": [
+    {
+      "stage_name": "DEC_1_0",
+      "role": "wordline_outputs",
+      "inputs": [
+        "A0",
+        "A1",
+        "A2"
+      ],
+      "enable": "EN_0_0_0",
+      "outputs": [
+        "WL0",
+        "WL1",
+        "WL2",
+        "WL3",
+        "WL4",
+        "WL5",
+        "WL6",
+        "WL7"
+      ],
+      "template": "DECODER_LEVEL1_STAGE_TEMPLATE",
+      "input_anchor": "LOCAL_ADDR_BUS_ANCHOR",
+      "enable_anchor": "ENABLE_BUS_ANCHOR",
+      "output_anchor": "WORDLINE_DRIVER_INPUT_HANDOFF_ANCHOR"
+    },
+    {
+      "stage_name": "DEC_1_1",
+      "role": "wordline_outputs",
+      "inputs": [
+        "A0",
+        "A1",
+        "A2"
+      ],
+      "enable": "EN_0_0_1",
+      "outputs": [
+        "WL8",
+        "WL9",
+        "WL10",
+        "WL11",
+        "WL12",
+        "WL13",
+        "WL14",
+        "WL15"
+      ],
+      "template": "DECODER_LEVEL1_STAGE_TEMPLATE",
+      "input_anchor": "LOCAL_ADDR_BUS_ANCHOR",
+      "enable_anchor": "ENABLE_BUS_ANCHOR",
+      "output_anchor": "WORDLINE_DRIVER_INPUT_HANDOFF_ANCHOR"
+    },
+    {
+      "stage_name": "DEC_1_2",
+      "role": "wordline_outputs",
+      "inputs": [
+        "A0",
+        "A1",
+        "A2"
+      ],
+      "enable": "EN_0_0_2",
+      "outputs": [
+        "WL16",
+        "WL17",
+        "WL18",
+        "WL19",
+        "WL20",
+        "WL21",
+        "WL22",
+        "WL23"
+      ],
+      "template": "DECODER_LEVEL1_STAGE_TEMPLATE",
+      "input_anchor": "LOCAL_ADDR_BUS_ANCHOR",
+      "enable_anchor": "ENABLE_BUS_ANCHOR",
+      "output_anchor": "WORDLINE_DRIVER_INPUT_HANDOFF_ANCHOR"
+    },
+    {
+      "stage_name": "DEC_1_3",
+      "role": "wordline_outputs",
+      "inputs": [
+        "A0",
+        "A1",
+        "A2"
+      ],
+      "enable": "EN_0_0_3",
+      "outputs": [
+        "WL24",
+        "WL25",
+        "WL26",
+        "WL27",
+        "WL28",
+        "WL29",
+        "WL30",
+        "WL31"
+      ],
+      "template": "DECODER_LEVEL1_STAGE_TEMPLATE",
+      "input_anchor": "LOCAL_ADDR_BUS_ANCHOR",
+      "enable_anchor": "ENABLE_BUS_ANCHOR",
+      "output_anchor": "WORDLINE_DRIVER_INPUT_HANDOFF_ANCHOR"
+    }
+  ],
+  "can_enter_decoder_generated_block_planning": true,
+  "can_enter_physical_decoder_placement": false,
+  "can_enter_very_limited_control_row_smoke": false,
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "blocker_list": [
+    "Stage templates are metadata-only and do not prove legal stage packing.",
+    "Per-slot physical access, internal routing, and rail continuity are still unproven.",
+    "WL truth-table binding from decoder.py is not yet explicitly expanded into slot polarity bindings.",
+    "Physical decoder placement and control-row smoke remain blocked."
+  ],
+  "step_6_14_recommendation": "Expand decoder truth-table binding next: map each WL slot to its input polarity combination and bind stage templates to output-specific metadata contracts before any placement-oriented decoder prototype."
+}

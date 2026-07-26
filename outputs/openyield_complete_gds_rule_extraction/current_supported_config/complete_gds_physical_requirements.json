@@ -1,0 +1,52 @@
+{
+  "requirements": [
+    {
+      "requirement_id": "REQ_C2_01",
+      "requirement_area": "C2 pin access requirements",
+      "minimum_requirement": "Every WL/BL/BR/control/VDD/GND/top-IO sink or source needed by current supported config must have geometry-backed access or a geometry-backed synthesized replacement pin.",
+      "target_stage": "C2",
+      "evidence_needed": "Pin inventories updated to GEOMETRY_BACKED_PIN with bbox/layer/net ownership.",
+      "still_not_signoff_boundary": "This does not imply DRC/LVS closure."
+    },
+    {
+      "requirement_id": "REQ_C3_01",
+      "requirement_area": "C3 floorplan requirements",
+      "minimum_requirement": "Array must be the macro core; row, column, control, dummy, replica, and boundary structures must be placed relative to actual array pitch and edge access windows.",
+      "target_stage": "C3",
+      "evidence_needed": "Updated floorplan report and region bboxes derived from actual geometry.",
+      "still_not_signoff_boundary": "This does not imply congestion-free final routing."
+    },
+    {
+      "requirement_id": "REQ_C4_01",
+      "requirement_area": "C4 signal routing requirements",
+      "minimum_requirement": "WL/BL/BR/control/clk/addr/din/dout/top-IO routes must exist as real GDS geometry between source and target access points.",
+      "target_stage": "C4",
+      "evidence_needed": "Real geometry inventory with pin-to-pin routes and no contract-only dependencies for required nets.",
+      "still_not_signoff_boundary": "This does not imply timing closure or global route optimality."
+    },
+    {
+      "requirement_id": "REQ_C5_01",
+      "requirement_area": "C5 power network requirements",
+      "minimum_requirement": "VDD/GND must connect module rails to top-level straps/pins through real taps and vias; no contract-only power stitches may remain.",
+      "target_stage": "C5",
+      "evidence_needed": "Power continuity inventory with geometry-backed rails, taps, and top power pins.",
+      "still_not_signoff_boundary": "This does not imply EM/IR signoff."
+    },
+    {
+      "requirement_id": "REQ_C6_01",
+      "requirement_area": "C6 validation requirements",
+      "minimum_requirement": "Net-to-shape evidence must refer to actual GDS shapes, and the repaired top GDS must parse, map, and preserve hierarchy consistently for current supported config.",
+      "target_stage": "C6",
+      "evidence_needed": "Final geometry-backed audits and parsed GDS comparison.",
+      "still_not_signoff_boundary": "This does not imply full LVS-clean or DRC-clean status unless separately proven."
+    },
+    {
+      "requirement_id": "REQ_C6_02",
+      "requirement_area": "complete GDS claim requirements",
+      "minimum_requirement": "The minimum complete-GDS bar is geometry-backed connectivity for the current supported config across signal, power, and top pins.",
+      "target_stage": "C6",
+      "evidence_needed": "Contract/approximate counts reduced to zero for required complete-GDS claim scope.",
+      "still_not_signoff_boundary": "Complete GDS is not equivalent to timing signoff, DRC signoff, or LVS signoff."
+    }
+  ]
+}

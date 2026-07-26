@@ -1,0 +1,8 @@
+net_name,expected_endpoint_set,actual_endpoint_set,missing_endpoints,unexpected_endpoints,component_id,net_match_status
+VDD,"['TOP.VDD', 'dff.VDD', 'inv1.VDD', 'inv2.VDD']","['TOP.VDD', 'dff.VDD', 'inv1.VDD', 'inv2.VDD']",[],[],contact_1411,MATCH
+VSS,"['TOP.VSS', 'dff.VSS', 'inv1.VSS', 'inv2.VSS']","['TOP.VSS', 'dff.VSS', 'inv1.VSS', 'inv2.VSS']",[],[],contact_1417,MATCH
+D,"['TOP.D', 'dff.D']","['TOP.D', 'dff.D']",[],[],via1_168,MATCH
+Q,"['TOP.Q', 'inv2.Z']","['TOP.Q', 'inv2.Z']",[],[],via1_55,MATCH
+QB,"['TOP.QB', 'inv1.Z', 'inv2.A']","['TOP.QB', 'inv1.Z', 'inv2.A']",[],[],via1_45,MATCH
+CLK,"['TOP.CLK', 'dff.CLK']","['TOP.CLK', 'dff.CLK']",[],[],via1_159,MATCH
+qint,"['dff.Q', 'inv1.A']","['dff.Q', 'inv1.A']",[],[],via1_330,MATCH

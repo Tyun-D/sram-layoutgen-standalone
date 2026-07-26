@@ -1,0 +1,471 @@
+{
+  "nodes": [
+    {
+      "id": "composite_feasibility",
+      "label": "time_control_composite_internal_placement_feasibility",
+      "kind": "root"
+    },
+    {
+      "id": "subblock:PINV",
+      "label": "PINV",
+      "kind": "subblock"
+    },
+    {
+      "id": "subblock:PINV:leaf:0",
+      "label": "gen_inv[0]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:AND2",
+      "label": "AND2",
+      "kind": "subblock"
+    },
+    {
+      "id": "subblock:AND2:leaf:0",
+      "label": "gen_nand2[0]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:AND2:leaf:1",
+      "label": "gen_inv[1]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:AND3_COMPOSITE",
+      "label": "AND3_COMPOSITE",
+      "kind": "subblock"
+    },
+    {
+      "id": "subblock:AND3_COMPOSITE:leaf:0",
+      "label": "gen_nand2[0]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:AND3_COMPOSITE:leaf:1",
+      "label": "gen_inv[1]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:AND3_COMPOSITE:leaf:2",
+      "label": "gen_nand2[2]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:AND3_COMPOSITE:leaf:3",
+      "label": "gen_inv[3]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:PNAND3_COMPOSITE",
+      "label": "PNAND3_COMPOSITE",
+      "kind": "subblock"
+    },
+    {
+      "id": "subblock:PNAND3_COMPOSITE:leaf:0",
+      "label": "gen_nand2[0]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:PNAND3_COMPOSITE:leaf:1",
+      "label": "gen_inv[1]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:PNAND3_COMPOSITE:leaf:2",
+      "label": "gen_nand2[2]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:PDRIVE",
+      "label": "PDRIVE",
+      "kind": "subblock"
+    },
+    {
+      "id": "subblock:PDRIVE:leaf:0",
+      "label": "gen_inv[0]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:PDRIVE:leaf:1",
+      "label": "gen_inv[1]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:PDRIVE:leaf:2",
+      "label": "gen_inv[2]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:PDRIVE:leaf:3",
+      "label": "gen_inv[3]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:PDRIVE2_FOR_PRE",
+      "label": "PDRIVE2_FOR_PRE",
+      "kind": "subblock"
+    },
+    {
+      "id": "subblock:PDRIVE2_FOR_PRE:leaf:0",
+      "label": "gen_inv[0]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:PDRIVE2_FOR_PRE:leaf:1",
+      "label": "gen_inv[1]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:WL_PDRIVE",
+      "label": "WL_PDRIVE",
+      "kind": "subblock"
+    },
+    {
+      "id": "subblock:WL_PDRIVE:leaf:0",
+      "label": "gen_inv[0]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:WL_PDRIVE:leaf:1",
+      "label": "gen_inv[1]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:DELAY_CHAIN",
+      "label": "DELAY_CHAIN",
+      "kind": "subblock"
+    },
+    {
+      "id": "subblock:DELAY_CHAIN:leaf:0",
+      "label": "gen_delay_inv[0]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:DELAY_CHAIN:leaf:1",
+      "label": "gen_delay_inv[1]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:DELAY_CHAIN:leaf:2",
+      "label": "gen_delay_inv[2]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:DELAY_CHAIN:leaf:3",
+      "label": "gen_delay_inv[3]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:DELAY_CHAIN:leaf:4",
+      "label": "gen_delay_inv[4]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:DELAY_CHAIN:leaf:5",
+      "label": "gen_delay_inv[5]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:DELAY_CHAIN:leaf:6",
+      "label": "gen_delay_inv[6]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:DELAY_CHAIN:leaf:7",
+      "label": "gen_delay_inv[7]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:DELAY_CHAIN:leaf:8",
+      "label": "gen_delay_inv[8]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:WEN_DELAY_CHAIN",
+      "label": "WEN_DELAY_CHAIN",
+      "kind": "subblock"
+    },
+    {
+      "id": "subblock:WEN_DELAY_CHAIN:leaf:0",
+      "label": "gen_delay_inv[0]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:WEN_DELAY_CHAIN:leaf:1",
+      "label": "gen_delay_inv[1]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:WEN_DELAY_CHAIN:leaf:2",
+      "label": "gen_delay_inv[2]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:WEN_DELAY_CHAIN:leaf:3",
+      "label": "gen_delay_inv[3]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:WEN_DELAY_CHAIN:leaf:4",
+      "label": "gen_delay_inv[4]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:WEN_DELAY_CHAIN:leaf:5",
+      "label": "gen_delay_inv[5]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:PRECHARGE",
+      "label": "PRECHARGE",
+      "kind": "subblock"
+    },
+    {
+      "id": "subblock:PRECHARGE:leaf:0",
+      "label": "gen_precharge[0]",
+      "kind": "leaf_reference"
+    },
+    {
+      "id": "subblock:DFF_ROW",
+      "label": "DFF_ROW",
+      "kind": "subblock"
+    },
+    {
+      "id": "subblock:DFF_ROW:leaf:0",
+      "label": "dff[0]",
+      "kind": "leaf_reference"
+    }
+  ],
+  "edges": [
+    {
+      "from": "composite_feasibility",
+      "to": "subblock:PINV",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:PINV",
+      "to": "subblock:PINV:leaf:0",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "composite_feasibility",
+      "to": "subblock:AND2",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:AND2",
+      "to": "subblock:AND2:leaf:0",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:AND2",
+      "to": "subblock:AND2:leaf:1",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "composite_feasibility",
+      "to": "subblock:AND3_COMPOSITE",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:AND3_COMPOSITE",
+      "to": "subblock:AND3_COMPOSITE:leaf:0",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:AND3_COMPOSITE",
+      "to": "subblock:AND3_COMPOSITE:leaf:1",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:AND3_COMPOSITE",
+      "to": "subblock:AND3_COMPOSITE:leaf:2",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:AND3_COMPOSITE",
+      "to": "subblock:AND3_COMPOSITE:leaf:3",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "composite_feasibility",
+      "to": "subblock:PNAND3_COMPOSITE",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:PNAND3_COMPOSITE",
+      "to": "subblock:PNAND3_COMPOSITE:leaf:0",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:PNAND3_COMPOSITE",
+      "to": "subblock:PNAND3_COMPOSITE:leaf:1",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:PNAND3_COMPOSITE",
+      "to": "subblock:PNAND3_COMPOSITE:leaf:2",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "composite_feasibility",
+      "to": "subblock:PDRIVE",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:PDRIVE",
+      "to": "subblock:PDRIVE:leaf:0",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:PDRIVE",
+      "to": "subblock:PDRIVE:leaf:1",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:PDRIVE",
+      "to": "subblock:PDRIVE:leaf:2",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:PDRIVE",
+      "to": "subblock:PDRIVE:leaf:3",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "composite_feasibility",
+      "to": "subblock:PDRIVE2_FOR_PRE",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:PDRIVE2_FOR_PRE",
+      "to": "subblock:PDRIVE2_FOR_PRE:leaf:0",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:PDRIVE2_FOR_PRE",
+      "to": "subblock:PDRIVE2_FOR_PRE:leaf:1",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "composite_feasibility",
+      "to": "subblock:WL_PDRIVE",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:WL_PDRIVE",
+      "to": "subblock:WL_PDRIVE:leaf:0",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:WL_PDRIVE",
+      "to": "subblock:WL_PDRIVE:leaf:1",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "composite_feasibility",
+      "to": "subblock:DELAY_CHAIN",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:DELAY_CHAIN",
+      "to": "subblock:DELAY_CHAIN:leaf:0",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:DELAY_CHAIN",
+      "to": "subblock:DELAY_CHAIN:leaf:1",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:DELAY_CHAIN",
+      "to": "subblock:DELAY_CHAIN:leaf:2",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:DELAY_CHAIN",
+      "to": "subblock:DELAY_CHAIN:leaf:3",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:DELAY_CHAIN",
+      "to": "subblock:DELAY_CHAIN:leaf:4",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:DELAY_CHAIN",
+      "to": "subblock:DELAY_CHAIN:leaf:5",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:DELAY_CHAIN",
+      "to": "subblock:DELAY_CHAIN:leaf:6",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:DELAY_CHAIN",
+      "to": "subblock:DELAY_CHAIN:leaf:7",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:DELAY_CHAIN",
+      "to": "subblock:DELAY_CHAIN:leaf:8",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "composite_feasibility",
+      "to": "subblock:WEN_DELAY_CHAIN",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:WEN_DELAY_CHAIN",
+      "to": "subblock:WEN_DELAY_CHAIN:leaf:0",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:WEN_DELAY_CHAIN",
+      "to": "subblock:WEN_DELAY_CHAIN:leaf:1",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:WEN_DELAY_CHAIN",
+      "to": "subblock:WEN_DELAY_CHAIN:leaf:2",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:WEN_DELAY_CHAIN",
+      "to": "subblock:WEN_DELAY_CHAIN:leaf:3",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:WEN_DELAY_CHAIN",
+      "to": "subblock:WEN_DELAY_CHAIN:leaf:4",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "subblock:WEN_DELAY_CHAIN",
+      "to": "subblock:WEN_DELAY_CHAIN:leaf:5",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "composite_feasibility",
+      "to": "subblock:PRECHARGE",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:PRECHARGE",
+      "to": "subblock:PRECHARGE:leaf:0",
+      "relation": "uses_leaf"
+    },
+    {
+      "from": "composite_feasibility",
+      "to": "subblock:DFF_ROW",
+      "relation": "audited"
+    },
+    {
+      "from": "subblock:DFF_ROW",
+      "to": "subblock:DFF_ROW:leaf:0",
+      "relation": "uses_leaf"
+    }
+  ]
+}

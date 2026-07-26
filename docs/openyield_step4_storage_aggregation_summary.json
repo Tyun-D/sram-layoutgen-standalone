@@ -1,0 +1,117 @@
+{
+  "scope": "step4_storage_aggregation_summary",
+  "step4_completed": [
+    "Added limited OpenYield storage-array aggregation planning for cell_1rw, dummy_cell_1rw, and replica_cell_1rw.",
+    "Audited legal storage pitch and kept the conservative full-bbox pitch 0.895 x 1.565.",
+    "Built storage-only GDS smoke and power-stitch smoke without changing the main routing or GDS writer.",
+    "Compared all_r0 versus alternating_mx and showed METAL2 seam markers drop from 34 to 0.",
+    "Wired row orientation policy into array_aggregation.py and then into standalone as an explicit opt-in parameter.",
+    "Verified representative standalone GDS generation for 2x16_wpr1 and 4x32_wpr2 across legacy, all_r0, and alternating_mx modes."
+  ],
+  "final_storage_aggregation_strategy": {
+    "macros": [
+      "cell_1rw",
+      "dummy_cell_1rw",
+      "replica_cell_1rw"
+    ],
+    "pitch_um": {
+      "x": 0.895,
+      "y": 1.565
+    },
+    "row_policy": {
+      "default": "all_r0",
+      "optional_recommended_opt_in": "alternating_mx"
+    },
+    "power_stitch": "storage-only smoke uses same-net horizontal power stitch; main flow still does not perform shared rail merge"
+  },
+  "default_path_unchanged": true,
+  "openyield_storage_aggregation_opt_in_available": true,
+  "why_not_all_r0": [
+    "Storage-only compare smoke showed row-boundary METAL2 markers 34 -> 0 when switching from all_r0 to alternating_mx.",
+    "Cross-row power short risk improved from True to False in the storage-only compare smoke."
+  ],
+  "why_not_legacy_pitch": [
+    "The legacy 0.705 x 1.365 pitch caused real bbox overlap with risky layers including active, contact, m1, m2, and via1.",
+    "The current recommendation remains use_full_bbox_pitch because the legacy pitch is not a harmless rail-only overlap."
+  ],
+  "still_unresolved": [
+    "METAL1.2 residual markers remain; storage-only DRC is still not clean.",
+    "Storage-only DRC smoke is not equivalent to final SRAM signoff.",
+    "Peripheral modules are still on the old path and not adapted to OpenYield contracts.",
+    "sense_amp Q/QB semantic adaptation is not done.",
+    "gen_col_mux VDD metadata is still incomplete.",
+    "wordline driver B-pin semantics still need confirmation.",
+    "TIME/control logic adaptation and expansion are not done."
+  ],
+  "optional_drc_smoke": {
+    "ran": true,
+    "case_id": "2x16_wpr1",
+    "mode": "openyield_alternating_mx",
+    "gds_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_step4_final_smoke\\2x16_wpr1\\openyield_alternating_mx\\sram_2x16_wpr1_fd45.gds",
+    "lyrdb": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_step4_final_smoke\\2x16_wpr1\\openyield_alternating_mx\\standalone_altmx_drc.lyrdb",
+    "log": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\build\\openyield_step4_final_smoke\\2x16_wpr1\\openyield_alternating_mx\\standalone_altmx_drc.log",
+    "returncode": 0,
+    "marker_count": 298,
+    "clean": false
+  },
+  "step5_recommendations": [
+    "Start Step 5 from sense_amp because its Q/QB interface is the clearest semantic mismatch between OpenYield storage behavior and the current standalone periphery.",
+    "After sense_amp, handle write_driver and then column mux power metadata so the data-path periphery can move toward contract-driven placement.",
+    "Keep alternating_mx explicit and opt-in while Step 5 adapts one peripheral family at a time."
+  ],
+  "can_enter_step5": true,
+  "representative_cases": [
+    {
+      "case_id": "2x16_wpr1",
+      "modes": {
+        "legacy_default": {
+          "gds_generated": true,
+          "storage_orientation": "legacy_openram_mirror_x",
+          "routing_changed": false,
+          "gds_writer_changed": false,
+          "peripherals_old_path": true
+        },
+        "openyield_all_r0": {
+          "gds_generated": true,
+          "storage_orientation": "all_r0",
+          "routing_changed": false,
+          "gds_writer_changed": false,
+          "peripherals_old_path": true
+        },
+        "openyield_alternating_mx": {
+          "gds_generated": true,
+          "storage_orientation": "alternating_r0_mx",
+          "routing_changed": false,
+          "gds_writer_changed": false,
+          "peripherals_old_path": true
+        }
+      }
+    },
+    {
+      "case_id": "4x32_wpr2",
+      "modes": {
+        "legacy_default": {
+          "gds_generated": true,
+          "storage_orientation": "legacy_openram_mirror_x",
+          "routing_changed": false,
+          "gds_writer_changed": false,
+          "peripherals_old_path": true
+        },
+        "openyield_all_r0": {
+          "gds_generated": true,
+          "storage_orientation": "all_r0",
+          "routing_changed": false,
+          "gds_writer_changed": false,
+          "peripherals_old_path": true
+        },
+        "openyield_alternating_mx": {
+          "gds_generated": true,
+          "storage_orientation": "alternating_r0_mx",
+          "routing_changed": false,
+          "gds_writer_changed": false,
+          "peripherals_old_path": true
+        }
+      }
+    }
+  ]
+}

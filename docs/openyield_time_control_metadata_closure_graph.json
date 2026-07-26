@@ -1,0 +1,92 @@
+{
+  "scope": "stage_b_openyield_time_control_metadata_closure",
+  "nodes": [
+    {
+      "id": "TIME_CONTROL_DECOMPOSITION",
+      "kind": "closure_input"
+    },
+    {
+      "id": "TIME_CONTROL_SIGNAL_BINDINGS",
+      "kind": "closure_input"
+    },
+    {
+      "id": "TIME_CONTROL_GENERATED_LOGIC",
+      "kind": "closure_input"
+    },
+    {
+      "id": "TIME_CONTROL_CONSUMER_CONTRACTS",
+      "kind": "closure_input"
+    },
+    {
+      "id": "TIME_CONTROL_FAST_BUNDLE",
+      "kind": "closure_input"
+    },
+    {
+      "id": "TIME_CONTROL_PRECHARGE_CONSTRAINTS",
+      "kind": "closure_input"
+    },
+    {
+      "id": "TIME_CONTROL_REGION_REFINEMENT",
+      "kind": "closure_input"
+    },
+    {
+      "id": "TIME_CONTROL_CLOSURE_UNBLOCK",
+      "kind": "closure_input"
+    },
+    {
+      "id": "TIME_CONTROL_METADATA_CLOSURE",
+      "kind": "closure_output"
+    }
+  ],
+  "edges": [
+    {
+      "source": "TIME_CONTROL_DECOMPOSITION",
+      "target": "TIME_CONTROL_METADATA_CLOSURE",
+      "relation": "feeds"
+    },
+    {
+      "source": "TIME_CONTROL_SIGNAL_BINDINGS",
+      "target": "TIME_CONTROL_METADATA_CLOSURE",
+      "relation": "feeds"
+    },
+    {
+      "source": "TIME_CONTROL_GENERATED_LOGIC",
+      "target": "TIME_CONTROL_METADATA_CLOSURE",
+      "relation": "feeds"
+    },
+    {
+      "source": "TIME_CONTROL_CONSUMER_CONTRACTS",
+      "target": "TIME_CONTROL_METADATA_CLOSURE",
+      "relation": "feeds"
+    },
+    {
+      "source": "TIME_CONTROL_FAST_BUNDLE",
+      "target": "TIME_CONTROL_METADATA_CLOSURE",
+      "relation": "feeds"
+    },
+    {
+      "source": "TIME_CONTROL_PRECHARGE_CONSTRAINTS",
+      "target": "TIME_CONTROL_METADATA_CLOSURE",
+      "relation": "feeds"
+    },
+    {
+      "source": "TIME_CONTROL_REGION_REFINEMENT",
+      "target": "TIME_CONTROL_METADATA_CLOSURE",
+      "relation": "feeds"
+    },
+    {
+      "source": "TIME_CONTROL_CLOSURE_UNBLOCK",
+      "target": "TIME_CONTROL_METADATA_CLOSURE",
+      "relation": "feeds"
+    }
+  ],
+  "summary": {
+    "time_control_metadata_closure_available": true,
+    "time_control_metadata_chain_complete": true,
+    "precharge_closure_status": "intentional_no_local_gnd_metadata_exception",
+    "control_region_crossing_coverage_complete": true,
+    "can_enter_very_limited_abstract_to_placement_readiness": true,
+    "can_enter_time_control_physical_placement": false,
+    "can_enter_standalone_control_placement": false
+  }
+}

@@ -1,0 +1,6 @@
+# M11A Review GDS Manifest
+
+- `outputs/M11A_module_gds_qualification/current_supported_config/module_gds_qualification_review.gds` size=1085262 sha256=`73b80de435c61a358e959003b880b4677607b6202c6f77cff5813c7286b2685e`
+- `outputs/M11A_module_gds_qualification/current_supported_config/module_gds_qualification_clean_review.gds` size=1046726 sha256=`8303c70d7b935044c7842c77054129ee28d28f561c1a640a11403d256746ecd3`
+- `outputs/M11A_module_gds_qualification/current_supported_config/module_gds_qualification_annotated_debug.gds` size=1085316 sha256=`465f782f61d4f02fd6f4da8ae2ca0de50468cdd37efa4a0cce9272c3ffc2fe5b`
+- `outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds` size=389826 sha256=`713cc2b87ec3a2b0239b7a1015a5eb5dd94d65c482f88e145dd69a7dcd058bcd`

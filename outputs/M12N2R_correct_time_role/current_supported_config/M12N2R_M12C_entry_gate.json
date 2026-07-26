@@ -1,0 +1,14 @@
+{
+  "recommended_next_stage": "M12C_CONTROL_LOGIC_GAP_DEFINITION",
+  "recommended_next_stage_reason": "The latest OpenYield main source proves that TIME is a real SRAM design subcircuit containing DFFs, gated clocks, delay chains, and enable-generation logic. The control-logic netlist source is therefore locked, while its physical implementation and mapping into the layoutgen/OpenRAM floorplan remain incomplete.",
+  "next_stage_allowed": "M12C_CONTROL_LOGIC_GAP_DEFINITION",
+  "can_enter_M12C_after_this_gate": true,
+  "human_review_required": false,
+  "can_enter_next_stage_before_human_review": true,
+  "openyield_control_logic_netlist_source_locked": true,
+  "openyield_control_logic_physical_implementation_ready": false,
+  "can_claim_control_logic_source_locked": true,
+  "can_claim_control_logic_mapping_ready": false,
+  "can_claim_control_logic_physical_ready": false,
+  "can_claim_custom_netlist_driven_layout_generation": false
+}

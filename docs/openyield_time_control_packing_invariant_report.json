@@ -1,0 +1,340 @@
+{
+  "scope": "step6_33_openyield_time_control_packing_invariant_audit",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "packing_group_presence": {
+    "front_end_registers": true,
+    "timing_generation": true,
+    "generated_logic_core": true,
+    "consumer_handoff_boundary": true,
+    "decoder_boundary": true
+  },
+  "group_sequence_rows": [
+    {
+      "subblock_name": "ADDR_DFF_ROW",
+      "group": "front_end_registers",
+      "group_rank": 0,
+      "assigned_region": "generated_logic_region"
+    },
+    {
+      "subblock_name": "DATA_DFF_ROW",
+      "group": "front_end_registers",
+      "group_rank": 0,
+      "assigned_region": "generated_logic_region"
+    },
+    {
+      "subblock_name": "DELAY_CHAIN_CLUSTER",
+      "group": "timing_generation",
+      "group_rank": 1,
+      "assigned_region": "delay_chain_region"
+    },
+    {
+      "subblock_name": "WEN_DELAY_CHAIN_CLUSTER",
+      "group": "timing_generation",
+      "group_rank": 1,
+      "assigned_region": "sense_write_enable_region"
+    },
+    {
+      "subblock_name": "PDRIVE_CLUSTER",
+      "group": "timing_generation",
+      "group_rank": 1,
+      "assigned_region": "pdrive_region"
+    },
+    {
+      "subblock_name": "GENERATED_LOGIC_CLUSTER",
+      "group": "generated_logic_core",
+      "group_rank": 2,
+      "assigned_region": "generated_logic_region"
+    },
+    {
+      "subblock_name": "PRECHARGE_HANDOFF",
+      "group": "consumer_handoff_boundary",
+      "group_rank": 3,
+      "assigned_region": "precharge_control_region"
+    },
+    {
+      "subblock_name": "SENSEAMP_HANDOFF",
+      "group": "consumer_handoff_boundary",
+      "group_rank": 3,
+      "assigned_region": "sense_write_enable_region"
+    },
+    {
+      "subblock_name": "WRITEDRIVER_HANDOFF",
+      "group": "consumer_handoff_boundary",
+      "group_rank": 3,
+      "assigned_region": "sense_write_enable_region"
+    },
+    {
+      "subblock_name": "WORDLINEDRIVER_HANDOFF",
+      "group": "consumer_handoff_boundary",
+      "group_rank": 3,
+      "assigned_region": "wordline_enable_control_region"
+    },
+    {
+      "subblock_name": "DECODER_INTERFACE",
+      "group": "decoder_boundary",
+      "group_rank": 4,
+      "assigned_region": "consumer_handoff_region"
+    }
+  ],
+  "region_assignment_checks": [
+    {
+      "subblock_name": "ADDR_DFF_ROW",
+      "assigned_region": "generated_logic_region",
+      "region_exists": true
+    },
+    {
+      "subblock_name": "DATA_DFF_ROW",
+      "assigned_region": "generated_logic_region",
+      "region_exists": true
+    },
+    {
+      "subblock_name": "DELAY_CHAIN_CLUSTER",
+      "assigned_region": "delay_chain_region",
+      "region_exists": true
+    },
+    {
+      "subblock_name": "WEN_DELAY_CHAIN_CLUSTER",
+      "assigned_region": "sense_write_enable_region",
+      "region_exists": true
+    },
+    {
+      "subblock_name": "PDRIVE_CLUSTER",
+      "assigned_region": "pdrive_region",
+      "region_exists": true
+    },
+    {
+      "subblock_name": "GENERATED_LOGIC_CLUSTER",
+      "assigned_region": "generated_logic_region",
+      "region_exists": true
+    },
+    {
+      "subblock_name": "PRECHARGE_HANDOFF",
+      "assigned_region": "precharge_control_region",
+      "region_exists": true
+    },
+    {
+      "subblock_name": "SENSEAMP_HANDOFF",
+      "assigned_region": "sense_write_enable_region",
+      "region_exists": true
+    },
+    {
+      "subblock_name": "WRITEDRIVER_HANDOFF",
+      "assigned_region": "sense_write_enable_region",
+      "region_exists": true
+    },
+    {
+      "subblock_name": "WORDLINEDRIVER_HANDOFF",
+      "assigned_region": "wordline_enable_control_region",
+      "region_exists": true
+    },
+    {
+      "subblock_name": "DECODER_INTERFACE",
+      "assigned_region": "consumer_handoff_region",
+      "region_exists": true
+    }
+  ],
+  "handoff_alignment": [
+    {
+      "subblock_name": "PRECHARGE_HANDOFF",
+      "interface_name": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "assigned_region": "precharge_control_region",
+      "source_regions": [
+        "precharge_control_region",
+        "wordline_enable_control_region"
+      ],
+      "aligned": true
+    },
+    {
+      "subblock_name": "SENSEAMP_HANDOFF",
+      "interface_name": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+      "assigned_region": "sense_write_enable_region",
+      "source_regions": [
+        "sense_write_enable_region"
+      ],
+      "aligned": true
+    },
+    {
+      "subblock_name": "WRITEDRIVER_HANDOFF",
+      "interface_name": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+      "assigned_region": "sense_write_enable_region",
+      "source_regions": [
+        "sense_write_enable_region"
+      ],
+      "aligned": true
+    },
+    {
+      "subblock_name": "WORDLINEDRIVER_HANDOFF",
+      "interface_name": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+      "assigned_region": "wordline_enable_control_region",
+      "source_regions": [
+        "wordline_enable_control_region"
+      ],
+      "aligned": true
+    }
+  ],
+  "adjacency_invariants": [
+    {
+      "left": "DELAY_CHAIN_CLUSTER",
+      "right": "GENERATED_LOGIC_CLUSTER",
+      "left_region": "delay_chain_region",
+      "right_region": "generated_logic_region",
+      "adjacent_or_reachable": true,
+      "metadata_path": [
+        "delay_chain_region",
+        "generated_logic_region"
+      ]
+    },
+    {
+      "left": "PDRIVE_CLUSTER",
+      "right": "GENERATED_LOGIC_CLUSTER",
+      "left_region": "pdrive_region",
+      "right_region": "generated_logic_region",
+      "adjacent_or_reachable": true,
+      "metadata_path": [
+        "pdrive_region",
+        "generated_logic_region"
+      ]
+    },
+    {
+      "left": "GENERATED_LOGIC_CLUSTER",
+      "right": "DECODER_INTERFACE",
+      "left_region": "generated_logic_region",
+      "right_region": "consumer_handoff_region",
+      "adjacent_or_reachable": true,
+      "metadata_path": [
+        "generated_logic_region",
+        "consumer_handoff_region"
+      ]
+    },
+    {
+      "left": "GENERATED_LOGIC_CLUSTER",
+      "right": "PRECHARGE_HANDOFF",
+      "left_region": "generated_logic_region",
+      "right_region": "precharge_control_region",
+      "adjacent_or_reachable": true,
+      "metadata_path": [
+        "generated_logic_region",
+        "consumer_handoff_region",
+        "precharge_control_region"
+      ]
+    },
+    {
+      "left": "GENERATED_LOGIC_CLUSTER",
+      "right": "WORDLINEDRIVER_HANDOFF",
+      "left_region": "generated_logic_region",
+      "right_region": "wordline_enable_control_region",
+      "adjacent_or_reachable": true,
+      "metadata_path": [
+        "generated_logic_region",
+        "consumer_handoff_region",
+        "wordline_enable_control_region"
+      ]
+    },
+    {
+      "left": "SENSEAMP_HANDOFF",
+      "right": "WRITEDRIVER_HANDOFF",
+      "left_region": "sense_write_enable_region",
+      "right_region": "sense_write_enable_region",
+      "adjacent_or_reachable": true,
+      "metadata_path": [
+        "sense_write_enable_region"
+      ]
+    }
+  ],
+  "channel_margin_rows": [
+    {
+      "region_name": "delay_chain_region",
+      "budget_margin": 1.6,
+      "risk_level": "pass_moderate_margin",
+      "usable_for_metadata_ordering": true
+    },
+    {
+      "region_name": "pdrive_region",
+      "budget_margin": 1.6,
+      "risk_level": "pass_moderate_margin",
+      "usable_for_metadata_ordering": true
+    },
+    {
+      "region_name": "generated_logic_region",
+      "budget_margin": 1.6,
+      "risk_level": "pass_moderate_margin",
+      "usable_for_metadata_ordering": true
+    },
+    {
+      "region_name": "consumer_handoff_region",
+      "budget_margin": 1.6,
+      "risk_level": "pass_moderate_margin",
+      "usable_for_metadata_ordering": true
+    },
+    {
+      "region_name": "precharge_control_region",
+      "budget_margin": 1.6,
+      "risk_level": "pass_moderate_margin",
+      "usable_for_metadata_ordering": true
+    },
+    {
+      "region_name": "wordline_enable_control_region",
+      "budget_margin": 1.0,
+      "risk_level": "pass_moderate_margin",
+      "usable_for_metadata_ordering": true
+    },
+    {
+      "region_name": "sense_write_enable_region",
+      "budget_margin": 1.4,
+      "risk_level": "pass_moderate_margin",
+      "usable_for_metadata_ordering": true
+    }
+  ],
+  "gate_consistency": {
+    "default_enabled": true,
+    "legacy_path_unchanged": true,
+    "standalone_still_blocked": true,
+    "gds_still_blocked": true,
+    "physical_placement_still_blocked": true
+  },
+  "violations": {
+    "group_order_violation_items": [],
+    "missing_region_assignments": [],
+    "misaligned_handoffs": [],
+    "adjacency_violations": [],
+    "negative_margin_regions": []
+  },
+  "consistency_checks": {
+    "packing_invariant_audit_available": true,
+    "required_groups_present": true,
+    "all_subblocks_have_known_region_or_allowed_decoder_boundary": true,
+    "consumer_handoff_regions_aligned": true,
+    "required_adjacency_invariants_hold": true,
+    "all_region_channel_margins_non_negative": true,
+    "default_enabled_still_false": true,
+    "legacy_path_unchanged": true,
+    "standalone_still_blocked": true,
+    "gds_still_blocked": true,
+    "physical_placement_still_blocked": true,
+    "invariants_clean": true
+  },
+  "audit_summary": {
+    "packing_invariant_audit_available": true,
+    "required_groups_present": true,
+    "consumer_handoff_regions_aligned": true,
+    "required_adjacency_invariants_hold": true,
+    "all_region_channel_margins_non_negative": true,
+    "invariants_clean": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "notes": [
+    "This audit checks internal consistency of the metadata payload only.",
+    "Passing invariants does not prove legal placement, legal routing, timing closure, DRC, or LVS.",
+    "The audit is intended to reduce future prototype ambiguity, not to reopen the physical gate."
+  ],
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "can_modify_standalone_now": false,
+  "can_generate_time_control_gds_now": false,
+  "can_enter_physical_placement_now": false
+}

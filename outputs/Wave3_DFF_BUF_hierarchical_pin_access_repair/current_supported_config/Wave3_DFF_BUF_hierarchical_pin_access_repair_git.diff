@@ -1,0 +1,630 @@
+diff --git a/PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json b/PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json
+index 0472a99..3768259 100644
+--- a/PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json
++++ b/PROJECT_LAYOUTGEN_OPENYIELD_STATUS.json
+@@ -1,7 +1,7 @@
+ {
+-  "project_goal": "\u57fa\u4e8e\u539f layoutgen \u7248\u56fe\u751f\u6210\u5668\uff0c\u5c06 OpenYield \u7684\u6a21\u5757\u3001\u7f51\u8868\u8bed\u4e49\u548c\u8fde\u63a5\u5173\u7cfb\u63a5\u5165\u771f\u5b9e SRAM GDS \u751f\u6210\u4e3b\u5e72\uff0c\u751f\u6210 OpenYield-driven layoutgen-based SRAM GDS\u3002",
++  "project_goal": "基于原 layoutgen 版图生成器，将 OpenYield 的模块、网表语义和连接关系接入真实 SRAM GDS 生成主干，生成 OpenYield-driven layoutgen-based SRAM GDS。",
+   "current_route": "M12C4ACH human review passed; repaired DFF released as the only reusable higher-composition candidate.",
+-  "current_stage": "Wave3 / DFF_BUF_VERIFICATION_HARDENING_CLOSURE",
++  "current_stage": "Wave3 / DFF_BUF_HIERARCHICAL_PIN_ACCESS_REPAIR",
+   "next_stage": "Wave3 / DFF_BUF",
+   "must_read_this_file_before_every_task": true,
+   "must_update_this_file_after_every_task": true,
+@@ -122,7 +122,7 @@
+       "artifact_name": "layoutgen_generator_code",
+       "path": "sram_layoutgen/",
+       "artifact_type": "generator_codebase",
+-      "why_reusable": "This is the correct\u5e95\u5ea7 for real SRAM GDS generation.",
++      "why_reusable": "This is the correct底座 for real SRAM GDS generation.",
+       "reuse_scope": "L0-L4",
+       "risk": "Must be re-bound to OpenYield semantics carefully."
+     },
+@@ -201,7 +201,7 @@
+     {
+       "artifact_name": "access_module_cells",
+       "path": "*_access_module",
+-      "deprecated_reason": "Cannot serve as SRAM physical implementation\u4e3b\u4f53.",
++      "deprecated_reason": "Cannot serve as SRAM physical implementation主体.",
+       "do_not_use_as_final": true
+     },
+     {
+@@ -893,7 +893,7 @@
+   "ten_required_assets_for_netlist_to_layout": [
+     {
+       "asset_id": "NETLIST_SEMANTICS",
+-      "asset_name": "\u7f51\u8868 / module / instance / net / pin \u8fde\u63a5\u8bed\u4e49",
++      "asset_name": "网表 / module / instance / net / pin 连接语义",
+       "status_level": "COMPLETE",
+       "evidence_paths": [
+         "outputs/M10_raw_openyield_trace/current_supported_config/M10_source_backed_module_trace.csv",
+@@ -906,7 +906,7 @@
+     },
+     {
+       "asset_id": "PHYSICAL_IMPLEMENTATION_LIBRARY",
+-      "asset_name": "\u6a21\u5757\u7269\u7406\u5b9e\u73b0\u5e93\uff0c\u5305\u62ec layoutgen cell\u3001OpenYield module GDS\u3001hardmacro \u5019\u9009",
++      "asset_name": "模块物理实现库，包括 layoutgen cell、OpenYield module GDS、hardmacro 候选",
+       "status_level": "PARTIAL",
+       "evidence_paths": [
+         "docs/mapping/M11V_baseline_vs_substitution_risk_matrix.csv",
+@@ -930,7 +930,7 @@
+     },
+     {
+       "asset_id": "SRAM_CONFIGURATION",
+-      "asset_name": "SRAM \u53c2\u6570\u914d\u7f6e\uff0c\u5305\u62ec word_size\u3001num_words\u3001words_per_row\u3001rows\u3001cols\u3001mux ratio",
++      "asset_name": "SRAM 参数配置，包括 word_size、num_words、words_per_row、rows、cols、mux ratio",
+       "status_level": "PARTIAL",
+       "evidence_paths": [
+         "docs/M11_openyield_config_variation_report.json",
+@@ -942,7 +942,7 @@
+     },
+     {
+       "asset_id": "FLOORPLAN_RULES",
+-      "asset_name": "floorplan \u89c4\u5219\uff0c\u5305\u62ec array\u3001row path\u3001column path\u3001control\u3001top pin \u533a\u57df",
++      "asset_name": "floorplan 规则，包括 array、row path、column path、control、top pin 区域",
+       "status_level": "PARTIAL",
+       "evidence_paths": [
+         "outputs/M9_openyield_netlist_translator/current_supported_config/M9_placement_routing_power_intent.json",
+@@ -954,7 +954,7 @@
+     },
+     {
+       "asset_id": "PLACEMENT_RULES",
+-      "asset_name": "placement / abutment / orientation / pitch \u5bf9\u9f50\u89c4\u5219",
++      "asset_name": "placement / abutment / orientation / pitch 对齐规则",
+       "status_level": "PARTIAL",
+       "evidence_paths": [
+         "docs/mapping/openyield_placement_rule_matrix.csv",
+@@ -966,7 +966,7 @@
+     },
+     {
+       "asset_id": "ROUTING_RULES",
+-      "asset_name": "WL\u3001BL/BR\u3001control\u3001data\u3001addr\u3001enable \u7b49 routing \u89c4\u5219",
++      "asset_name": "WL、BL/BR、control、data、addr、enable 等 routing 规则",
+       "status_level": "PARTIAL",
+       "evidence_paths": [
+         "outputs/M9_openyield_netlist_translator/current_supported_config/M9_net_binding_matrix.csv",
+@@ -978,7 +978,7 @@
+     },
+     {
+       "asset_id": "POWER_PLAN",
+-      "asset_name": "VDD/GND rail overlap\u3001stitch\u3001abutment\u3001top power pin \u7b56\u7565",
++      "asset_name": "VDD/GND rail overlap、stitch、abutment、top power pin 策略",
+       "status_level": "PARTIAL",
+       "evidence_paths": [
+         "outputs/M8R_fix_golden_geometry_delta/current_supported_config/M8R_fixed_reproduction_report.json",
+@@ -990,7 +990,7 @@
+     },
+     {
+       "asset_id": "GDS_GENERATION_FLOW",
+-      "asset_name": "GDS generator / layoutgen golden flow / write_standalone \u5165\u53e3",
++      "asset_name": "GDS generator / layoutgen golden flow / write_standalone 入口",
+       "status_level": "COMPLETE",
+       "evidence_paths": [
+         "sram_layoutgen/standalone.py",
+@@ -1003,7 +1003,7 @@
+     },
+     {
+       "asset_id": "VERIFICATION_AND_TRACE",
+-      "asset_name": "GDS sanity\u3001golden diff\u3001module/net trace\u3001DRC/LVS feasibility\u3001\u4eba\u5de5 KLayout review",
++      "asset_name": "GDS sanity、golden diff、module/net trace、DRC/LVS feasibility、人工 KLayout review",
+       "status_level": "PARTIAL",
+       "evidence_paths": [
+         "docs/M11V_routing_power_connectivity_verification_report.json",
+@@ -1618,7 +1618,7 @@
+   "sense_amp_substitution_analysis_status": "PASS_REAL_SUBSTITUTION_PROVEN",
+   "sense_amp_substitution_risk_level": "MEDIUM",
+   "recommended_next_stage": "Wave3 / DFF_BUF human visual review",
+-  "recommended_next_stage_reason": "Machine verification hardened successfully. The candidate now requires focused human visual review before any reusable or higher-wave claim.",
++  "recommended_next_stage_reason": "Machine verification now includes hierarchical foreign-net contact closure and repaired DFF pin access, but human visual review is still required.",
+   "remaining_M11D_blockers": [],
+   "remaining_M11D_blockers_count": 0,
+   "human_klayout_review_required": false,
+@@ -2429,6 +2429,10 @@
+     "Timing characterization including setup/hold and clock-to-Q remains incomplete."
+   ],
+   "Wave3_DFF_BUF": {
+-    "current_status": "MACHINE_VERIFIED_CANDIDATE_PENDING_HUMAN_REVIEW"
++    "current_status": "MACHINE_VERIFIED_HIERARCHICAL_PIN_ACCESS_REPAIRED_PENDING_HUMAN_REVIEW"
++  },
++  "Wave3_DFF_BUF_failed_candidate": {
++    "current_status": "QUARANTINED_HUMAN_DETECTED_HIERARCHICAL_INTERNAL_SHORT",
++    "machine_pass_status": "REVOKED_DUE_TO_INCOMPLETE_HIERARCHICAL_CONNECTIVITY_MODEL"
+   }
+ }
+diff --git a/PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md b/PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md
+index 58e8778..eef331d 100644
+--- a/PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md
++++ b/PROJECT_LAYOUTGEN_OPENYIELD_STATUS.md
+@@ -331,9 +331,11 @@ M12N 已完成 OpenYield authoritative SRAM netlist / netlist-generator source 
+ 
+ ## Wave3 / DFF_BUF
+ 
+-- current_status: `MACHINE_VERIFIED_CANDIDATE_PENDING_HUMAN_REVIEW`.
+-- Verification hardening closure removed remaining production defaults for topology-hash match and child-geometry immutability.
+-- Production generator, hardening recheck, and final machine gate now use the same shared verification functions.
+-- Clean GDS remained byte-identical during closure and remains pending focused human visual review.
++- current_status: `MACHINE_VERIFIED_HIERARCHICAL_PIN_ACCESS_REPAIRED_PENDING_HUMAN_REVIEW`.
++- old_candidate_status: `QUARANTINED_HUMAN_DETECTED_HIERARCHICAL_INTERNAL_SHORT`.
++- old_machine_pass_status: `REVOKED_DUE_TO_INCOMPLETE_HIERARCHICAL_CONNECTIVITY_MODEL`.
++- approved_dff_status: `HUMAN_REVIEWED_REUSABLE_COMPOSITE`.
++- repaired_dff_buf_human_verified: `False`.
++- repaired_dff_buf_reusable: `False`.
+ - Recommended next stage: `Wave3 / DFF_BUF human visual review`.
+-- Recommended next stage reason: `Machine verification hardened successfully. The candidate now requires focused human visual review before any reusable or higher-wave claim.`
++- Recommended next stage reason: `Machine verification now includes hierarchical foreign-net contact closure and repaired DFF pin access, but human visual review is still required.`
+diff --git a/PROJECT_NETLIST_TO_LAYOUT_GOAL.md b/PROJECT_NETLIST_TO_LAYOUT_GOAL.md
+index e33c943..9974733 100644
+--- a/PROJECT_NETLIST_TO_LAYOUT_GOAL.md
++++ b/PROJECT_NETLIST_TO_LAYOUT_GOAL.md
+@@ -185,9 +185,11 @@
+ 
+ ## Wave3 / DFF_BUF
+ 
+-- current_status: `MACHINE_VERIFIED_CANDIDATE_PENDING_HUMAN_REVIEW`.
+-- Verification hardening closure removed remaining production defaults for topology-hash match and child-geometry immutability.
+-- Production generator, hardening recheck, and final machine gate now use the same shared verification functions.
+-- Clean GDS remained byte-identical during closure and remains pending focused human visual review.
++- current_status: `MACHINE_VERIFIED_HIERARCHICAL_PIN_ACCESS_REPAIRED_PENDING_HUMAN_REVIEW`.
++- old_candidate_status: `QUARANTINED_HUMAN_DETECTED_HIERARCHICAL_INTERNAL_SHORT`.
++- old_machine_pass_status: `REVOKED_DUE_TO_INCOMPLETE_HIERARCHICAL_CONNECTIVITY_MODEL`.
++- approved_dff_status: `HUMAN_REVIEWED_REUSABLE_COMPOSITE`.
++- repaired_dff_buf_human_verified: `False`.
++- repaired_dff_buf_reusable: `False`.
+ - Recommended next stage: `Wave3 / DFF_BUF human visual review`.
+-- Recommended next stage reason: `Machine verification hardened successfully. The candidate now requires focused human visual review before any reusable or higher-wave claim.`
++- Recommended next stage reason: `Machine verification now includes hierarchical foreign-net contact closure and repaired DFF pin access, but human visual review is still required.`
+diff --git a/PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md b/PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md
+index eeb3184..15b3318 100644
+--- a/PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md
++++ b/PROJECT_NETLIST_TO_LAYOUT_PROGRESS.md
+@@ -458,9 +458,11 @@
+ 
+ ## Wave3 / DFF_BUF
+ 
+-- current_status: `MACHINE_VERIFIED_CANDIDATE_PENDING_HUMAN_REVIEW`.
+-- Verification hardening closure removed remaining production defaults for topology-hash match and child-geometry immutability.
+-- Production generator, hardening recheck, and final machine gate now use the same shared verification functions.
+-- Clean GDS remained byte-identical during closure and remains pending focused human visual review.
++- current_status: `MACHINE_VERIFIED_HIERARCHICAL_PIN_ACCESS_REPAIRED_PENDING_HUMAN_REVIEW`.
++- old_candidate_status: `QUARANTINED_HUMAN_DETECTED_HIERARCHICAL_INTERNAL_SHORT`.
++- old_machine_pass_status: `REVOKED_DUE_TO_INCOMPLETE_HIERARCHICAL_CONNECTIVITY_MODEL`.
++- approved_dff_status: `HUMAN_REVIEWED_REUSABLE_COMPOSITE`.
++- repaired_dff_buf_human_verified: `False`.
++- repaired_dff_buf_reusable: `False`.
+ - Recommended next stage: `Wave3 / DFF_BUF human visual review`.
+-- Recommended next stage reason: `Machine verification hardened successfully. The candidate now requires focused human visual review before any reusable or higher-wave claim.`
++- Recommended next stage reason: `Machine verification now includes hierarchical foreign-net contact closure and repaired DFF pin access, but human visual review is still required.`
+diff --git a/sram_layoutgen/openyield_adapter/composite_pin_access_planner.py b/sram_layoutgen/openyield_adapter/composite_pin_access_planner.py
+index e220d05..ade435e 100644
+--- a/sram_layoutgen/openyield_adapter/composite_pin_access_planner.py
++++ b/sram_layoutgen/openyield_adapter/composite_pin_access_planner.py
+@@ -86,31 +86,65 @@ def plan_pin_access(
+     selected_geometries: list[dict[str, Any]] = []
+     for endpoint in endpoint_rows:
+         pin_bbox = endpoint["bbox"]
+-        expanded_obstacles = [
+-            expand_bbox(obstacle["bbox"], min_space)
+-            for obstacle in obstacle_rows
+-            if obstacle["owner_endpoint"] != endpoint["endpoint"]
+-        ]
++        access_mode = endpoint.get("access_mode", "directional_escape")
++        allowed_obstacle_nets = set(endpoint.get("allowed_obstacle_hierarchical_nets", []))
++        expanded_m1_obstacles = []
++        expanded_m2_obstacles = []
++        expanded_via1_obstacles = []
++        for obstacle in obstacle_rows:
++            if obstacle.get("owner_endpoint") == endpoint["endpoint"]:
++                continue
++            if obstacle.get("hierarchical_net_identity") in allowed_obstacle_nets:
++                continue
++            expanded = expand_bbox(obstacle["bbox"], min_space)
++            if obstacle.get("layer") == "m1":
++                expanded_m1_obstacles.append(expanded)
++            elif obstacle.get("layer") == "m2":
++                expanded_m2_obstacles.append(expanded)
++            elif obstacle.get("layer") == "via1":
++                expanded_via1_obstacles.append(expanded)
+         candidates = []
+-        for direction in _default_directions(endpoint["endpoint"]):
+-            via_center, escape = _candidate_for_direction(
+-                pin_bbox=pin_bbox,
+-                direction=direction,
+-                landing_size=landing_size,
+-                access_clearance=min_space,
+-                grid=grid,
+-            )
+-            m1_landing = snap_rect_with_legal_width(cx=via_center[0], cy=via_center[1], width=landing_size, height=landing_size, grid=grid)
+-            m2_landing = snap_rect_with_legal_width(cx=via_center[0], cy=via_center[1], width=landing_size, height=landing_size, grid=grid)
+-            via_bbox = snap_rect_with_legal_width(cx=via_center[0], cy=via_center[1], width=via_size, height=via_size, grid=grid)
+-            blocked = any(
+-                bbox_overlaps(expand_bbox(shape, 0.0), obstacle)
+-                for shape in (m1_landing, escape)
+-                for obstacle in expanded_obstacles
+-            )
++        candidate_directions = ["direct_left", "direct_center", "direct_right"] if access_mode == "direct_via1_to_m2_escape" else _default_directions(endpoint["endpoint"])
++        for direction in candidate_directions:
++            if access_mode == "direct_via1_to_m2_escape":
++                half = landing_size * 0.5
++                cx_left = snap_via_center(pin_bbox["lx"] + half, grid)
++                cx_right = snap_via_center(pin_bbox["rx"] - half, grid)
++                cx_center = snap_via_center((pin_bbox["lx"] + pin_bbox["rx"]) * 0.5, grid)
++                cy = snap_via_center((pin_bbox["by"] + pin_bbox["uy"]) * 0.5, grid)
++                cx = {"direct_left": cx_left, "direct_center": cx_center, "direct_right": cx_right}[direction]
++                via_center = (cx, cy)
++                m1_landing = snap_rect_with_legal_width(cx=cx, cy=cy, width=landing_size, height=landing_size, grid=grid)
++                m2_landing = snap_rect_with_legal_width(cx=cx, cy=cy, width=landing_size, height=landing_size, grid=grid)
++                via_bbox = snap_rect_with_legal_width(cx=cx, cy=cy, width=via_size, height=via_size, grid=grid)
++                blocked = not bbox_contains(pin_bbox, m1_landing)
++                if not blocked:
++                    blocked = any(bbox_overlaps(m1_landing, obstacle) for obstacle in expanded_m1_obstacles)
++                if not blocked:
++                    blocked = any(bbox_overlaps(m2_landing, obstacle) for obstacle in expanded_m2_obstacles)
++                if not blocked:
++                    blocked = any(bbox_overlaps(via_bbox, obstacle) for obstacle in expanded_via1_obstacles)
++                escape = m1_landing
++            else:
++                via_center, escape = _candidate_for_direction(
++                    pin_bbox=pin_bbox,
++                    direction=direction,
++                    landing_size=landing_size,
++                    access_clearance=min_space,
++                    grid=grid,
++                )
++                m1_landing = snap_rect_with_legal_width(cx=via_center[0], cy=via_center[1], width=landing_size, height=landing_size, grid=grid)
++                m2_landing = snap_rect_with_legal_width(cx=via_center[0], cy=via_center[1], width=landing_size, height=landing_size, grid=grid)
++                via_bbox = snap_rect_with_legal_width(cx=via_center[0], cy=via_center[1], width=via_size, height=via_size, grid=grid)
++                blocked = any(
++                    bbox_overlaps(expand_bbox(shape, 0.0), obstacle)
++                    for shape in (m1_landing, escape)
++                    for obstacle in expanded_m1_obstacles
++                )
+             candidate = {
+                 "endpoint": endpoint["endpoint"],
+                 "direction": direction,
++                "access_mode": access_mode,
+                 "selected_via_center": [via_center[0], via_center[1]],
+                 "m1_landing_bbox": m1_landing,
+                 "m2_landing_bbox": m2_landing,
+@@ -126,6 +160,7 @@ def plan_pin_access(
+                     "instance_name": endpoint["instance_name"],
+                     "net_name": endpoint["net_name"],
+                     "candidate_direction": direction,
++                    "access_mode": access_mode,
+                     "selected_via_center": str(candidate["selected_via_center"]),
+                     "m1_landing_bbox": str(candidate["m1_landing_bbox"]),
+                     "m2_landing_bbox": str(candidate["m2_landing_bbox"]),
+@@ -148,6 +183,7 @@ def plan_pin_access(
+                 "endpoint": endpoint["endpoint"],
+                 "instance_name": endpoint["instance_name"],
+                 "net_name": endpoint["net_name"],
++                "access_mode": access_mode,
+                 "candidate_count": len(candidates),
+                 "selected_candidate": selected["direction"],
+                 "selected_via_center": str(selected["selected_via_center"]),
+diff --git a/sram_layoutgen/openyield_adapter/dff_buf_composite_generator.py b/sram_layoutgen/openyield_adapter/dff_buf_composite_generator.py
+index 368dd03..1eb3203 100644
+--- a/sram_layoutgen/openyield_adapter/dff_buf_composite_generator.py
++++ b/sram_layoutgen/openyield_adapter/dff_buf_composite_generator.py
+@@ -18,6 +18,8 @@ from sram_layoutgen.openyield_adapter.dff_buf_verification_gate import (
+ )
+ from sram_layoutgen.openyield_adapter.gds_hierarchy_clone_renamer import merge_unique_cells
+ from sram_layoutgen.openyield_adapter.grid_legal_geometry import snap_bbox, snap_coordinate
++from sram_layoutgen.openyield_adapter.hierarchical_foreign_net_detector import detect_hierarchical_foreign_net_contacts
++from sram_layoutgen.openyield_adapter.hierarchical_obstacle_model import build_child_conductive_obstacle_map, hierarchical_net_namespace
+ from sram_layoutgen.openyield_adapter.hierarchical_connectivity_verifier import verify_hierarchical_connectivity
+ from sram_layoutgen.openyield_adapter.primitive_geometry_verifier import (
+     conductive_geometry_fingerprint,
+@@ -164,9 +166,11 @@ def generate_dff_buf_composite(
+     output_root: Path,
+     drc_deck: Path,
+     klayout_path: Path,
++    physical_variant_tag: str = "",
+     write_gds: bool = True,
+ ) -> dict[str, Any]:
+-    physical_cell_name = f"DFF_BUF_FPDK45_{source_topology_hash}"
++    variant_suffix = f"_{physical_variant_tag}" if physical_variant_tag else ""
++    physical_cell_name = f"DFF_BUF_FPDK45_{source_topology_hash}{variant_suffix}"
+     cell_dir = output_root / physical_cell_name
+     cell_dir.mkdir(parents=True, exist_ok=True)
+     tech = Tech.freepdk45(repo_root)
+@@ -269,7 +273,26 @@ def generate_dff_buf_composite(
+         pin_order = json.loads(row["child_pin_order"])
+         for pin_name, net_name in zip(pin_order, net_names):
+             shifted = _shift_pin(pin_map[pin_name], origin[0], origin[1]) if isinstance(pin_map[pin_name], dict) else _shift_pin(pin_map[pin_name][0], origin[0], origin[1])
+-            endpoints_by_net[net_name].append({"endpoint_name": f"{instance_name}.{pin_name}", "bbox": shifted})
++            intended_hierarchical = "PARENT::qint" if net_name == "qint" else f"TOP::{net_name}"
++            hierarchical_binding = {
++                "dff.D": ["dff::D"],
++                "dff.CLK": ["dff::CLK"],
++                "dff.Q": ["dff::Q"],
++                "inv1.A": ["inv1::A"],
++                "inv1.Z": ["inv1::Z"],
++                "inv2.A": ["inv2::A"],
++                "inv2.Z": ["inv2::Z"],
++            }.get(f"{instance_name}.{pin_name}", [])
++            access_mode = "direct_via1_to_m2_escape" if instance_name == "dff" and pin_name in {"D", "CLK", "Q"} else "directional_escape"
++            endpoints_by_net[net_name].append(
++                {
++                    "endpoint_name": f"{instance_name}.{pin_name}",
++                    "bbox": shifted,
++                    "intended_hierarchical_net": intended_hierarchical,
++                    "access_mode": access_mode,
++                    "allowed_obstacle_hierarchical_nets": hierarchical_binding,
++                }
++            )
+             if pin_name == "VDD":
+                 vdd_boxes.append(shifted)
+             elif pin_name == "VSS":
+@@ -289,8 +312,26 @@ def generate_dff_buf_composite(
+             }
+         )
+ 
++    obstacle_map = build_child_conductive_obstacle_map(
++        placement_rows=placement_rows,
++        child_source_rows=binding_rows,
++    )
++    obstacle_rows = [
++        {
++            "owner_endpoint": None,
++            "bbox": {
++                "lx": row["transformed_bbox"][0],
++                "by": row["transformed_bbox"][1],
++                "rx": row["transformed_bbox"][2],
++                "uy": row["transformed_bbox"][3],
++            },
++            "hierarchical_net_identity": row["hierarchical_net_identity"],
++            "layer": row["layer"],
++        }
++        for row in obstacle_map["objects"]
++    ]
+     power_report = _connect_power_rows(top=top, tech=tech, vdd_boxes=vdd_boxes, vss_boxes=vss_boxes)
+-    routing_channel_base_y = snap_coordinate(max(max(box["uy"] for box in vdd_boxes), max_y * 0.48) + 0.25, tech.manufacturing_grid)
++    routing_channel_base_y = snap_coordinate(max(max(box["uy"] for box in vdd_boxes), max_y) + 0.35, tech.manufacturing_grid)
+     routing_channel_right_x = snap_coordinate(max_x + 0.40, tech.manufacturing_grid)
+     top_pin_anchors = {
+         "D": snap_coordinate(min_x - 0.35, tech.manufacturing_grid),
+@@ -302,6 +343,7 @@ def generate_dff_buf_composite(
+         top=top,
+         tech=tech,
+         endpoints_by_net={name: endpoints_by_net[name] for name in ["CLK", "D", "Q", "QB", "qint"]},
++        obstacle_rows=obstacle_rows,
+         top_pin_anchors=top_pin_anchors,
+         routing_channel_base_y=routing_channel_base_y,
+         routing_channel_right_x=routing_channel_right_x,
+@@ -337,6 +379,10 @@ def generate_dff_buf_composite(
+         endpoints_by_net=endpoints_by_net,
+         top_pin_bboxes=top_pin_pads,
+     )
++    hierarchical_contact_report = detect_hierarchical_foreign_net_contacts(
++        route_objects=route_plan["route_objects"],
++        obstacle_objects=obstacle_map["objects"],
++    )
+     namespace_report = verify_composite_pin_namespace(clean_gds, physical_cell_name, ["VDD", "VSS", "D", "Q", "QB", "CLK"])
+     hierarchy_report = verify_composite_hierarchy_closure(clean_gds, physical_cell_name)
+     drc = run_cell_drc(klayout_path, drc_deck, clean_gds, physical_cell_name, output_root)
+@@ -490,7 +536,10 @@ def generate_dff_buf_composite(
+         "top_pin_pads": top_pin_pads,
+         "route_plan": route_plan,
+         "power_report": power_report,
++        "hierarchical_namespace": hierarchical_net_namespace(),
++        "child_conductive_obstacle_map": obstacle_map,
+         "connectivity": connectivity,
++        "hierarchical_contact_report": hierarchical_contact_report,
+         "namespace_report": namespace_report,
+         "hierarchy_report": hierarchy_report,
+         "drc": drc,
+diff --git a/sram_layoutgen/openyield_adapter/dff_route_planner.py b/sram_layoutgen/openyield_adapter/dff_route_planner.py
+index 017af15..84a837e 100644
+--- a/sram_layoutgen/openyield_adapter/dff_route_planner.py
++++ b/sram_layoutgen/openyield_adapter/dff_route_planner.py
+@@ -29,15 +29,16 @@ def _flatten_endpoint_rows(endpoints_by_net: dict[str, list[dict[str, Any]]]) ->
+     rows = []
+     for net_name, endpoints in endpoints_by_net.items():
+         for endpoint in endpoints:
+-            rows.append(
+-                {
+-                    "net_name": net_name,
+-                    "endpoint": endpoint["endpoint_name"],
+-                    "instance_name": endpoint["endpoint_name"].split(".", 1)[0],
+-                    "pin_name": endpoint["endpoint_name"].split(".", 1)[1],
+-                    "bbox": endpoint["bbox"],
+-                }
+-            )
++            row = {
++                "net_name": net_name,
++                "endpoint": endpoint["endpoint_name"],
++                "instance_name": endpoint["endpoint_name"].split(".", 1)[0],
++                "pin_name": endpoint["endpoint_name"].split(".", 1)[1],
++                "bbox": endpoint["bbox"],
++                "access_mode": endpoint.get("access_mode", "directional_escape"),
++                "allowed_obstacle_hierarchical_nets": endpoint.get("allowed_obstacle_hierarchical_nets", []),
++            }
++            rows.append(row)
+     return rows
+ 
+ 
+@@ -147,6 +148,7 @@ def generate_dff_signal_routes(
+     top: gdstk.Cell,
+     tech: Tech,
+     endpoints_by_net: dict[str, list[dict[str, Any]]],
++    obstacle_rows: list[dict[str, Any]] | None = None,
+     top_pin_anchors: dict[str, float],
+     routing_channel_base_y: float,
+     routing_channel_right_x: float,
+@@ -163,7 +165,8 @@ def generate_dff_signal_routes(
+     net_names = list(net_names) if net_names is not None else ["CLK", "CLKB", "D", "D_b", "z1", "z2", "z3", "z4", "z5", "Q", "QB"]
+ 
+     endpoint_rows = _flatten_endpoint_rows({name: endpoints_by_net[name] for name in net_names})
+-    obstacle_rows = _build_endpoint_obstacles(endpoint_rows)
++    if obstacle_rows is None:
++        obstacle_rows = _build_endpoint_obstacles(endpoint_rows)
+     pin_access = plan_pin_access(
+         endpoint_rows=endpoint_rows,
+         obstacle_rows=obstacle_rows,
+@@ -193,6 +196,7 @@ def generate_dff_signal_routes(
+     m1_rects: list[dict[str, float]] = []
+     m2_rects: list[dict[str, float]] = []
+     via_rects: list[dict[str, float]] = []
++    route_objects: list[dict[str, Any]] = []
+ 
+     for order, net_name in enumerate(net_names):
+         endpoints = endpoints_by_net[net_name]
+@@ -216,12 +220,35 @@ def generate_dff_signal_routes(
+                 m2_landing = snap_rect_with_legal_width(cx=via_center[0], cy=via_center[1], width=landing, height=landing, grid=grid)
+             via_bbox = snap_rect_with_legal_width(cx=via_center[0], cy=via_center[1], width=via_rule.size, height=via_rule.size, grid=grid)
+             _add_rect(top, m1_landing, 11, 0)
+-            _add_rect(top, escape_bbox, 11, 0)
+-            m1_rects.extend([m1_landing, escape_bbox])
++            m1_rects.append(m1_landing)
++            route_objects.append(
++                {
++                    "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:m1_landing",
++                    "net_name": net_name,
++                    "intended_hierarchical_net": endpoint["intended_hierarchical_net"],
++                    "layer": "m1",
++                    "bbox": bbox_to_list(m1_landing),
++                    "role": "pin_access_landing",
++                }
++            )
++            if selected.get("access_mode") != "direct_via1_to_m2_escape":
++                _add_rect(top, escape_bbox, 11, 0)
++                m1_rects.append(escape_bbox)
++                route_objects.append(
++                    {
++                        "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:m1_escape",
++                        "net_name": net_name,
++                        "intended_hierarchical_net": endpoint["intended_hierarchical_net"],
++                        "layer": "m1",
++                        "bbox": bbox_to_list(escape_bbox),
++                        "role": "pin_access_escape",
++                    }
++                )
+             xs.append(via_center[0])
+             pending_columns.append(
+                 {
+                     "endpoint": endpoint,
++                    "selected": selected,
+                     "via_center": via_center,
+                     "escape_bbox": escape_bbox,
+                     "m2_landing": m2_landing,
+@@ -242,6 +269,16 @@ def generate_dff_signal_routes(
+             _add_rect(top, top_pin_bbox, 11, 0)
+             top.add(gdstk.Label(net_name, ((top_pin_bbox["lx"] + top_pin_bbox["rx"]) * 0.5, (top_pin_bbox["by"] + top_pin_bbox["uy"]) * 0.5), layer=11, texttype=0))
+             m1_rects.append(top_pin_bbox)
++            route_objects.append(
++                {
++                    "route_object_id": f"{net_name}:TOP:m1_pin",
++                    "net_name": net_name,
++                    "intended_hierarchical_net": f"TOP::{net_name}",
++                    "layer": "m1",
++                    "bbox": bbox_to_list(top_pin_bbox),
++                    "role": "top_pin",
++                }
++            )
+             xs.extend([top_pin_bbox["lx"], top_pin_bbox["rx"]])
+ 
+         track_x0 = min(xs) if xs else 0.0
+@@ -249,6 +286,16 @@ def generate_dff_signal_routes(
+         track_bbox = _track_bbox(track_y, m1_rule.min_width, track_x0, max(track_x1, routing_channel_right_x), grid)
+         _add_rect(top, track_bbox, 11, 0)
+         m1_rects.append(track_bbox)
++        route_objects.append(
++            {
++                "route_object_id": f"{net_name}:TRACK:m1",
++                "net_name": net_name,
++                "intended_hierarchical_net": "PARENT::qint" if net_name == "qint" else f"TOP::{net_name}",
++                "layer": "m1",
++                "bbox": bbox_to_list(track_bbox),
++                "role": "horizontal_track",
++            }
++        )
+         route_segments.append(
+             {
+                 "net_name": net_name,
+@@ -273,12 +320,42 @@ def generate_dff_signal_routes(
+             via_rects.append(pending["via_bbox"])
+             m2_rects.append(pending["m2_landing"])
+             vias.append(_via_dict(net_name, via_center[0], via_center[1], via_rule.size, landing, order, "pin_access"))
++            route_objects.append(
++                {
++                    "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:via_pin",
++                    "net_name": net_name,
++                    "intended_hierarchical_net": endpoint["intended_hierarchical_net"],
++                    "layer": "via1",
++                    "bbox": bbox_to_list(pending["via_bbox"]),
++                    "role": "pin_access_via",
++                }
++            )
++            route_objects.append(
++                {
++                    "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:m2_landing",
++                    "net_name": net_name,
++                    "intended_hierarchical_net": endpoint["intended_hierarchical_net"],
++                    "layer": "m2",
++                    "bbox": bbox_to_list(pending["m2_landing"]),
++                    "role": "pin_access_m2_landing",
++                }
++            )
+ 
+             lower_y = via_center[1] + landing * 0.5
+             upper_y = track_y - landing * 0.5
+             vertical_bbox = rect_from_segment((via_center[0], lower_y), (via_center[0], upper_y), m2_rule.min_width, grid)
+             _add_rect(top, vertical_bbox, 13, 0)
+             m2_rects.append(vertical_bbox)
++            route_objects.append(
++                {
++                    "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:m2_escape",
++                    "net_name": net_name,
++                    "intended_hierarchical_net": endpoint["intended_hierarchical_net"],
++                    "layer": "m2",
++                    "bbox": bbox_to_list(vertical_bbox),
++                    "role": "vertical_escape",
++                }
++            )
+             route_segments.append(
+                 {
+                     "net_name": net_name,
+@@ -304,6 +381,34 @@ def generate_dff_signal_routes(
+             via_rects.append(track_via_bbox)
+             m2_rects.append(track_m2_landing)
+             vias.append(_via_dict(net_name, via_center[0], track_y, via_rule.size, landing, order, "track_drop"))
++            route_objects.extend(
++                [
++                    {
++                        "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:track_drop_m1",
++                        "net_name": net_name,
++                        "intended_hierarchical_net": "PARENT::qint" if net_name == "qint" else f"TOP::{net_name}",
++                        "layer": "m1",
++                        "bbox": bbox_to_list(track_m1_landing),
++                        "role": "track_drop_m1_landing",
++                    },
++                    {
++                        "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:track_drop_via",
++                        "net_name": net_name,
++                        "intended_hierarchical_net": "PARENT::qint" if net_name == "qint" else f"TOP::{net_name}",
++                        "layer": "via1",
++                        "bbox": bbox_to_list(track_via_bbox),
++                        "role": "track_drop_via",
++                    },
++                    {
++                        "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:track_drop_m2",
++                        "net_name": net_name,
++                        "intended_hierarchical_net": "PARENT::qint" if net_name == "qint" else f"TOP::{net_name}",
++                        "layer": "m2",
++                        "bbox": bbox_to_list(track_m2_landing),
++                        "role": "track_drop_m2_landing",
++                    },
++                ]
++            )
+         route_graph_nets.append(
+             {
+                 "net_name": net_name,
+@@ -320,6 +425,7 @@ def generate_dff_signal_routes(
+         "pin_access": pin_access,
+         "column_allocation": column_alloc,
+         "track_allocation": track_alloc,
++        "route_objects": route_objects,
+         "routing_architecture_has_no_same_layer_crossovers": True,
+         "pin_access_planning_passed": pin_access["pin_access_planning_passed"],
+         "off_grid_m1_vertex_count": count_off_grid_vertices(m1_rects, grid),

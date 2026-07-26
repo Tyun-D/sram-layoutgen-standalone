@@ -1,0 +1,2723 @@
+{
+  "scope": "time_control_composite_internal_placement_feasibility_audit",
+  "repo_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "input_reports_and_assets": {
+    "leaf_inventory": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_leaf_inventory_report.json",
+    "power_rail_audit": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_hardcell_power_rail_continuity_report.json",
+    "generated_logic_contracts": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_generated_logic_contract_report.json",
+    "abstract_payload": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_abstract_floorplan_payload_report.json",
+    "region_refinement": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_time_control_region_refinement_report.json"
+  },
+  "subblock_composite_topology": [
+    {
+      "subblock_name": "PINV",
+      "source_contract": "PINV_GENERATED_LOGIC_CONTRACT",
+      "leaf_sequence": [
+        "gen_inv"
+      ],
+      "leaf_macros": [
+        "gen_inv"
+      ],
+      "recommended_leaf_variants": [
+        "openram_replacements"
+      ],
+      "leaf_count": 1,
+      "leaf_bbox_list": [
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 1.4000000000000001
+        }
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 0.8225,
+        "y1": 1.4800000000000002,
+        "width": 0.8225,
+        "height": 1.4800000000000002,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 0.8225,
+      "bbox_proxy_height": 1.4800000000000002,
+      "internal_ordering": "single_stage",
+      "internal_net_list": [],
+      "input_ports": [
+        "A"
+      ],
+      "output_ports": [
+        "Z"
+      ],
+      "control_ports": [],
+      "input_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "A"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "A": [
+            "left"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "Z"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "Z": [
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "not_applicable",
+        "available_ports": [],
+        "missing_ports": [],
+        "side_hints": {}
+      },
+      "internal_net_accessibility": {
+        "status": "not_applicable",
+        "internal_nets": [],
+        "notes": "no internal composite handoff net is required."
+      },
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": true,
+      "power_side_policy": "consistent_vdd_top_gnd_bottom",
+      "precharge_exception_if_any": null,
+      "requires_spacing_rule": true,
+      "spacing_rule_available": true,
+      "requires_keepout": true,
+      "keepout_available": true,
+      "requires_row_alignment": false,
+      "row_alignment_available": true,
+      "requires_internal_routing": false,
+      "internal_routing_proven": false,
+      "requires_timing_proof": true,
+      "timing_proof_available": false,
+      "requires_rail_continuity": true,
+      "rail_continuity_proven": false,
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "feasibility_classification": "ready_for_readonly_legal_placement_planning",
+      "notes": [
+        "Unified metadata mapping for clk_buf->clk_bar, rbl_delay->rbl_delay_bar, and wl_en->wl_en_bar.",
+        "Physical placement remains blocked despite local GDS availability.",
+        "Suitable for future prototype planning only.",
+        "required_channel_width=0.4",
+        "reserved_channel_width=2.0",
+        "budget_margin=1.6"
+      ],
+      "blockers": [
+        "stdcell physical library not proven",
+        "no legal routing proof",
+        "no DRC/LVS proof"
+      ]
+    },
+    {
+      "subblock_name": "AND2",
+      "source_contract": "AND2_GENERATED_LOGIC_CONTRACT",
+      "leaf_sequence": [
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "leaf_macros": [
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "recommended_leaf_variants": [
+        "openram_replacements",
+        "openram_replacements"
+      ],
+      "leaf_count": 2,
+      "leaf_bbox_list": [
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.9575,
+          "y1": 1.4000000000000001
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 1.4000000000000001
+        }
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 1.86,
+        "y1": 1.4800000000000002,
+        "width": 1.86,
+        "height": 1.4800000000000002,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 1.86,
+      "bbox_proxy_height": 1.4800000000000002,
+      "internal_ordering": "gen_nand2 -> gen_inv",
+      "internal_net_list": [
+        "n_ab"
+      ],
+      "input_ports": [
+        "A",
+        "B"
+      ],
+      "output_ports": [
+        "Z"
+      ],
+      "control_ports": [],
+      "input_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "A",
+          "B"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "A": [
+            "left"
+          ],
+          "B": [
+            "internal"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "Z"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "Z": [
+            "internal",
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "not_applicable",
+        "available_ports": [],
+        "missing_ports": [],
+        "side_hints": {}
+      },
+      "internal_net_accessibility": {
+        "status": "metadata_proxy_only",
+        "internal_nets": [
+          "n_ab"
+        ],
+        "notes": "internal net accessibility is inferred from stage ordering and exposed leaf pin sides only; no internal routing is proven."
+      },
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": true,
+      "power_side_policy": "consistent_vdd_top_gnd_bottom",
+      "precharge_exception_if_any": null,
+      "requires_spacing_rule": true,
+      "spacing_rule_available": true,
+      "requires_keepout": true,
+      "keepout_available": true,
+      "requires_row_alignment": false,
+      "row_alignment_available": true,
+      "requires_internal_routing": true,
+      "internal_routing_proven": false,
+      "requires_timing_proof": true,
+      "timing_proof_available": false,
+      "requires_rail_continuity": true,
+      "rail_continuity_proven": false,
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "feasibility_classification": "ready_for_readonly_feasibility_but_missing_timing",
+      "notes": [
+        "AND2 is represented as PNAND2 + INV semantic composition.",
+        "No direct physical AND2 macro is claimed.",
+        "Suitable for future prototype planning only.",
+        "required_channel_width=0.4",
+        "reserved_channel_width=2.0",
+        "budget_margin=1.6"
+      ],
+      "blockers": [
+        "timing proof required",
+        "routing proof required",
+        "stdcell physical library not proven",
+        "no legal routing proof",
+        "no DRC/LVS proof"
+      ]
+    },
+    {
+      "subblock_name": "AND3_COMPOSITE",
+      "source_contract": "AND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+      "leaf_sequence": [
+        "gen_nand2",
+        "gen_inv",
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "leaf_macros": [
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "recommended_leaf_variants": [
+        "openram_replacements",
+        "openram_replacements",
+        "openram_replacements",
+        "openram_replacements"
+      ],
+      "leaf_count": 4,
+      "leaf_bbox_list": [
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.9575,
+          "y1": 1.4000000000000001
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 1.4000000000000001
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.9575,
+          "y1": 1.4000000000000001
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 1.4000000000000001
+        }
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 3.72,
+        "y1": 1.4800000000000002,
+        "width": 3.72,
+        "height": 1.4800000000000002,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 3.72,
+      "bbox_proxy_height": 1.4800000000000002,
+      "internal_ordering": "gen_nand2 -> gen_inv -> gen_nand2 -> gen_inv",
+      "internal_net_list": [
+        "ab_n",
+        "ab",
+        "abc_n"
+      ],
+      "input_ports": [
+        "A",
+        "B",
+        "C"
+      ],
+      "output_ports": [
+        "Z"
+      ],
+      "control_ports": [],
+      "input_pin_accessibility": {
+        "status": "partial",
+        "available_ports": [
+          "A",
+          "B"
+        ],
+        "missing_ports": [
+          "C"
+        ],
+        "side_hints": {
+          "A": [
+            "left"
+          ],
+          "B": [
+            "internal"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "Z"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "Z": [
+            "internal",
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "not_applicable",
+        "available_ports": [],
+        "missing_ports": [],
+        "side_hints": {}
+      },
+      "internal_net_accessibility": {
+        "status": "metadata_proxy_only",
+        "internal_nets": [
+          "ab_n",
+          "ab",
+          "abc_n"
+        ],
+        "notes": "internal net accessibility is inferred from stage ordering and exposed leaf pin sides only; no internal routing is proven."
+      },
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": true,
+      "power_side_policy": "consistent_vdd_top_gnd_bottom",
+      "precharge_exception_if_any": null,
+      "requires_spacing_rule": true,
+      "spacing_rule_available": true,
+      "requires_keepout": true,
+      "keepout_available": true,
+      "requires_row_alignment": false,
+      "row_alignment_available": true,
+      "requires_internal_routing": true,
+      "internal_routing_proven": false,
+      "requires_timing_proof": true,
+      "timing_proof_available": false,
+      "requires_rail_continuity": true,
+      "rail_continuity_proven": false,
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "feasibility_classification": "ready_for_readonly_feasibility_but_missing_timing",
+      "notes": [
+        "Reuses decoder convention: AND3_COMPOSITE_NAND2_INV.",
+        "Input order is preserved for both write_enable and sense_enable contracts.",
+        "Suitable for future prototype planning only.",
+        "required_channel_width=0.4",
+        "reserved_channel_width=2.0",
+        "budget_margin=1.6"
+      ],
+      "blockers": [
+        "timing proof required",
+        "routing proof required",
+        "stdcell physical library not proven",
+        "no legal routing proof",
+        "no DRC/LVS proof",
+        "handoff constraints are metadata-only",
+        "channel reservation rules are not legal routing",
+        "control routing proof is missing",
+        "delay timing proof is missing"
+      ]
+    },
+    {
+      "subblock_name": "PNAND3_COMPOSITE",
+      "source_contract": "PNAND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+      "leaf_sequence": [
+        "gen_nand2",
+        "gen_inv",
+        "gen_nand2"
+      ],
+      "leaf_macros": [
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "recommended_leaf_variants": [
+        "openram_replacements",
+        "openram_replacements",
+        "openram_replacements"
+      ],
+      "leaf_count": 3,
+      "leaf_bbox_list": [
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.9575,
+          "y1": 1.4000000000000001
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 1.4000000000000001
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.9575,
+          "y1": 1.4000000000000001
+        }
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 2.8975,
+        "y1": 1.4800000000000002,
+        "width": 2.8975,
+        "height": 1.4800000000000002,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 2.8975,
+      "bbox_proxy_height": 1.4800000000000002,
+      "internal_ordering": "gen_nand2 -> gen_inv -> gen_nand2",
+      "internal_net_list": [
+        "ab_n",
+        "ab"
+      ],
+      "input_ports": [
+        "A",
+        "B",
+        "C"
+      ],
+      "output_ports": [
+        "ZN"
+      ],
+      "control_ports": [],
+      "input_pin_accessibility": {
+        "status": "partial",
+        "available_ports": [
+          "A",
+          "B"
+        ],
+        "missing_ports": [
+          "C"
+        ],
+        "side_hints": {
+          "A": [
+            "left"
+          ],
+          "B": [
+            "internal"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "ZN"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "ZN": [
+            "internal",
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "not_applicable",
+        "available_ports": [],
+        "missing_ports": [],
+        "side_hints": {}
+      },
+      "internal_net_accessibility": {
+        "status": "metadata_proxy_only",
+        "internal_nets": [
+          "ab_n",
+          "ab"
+        ],
+        "notes": "internal net accessibility is inferred from stage ordering and exposed leaf pin sides only; no internal routing is proven."
+      },
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": true,
+      "power_side_policy": "consistent_vdd_top_gnd_bottom",
+      "precharge_exception_if_any": "intentional_no_local_gnd_metadata_exception",
+      "requires_spacing_rule": true,
+      "spacing_rule_available": true,
+      "requires_keepout": true,
+      "keepout_available": true,
+      "requires_row_alignment": false,
+      "row_alignment_available": true,
+      "requires_internal_routing": true,
+      "internal_routing_proven": false,
+      "requires_timing_proof": true,
+      "timing_proof_available": false,
+      "requires_rail_continuity": true,
+      "rail_continuity_proven": false,
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "feasibility_classification": "ready_for_readonly_feasibility_but_precharge_exception",
+      "notes": [
+        "Reuses decoder convention: PNAND3_COMPOSITE_NAND2_INV.",
+        "Precharge input order gated_clk_buf / rbl_delay / wl_en_bar is preserved at metadata level.",
+        "PRECHARGE stays at metadata/handoff readiness only.",
+        "Current closure status: intentional_no_local_gnd_metadata_exception.",
+        "required_channel_width=0.4",
+        "reserved_channel_width=2.0",
+        "budget_margin=1.6"
+      ],
+      "blockers": [
+        "precharge power exception retained",
+        "timing proof required",
+        "routing proof required",
+        "rail continuity proof missing",
+        "no legal routing proof",
+        "no physical placement proof",
+        "PRECHARGE adapter metadata may remain partial",
+        "PRECHARGE power-domain closure may remain incomplete",
+        "handoff constraints are metadata-only",
+        "channel reservation rules are not legal routing",
+        "control routing proof is missing",
+        "rail continuity proof is missing"
+      ]
+    },
+    {
+      "subblock_name": "PDRIVE",
+      "source_contract": "PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "leaf_sequence": [
+        "gen_inv",
+        "gen_inv",
+        "gen_inv",
+        "gen_inv"
+      ],
+      "leaf_macros": [
+        "gen_inv"
+      ],
+      "recommended_leaf_variants": [
+        "openram_replacements",
+        "openram_replacements",
+        "openram_replacements",
+        "openram_replacements"
+      ],
+      "leaf_count": 4,
+      "leaf_bbox_list": [
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 1.4000000000000001
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 1.4000000000000001
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 1.4000000000000001
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 1.4000000000000001
+        }
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 3.29,
+        "y1": 1.4800000000000002,
+        "width": 3.29,
+        "height": 1.4800000000000002,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 3.29,
+      "bbox_proxy_height": 1.4800000000000002,
+      "internal_ordering": "repeated gen_inv buffer stages",
+      "internal_net_list": [
+        "stage_0",
+        "stage_1",
+        "stage_2"
+      ],
+      "input_ports": [
+        "A"
+      ],
+      "output_ports": [
+        "Z"
+      ],
+      "control_ports": [],
+      "input_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "A"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "A": [
+            "left"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "Z"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "Z": [
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "not_applicable",
+        "available_ports": [],
+        "missing_ports": [],
+        "side_hints": {}
+      },
+      "internal_net_accessibility": {
+        "status": "metadata_proxy_only",
+        "internal_nets": [
+          "stage_0",
+          "stage_1",
+          "stage_2"
+        ],
+        "notes": "internal net accessibility is inferred from stage ordering and exposed leaf pin sides only; no internal routing is proven."
+      },
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": true,
+      "power_side_policy": "consistent_vdd_top_gnd_bottom",
+      "precharge_exception_if_any": null,
+      "requires_spacing_rule": true,
+      "spacing_rule_available": true,
+      "requires_keepout": true,
+      "keepout_available": true,
+      "requires_row_alignment": false,
+      "row_alignment_available": true,
+      "requires_internal_routing": true,
+      "internal_routing_proven": false,
+      "requires_timing_proof": true,
+      "timing_proof_available": false,
+      "requires_rail_continuity": true,
+      "rail_continuity_proven": false,
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "feasibility_classification": "ready_for_readonly_feasibility_but_missing_timing",
+      "notes": [
+        "Stage count source-confirmed as 4.",
+        "Drive-strength progression is known from source and preserved only as metadata notes.",
+        "Clock/precharge/wordline buffer chains are abstractly placeable, not physically placeable yet.",
+        "required_channel_width=0.4",
+        "reserved_channel_width=2.0",
+        "budget_margin=1.6"
+      ],
+      "blockers": [
+        "timing proof required",
+        "routing proof required",
+        "no legal placement proof",
+        "no routing proof"
+      ]
+    },
+    {
+      "subblock_name": "PDRIVE2_FOR_PRE",
+      "source_contract": "PDRIVE2_FOR_PRE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "leaf_sequence": [
+        "gen_inv",
+        "gen_inv"
+      ],
+      "leaf_macros": [
+        "gen_inv"
+      ],
+      "recommended_leaf_variants": [
+        "openram_replacements",
+        "openram_replacements"
+      ],
+      "leaf_count": 2,
+      "leaf_bbox_list": [
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 1.4000000000000001
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 1.4000000000000001
+        }
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 1.645,
+        "y1": 1.4800000000000002,
+        "width": 1.645,
+        "height": 1.4800000000000002,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 1.645,
+      "bbox_proxy_height": 1.4800000000000002,
+      "internal_ordering": "repeated gen_inv buffer stages",
+      "internal_net_list": [
+        "stage_0"
+      ],
+      "input_ports": [
+        "A"
+      ],
+      "output_ports": [
+        "Z"
+      ],
+      "control_ports": [],
+      "input_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "A"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "A": [
+            "left"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "Z"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "Z": [
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "not_applicable",
+        "available_ports": [],
+        "missing_ports": [],
+        "side_hints": {}
+      },
+      "internal_net_accessibility": {
+        "status": "metadata_proxy_only",
+        "internal_nets": [
+          "stage_0"
+        ],
+        "notes": "internal net accessibility is inferred from stage ordering and exposed leaf pin sides only; no internal routing is proven."
+      },
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": true,
+      "power_side_policy": "consistent_vdd_top_gnd_bottom",
+      "precharge_exception_if_any": "intentional_no_local_gnd_metadata_exception",
+      "requires_spacing_rule": true,
+      "spacing_rule_available": true,
+      "requires_keepout": true,
+      "keepout_available": true,
+      "requires_row_alignment": false,
+      "row_alignment_available": true,
+      "requires_internal_routing": true,
+      "internal_routing_proven": false,
+      "requires_timing_proof": true,
+      "timing_proof_available": false,
+      "requires_rail_continuity": true,
+      "rail_continuity_proven": false,
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "feasibility_classification": "ready_for_readonly_feasibility_but_precharge_exception",
+      "notes": [
+        "Stage count source-confirmed as 2.",
+        "Precharge ENB polarity is preserved through PRE_UNBUF -> PRE buffering.",
+        "PRECHARGE stays at metadata/handoff readiness only.",
+        "Current closure status: intentional_no_local_gnd_metadata_exception.",
+        "required_channel_width=0.4",
+        "reserved_channel_width=2.0",
+        "budget_margin=1.6"
+      ],
+      "blockers": [
+        "precharge power exception retained",
+        "timing proof required",
+        "routing proof required",
+        "rail continuity proof missing",
+        "no legal routing proof",
+        "no physical placement proof",
+        "PRECHARGE adapter metadata may remain partial",
+        "PRECHARGE power-domain closure may remain incomplete",
+        "handoff constraints are metadata-only",
+        "channel reservation rules are not legal routing",
+        "control routing proof is missing",
+        "rail continuity proof is missing"
+      ]
+    },
+    {
+      "subblock_name": "WL_PDRIVE",
+      "source_contract": "WL_PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "leaf_sequence": [
+        "gen_inv",
+        "gen_inv"
+      ],
+      "leaf_macros": [
+        "gen_inv"
+      ],
+      "recommended_leaf_variants": [
+        "openram_replacements",
+        "openram_replacements"
+      ],
+      "leaf_count": 2,
+      "leaf_bbox_list": [
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 1.4000000000000001
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 1.4000000000000001
+        }
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 1.645,
+        "y1": 1.4800000000000002,
+        "width": 1.645,
+        "height": 1.4800000000000002,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 1.645,
+      "bbox_proxy_height": 1.4800000000000002,
+      "internal_ordering": "repeated gen_inv buffer stages",
+      "internal_net_list": [
+        "stage_0"
+      ],
+      "input_ports": [
+        "A"
+      ],
+      "output_ports": [
+        "Z"
+      ],
+      "control_ports": [],
+      "input_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "A"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "A": [
+            "left"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "Z"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "Z": [
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "not_applicable",
+        "available_ports": [],
+        "missing_ports": [],
+        "side_hints": {}
+      },
+      "internal_net_accessibility": {
+        "status": "metadata_proxy_only",
+        "internal_nets": [
+          "stage_0"
+        ],
+        "notes": "internal net accessibility is inferred from stage ordering and exposed leaf pin sides only; no internal routing is proven."
+      },
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": true,
+      "power_side_policy": "consistent_vdd_top_gnd_bottom",
+      "precharge_exception_if_any": null,
+      "requires_spacing_rule": true,
+      "spacing_rule_available": true,
+      "requires_keepout": true,
+      "keepout_available": true,
+      "requires_row_alignment": false,
+      "row_alignment_available": true,
+      "requires_internal_routing": true,
+      "internal_routing_proven": false,
+      "requires_timing_proof": true,
+      "timing_proof_available": false,
+      "requires_rail_continuity": true,
+      "rail_continuity_proven": false,
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "feasibility_classification": "ready_for_readonly_feasibility_but_missing_timing",
+      "notes": [
+        "Stage count source-confirmed as 2.",
+        "wordline_enable active-high semantics are preserved.",
+        "Clock/precharge/wordline buffer chains are abstractly placeable, not physically placeable yet.",
+        "required_channel_width=0.4",
+        "reserved_channel_width=2.0",
+        "budget_margin=1.6"
+      ],
+      "blockers": [
+        "timing proof required",
+        "routing proof required",
+        "no legal placement proof",
+        "no routing proof",
+        "handoff constraints are metadata-only",
+        "channel reservation rules are not legal routing",
+        "control routing proof is missing",
+        "delay timing proof is missing"
+      ]
+    },
+    {
+      "subblock_name": "DELAY_CHAIN",
+      "source_contract": "DELAY_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "leaf_sequence": [
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv"
+      ],
+      "leaf_macros": [
+        "gen_delay_inv"
+      ],
+      "recommended_leaf_variants": [
+        "openram_replacements",
+        "openram_replacements",
+        "openram_replacements",
+        "openram_replacements",
+        "openram_replacements",
+        "openram_replacements",
+        "openram_replacements",
+        "openram_replacements",
+        "openram_replacements"
+      ],
+      "leaf_count": 9,
+      "leaf_bbox_list": [
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 2.505
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 2.505
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 2.505
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 2.505
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 2.505
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 2.505
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 2.505
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 2.505
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 2.505
+        }
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 7.4025,
+        "y1": 2.585,
+        "width": 7.4025,
+        "height": 2.585,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 7.4025,
+      "bbox_proxy_height": 2.585,
+      "internal_ordering": "repeated gen_delay_inv stages",
+      "internal_net_list": [
+        "stage_0",
+        "stage_1",
+        "stage_2",
+        "stage_3",
+        "stage_4",
+        "stage_5",
+        "stage_6",
+        "stage_7"
+      ],
+      "input_ports": [
+        "A"
+      ],
+      "output_ports": [
+        "Z"
+      ],
+      "control_ports": [],
+      "input_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "A"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "A": [
+            "left"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "Z"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "Z": [
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "not_applicable",
+        "available_ports": [],
+        "missing_ports": [],
+        "side_hints": {}
+      },
+      "internal_net_accessibility": {
+        "status": "metadata_proxy_only",
+        "internal_nets": [
+          "stage_0",
+          "stage_1",
+          "stage_2",
+          "stage_3",
+          "stage_4",
+          "stage_5",
+          "stage_6",
+          "stage_7"
+        ],
+        "notes": "internal net accessibility is inferred from stage ordering and exposed leaf pin sides only; no internal routing is proven."
+      },
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": true,
+      "power_side_policy": "consistent_vdd_top_gnd_bottom",
+      "precharge_exception_if_any": null,
+      "requires_spacing_rule": true,
+      "spacing_rule_available": true,
+      "requires_keepout": true,
+      "keepout_available": true,
+      "requires_row_alignment": false,
+      "row_alignment_available": true,
+      "requires_internal_routing": true,
+      "internal_routing_proven": false,
+      "requires_timing_proof": true,
+      "timing_proof_available": false,
+      "requires_rail_continuity": true,
+      "rail_continuity_proven": false,
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "feasibility_classification": "ready_for_readonly_feasibility_but_missing_timing",
+      "notes": [
+        "Stage count source-confirmed as 9.",
+        "Load model is known at source level: four load inverters per stage.",
+        "Replica-bitline delay chain is structurally decomposed but not physically proven.",
+        "required_channel_width=0.4",
+        "reserved_channel_width=2.0",
+        "budget_margin=1.6"
+      ],
+      "blockers": [
+        "timing proof required",
+        "routing proof required",
+        "delay timing proof missing",
+        "no legal placement proof",
+        "no routing proof"
+      ]
+    },
+    {
+      "subblock_name": "WEN_DELAY_CHAIN",
+      "source_contract": "WEN_DELAY_CHAIN_CONDITIONAL_GENERATED_LOGIC_CONTRACT",
+      "leaf_sequence": [
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv"
+      ],
+      "leaf_macros": [
+        "gen_delay_inv"
+      ],
+      "recommended_leaf_variants": [
+        "openram_replacements",
+        "openram_replacements",
+        "openram_replacements",
+        "openram_replacements",
+        "openram_replacements",
+        "openram_replacements"
+      ],
+      "leaf_count": 6,
+      "leaf_bbox_list": [
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 2.505
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 2.505
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 2.505
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 2.505
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 2.505
+        },
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.7425,
+          "y1": 2.505
+        }
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 4.9350000000000005,
+        "y1": 2.585,
+        "width": 4.9350000000000005,
+        "height": 2.585,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 4.9350000000000005,
+      "bbox_proxy_height": 2.585,
+      "internal_ordering": "repeated gen_delay_inv stages",
+      "internal_net_list": [
+        "stage_0",
+        "stage_1",
+        "stage_2",
+        "stage_3",
+        "stage_4"
+      ],
+      "input_ports": [
+        "A"
+      ],
+      "output_ports": [
+        "Z"
+      ],
+      "control_ports": [],
+      "input_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "A"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "A": [
+            "left"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "Z"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "Z": [
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "not_applicable",
+        "available_ports": [],
+        "missing_ports": [],
+        "side_hints": {}
+      },
+      "internal_net_accessibility": {
+        "status": "metadata_proxy_only",
+        "internal_nets": [
+          "stage_0",
+          "stage_1",
+          "stage_2",
+          "stage_3",
+          "stage_4"
+        ],
+        "notes": "internal net accessibility is inferred from stage ordering and exposed leaf pin sides only; no internal routing is proven."
+      },
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": true,
+      "power_side_policy": "consistent_vdd_top_gnd_bottom",
+      "precharge_exception_if_any": null,
+      "requires_spacing_rule": true,
+      "spacing_rule_available": true,
+      "requires_keepout": true,
+      "keepout_available": true,
+      "requires_row_alignment": false,
+      "row_alignment_available": true,
+      "requires_internal_routing": true,
+      "internal_routing_proven": false,
+      "requires_timing_proof": true,
+      "timing_proof_available": false,
+      "requires_rail_continuity": true,
+      "rail_continuity_proven": false,
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "feasibility_classification": "ready_for_readonly_feasibility_but_missing_timing",
+      "notes": [
+        "Conditional applicability preserved exactly: operation == write and num_rows == 16 and num_cols == 512.",
+        "This contract must not generalize to all configs.",
+        "Write-enable delay chain remains metadata-only.",
+        "required_channel_width=0.6",
+        "reserved_channel_width=2.0",
+        "budget_margin=1.4"
+      ],
+      "blockers": [
+        "timing proof required",
+        "routing proof required",
+        "wen-delay timing proof missing",
+        "no legal placement proof",
+        "no routing proof",
+        "handoff constraints are metadata-only",
+        "channel reservation rules are not legal routing",
+        "control routing proof is missing",
+        "delay timing proof is missing"
+      ]
+    },
+    {
+      "subblock_name": "PRECHARGE",
+      "source_contract": "metadata_source_not_found",
+      "leaf_sequence": [
+        "gen_precharge"
+      ],
+      "leaf_macros": [
+        "gen_precharge"
+      ],
+      "recommended_leaf_variants": [
+        "openram_replacements"
+      ],
+      "leaf_count": 1,
+      "leaf_bbox_list": [
+        {
+          "x0": -0.08,
+          "y0": -0.08,
+          "x1": 0.705,
+          "y1": 1.34
+        }
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 0.7849999999999999,
+        "y1": 1.4200000000000002,
+        "width": 0.7849999999999999,
+        "height": 1.4200000000000002,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 0.7849999999999999,
+      "bbox_proxy_height": 1.4200000000000002,
+      "internal_ordering": "gen_precharge",
+      "internal_net_list": [],
+      "input_ports": [],
+      "output_ports": [
+        "BL",
+        "BR"
+      ],
+      "control_ports": [
+        "ENB"
+      ],
+      "input_pin_accessibility": {
+        "status": "not_applicable",
+        "available_ports": [],
+        "missing_ports": [],
+        "side_hints": {}
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "BL",
+          "BR"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "BL": [
+            "left"
+          ],
+          "BR": [
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "ENB"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "ENB": [
+            "bottom"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "internal_net_accessibility": {
+        "status": "not_applicable",
+        "internal_nets": [],
+        "notes": "no internal composite handoff net is required."
+      },
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": false,
+      "power_side_policy": "precharge_vdd_only_exception",
+      "precharge_exception_if_any": "intentional_no_local_gnd_metadata_exception",
+      "requires_spacing_rule": true,
+      "spacing_rule_available": true,
+      "requires_keepout": true,
+      "keepout_available": true,
+      "requires_row_alignment": false,
+      "row_alignment_available": true,
+      "requires_internal_routing": false,
+      "internal_routing_proven": false,
+      "requires_timing_proof": true,
+      "timing_proof_available": false,
+      "requires_rail_continuity": true,
+      "rail_continuity_proven": false,
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "feasibility_classification": "ready_for_readonly_feasibility_but_precharge_exception",
+      "notes": [
+        "PRECHARGE stays at metadata/handoff readiness only.",
+        "Current closure status: intentional_no_local_gnd_metadata_exception.",
+        "required_channel_width=0.4",
+        "reserved_channel_width=2.0",
+        "budget_margin=1.6"
+      ],
+      "blockers": [
+        "precharge power exception retained",
+        "blocked by precharge power exception",
+        "rail continuity proof missing",
+        "no legal routing proof",
+        "no physical placement proof",
+        "PRECHARGE adapter metadata may remain partial",
+        "PRECHARGE power-domain closure may remain incomplete",
+        "handoff constraints are metadata-only",
+        "channel reservation rules are not legal routing",
+        "control routing proof is missing",
+        "rail continuity proof is missing",
+        "no local GND proof and no across-abutment rail continuity proof"
+      ]
+    },
+    {
+      "subblock_name": "DFF_ROW",
+      "source_contract": "metadata_source_not_found",
+      "leaf_sequence": [
+        "dff"
+      ],
+      "leaf_macros": [
+        "dff"
+      ],
+      "recommended_leaf_variants": [
+        "default_gds_lib"
+      ],
+      "leaf_count": 1,
+      "leaf_bbox_list": [
+        {
+          "x0": 0.0,
+          "y0": -0.0999999999999994,
+          "x1": 2.8599999999999826,
+          "y1": 2.5699999999999843
+        }
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 2.8599999999999826,
+        "y1": 2.6699999999999835,
+        "width": 2.8599999999999826,
+        "height": 2.6699999999999835,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 2.8599999999999826,
+      "bbox_proxy_height": 2.6699999999999835,
+      "internal_ordering": "repeated dff in row order",
+      "internal_net_list": [],
+      "input_ports": [
+        "D",
+        "CLK"
+      ],
+      "output_ports": [
+        "Q"
+      ],
+      "control_ports": [
+        "CLK"
+      ],
+      "input_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "CLK",
+          "D"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "D": [
+            "left"
+          ],
+          "CLK": [
+            "internal"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "Q"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "Q": [
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "CLK"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "CLK": [
+            "internal"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "internal_net_accessibility": {
+        "status": "not_applicable",
+        "internal_nets": [],
+        "notes": "no internal composite handoff net is required."
+      },
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": true,
+      "power_side_policy": "consistent_vdd_top_gnd_bottom",
+      "precharge_exception_if_any": null,
+      "requires_spacing_rule": true,
+      "spacing_rule_available": true,
+      "requires_keepout": true,
+      "keepout_available": true,
+      "requires_row_alignment": true,
+      "row_alignment_available": true,
+      "requires_internal_routing": false,
+      "internal_routing_proven": false,
+      "requires_timing_proof": true,
+      "timing_proof_available": false,
+      "requires_rail_continuity": true,
+      "rail_continuity_proven": false,
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false,
+      "feasibility_classification": "blocked_by_row_placement_requirement",
+      "notes": [
+        "Address DFF decomposition is closed at metadata level only.",
+        "required_channel_width=0.4",
+        "reserved_channel_width=2.0",
+        "budget_margin=1.6"
+      ],
+      "blockers": [
+        "row placement proof required",
+        "no legal placement proof",
+        "no routing proof",
+        "no standalone integration"
+      ]
+    }
+  ],
+  "leaf_sequence_bbox_proxy_table": [
+    {
+      "subblock_name": "PINV",
+      "leaf_sequence": [
+        "gen_inv"
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 0.8225,
+        "y1": 1.4800000000000002,
+        "width": 0.8225,
+        "height": 1.4800000000000002,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 0.8225,
+      "bbox_proxy_height": 1.4800000000000002,
+      "classification": "ready_for_readonly_legal_placement_planning"
+    },
+    {
+      "subblock_name": "AND2",
+      "leaf_sequence": [
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 1.86,
+        "y1": 1.4800000000000002,
+        "width": 1.86,
+        "height": 1.4800000000000002,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 1.86,
+      "bbox_proxy_height": 1.4800000000000002,
+      "classification": "ready_for_readonly_feasibility_but_missing_timing"
+    },
+    {
+      "subblock_name": "AND3_COMPOSITE",
+      "leaf_sequence": [
+        "gen_nand2",
+        "gen_inv",
+        "gen_nand2",
+        "gen_inv"
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 3.72,
+        "y1": 1.4800000000000002,
+        "width": 3.72,
+        "height": 1.4800000000000002,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 3.72,
+      "bbox_proxy_height": 1.4800000000000002,
+      "classification": "ready_for_readonly_feasibility_but_missing_timing"
+    },
+    {
+      "subblock_name": "PNAND3_COMPOSITE",
+      "leaf_sequence": [
+        "gen_nand2",
+        "gen_inv",
+        "gen_nand2"
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 2.8975,
+        "y1": 1.4800000000000002,
+        "width": 2.8975,
+        "height": 1.4800000000000002,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 2.8975,
+      "bbox_proxy_height": 1.4800000000000002,
+      "classification": "ready_for_readonly_feasibility_but_precharge_exception"
+    },
+    {
+      "subblock_name": "PDRIVE",
+      "leaf_sequence": [
+        "gen_inv",
+        "gen_inv",
+        "gen_inv",
+        "gen_inv"
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 3.29,
+        "y1": 1.4800000000000002,
+        "width": 3.29,
+        "height": 1.4800000000000002,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 3.29,
+      "bbox_proxy_height": 1.4800000000000002,
+      "classification": "ready_for_readonly_feasibility_but_missing_timing"
+    },
+    {
+      "subblock_name": "PDRIVE2_FOR_PRE",
+      "leaf_sequence": [
+        "gen_inv",
+        "gen_inv"
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 1.645,
+        "y1": 1.4800000000000002,
+        "width": 1.645,
+        "height": 1.4800000000000002,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 1.645,
+      "bbox_proxy_height": 1.4800000000000002,
+      "classification": "ready_for_readonly_feasibility_but_precharge_exception"
+    },
+    {
+      "subblock_name": "WL_PDRIVE",
+      "leaf_sequence": [
+        "gen_inv",
+        "gen_inv"
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 1.645,
+        "y1": 1.4800000000000002,
+        "width": 1.645,
+        "height": 1.4800000000000002,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 1.645,
+      "bbox_proxy_height": 1.4800000000000002,
+      "classification": "ready_for_readonly_feasibility_but_missing_timing"
+    },
+    {
+      "subblock_name": "DELAY_CHAIN",
+      "leaf_sequence": [
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv"
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 7.4025,
+        "y1": 2.585,
+        "width": 7.4025,
+        "height": 2.585,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 7.4025,
+      "bbox_proxy_height": 2.585,
+      "classification": "ready_for_readonly_feasibility_but_missing_timing"
+    },
+    {
+      "subblock_name": "WEN_DELAY_CHAIN",
+      "leaf_sequence": [
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv",
+        "gen_delay_inv"
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 4.9350000000000005,
+        "y1": 2.585,
+        "width": 4.9350000000000005,
+        "height": 2.585,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 4.9350000000000005,
+      "bbox_proxy_height": 2.585,
+      "classification": "ready_for_readonly_feasibility_but_missing_timing"
+    },
+    {
+      "subblock_name": "PRECHARGE",
+      "leaf_sequence": [
+        "gen_precharge"
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 0.7849999999999999,
+        "y1": 1.4200000000000002,
+        "width": 0.7849999999999999,
+        "height": 1.4200000000000002,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 0.7849999999999999,
+      "bbox_proxy_height": 1.4200000000000002,
+      "classification": "ready_for_readonly_feasibility_but_precharge_exception"
+    },
+    {
+      "subblock_name": "DFF_ROW",
+      "leaf_sequence": [
+        "dff"
+      ],
+      "bbox_proxy": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 2.8599999999999826,
+        "y1": 2.6699999999999835,
+        "width": 2.8599999999999826,
+        "height": 2.6699999999999835,
+        "origin_policy": "metadata_only_linear_pack_proxy",
+        "notes": [
+          "bbox proxy is conservative metadata only and is not legal placement proof.",
+          "no abutment, routing, or DRC legality is implied by this proxy."
+        ]
+      },
+      "bbox_proxy_width": 2.8599999999999826,
+      "bbox_proxy_height": 2.6699999999999835,
+      "classification": "blocked_by_row_placement_requirement"
+    }
+  ],
+  "pin_accessibility_summary": [
+    {
+      "subblock_name": "PINV",
+      "input_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "A"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "A": [
+            "left"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "Z"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "Z": [
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "not_applicable",
+        "available_ports": [],
+        "missing_ports": [],
+        "side_hints": {}
+      },
+      "internal_net_accessibility": {
+        "status": "not_applicable",
+        "internal_nets": [],
+        "notes": "no internal composite handoff net is required."
+      }
+    },
+    {
+      "subblock_name": "AND2",
+      "input_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "A",
+          "B"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "A": [
+            "left"
+          ],
+          "B": [
+            "internal"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "Z"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "Z": [
+            "internal",
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "not_applicable",
+        "available_ports": [],
+        "missing_ports": [],
+        "side_hints": {}
+      },
+      "internal_net_accessibility": {
+        "status": "metadata_proxy_only",
+        "internal_nets": [
+          "n_ab"
+        ],
+        "notes": "internal net accessibility is inferred from stage ordering and exposed leaf pin sides only; no internal routing is proven."
+      }
+    },
+    {
+      "subblock_name": "AND3_COMPOSITE",
+      "input_pin_accessibility": {
+        "status": "partial",
+        "available_ports": [
+          "A",
+          "B"
+        ],
+        "missing_ports": [
+          "C"
+        ],
+        "side_hints": {
+          "A": [
+            "left"
+          ],
+          "B": [
+            "internal"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "Z"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "Z": [
+            "internal",
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "not_applicable",
+        "available_ports": [],
+        "missing_ports": [],
+        "side_hints": {}
+      },
+      "internal_net_accessibility": {
+        "status": "metadata_proxy_only",
+        "internal_nets": [
+          "ab_n",
+          "ab",
+          "abc_n"
+        ],
+        "notes": "internal net accessibility is inferred from stage ordering and exposed leaf pin sides only; no internal routing is proven."
+      }
+    },
+    {
+      "subblock_name": "PNAND3_COMPOSITE",
+      "input_pin_accessibility": {
+        "status": "partial",
+        "available_ports": [
+          "A",
+          "B"
+        ],
+        "missing_ports": [
+          "C"
+        ],
+        "side_hints": {
+          "A": [
+            "left"
+          ],
+          "B": [
+            "internal"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "ZN"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "ZN": [
+            "internal",
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "not_applicable",
+        "available_ports": [],
+        "missing_ports": [],
+        "side_hints": {}
+      },
+      "internal_net_accessibility": {
+        "status": "metadata_proxy_only",
+        "internal_nets": [
+          "ab_n",
+          "ab"
+        ],
+        "notes": "internal net accessibility is inferred from stage ordering and exposed leaf pin sides only; no internal routing is proven."
+      }
+    },
+    {
+      "subblock_name": "PDRIVE",
+      "input_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "A"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "A": [
+            "left"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "Z"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "Z": [
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "not_applicable",
+        "available_ports": [],
+        "missing_ports": [],
+        "side_hints": {}
+      },
+      "internal_net_accessibility": {
+        "status": "metadata_proxy_only",
+        "internal_nets": [
+          "stage_0",
+          "stage_1",
+          "stage_2"
+        ],
+        "notes": "internal net accessibility is inferred from stage ordering and exposed leaf pin sides only; no internal routing is proven."
+      }
+    },
+    {
+      "subblock_name": "PDRIVE2_FOR_PRE",
+      "input_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "A"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "A": [
+            "left"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "Z"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "Z": [
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "not_applicable",
+        "available_ports": [],
+        "missing_ports": [],
+        "side_hints": {}
+      },
+      "internal_net_accessibility": {
+        "status": "metadata_proxy_only",
+        "internal_nets": [
+          "stage_0"
+        ],
+        "notes": "internal net accessibility is inferred from stage ordering and exposed leaf pin sides only; no internal routing is proven."
+      }
+    },
+    {
+      "subblock_name": "WL_PDRIVE",
+      "input_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "A"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "A": [
+            "left"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "Z"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "Z": [
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "not_applicable",
+        "available_ports": [],
+        "missing_ports": [],
+        "side_hints": {}
+      },
+      "internal_net_accessibility": {
+        "status": "metadata_proxy_only",
+        "internal_nets": [
+          "stage_0"
+        ],
+        "notes": "internal net accessibility is inferred from stage ordering and exposed leaf pin sides only; no internal routing is proven."
+      }
+    },
+    {
+      "subblock_name": "DELAY_CHAIN",
+      "input_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "A"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "A": [
+            "left"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "Z"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "Z": [
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "not_applicable",
+        "available_ports": [],
+        "missing_ports": [],
+        "side_hints": {}
+      },
+      "internal_net_accessibility": {
+        "status": "metadata_proxy_only",
+        "internal_nets": [
+          "stage_0",
+          "stage_1",
+          "stage_2",
+          "stage_3",
+          "stage_4",
+          "stage_5",
+          "stage_6",
+          "stage_7"
+        ],
+        "notes": "internal net accessibility is inferred from stage ordering and exposed leaf pin sides only; no internal routing is proven."
+      }
+    },
+    {
+      "subblock_name": "WEN_DELAY_CHAIN",
+      "input_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "A"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "A": [
+            "left"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "Z"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "Z": [
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "not_applicable",
+        "available_ports": [],
+        "missing_ports": [],
+        "side_hints": {}
+      },
+      "internal_net_accessibility": {
+        "status": "metadata_proxy_only",
+        "internal_nets": [
+          "stage_0",
+          "stage_1",
+          "stage_2",
+          "stage_3",
+          "stage_4"
+        ],
+        "notes": "internal net accessibility is inferred from stage ordering and exposed leaf pin sides only; no internal routing is proven."
+      }
+    },
+    {
+      "subblock_name": "PRECHARGE",
+      "input_pin_accessibility": {
+        "status": "not_applicable",
+        "available_ports": [],
+        "missing_ports": [],
+        "side_hints": {}
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "BL",
+          "BR"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "BL": [
+            "left"
+          ],
+          "BR": [
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "ENB"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "ENB": [
+            "bottom"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "internal_net_accessibility": {
+        "status": "not_applicable",
+        "internal_nets": [],
+        "notes": "no internal composite handoff net is required."
+      }
+    },
+    {
+      "subblock_name": "DFF_ROW",
+      "input_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "CLK",
+          "D"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "D": [
+            "left"
+          ],
+          "CLK": [
+            "internal"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "output_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "Q"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "Q": [
+            "right"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "control_pin_accessibility": {
+        "status": "complete",
+        "available_ports": [
+          "CLK"
+        ],
+        "missing_ports": [],
+        "side_hints": {
+          "CLK": [
+            "internal"
+          ]
+        },
+        "notes": "pin-side accessibility is metadata only and is not routing proof."
+      },
+      "internal_net_accessibility": {
+        "status": "not_applicable",
+        "internal_nets": [],
+        "notes": "no internal composite handoff net is required."
+      }
+    }
+  ],
+  "power_side_compatibility_summary": [
+    {
+      "subblock_name": "PINV",
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": true,
+      "power_side_policy": "consistent_vdd_top_gnd_bottom",
+      "precharge_exception_if_any": null
+    },
+    {
+      "subblock_name": "AND2",
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": true,
+      "power_side_policy": "consistent_vdd_top_gnd_bottom",
+      "precharge_exception_if_any": null
+    },
+    {
+      "subblock_name": "AND3_COMPOSITE",
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": true,
+      "power_side_policy": "consistent_vdd_top_gnd_bottom",
+      "precharge_exception_if_any": null
+    },
+    {
+      "subblock_name": "PNAND3_COMPOSITE",
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": true,
+      "power_side_policy": "consistent_vdd_top_gnd_bottom",
+      "precharge_exception_if_any": "intentional_no_local_gnd_metadata_exception"
+    },
+    {
+      "subblock_name": "PDRIVE",
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": true,
+      "power_side_policy": "consistent_vdd_top_gnd_bottom",
+      "precharge_exception_if_any": null
+    },
+    {
+      "subblock_name": "PDRIVE2_FOR_PRE",
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": true,
+      "power_side_policy": "consistent_vdd_top_gnd_bottom",
+      "precharge_exception_if_any": "intentional_no_local_gnd_metadata_exception"
+    },
+    {
+      "subblock_name": "WL_PDRIVE",
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": true,
+      "power_side_policy": "consistent_vdd_top_gnd_bottom",
+      "precharge_exception_if_any": null
+    },
+    {
+      "subblock_name": "DELAY_CHAIN",
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": true,
+      "power_side_policy": "consistent_vdd_top_gnd_bottom",
+      "precharge_exception_if_any": null
+    },
+    {
+      "subblock_name": "WEN_DELAY_CHAIN",
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": true,
+      "power_side_policy": "consistent_vdd_top_gnd_bottom",
+      "precharge_exception_if_any": null
+    },
+    {
+      "subblock_name": "PRECHARGE",
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": false,
+      "power_side_policy": "precharge_vdd_only_exception",
+      "precharge_exception_if_any": "intentional_no_local_gnd_metadata_exception"
+    },
+    {
+      "subblock_name": "DFF_ROW",
+      "vdd_side_consistency": true,
+      "gnd_side_consistency": true,
+      "power_side_policy": "consistent_vdd_top_gnd_bottom",
+      "precharge_exception_if_any": null
+    }
+  ],
+  "precharge_exception_section": {
+    "subblock_name": "PRECHARGE",
+    "precharge_exception_if_any": "intentional_no_local_gnd_metadata_exception",
+    "safe_for_composite_readonly_feasibility": true,
+    "safe_for_legal_placement_readonly": true,
+    "safe_for_physical_placement": false,
+    "blockers": [
+      "precharge power exception retained",
+      "blocked by precharge power exception",
+      "rail continuity proof missing",
+      "no legal routing proof",
+      "no physical placement proof",
+      "PRECHARGE adapter metadata may remain partial",
+      "PRECHARGE power-domain closure may remain incomplete",
+      "handoff constraints are metadata-only",
+      "channel reservation rules are not legal routing",
+      "control routing proof is missing",
+      "rail continuity proof is missing",
+      "no local GND proof and no across-abutment rail continuity proof"
+    ]
+  },
+  "dff_row_feasibility_section": {
+    "subblock_name": "DFF_ROW",
+    "requires_row_alignment": true,
+    "row_alignment_available": true,
+    "safe_for_composite_readonly_feasibility": true,
+    "safe_for_legal_placement_readonly": true,
+    "safe_for_physical_placement": false,
+    "blockers": [
+      "row placement proof required",
+      "no legal placement proof",
+      "no routing proof",
+      "no standalone integration"
+    ]
+  },
+  "feasibility_classification": [
+    {
+      "subblock_name": "PINV",
+      "classification": "ready_for_readonly_legal_placement_planning",
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "subblock_name": "AND2",
+      "classification": "ready_for_readonly_feasibility_but_missing_timing",
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "subblock_name": "AND3_COMPOSITE",
+      "classification": "ready_for_readonly_feasibility_but_missing_timing",
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "subblock_name": "PNAND3_COMPOSITE",
+      "classification": "ready_for_readonly_feasibility_but_precharge_exception",
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "subblock_name": "PDRIVE",
+      "classification": "ready_for_readonly_feasibility_but_missing_timing",
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "subblock_name": "PDRIVE2_FOR_PRE",
+      "classification": "ready_for_readonly_feasibility_but_precharge_exception",
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "subblock_name": "WL_PDRIVE",
+      "classification": "ready_for_readonly_feasibility_but_missing_timing",
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "subblock_name": "DELAY_CHAIN",
+      "classification": "ready_for_readonly_feasibility_but_missing_timing",
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "subblock_name": "WEN_DELAY_CHAIN",
+      "classification": "ready_for_readonly_feasibility_but_missing_timing",
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "subblock_name": "PRECHARGE",
+      "classification": "ready_for_readonly_feasibility_but_precharge_exception",
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false
+    },
+    {
+      "subblock_name": "DFF_ROW",
+      "classification": "blocked_by_row_placement_requirement",
+      "safe_for_composite_readonly_feasibility": true,
+      "safe_for_legal_placement_readonly": true,
+      "safe_for_physical_placement": false
+    }
+  ],
+  "blockers": [
+    "PINV: stdcell physical library not proven",
+    "PINV: no legal routing proof",
+    "PINV: no DRC/LVS proof",
+    "AND2: timing proof required",
+    "AND2: routing proof required",
+    "AND2: stdcell physical library not proven",
+    "AND2: no legal routing proof",
+    "AND2: no DRC/LVS proof",
+    "AND3_COMPOSITE: timing proof required",
+    "AND3_COMPOSITE: routing proof required",
+    "AND3_COMPOSITE: stdcell physical library not proven",
+    "AND3_COMPOSITE: no legal routing proof",
+    "AND3_COMPOSITE: no DRC/LVS proof",
+    "AND3_COMPOSITE: handoff constraints are metadata-only",
+    "AND3_COMPOSITE: channel reservation rules are not legal routing",
+    "AND3_COMPOSITE: control routing proof is missing",
+    "AND3_COMPOSITE: delay timing proof is missing",
+    "PNAND3_COMPOSITE: precharge power exception retained",
+    "PNAND3_COMPOSITE: timing proof required",
+    "PNAND3_COMPOSITE: routing proof required",
+    "PNAND3_COMPOSITE: rail continuity proof missing",
+    "PNAND3_COMPOSITE: no legal routing proof",
+    "PNAND3_COMPOSITE: no physical placement proof",
+    "PNAND3_COMPOSITE: PRECHARGE adapter metadata may remain partial",
+    "PNAND3_COMPOSITE: PRECHARGE power-domain closure may remain incomplete",
+    "PNAND3_COMPOSITE: handoff constraints are metadata-only",
+    "PNAND3_COMPOSITE: channel reservation rules are not legal routing",
+    "PNAND3_COMPOSITE: control routing proof is missing",
+    "PNAND3_COMPOSITE: rail continuity proof is missing",
+    "PDRIVE: timing proof required",
+    "PDRIVE: routing proof required",
+    "PDRIVE: no legal placement proof",
+    "PDRIVE: no routing proof",
+    "PDRIVE2_FOR_PRE: precharge power exception retained",
+    "PDRIVE2_FOR_PRE: timing proof required",
+    "PDRIVE2_FOR_PRE: routing proof required",
+    "PDRIVE2_FOR_PRE: rail continuity proof missing",
+    "PDRIVE2_FOR_PRE: no legal routing proof",
+    "PDRIVE2_FOR_PRE: no physical placement proof",
+    "PDRIVE2_FOR_PRE: PRECHARGE adapter metadata may remain partial",
+    "PDRIVE2_FOR_PRE: PRECHARGE power-domain closure may remain incomplete",
+    "PDRIVE2_FOR_PRE: handoff constraints are metadata-only",
+    "PDRIVE2_FOR_PRE: channel reservation rules are not legal routing",
+    "PDRIVE2_FOR_PRE: control routing proof is missing",
+    "PDRIVE2_FOR_PRE: rail continuity proof is missing",
+    "WL_PDRIVE: timing proof required",
+    "WL_PDRIVE: routing proof required",
+    "WL_PDRIVE: no legal placement proof",
+    "WL_PDRIVE: no routing proof",
+    "WL_PDRIVE: handoff constraints are metadata-only",
+    "WL_PDRIVE: channel reservation rules are not legal routing",
+    "WL_PDRIVE: control routing proof is missing",
+    "WL_PDRIVE: delay timing proof is missing",
+    "DELAY_CHAIN: timing proof required",
+    "DELAY_CHAIN: routing proof required",
+    "DELAY_CHAIN: delay timing proof missing",
+    "DELAY_CHAIN: no legal placement proof",
+    "DELAY_CHAIN: no routing proof",
+    "WEN_DELAY_CHAIN: timing proof required",
+    "WEN_DELAY_CHAIN: routing proof required",
+    "WEN_DELAY_CHAIN: wen-delay timing proof missing",
+    "WEN_DELAY_CHAIN: no legal placement proof",
+    "WEN_DELAY_CHAIN: no routing proof",
+    "WEN_DELAY_CHAIN: handoff constraints are metadata-only",
+    "WEN_DELAY_CHAIN: channel reservation rules are not legal routing",
+    "WEN_DELAY_CHAIN: control routing proof is missing",
+    "WEN_DELAY_CHAIN: delay timing proof is missing",
+    "PRECHARGE: precharge power exception retained",
+    "PRECHARGE: blocked by precharge power exception",
+    "PRECHARGE: rail continuity proof missing",
+    "PRECHARGE: no legal routing proof",
+    "PRECHARGE: no physical placement proof",
+    "PRECHARGE: PRECHARGE adapter metadata may remain partial",
+    "PRECHARGE: PRECHARGE power-domain closure may remain incomplete",
+    "PRECHARGE: handoff constraints are metadata-only",
+    "PRECHARGE: channel reservation rules are not legal routing",
+    "PRECHARGE: control routing proof is missing",
+    "PRECHARGE: rail continuity proof is missing",
+    "PRECHARGE: no local GND proof and no across-abutment rail continuity proof",
+    "DFF_ROW: row placement proof required",
+    "DFF_ROW: no legal placement proof",
+    "DFF_ROW: no routing proof",
+    "DFF_ROW: no standalone integration"
+  ],
+  "next_recommended_proof_task": "time_control_legal_placement_readonly_audit",
+  "boundary_assertions": {
+    "bbox_proxy_is_not_legal_placement": true,
+    "pin_accessibility_is_not_routing_proof": true,
+    "power_side_consistency_is_not_rail_continuity_proof": true,
+    "readonly_feasibility_is_not_physical_ready": true,
+    "standalone_modified": false,
+    "routing_modified": false,
+    "gds_writer_modified": false
+  },
+  "audit_summary": {
+    "time_control_composite_internal_placement_feasibility_available": true,
+    "all_required_subblocks_analyzed": true,
+    "all_required_leaf_sequences_available": true,
+    "all_required_bbox_proxies_available": true,
+    "all_required_external_pin_accessibility_available": true,
+    "all_required_power_side_compatibility_checked": true,
+    "composite_internal_routing_proven": false,
+    "timing_proof_available": false,
+    "rail_continuity_proven": false,
+    "precharge_exception_retained": true,
+    "can_enter_legal_placement_readonly_audit": true,
+    "can_enter_routing_obstacle_readonly_audit": true,
+    "can_enter_timing_metadata_inventory": true,
+    "can_enter_physical_placement_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_modify_standalone_now": false
+  }
+}

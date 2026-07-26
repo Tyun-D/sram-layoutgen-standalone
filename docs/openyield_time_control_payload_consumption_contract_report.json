@@ -1,0 +1,338 @@
+{
+  "scope": "step6_35_openyield_time_control_payload_consumption_contract_audit",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "identifier_audit": {
+    "region_duplicates": [],
+    "subblock_duplicates": [],
+    "handoff_duplicates": []
+  },
+  "region_reference_rows": [
+    {
+      "region_name": "delay_chain_region",
+      "bad_preferred_neighbors": [],
+      "neighbors_all_known": true
+    },
+    {
+      "region_name": "pdrive_region",
+      "bad_preferred_neighbors": [],
+      "neighbors_all_known": true
+    },
+    {
+      "region_name": "generated_logic_region",
+      "bad_preferred_neighbors": [],
+      "neighbors_all_known": true
+    },
+    {
+      "region_name": "consumer_handoff_region",
+      "bad_preferred_neighbors": [],
+      "neighbors_all_known": true
+    },
+    {
+      "region_name": "precharge_control_region",
+      "bad_preferred_neighbors": [],
+      "neighbors_all_known": true
+    },
+    {
+      "region_name": "wordline_enable_control_region",
+      "bad_preferred_neighbors": [],
+      "neighbors_all_known": true
+    },
+    {
+      "region_name": "sense_write_enable_region",
+      "bad_preferred_neighbors": [],
+      "neighbors_all_known": true
+    }
+  ],
+  "subblock_rows": [
+    {
+      "subblock_name": "ADDR_DFF_ROW",
+      "assigned_region": "generated_logic_region",
+      "region_exists": true,
+      "blocked_by_explicit": true,
+      "relative_order_group": "front_end_registers",
+      "group_rank": 0,
+      "consumer_target": null,
+      "experimental_plan_aligned": true,
+      "candidate_interface_aligned": true
+    },
+    {
+      "subblock_name": "DATA_DFF_ROW",
+      "assigned_region": "generated_logic_region",
+      "region_exists": true,
+      "blocked_by_explicit": true,
+      "relative_order_group": "front_end_registers",
+      "group_rank": 0,
+      "consumer_target": null,
+      "experimental_plan_aligned": true,
+      "candidate_interface_aligned": true
+    },
+    {
+      "subblock_name": "DELAY_CHAIN_CLUSTER",
+      "assigned_region": "delay_chain_region",
+      "region_exists": true,
+      "blocked_by_explicit": true,
+      "relative_order_group": "timing_generation",
+      "group_rank": 1,
+      "consumer_target": null,
+      "experimental_plan_aligned": true,
+      "candidate_interface_aligned": null
+    },
+    {
+      "subblock_name": "WEN_DELAY_CHAIN_CLUSTER",
+      "assigned_region": "sense_write_enable_region",
+      "region_exists": true,
+      "blocked_by_explicit": true,
+      "relative_order_group": "timing_generation",
+      "group_rank": 1,
+      "consumer_target": null,
+      "experimental_plan_aligned": true,
+      "candidate_interface_aligned": null
+    },
+    {
+      "subblock_name": "PDRIVE_CLUSTER",
+      "assigned_region": "pdrive_region",
+      "region_exists": true,
+      "blocked_by_explicit": true,
+      "relative_order_group": "timing_generation",
+      "group_rank": 1,
+      "consumer_target": null,
+      "experimental_plan_aligned": true,
+      "candidate_interface_aligned": null
+    },
+    {
+      "subblock_name": "GENERATED_LOGIC_CLUSTER",
+      "assigned_region": "generated_logic_region",
+      "region_exists": true,
+      "blocked_by_explicit": true,
+      "relative_order_group": "generated_logic_core",
+      "group_rank": 2,
+      "consumer_target": null,
+      "experimental_plan_aligned": true,
+      "candidate_interface_aligned": true
+    },
+    {
+      "subblock_name": "PRECHARGE_HANDOFF",
+      "assigned_region": "precharge_control_region",
+      "region_exists": true,
+      "blocked_by_explicit": true,
+      "relative_order_group": "consumer_handoff_boundary",
+      "group_rank": 3,
+      "consumer_target": "PRECHARGE",
+      "experimental_plan_aligned": true,
+      "candidate_interface_aligned": true
+    },
+    {
+      "subblock_name": "SENSEAMP_HANDOFF",
+      "assigned_region": "sense_write_enable_region",
+      "region_exists": true,
+      "blocked_by_explicit": true,
+      "relative_order_group": "consumer_handoff_boundary",
+      "group_rank": 3,
+      "consumer_target": "SENSEAMP",
+      "experimental_plan_aligned": true,
+      "candidate_interface_aligned": null
+    },
+    {
+      "subblock_name": "WRITEDRIVER_HANDOFF",
+      "assigned_region": "sense_write_enable_region",
+      "region_exists": true,
+      "blocked_by_explicit": true,
+      "relative_order_group": "consumer_handoff_boundary",
+      "group_rank": 3,
+      "consumer_target": "WRITEDRIVER",
+      "experimental_plan_aligned": true,
+      "candidate_interface_aligned": null
+    },
+    {
+      "subblock_name": "WORDLINEDRIVER_HANDOFF",
+      "assigned_region": "wordline_enable_control_region",
+      "region_exists": true,
+      "blocked_by_explicit": true,
+      "relative_order_group": "consumer_handoff_boundary",
+      "group_rank": 3,
+      "consumer_target": "WORDLINEDRIVER",
+      "experimental_plan_aligned": true,
+      "candidate_interface_aligned": true
+    },
+    {
+      "subblock_name": "DECODER_INTERFACE",
+      "assigned_region": "consumer_handoff_region",
+      "region_exists": true,
+      "blocked_by_explicit": true,
+      "relative_order_group": "decoder_boundary",
+      "group_rank": 4,
+      "consumer_target": "DECODER_CASCADE",
+      "experimental_plan_aligned": true,
+      "candidate_interface_aligned": null
+    }
+  ],
+  "handoff_rows": [
+    {
+      "interface_name": "TIME_CONTROL_TO_WRITEDRIVER_INTERFACE",
+      "target_macro": "WRITEDRIVER",
+      "source_regions_all_known": true,
+      "binding_contracts": [
+        "WRITE_ENABLE_BINDING_CONTRACT"
+      ],
+      "unresolved_signals": [],
+      "matching_subblock": "WRITEDRIVER_HANDOFF",
+      "consumer_contract": "WRITE_ENABLE_CONSUMER_CONTRACT",
+      "metadata_ready": true,
+      "blocked_by_explicit": true,
+      "consumer_explicit": true
+    },
+    {
+      "interface_name": "TIME_CONTROL_TO_SENSEAMP_INTERFACE",
+      "target_macro": "SENSEAMP",
+      "source_regions_all_known": true,
+      "binding_contracts": [
+        "SENSE_ENABLE_BINDING_CONTRACT"
+      ],
+      "unresolved_signals": [],
+      "matching_subblock": "SENSEAMP_HANDOFF",
+      "consumer_contract": "SENSE_ENABLE_CONSUMER_CONTRACT",
+      "metadata_ready": true,
+      "blocked_by_explicit": true,
+      "consumer_explicit": true
+    },
+    {
+      "interface_name": "TIME_CONTROL_TO_PRECHARGE_INTERFACE",
+      "target_macro": "PRECHARGE",
+      "source_regions_all_known": true,
+      "binding_contracts": [
+        "PRECHARGE_ENB_BINDING_CONTRACT",
+        "WORDLINE_ENABLE_BINDING_CONTRACT:derived_secondary_signal",
+        "PRECHARGE_ENB_BINDING_CONTRACT:derived_secondary_signal"
+      ],
+      "unresolved_signals": [],
+      "matching_subblock": "PRECHARGE_HANDOFF",
+      "consumer_contract": "PRECHARGE_ENB_CONSUMER_CONTRACT",
+      "metadata_ready": "partial",
+      "blocked_by_explicit": true,
+      "consumer_explicit": true
+    },
+    {
+      "interface_name": "TIME_CONTROL_TO_WORDLINEDRIVER_INTERFACE",
+      "target_macro": "WORDLINEDRIVER",
+      "source_regions_all_known": true,
+      "binding_contracts": [
+        "WORDLINE_ENABLE_BINDING_CONTRACT"
+      ],
+      "unresolved_signals": [],
+      "matching_subblock": "WORDLINEDRIVER_HANDOFF",
+      "consumer_contract": "WORDLINE_ENABLE_CONSUMER_CONTRACT",
+      "metadata_ready": true,
+      "blocked_by_explicit": true,
+      "consumer_explicit": true
+    }
+  ],
+  "group_order_rows": [
+    {
+      "relative_order_group": "consumer_handoff_boundary",
+      "group_rank_values": [
+        3
+      ],
+      "deterministic_rank": true,
+      "rank": 3
+    },
+    {
+      "relative_order_group": "decoder_boundary",
+      "group_rank_values": [
+        4
+      ],
+      "deterministic_rank": true,
+      "rank": 4
+    },
+    {
+      "relative_order_group": "front_end_registers",
+      "group_rank_values": [
+        0
+      ],
+      "deterministic_rank": true,
+      "rank": 0
+    },
+    {
+      "relative_order_group": "generated_logic_core",
+      "group_rank_values": [
+        2
+      ],
+      "deterministic_rank": true,
+      "rank": 2
+    },
+    {
+      "relative_order_group": "timing_generation",
+      "group_rank_values": [
+        1
+      ],
+      "deterministic_rank": true,
+      "rank": 1
+    }
+  ],
+  "violations": {
+    "region_reference_violations": [],
+    "subblock_region_violations": [],
+    "subblock_blocker_violations": [],
+    "subblock_plan_alignment_violations": [],
+    "handoff_region_violations": [],
+    "handoff_signal_violations": [],
+    "handoff_consumer_violations": [],
+    "group_order_violations": []
+  },
+  "source_reports": {
+    "payload": "step6_32_openyield_time_control_abstract_floorplan_payload",
+    "payload_completeness": "step6_34_openyield_time_control_payload_completeness_audit",
+    "packing_invariants": "step6_33_openyield_time_control_packing_invariant_audit",
+    "experimental_contract": "step6_31_openyield_time_control_experimental_contract",
+    "prototype_plan": "stage_d_openyield_time_control_opt_in_prototype_plan",
+    "placement_readiness": "stage_c_openyield_time_control_placement_readiness",
+    "signal_bindings": "step6_24_openyield_time_control_signal_binding_audit",
+    "consumer_contracts": "step6_26_openyield_time_control_consumer_side_contract_normalization_audit"
+  },
+  "consistency_checks": {
+    "payload_consumption_contract_available": true,
+    "consumption_contract_complete_for_metadata": true,
+    "identifier_uniqueness_clean": true,
+    "region_reference_clean": true,
+    "subblock_region_assignment_clean": true,
+    "subblock_blockers_explicit": true,
+    "subblock_plan_alignment_clean": true,
+    "handoff_region_reference_clean": true,
+    "handoff_signal_binding_clean": true,
+    "handoff_consumer_endpoint_explicit": true,
+    "group_order_materializable": true,
+    "partial_precharge_preserved": true,
+    "default_off_still_preserved": true,
+    "legacy_path_unchanged": true,
+    "standalone_still_unmodified": true,
+    "routing_still_unmodified": true,
+    "gds_writer_still_unmodified": true,
+    "physical_gds_still_not_generated": true,
+    "future_default_off_builder_can_consume_metadata": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "audit_summary": {
+    "payload_consumption_contract_available": true,
+    "identifier_uniqueness_clean": true,
+    "group_order_materializable": true,
+    "partial_precharge_preserved": true,
+    "future_default_off_builder_can_consume_metadata": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "notes": [
+    "This audit checks whether a future default-off prototype builder can consume the current payload deterministically without hidden identifier, region, or endpoint assumptions.",
+    "Passing this audit still does not prove legal placement, legal routing, timing closure, DRC, or LVS.",
+    "PRECHARGE may remain partial, but that partial status must stay explicit and must not be silently upgraded."
+  ],
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "can_modify_standalone_now": false,
+  "can_generate_time_control_gds_now": false,
+  "can_enter_physical_placement_now": false
+}

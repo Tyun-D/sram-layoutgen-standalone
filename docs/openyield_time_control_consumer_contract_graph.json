@@ -1,0 +1,156 @@
+{
+  "scope": "step6_26_openyield_time_control_consumer_side_contract_normalization_audit",
+  "nodes": [
+    {
+      "id": "WRITE_ENABLE_CONSUMER_CONTRACT",
+      "kind": "consumer_contract"
+    },
+    {
+      "id": "SENSE_ENABLE_CONSUMER_CONTRACT",
+      "kind": "consumer_contract"
+    },
+    {
+      "id": "PRECHARGE_ENB_CONSUMER_CONTRACT",
+      "kind": "consumer_contract"
+    },
+    {
+      "id": "WORDLINE_ENABLE_CONSUMER_CONTRACT",
+      "kind": "consumer_contract"
+    },
+    {
+      "id": "WRITE_ENABLE_BINDING_CONTRACT",
+      "kind": "signal_binding"
+    },
+    {
+      "id": "SENSE_ENABLE_BINDING_CONTRACT",
+      "kind": "signal_binding"
+    },
+    {
+      "id": "PRECHARGE_ENB_BINDING_CONTRACT",
+      "kind": "signal_binding"
+    },
+    {
+      "id": "WORDLINE_ENABLE_BINDING_CONTRACT",
+      "kind": "signal_binding"
+    },
+    {
+      "id": "AND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+      "kind": "generated_logic_contract"
+    },
+    {
+      "id": "AND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+      "kind": "generated_logic_contract"
+    },
+    {
+      "id": "PNAND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+      "kind": "generated_logic_contract"
+    },
+    {
+      "id": "PDRIVE2_FOR_PRE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "kind": "generated_logic_contract"
+    },
+    {
+      "id": "WL_PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "kind": "generated_logic_contract"
+    },
+    {
+      "id": "WRITEDRIVER",
+      "kind": "consumer_macro"
+    },
+    {
+      "id": "SENSEAMP",
+      "kind": "consumer_macro"
+    },
+    {
+      "id": "PRECHARGE",
+      "kind": "consumer_macro"
+    },
+    {
+      "id": "WORDLINEDRIVER",
+      "kind": "consumer_macro"
+    }
+  ],
+  "edges": [
+    {
+      "source": "WRITE_ENABLE_BINDING_CONTRACT",
+      "target": "WRITE_ENABLE_CONSUMER_CONTRACT",
+      "relation": "normalized_into"
+    },
+    {
+      "source": "SENSE_ENABLE_BINDING_CONTRACT",
+      "target": "SENSE_ENABLE_CONSUMER_CONTRACT",
+      "relation": "normalized_into"
+    },
+    {
+      "source": "PRECHARGE_ENB_BINDING_CONTRACT",
+      "target": "PRECHARGE_ENB_CONSUMER_CONTRACT",
+      "relation": "normalized_into"
+    },
+    {
+      "source": "WORDLINE_ENABLE_BINDING_CONTRACT",
+      "target": "WORDLINE_ENABLE_CONSUMER_CONTRACT",
+      "relation": "normalized_into"
+    },
+    {
+      "source": "WRITE_ENABLE_CONSUMER_CONTRACT",
+      "target": "AND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+      "relation": "implemented_by_generated_logic"
+    },
+    {
+      "source": "SENSE_ENABLE_CONSUMER_CONTRACT",
+      "target": "AND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+      "relation": "implemented_by_generated_logic"
+    },
+    {
+      "source": "PRECHARGE_ENB_CONSUMER_CONTRACT",
+      "target": "PNAND3_COMPOSITE_GENERATED_LOGIC_CONTRACT",
+      "relation": "implemented_by_generated_logic"
+    },
+    {
+      "source": "PRECHARGE_ENB_CONSUMER_CONTRACT",
+      "target": "PDRIVE2_FOR_PRE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "relation": "implemented_by_generated_logic"
+    },
+    {
+      "source": "WORDLINE_ENABLE_CONSUMER_CONTRACT",
+      "target": "WL_PDRIVE_CHAIN_GENERATED_LOGIC_CONTRACT",
+      "relation": "implemented_by_generated_logic"
+    },
+    {
+      "source": "WRITE_ENABLE_CONSUMER_CONTRACT",
+      "target": "WRITEDRIVER",
+      "relation": "consumed_by",
+      "consumer_pin": "EN"
+    },
+    {
+      "source": "SENSE_ENABLE_CONSUMER_CONTRACT",
+      "target": "SENSEAMP",
+      "relation": "consumed_by",
+      "consumer_pin": "EN"
+    },
+    {
+      "source": "PRECHARGE_ENB_CONSUMER_CONTRACT",
+      "target": "PRECHARGE",
+      "relation": "consumed_by",
+      "consumer_pin": "ENB"
+    },
+    {
+      "source": "WORDLINE_ENABLE_CONSUMER_CONTRACT",
+      "target": "WORDLINEDRIVER",
+      "relation": "consumed_by",
+      "consumer_pin": "B"
+    }
+  ],
+  "summary": {
+    "time_control_consumer_contract_available": true,
+    "consumer_contract_normalization_available": true,
+    "all_primary_control_consumers_have_contract": true,
+    "control_signal_aliases_normalized": true,
+    "control_signal_polarity_consistent": true,
+    "consumer_pin_binding_consistent": true,
+    "precharge_enb_consumer_contract_status": "source_level_metadata_only",
+    "can_enter_time_control_consumer_metadata_planning": true,
+    "can_enter_time_control_physical_placement": false,
+    "can_enter_standalone_control_placement": false
+  }
+}

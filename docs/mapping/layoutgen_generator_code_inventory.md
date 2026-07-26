@@ -1,0 +1,17 @@
+| reference_item | path | exists | classification | what_it_covers | next_phase_mapping |
+| --- | --- | --- | --- | --- | --- |
+| module_gds_generators.py | sram_layoutgen/openyield_adapter/module_gds_generators.py | True | LAYOUTGEN_BASE_CAPABILITY | generator/power/pin/placement/assembly capability | L0-L4 |
+| top_level_assembly.py | sram_layoutgen/openyield_adapter/top_level_assembly.py | True | LAYOUTGEN_BASE_CAPABILITY | generator/power/pin/placement/assembly capability | L0-L4 |
+| array_aggregation.py | sram_layoutgen/openyield_adapter/array_aggregation.py | True | LAYOUTGEN_BASE_CAPABILITY | generator/power/pin/placement/assembly capability | L0-L4 |
+| gds_writer.py | sram_layoutgen/gds_writer.py | True | LAYOUTGEN_BASE_CAPABILITY | generator/power/pin/placement/assembly capability | L0-L4 |
+| gds_util.py | sram_layoutgen/gds_util.py | True | LAYOUTGEN_BASE_CAPABILITY | generator/power/pin/placement/assembly capability | L0-L4 |
+| routing_power_pin.py | sram_layoutgen/openyield_adapter/routing_power_pin.py | True | LAYOUTGEN_BASE_CAPABILITY | generator/power/pin/placement/assembly capability | L0-L4 |
+| hardcell_power_rail_continuity.py | sram_layoutgen/openyield_adapter/hardcell_power_rail_continuity.py | True | LAYOUTGEN_BASE_CAPABILITY | generator/power/pin/placement/assembly capability | L0-L4 |
+| sram_power_planner.py | sram_layoutgen/openyield_adapter/sram_power_planner.py | True | LAYOUTGEN_BASE_CAPABILITY | generator/power/pin/placement/assembly capability | L0-L4 |
+| sram_pin_exporter.py | sram_layoutgen/openyield_adapter/sram_pin_exporter.py | True | LAYOUTGEN_BASE_CAPABILITY | generator/power/pin/placement/assembly capability | L0-L4 |
+| openram_placement.py | sram_layoutgen/openram_placement.py | True | LAYOUTGEN_BASE_CAPABILITY | generator/power/pin/placement/assembly capability | L0-L4 |
+| wordlinedriver_placement.py | sram_layoutgen/openyield_adapter/wordlinedriver_placement.py | True | LAYOUTGEN_BASE_CAPABILITY | generator/power/pin/placement/assembly capability | L0-L4 |
+| senseamp_placement.py | sram_layoutgen/openyield_adapter/senseamp_placement.py | True | LAYOUTGEN_BASE_CAPABILITY | generator/power/pin/placement/assembly capability | L0-L4 |
+| writedriver_placement.py | sram_layoutgen/openyield_adapter/writedriver_placement.py | True | LAYOUTGEN_BASE_CAPABILITY | generator/power/pin/placement/assembly capability | L0-L4 |
+| dff_array_placement.py | sram_layoutgen/openyield_adapter/dff_array_placement.py | True | LAYOUTGEN_BASE_CAPABILITY | generator/power/pin/placement/assembly capability | L0-L4 |
+| columnmux_placement.py | sram_layoutgen/openyield_adapter/columnmux_placement.py | True | LAYOUTGEN_BASE_CAPABILITY | generator/power/pin/placement/assembly capability | L0-L4 |

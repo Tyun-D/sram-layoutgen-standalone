@@ -1,0 +1,45 @@
+{
+  "project_primary_entrypoint": "main_sram.py",
+  "key_entrypoints": [
+    {
+      "relative_path": "main_sram.py",
+      "status": "IDENTIFIED",
+      "main_purpose": "Primary SRAM simulation entrypoint that loads YAML configs and runs transistor-level SRAM testbenches.",
+      "relevance_category": "NETLIST_SOURCE",
+      "can_provide_netlist_semantics": true,
+      "can_be_used_in_next_stage": true
+    },
+    {
+      "relative_path": "main_opt.py",
+      "status": "IDENTIFIED",
+      "main_purpose": "Interactive entrypoint that selects and launches SRAM sizing/architecture optimization demos.",
+      "relevance_category": "SCRIPT_ENTRYPOINT",
+      "can_provide_netlist_semantics": false,
+      "can_be_used_in_next_stage": false
+    },
+    {
+      "relative_path": "main_estimation.py",
+      "status": "IDENTIFIED",
+      "main_purpose": "Yield-estimation driver that runs SRAM failure-probability algorithms over SPICE-backed testbenches.",
+      "relevance_category": "SCRIPT_ENTRYPOINT",
+      "can_provide_netlist_semantics": false,
+      "can_be_used_in_next_stage": false
+    },
+    {
+      "relative_path": "equivalent_modeling/main_sram.py",
+      "status": "IDENTIFIED",
+      "main_purpose": "Studies or demonstrates equivalent-circuit acceleration for large SRAM simulations.",
+      "relevance_category": "UTILITY",
+      "can_provide_netlist_semantics": false,
+      "can_be_used_in_next_stage": false
+    },
+    {
+      "relative_path": "demo_run_a_testbench.py",
+      "status": "IDENTIFIED",
+      "main_purpose": "UNKNOWN",
+      "relevance_category": "SCRIPT_ENTRYPOINT",
+      "can_provide_netlist_semantics": false,
+      "can_be_used_in_next_stage": false
+    }
+  ]
+}

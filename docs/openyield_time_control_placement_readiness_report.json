@@ -1,0 +1,299 @@
+{
+  "scope": "stage_c_openyield_time_control_placement_readiness",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "source_reports": {
+    "time_control_decomposition": "step6_1_time_control_decomposition_audit",
+    "time_control_generated_logic_contract": "step6_25_openyield_time_control_generated_logic_contract_packaging_audit",
+    "time_control_consumer_contract": "step6_26_openyield_time_control_consumer_side_contract_normalization_audit",
+    "time_control_region_refinement": "step6_29_openyield_time_control_region_refinement_bundle",
+    "time_control_closure_unblock": "stage_a_openyield_time_control_closure_unblock",
+    "time_control_metadata_closure": "stage_b_openyield_time_control_metadata_closure"
+  },
+  "subblock_readiness": [
+    {
+      "subblock_name": "ADDR_DFF_ROW",
+      "category": "latched_address_array",
+      "placement_style": "row_based_dff_array",
+      "metadata_ready": true,
+      "physical_ready": false,
+      "depends_on": [
+        "DFF",
+        "clk distribution metadata",
+        "addr bus isolation proof"
+      ],
+      "blocked_by": [
+        "no legal placement proof",
+        "no routing proof",
+        "no standalone integration"
+      ],
+      "notes": [
+        "Address DFF decomposition is closed at metadata level only."
+      ]
+    },
+    {
+      "subblock_name": "DATA_DFF_ROW",
+      "category": "latched_write_data_array",
+      "placement_style": "row_based_dff_array",
+      "metadata_ready": true,
+      "physical_ready": false,
+      "depends_on": [
+        "DFF",
+        "clk distribution metadata",
+        "din bus routing proof"
+      ],
+      "blocked_by": [
+        "no legal placement proof",
+        "no routing proof",
+        "no standalone integration"
+      ],
+      "notes": [
+        "Data DFF decomposition is closed at metadata level only."
+      ]
+    },
+    {
+      "subblock_name": "DELAY_CHAIN_CLUSTER",
+      "category": "generated_logic_timing_chain",
+      "placement_style": "generated_logic_or_stdcell_row",
+      "metadata_ready": true,
+      "physical_ready": false,
+      "depends_on": [
+        "Pinv chain metadata",
+        "rbl delay timing metadata"
+      ],
+      "blocked_by": [
+        "delay timing proof missing",
+        "no legal placement proof",
+        "no routing proof"
+      ],
+      "notes": [
+        "Replica-bitline delay chain is structurally decomposed but not physically proven."
+      ]
+    },
+    {
+      "subblock_name": "WEN_DELAY_CHAIN_CLUSTER",
+      "category": "generated_logic_timing_chain",
+      "placement_style": "generated_logic_or_stdcell_row",
+      "metadata_ready": true,
+      "physical_ready": false,
+      "depends_on": [
+        "Pinv chain metadata",
+        "wen-delay metadata"
+      ],
+      "blocked_by": [
+        "wen-delay timing proof missing",
+        "no legal placement proof",
+        "no routing proof"
+      ],
+      "notes": [
+        "Write-enable delay chain remains metadata-only."
+      ]
+    },
+    {
+      "subblock_name": "PDRIVE_CLUSTER",
+      "category": "generated_logic_buffer_chain",
+      "placement_style": "generated_logic_or_stdcell_row",
+      "metadata_ready": true,
+      "physical_ready": false,
+      "depends_on": [
+        "Pinv chain metadata",
+        "clock buffer fanout metadata"
+      ],
+      "blocked_by": [
+        "no legal placement proof",
+        "no routing proof"
+      ],
+      "notes": [
+        "Clock/precharge/wordline buffer chains are abstractly placeable, not physically placeable yet."
+      ]
+    },
+    {
+      "subblock_name": "GENERATED_LOGIC_CLUSTER",
+      "category": "nand_and_inverter_logic",
+      "placement_style": "stdcell_row_candidate",
+      "metadata_ready": true,
+      "physical_ready": false,
+      "depends_on": [
+        "PNAND2/PNAND3/Pinv abstract contracts",
+        "region adjacency metadata"
+      ],
+      "blocked_by": [
+        "stdcell physical library not proven",
+        "no legal routing proof",
+        "no DRC/LVS proof"
+      ],
+      "notes": [
+        "Suitable for future prototype planning only."
+      ]
+    },
+    {
+      "subblock_name": "PRECHARGE_HANDOFF",
+      "category": "consumer_macro_handoff",
+      "placement_style": "control_to_macro_handoff_only",
+      "metadata_ready": true,
+      "physical_ready": false,
+      "depends_on": [
+        "PRE signal binding",
+        "consumer handoff metadata",
+        "precharge power semantics"
+      ],
+      "blocked_by": [
+        "rail continuity proof missing",
+        "no legal routing proof",
+        "no physical placement proof"
+      ],
+      "notes": [
+        "PRECHARGE stays at metadata/handoff readiness only.",
+        "Current closure status: intentional_no_local_gnd_metadata_exception."
+      ]
+    },
+    {
+      "subblock_name": "SENSEAMP_HANDOFF",
+      "category": "consumer_macro_handoff",
+      "placement_style": "control_to_macro_handoff_only",
+      "metadata_ready": true,
+      "physical_ready": false,
+      "depends_on": [
+        "sense_enable contract",
+        "consumer handoff metadata"
+      ],
+      "blocked_by": [
+        "no legal routing proof",
+        "no physical placement proof"
+      ],
+      "notes": [
+        "Sense path adapter is already opt-in elsewhere; TIME-side proof here remains metadata-only."
+      ]
+    },
+    {
+      "subblock_name": "WRITEDRIVER_HANDOFF",
+      "category": "consumer_macro_handoff",
+      "placement_style": "control_to_macro_handoff_only",
+      "metadata_ready": true,
+      "physical_ready": false,
+      "depends_on": [
+        "write_enable contract",
+        "consumer handoff metadata"
+      ],
+      "blocked_by": [
+        "no legal routing proof",
+        "no physical placement proof"
+      ],
+      "notes": [
+        "Write path consumer contract is closed only at the semantic metadata level."
+      ]
+    },
+    {
+      "subblock_name": "WORDLINEDRIVER_HANDOFF",
+      "category": "consumer_macro_handoff",
+      "placement_style": "control_to_macro_handoff_only",
+      "metadata_ready": true,
+      "physical_ready": false,
+      "depends_on": [
+        "wordline_enable polarity metadata",
+        "consumer handoff metadata"
+      ],
+      "blocked_by": [
+        "no legal routing proof",
+        "no physical placement proof"
+      ],
+      "notes": [
+        "B high-active semantics are known, but no physical TIME/control placement is allowed yet."
+      ]
+    },
+    {
+      "subblock_name": "DECODER_INTERFACE",
+      "category": "decoder_boundary_handoff",
+      "placement_style": "decoder_boundary_only",
+      "metadata_ready": true,
+      "physical_ready": false,
+      "depends_on": [
+        "addr_q semantics",
+        "decoder input contract"
+      ],
+      "blocked_by": [
+        "decoder placement intentionally untouched",
+        "no legal routing proof",
+        "no standalone integration"
+      ],
+      "notes": [
+        "This is only a boundary contract for future coordination with decoder placement."
+      ]
+    }
+  ],
+  "readiness_summary": {
+    "metadata_ready_subblocks": [
+      "ADDR_DFF_ROW",
+      "DATA_DFF_ROW",
+      "DELAY_CHAIN_CLUSTER",
+      "WEN_DELAY_CHAIN_CLUSTER",
+      "PDRIVE_CLUSTER",
+      "GENERATED_LOGIC_CLUSTER",
+      "PRECHARGE_HANDOFF",
+      "SENSEAMP_HANDOFF",
+      "WRITEDRIVER_HANDOFF",
+      "WORDLINEDRIVER_HANDOFF",
+      "DECODER_INTERFACE"
+    ],
+    "partial_metadata_subblocks": [],
+    "physical_blocked_subblocks": [
+      "ADDR_DFF_ROW",
+      "DATA_DFF_ROW",
+      "DELAY_CHAIN_CLUSTER",
+      "WEN_DELAY_CHAIN_CLUSTER",
+      "PDRIVE_CLUSTER",
+      "GENERATED_LOGIC_CLUSTER",
+      "PRECHARGE_HANDOFF",
+      "SENSEAMP_HANDOFF",
+      "WRITEDRIVER_HANDOFF",
+      "WORDLINEDRIVER_HANDOFF",
+      "DECODER_INTERFACE"
+    ],
+    "recommended_next_stage": "default_off_experimental_opt_in_prototype_plan"
+  },
+  "consistency_checks": {
+    "time_control_placement_readiness_available": true,
+    "time_control_metadata_closure_available": true,
+    "time_control_metadata_chain_complete": true,
+    "control_region_crossing_coverage_complete": true,
+    "time_control_region_metadata_planning_available": true,
+    "precharge_closure_status": "intentional_no_local_gnd_metadata_exception",
+    "metadata_ready_subblock_count": 11,
+    "partial_metadata_subblock_count": 0,
+    "physical_ready_subblock_count": 0,
+    "can_create_experimental_opt_in_placement_plan": true,
+    "can_modify_standalone": false,
+    "can_generate_time_control_gds": false,
+    "can_enter_physical_placement": false,
+    "safe_for_metadata_prototype_only": true,
+    "safe_for_physical_placement": false
+  },
+  "unresolved_items": [
+    "This audit is abstract-to-placement readiness only; it is not legal placement proof.",
+    "No TIME/control routed wires are proven.",
+    "No TIME/control GDS is generated.",
+    "PRECHARGE rail continuity proof is still missing.",
+    "Delay timing proof is missing.",
+    "WEN-delay timing proof is missing.",
+    "Decoder physical placement remains intentionally out of scope.",
+    "Standalone integration remains blocked at this stage.",
+    "No DRC/LVS proof exists for a TIME/control assembly."
+  ],
+  "audit_summary": {
+    "time_control_placement_readiness_available": true,
+    "metadata_ready_subblock_count": 11,
+    "partial_metadata_subblock_count": 0,
+    "can_create_experimental_opt_in_placement_plan": true,
+    "can_modify_standalone": false,
+    "can_generate_time_control_gds": false,
+    "can_enter_physical_placement": false
+  },
+  "can_create_experimental_opt_in_placement_plan": true,
+  "can_modify_standalone": false,
+  "can_generate_time_control_gds": false,
+  "can_enter_physical_placement": false,
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false
+}

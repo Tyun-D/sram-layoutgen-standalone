@@ -1,0 +1,33 @@
+# DFF BUF Reusable Release Checks
+
+- released_gds_hash: `f80dbdb1b9f5852c90801cdbee823db945a64693f4e4bec53381d533b48d6299`
+- source_repaired_clean_hash: `f80dbdb1b9f5852c90801cdbee823db945a64693f4e4bec53381d533b48d6299`
+- release_hash_matches_repaired_clean: `True`
+- hierarchy_closure_passed: `True`
+- missing_reference_target_count: `0`
+- reference_cycle_count: `0`
+- top_level_cell_count: `1`
+- top_level_cell_name: `DFF_BUF_FPDK45_6058eaf43739_HPA1`
+- child_instance_count: `3`
+- child_geometry_modified_count: `0`
+- exact_child_binding_count: `3`
+- expected_net_count: `7`
+- actual_net_component_count: `7`
+- unexpected_net_merge_count: `0`
+- missing_expected_endpoint_count: `0`
+- unexpected_endpoint_count: `0`
+- floating_required_pin_count: `0`
+- power_signal_short_count: `0`
+- vdd_vss_short_present: `False`
+- hierarchical_foreign_net_contact_count: `0`
+- unexpected_child_internal_net_contact_count: `0`
+- clk_clkb_short_present: `False`
+- q_qb_internal_short_present: `False`
+- top_canonical_label_set_exact: `True`
+- child_label_leakage_count: `0`
+- drc_marker_count: `0`
+- drc_passed: `True`
+- deterministic_release_verified: `True`
+- final_review_atlas_excluded_from_reusable_hierarchy: `True`
+- physical_connectivity_verification_passed: `True`
+- logical_physical_structural_match: `True`

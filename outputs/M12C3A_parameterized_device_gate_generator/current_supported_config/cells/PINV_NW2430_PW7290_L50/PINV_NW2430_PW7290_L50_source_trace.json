@@ -1,0 +1,57 @@
+{
+  "logical_module": "PINV",
+  "canonical_physical_cell_name": "PINV_NW2430_PW7290_L50",
+  "source_instance_paths": [
+    "pdrive.inv4"
+  ],
+  "reference_configs": [
+    "16x16",
+    "64x8"
+  ],
+  "pin_order": [
+    "VDD",
+    "VSS",
+    "A",
+    "Z"
+  ],
+  "pin_map": {
+    "VDD": [
+      {
+        "layer": "m1",
+        "lx": 0.0,
+        "by": 1.7875,
+        "rx": 3.9875,
+        "uy": 1.8525
+      }
+    ],
+    "VSS": [
+      {
+        "layer": "m1",
+        "lx": 0.0,
+        "by": -0.0325,
+        "rx": 3.9875,
+        "uy": 0.0325
+      }
+    ],
+    "A": [
+      {
+        "layer": "m1",
+        "lx": 0.0725,
+        "by": 0.785,
+        "rx": 0.2075,
+        "uy": 0.85
+      }
+    ],
+    "Z": [
+      {
+        "layer": "m1",
+        "lx": 2.005,
+        "by": 0.785,
+        "rx": 2.07,
+        "uy": 0.85
+      }
+    ]
+  },
+  "openram_backend": "pinv",
+  "source_trace_kind": "OpenRAM-backed pinv wrapper"
+}

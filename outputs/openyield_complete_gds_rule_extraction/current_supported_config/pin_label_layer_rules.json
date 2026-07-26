@@ -1,0 +1,49 @@
+{
+  "rules": [
+    {
+      "rule_name": "GeometryBackedMinimum",
+      "source_evidence": "hierarchy_layout.add_layout_pin / add_layout_pin_segment_center",
+      "rule_description": "A complete-GDS pin must have geometry bbox, layer, and stable net name. A label alone is insufficient.",
+      "required_geometry": "Pin rectangle or routed pin segment on a real layer.",
+      "required_metadata": "net name, bbox, layer, owning instance/module.",
+      "c0_blockers_addressed": "MISSING_PIN_GEOMETRY,MISSING_TOP_PIN_GEOMETRY",
+      "implemented_in_stage": "C2/C6"
+    },
+    {
+      "rule_name": "SynthesizedPinAllowance",
+      "source_evidence": "hierarchy_layout.copy_layout_pin / add_io_pin",
+      "rule_description": "Synthesized pins are only acceptable when they are copied or routed from real child geometry, not invented without a geometry source.",
+      "required_geometry": "Child-backed geometry and optional escape-routed replacement pin.",
+      "required_metadata": "source instance pin reference and replacement history.",
+      "c0_blockers_addressed": "MISSING_TOP_PIN_GEOMETRY",
+      "implemented_in_stage": "C2/C4/C6"
+    },
+    {
+      "rule_name": "LabelOnlyBoundary",
+      "source_evidence": "hierarchy_layout.add_label_pin",
+      "rule_description": "Label-only correspondence points can help debug LVS but cannot serve as complete-GDS connectivity evidence.",
+      "required_geometry": "None; this is explicitly non-sufficient.",
+      "required_metadata": "must be marked as label-only or correspondence-only.",
+      "c0_blockers_addressed": "MISSING_PIN_GEOMETRY",
+      "implemented_in_stage": "C6"
+    },
+    {
+      "rule_name": "PinShapeLabelConsistency",
+      "source_evidence": "hierarchy_layout.add_layout_pin / replace_layout_pin",
+      "rule_description": "Pin bbox, layer, label text, and net name must remain consistent when a pin is moved or replaced.",
+      "required_geometry": "Final pin shape plus any retained internal route geometry.",
+      "required_metadata": "pin-to-net and old-to-new pin mapping.",
+      "c0_blockers_addressed": "MISSING_LVS_READY_NET_MAPPING,MISSING_TOP_PIN_GEOMETRY",
+      "implemented_in_stage": "C4/C6"
+    },
+    {
+      "rule_name": "NetToShapeTruth",
+      "source_evidence": "hierarchy_layout.replace_layout_pin; signal_escape_router.replace_layout_pins",
+      "rule_description": "net_to_shape_map must point to real GDS shapes that survive into the final top cell, not to report-only bbox rows.",
+      "required_geometry": "GDS-resident shapes with stable bbox and layer.",
+      "required_metadata": "net_to_shape entry id, shape bbox, shape layer, source evidence path.",
+      "c0_blockers_addressed": "MISSING_LVS_READY_NET_MAPPING,PLACEHOLDER_VISUAL_GEOMETRY",
+      "implemented_in_stage": "C4/C6"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4ACH_dff_reusable_release/DFF_reusable_clean.gds",
+  "gds_sha256": "f6995536077a191c31e10644bbfcfb4075cda64b7da131987c70a59353c4e45d",
+  "expected_gds_sha256": "f6995536077a191c31e10644bbfcfb4075cda64b7da131987c70a59353c4e45d",
+  "top_cell": "DFF_TG4_INV7_FPDK45_26d9543b82b7",
+  "expected_top_cell": "DFF_TG4_INV7_FPDK45_26d9543b82b7",
+  "manifest_status": "HUMAN_REVIEWED_REUSABLE_COMPOSITE",
+  "expected_manifest_status": "HUMAN_REVIEWED_REUSABLE_COMPOSITE",
+  "manifest_source_commit_openyield": "1c34428d8b913963c4971d093b1a7c2df97a2509",
+  "expected_source_commit_openyield": "1c34428d8b913963c4971d093b1a7c2df97a2509",
+  "direct_child_inventory_raw": {
+    "COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50": 7,
+    "COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50": 4
+  },
+  "direct_child_inventory": {
+    "PINV_NW250_PW500_L50": 7,
+    "TRANSMISSION_GATE_NW250_PW500_L50": 4
+  },
+  "expected_direct_child_inventory": {
+    "PINV_NW250_PW500_L50": 7,
+    "TRANSMISSION_GATE_NW250_PW500_L50": 4
+  },
+  "unexpected_child_names": [],
+  "missing_child_names": [],
+  "dimension_tokens": {
+    "PINV_NW250_PW500_L50": {
+      "NW_nm": 250,
+      "PW_nm": 500,
+      "L_nm": 50
+    },
+    "TRANSMISSION_GATE_NW250_PW500_L50": {
+      "NW_nm": 250,
+      "PW_nm": 500,
+      "L_nm": 50
+    }
+  },
+  "conductive_geometry": {
+    "M1": 396,
+    "Via1": 60,
+    "M2": 90,
+    "total": 546
+  },
+  "label_texts": [
+    "CLK",
+    "D",
+    "Q",
+    "VDD",
+    "VSS"
+  ],
+  "hierarchy_closure": {
+    "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4ACH_dff_reusable_release/DFF_reusable_clean.gds",
+    "top_cells": [
+      "DFF_TG4_INV7_FPDK45_26d9543b82b7"
+    ],
+    "expected_top_cell": "DFF_TG4_INV7_FPDK45_26d9543b82b7",
+    "top_matches_expected": true,
+    "missing_reference_target_count": 0,
+    "missing_references": []
+  },
+  "binding_passed": true
+}

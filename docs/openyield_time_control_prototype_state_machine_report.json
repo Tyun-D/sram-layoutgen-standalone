@@ -1,0 +1,208 @@
+{
+  "scope": "step6_38_openyield_time_control_prototype_state_machine_audit",
+  "openyield_root": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\third_party\\OpenYield",
+  "contracts_path": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\docs\\openyield_module_contracts.json",
+  "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45",
+  "stage_rows": [
+    {
+      "stage_name": "metadata_closure",
+      "scope": "stage_b_openyield_time_control_metadata_closure",
+      "entry_condition_met": true,
+      "next_stage": "placement_readiness",
+      "next_stage_allowed": true,
+      "physical_gate_open": false,
+      "standalone_gate_open": false
+    },
+    {
+      "stage_name": "placement_readiness",
+      "scope": "stage_c_openyield_time_control_placement_readiness",
+      "entry_condition_met": true,
+      "next_stage": "prototype_plan",
+      "next_stage_allowed": true,
+      "physical_gate_open": false,
+      "standalone_gate_open": false
+    },
+    {
+      "stage_name": "prototype_plan",
+      "scope": "stage_d_openyield_time_control_opt_in_prototype_plan",
+      "entry_condition_met": true,
+      "next_stage": "payload_completeness",
+      "next_stage_allowed": true,
+      "physical_gate_open": false,
+      "standalone_gate_open": false
+    },
+    {
+      "stage_name": "payload_completeness",
+      "scope": "step6_34_openyield_time_control_payload_completeness_audit",
+      "entry_condition_met": true,
+      "next_stage": "payload_consumption_contract",
+      "next_stage_allowed": true,
+      "physical_gate_open": false,
+      "standalone_gate_open": false
+    },
+    {
+      "stage_name": "payload_consumption_contract",
+      "scope": "step6_35_openyield_time_control_payload_consumption_contract_audit",
+      "entry_condition_met": true,
+      "next_stage": "payload_materialization_boundary",
+      "next_stage_allowed": true,
+      "physical_gate_open": false,
+      "standalone_gate_open": false
+    },
+    {
+      "stage_name": "payload_materialization_boundary",
+      "scope": "step6_36_openyield_time_control_payload_materialization_boundary_audit",
+      "entry_condition_met": true,
+      "next_stage": "prototype_execution_guard",
+      "next_stage_allowed": true,
+      "physical_gate_open": false,
+      "standalone_gate_open": false
+    },
+    {
+      "stage_name": "prototype_execution_guard",
+      "scope": "step6_37_openyield_time_control_prototype_execution_guard_audit",
+      "entry_condition_met": true,
+      "next_stage": "future_builder_implementation",
+      "next_stage_allowed": true,
+      "physical_gate_open": false,
+      "standalone_gate_open": false
+    }
+  ],
+  "transition_rows": [
+    {
+      "from_stage": "metadata_closure",
+      "to_stage": "placement_readiness",
+      "metadata_only_transition": true,
+      "forbidden_auto_upgrade_clean": true
+    },
+    {
+      "from_stage": "placement_readiness",
+      "to_stage": "prototype_plan",
+      "metadata_only_transition": true,
+      "forbidden_auto_upgrade_clean": true
+    },
+    {
+      "from_stage": "prototype_plan",
+      "to_stage": "payload_completeness",
+      "metadata_only_transition": true,
+      "forbidden_auto_upgrade_clean": true
+    },
+    {
+      "from_stage": "payload_completeness",
+      "to_stage": "payload_consumption_contract",
+      "metadata_only_transition": true,
+      "forbidden_auto_upgrade_clean": true
+    },
+    {
+      "from_stage": "payload_consumption_contract",
+      "to_stage": "payload_materialization_boundary",
+      "metadata_only_transition": true,
+      "forbidden_auto_upgrade_clean": true
+    },
+    {
+      "from_stage": "payload_materialization_boundary",
+      "to_stage": "prototype_execution_guard",
+      "metadata_only_transition": true,
+      "forbidden_auto_upgrade_clean": true
+    },
+    {
+      "from_stage": "prototype_execution_guard",
+      "to_stage": "future_builder_implementation",
+      "metadata_only_transition": true,
+      "forbidden_auto_upgrade_clean": true
+    }
+  ],
+  "global_guard_rows": [
+    {
+      "guard_name": "physical_gate_stays_closed_through_all_stages",
+      "passed": true
+    },
+    {
+      "guard_name": "standalone_gate_stays_closed_through_all_stages",
+      "passed": true
+    },
+    {
+      "guard_name": "metadata_chain_monotonic",
+      "passed": true
+    },
+    {
+      "guard_name": "metadata_transition_chain_monotonic",
+      "passed": true
+    }
+  ],
+  "auto_upgrade_rows": [
+    {
+      "auto_upgrade_name": "to_physical_placement",
+      "allowed_now": false,
+      "blocked_by": [
+        "no legal placement proof",
+        "no routing proof",
+        "no DRC/LVS proof"
+      ]
+    },
+    {
+      "auto_upgrade_name": "to_standalone_integration",
+      "allowed_now": false,
+      "blocked_by": [
+        "standalone gate remains closed",
+        "physical proof missing",
+        "generator-path integration forbidden"
+      ]
+    },
+    {
+      "auto_upgrade_name": "to_time_control_gds",
+      "allowed_now": false,
+      "blocked_by": [
+        "physical GDS generation forbidden",
+        "routing proof missing",
+        "signoff proof missing"
+      ]
+    }
+  ],
+  "source_reports": {
+    "metadata_closure": "stage_b_openyield_time_control_metadata_closure",
+    "placement_readiness": "stage_c_openyield_time_control_placement_readiness",
+    "prototype_plan": "stage_d_openyield_time_control_opt_in_prototype_plan",
+    "payload_completeness": "step6_34_openyield_time_control_payload_completeness_audit",
+    "payload_consumption_contract": "step6_35_openyield_time_control_payload_consumption_contract_audit",
+    "payload_materialization_boundary": "step6_36_openyield_time_control_payload_materialization_boundary_audit",
+    "prototype_execution_guard": "step6_37_openyield_time_control_prototype_execution_guard_audit"
+  },
+  "violations": {
+    "transition_violations": [],
+    "global_guard_violations": []
+  },
+  "consistency_checks": {
+    "prototype_state_machine_audit_available": true,
+    "metadata_stage_chain_complete": true,
+    "metadata_only_transitions_clean": true,
+    "physical_gate_closed_across_stages": true,
+    "standalone_gate_closed_across_stages": true,
+    "forbidden_auto_upgrades_explicit": true,
+    "future_default_off_builder_state_machine_clean": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "audit_summary": {
+    "prototype_state_machine_audit_available": true,
+    "metadata_only_transitions_clean": true,
+    "physical_gate_closed_across_stages": true,
+    "standalone_gate_closed_across_stages": true,
+    "future_default_off_builder_state_machine_clean": true,
+    "can_modify_standalone_now": false,
+    "can_generate_time_control_gds_now": false,
+    "can_enter_physical_placement_now": false
+  },
+  "notes": [
+    "This audit formalizes the metadata-only phase progression for future default-off prototype builders.",
+    "Passing this audit still does not authorize standalone integration, routing, GDS generation, or physical placement.",
+    "The purpose is to prevent silent or accidental gate escalation when a builder implementation is introduced later."
+  ],
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "can_modify_standalone_now": false,
+  "can_generate_time_control_gds_now": false,
+  "can_enter_physical_placement_now": false
+}

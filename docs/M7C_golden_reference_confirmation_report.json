@@ -1,0 +1,20 @@
+{
+  "status_file_read": true,
+  "status_file_updated": true,
+  "golden_reference_user_confirmed": true,
+  "golden_reference_is_now_locked": true,
+  "current_golden_reference_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference.gds",
+  "current_golden_reference_clean_review_path": "outputs/M7_correct_golden_reference/current_supported_config/golden_reference_clean_review.gds",
+  "hybrid_openyield_rail_overlap_is_golden": false,
+  "new_uploaded_reference_is_golden": true,
+  "m7_blockers_before_count": 2,
+  "m7_blockers_after_count": 0,
+  "m7_blockers_cleared": [
+    "Human KLayout review of uploaded golden reference is required.",
+    "Next repair stage must reproduce the new uploaded golden reference instead of historical hybrid reference."
+  ],
+  "next_stage_allowed": "M8_REPRODUCE_UPLOADED_GOLDEN_REFERENCE",
+  "can_enter_M8_after_this_gate": true,
+  "human_klayout_review_required_for_M8_output": true,
+  "can_enter_next_stage_without_human_review": false
+}

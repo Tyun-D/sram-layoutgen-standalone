@@ -1,0 +1,255 @@
+{
+  "version": 1,
+  "description": "OpenYield-to-local FreePDK45 hardcell aliases. This augments replacement_macros.json for static compatibility checks only; it does not change placement or GDS generation.",
+  "aliases": [
+    {
+      "openyield_module": "SRAM_6T_CELL",
+      "macro_name": "cell_1rw",
+      "role": "bitcell",
+      "gds": "gds_lib/cell_1rw.gds",
+      "spice": "sp_lib/cell_1rw.sp",
+      "spice_subckt": "cell_1rw",
+      "pin_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd",
+        "BL": "bl",
+        "BLB": "br",
+        "WL": "wl"
+      },
+      "power_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "aggregation_hint": "abutment_ready",
+      "notes": [
+        "SRAM bitcells are expected to abut in arrays, but final enablement still requires GDS pin-shape and rail-continuity audit."
+      ]
+    },
+    {
+      "openyield_module": "Dummy_CELL",
+      "macro_name": "dummy_cell_1rw",
+      "role": "dummy",
+      "gds": "gds_lib/dummy_cell_1rw.gds",
+      "spice": "sp_lib/dummy_cell_1rw.sp",
+      "spice_subckt": "dummy_cell_1rw",
+      "pin_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd",
+        "BL": "bl",
+        "BLB": "br",
+        "WL": "wl"
+      },
+      "power_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "aggregation_hint": "abutment_ready",
+      "notes": [
+        "Dummy bitcells should align with bitcell rails; confirm exact edge pins in GDS before no-gap abutment."
+      ]
+    },
+    {
+      "openyield_module": "Dummy_Row",
+      "macro_name": "dummy_cell_1rw",
+      "role": "dummy",
+      "gds": "gds_lib/dummy_cell_1rw.gds",
+      "spice": "sp_lib/dummy_cell_1rw.sp",
+      "spice_subckt": "dummy_cell_1rw",
+      "pin_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd",
+        "BL": "bl",
+        "BLB": "br",
+        "WL": "wl"
+      },
+      "power_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "aggregation_hint": "abutment_ready",
+      "notes": [
+        "OpenYield Dummy_Row is an array composition of dummy_cell_1rw."
+      ]
+    },
+    {
+      "openyield_module": "Dummy_Column",
+      "macro_name": "dummy_cell_1rw",
+      "role": "dummy",
+      "gds": "gds_lib/dummy_cell_1rw.gds",
+      "spice": "sp_lib/dummy_cell_1rw.sp",
+      "spice_subckt": "dummy_cell_1rw",
+      "pin_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd",
+        "BL": "bl",
+        "BLB": "br",
+        "WL": "wl"
+      },
+      "power_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "aggregation_hint": "abutment_ready",
+      "notes": [
+        "OpenYield Dummy_Column is an array composition of dummy_cell_1rw."
+      ]
+    },
+    {
+      "openyield_module": "Replica_CELL",
+      "macro_name": "replica_cell_1rw",
+      "role": "replica",
+      "gds": "gds_lib/replica_cell_1rw.gds",
+      "spice": "sp_lib/replica_cell_1rw.sp",
+      "spice_subckt": "replica_cell_1rw",
+      "pin_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd",
+        "RBL": "rbl",
+        "RBLB": "rblb",
+        "WL": "wl",
+        "bl": "rbl",
+        "br": "rblb"
+      },
+      "power_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "aggregation_hint": "abutment_ready",
+      "notes": [
+        "Local replica_cell_1rw SPICE names bitlines bl/br; OpenYield contract names them RBL/RBLB."
+      ]
+    },
+    {
+      "openyield_module": "Replica_Column",
+      "macro_name": "replica_cell_1rw",
+      "role": "replica",
+      "gds": "gds_lib/replica_cell_1rw.gds",
+      "spice": "sp_lib/replica_cell_1rw.sp",
+      "spice_subckt": "replica_cell_1rw",
+      "pin_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd",
+        "RBL": "rbl",
+        "RBLB": "rblb",
+        "WL": "wl",
+        "bl": "rbl",
+        "br": "rblb"
+      },
+      "power_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "aggregation_hint": "abutment_ready",
+      "notes": [
+        "OpenYield Replica_Column is a column composition of replica_cell_1rw."
+      ]
+    },
+    {
+      "openyield_module": "SENSEAMP",
+      "macro_name": "sense_amp",
+      "role": "sense_amp",
+      "gds": "gds_lib/sense_amp.gds",
+      "spice": "sp_lib/sense_amp.sp",
+      "spice_subckt": "sense_amp",
+      "pin_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd",
+        "EN": "sense_enable",
+        "IN": "bl",
+        "INB": "br",
+        "Q": "dout",
+        "QB": "dout_b",
+        "bl": "bl",
+        "br": "br",
+        "dout": "dout",
+        "en": "sense_enable"
+      },
+      "power_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "aggregation_hint": "unknown_need_gds_pin_audit",
+      "notes": [
+        "Local sense_amp SPICE has a single dout pin; OpenYield SENSEAMP contract has Q and QB. Treat QB/dout_b as unresolved until the GDS/SPICE semantics are confirmed."
+      ]
+    },
+    {
+      "openyield_module": "WRITEDRIVER",
+      "macro_name": "write_driver",
+      "role": "write_driver",
+      "gds": "gds_lib/write_driver.gds",
+      "spice": "sp_lib/write_driver.sp",
+      "spice_subckt": "write_driver",
+      "pin_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd",
+        "EN": "write_enable",
+        "DIN": "din",
+        "BL": "bl",
+        "BLB": "br",
+        "din": "din",
+        "en": "write_enable",
+        "bl": "bl",
+        "br": "br"
+      },
+      "power_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "aggregation_hint": "unknown_need_gds_pin_audit",
+      "notes": [
+        "Local write_driver has matching functional pins by SPICE name; abutment requires GDS rail/pin-shape audit."
+      ]
+    },
+    {
+      "openyield_module": "DFF",
+      "macro_name": "dff",
+      "role": "control_timing",
+      "gds": "gds_lib/dff.gds",
+      "spice": "sp_lib/dff.sp",
+      "spice_subckt": "dff",
+      "pin_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd",
+        "D": "d",
+        "Q": "dout",
+        "CLK": "clk",
+        "clk": "clk",
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "power_aliases": {
+        "VDD": "vdd",
+        "VSS": "gnd"
+      },
+      "aggregation_hint": "unknown_need_gds_pin_audit",
+      "notes": [
+        "OpenYield DFF Q is accepted as canonical dout for current contract compatibility."
+      ]
+    },
+    {
+      "openyield_module": "tri_gate",
+      "macro_name": "tri_gate",
+      "role": "tri_gate",
+      "gds": "gds_lib/tri_gate.gds",
+      "spice": "sp_lib/tri_gate.sp",
+      "spice_subckt": "tri_gate",
+      "pin_aliases": {
+        "in": "din",
+        "out": "dout",
+        "en": "en",
+        "en_bar": "enb",
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "power_aliases": {
+        "vdd": "vdd",
+        "gnd": "gnd"
+      },
+      "aggregation_hint": "unknown_need_gds_pin_audit",
+      "notes": [
+        "Included for future output path compatibility; not a direct OpenYield top-level contract in the current parser output."
+      ]
+    }
+  ]
+}

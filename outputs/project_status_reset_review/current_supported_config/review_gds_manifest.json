@@ -1,0 +1,39 @@
+{
+  "human_klayout_review_required": true,
+  "can_enter_L0_before_human_review": false,
+  "review_gds": [
+    {
+      "review_name": "previous_access_view_final",
+      "status": "COPIED",
+      "source_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_complete_sram/current_supported_config/openyield_complete_sram.gds",
+      "copied_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/project_status_reset_review/current_supported_config/previous_access_view_final.gds",
+      "top_cell_name": "openyield_complete_sram",
+      "what_to_check_in_klayout": "Confirm this looks like access-view/proxy assembly rather than a real SRAM macro.",
+      "expected_visual_features": "Access-view style hierarchy, abstract connectivity, smaller GDS footprint.",
+      "known_risks": "Cannot be used as final physical SRAM GDS.",
+      "can_enter_next_stage_after_user_confirmation": true
+    },
+    {
+      "review_name": "layoutgen_reference",
+      "status": "COPIED",
+      "source_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/layout_prototype/baseline_legacy/sram_8x64_wpr4_fd45.complete.gds",
+      "copied_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/project_status_reset_review/current_supported_config/layoutgen_reference.gds",
+      "top_cell_name": "sram_8x64_wpr4_fd45",
+      "what_to_check_in_klayout": "Use as visual/structural comparator for what a real SRAM macro should resemble.",
+      "expected_visual_features": "Dense array-centric macro, real periphery organization, more SRAM-like visual structure.",
+      "known_risks": "Reference only; not final OpenYield output.",
+      "can_enter_next_stage_after_user_confirmation": true
+    },
+    {
+      "review_name": "first_round_openyield_candidate",
+      "status": "COPIED",
+      "source_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/openyield_top_level_assembly/current_supported_config/openyield_top_level_candidate.gds",
+      "copied_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/project_status_reset_review/current_supported_config/first_round_openyield_candidate.gds",
+      "top_cell_name": "openyield_top_level_candidate",
+      "what_to_check_in_klayout": "Assess whether first-round top candidate is closer to real physical assembly than the access-view final.",
+      "expected_visual_features": "May expose earlier top-level assembly direction and generator limitations.",
+      "known_risks": "Candidate only; may not be structurally valid final macro.",
+      "can_enter_next_stage_after_user_confirmation": true
+    }
+  ]
+}

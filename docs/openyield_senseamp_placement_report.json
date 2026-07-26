@@ -1,0 +1,865 @@
+{
+  "scope": "step5_2_senseamp_placement_adapter_smoke_read_only",
+  "inputs": {
+    "cols": 16,
+    "mux_ratio": 1,
+    "origin_x": 0.0,
+    "origin_y": 0.0,
+    "pitch_x": 0.895,
+    "tech_dir": "E:\\njust\\keyan\\SRAM Compiler_V2\\OpenRAM-stable\\deliverables\\sram_layoutgen_step45_clean\\technology\\freepdk45"
+  },
+  "adapter_strategy": "single_ended_q_to_dout",
+  "openyield_senseamp_pin_list": [
+    "VDD",
+    "VSS",
+    "EN",
+    "IN",
+    "INB",
+    "Q",
+    "QB"
+  ],
+  "local_senseamp_pin_list": [
+    "bl",
+    "br",
+    "dout",
+    "en",
+    "vdd",
+    "gnd"
+  ],
+  "local_senseamp_expected_pin_list": [
+    "bl",
+    "br",
+    "dout",
+    "en",
+    "vdd",
+    "gnd"
+  ],
+  "placement_count": 16,
+  "plan": {
+    "cols": 16,
+    "mux_ratio": 1,
+    "placements": [
+      {
+        "instance_name": "Xsa_c0",
+        "macro_name": "sense_amp",
+        "col": 0,
+        "x": 0.0,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "en": "sense_enable",
+          "bl": "bl[0]",
+          "br": "br[0]",
+          "dout": "dout[0]"
+        },
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "adapter_strategy": "single_ended_q_to_dout",
+        "safe_for_physical_mapping": true,
+        "notes": [
+          "Column-direct sense amp placement plan."
+        ]
+      },
+      {
+        "instance_name": "Xsa_c1",
+        "macro_name": "sense_amp",
+        "col": 1,
+        "x": 0.895,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "en": "sense_enable",
+          "bl": "bl[1]",
+          "br": "br[1]",
+          "dout": "dout[1]"
+        },
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "adapter_strategy": "single_ended_q_to_dout",
+        "safe_for_physical_mapping": true,
+        "notes": [
+          "Column-direct sense amp placement plan."
+        ]
+      },
+      {
+        "instance_name": "Xsa_c2",
+        "macro_name": "sense_amp",
+        "col": 2,
+        "x": 1.79,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "en": "sense_enable",
+          "bl": "bl[2]",
+          "br": "br[2]",
+          "dout": "dout[2]"
+        },
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "adapter_strategy": "single_ended_q_to_dout",
+        "safe_for_physical_mapping": true,
+        "notes": [
+          "Column-direct sense amp placement plan."
+        ]
+      },
+      {
+        "instance_name": "Xsa_c3",
+        "macro_name": "sense_amp",
+        "col": 3,
+        "x": 2.685,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "en": "sense_enable",
+          "bl": "bl[3]",
+          "br": "br[3]",
+          "dout": "dout[3]"
+        },
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "adapter_strategy": "single_ended_q_to_dout",
+        "safe_for_physical_mapping": true,
+        "notes": [
+          "Column-direct sense amp placement plan."
+        ]
+      },
+      {
+        "instance_name": "Xsa_c4",
+        "macro_name": "sense_amp",
+        "col": 4,
+        "x": 3.58,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "en": "sense_enable",
+          "bl": "bl[4]",
+          "br": "br[4]",
+          "dout": "dout[4]"
+        },
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "adapter_strategy": "single_ended_q_to_dout",
+        "safe_for_physical_mapping": true,
+        "notes": [
+          "Column-direct sense amp placement plan."
+        ]
+      },
+      {
+        "instance_name": "Xsa_c5",
+        "macro_name": "sense_amp",
+        "col": 5,
+        "x": 4.475,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "en": "sense_enable",
+          "bl": "bl[5]",
+          "br": "br[5]",
+          "dout": "dout[5]"
+        },
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "adapter_strategy": "single_ended_q_to_dout",
+        "safe_for_physical_mapping": true,
+        "notes": [
+          "Column-direct sense amp placement plan."
+        ]
+      },
+      {
+        "instance_name": "Xsa_c6",
+        "macro_name": "sense_amp",
+        "col": 6,
+        "x": 5.37,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "en": "sense_enable",
+          "bl": "bl[6]",
+          "br": "br[6]",
+          "dout": "dout[6]"
+        },
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "adapter_strategy": "single_ended_q_to_dout",
+        "safe_for_physical_mapping": true,
+        "notes": [
+          "Column-direct sense amp placement plan."
+        ]
+      },
+      {
+        "instance_name": "Xsa_c7",
+        "macro_name": "sense_amp",
+        "col": 7,
+        "x": 6.265000000000001,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "en": "sense_enable",
+          "bl": "bl[7]",
+          "br": "br[7]",
+          "dout": "dout[7]"
+        },
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "adapter_strategy": "single_ended_q_to_dout",
+        "safe_for_physical_mapping": true,
+        "notes": [
+          "Column-direct sense amp placement plan."
+        ]
+      },
+      {
+        "instance_name": "Xsa_c8",
+        "macro_name": "sense_amp",
+        "col": 8,
+        "x": 7.16,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "en": "sense_enable",
+          "bl": "bl[8]",
+          "br": "br[8]",
+          "dout": "dout[8]"
+        },
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "adapter_strategy": "single_ended_q_to_dout",
+        "safe_for_physical_mapping": true,
+        "notes": [
+          "Column-direct sense amp placement plan."
+        ]
+      },
+      {
+        "instance_name": "Xsa_c9",
+        "macro_name": "sense_amp",
+        "col": 9,
+        "x": 8.055,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "en": "sense_enable",
+          "bl": "bl[9]",
+          "br": "br[9]",
+          "dout": "dout[9]"
+        },
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "adapter_strategy": "single_ended_q_to_dout",
+        "safe_for_physical_mapping": true,
+        "notes": [
+          "Column-direct sense amp placement plan."
+        ]
+      },
+      {
+        "instance_name": "Xsa_c10",
+        "macro_name": "sense_amp",
+        "col": 10,
+        "x": 8.95,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "en": "sense_enable",
+          "bl": "bl[10]",
+          "br": "br[10]",
+          "dout": "dout[10]"
+        },
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "adapter_strategy": "single_ended_q_to_dout",
+        "safe_for_physical_mapping": true,
+        "notes": [
+          "Column-direct sense amp placement plan."
+        ]
+      },
+      {
+        "instance_name": "Xsa_c11",
+        "macro_name": "sense_amp",
+        "col": 11,
+        "x": 9.845,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "en": "sense_enable",
+          "bl": "bl[11]",
+          "br": "br[11]",
+          "dout": "dout[11]"
+        },
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "adapter_strategy": "single_ended_q_to_dout",
+        "safe_for_physical_mapping": true,
+        "notes": [
+          "Column-direct sense amp placement plan."
+        ]
+      },
+      {
+        "instance_name": "Xsa_c12",
+        "macro_name": "sense_amp",
+        "col": 12,
+        "x": 10.74,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "en": "sense_enable",
+          "bl": "bl[12]",
+          "br": "br[12]",
+          "dout": "dout[12]"
+        },
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "adapter_strategy": "single_ended_q_to_dout",
+        "safe_for_physical_mapping": true,
+        "notes": [
+          "Column-direct sense amp placement plan."
+        ]
+      },
+      {
+        "instance_name": "Xsa_c13",
+        "macro_name": "sense_amp",
+        "col": 13,
+        "x": 11.635,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "en": "sense_enable",
+          "bl": "bl[13]",
+          "br": "br[13]",
+          "dout": "dout[13]"
+        },
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "adapter_strategy": "single_ended_q_to_dout",
+        "safe_for_physical_mapping": true,
+        "notes": [
+          "Column-direct sense amp placement plan."
+        ]
+      },
+      {
+        "instance_name": "Xsa_c14",
+        "macro_name": "sense_amp",
+        "col": 14,
+        "x": 12.530000000000001,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "en": "sense_enable",
+          "bl": "bl[14]",
+          "br": "br[14]",
+          "dout": "dout[14]"
+        },
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "adapter_strategy": "single_ended_q_to_dout",
+        "safe_for_physical_mapping": true,
+        "notes": [
+          "Column-direct sense amp placement plan."
+        ]
+      },
+      {
+        "instance_name": "Xsa_c15",
+        "macro_name": "sense_amp",
+        "col": 15,
+        "x": 13.425,
+        "y": 0.0,
+        "orientation": "R0",
+        "nets": {
+          "vdd": "vdd",
+          "gnd": "gnd",
+          "en": "sense_enable",
+          "bl": "bl[15]",
+          "br": "br[15]",
+          "dout": "dout[15]"
+        },
+        "dropped_pins": {
+          "QB": "dropped_complementary_output"
+        },
+        "adapter_strategy": "single_ended_q_to_dout",
+        "safe_for_physical_mapping": true,
+        "notes": [
+          "Column-direct sense amp placement plan."
+        ]
+      }
+    ],
+    "macro_name": "sense_amp",
+    "adapter_strategy": "single_ended_q_to_dout",
+    "requires_netlist_rewrite": true,
+    "requires_layout_pin": false,
+    "notes": [
+      "One sense_amp is planned per storage/data column.",
+      "The plan is adapter-only and does not modify standalone placement."
+    ]
+  },
+  "example_placements": [
+    {
+      "instance_name": "Xsa_c0",
+      "macro_name": "sense_amp",
+      "col": 0,
+      "x": 0.0,
+      "y": 0.0,
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "en": "sense_enable",
+        "bl": "bl[0]",
+        "br": "br[0]",
+        "dout": "dout[0]"
+      },
+      "dropped_pins": {
+        "QB": "dropped_complementary_output"
+      },
+      "adapter_strategy": "single_ended_q_to_dout",
+      "safe_for_physical_mapping": true,
+      "notes": [
+        "Column-direct sense amp placement plan."
+      ]
+    },
+    {
+      "instance_name": "Xsa_c1",
+      "macro_name": "sense_amp",
+      "col": 1,
+      "x": 0.895,
+      "y": 0.0,
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "en": "sense_enable",
+        "bl": "bl[1]",
+        "br": "br[1]",
+        "dout": "dout[1]"
+      },
+      "dropped_pins": {
+        "QB": "dropped_complementary_output"
+      },
+      "adapter_strategy": "single_ended_q_to_dout",
+      "safe_for_physical_mapping": true,
+      "notes": [
+        "Column-direct sense amp placement plan."
+      ]
+    },
+    {
+      "instance_name": "Xsa_c2",
+      "macro_name": "sense_amp",
+      "col": 2,
+      "x": 1.79,
+      "y": 0.0,
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "en": "sense_enable",
+        "bl": "bl[2]",
+        "br": "br[2]",
+        "dout": "dout[2]"
+      },
+      "dropped_pins": {
+        "QB": "dropped_complementary_output"
+      },
+      "adapter_strategy": "single_ended_q_to_dout",
+      "safe_for_physical_mapping": true,
+      "notes": [
+        "Column-direct sense amp placement plan."
+      ]
+    },
+    {
+      "instance_name": "Xsa_c3",
+      "macro_name": "sense_amp",
+      "col": 3,
+      "x": 2.685,
+      "y": 0.0,
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "en": "sense_enable",
+        "bl": "bl[3]",
+        "br": "br[3]",
+        "dout": "dout[3]"
+      },
+      "dropped_pins": {
+        "QB": "dropped_complementary_output"
+      },
+      "adapter_strategy": "single_ended_q_to_dout",
+      "safe_for_physical_mapping": true,
+      "notes": [
+        "Column-direct sense amp placement plan."
+      ]
+    }
+  ],
+  "pin_net_mapping_table": [
+    {
+      "instance_name": "Xsa_c0",
+      "macro_name": "sense_amp",
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "en": "sense_enable",
+        "bl": "bl[0]",
+        "br": "br[0]",
+        "dout": "dout[0]"
+      }
+    },
+    {
+      "instance_name": "Xsa_c1",
+      "macro_name": "sense_amp",
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "en": "sense_enable",
+        "bl": "bl[1]",
+        "br": "br[1]",
+        "dout": "dout[1]"
+      }
+    },
+    {
+      "instance_name": "Xsa_c2",
+      "macro_name": "sense_amp",
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "en": "sense_enable",
+        "bl": "bl[2]",
+        "br": "br[2]",
+        "dout": "dout[2]"
+      }
+    },
+    {
+      "instance_name": "Xsa_c3",
+      "macro_name": "sense_amp",
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "en": "sense_enable",
+        "bl": "bl[3]",
+        "br": "br[3]",
+        "dout": "dout[3]"
+      }
+    },
+    {
+      "instance_name": "Xsa_c4",
+      "macro_name": "sense_amp",
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "en": "sense_enable",
+        "bl": "bl[4]",
+        "br": "br[4]",
+        "dout": "dout[4]"
+      }
+    },
+    {
+      "instance_name": "Xsa_c5",
+      "macro_name": "sense_amp",
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "en": "sense_enable",
+        "bl": "bl[5]",
+        "br": "br[5]",
+        "dout": "dout[5]"
+      }
+    },
+    {
+      "instance_name": "Xsa_c6",
+      "macro_name": "sense_amp",
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "en": "sense_enable",
+        "bl": "bl[6]",
+        "br": "br[6]",
+        "dout": "dout[6]"
+      }
+    },
+    {
+      "instance_name": "Xsa_c7",
+      "macro_name": "sense_amp",
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "en": "sense_enable",
+        "bl": "bl[7]",
+        "br": "br[7]",
+        "dout": "dout[7]"
+      }
+    },
+    {
+      "instance_name": "Xsa_c8",
+      "macro_name": "sense_amp",
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "en": "sense_enable",
+        "bl": "bl[8]",
+        "br": "br[8]",
+        "dout": "dout[8]"
+      }
+    },
+    {
+      "instance_name": "Xsa_c9",
+      "macro_name": "sense_amp",
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "en": "sense_enable",
+        "bl": "bl[9]",
+        "br": "br[9]",
+        "dout": "dout[9]"
+      }
+    },
+    {
+      "instance_name": "Xsa_c10",
+      "macro_name": "sense_amp",
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "en": "sense_enable",
+        "bl": "bl[10]",
+        "br": "br[10]",
+        "dout": "dout[10]"
+      }
+    },
+    {
+      "instance_name": "Xsa_c11",
+      "macro_name": "sense_amp",
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "en": "sense_enable",
+        "bl": "bl[11]",
+        "br": "br[11]",
+        "dout": "dout[11]"
+      }
+    },
+    {
+      "instance_name": "Xsa_c12",
+      "macro_name": "sense_amp",
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "en": "sense_enable",
+        "bl": "bl[12]",
+        "br": "br[12]",
+        "dout": "dout[12]"
+      }
+    },
+    {
+      "instance_name": "Xsa_c13",
+      "macro_name": "sense_amp",
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "en": "sense_enable",
+        "bl": "bl[13]",
+        "br": "br[13]",
+        "dout": "dout[13]"
+      }
+    },
+    {
+      "instance_name": "Xsa_c14",
+      "macro_name": "sense_amp",
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "en": "sense_enable",
+        "bl": "bl[14]",
+        "br": "br[14]",
+        "dout": "dout[14]"
+      }
+    },
+    {
+      "instance_name": "Xsa_c15",
+      "macro_name": "sense_amp",
+      "orientation": "R0",
+      "nets": {
+        "vdd": "vdd",
+        "gnd": "gnd",
+        "en": "sense_enable",
+        "bl": "bl[15]",
+        "br": "br[15]",
+        "dout": "dout[15]"
+      }
+    }
+  ],
+  "dropped_pin_table": [
+    {
+      "instance_name": "Xsa_c0",
+      "dropped_pins": {
+        "QB": "dropped_complementary_output"
+      }
+    },
+    {
+      "instance_name": "Xsa_c1",
+      "dropped_pins": {
+        "QB": "dropped_complementary_output"
+      }
+    },
+    {
+      "instance_name": "Xsa_c2",
+      "dropped_pins": {
+        "QB": "dropped_complementary_output"
+      }
+    },
+    {
+      "instance_name": "Xsa_c3",
+      "dropped_pins": {
+        "QB": "dropped_complementary_output"
+      }
+    },
+    {
+      "instance_name": "Xsa_c4",
+      "dropped_pins": {
+        "QB": "dropped_complementary_output"
+      }
+    },
+    {
+      "instance_name": "Xsa_c5",
+      "dropped_pins": {
+        "QB": "dropped_complementary_output"
+      }
+    },
+    {
+      "instance_name": "Xsa_c6",
+      "dropped_pins": {
+        "QB": "dropped_complementary_output"
+      }
+    },
+    {
+      "instance_name": "Xsa_c7",
+      "dropped_pins": {
+        "QB": "dropped_complementary_output"
+      }
+    },
+    {
+      "instance_name": "Xsa_c8",
+      "dropped_pins": {
+        "QB": "dropped_complementary_output"
+      }
+    },
+    {
+      "instance_name": "Xsa_c9",
+      "dropped_pins": {
+        "QB": "dropped_complementary_output"
+      }
+    },
+    {
+      "instance_name": "Xsa_c10",
+      "dropped_pins": {
+        "QB": "dropped_complementary_output"
+      }
+    },
+    {
+      "instance_name": "Xsa_c11",
+      "dropped_pins": {
+        "QB": "dropped_complementary_output"
+      }
+    },
+    {
+      "instance_name": "Xsa_c12",
+      "dropped_pins": {
+        "QB": "dropped_complementary_output"
+      }
+    },
+    {
+      "instance_name": "Xsa_c13",
+      "dropped_pins": {
+        "QB": "dropped_complementary_output"
+      }
+    },
+    {
+      "instance_name": "Xsa_c14",
+      "dropped_pins": {
+        "QB": "dropped_complementary_output"
+      }
+    },
+    {
+      "instance_name": "Xsa_c15",
+      "dropped_pins": {
+        "QB": "dropped_complementary_output"
+      }
+    }
+  ],
+  "checks": {
+    "local_macro_is_sense_amp": true,
+    "local_pins_match_expected": true,
+    "q_to_dout_established": true,
+    "qb_to_dout_b_established": false,
+    "qb_recorded_as_dropped": true,
+    "fake_dout_b_generated": false,
+    "safe_for_physical_mapping": true,
+    "requires_netlist_rewrite": true,
+    "requires_layout_pin": false,
+    "modified_standalone": false,
+    "modified_routing_or_gds_writer": false
+  },
+  "standalone_modified": false,
+  "routing_modified": false,
+  "gds_writer_modified": false,
+  "can_enter_standalone_opt_in_placement": true,
+  "next_step_recommendation": "Use this placement adapter as an explicit opt-in layer before touching standalone peripheral placement.",
+  "notes": [
+    "This smoke report plans only sense_amp instances.",
+    "QB is retained in metadata as dropped_complementary_output and does not become a physical net.",
+    "The grouped mux-ratio mode records mux_out/mux_out_b expectations without placing column mux macros."
+  ]
+}

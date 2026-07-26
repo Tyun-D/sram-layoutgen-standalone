@@ -1,0 +1,129 @@
+{
+  "stage": "Wave3 / DFF_BUF_HUMAN_REVIEW_SEAL_AND_REUSABLE_RELEASE",
+  "reusable_status": "HUMAN_REVIEWED_REUSABLE_COMPOSITE",
+  "logical_module": "DFF_BUF",
+  "logical_source_class_function": "DFF_BUF.add_dff_buf",
+  "physical_cell_name": "DFF_BUF_FPDK45_6058eaf43739_HPA1",
+  "released_clean_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_reusable_release/DFF_BUF_reusable_clean.gds",
+  "source_repaired_clean_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_hierarchical_pin_access_repair/current_supported_config/DFF_BUF_repaired_clean.gds",
+  "source_repaired_annotated_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_hierarchical_pin_access_repair/current_supported_config/DFF_BUF_repaired_annotated.gds",
+  "source_repaired_review_atlas_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_hierarchical_pin_access_repair/current_supported_config/DFF_BUF_repaired_review_atlas.gds",
+  "openyield_commit": "1c34428d8b913963c4971d093b1a7c2df97a2509",
+  "canonical_topology_hash": "6058eaf43739",
+  "repaired_geometry_hash": "9fa7d554727ec3dc143b36a9",
+  "source_clean_gds_hash": "f80dbdb1b9f5852c90801cdbee823db945a64693f4e4bec53381d533b48d6299",
+  "release_gds_hash": "f80dbdb1b9f5852c90801cdbee823db945a64693f4e4bec53381d533b48d6299",
+  "child_binding_list": [
+    {
+      "instance_name": "dff",
+      "child_logical_module": "DFF",
+      "resolved_physical_cell_name": "DFF_TG4_INV7_FPDK45_26d9543b82b7",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "inv1",
+      "child_logical_module": "PINV",
+      "resolved_physical_cell_name": "PINV_NW180_PW540_L50",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "inv2",
+      "child_logical_module": "PINV",
+      "resolved_physical_cell_name": "PINV_NW360_PW1080_L50",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    }
+  ],
+  "approved_dff_dependency": {
+    "physical_cell_name": "DFF_TG4_INV7_FPDK45_26d9543b82b7",
+    "released_clean_gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C4ACH_dff_reusable_release/DFF_reusable_clean.gds",
+    "sha256": "f6995536077a191c31e10644bbfcfb4075cda64b7da131987c70a59353c4e45d"
+  },
+  "approved_pinv_dependencies": [
+    {
+      "physical_cell_name": "PINV_NW180_PW540_L50",
+      "approved_physical_source_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells/PINV_NW180_PW540_L50/PINV_NW180_PW540_L50.gds"
+    },
+    {
+      "physical_cell_name": "PINV_NW360_PW1080_L50",
+      "approved_physical_source_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells/PINV_NW360_PW1080_L50/PINV_NW360_PW1080_L50.gds"
+    }
+  ],
+  "top_pin_list": [
+    "VDD",
+    "VSS",
+    "D",
+    "Q",
+    "QB",
+    "CLK"
+  ],
+  "internal_parent_net_list": [
+    "qint"
+  ],
+  "connectivity_summary": {
+    "expected_net_count": 7,
+    "actual_net_component_count": 7,
+    "unexpected_net_merge_count": 0,
+    "missing_expected_endpoint_count": 0,
+    "unexpected_endpoint_count": 0,
+    "floating_required_pin_count": 0,
+    "power_signal_short_count": 0,
+    "vdd_vss_short_present": false
+  },
+  "hierarchical_contact_summary": {
+    "hierarchical_foreign_net_contact_count": 0,
+    "unexpected_child_internal_net_contact_count": 0,
+    "clk_clkb_short_present": false,
+    "q_qb_internal_short_present": false
+  },
+  "drc_summary": {
+    "drc_marker_count": 0,
+    "drc_passed": true
+  },
+  "determinism_summary": {
+    "deterministic_release_verified": true
+  },
+  "human_review_record": {
+    "stage": "Wave3 / DFF_BUF human visual review",
+    "human_review_status": "PASS",
+    "reviewed_physical_cell_name": "DFF_BUF_FPDK45_6058eaf43739_HPA1",
+    "reviewed_clean_gds_sha256": "f80dbdb1b9f5852c90801cdbee823db945a64693f4e4bec53381d533b48d6299",
+    "child_presence_verified": true,
+    "child_overlap_absent": true,
+    "clk_clkb_separation_verified": true,
+    "q_qb_internal_separation_verified": true,
+    "long_m1_bridge_absent": true,
+    "via1_pin_window_verified": true,
+    "m2_escape_independence_verified": true,
+    "data_path_verified": true,
+    "power_continuity_verified": true,
+    "power_separation_verified": true,
+    "internal_net_isolation_verified": true,
+    "top_pin_set_verified": true,
+    "routing_abnormality_absent": true,
+    "lvs_proven": false,
+    "spice_functional_simulation_proven": false,
+    "timing_characterized": false,
+    "setup_hold_characterized": false,
+    "clock_to_q_characterized": false,
+    "signoff_ready": false
+  },
+  "reusable_source_list": [
+    "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_reusable_release/DFF_BUF_reusable_clean.gds"
+  ],
+  "forbidden_physical_sources": [
+    "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_hierarchical_pin_access_repair/quarantined_failed_candidate/DFF_BUF_clean.gds",
+    "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_hierarchical_pin_access_repair/current_supported_config/DFF_BUF_repaired_annotated.gds",
+    "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_hierarchical_pin_access_repair/current_supported_config/DFF_BUF_repaired_review_atlas.gds",
+    "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/Wave3_DFF_BUF_human_review_seal/DFF_BUF_final_review_atlas.gds"
+  ],
+  "prohibited_claims": [
+    "LVS passed",
+    "transistor-level SPICE functional simulation passed",
+    "setup/hold characterized",
+    "clock-to-Q characterized",
+    "timing signoff passed",
+    "full CONTROL_LOGIC completed",
+    "signoff ready"
+  ],
+  "only_clean_gds_is_composition_source": true
+}
