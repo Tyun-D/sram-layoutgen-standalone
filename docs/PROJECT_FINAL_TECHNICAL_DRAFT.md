@@ -24,5 +24,7 @@ multi-bank 当前状态为 `FUNCTIONAL_TOP_LEVEL_BLOCKED_BY_MISSING_AUTHORITY`�
 ## 局限与未来工作
 不得宣称 `PROJECT_COMPLETE`、`FINAL_RELEASE`、`TAPEOUT_READY`、`FOUNDRY_SIGNOFF` 或 `SILICON_PROVEN`。
 
+关于 `OWNER_A_LOGICAL_DATA_MODEL_V1`，当前仅采用保守表述：相关逻辑数据模型由项目团队共同完成，具体个人分工和 canonical source 尚未进一步核实；现有证据用于成果追溯，不作为源码已正式回收或主线已合并的证明。
+
 ## 作者贡献与 AI 边界
 曲珈豪负责全部版图相关工作；OpenYield 网表设计、电路结构优化、电路级优化由其他组员负责。Codex/AI 仅用于代码辅助、自动化验证和报告整理，关键结论仍以真实源码、GDS 与验证证据闭合。

@@ -1,7 +1,12 @@
 # Project Long Range Closure Gate
 
-- generated_at: `2026-07-26T15:26:19Z`
+- generated_at: `2026-07-26T15:39:58Z`
 - p0_003_resolution: `BLOCKED_EXTERNAL`
+- p0_003_author_attribution: `PROJECT_TEAM_JOINT_WORK`
+- p0_003_blocking_project_progress: `False`
+- p0_003_blocking_report_drafting: `False`
+- p0_003_blocking_source_recovery: `True`
+- p0_003_blocking_mainline_merge_of_owner_a_source: `True`
 - p1_total: `4`
 - p1_closed: `3`
 - p1_blocked: `1`

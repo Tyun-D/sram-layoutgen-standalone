@@ -119,3 +119,23 @@
 - decision: `advance P1/P2/P3 to current evidence boundary without merging other-team source`
 - unresolved_items: `Owner A confirmation for logical-model recovery`; `decoder physical closure`; `multi-bank authority`; `external signoff remains unsupported`
 - next_action: `user unified human review of PROJECT_LONG_RANGE_* package`
+
+## 2026-07-26T15:26:49Z project long_range_advance
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `04afa4b257a50e9f7a8dfef808e049375f582aff`
+- files_read: `docs/PROJECT_GAP_REGISTER.*`, `docs/NEXT_PROJECT_CLOSURE_EXECUTION_PLAN.*`, `docs/FINAL_REPORT_SECTION_EVIDENCE_MATRIX.csv`, `docs/FINAL_FIGURE_AND_TABLE_REQUIREMENTS.csv`, `docs/OTHER_TEAM_*`, `docs/UNKNOWN_OWNER_BRANCH_FORENSICS.*`, `outputs/M11_openyield_config_variation/*`, `outputs/M2R_full_sram_regen/*`, `docs/openyield_decoder_*`, `docs/mapping/openyield_top_bank_semantic_contract.json`
+- files_modified: `docs/P0_003_OWNER_CONFIRMATION_RESOLUTION.*`, `docs/LONG_RANGE_*`, `docs/FORMAL_SRAM_CONFIG_*`, `docs/PROJECT_CLAIM_POLICY.*`, `docs/M2R_SIGNOFF_BOUNDARY_AUDIT.*`, `docs/DECODER_PHYSICAL_CLOSURE_AUDIT.*`, `docs/MULTIBANK_PHYSICAL_FLOW_AUDIT.*`, `docs/FINAL_FIGURE_AND_TABLE_INDEX.*`, `docs/PROJECT_FUTURE_ROADMAP.*`, `docs/CUSTOMIZABLE_SRAM_EXTENSION_ROADMAP.csv`, `docs/PROJECT_FINAL_TECHNICAL_DRAFT.*`, `docs/PROJECT_LONG_RANGE_*`, `docs/PROJECT_RESULT_STATUS_MATRIX.*`, `docs/PROJECT_GAP_REGISTER.*`, `docs/PROJECT_CURRENT_STATUS.json`
+- result: `p0_003=BLOCKED_EXTERNAL`; `formal_config_count=10`; `decoder_status=BLOCKED_TECHNICAL`; `multibank_status=FUNCTIONAL_TOP_LEVEL_BLOCKED_BY_MISSING_AUTHORITY`; `claim_policy_passed=True`
+- decision: `advance P1/P2/P3 to current evidence boundary without merging other-team source`
+- unresolved_items: `Owner A confirmation for logical-model recovery`; `decoder physical closure`; `multi-bank authority`; `external signoff remains unsupported`
+- next_action: `user unified human review of PROJECT_LONG_RANGE_* package`
+
+## 2026-07-26T15:39:58Z project p0_003_joint_attribution_update
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `04afa4b257a50e9f7a8dfef808e049375f582aff`
+- files_read: `docs/P0_003_OWNER_CONFIRMATION_RESOLUTION.*`, `docs/LONG_RANGE_GAP_EXECUTION_MATRIX.csv`, `docs/PROJECT_CURRENT_STATUS.json`, `docs/PROJECT_FINAL_TECHNICAL_DRAFT.*`, `docs/PROJECT_AUTHOR_CONTRIBUTION_BOUNDARY.md`
+- files_modified: `docs/P0_003_OWNER_CONFIRMATION_RESOLUTION.*`, `docs/LONG_RANGE_GAP_EXECUTION_MATRIX.csv`, `docs/PROJECT_CURRENT_STATUS.json`, `docs/PROJECT_FINAL_TECHNICAL_DRAFT.*`, `docs/PROJECT_AUTHOR_CONTRIBUTION_BOUNDARY.md`, `docs/PROJECT_LONG_RANGE_CLOSURE_GATE.*`
+- result: `author_attribution=PROJECT_TEAM_JOINT_WORK`; `author_attribution_confirmed=true`; `blocking_project_progress=false`; `blocking_report_drafting=false`; `blocking_source_recovery=true`; `blocking_mainline_merge_of_owner_a_source=true`
+- decision: `use conservative joint-work wording in reports; continue all non-source-recovery work; do not infer canonical source or recovery authorization`
+- unresolved_items: `Owner A canonical source`; `review-bundle/source correspondence`; `source recovery authorization`
+- next_action: `continue project work that is independent of Owner A canonical source`
