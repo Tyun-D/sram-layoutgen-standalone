@@ -1,6 +1,6 @@
 # Decoder Physical Closure Audit
 
-- generated_at: `2026-07-26T22:30:00Z`
+- generated_at: `2026-07-26T16:10:44Z`
 - status: `BLOCKED_TECHNICAL`
 - stale_blocker_removed: `Team B AND2/AND3 are now formal`, but decoder is still metadata-only at the stage-planning and output-handoff level.
 

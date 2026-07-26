@@ -140,12 +140,22 @@
 - unresolved_items: `Owner A canonical source`; `review-bundle/source correspondence`; `source recovery authorization`
 - next_action: `continue project work that is independent of Owner A canonical source`
 
-## 2026-07-26T22:30:00Z project decoder_specific_blocker_audit
+## 2026-07-26T16:10:44Z project decoder_specific_blocker_audit
 - git_branch: `project/mainline-inventory-20260726`
-- git_head: `7d76556b331b64ffde4a5bd4feaf5c776a55fae7`
+- git_head: `72d1124d2a5d188275dc06919adb91555cb30203`
 - files_read: `docs/PROJECT_CURRENT_STATUS.json`, `docs/PROJECT_LONG_RANGE_CLOSURE_GATE.json`, `docs/PROJECT_GAP_REGISTER.csv`, `docs/PROJECT_TASK_MASTER_LOG.*`, `docs/DECODER_PHYSICAL_CLOSURE_AUDIT.*`, `docs/openyield_decoder_preplacement_feasibility_report.json`, `docs/openyield_decoder_output_contract_report.json`, `docs/openyield_decoder_generated_block_plan_report.json`, `docs/openyield_decoder_metadata_closure_report.json`, `docs/mapping/openyield_module_handoff_rule_matrix.csv`, `docs/mapping/openyield_leaf_physical_readiness_matrix.csv`, `technology/freepdk45/openyield_primitive_composition_library.json`, `technology/freepdk45/openyield_leaf_physical_library.json`, `sram_layoutgen/openyield_adapter/module_gds_generators.py`, `tests/test_openyield_netlist_to_gds_readiness.py`, `tests/test_openyield_L4_top_level_assembly.py`
 - files_modified: `docs/P0_003_OWNER_CONFIRMATION_RESOLUTION.*`, `docs/DECODER_PHYSICAL_CLOSURE_AUDIT.*`, `docs/PROJECT_GAP_REGISTER.csv`, `docs/PROJECT_RESULT_STATUS_MATRIX.csv`, `docs/PROJECT_FINAL_TECHNICAL_DRAFT.md`, `docs/PROJECT_LONG_RANGE_DELTA_REVIEW_TEMPLATE.md`, `docs/PROJECT_LONG_RANGE_CLOSURE_GATE.*`, `docs/PROJECT_CURRENT_STATUS.json`
 - result: `decoder_status=BLOCKED_TECHNICAL`; `decoder_specific_blockers_count=4`; `p0_003 remains BLOCKED_EXTERNAL but does not block project progress or report drafting`
 - decision: `do not claim decoder physical closure; keep decoder blocked on specific authority/generator/validation gaps rather than a generic blocker label`
 - unresolved_items: `no legally placeable decoder stage authority`; `no physically proven decoder output handoff`; `RowBasedCandidateGenerator is candidate-only`; `no decoder production gate or negative suite`
 - next_action: `refresh review packages and checkpoint the decoder blocker audit`
+
+## 2026-07-26T16:10:44Z project decoder_checkpoint_commit_sync
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `72d1124d2a5d188275dc06919adb91555cb30203`
+- files_read: `git status --short`; `git rev-parse HEAD`; `date -u`
+- files_modified: `docs/PROJECT_CURRENT_STATUS.json`; `docs/P0_003_OWNER_CONFIRMATION_RESOLUTION.*`; `docs/DECODER_PHYSICAL_CLOSURE_AUDIT.*`; `docs/PROJECT_LONG_RANGE_CLOSURE_GATE.*`; `docs/PROJECT_TASK_MASTER_LOG.*`
+- result: `checkpoint commit recorded`; `timestamps normalized to current UTC`; `PROJECT_CURRENT_STATUS git_head synchronized`
+- decision: `refresh long-range human-review package and full-evidence package on top of checkpoint commit`
+- unresolved_items: `decoder remains specifically blocked`; `Owner-A source recovery still blocked external`
+- next_action: `rebuild review packages and compute package SHA`
