@@ -1,0 +1,81 @@
+path,category,include_in_git,rationale
+scripts/TeamB_9cell_integration.py,B,yes,Team B generator/validator source
+scripts/TeamB_PNAND2_reference_generation.py,A,yes,Team B generator/validator source
+scripts/TeamB_and_gate_abutment_optimization.py,B,yes,Team B generator/validator source
+scripts/TeamB_and_gate_zero_gap_revalidation.py,B,yes,Team B generator/validator source
+scripts/TeamB_delay_chain_reference_generation.py,A,yes,Team B generator/validator source
+scripts/TeamB_inverter_chain_reference_generation.py,A,yes,Team B generator/validator source
+scripts/TeamB_remaining9_reference_generation.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/and2_negative_regressions.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/and2_production_verification_gate.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/and2_source_lock.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/and3_negative_regressions.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/and3_production_verification_gate.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/and3_source_lock.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/delay_chain_connectivity.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/delay_chain_contract.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/delay_chain_floorplan_planner.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/delay_chain_generator.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/delay_chain_negative_regressions.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/delay_chain_review_artifacts.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/delay_chain_route_planner.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/delay_chain_source_lock.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/delay_chain_stage_tile.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/delay_chain_verification_gate.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/inverter_chain_floorplan_planner.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/inverter_chain_generator.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/inverter_chain_layout_quality.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/inverter_chain_negative_regressions.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/inverter_chain_route_planner.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/inverter_chain_source_lock.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/inverter_chain_verification_gate.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/openram_pnand2_adapter.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/openram_pnand3_adapter.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/pnand2_source_lock.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/pnand2_verification_gate.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/pnand3_negative_regressions.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/pnand3_source_lock.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/production_negative_test_harness.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/rejection_code_registry.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/teamb_9cell_abutment_matrix.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/teamb_9cell_input_lock.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/teamb_9cell_integration_gate.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/teamb_9cell_library_packager.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/teamb_9cell_namespace_checker.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/teamb_9cell_negative_regressions.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/teamb_9cell_pin_access.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/teamb_9cell_placement_planner.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/teamb_9cell_review_artifacts.py,A,yes,Team B generator/validator source
+sram_layoutgen/openyield_adapter/teamb_composite_helper.py,A,yes,Team B generator/validator source
+tests/test_and2_negative_regressions.py,C,yes,Team B regression and status-consistency tests
+tests/test_and2_production_gate.py,C,yes,Team B regression and status-consistency tests
+tests/test_inverter_chain_status_consistency.py,C,yes,Team B regression and status-consistency tests
+tests/test_json_safe_helpers.py,C,yes,Team B regression and status-consistency tests
+tests/test_pnand2_generation.py,C,yes,Team B regression and status-consistency tests
+tests/test_pnand2_negative_regressions.py,C,yes,Team B regression and status-consistency tests
+tests/test_pnand2_source_lock.py,C,yes,Team B regression and status-consistency tests
+tests/test_pnand3_negative_regressions.py,C,yes,Team B regression and status-consistency tests
+tests/test_teamb_9cell_status_consistency.py,C,yes,Team B regression and status-consistency tests
+docs/TEAM_B_CURRENT_STATUS.json,E,yes,"Team B logs, audit, approval, lock, and finalization records"
+docs/TEAM_B_TASK_MASTER_LOG.md,E,yes,"Team B logs, audit, approval, lock, and finalization records"
+docs/TEAM_B_TASK_MASTER_LOG.jsonl,E,yes,"Team B logs, audit, approval, lock, and finalization records"
+docs/TEAM_B_OWNER_HUMAN_REVIEW_APPROVAL.json,E,yes,"Team B logs, audit, approval, lock, and finalization records"
+docs/TEAM_B_OWNER_HUMAN_REVIEW_APPROVAL.md,E,yes,"Team B logs, audit, approval, lock, and finalization records"
+docs/TEAM_B_PRE_MERGE_CONSISTENCY_AUDIT.json,E,yes,"Team B logs, audit, approval, lock, and finalization records"
+docs/TEAM_B_PRE_MERGE_CONSISTENCY_AUDIT.md,E,yes,"Team B logs, audit, approval, lock, and finalization records"
+docs/TEAM_B_FINAL_9CELL_LOCK.json,E,yes,"Team B logs, audit, approval, lock, and finalization records"
+docs/TEAM_B_FINAL_9CELL_LOCK.csv,E,yes,"Team B logs, audit, approval, lock, and finalization records"
+docs/TEAM_B_FINAL_9CELL_SHA256SUMS.txt,E,yes,"Team B logs, audit, approval, lock, and finalization records"
+outputs/TeamB_9cell_integration,F,review-by-policy,Formal machine-readable evidence and review atlases; track only if repository policy accepts non-LFS JSON/CSV/MD/GDS subsets
+outputs/TeamB_PNAND2_reference_demo,F,review-by-policy,Formal machine-readable evidence and review atlases; track only if repository policy accepts non-LFS JSON/CSV/MD/GDS subsets
+outputs/TeamB_and_gate_abutment_optimization,F,review-by-policy,Formal machine-readable evidence and review atlases; track only if repository policy accepts non-LFS JSON/CSV/MD/GDS subsets
+outputs/TeamB_delay_chain_reference_demo,F,review-by-policy,Formal machine-readable evidence and review atlases; track only if repository policy accepts non-LFS JSON/CSV/MD/GDS subsets
+outputs/TeamB_inverter_chain_reference_demo,F,review-by-policy,Formal machine-readable evidence and review atlases; track only if repository policy accepts non-LFS JSON/CSV/MD/GDS subsets
+outputs/TeamB_remaining9_reference_demo,F,review-by-policy,Formal machine-readable evidence and review atlases; track only if repository policy accepts non-LFS JSON/CSV/MD/GDS subsets
+outputs/TeamB_9cell_integration/current_supported_config/_pairwise_trials,G,no,Scratch/intermediate trial artifacts
+outputs/TeamB_9cell_integration/negative_test_work,G,no,Scratch/intermediate trial artifacts
+outputs/_tmp_delay_chain_probe,G,no,Scratch/intermediate trial artifacts
+outputs/_tmp_metric_probe,G,no,Scratch/intermediate trial artifacts
+outputs/_tmp_zero_gap_probe,G,no,Scratch/intermediate trial artifacts
+/data1/qujh/TEAM_B_9CELL_INTEGRATION_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz,H,no,Server archive only; record path/SHA/size in reports
+/data1/qujh/TEAM_B_9CELL_INTEGRATION_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz,H,no,Server archive only; record path/SHA/size in reports

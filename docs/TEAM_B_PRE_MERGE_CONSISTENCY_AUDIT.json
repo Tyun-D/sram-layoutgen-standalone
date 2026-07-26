@@ -1,0 +1,138 @@
+{
+  "audit_timestamp": "2026-07-26T10:55:33Z",
+  "git_branch": "feature/step45-clean-array-aggregation",
+  "git_head": "e74054e0fc5a15b28a2bc8c9d132b207a80c6538",
+  "detected_mainline": "master",
+  "input_lock_all_match": true,
+  "nine_module_audit": [
+    {
+      "module_name": "PNAND2",
+      "sha_match": true,
+      "machine_gate_green": true,
+      "negative_tests_passed": true,
+      "drc_marker_count": 0
+    },
+    {
+      "module_name": "PNAND3",
+      "sha_match": true,
+      "machine_gate_green": true,
+      "negative_tests_passed": true,
+      "drc_marker_count": 0
+    },
+    {
+      "module_name": "AND2",
+      "sha_match": true,
+      "machine_gate_green": true,
+      "negative_tests_passed": true,
+      "drc_marker_count": 0
+    },
+    {
+      "module_name": "AND3",
+      "sha_match": true,
+      "machine_gate_green": true,
+      "negative_tests_passed": true,
+      "drc_marker_count": 0
+    },
+    {
+      "module_name": "pdrive2_for_pre",
+      "sha_match": true,
+      "machine_gate_green": true,
+      "negative_tests_passed": true,
+      "drc_marker_count": 0
+    },
+    {
+      "module_name": "wl_pdrive",
+      "sha_match": true,
+      "machine_gate_green": true,
+      "negative_tests_passed": true,
+      "drc_marker_count": 0
+    },
+    {
+      "module_name": "pdrive",
+      "sha_match": true,
+      "machine_gate_green": true,
+      "negative_tests_passed": true,
+      "drc_marker_count": 0
+    },
+    {
+      "module_name": "wen_delay_chain",
+      "sha_match": true,
+      "machine_gate_green": true,
+      "negative_tests_passed": true,
+      "drc_marker_count": 0
+    },
+    {
+      "module_name": "delay_chain",
+      "sha_match": true,
+      "machine_gate_green": true,
+      "negative_tests_passed": true,
+      "drc_marker_count": 0
+    }
+  ],
+  "integration_gate": {
+    "input_lock_complete": true,
+    "all_input_sha_matched": true,
+    "all_nine_machine_gates_green": true,
+    "all_nine_negative_suites_passed": true,
+    "all_nine_top_cells_present": true,
+    "namespace_closure_passed": true,
+    "no_same_name_different_geometry": true,
+    "packaged_immutability_passed": true,
+    "edge_geometry_inventory_complete": true,
+    "rail_grouping_complete": true,
+    "pairwise_abutment_matrix_complete": true,
+    "pin_access_passed": true,
+    "combined_atlas_drc_passed": true,
+    "combined_atlas_drc_marker_count": 0,
+    "cross_module_connectivity_passed": true,
+    "foreign_net_passed": true,
+    "vdd_vss_short_false": true,
+    "deterministic_A_B_byte_identical": true,
+    "integration_negative_tests_passed": true,
+    "review_artifacts_complete": true,
+    "task_master_log_updated": true,
+    "current_status_consistent": true
+  },
+  "integration_negative_summary": {
+    "total_count": 28,
+    "mutation_effective_count": 28,
+    "production_validator_invoked_count": 28,
+    "specific_code_match_count": 28,
+    "unexpected_negative_test_pass_count": 0,
+    "negative_tests_passed": true
+  },
+  "library_sha256": "075061384baaf70ecbdc8dda82f6e364929ea4e6a538b2354528ac7cf7c5d0c3",
+  "clean_atlas_sha256": "cb42239dadde4ef79dc76169f251744823617253b811097cf11dd6e40a8a03b4",
+  "package_audits": [
+    {
+      "path": "/data1/qujh/TEAM_B_9CELL_INTEGRATION_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+      "sha256": "bb323dd65e51d06a7101835ecbd5ad78be86cd39851e73e8bf8e7777dd6c000e",
+      "size_bytes": 1488898,
+      "tar_readable": true,
+      "error": ""
+    },
+    {
+      "path": "/data1/qujh/TEAM_B_9CELL_INTEGRATION_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
+      "sha256": "3220db3ce7676594a3a76b3b5b79a81e14e5374f2d3073a48c44c360bddfea01",
+      "size_bytes": 1500059,
+      "tar_readable": true,
+      "error": ""
+    }
+  ],
+  "current_status_path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/TEAM_B_CURRENT_STATUS.json",
+  "task_master_log_md_path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/TEAM_B_TASK_MASTER_LOG.md",
+  "task_master_log_jsonl_path": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/TEAM_B_TASK_MASTER_LOG.jsonl",
+  "current_status_consistent": true,
+  "status_consistency_fix": {
+    "issue": "AND2/AND3 connectivity_present was previously false in TEAM_B_CURRENT_STATUS despite machine_gate connectivity_passed=true",
+    "root_cause": "TEAM_B_9CELL input-lock connectivity_path still pointed to physical_connectivity_report.json while formal AND2/AND3 bundles only emitted connectivity_graph.json",
+    "fix": [
+      "Added fallback artifact resolution in teamb_9cell_input_lock.py for connectivity_graph.json / physical_connectivity_report.json / <module>_connectivity_graph.json",
+      "Updated recompute_current_status to preserve workflow metadata while regenerating core evidence fields",
+      "Added tests/test_teamb_9cell_status_consistency.py and passed pytest coverage"
+    ],
+    "post_fix_and2_connectivity_present": true,
+    "post_fix_and3_connectivity_present": true
+  },
+  "audit_passed": true
+}

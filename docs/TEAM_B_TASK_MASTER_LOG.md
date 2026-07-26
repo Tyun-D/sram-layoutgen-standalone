@@ -1,0 +1,253 @@
+## 2026-07-25T20:41:04Z integration TEAM_B_9CELL integration_run
+- git_head: ``
+- files_read: `0`
+- files_modified: `3`
+- decision: `produce_initial_9cell_integration_outputs`
+- next_action: `inspect gate failures and complete negative suite`
+## 2026-07-25T20:54:05Z integration TEAM_B_9CELL integration_run
+- git_head: `e74054e0fc5a15b28a2bc8c9d132b207a80c6538`
+- files_read: `6`
+- files_modified: `3`
+- decision: `produce_initial_9cell_integration_outputs`
+- next_action: `inspect gate failures and complete negative suite`
+## 2026-07-26T06:49:56Z integration TEAM_B_9CELL recovery_preflight
+- git_head: `e74054e0fc5a15b28a2bc8c9d132b207a80c6538`
+- files_read: `11`
+- files_modified: `6`
+- evidence_read: `docs/TEAM_B_TASK_MASTER_LOG.md`, `docs/TEAM_B_TASK_MASTER_LOG.jsonl`, `docs/TEAM_B_CURRENT_STATUS.json`, `outputs/TeamB_9cell_integration/current_supported_config/TEAM_B_9CELL_INTEGRATION_GATE.json`, `outputs/TeamB_9cell_integration/current_supported_config/TEAM_B_9CELL_INTEGRATION_GATE.md`, `outputs/TeamB_9cell_integration/TEAM_B_9CELL_INPUT_LOCK.json`, `outputs/TeamB_9cell_integration/TEAM_B_9CELL_INPUT_SHA256SUMS.txt`, `outputs/TeamB_9cell_integration/negative_test_work/TEAM_B_9CELL/checkpoints`
+- integration_gate: `integration_negative_tests_passed=false`, all other gate bits `true`, `combined_atlas_drc_marker_count=0`
+- checkpoint_count: `0`
+- negative_matrix_status: `missing`
+- negative_summary_status: `missing`
+- old_process_status: `not_running`
+- tmux_status: `none`
+- disk_free: `/data1 avail 2.1G`, `/tmp avail 258G`
+- problems_found: `resume flags were parsed but not wired into the integration runner`; `negative harness wrote work copies under /data1 and would risk low-disk restart before checkpoint completion`
+- root_cause: `resume/scratch/cleanup controls were not connected end-to-end`
+- files_modified: `scripts/TeamB_9cell_integration.py`, `sram_layoutgen/openyield_adapter/teamb_9cell_integration_gate.py`, `sram_layoutgen/openyield_adapter/teamb_9cell_negative_regressions.py`, `sram_layoutgen/openyield_adapter/production_negative_test_harness.py`, `docs/TEAM_B_TASK_MASTER_LOG.md`, `docs/TEAM_B_CURRENT_STATUS.json`
+- commands: `python -m py_compile scripts/TeamB_9cell_integration.py sram_layoutgen/openyield_adapter/teamb_9cell_integration_gate.py sram_layoutgen/openyield_adapter/teamb_9cell_negative_regressions.py sram_layoutgen/openyield_adapter/production_negative_test_harness.py`
+- formal_library_changed: `no`
+- atlas_changed: `no`
+- input_sha_changed: `no`
+- next_action: `resume integration negative suite with /tmp scratch and original checkpoints only`
+## 2026-07-26T06:53:57Z integration TEAM_B_9CELL recovery_patch
+- git_head: `e74054e0fc5a15b28a2bc8c9d132b207a80c6538`
+- files_read: `4`
+- files_modified: `6`
+- observed_failure: `resume attempt on 2026-07-26 was manually interrupted in build_pairwise_abutment_matrices before any negative checkpoint was created`
+- checkpoint_count_before: `0`
+- matrix_summary_status_before: `missing/missing`
+- root_cause: `run_teamb_9cell_integration still recomputed package/atlas/DRC/pairwise even under --resume`
+- files_modified: `scripts/TeamB_9cell_integration.py`, `sram_layoutgen/openyield_adapter/teamb_9cell_integration_gate.py`, `sram_layoutgen/openyield_adapter/teamb_9cell_negative_regressions.py`, `sram_layoutgen/openyield_adapter/production_negative_test_harness.py`, `docs/TEAM_B_TASK_MASTER_LOG.md`, `docs/TEAM_B_CURRENT_STATUS.json`
+- command_observed: `python scripts/TeamB_9cell_integration.py --resume --resume-negative-tests --rebuild-failed --cleanup-completed-scratch --scratch-root /tmp/qujh_teamb9cell_scratch --openyield-root /data1/qujh/work/external/OpenYield`
+- interruption_site: `sram_layoutgen/openyield_adapter/teamb_9cell_abutment_matrix.py:79`
+- fix_applied: `resume now reuses existing green prerequisite artifacts when evidence is complete`; `negative harness uses /tmp scratch and keeps a single checkpoint set under outputs/.../negative_test_work/TEAM_B_9CELL/checkpoints`
+- formal_library_changed: `no`
+- atlas_changed: `no`
+- input_sha_changed: `no`
+- next_action: `rerun resume flow and expect direct entry into negative-suite`
+## 2026-07-26T06:57:12Z integration TEAM_B_9CELL recovery_patch
+- git_head: `e74054e0fc5a15b28a2bc8c9d132b207a80c6538`
+- files_read: `5`
+- files_modified: `6`
+- observed_failure: `resume run on 2026-07-26 exited during negative-suite copy with recursive negative_test_work path expansion`
+- checkpoint_count_before_fix: `9`
+- matrix_summary_status_before_fix: `missing/missing`
+- root_cause: `baseline bundle copy still included negative_test_work, and --rebuild-failed was preventing reuse of completed successful checkpoints`
+- fixes_applied: `copytree now ignores negative_test_work`; `completed successful checkpoints are always reused on resume`; `stale case workdirs were deleted while preserving checkpoints`
+- cleanup_result: `outputs/TeamB_9cell_integration/negative_test_work/TEAM_B_9CELL reduced to checkpoints only`; `/tmp/qujh_teamb9cell_scratch removed`
+- commands: `python -m py_compile scripts/TeamB_9cell_integration.py sram_layoutgen/openyield_adapter/teamb_9cell_integration_gate.py sram_layoutgen/openyield_adapter/teamb_9cell_negative_regressions.py sram_layoutgen/openyield_adapter/production_negative_test_harness.py`
+- formal_library_changed: `no`
+- atlas_changed: `no`
+- input_sha_changed: `no`
+- next_action: `resume from 9 preserved checkpoints and continue negative-suite`
+## 2026-07-26T06:59:10Z integration TEAM_B_9CELL recovery_patch
+- git_head: `e74054e0fc5a15b28a2bc8c9d132b207a80c6538`
+- files_read: `4`
+- files_modified: `4`
+- observed_failure: `third resume run on Sunday, July 26, 2026 advanced to checkpoint 19 and then exited at case 20_off_grid_placement`
+- checkpoint_count_before_fix: `19`
+- matrix_summary_status_before_fix: `missing/missing`
+- root_cause: `validate_teamb_9cell_bundle called run_cell_drc without creating current_supported_config/_negative_validator_drc inside the scratch copy`
+- fix_applied: `create _negative_validator_drc before running the negative validator DRC`
+- formal_library_changed: `no`
+- atlas_changed: `no`
+- input_sha_changed: `no`
+- next_action: `resume from 19 preserved checkpoints and continue cases 20-28`
+## 2026-07-26T07:01:33Z integration TEAM_B_9CELL recovery_patch
+- git_head: `e74054e0fc5a15b28a2bc8c9d132b207a80c6538`
+- files_read: `3`
+- files_modified: `3`
+- current_negative_summary: `total_count=28`, `mutation_effective_count=28`, `production_validator_invoked_count=28`, `specific_code_match_count=26`, `unexpected_negative_test_pass_count=2`
+- remaining_failures: `09_flattened_module -> UNAPPROVED_MODULE_PRESENT (expected FLATTENED_MODULE)`; `21_drc_atlas_mutation -> no rejection code (expected DRC_FAILED)`
+- fix_applied: `09 now removes all top references without promoting descendants to top-level cells`; `21 now shifts the first atlas reference onto the second module location to force overlap-driven DRC failure`
+- formal_library_changed: `no`
+- atlas_changed: `no`
+- input_sha_changed: `no`
+- next_action: `rerun failed negative cases through resume path and verify 28/28`
+## 2026-07-26T07:03:25Z integration TEAM_B_9CELL recovery_patch
+- git_head: `e74054e0fc5a15b28a2bc8c9d132b207a80c6538`
+- files_read: `2`
+- files_modified: `3`
+- current_negative_summary: `specific_code_match_count=27`, `unexpected_negative_test_pass_count=1`
+- remaining_failure: `09_flattened_module -> orphan child cells became new top-level cells and still triggered UNAPPROVED_MODULE_PRESENT before FLATTENED_MODULE`
+- fix_applied: `after removing PNAND2 top references, prune newly orphaned non-top cells from the mutated library`
+- formal_library_changed: `no`
+- atlas_changed: `no`
+- input_sha_changed: `no`
+- next_action: `rerun last failed negative case through resume path and verify 28/28`
+## 2026-07-26T07:00:29Z integration TEAM_B_9CELL integration_run
+- git_head: `e74054e0fc5a15b28a2bc8c9d132b207a80c6538`
+- files_read: `6`
+- files_modified: `3`
+- decision: `produce_initial_9cell_integration_outputs`
+- next_action: `inspect gate failures and complete negative suite`
+## 2026-07-26T07:02:53Z integration TEAM_B_9CELL integration_run
+- git_head: `e74054e0fc5a15b28a2bc8c9d132b207a80c6538`
+- files_read: `6`
+- files_modified: `3`
+- decision: `produce_initial_9cell_integration_outputs`
+- next_action: `inspect gate failures and complete negative suite`
+## 2026-07-26T07:04:32Z integration TEAM_B_9CELL integration_run
+- git_head: `e74054e0fc5a15b28a2bc8c9d132b207a80c6538`
+- files_read: `6`
+- files_modified: `3`
+- decision: `produce_initial_9cell_integration_outputs`
+- next_action: `inspect gate failures and complete negative suite`
+## 2026-07-26T08:33:07Z and_gate_abutment TEAM_B_AND2_AND3 study_preflight
+- git_head: `e74054e0fc5a15b28a2bc8c9d132b207a80c6538`
+- git_branch: `feature/step45-clean-array-aggregation`
+- files_read: `18`
+- decision: `freeze baseline and run PNAND→PINV zero-gap / route-style study before any formal GDS change`
+- evidence_summary: `AND2 SHA=7e9aa9280495c4cca9e625d57b00fb9e93597b418aabd17e4e9e132c65c96578`; `AND3 SHA=474463ec0fb80356932459af2919b8e0e151cb4e4eb662fc621aa5a415c9d2ef`; `integration gate all true`; `integration library SHA=b47acfdeee95e1e8d821e9062beee1d634fe861b977bdf6733e272d56f4dadf0`; `clean atlas SHA=434538201aab664b7b60396a7a699e8dd93e529da5d97759b33b5e927825fc81`
+- baseline_route_fact: `AND2/AND3 generator currently places PNAND + PINV in one row with gap=0.35, bridges VDD/VSS on M1, and routes zb_int with parent-added M2 trunk plus Via1 landings`
+- process_status: `no TeamB integration/AND2/AND3 process running`; `tmux none`
+- disk_free: `/data1 avail 4.3G`; `/tmp avail 258G`
+- next_action: `archive baseline evidence and add a dedicated abutment optimization study flow`
+## 2026-07-26T08:49:25Z and_gate_abutment TEAM_B_AND2_AND3 baseline_retained_after_pairwise_study
+- git_head: `e74054e0fc5a15b28a2bc8c9d132b207a80c6538`
+- git_branch: `feature/step45-clean-array-aggregation`
+- files_read: `17`
+- files_modified: `4`
+- decision: `retain formal AND2/AND3 baseline; do not mutate formal GDS; 9-cell integration remains valid`
+- candidate_scope: `PNAND2/PNAND3 -> PINV`; orientations `R0+R0`, `R0+MY`, `MY+R0`, `MY+MY`; gaps `0.35`, `0.20`, `0.10`, `0.05`, `0.00`; route styles `M2 parent`, `zero-gap M2 parent`, `zero-gap M1 local`
+- boundary_geometry_fact: `PNAND2 right rail stops at x=0.9025 while cell xmax=0.9575`; `PNAND3 right rail stops at x=1.2475 while cell xmax=1.3025`; `PINV left rail starts at x=0.0 while cell xmin=-0.055`; `all edge reports show vdd_reaches_edge=false and vss_reaches_edge=false`
+- pairwise_matrix_result: `all orientations at gap 0.35/0.20 are DRC-clean but VDD continuity=false and VSS continuity=false`; `all orientations at gap 0.10/0.05 have DRC marker count 1`; `all orientations at gap 0.00 are DRC-clean but still VDD continuity=false and VSS continuity=false`; `foreign-net remained false in every pairwise row because same-net power continuity was not formed`
+- route_comparison_result: `zero-gap M2 parent route failed for AND2 with DRC=4 and for AND3 with DRC=3 in all orientations`; `zero-gap M1 local route was rerun after fixing the study-script route-style dispatch bug and became a real M1 jog candidate with DRC=0 and Via1=0, but still failed connectivity/foreign-net/VDD/VSS continuity in all orientations`
+- endpoint_contract_result: `AND2/AND3 zero-gap M2 R0+R0 zb_int contracts both showed zb_int_not_connected_to_VDD_VSS=false`
+- selected_candidates: `AND2_R0_R0_gap0p35_M2_PARENT_BASELINE`; `AND3_R0_R0_gap0p35_M2_PARENT_BASELINE`
+- root_cause: `zero-gap placement cannot legally stitch same-net VDD/VSS by boundary abut because child rails do not reach the abutment edge; shrinking the gap to 0.10/0.05 introduces real DRC spacing markers; M1 local jog can clean the signal route itself but cannot satisfy the required rail continuity/connectivity gate without forbidden child-geometry edits`
+- commands: `python -m py_compile scripts/TeamB_and_gate_abutment_optimization.py`; `python scripts/TeamB_and_gate_abutment_optimization.py` (twice, second run after M1-route fix); `sha256sum` on abutment decision/report artifacts
+- study_script_fix: `corrected ZERO_GAP_M1_LOCAL_ROUTE branch dispatch and implemented true M1 jog geometry so M1 evidence is no longer an accidental M2 fallback`
+- artifact_sha: `PAIRWISE_ABUTMENT_MATRIX.csv=df86b1d299e1398009214a5fa010d3d15030750b6a9e2f4eef97171a915dcb16`; `AND2_ABUTMENT_ROUTE_CANDIDATES.csv=9cf68c051d2289b33dd301731c5a455fa08326606b7a346ced211ddb1ef2d458`; `AND3_ABUTMENT_ROUTE_CANDIDATES.csv=33d363fff3caaf85e84913e36c547e2d2334ba7a9f6d278ba6442949eb2a6a81`; `AND2_AND3_ABUTMENT_DECISION.json=01d1ef3a10ac85fd3167b5666cac509d42b1119b9ae8fada56b998a5cc32cddd`; `AND2_AND3_ABUTMENT_DECISION.md=2d2d4d88659e14726e1886d443f67d78fa0d043f81f2ff19b77f0a4c176ebf40`; `ABUTMENT_OPTIMIZATION_TECHNICAL_REPORT.md=3ea327f09f87b5a4b076e297feed620880940605acc3db834f457c14a1a8257d`
+- formal_gds_changed: `no`
+- input_sha_changed: `no`
+- integration_invalidated: `no`
+- disk_free: `/data1 avail 4.3G`; `/tmp avail 258G`
+- next_action: `Team B result recovery and later mainline-merge preparation remain future workflow items; no merge executed in this round`
+## 2026-07-26T09:20:00Z and_gate_abutment TEAM_B_AND2_AND3 zero_gap_revalidation
+- git_head: `e74054e0fc5a15b28a2bc8c9d132b207a80c6538`
+- git_branch: `feature/step45-clean-array-aggregation`
+- files_read: `24`
+- files_modified: `8`
+- decision: `correct prior report semantics; zero-gap composite is valid when parent power stitching is regenerated; formal GDS still unchanged in this round`
+- report_error_points: `previous report conflated child rail edge-abutment with module-level power continuity`; `previous zero-gap candidates omitted regenerated parent VDD/VSS rails`; `previous zero-gap M2 DRC markers were not reproducible after rerouting with regenerated parent rails`
+- revalidation_scope: `only R0+R0 gap=0 candidates were rerun`; `AND2 m1_local`; `AND2 m2_rerouted`; `AND3 m1_local`; `AND3 m2_rerouted`
+- child_edge_fact: `PNAND2/PNAND3 right rail and PINV left rail still do not reach child bbox edges`
+- parent_stitching_fact: `revalidated top-level VDD/VSS parent rails are present and span both child landings`
+- module_power_fact: `AND2 and AND3 both achieved VDD component MATCH and VSS component MATCH with missing endpoint count 0 and unexpected merge count 0`
+- route_results: `AND2 m1_local DRC=0 zb_int=true foreign_net=true`; `AND2 m2_rerouted DRC=0 zb_int=true foreign_net=true`; `AND3 m1_local DRC=0 zb_int=true foreign_net=true`; `AND3 m2_rerouted DRC=0 zb_int=true foreign_net=true`
+- route_metrics: `AND2 m1_local wire=1.1925 via1=0`; `AND2 m2_rerouted wire=0.4675 via1=2`; `AND3 m1_local wire=1.3225 via1=0`; `AND3 m2_rerouted wire=0.5975 via1=2`
+- selected_zero_gap_policy: `ZERO_GAP_M2_PARENT_ROUTE`
+- root_cause: `the old study script only called bridge_power_rails for gap>0 baseline candidates, so zero-gap candidates had no parent power stitching and therefore false VDD/VSS/connectivity failures`
+- files_modified: `scripts/TeamB_and_gate_zero_gap_revalidation.py`, `outputs/TeamB_and_gate_abutment_optimization/AND2_AND3_ABUTMENT_DECISION.json`, `outputs/TeamB_and_gate_abutment_optimization/AND2_AND3_ABUTMENT_DECISION.md`, `outputs/TeamB_and_gate_abutment_optimization/ABUTMENT_OPTIMIZATION_TECHNICAL_REPORT.md`, `outputs/TeamB_and_gate_abutment_optimization/AND2_SELECTED_CANDIDATE.json`, `outputs/TeamB_and_gate_abutment_optimization/AND3_SELECTED_CANDIDATE.json`, `docs/TEAM_B_TASK_MASTER_LOG.md`, `docs/TEAM_B_TASK_MASTER_LOG.jsonl`, `docs/TEAM_B_CURRENT_STATUS.json`
+- commands: `python -m py_compile scripts/TeamB_and_gate_zero_gap_revalidation.py`; `python scripts/TeamB_and_gate_zero_gap_revalidation.py`; `sha256sum` on updated decision/report artifacts
+- artifact_sha: `AND2_AND3_ABUTMENT_DECISION.json=46564375d6e642eb463db5cedeca7144a428b5eb9b9ad97405c8ee45e0739b7c`; `AND2_AND3_ABUTMENT_DECISION.md=33604f6ca07c5f441a32ae2542d9a07dd2dab65a32a057315de536aa05e8fa40`; `ABUTMENT_OPTIMIZATION_TECHNICAL_REPORT.md=6166c05ffc26599313afa200fa363a00b597265a2ce93365143099f229323ff6`; `ZERO_GAP_REVALIDATION_SUMMARY.json=c4f0a9650584e660854558c8960dfe6ff0a0fe315ba3abdb75612abc4e61dfa0`
+- formal_gds_changed: `no`
+- input_sha_changed: `no`
+- integration_invalidated: `no`
+- disk_free: `/data1 avail 3.1G`; `/tmp avail 258G`
+- next_action: `if user chooses formal zero-gap adoption, rerun full AND2/AND3 production gates, both negative suites, and then rebuild 9-cell integration`
+## 2026-07-26T10:01:04Z and_gate_abutment TEAM_B_AND2 formalization_stage_complete
+- git_head: `e74054e0fc5a15b28a2bc8c9d132b207a80c6538`
+- git_branch: `feature/step45-clean-array-aggregation`
+- files_read: `12`
+- files_modified: `5`
+- evidence_read: `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2/clean.gds`, `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2/machine_gate.json`, `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2/negative_tests/AND2_negative_test_summary.json`, `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2/ZERO_GAP_POWER_STITCHING_PROOF.json`, `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2/ZERO_GAP_ZB_INT_ENDPOINT_PROOF.json`, `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2/ZERO_GAP_ROUTE_LAYER_REPORT.json`, `outputs/TeamB_and_gate_abutment_optimization/AND2_SELECTED_CANDIDATE.json`, `outputs/TeamB_9cell_integration/current_supported_config/TEAM_B_9CELL_INTEGRATION_GATE.json`, `outputs/TeamB_9cell_integration/TEAM_B_9CELL_INPUT_LOCK.json`
+- decision: `formalize AND2 zero-gap M2 parent route and mark old 9-cell integration evidence stale pending AND3 formalization`
+- formal_candidate: `AND2_R0_R0_gap0p0_ZERO_GAP_M2_PARENT_ROUTE_FORMAL`
+- orientation: `R0+R0`
+- gap: `0.0`
+- route_style: `ZERO_GAP_M2_PARENT_ROUTE`
+- old_and2_sha256: `7e9aa9280495c4cca9e625d57b00fb9e93597b418aabd17e4e9e132c65c96578`
+- new_and2_sha256: `291f40e81761c49a60bc5b36e864e160cea5114b5bf27e284a97cac4d019a44c`
+- and2_machine_gate: `source_lock_complete=true`; `parameter_binding_closed=true`; `top_pin_contract_exact=true`; `internal_net_not_exposed=true`; `child_count_exact=true`; `topology_match=true`; `hierarchy_closure_passed=true`; `child_immutability_passed=true`; `connectivity_passed=true`; `foreign_net_passed=true`; `drc_marker_count=0`; `strict_source_derived_structural_gate_passed=true`; `deterministic_A_B_byte_identical=true`; `negative_tests_passed=true`; `review_artifacts_complete=true`
+- and2_negative_summary: `total_count=23`; `mutation_effective_count=23`; `production_validator_invoked_count=23`; `unexpected_negative_test_pass_count=0`; `negative_tests_passed=true`
+- power_and_connectivity_fact: `child_rail_edge_abutment=false`; `parent_power_stitching_present=true`; `module_power_continuity=true`; `VDD/VSS short=false`; `zb_int endpoint proof=true`; `route_layer=M2`; `via1_count=2`
+- integration_gate_before_rebuild: `still all true but stale because TEAM_B_9CELL_INPUT_LOCK still expects old AND2 SHA`
+- input_lock_staleness: `TEAM_B_9CELL_INPUT_LOCK row for AND2 still expected_sha256=7e9aa9280495c4cca9e625d57b00fb9e93597b418aabd17e4e9e132c65c96578`
+- files_modified: `scripts/TeamB_remaining9_reference_generation.py`, `sram_layoutgen/openyield_adapter/and2_negative_regressions.py`, `sram_layoutgen/openyield_adapter/and3_negative_regressions.py`, `docs/TEAM_B_TASK_MASTER_LOG.md`, `docs/TEAM_B_CURRENT_STATUS.json`
+- commands: `python -m py_compile scripts/TeamB_remaining9_reference_generation.py sram_layoutgen/openyield_adapter/and2_negative_regressions.py sram_layoutgen/openyield_adapter/and3_negative_regressions.py`; `python scripts/TeamB_remaining9_reference_generation.py --only AND2 --openyield-root /data1/qujh/work/external/OpenYield`
+- formal_library_changed: `AND2 yes`; `AND3 no yet`; `9-cell library not rebuilt yet`
+- atlas_changed: `AND2 review / baseline-vs-zero-gap atlas updated`; `9-cell atlas not rebuilt yet`
+- input_sha_changed: `AND2 yes`
+- integration_invalidated: `yes`
+- disk_free: `/data1 avail 123G`; `/tmp avail 258G`
+- next_action: `formalize AND3 with the same zero-gap M2 route, then rebuild TEAM_B_9CELL integration and packages from the new AND2/AND3 SHA pair`
+## 2026-07-26T10:01:04Z and_gate_abutment TEAM_B_AND3 formalization_stage_complete
+- git_head: `e74054e0fc5a15b28a2bc8c9d132b207a80c6538`
+- git_branch: `feature/step45-clean-array-aggregation`
+- files_read: `10`
+- files_modified: `4`
+- evidence_read: `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND3/clean.gds`, `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND3/machine_gate.json`, `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND3/negative_tests/AND3_negative_test_summary.json`, `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND3/ZERO_GAP_POWER_STITCHING_PROOF.json`, `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND3/ZERO_GAP_ZB_INT_ENDPOINT_PROOF.json`, `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND3/ZERO_GAP_ROUTE_LAYER_REPORT.json`, `outputs/TeamB_and_gate_abutment_optimization/AND3_SELECTED_CANDIDATE.json`, `outputs/TeamB_9cell_integration/current_supported_config/TEAM_B_9CELL_INTEGRATION_GATE.json`, `outputs/TeamB_9cell_integration/TEAM_B_9CELL_INPUT_LOCK.json`
+- decision: `formalize AND3 zero-gap M2 parent route; old 9-cell integration evidence is now stale because both AND2 and AND3 formal SHA changed`
+- formal_candidate: `AND3_R0_R0_gap0p0_ZERO_GAP_M2_PARENT_ROUTE_FORMAL`
+- orientation: `R0+R0`
+- gap: `0.0`
+- route_style: `ZERO_GAP_M2_PARENT_ROUTE`
+- old_and3_sha256: `474463ec0fb80356932459af2919b8e0e151cb4e4eb662fc621aa5a415c9d2ef`
+- new_and3_sha256: `015527cdb1aff01736bd81d1ac401dc6fda000aa2e4305f6872bb92a204aa3cf`
+- and3_machine_gate: `source_lock_complete=true`; `parameter_binding_closed=true`; `top_pin_contract_exact=true`; `internal_net_not_exposed=true`; `child_count_exact=true`; `topology_match=true`; `hierarchy_closure_passed=true`; `child_immutability_passed=true`; `connectivity_passed=true`; `foreign_net_passed=true`; `drc_marker_count=0`; `strict_source_derived_structural_gate_passed=true`; `deterministic_A_B_byte_identical=true`; `negative_tests_passed=true`; `review_artifacts_complete=true`
+- and3_negative_summary: `total_count=23`; `mutation_effective_count=23`; `production_validator_invoked_count=23`; `unexpected_negative_test_pass_count=0`; `negative_tests_passed=true`
+- power_and_connectivity_fact: `child_rail_edge_abutment=false`; `parent_power_stitching_present=true`; `module_power_continuity=true`; `VDD/VSS short=false`; `zb_int endpoint proof=true`; `route_layer=M2`; `via1_count=2`
+- integration_gate_before_rebuild: `still all true but stale because TEAM_B_9CELL_INPUT_LOCK still expects old AND2 and old AND3 SHA`
+- files_modified: `scripts/TeamB_remaining9_reference_generation.py`, `docs/TEAM_B_TASK_MASTER_LOG.md`, `docs/TEAM_B_CURRENT_STATUS.json`, `outputs/TeamB_and_gate_abutment_optimization/AND3_SELECTED_CANDIDATE.json`
+- commands: `python scripts/TeamB_remaining9_reference_generation.py --only AND3 --openyield-root /data1/qujh/work/external/OpenYield`
+- formal_library_changed: `AND2 yes`; `AND3 yes`; `9-cell library not rebuilt yet`
+- atlas_changed: `AND3 review / baseline-vs-zero-gap atlas updated`; `9-cell atlas not rebuilt yet`
+- input_sha_changed: `AND3 yes`
+- integration_invalidated: `yes`
+- disk_free: `/data1 avail 123G`; `/tmp avail 258G`
+- next_action: `write zero-gap formalization manifest/diff, then rebuild TEAM_B_9CELL integration and packages from the new AND2/AND3 SHA pair`
+## 2026-07-26T10:17:57Z integration TEAM_B_9CELL integration_run
+- git_head: `e74054e0fc5a15b28a2bc8c9d132b207a80c6538`
+- files_read: `6`
+- files_modified: `3`
+- decision: `produce_initial_9cell_integration_outputs`
+- next_action: `inspect gate failures and complete negative suite`
+## 2026-07-26T10:31:32Z integration TEAM_B_9CELL integration_run
+- git_head: `e74054e0fc5a15b28a2bc8c9d132b207a80c6538`
+- files_read: `6`
+- files_modified: `3`
+- decision: `produce_initial_9cell_integration_outputs`
+- next_action: `inspect gate failures and complete negative suite`
+## 2026-07-26T10:36:30Z integration TEAM_B_9CELL zero_gap_formalization_complete
+- git_head: `e74054e0fc5a15b28a2bc8c9d132b207a80c6538`
+- git_branch: `feature/step45-clean-array-aggregation`
+- evidence_read: `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2/clean.gds`, `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND3/clean.gds`, `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2/machine_gate.json`, `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND3/machine_gate.json`, `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2/negative_tests/AND2_negative_test_summary.json`, `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND3/negative_tests/AND3_negative_test_summary.json`, `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2/ZERO_GAP_POWER_STITCHING_PROOF.json`, `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND3/ZERO_GAP_POWER_STITCHING_PROOF.json`, `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2/ZERO_GAP_ZB_INT_ENDPOINT_PROOF.json`, `outputs/TeamB_remaining9_reference_demo/current_supported_config/AND3/ZERO_GAP_ZB_INT_ENDPOINT_PROOF.json`, `outputs/TeamB_9cell_integration/TEAM_B_9CELL_INPUT_LOCK.json`, `outputs/TeamB_9cell_integration/current_supported_config/TEAM_B_9CELL_INTEGRATION_GATE.json`, `outputs/TeamB_9cell_integration/current_supported_config/negative_tests/TEAM_B_9CELL_negative_test_summary.json`
+- selected_route_policy: `ZERO_GAP_M2_PARENT_ROUTE`
+- and2_final: `orientation=R0+R0`; `gap=0`; `route_style=ZERO_GAP_M2_PARENT_ROUTE`; `clean_sha256=291f40e81761c49a60bc5b36e864e160cea5114b5bf27e284a97cac4d019a44c`
+- and3_final: `orientation=R0+R0`; `gap=0`; `route_style=ZERO_GAP_M2_PARENT_ROUTE`; `clean_sha256=015527cdb1aff01736bd81d1ac401dc6fda000aa2e4305f6872bb92a204aa3cf`
+- power_and_endpoint_fact: `child_rail_edge_abutment=false`; `parent_power_stitching_present=true`; `module_power_continuity(VDD/VSS)=true/true`; `zb_int endpoint proof=true`
+- and2_gate: `drc_marker_count=0`; `connectivity_passed=true`; `foreign_net_passed=true`; `deterministic_A_B_byte_identical=true`; `negative_tests_passed=true`
+- and3_gate: `drc_marker_count=0`; `connectivity_passed=true`; `foreign_net_passed=true`; `deterministic_A_B_byte_identical=true`; `negative_tests_passed=true`
+- integration_gate: `all_input_sha_matched=true`; `packaged_immutability_passed=true`; `combined_atlas_drc_marker_count=0`; `integration_negative_tests_passed=true`; `deterministic_A_B_byte_identical=true`; `review_artifacts_complete=true`
+- integration_negative_summary: `total_count=28`; `mutation_effective_count=28`; `production_validator_invoked_count=28`; `specific_code_match_count=28`; `unexpected_negative_test_pass_count=0`
+- library_sha256: `075061384baaf70ecbdc8dda82f6e364929ea4e6a538b2354528ac7cf7c5d0c3`
+- clean_atlas_sha256: `cb42239dadde4ef79dc76169f251744823617253b811097cf11dd6e40a8a03b4`
+- package_sha256: `human_review=bb323dd65e51d06a7101835ecbd5ad78be86cd39851e73e8bf8e7777dd6c000e`; `full_evidence=3220db3ce7676594a3a76b3b5b79a81e14e5374f2d3073a48c44c360bddfea01`
+- package_size: `human_review=1.5M`; `full_evidence=1.5M`
+- files_modified: `outputs/TeamB_and_gate_abutment_optimization/AND2_AND3_ZERO_GAP_DELTA_REVIEW_CHECKLIST.csv`, `outputs/TeamB_and_gate_abutment_optimization/AND2_AND3_ZERO_GAP_DELTA_REVIEW_TEMPLATE.md`, `docs/TEAM_B_TASK_MASTER_LOG.md`, `docs/TEAM_B_TASK_MASTER_LOG.jsonl`, `docs/TEAM_B_CURRENT_STATUS.json`
+- disk_free: `/data1 avail 123G`; `/tmp avail 258G`
+- current_state: `MACHINE_VERIFIED_AND_GATE_ZERO_GAP_AND_REBUILT_INTEGRATION_HUMAN_DELTA_REVIEW_REQUIRED`
+- next_action: `user delta human review -> Team B recovery -> mainline merge -> project-wide reports and evidence updates`

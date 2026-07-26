@@ -1,0 +1,41 @@
+{
+  "approval_timestamp": "2026-07-26T10:55:33Z",
+  "approval_source": "explicit_user_confirmation",
+  "approval_statement": "这次我已检查完，没有问题",
+  "review_scope": [
+    "Team B 九单元正式 clean GDS 与 library/integration atlas 的项目所有者人工审核",
+    "AND2/AND3 zero-gap delta review with parent power stitching and rebuilt 9-cell integration evidence"
+  ],
+  "reviewed_modules": [
+    "PNAND2",
+    "PNAND3",
+    "AND2",
+    "AND3",
+    "pdrive2_for_pre",
+    "wl_pdrive",
+    "pdrive",
+    "wen_delay_chain",
+    "delay_chain"
+  ],
+  "reviewed_library_sha": "075061384baaf70ecbdc8dda82f6e364929ea4e6a538b2354528ac7cf7c5d0c3",
+  "reviewed_clean_atlas_sha": "cb42239dadde4ef79dc76169f251744823617253b811097cf11dd6e40a8a03b4",
+  "reviewed_human_review_package_sha": "bb323dd65e51d06a7101835ecbd5ad78be86cd39851e73e8bf8e7777dd6c000e",
+  "reviewed_full_evidence_package_sha": "3220db3ce7676594a3a76b3b5b79a81e14e5374f2d3073a48c44c360bddfea01",
+  "and2_and3_zero_gap_delta_review": {
+    "and2_sha256": "291f40e81761c49a60bc5b36e864e160cea5114b5bf27e284a97cac4d019a44c",
+    "and3_sha256": "015527cdb1aff01736bd81d1ac401dc6fda000aa2e4305f6872bb92a204aa3cf",
+    "orientation": "R0+R0",
+    "child_bbox_gap": 0,
+    "route_style": "ZERO_GAP_M2_PARENT_ROUTE",
+    "parent_power_stitching_present": true,
+    "child_rail_edge_abutment": false,
+    "module_level_vdd_vss_continuity": true
+  },
+  "review_result": "OWNER_HUMAN_REVIEW_APPROVED_FOR_TEAM_B_MERGE",
+  "limitations": [
+    "Not foundry signoff",
+    "Not tapeout approval",
+    "Not silicon validation",
+    "Not independent Team B peer review evidence"
+  ]
+}
