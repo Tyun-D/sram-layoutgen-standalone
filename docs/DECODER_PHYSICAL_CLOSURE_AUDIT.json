@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T15:26:49Z",
+  "generated_at": "2026-07-26T22:30:00Z",
   "decoder_status": "BLOCKED_TECHNICAL",
   "canonical_logic_contract_changed": false,
   "team_b_leafs_now_available": {
@@ -8,8 +8,9 @@
   },
   "stale_historical_blocker_removed": true,
   "remaining_blockers": [
-    "decoder preplacement report is metadata_only and not_legal_physical_placement=true",
-    "decoder output contract remains metadata_only and physical_routing_proven=false",
+    "decoder preplacement report is metadata_only and not_legal_physical_placement=true for every stage row",
+    "decoder output contract remains metadata_only and physical_routing_proven=false for every decoder output handoff",
+    "the current RowBasedCandidateGenerator only places child references and exports contract pins plus candidate rail metadata; it does not generate decoder internal routes, parent-level power stitching, connectivity proof, foreign-net proof, determinism closure, production gate, or negative suite outputs",
     "no final decoder machine gate / negative suite / deterministic closure exists",
     "no final decoder review atlas or formal clean.gds exists as a closed artifact"
   ],
@@ -17,7 +18,56 @@
     "preplacement_metadata_only": true,
     "physical_layout_generated": false,
     "output_contract_physical_routing_proven": false,
-    "historical_direct_and3_exists": false
+    "historical_direct_and3_exists": false,
+    "row_generator_is_candidate_only": true,
+    "decoder_validation_harness_found": false
   },
-  "decision": "Do not claim decoder physical closure. Update project status to BLOCKED until a dedicated decoder generator closes placement, routing, DRC, connectivity, foreign-net, determinism, negative tests, and review atlas."
+  "specific_blocker_evidence": [
+    {
+      "blocker_id": "DECODER_BLOCKER_001",
+      "kind": "authority_contract_gap",
+      "summary": "Stage placement and output handoff are still proxy-only, not legal physical decoder rows.",
+      "evidence_path": "docs/openyield_decoder_preplacement_feasibility_report.json",
+      "evidence_fields": [
+        "metadata_only=true",
+        "physical_layout_generated=false",
+        "stage_row_prototypes[*].not_legal_physical_placement=true",
+        "power_policy_feasibility.power_physical_proven=false"
+      ]
+    },
+    {
+      "blocker_id": "DECODER_BLOCKER_002",
+      "kind": "authority_contract_gap",
+      "summary": "Decoder output handoff to downstream consumers is still metadata-only and not physically routed.",
+      "evidence_path": "docs/openyield_decoder_output_contract_report.json",
+      "evidence_fields": [
+        "generic_output_contracts[*].metadata_only=true",
+        "generic_output_contracts[*].physical_routing_proven=false",
+        "generic_output_contracts[*].output_handoff.physical_routing_proven=false"
+      ]
+    },
+    {
+      "blocker_id": "DECODER_BLOCKER_003",
+      "kind": "generator_implementation_gap",
+      "summary": "The active decoder module generator emits candidate geometry only; it does not own decoder routing or power stitching.",
+      "evidence_path": "sram_layoutgen/openyield_adapter/module_gds_generators.py",
+      "evidence_fields": [
+        "RowBasedCandidateGenerator.generate emits report.generation_status=L3_GDS_GENERATED_CANDIDATE_GEOMETRY",
+        "rail_status=candidate_row_rail_metadata_exported",
+        "limitations include does not claim final routing or signoff"
+      ]
+    },
+    {
+      "blocker_id": "DECODER_BLOCKER_004",
+      "kind": "verification_harness_gap",
+      "summary": "No decoder-specific production gate, negative suite, connectivity/foreign-net closure, or determinism harness is present in the current repo.",
+      "evidence_path": "tests/ and scripts/ search",
+      "evidence_fields": [
+        "no decoder-specific machine gate entry found",
+        "no decoder-specific negative suite found",
+        "existing decoder tests stop at L3/L4 sanity and readiness boundaries"
+      ]
+    }
+  ],
+  "decision": "Do not claim decoder physical closure. The current repo lacks both a legally placeable/routable decoder authority contract and a decoder-specific physical generation/verification harness. Keep decoder blocked until a dedicated decoder generator and validation flow close placement, routing, DRC, connectivity, foreign-net, determinism, negative tests, and review atlas."
 }

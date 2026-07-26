@@ -13,7 +13,7 @@
 Team B 九单元已完成正式 GDS、machine gate、negative suite、integration、owner human review，并已并入主线。
 
 ## Decoder
-decoder 当前状态为 `BLOCKED_TECHNICAL`。Team B formal AND2/AND3 去除了一个旧 leaf blocker，但 decoder 仍停留在 metadata-only preplacement 和 output-handoff 阶段。
+decoder 当前状态为 `BLOCKED_TECHNICAL`。Team B formal AND2/AND3 去除了一个旧 leaf blocker，但 decoder 仍未进入正式物理闭环。当前缺的不是单个 DRC 修补，而是三项基础能力：`(1)` stage placement / handoff authority 仍是 metadata-only proxy；`(2)` 现有 `RowBasedCandidateGenerator` 只会生成 `L3_GDS_GENERATED_CANDIDATE_GEOMETRY`，不负责 decoder internal routing 或 parent-level power stitching；`(3)` 仓库中不存在 decoder 专项的 production gate、negative suite、determinism 与 review-atlas 闭环。
 
 ## Multi-bank
 multi-bank 当前状态为 `FUNCTIONAL_TOP_LEVEL_BLOCKED_BY_MISSING_AUTHORITY`。当前 canonical bank contract 只支持单 bank，不能编造 bank-select/control netlist。

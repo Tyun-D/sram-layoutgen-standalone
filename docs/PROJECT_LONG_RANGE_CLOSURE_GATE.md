@@ -1,6 +1,6 @@
 # Project Long Range Closure Gate
 
-- generated_at: `2026-07-26T15:39:58Z`
+- generated_at: `2026-07-26T22:30:00Z`
 - p0_003_resolution: `BLOCKED_EXTERNAL`
 - p0_003_author_attribution: `PROJECT_TEAM_JOINT_WORK`
 - p0_003_blocking_project_progress: `False`
@@ -17,6 +17,7 @@
 - p3_roadmap_documented: `1`
 - formal_config_count: `10`
 - decoder_status: `BLOCKED_TECHNICAL`
+- decoder_specific_blockers_count: `4`
 - multibank_status: `FUNCTIONAL_TOP_LEVEL_BLOCKED_BY_MISSING_AUTHORITY`
 - claim_policy_passed: `True`
 - figures_tables_indexed: `10`

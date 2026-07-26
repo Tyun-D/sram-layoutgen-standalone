@@ -9,7 +9,7 @@ DFF_BUF,HUMAN_REVIEWED,outputs/Wave3_DFF_BUF_reusable_release,human-reviewed reu
 PINV/TG,HUMAN_REVIEWED,outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells,primitive reusable library
 SRAM array,GENERATED,outputs/M2R_full_sram_regen/current_supported_config/openyield_layoutgen_full_sram_M2R.report.json,layoutgen-generated top-level trial
 WL driver,MACHINE_VERIFIED,outputs/M11C2H_confirm_wordline_driver_human_review/current_supported_config,smoke substitution passed with caveats
-decoder,BLOCKED,docs/DECODER_PHYSICAL_CLOSURE_AUDIT.json,"Team B leaf closure removes one old blocker, but decoder remains metadata-only and not physically closed"
+decoder,BLOCKED,docs/DECODER_PHYSICAL_CLOSURE_AUDIT.json,"Team B leaf closure removes one old blocker, but decoder still lacks legal stage placement authority, physical output handoff proof, and any decoder-specific machine gate / negative harness"
 column mux,MACHINE_VERIFIED,docs/openyield_columnmux_adapter_report.json; technology/freepdk45/gds_lib/openyield_repaired/gen_col_mux_vdd_labeled.gds,adapter and repaired alias proven
 sense amp,HUMAN_REVIEWED,outputs/M11CH_confirm_M11C_human_review/current_supported_config,smoke substitution human-reviewed
 write driver,SOURCE_ONLY,docs/openyield_writedriver_adapter_report.json,"adapter exists, no final integrated closure"
