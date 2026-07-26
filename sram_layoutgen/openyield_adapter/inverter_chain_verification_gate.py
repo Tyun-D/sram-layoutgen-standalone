@@ -317,6 +317,8 @@ def validate_inverter_chain_bundle(*, repo_root: Path, bundle_dir: Path, module_
         "top_name": MODULE_SPECS[module_name]["top_cell_name"],
         "endpoints_by_net": endpoints,
         "top_pin_bboxes": top_pin_bboxes,
+        "power_pins": ["VDD", "VSS"],
+        "signal_pins": [name for name in top_pin_bboxes if name not in {"VDD", "VSS"}],
     }
     if "short_exclusion_pairs" in inspect.signature(verify_hierarchical_connectivity).parameters:
         verify_kwargs["short_exclusion_pairs"] = [("A", "Z")]

@@ -444,6 +444,8 @@ def _foreign_net_report(clean_gds: Path, endpoints_by_net: dict[str, list[dict[s
         "top_name": AND3_NAME,
         "endpoints_by_net": endpoints_by_net,
         "top_pin_bboxes": top_pin_bboxes,
+        "power_pins": ["VDD", "VSS"],
+        "signal_pins": [name for name in top_pin_bboxes if name not in {"VDD", "VSS"}],
     }
     if "short_exclusion_pairs" in inspect.signature(verify_hierarchical_connectivity).parameters:
         verify_kwargs["short_exclusion_pairs"] = [("zb_int", "Z")]
