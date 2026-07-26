@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import inspect
 import json
 import math
 import subprocess
@@ -438,14 +439,16 @@ def normalize_connectivity_report_schema(report: dict[str, Any] | None) -> dict[
 
 
 def _foreign_net_report(clean_gds: Path, endpoints_by_net: dict[str, list[dict[str, Any]]], top_pin_bboxes: dict[str, dict[str, float]]) -> dict[str, Any]:
+    verify_kwargs = {
+        "gds_path": clean_gds,
+        "top_name": AND2_NAME,
+        "endpoints_by_net": endpoints_by_net,
+        "top_pin_bboxes": top_pin_bboxes,
+    }
+    if "short_exclusion_pairs" in inspect.signature(verify_hierarchical_connectivity).parameters:
+        verify_kwargs["short_exclusion_pairs"] = [("zb_int", "Z")]
     report = normalize_connectivity_report_schema(
-        verify_hierarchical_connectivity(
-            gds_path=clean_gds,
-            top_name=AND2_NAME,
-            endpoints_by_net=endpoints_by_net,
-            top_pin_bboxes=top_pin_bboxes,
-            short_exclusion_pairs=[("zb_int", "Z")],
-        )
+        verify_hierarchical_connectivity(**verify_kwargs)
     )
     zb = next(row for row in report["per_net"] if row["net_name"] == "zb_int")
     disallowed = [name for name in zb["actual_endpoint_set"] if name not in {"nand.Z", "inv.A"}]
