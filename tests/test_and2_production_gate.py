@@ -4,10 +4,18 @@ from pathlib import Path
 import sys
 
 import gdstk
+import pytest
 
-REPO_ROOT = Path("/data1/qujh/work/sram_layoutgen_step45_clean")
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
+CHECKOUT_ROOT = Path(__file__).resolve().parents[1]
+if str(CHECKOUT_ROOT) not in sys.path:
+    sys.path.insert(0, str(CHECKOUT_ROOT))
+
+DEFAULT_EVIDENCE_ROOT = Path("/data1/qujh/work/sram_layoutgen_step45_clean")
+
+
+def _evidence_root() -> Path:
+    team_b_bundle = CHECKOUT_ROOT / "outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2/clean.gds"
+    return CHECKOUT_ROOT if team_b_bundle.exists() else DEFAULT_EVIDENCE_ROOT
 
 from sram_layoutgen.openyield_adapter.and2_production_verification_gate import AND2_NAME, _build_child_immutability_report
 from sram_layoutgen.openyield_adapter.and2_source_lock import build_and2_source_lock
@@ -21,8 +29,10 @@ def test_and2_source_lock_extracts_anomaly() -> None:
 
 
 def test_child_immutability_tolerates_parent_route_and_transform() -> None:
-    repo_root = Path("/data1/qujh/work/sram_layoutgen_step45_clean")
-    base = repo_root / "outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2"
+    repo_root = CHECKOUT_ROOT
+    base = _evidence_root() / "outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2"
+    if not base.exists():
+        pytest.skip("AND2 evidence bundle not present")
     with tempfile.TemporaryDirectory(prefix="and2_immutability_pass_") as tmp:
         work = Path(tmp) / "AND2"
         shutil.copytree(base, work)
@@ -36,8 +46,10 @@ def test_child_immutability_tolerates_parent_route_and_transform() -> None:
 
 
 def test_child_immutability_detects_clone_geometry_change() -> None:
-    repo_root = Path("/data1/qujh/work/sram_layoutgen_step45_clean")
-    base = repo_root / "outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2"
+    repo_root = CHECKOUT_ROOT
+    base = _evidence_root() / "outputs/TeamB_remaining9_reference_demo/current_supported_config/AND2"
+    if not base.exists():
+        pytest.skip("AND2 evidence bundle not present")
     with tempfile.TemporaryDirectory(prefix="and2_immutability_fail_") as tmp:
         work = Path(tmp) / "AND2"
         shutil.copytree(base, work)
