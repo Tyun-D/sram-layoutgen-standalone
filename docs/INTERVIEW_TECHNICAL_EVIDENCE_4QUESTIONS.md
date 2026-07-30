@@ -4,13 +4,14 @@
 
 - 真实审计到的可用工具见 `docs/SERVER_EDA_TOOL_INVENTORY.csv` 与 `docs/SERVER_SIMULATOR_CAPABILITY_AUDIT.md`。
 - 当前最小可信链路是 `ngspice` 主链 + `Xyce` 备选交叉验证，因为它们都在服务器上真实存在且已通过安全版本探测。
-- `iverilog` / `verilator` 也是可用工具，但当前项目缺少可信 Verilog 资产，所以逻辑链路是 `tool-available but asset-blocked`，不能伪造闭环。
+- `iverilog` / `verilator` 也是可用工具，但当前项目缺少可信 Verilog 资产，所以逻辑链路仍是 `tool-available but asset-blocked`。
+- `delay_chain` 已经按正确的 `9-stage inverting` 合同在 `ngspice` 主链上闭合；`Xyce` 当前只保留为次链兼容性记录。
 
 ## 2. Decoder 为什么还不能宣称闭合？
 
 - 当前恢复工作树没有发现用户要求的 live `24-marker` decoder 基线，也没有找到 `M2-only` 逐参数修复回路所依赖的专用 gate、negative suite、marker atlas 和 determinism harness。
 - 因此当前不能把历史 decoder 资料当作可执行闭环输入，更不能跳过基线恢复直接宣称 DRC 收敛。
-- 当前 decoder blocker 是能力与权威基线缺失，不是单个 marker 本身。
+- 项目已经把路径切换到 `REPRODUCIBLE_DECODER_BASELINE_REBUILD`，但仍然缺少可执行的 decoder-specific production gate / determinism / negative-suite 闭环。
 
 ## 3. 电源正确性已经证明到什么程度，哪些还没有？
 

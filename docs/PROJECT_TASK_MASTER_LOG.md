@@ -229,3 +229,9 @@
 - decision: `refresh the latest industrial-gap package set so human review sees cleanup, TB audit, decoder recovery, delay-chain root cause, and executed power-negative evidence`
 - unresolved_items: `remote branch push still pending retry`; `decoder live baseline still missing`; `trusted project SRAM functional TB still missing`; `post-layout extraction provenance still missing`
 - next_action: `commit follow-up audit artifacts and retry git push to origin/project/mainline-inventory-20260726`
+
+## 2026-07-30T11:55:00Z project evidence_sync_and_bundle_refresh
+
+- git_head: `9eef97fbb3956ae155175ecff27ebfe485d3a636`
+- result: `delay_chain_primary_chain_closed=true`; `sram_tb_binding_status=BLOCKED_BY_SPECIFIC_INTERFACE_GAPS`; `decoder_rebuild_selected=true`; `post_layout_status=NOT_AVAILABLE_WITH_CURRENT_EVIDENCE`; `remote_push_status=FAILED_TLS_HANDSHAKE`; `bundle_created=true`; `bundle_sha256=99d1551241d1d9803ad8844d3712ded6bcb5102dccd557c521ed2f791be751ee`; `package_manifest_refreshed=true`
+- next_action: `rebuild human-review and full-evidence packages with external sha256 sidecars`
