@@ -1,0 +1,25 @@
+child_module,logical_role,source_output,bit_index,predecode_expression,enabled_expression
+decoder_gate_cells_v2,predecode_plus_enable_leaf_group,WL0,0,A0b & A1b & A2b,(A0b & A1b & A2b) & EN
+decoder_gate_cells_v2,predecode_plus_enable_leaf_group,WL1,1,A0b & A1b & A2,(A0b & A1b & A2) & EN
+decoder_gate_cells_v2,predecode_plus_enable_leaf_group,WL2,2,A0b & A1 & A2b,(A0b & A1 & A2b) & EN
+decoder_gate_cells_v2,predecode_plus_enable_leaf_group,WL3,3,A0b & A1 & A2,(A0b & A1 & A2) & EN
+decoder_gate_cells_v2,predecode_plus_enable_leaf_group,WL4,4,A0 & A1b & A2b,(A0 & A1b & A2b) & EN
+decoder_gate_cells_v2,predecode_plus_enable_leaf_group,WL5,5,A0 & A1b & A2,(A0 & A1b & A2) & EN
+decoder_gate_cells_v2,predecode_plus_enable_leaf_group,WL6,6,A0 & A1 & A2b,(A0 & A1 & A2b) & EN
+decoder_gate_cells_v2,predecode_plus_enable_leaf_group,WL7,7,A0 & A1 & A2,(A0 & A1 & A2) & EN
+row_decoder_v2,cascade_stage_decoder,WL0,0,A0b & A1b & A2b,(A0b & A1b & A2b) & EN
+row_decoder_v2,cascade_stage_decoder,WL1,1,A0b & A1b & A2,(A0b & A1b & A2) & EN
+row_decoder_v2,cascade_stage_decoder,WL2,2,A0b & A1 & A2b,(A0b & A1 & A2b) & EN
+row_decoder_v2,cascade_stage_decoder,WL3,3,A0b & A1 & A2,(A0b & A1 & A2) & EN
+row_decoder_v2,cascade_stage_decoder,WL4,4,A0 & A1b & A2b,(A0 & A1b & A2b) & EN
+row_decoder_v2,cascade_stage_decoder,WL5,5,A0 & A1b & A2,(A0 & A1b & A2) & EN
+row_decoder_v2,cascade_stage_decoder,WL6,6,A0 & A1 & A2b,(A0 & A1 & A2b) & EN
+row_decoder_v2,cascade_stage_decoder,WL7,7,A0 & A1 & A2,(A0 & A1 & A2) & EN
+wordline_decoder_v2,row_decoder_to_wordline_handoff,WL0,0,A0b & A1b & A2b,(A0b & A1b & A2b) & EN
+wordline_decoder_v2,row_decoder_to_wordline_handoff,WL1,1,A0b & A1b & A2,(A0b & A1b & A2) & EN
+wordline_decoder_v2,row_decoder_to_wordline_handoff,WL2,2,A0b & A1 & A2b,(A0b & A1 & A2b) & EN
+wordline_decoder_v2,row_decoder_to_wordline_handoff,WL3,3,A0b & A1 & A2,(A0b & A1 & A2) & EN
+wordline_decoder_v2,row_decoder_to_wordline_handoff,WL4,4,A0 & A1b & A2b,(A0 & A1b & A2b) & EN
+wordline_decoder_v2,row_decoder_to_wordline_handoff,WL5,5,A0 & A1b & A2,(A0 & A1b & A2) & EN
+wordline_decoder_v2,row_decoder_to_wordline_handoff,WL6,6,A0 & A1 & A2b,(A0 & A1 & A2b) & EN
+wordline_decoder_v2,row_decoder_to_wordline_handoff,WL7,7,A0 & A1 & A2,(A0 & A1 & A2) & EN

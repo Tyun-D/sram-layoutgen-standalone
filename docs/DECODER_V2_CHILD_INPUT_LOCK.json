@@ -1,0 +1,176 @@
+{
+  "scope": "project_decoder_v2_child_input_lock",
+  "git_head": "ddadb176e2faf31bf344fa3368ff753ce9af4e81",
+  "logical_contract_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/docs/DECODER_V2_LOGICAL_CONTRACT.json",
+  "leaf_source_inventory_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/docs/DECODER_V2_LEAF_SOURCE_INVENTORY.json",
+  "bit_mapping_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/docs/DECODER_V2_BIT_MAPPING.csv",
+  "child_targets": [
+    {
+      "module": "decoder_gate_cells_v2",
+      "logical_role": "predecode_plus_enable_leaf_group",
+      "required_exact_leaf_sources": {
+        "inv": {
+          "logical_name": "PINV_NW90_PW270_L50",
+          "gds_sha256": "68f75773e2869548ab559556d5eee2764f836a41ccd2bceb29bc3633360891a2",
+          "source_authority": "current_project_reusable_primitive",
+          "drc_marker_count": 0
+        },
+        "and2": {
+          "logical_name": "AND2_PNAND2_PINV_FPDK45",
+          "gds_sha256": "291f40e81761c49a60bc5b36e864e160cea5114b5bf27e284a97cac4d019a44c",
+          "source_authority": "primary_repo_formal_team_b_output",
+          "drc_marker_count": 0
+        },
+        "and3": {
+          "logical_name": "AND3_PNAND3_PINV_FPDK45",
+          "gds_sha256": "015527cdb1aff01736bd81d1ac401dc6fda000aa2e4305f6872bb92a204aa3cf",
+          "source_authority": "primary_repo_formal_team_b_output",
+          "drc_marker_count": 0
+        }
+      },
+      "row_templates": [
+        [
+          "inv",
+          "nand3_metadata_only",
+          "and2",
+          "and3"
+        ],
+        [
+          "decoder_leaf_gate_v2",
+          "and2",
+          "inv"
+        ]
+      ],
+      "exported_ports": [
+        "A0",
+        "A1",
+        "A2",
+        "EN",
+        "WL0_pre",
+        "WL1_pre",
+        "WL2_pre",
+        "WL3_pre",
+        "WL4_pre",
+        "WL5_pre",
+        "WL6_pre",
+        "WL7_pre",
+        "WL0",
+        "WL1",
+        "WL2",
+        "WL3",
+        "WL4",
+        "WL5",
+        "WL6",
+        "WL7",
+        "VDD",
+        "VSS"
+      ],
+      "generator_status": "INPUT_LOCK_ONLY"
+    },
+    {
+      "module": "row_decoder_v2",
+      "logical_role": "cascade_stage_decoder",
+      "required_exact_leaf_sources": {
+        "inv": {
+          "logical_name": "PINV_NW90_PW270_L50",
+          "gds_sha256": "68f75773e2869548ab559556d5eee2764f836a41ccd2bceb29bc3633360891a2",
+          "source_authority": "current_project_reusable_primitive",
+          "drc_marker_count": 0
+        },
+        "and3": {
+          "logical_name": "AND3_PNAND3_PINV_FPDK45",
+          "gds_sha256": "015527cdb1aff01736bd81d1ac401dc6fda000aa2e4305f6872bb92a204aa3cf",
+          "source_authority": "primary_repo_formal_team_b_output",
+          "drc_marker_count": 0
+        }
+      },
+      "row_templates": [
+        [
+          "inv",
+          "nand3_metadata_only",
+          "and3"
+        ],
+        [
+          "decoder_leaf_gate_v2",
+          "inv",
+          "nand3_metadata_only"
+        ]
+      ],
+      "exported_ports": [
+        "A0",
+        "A1",
+        "A2",
+        "EN",
+        "WL0",
+        "WL1",
+        "WL2",
+        "WL3",
+        "WL4",
+        "WL5",
+        "WL6",
+        "WL7",
+        "VDD",
+        "VSS"
+      ],
+      "generator_status": "INPUT_LOCK_ONLY"
+    },
+    {
+      "module": "wordline_decoder_v2",
+      "logical_role": "row_decoder_to_wordline_handoff",
+      "required_exact_leaf_sources": {
+        "inv": {
+          "logical_name": "PINV_NW90_PW270_L50",
+          "gds_sha256": "68f75773e2869548ab559556d5eee2764f836a41ccd2bceb29bc3633360891a2",
+          "source_authority": "current_project_reusable_primitive",
+          "drc_marker_count": 0
+        },
+        "and3": {
+          "logical_name": "AND3_PNAND3_PINV_FPDK45",
+          "gds_sha256": "015527cdb1aff01736bd81d1ac401dc6fda000aa2e4305f6872bb92a204aa3cf",
+          "source_authority": "primary_repo_formal_team_b_output",
+          "drc_marker_count": 0
+        },
+        "wordline_driver": {
+          "logical_name": "WORDLINEDRIVER_gen_wl_driver",
+          "gds_sha256": "1988fb54b0843d12d556f17616b43254c1adaf3ba6c5ed88a56ccdb8e41945c5",
+          "source_authority": "current_project_generated_primitive",
+          "drc_marker_count": 0
+        }
+      },
+      "row_templates": [
+        [
+          "inv",
+          "nand3_metadata_only",
+          "and3"
+        ],
+        [
+          "wordline_decoder_leaf_gate_v2",
+          "inv",
+          "and3"
+        ]
+      ],
+      "exported_ports": [
+        "A0",
+        "A1",
+        "A2",
+        "EN",
+        "DEC_WL0",
+        "DEC_WL1",
+        "DEC_WL2",
+        "DEC_WL3",
+        "DEC_WL4",
+        "DEC_WL5",
+        "DEC_WL6",
+        "DEC_WL7",
+        "VDD",
+        "VSS"
+      ],
+      "generator_status": "INPUT_LOCK_ONLY"
+    }
+  ],
+  "notes": [
+    "This lock upgrades decoder v2 child generation inputs from wildcard candidate assets to exact leaf source references.",
+    "nand3 remains metadata-only at this stage and must not be promoted to formal child output without regenerated geometry or exact clean gate substitution.",
+    "wordline_decoder_v2 still depends on exact wordline-driver semantics and A/B/Z polarity from OpenYield WORDLINEDRIVER."
+  ]
+}
