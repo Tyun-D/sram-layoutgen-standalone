@@ -273,3 +273,13 @@
 - decision: `synchronize complete-top delivery state to current synced head and promote decoder/timing evidence into explicit machine-readable review artifacts`
 - unresolved_items: `decoder v2 physical child regeneration still required`; `project authority timing fields still unresolved`
 - next_action: `commit clean state sync, push current branch, and rebuild complete-top evidence packages from clean head`
+
+## 2026-07-30T17:05:00Z project decoder_primitive_drc_and_leaf_source_refresh
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `ad3481b26da48b93d545560f41b28bb1de3d36cc`
+- files_read: `sram_layoutgen/openyield_adapter/primitive_geometry_verifier.py`; `technology/freepdk45/tech/freepdk45.lydrc`; `outputs/PROJECT_decoder_v2_primitive_drc/*_drc.log`; `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_remaining9_reference_demo/current_supported_config/{AND2,AND3}/machine_gate.json`; `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_remaining9_reference_demo/current_supported_config/{AND2,AND3}/instance_binding.csv`
+- files_modified: `sram_layoutgen/openyield_adapter/primitive_geometry_verifier.py`; `sram_layoutgen/openyield_adapter/and2_production_verification_gate.py`; `sram_layoutgen/openyield_adapter/and3_production_verification_gate.py`; `docs/PROJECT_CURRENT_STATUS.json`; `docs/PROJECT_TASK_MASTER_LOG.md`; `docs/PROJECT_TASK_MASTER_LOG.jsonl`
+- result: `primitive_drc_output_path_fixed=true`; `gen_inv_drc_marker_count=0`; `gen_nand2_drc_marker_count=0`; `gen_wl_driver_drc_marker_count=0`; `and2_exact_leaf_source_resolved=true`; `and3_exact_leaf_source_resolved=true`; `remote_push_synced=true`
+- decision: `use DRC-clean primitive and formal Team B clean gates as exact decoder child v2 source inputs instead of continuing with broken wrapper outputs or wildcard-only child assets`
+- unresolved_items: `decoder_gate_cells_v2 geometry not yet generated`; `row_decoder_v2 geometry not yet generated`; `wordline_decoder_v2 geometry not yet generated`; `decoder top remains at 2663 DRC markers until child v2 regeneration lands`
+- next_action: `generate project-owned decoder child v2 physical assets from exact primitive and formal AND2/AND3 sources, then rerun decoder rebuild and machine gate`
