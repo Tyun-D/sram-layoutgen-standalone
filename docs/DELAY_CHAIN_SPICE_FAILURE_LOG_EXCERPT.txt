@@ -1,0 +1,14 @@
+Circuit: delay_chain_polarity
+
+Initial transient solution showed:
+- z ≈ 0.999993 at t=0 with input a=0
+- internal nodes alternate high/low through the 9 inverter stages
+
+Transient measurements captured before cleanup:
+- z_low  = 9.997884e-01 at 1.66e-10 s
+- z_high = 1.010554e+00 at 4.32e-10 s
+
+Interpretation used in root-cause audit:
+- the netlist completed transient analysis successfully
+- no syntax/model fatal error occurred
+- the observed values are consistent with an odd-inversion, heavily loaded chain whose falling transition did not enter the too-early low measurement window

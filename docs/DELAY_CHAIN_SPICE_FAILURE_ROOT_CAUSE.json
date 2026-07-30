@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-07-30T03:21:15-07:00",
+  "status": "ROOT_CAUSE_IDENTIFIED",
+  "case_id": "delay_chain_polarity",
+  "source_testbench": "simulation/spice/testbenches/delay_chain_polarity.sp",
+  "source_netlist": "simulation/spice/netlists/delay_chain.inc",
+  "source_log_excerpt": "docs/DELAY_CHAIN_SPICE_FAILURE_LOG_EXCERPT.txt",
+  "observed_measurements": {
+    "z_low": 0.9997884,
+    "z_high": 1.010554,
+    "measure_window_low_ps": "0-180",
+    "measure_window_high_ps": "250-460"
+  },
+  "contract_evidence": {
+    "plan_report": "docs/openyield_delay_chain_testbench_plan_report.json",
+    "timing_role": "replica_bitline_delay / rbl_delay_generation",
+    "source_signal": "rbl",
+    "target_signal": "rbl_delay",
+    "stage_count": 9,
+    "four_load_inverters_per_stage": true
+  },
+  "netlist_facts": {
+    "inverter_stage_instances": 9,
+    "load_inverters_per_stage": 4,
+    "leaf_subckt": "PINV1"
+  },
+  "root_cause_category": "EXPECTATION_AND_MEASUREMENT_MISMATCH",
+  "root_cause_details": [
+    "The smoke script labeled delay_chain as a generic 'buffer' and expected polarity preservation.",
+    "The actual netlist instantiates 9 cascaded inverters, which is an odd inversion count and therefore implies polarity inversion at steady state.",
+    "The first measurement window ends at 180 ps; with 9 loaded stages, the delayed falling transition does not enter that window, so the MIN measurement remains near VDD.",
+    "No evidence in the log indicates SPICE syntax failure, model incompatibility, or simulator crash."
+  ],
+  "conclusion": "Current failure is best explained by a wrong test expectation plus too-short observation window, not by proven circuit malfunction.",
+  "required_fix_policy": [
+    "Do not modify formal GDS to satisfy this test.",
+    "If the project adopts this smoke as formal evidence, update the testbench to a contract-consistent inversion/delay expectation and re-run only when starting a new simulation instance is allowed."
+  ]
+}

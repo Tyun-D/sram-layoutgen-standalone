@@ -16,7 +16,7 @@
 
 - `docs/POWER_ROUTING_CORRECTNESS_GATE.json` 证明 3 个 raw-source-backed extracted 配置的正向 power topology/connectivity 通过。
 - 这些结果覆盖 child endpoint 归属、VDD/VSS 分离、rail 连续性、pin 可达性与组件唯一性。
-- 这些结果不等于 `IR drop`、`EM`、动态电源完整性或 foundry signoff；负例突变 harness 当前仍缺失。
+- 这些结果不等于 `IR drop`、`EM`、动态电源完整性或 foundry signoff；不过本轮已经补上 6 个可执行的 power negative mutation case，并全部触发预期 rejection code。
 
 ## 4. 当前平台与工业 SRAM compiler 的差距应该如何诚实表述？
 

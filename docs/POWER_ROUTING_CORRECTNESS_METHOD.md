@@ -17,5 +17,5 @@
 
 ## Limits
 
-- Current negative regression rows are blocked because no raw-GDS geometry mutation harness was found in this worktree.
+- Negative regressions currently mutate copied raw-source-backed power report bundles, not fresh GDS geometry or IR/EM solvers.
 - These results do not prove IR drop, EM, voltage droop, or dynamic power signoff.

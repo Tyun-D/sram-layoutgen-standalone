@@ -9,6 +9,57 @@ def load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def evaluate_power_summary(summary: dict[str, Any]) -> list[str]:
+    codes: list[str] = []
+    if not summary["drc_clean"]:
+        codes.append("DRC_NOT_CLEAN")
+    if not summary["row_side_clean"]:
+        codes.append("ROW_SIDE_AUDIT_FAILED")
+    if summary["missing_vdd_pins"] != 0:
+        codes.append("CHILD_VDD_ENDPOINT_MISSING")
+    if summary["missing_gnd_pins"] != 0:
+        codes.append("CHILD_VSS_ENDPOINT_MISSING")
+    if summary["guide_only_power_connections"] != 0:
+        codes.append("GUIDE_ONLY_POWER_CONNECTION")
+    if summary["macros_without_power_pin_contract"] != 0:
+        codes.append("POWER_PIN_CONTRACT_MISSING")
+    if not summary["array_clean"]:
+        codes.append("ARRAY_POWER_STITCH_AUDIT_FAILED")
+    if summary["row_vdd_rails_expected"] != summary["row_vdd_rails_connected"]:
+        codes.append("MISSING_VDD_SEGMENT")
+    if summary["row_gnd_rails_expected"] != summary["row_gnd_rails_connected"]:
+        codes.append("MISSING_VSS_SEGMENT")
+    if summary["rows_missing_vdd_connection"] != 0:
+        codes.append("ARRAY_ROW_VDD_DISCONNECTED")
+    if summary["rows_missing_gnd_connection"] != 0:
+        codes.append("ARRAY_ROW_VSS_DISCONNECTED")
+    if not summary["left_vdd_strap_present"] or not summary["right_vdd_strap_present"]:
+        codes.append("TOP_LEVEL_VDD_STRAP_MISSING")
+    if not summary["left_gnd_strap_present"] or not summary["right_gnd_strap_present"]:
+        codes.append("TOP_LEVEL_VSS_STRAP_MISSING")
+    if not summary["top_ring_vdd_connected"] or not summary["array_vdd_connected_to_top_vdd"] or not summary["peripheral_vdd_connected_to_top_vdd"]:
+        codes.append("VDD_TO_TOP_COMPONENT_BROKEN")
+    if not summary["top_ring_gnd_connected"] or not summary["array_gnd_connected_to_top_gnd"] or not summary["peripheral_gnd_connected_to_top_gnd"]:
+        codes.append("VSS_TO_TOP_COMPONENT_BROKEN")
+    if not summary["array_and_peripheral_vdd_same_component"] or not summary["array_and_peripheral_gnd_same_component"]:
+        codes.append("POWER_COMPONENT_SPLIT")
+    if not summary["vdd_gnd_short_free"]:
+        codes.append("VDD_VSS_SHORT")
+    if summary["global_guide_only_power_links"] != 0:
+        codes.append("GUIDE_ONLY_GLOBAL_POWER_LINK")
+    if not summary["topology_clean"]:
+        codes.append("POWER_JUNCTION_TOPOLOGY_FAILED")
+    if summary["missing_junctions"] != 0:
+        codes.append("MISSING_POWER_VIA")
+    if summary["unnecessary_jogs"] != 0:
+        codes.append("UNNECESSARY_POWER_JOG")
+    if summary["guide_only_junctions"] != 0:
+        codes.append("GUIDE_ONLY_POWER_JUNCTION")
+    if summary["suspicious_power_routes"] != 0:
+        codes.append("POWER_TO_SIGNAL_CONTACT")
+    return codes
+
+
 def summarize_power_report(path: Path) -> dict[str, Any]:
     report = load_json(path)
     row_side = report.get("row_side_power_audit", {})
@@ -59,38 +110,6 @@ def summarize_power_report(path: Path) -> dict[str, Any]:
         "guide_only_junctions": len(topology.get("guide_only_junctions", [])),
         "suspicious_power_routes": len(topology.get("suspicious_power_routes", [])),
     }
-    summary["power_gate_passed"] = all(
-        [
-            summary["drc_clean"],
-            summary["row_side_clean"],
-            summary["missing_vdd_pins"] == 0,
-            summary["missing_gnd_pins"] == 0,
-            summary["guide_only_power_connections"] == 0,
-            summary["macros_without_power_pin_contract"] == 0,
-            summary["array_clean"],
-            summary["row_vdd_rails_expected"] == summary["row_vdd_rails_connected"],
-            summary["row_gnd_rails_expected"] == summary["row_gnd_rails_connected"],
-            summary["rows_missing_vdd_connection"] == 0,
-            summary["rows_missing_gnd_connection"] == 0,
-            summary["left_vdd_strap_present"],
-            summary["left_gnd_strap_present"],
-            summary["right_vdd_strap_present"],
-            summary["right_gnd_strap_present"],
-            summary["top_ring_vdd_connected"],
-            summary["top_ring_gnd_connected"],
-            summary["global_clean"],
-            summary["array_vdd_connected_to_top_vdd"],
-            summary["array_gnd_connected_to_top_gnd"],
-            summary["peripheral_vdd_connected_to_top_vdd"],
-            summary["peripheral_gnd_connected_to_top_gnd"],
-            summary["array_and_peripheral_vdd_same_component"],
-            summary["array_and_peripheral_gnd_same_component"],
-            summary["vdd_gnd_short_free"],
-            summary["global_guide_only_power_links"] == 0,
-            summary["topology_clean"],
-            summary["missing_junctions"] == 0,
-            summary["unnecessary_jogs"] == 0,
-            summary["guide_only_junctions"] == 0,
-        ]
-    )
+    summary["rejection_codes"] = evaluate_power_summary(summary)
+    summary["power_gate_passed"] = not summary["rejection_codes"]
     return summary

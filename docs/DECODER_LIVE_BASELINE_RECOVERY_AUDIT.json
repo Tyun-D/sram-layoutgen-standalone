@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-07-30T03:21:15-07:00",
+  "status": "BLOCKED_MISSING_LIVE_BASELINE",
+  "branch": "project/mainline-inventory-20260726",
+  "head_before_followup": "68e7340daaecbcc48a23cce6757e8247efedfbc1",
+  "search_scope": [
+    "/data1/qujh",
+    "/tmp/qujh_delay_chain_scratch"
+  ],
+  "search_patterns": [
+    "*decoder*machine*gate*.json",
+    "*decoder*.lyrdb",
+    "*24*marker*",
+    "*decoder*negative*summary*.json",
+    "*decoder*clean.gds",
+    "*decoder*baseline*lock*.json",
+    "METAL2.2",
+    "METAL2.5",
+    "drc_marker_count=24|72",
+    "horizontal_m3_bus",
+    "vertical_m2_link"
+  ],
+  "matched_files_count": 0,
+  "git_log_decoder_hits": [
+    "281bbf2 docs(project): record decoder closure audit and current status",
+    "ae034bf docs(project): sync decoder audit timestamps and status head",
+    "72d1124 docs(project): refine decoder blockers and owner-a reporting boundary",
+    "e95494d Compact OpenYield decoder gate rows",
+    "c22b5bf Close OpenYield decoder metadata audit",
+    "200b937 Audit OpenYield decoder channel requirement",
+    "a108d09 Audit OpenYield decoder handoff relief",
+    "da4aa50 Audit OpenYield decoder preplacement feasibility",
+    "022eae7 Summarize OpenYield decoder generated block plan",
+    "4955f38 Audit OpenYield decoder output handoff budget",
+    "a3025a4 Audit OpenYield decoder output contracts",
+    "9252d8d Audit OpenYield decoder truth table binding",
+    "952b688 Audit OpenYield decoder stage templates",
+    "0d4f493 Audit OpenYield decoder composite leaf conventions",
+    "d114292 Audit OpenYield decoder logic repair options",
+    "e6e6a0f Audit OpenYield decoder row rules",
+    "cd89e67 Audit OpenYield decoder stage candidates"
+  ],
+  "stash_entries": [],
+  "recovered_live_baseline": false,
+  "required_baseline_facts": {
+    "en_route": "horizontal_m3_bus",
+    "wl_pre_route": "vertical_m2_link",
+    "drc_marker_count": 24,
+    "permitted_fix_scope": [
+      "METAL2.2 x16",
+      "METAL2.5 x8"
+    ]
+  },
+  "conclusion": "The restored current worktree does not expose the requested live decoder closure baseline or any executable decoder-specific machine gate/negative-suite bundle.",
+  "minimum_recovery_actions": [
+    "recover the exact decoder GDS + marker atlas + machine gate JSON that recorded DRC=24",
+    "recover the matching negative-summary and routing/power/connectivity/foreign-net pass bundle",
+    "lock the recovered baseline SHA and only then resume one-parameter-at-a-time METAL2 edits"
+  ]
+}

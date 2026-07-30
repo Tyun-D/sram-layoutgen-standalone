@@ -12,7 +12,7 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from sram_layoutgen.verification.power_connectivity import summarize_power_report  # noqa: E402
-from sram_layoutgen.verification.power_negative_regressions import blocked_negative_matrix  # noqa: E402
+from sram_layoutgen.verification.power_negative_regressions import run_negative_mutations  # noqa: E402
 
 
 DOCS_DIR = REPO_ROOT / "docs"
@@ -21,6 +21,7 @@ CONFIG_REPORTS = [
     REPO_ROOT / "outputs/M7_correct_golden_reference/current_supported_config/extracted/full_layout_collection/sram_4x32_wpr1/sram_4x32_wpr1_fd45.report.json",
     REPO_ROOT / "outputs/M7_correct_golden_reference/current_supported_config/extracted/full_layout_collection/sram_8x64_wpr4/sram_8x64_wpr4_fd45.report.json",
 ]
+NEGATIVE_WORKSPACE = REPO_ROOT / "simulation/power_negative"
 
 
 def write_json(path: Path, payload: Any) -> None:
@@ -43,16 +44,14 @@ def write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: list[str]) -> 
 
 def main() -> None:
     summaries = [summarize_power_report(path) for path in CONFIG_REPORTS]
-    negative_rows = blocked_negative_matrix(
-        "Current project worktree exposes positive power audits from generated raw-source-backed report JSONs, but no standalone geometry-mutation harness was found for raw GDS power-negative regressions."
-    )
+    negative_rows, negative_summary = run_negative_mutations(CONFIG_REPORTS[0], NEGATIVE_WORKSPACE)
 
     gate = {
         "generated_at": "2026-07-30",
         "config_count": len(summaries),
         "all_positive_power_gates_passed": all(item["power_gate_passed"] for item in summaries),
-        "negative_harness_available": False,
-        "negative_cases_blocked": len(negative_rows),
+        "negative_harness_available": True,
+        "negative_cases_blocked": 0,
         "note": "These checks prove connectivity/topology consistency from existing report evidence only. They are not IR drop, EM, or dynamic power-integrity signoff.",
     }
     write_json(DOCS_DIR / "POWER_ROUTING_CORRECTNESS_GATE.json", gate)
@@ -112,17 +111,28 @@ def main() -> None:
     write_csv(
         DOCS_DIR / "POWER_NEGATIVE_TEST_MATRIX.csv",
         negative_rows,
-        ["negative_case_id", "description", "status", "rejected_as_expected", "evidence", "note"],
+        [
+            "negative_case_id",
+            "description",
+            "status",
+            "rejected_as_expected",
+            "evidence",
+            "note",
+            "source_report",
+            "source_sha256",
+            "mutated_sha256",
+            "mutation_sha_changed",
+            "expected_rejection_code",
+            "actual_rejection_codes",
+            "unexpected_pass",
+        ],
     )
     write_json(
         DOCS_DIR / "POWER_NEGATIVE_TEST_SUMMARY.json",
         {
             "generated_at": "2026-07-30",
-            "negative_case_count": len(negative_rows),
-            "blocked_case_count": len(negative_rows),
-            "executed_case_count": 0,
-            "negative_tests_passed": False,
-            "blocking_reason": negative_rows[0]["note"] if negative_rows else "",
+            **negative_summary,
+            "source_report": str(CONFIG_REPORTS[0]),
         },
     )
 
@@ -146,7 +156,7 @@ def main() -> None:
         "",
         "## Limits",
         "",
-        "- Current negative regression rows are blocked because no raw-GDS geometry mutation harness was found in this worktree.",
+        "- Negative regressions currently mutate copied raw-source-backed power report bundles, not fresh GDS geometry or IR/EM solvers.",
         "- These results do not prove IR drop, EM, voltage droop, or dynamic power signoff.",
     ]
     write_text(DOCS_DIR / "POWER_ROUTING_CORRECTNESS_METHOD.md", "\n".join(method_lines) + "\n")
