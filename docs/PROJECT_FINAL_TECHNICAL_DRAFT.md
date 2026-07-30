@@ -46,3 +46,8 @@ multi-bank 当前状态为 `FUNCTIONAL_TOP_LEVEL_BLOCKED_BY_MISSING_AUTHORITY`�
 - Remote branch sync is now proven with `git -c http.proxy=`; the earlier TLS failure only applies to the conflicting proxy configuration.
 - Decoder is no longer blocked by a missing execution harness. A fresh rebuild, machine gate, DRC run, determinism rerun, and negative suite all execute successfully as a flow, but the design still fails closure because child module assets expose wildcard bus pins and the rebuilt top trips 2663 DRC markers.
 - The project now owns a SRAM control/timing contract draft, but `TIME_schedule`, `write_sample_point`, and `disabled_hold_semantics` remain unresolved, so full SRAM functional simulation remains specifically blocked at field level.
+
+## 2026-07-30 External Blocker Boundary
+
+- Decoder is no longer blocked by missing flow implementation. The exhausted blocker is child-asset authority: all approved child manifests remain wildcard semantic exports, every audited child top cell has zero native GDS labels, every child generation report remains `L3_GDS_GENERATED_CANDIDATE_GEOMETRY`, and the fresh decoder top still reports 2663 DRC markers.
+- SRAM functional simulation is no longer blocked by “missing TB” in the generic sense. The exhausted blocker is exact timing-oracle authority: startup-clamp overlap leaves `TIME_schedule` unfrozen, upstream write proof targets internal Q/QB nodes not exported by the current top, and upstream hold evidence exists only as single-cell SNM/DC setup.

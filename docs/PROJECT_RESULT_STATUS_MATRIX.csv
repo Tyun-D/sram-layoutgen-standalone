@@ -9,7 +9,7 @@ DFF_BUF,HUMAN_REVIEWED,outputs/Wave3_DFF_BUF_reusable_release,human-reviewed reu
 PINV/TG,HUMAN_REVIEWED,outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells,primitive reusable library
 SRAM array,GENERATED,outputs/M2R_full_sram_regen/current_supported_config/openyield_layoutgen_full_sram_M2R.report.json,layoutgen-generated top-level trial
 WL driver,MACHINE_VERIFIED,outputs/M11C2H_confirm_wordline_driver_human_review/current_supported_config,smoke substitution passed with caveats
-decoder,BLOCKED,outputs/PROJECT_decoder_rebuild/current_supported_config/DECODER_MACHINE_GATE.json; docs/DECODER_REBUILD_CONTRACT_LOCK.json; docs/DECODER_REBUILD_EXECUTION_AUDIT.json,"Executable decoder rebuild/validator/negative-suite loop now exists, but fresh rebuild still fails because approved child assets only expose wildcard pin abstractions and the resulting top trips 2663 DRC markers."
+decoder,BLOCKED,outputs/PROJECT_decoder_rebuild/current_supported_config/DECODER_MACHINE_GATE.json; docs/DECODER_REBUILD_CONTRACT_LOCK.json; docs/DECODER_REBUILD_EXECUTION_AUDIT.json,"Executable decoder rebuild loop exists, but audited child assets expose wildcard semantic pin exports with zero native GDS labels, each child remains L3 candidate geometry, and the resulting top trips 2663 DRC markers."
 column mux,MACHINE_VERIFIED,docs/openyield_columnmux_adapter_report.json; technology/freepdk45/gds_lib/openyield_repaired/gen_col_mux_vdd_labeled.gds,adapter and repaired alias proven
 sense amp,HUMAN_REVIEWED,outputs/M11CH_confirm_M11C_human_review/current_supported_config,smoke substitution human-reviewed
 write driver,SOURCE_ONLY,docs/openyield_writedriver_adapter_report.json,"adapter exists, no final integrated closure"

@@ -245,3 +245,13 @@
 - decision: `treat decoder as executable-but-asset-blocked rather than flow-missing, and keep complete-top generation blocked behind decoder machine closure`
 - unresolved_items: `decoder child wildcard pin abstractions`; `decoder 2663 DRC markers`; `TIME_schedule unresolved`; `write_sample_point unresolved`; `disabled_hold_semantics unresolved`
 - next_action: `commit decoder/TB updates, push current branch, and rebuild clean evidence packages from the pushed head`
+
+## 2026-07-30T14:35:00Z project external_blocker_evidence_refresh
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `9f42d27dfaa108d2ed7e9a932403d65bf9f1c8f2`
+- files_read: `docs/DECODER_REBUILD_CONTRACT_LOCK.json`, `outputs/PROJECT_decoder_rebuild/current_supported_config/DECODER_MACHINE_GATE.json`, `outputs/openyield_module_gds/*/(pins.json|generation_report.json|generator_manifest.json)`, `outputs/M12N2_clean_openyield_sram_top/current_supported_config/openyield_sram_top_v1_16x16.sp`, `/data1/qujh/work/external/OpenYield/sram_compiler/testbenches/sram_6t_core_testbench.py`
+- files_modified: `docs/DECODER_CHILD_PIN_AUTHORITY_AUDIT.*`, `docs/DECODER_DRC_*`, `docs/PROJECT_SRAM_TIMING_ORACLE.*`, `outputs/PROJECT_decoder_rebuild/current_supported_config/DECODER_CHILD_PIN_CONTRACT.json`, `docs/PROJECT_CURRENT_STATUS.json`, `docs/PROJECT_RESULT_STATUS_MATRIX.csv`, `docs/PROJECT_GAP_REGISTER.csv`, `docs/PROJECT_TASK_MASTER_LOG.*`
+- result: `decoder child authority exhausted to asset-level blocker`; `decoder child top GDS label count = 0/0/0`; `decoder child generation_status = L3_GDS_GENERATED_CANDIDATE_GEOMETRY`; `sram timing oracle remains blocked by 3 exact-source gaps`
+- decision: `treat decoder closure as blocked by missing bit-exact child authority and non-signoff child geometry; treat SRAM functional TB as blocked by unresolved exact timing oracle rather than missing code`
+- unresolved_items: `bit-exact decoder child pin authority`; `signoff-grade decoder child geometry`; `top-level TIME_schedule`; `write_sample_point`; `disabled_hold_semantics`
+- next_action: `checkpoint, push, and rebuild final review packages from clean head`
