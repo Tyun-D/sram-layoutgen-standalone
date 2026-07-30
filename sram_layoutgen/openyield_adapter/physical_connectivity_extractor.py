@@ -22,6 +22,8 @@ LAYER_NAME_BY_GDS = {
     (11, 0): "m1",
     (12, 0): "via1",
     (13, 0): "m2",
+    (14, 0): "via2",
+    (15, 0): "m3",
     (239, 0): "text",
 }
 
@@ -179,16 +181,18 @@ def extract_physical_connectivity(gds_path: Path, top_name: str | None = None) -
     poly_rects = rects.get("poly", [])
     m1_rects = rects.get("m1", [])
     m2_rects = rects.get("m2", [])
+    m3_rects = rects.get("m3", [])
     contact_rects = rects.get("contact", [])
     via1_rects = rects.get("via1", [])
+    via2_rects = rects.get("via2", [])
     active_segments, parent_to_children = _split_active_segments(active_rects, poly_rects)
 
-    all_rects = {rect.rect_id: rect for rect in [*m1_rects, *m2_rects, *poly_rects, *active_segments, *contact_rects, *via1_rects]}
+    all_rects = {rect.rect_id: rect for rect in [*m1_rects, *m2_rects, *m3_rects, *poly_rects, *active_segments, *contact_rects, *via1_rects, *via2_rects]}
     uf = _UnionFind()
     for rect_id in all_rects:
         uf.add(rect_id)
 
-    for layer_rects in (m1_rects, m2_rects, poly_rects, active_segments):
+    for layer_rects in (m1_rects, m2_rects, m3_rects, poly_rects, active_segments):
         for index, left in enumerate(layer_rects):
             for right in layer_rects[index + 1 :]:
                 if _touch_or_overlap(left, right):
@@ -210,6 +214,14 @@ def extract_physical_connectivity(gds_path: Path, top_name: str | None = None) -
                 uf.union(via1.rect_id, target.rect_id)
                 linked.append(target.rect_id)
         via1_links[via1.rect_id] = sorted(linked)
+    via2_links: dict[str, list[str]] = {}
+    for via2 in via2_rects:
+        linked: list[str] = []
+        for target in (*m2_rects, *m3_rects):
+            if _touch_or_overlap(via2, target):
+                uf.union(via2.rect_id, target.rect_id)
+                linked.append(target.rect_id)
+        via2_links[via2.rect_id] = sorted(linked)
 
     labels = []
     pin_labels: dict[str, list[dict[str, Any]]] = defaultdict(list)
@@ -222,7 +234,7 @@ def extract_physical_connectivity(gds_path: Path, top_name: str | None = None) -
         }
         labels.append(entry)
         text = str(label.text)
-        m1_hits = [rect for rect in (*m1_rects, *m2_rects) if _contains_point(rect, float(label.origin[0]), float(label.origin[1]))]
+        m1_hits = [rect for rect in (*m1_rects, *m2_rects, *m3_rects) if _contains_point(rect, float(label.origin[0]), float(label.origin[1]))]
         poly_hits = [rect for rect in poly_rects if _contains_point(rect, float(label.origin[0]), float(label.origin[1]))]
         hit_ids = [rect.rect_id for rect in m1_hits or poly_hits]
         label_hits.append({"text": text, "origin": entry["origin"], "shape_ids": hit_ids, "layer": entry["layer"]})
@@ -274,6 +286,7 @@ def extract_physical_connectivity(gds_path: Path, top_name: str | None = None) -
         "active_segments": active_segment_details,
         "contact_links": contact_links,
         "via1_links": via1_links,
+        "via2_links": via2_links,
         "components": sorted(components.values(), key=lambda item: item["component_id"]),
         "pin_labels": {key: value for key, value in sorted(pin_labels.items())},
         "label_hits": label_hits,

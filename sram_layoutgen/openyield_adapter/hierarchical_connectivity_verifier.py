@@ -103,7 +103,12 @@ def verify_hierarchical_connectivity(
         for row in per_net
         if row["component_id"] is not None
     } | {top_comp["VDD"], top_comp["VSS"]}
-    power_signal_short_count = sum(1 for signal in ["D", "Q", "CLK"] if top_comp[signal] in {top_comp["VDD"], top_comp["VSS"]})
+    power_signal_short_count = sum(
+        1
+        for signal in ["D", "Q", "CLK"]
+        if signal in top_comp and top_comp[signal] in {top_comp.get("VDD"), top_comp.get("VSS")}
+    )
+    d_q_direct_short_present = "D" in top_comp and "Q" in top_comp and top_comp["D"] == top_comp["Q"]
     report = {
         "graph": graph,
         "per_net": per_net,
@@ -116,14 +121,14 @@ def verify_hierarchical_connectivity(
         "floating_required_pin_count": floating_required,
         "power_signal_short_count": power_signal_short_count,
         "vdd_vss_short_present": top_comp["VDD"] == top_comp["VSS"],
-        "d_q_direct_short_present": top_comp["D"] == top_comp["Q"],
+        "d_q_direct_short_present": d_q_direct_short_present,
         "physical_connectivity_verification_passed": len(unexpected_merges) == 0
         and missing_expected == 0
         and floating_required == 0
         and unexpected_endpoints_total == 0
         and power_signal_short_count == 0
         and top_comp["VDD"] != top_comp["VSS"]
-        and top_comp["D"] != top_comp["Q"]
+        and not d_q_direct_short_present
         and all(row["net_match_status"] == "MATCH" for row in per_net),
     }
     return report

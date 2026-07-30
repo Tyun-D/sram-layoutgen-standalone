@@ -313,3 +313,13 @@
 - decision: `freeze row_decoder_v2 exact instance-level source binding before any regenerated child geometry is emitted`
 - unresolved_items: `row_decoder_v2 geometry not yet generated`; `row_decoder_v2 child machine gate not yet run`; `decoder_gate_cells_v2 geometry not yet generated`; `wordline_decoder_v2 geometry not yet generated`
 - next_action: `emit first regenerated row_decoder_v2 clean/annotated GDS candidate from the 19-instance exact binding and run child-level DRC/connectivity`
+
+## 2026-07-30T19:05:00Z project row_decoder_v2_regen_gate_reduction
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `befd45e657cd1e302c330e9b7fd66bed5d11fc81`
+- files_read: `scripts/project_row_decoder_v2_generate.py`; `sram_layoutgen/openyield_adapter/{hierarchical_connectivity_verifier,physical_connectivity_extractor}.py`; `outputs/PROJECT_row_decoder_v2_regen/current_supported_config/{ROW_DECODER_V2_GATE.json,ROW_DECODER_V2_CONNECTIVITY.json,ROW_DECODER_V2_DRC.json}`; `outputs/PROJECT_row_decoder_v2_regen/current_supported_config/drc/row_decoder_v2.lyrdb`
+- files_modified: `scripts/project_row_decoder_v2_generate.py`; `sram_layoutgen/openyield_adapter/hierarchical_connectivity_verifier.py`; `sram_layoutgen/openyield_adapter/physical_connectivity_extractor.py`; `outputs/PROJECT_row_decoder_v2_regen/current_supported_config/*`; `docs/PROJECT_CURRENT_STATUS.json`; `docs/PROJECT_TASK_MASTER_LOG.md`; `docs/PROJECT_TASK_MASTER_LOG.jsonl`
+- result: `row_decoder_v2_child_count=19`; `row_decoder_v2_connectivity_passed=true`; `row_decoder_v2_namespace_passed=true`; `row_decoder_v2_hierarchy_passed=true`; `row_decoder_v2_drc_marker_count=16`; `row_decoder_v2_remaining_rule_set=METAL2.2_only`
+- decision: `keep the M3 horizontal trunk plus M2 branch topology because it closes connectivity and reduces row_decoder_v2 DRC from 223 to 16 while isolating a single remaining rule family`
+- unresolved_items: `row_decoder_v2 residual METAL2.2 x16`; `decoder_gate_cells_v2 geometry not yet generated`; `wordline_decoder_v2 geometry not yet generated`; `decoder top still blocked on child v2 regeneration`
+- next_action: `cluster the 16 residual METAL2.2 edge-pairs, repair the repeated branch/pad spacing template, then seal row_decoder_v2 as the first project-owned regenerated decoder child`
