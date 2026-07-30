@@ -293,3 +293,23 @@
 - decision: `freeze decoder v2 leaf input authority into project-owned inventory before regenerating child geometry`
 - unresolved_items: `decoder_gate_cells_v2 geometry not yet generated`; `row_decoder_v2 geometry not yet generated`; `wordline_decoder_v2 geometry not yet generated`
 - next_action: `convert the leaf inventory into regenerated child v2 physical assets and rerun decoder rebuild`
+
+## 2026-07-30T17:38:00Z project decoder_v2_formal_gate_pinmaps_and_topology_refresh
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `33752e0bde504f64eaf12d3dfda6bc5487835550`
+- files_read: `scripts/project_decoder_v2_formal_gate_pinmaps.py`; `/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/decoder.py`; `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_remaining9_reference_demo/current_supported_config/{AND2,AND3}/connectivity_graph.json`; `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_remaining9_reference_demo/current_supported_config/{AND2,AND3}/direct_top_label_report.json`; `docs/DECODER_V2_CHILD_INPUT_LOCK.json`
+- files_modified: `scripts/project_decoder_v2_formal_gate_pinmaps.py`; `docs/DECODER_V2_FORMAL_GATE_PINMAPS.json`; `outputs/PROJECT_decoder_v2_formal_gate_pinmaps/current_supported_config/{AND2,AND3}_pin_map.json`; `outputs/PROJECT_decoder_v2_formal_gate_pinmaps/current_supported_config/{AND2,AND3}_pinmap_evidence.json`; `docs/PROJECT_CURRENT_STATUS.json`; `docs/PROJECT_TASK_MASTER_LOG.md`; `docs/PROJECT_TASK_MASTER_LOG.jsonl`
+- result: `and2_formal_pinmap_extracted=true`; `and3_formal_pinmap_extracted=true`; `and2_pin_names=A,B,VDD,VSS,Z`; `and3_pin_names=A,B,C,VDD,VSS,Z`; `decoder3_8_leaf_topology_confirmed=3xINV+8xAND3+8xAND2`
+- decision: `replace wildcard-only top-pin authority for reused formal gates with extracted bbox-backed pin maps before regenerating decoder child v2 geometry`
+- unresolved_items: `decoder_gate_cells_v2 geometry not yet generated`; `row_decoder_v2 geometry not yet generated`; `wordline_decoder_v2 geometry not yet generated`; `decoder top still remains at 2663 markers until regenerated child geometry lands`
+- next_action: `build regenerated row_decoder_v2 from exact INV/AND3/AND2 leaf geometry and authoritative pin maps, then gate it at child level`
+
+## 2026-07-30T17:46:00Z project row_decoder_v2_source_binding_refresh
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `33752e0bde504f64eaf12d3dfda6bc5487835550`
+- files_read: `docs/DECODER_V2_LOGICAL_CONTRACT.json`; `docs/DECODER_V2_BIT_MAPPING.csv`; `outputs/PROJECT_decoder_v2_formal_gate_pinmaps/current_supported_config/{AND2,AND3}_pin_map.json`; `outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells/PINV_NW90_PW270_L50/PINV_NW90_PW270_L50_pin_map.json`; `/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/decoder.py`
+- files_modified: `scripts/project_row_decoder_v2_source_binding.py`; `docs/ROW_DECODER_V2_SOURCE_BINDING.json`; `docs/ROW_DECODER_V2_SOURCE_BINDING.md`; `docs/ROW_DECODER_V2_SOURCE_BINDING.csv`; `outputs/PROJECT_row_decoder_v2_source_binding/current_supported_config/ROW_DECODER_V2_SOURCE_BINDING.json`; `docs/PROJECT_CURRENT_STATUS.json`; `docs/PROJECT_TASK_MASTER_LOG.md`; `docs/PROJECT_TASK_MASTER_LOG.jsonl`
+- result: `binding_row_count=19`; `leaf_topology=3xINV+8xAND3+8xAND2`; `all_binding_rows_exact=true`; `en_to_output_stage_bound_as_and2=true`; `predecode_stage_bound_as_and3=true`
+- decision: `freeze row_decoder_v2 exact instance-level source binding before any regenerated child geometry is emitted`
+- unresolved_items: `row_decoder_v2 geometry not yet generated`; `row_decoder_v2 child machine gate not yet run`; `decoder_gate_cells_v2 geometry not yet generated`; `wordline_decoder_v2 geometry not yet generated`
+- next_action: `emit first regenerated row_decoder_v2 clean/annotated GDS candidate from the 19-instance exact binding and run child-level DRC/connectivity`

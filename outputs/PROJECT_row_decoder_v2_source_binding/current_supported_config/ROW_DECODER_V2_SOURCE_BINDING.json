@@ -1,0 +1,225 @@
+{
+  "scope": "project_row_decoder_v2_source_binding",
+  "git_head": "33752e0bde504f64eaf12d3dfda6bc5487835550",
+  "logical_contract_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/docs/DECODER_V2_LOGICAL_CONTRACT.json",
+  "bit_mapping_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/docs/DECODER_V2_BIT_MAPPING.csv",
+  "physical_sources": {
+    "PINV": "PINV_NW90_PW270_L50",
+    "AND3": "AND3_PNAND3_PINV_FPDK45",
+    "AND2": "AND2_PNAND2_PINV_FPDK45"
+  },
+  "decoder3_8_leaf_topology": {
+    "inv_count": 3,
+    "and3_count": 8,
+    "and2_count": 8
+  },
+  "binding_row_count": 19,
+  "top_ports": [
+    "A0",
+    "A1",
+    "A2",
+    "EN",
+    "WL0",
+    "WL1",
+    "WL2",
+    "WL3",
+    "WL4",
+    "WL5",
+    "WL6",
+    "WL7",
+    "VDD",
+    "VSS"
+  ],
+  "binding_rows": [
+    {
+      "instance_name": "inv_a0",
+      "logical_child_type": "PINV",
+      "resolved_physical_cell_name": "PINV_NW90_PW270_L50",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"A0\", \"A0b\"]",
+      "source_line_or_role": "DECODER3_8.inv_A0",
+      "pin_map_pin_names": "[\"A\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "inv_a1",
+      "logical_child_type": "PINV",
+      "resolved_physical_cell_name": "PINV_NW90_PW270_L50",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"A1\", \"A1b\"]",
+      "source_line_or_role": "DECODER3_8.inv_A1",
+      "pin_map_pin_names": "[\"A\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "inv_a2",
+      "logical_child_type": "PINV",
+      "resolved_physical_cell_name": "PINV_NW90_PW270_L50",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"A2\", \"A2b\"]",
+      "source_line_or_role": "DECODER3_8.inv_A2",
+      "pin_map_pin_names": "[\"A\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "and3_pre_0",
+      "logical_child_type": "AND3",
+      "resolved_physical_cell_name": "AND3_PNAND3_PINV_FPDK45",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"B\", \"C\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"A0b\", \"A1b\", \"A2b\", \"WL0_pre\"]",
+      "source_line_or_role": "DECODER3_8.AND0",
+      "pin_map_pin_names": "[\"A\", \"B\", \"C\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "and2_en_0",
+      "logical_child_type": "AND2",
+      "resolved_physical_cell_name": "AND2_PNAND2_PINV_FPDK45",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"B\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"WL0_pre\", \"EN\", \"WL0\"]",
+      "source_line_or_role": "DECODER3_8.AND_EN0",
+      "pin_map_pin_names": "[\"A\", \"B\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "and3_pre_1",
+      "logical_child_type": "AND3",
+      "resolved_physical_cell_name": "AND3_PNAND3_PINV_FPDK45",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"B\", \"C\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"A0b\", \"A1b\", \"A2\", \"WL1_pre\"]",
+      "source_line_or_role": "DECODER3_8.AND1",
+      "pin_map_pin_names": "[\"A\", \"B\", \"C\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "and2_en_1",
+      "logical_child_type": "AND2",
+      "resolved_physical_cell_name": "AND2_PNAND2_PINV_FPDK45",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"B\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"WL1_pre\", \"EN\", \"WL1\"]",
+      "source_line_or_role": "DECODER3_8.AND_EN1",
+      "pin_map_pin_names": "[\"A\", \"B\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "and3_pre_2",
+      "logical_child_type": "AND3",
+      "resolved_physical_cell_name": "AND3_PNAND3_PINV_FPDK45",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"B\", \"C\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"A0b\", \"A1\", \"A2b\", \"WL2_pre\"]",
+      "source_line_or_role": "DECODER3_8.AND2",
+      "pin_map_pin_names": "[\"A\", \"B\", \"C\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "and2_en_2",
+      "logical_child_type": "AND2",
+      "resolved_physical_cell_name": "AND2_PNAND2_PINV_FPDK45",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"B\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"WL2_pre\", \"EN\", \"WL2\"]",
+      "source_line_or_role": "DECODER3_8.AND_EN2",
+      "pin_map_pin_names": "[\"A\", \"B\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "and3_pre_3",
+      "logical_child_type": "AND3",
+      "resolved_physical_cell_name": "AND3_PNAND3_PINV_FPDK45",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"B\", \"C\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"A0b\", \"A1\", \"A2\", \"WL3_pre\"]",
+      "source_line_or_role": "DECODER3_8.AND3",
+      "pin_map_pin_names": "[\"A\", \"B\", \"C\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "and2_en_3",
+      "logical_child_type": "AND2",
+      "resolved_physical_cell_name": "AND2_PNAND2_PINV_FPDK45",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"B\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"WL3_pre\", \"EN\", \"WL3\"]",
+      "source_line_or_role": "DECODER3_8.AND_EN3",
+      "pin_map_pin_names": "[\"A\", \"B\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "and3_pre_4",
+      "logical_child_type": "AND3",
+      "resolved_physical_cell_name": "AND3_PNAND3_PINV_FPDK45",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"B\", \"C\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"A0\", \"A1b\", \"A2b\", \"WL4_pre\"]",
+      "source_line_or_role": "DECODER3_8.AND4",
+      "pin_map_pin_names": "[\"A\", \"B\", \"C\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "and2_en_4",
+      "logical_child_type": "AND2",
+      "resolved_physical_cell_name": "AND2_PNAND2_PINV_FPDK45",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"B\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"WL4_pre\", \"EN\", \"WL4\"]",
+      "source_line_or_role": "DECODER3_8.AND_EN4",
+      "pin_map_pin_names": "[\"A\", \"B\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "and3_pre_5",
+      "logical_child_type": "AND3",
+      "resolved_physical_cell_name": "AND3_PNAND3_PINV_FPDK45",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"B\", \"C\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"A0\", \"A1b\", \"A2\", \"WL5_pre\"]",
+      "source_line_or_role": "DECODER3_8.AND5",
+      "pin_map_pin_names": "[\"A\", \"B\", \"C\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "and2_en_5",
+      "logical_child_type": "AND2",
+      "resolved_physical_cell_name": "AND2_PNAND2_PINV_FPDK45",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"B\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"WL5_pre\", \"EN\", \"WL5\"]",
+      "source_line_or_role": "DECODER3_8.AND_EN5",
+      "pin_map_pin_names": "[\"A\", \"B\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "and3_pre_6",
+      "logical_child_type": "AND3",
+      "resolved_physical_cell_name": "AND3_PNAND3_PINV_FPDK45",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"B\", \"C\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"A0\", \"A1\", \"A2b\", \"WL6_pre\"]",
+      "source_line_or_role": "DECODER3_8.AND6",
+      "pin_map_pin_names": "[\"A\", \"B\", \"C\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "and2_en_6",
+      "logical_child_type": "AND2",
+      "resolved_physical_cell_name": "AND2_PNAND2_PINV_FPDK45",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"B\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"WL6_pre\", \"EN\", \"WL6\"]",
+      "source_line_or_role": "DECODER3_8.AND_EN6",
+      "pin_map_pin_names": "[\"A\", \"B\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "and3_pre_7",
+      "logical_child_type": "AND3",
+      "resolved_physical_cell_name": "AND3_PNAND3_PINV_FPDK45",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"B\", \"C\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"A0\", \"A1\", \"A2\", \"WL7_pre\"]",
+      "source_line_or_role": "DECODER3_8.AND7",
+      "pin_map_pin_names": "[\"A\", \"B\", \"C\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "and2_en_7",
+      "logical_child_type": "AND2",
+      "resolved_physical_cell_name": "AND2_PNAND2_PINV_FPDK45",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"B\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"WL7_pre\", \"EN\", \"WL7\"]",
+      "source_line_or_role": "DECODER3_8.AND_EN7",
+      "pin_map_pin_names": "[\"A\", \"B\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    }
+  ]
+}
