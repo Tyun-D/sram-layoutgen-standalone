@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import subprocess
 import xml.etree.ElementTree as ET
 from collections import Counter
@@ -131,8 +132,12 @@ def verify_generated_cell(
 
 
 def run_cell_drc(klayout: Path, drc_deck: Path, gds_path: Path, topcell: str, output_dir: Path) -> dict[str, Any]:
+    output_dir.mkdir(parents=True, exist_ok=True)
     lyrdb = output_dir / f"{topcell}.lyrdb"
     log_path = output_dir / f"{topcell}_drc.log"
+    # FreePDK45's KLayout deck resolves the report path relative to the input GDS
+    # directory, so emit a path that is explicitly relative from that location.
+    output_arg = os.path.relpath(lyrdb, gds_path.parent)
     command = [
         str(klayout),
         "-b",
@@ -143,7 +148,7 @@ def run_cell_drc(klayout: Path, drc_deck: Path, gds_path: Path, topcell: str, ou
         "-rd",
         f"topcell={topcell}",
         "-rd",
-        f"output={lyrdb}",
+        f"output={output_arg}",
     ]
     completed = subprocess.run(command, text=True, capture_output=True, check=False)
     log_path.write_text(

@@ -26,6 +26,7 @@ PNAND3_NAME = "PNAND3_NW180_PW270_L50_FPDK45"
 PINV_NAME = "PINV_NW90_PW270_L50"
 AND3_NAME = "AND3_PNAND3_PINV_FPDK45"
 PNAND3_SHA = "a49c4572a9451ee180ba907e56d912fad9e58577a66a0a3687a4df4af7acba7f"
+PRIMARY_REPO_ROOT = Path("/data1/qujh/work/sram_layoutgen_step45_clean")
 
 
 def _render_md(title: str, lines: list[str]) -> str:
@@ -34,6 +35,13 @@ def _render_md(title: str, lines: list[str]) -> str:
 
 def _pinv_dir(repo_root: Path) -> Path:
     return repo_root / "outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells/PINV_NW90_PW270_L50"
+
+
+def _resolve_existing_path(*candidates: Path) -> Path:
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    raise FileNotFoundError("No existing path found for candidates: " + ", ".join(str(item) for item in candidates))
 
 
 def _clone_root_to_logical(root_name: str) -> str:
@@ -77,7 +85,10 @@ def _shift_pin_map(pin_map: dict[str, list[dict[str, Any]]], dx: float, dy: floa
 
 
 def _resolve_child_bindings(repo_root: Path, clean_gds: Path) -> dict[str, Any]:
-    pnand3_dir = repo_root / "outputs/TeamB_remaining9_reference_demo/current_supported_config/PNAND3"
+    pnand3_dir = _resolve_existing_path(
+        repo_root / "outputs/TeamB_remaining9_reference_demo/current_supported_config/PNAND3",
+        PRIMARY_REPO_ROOT / "outputs/TeamB_remaining9_reference_demo/current_supported_config/PNAND3",
+    )
     pinv_dir = _pinv_dir(repo_root)
     refs = _top_refs(clean_gds)
     ref_by_type = {row["logical_type"]: row for row in refs}
