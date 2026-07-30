@@ -1,0 +1,58 @@
+{
+  "scope": "decoder_drc_root_cause",
+  "top_gds_sha256": "bda075700fd8c5b7b7b26955830b7210aad2be3843e0ff6d2dbb768cd5ed8026",
+  "top_marker_count": 2663,
+  "dominant_rule_families": [
+    {
+      "rule": "GRID: vertexes on layer metal1 not on grid of 0.0025",
+      "count": 747
+    },
+    {
+      "rule": "GRID: vertexes on layer cont not on grid of 0.0025",
+      "count": 525
+    },
+    {
+      "rule": "GRID: vertexes on layer poly not on grid of 0.0025",
+      "count": 331
+    },
+    {
+      "rule": "GRID: vertexes on layer active not on grid of 0.0025",
+      "count": 256
+    },
+    {
+      "rule": "CONTACT.1",
+      "count": 224
+    },
+    {
+      "rule": "GRID: vertexes on layer nplus not on grid of 0.0025",
+      "count": 136
+    },
+    {
+      "rule": "GRID: vertexes on layer pplus not on grid of 0.0025",
+      "count": 117
+    },
+    {
+      "rule": "CONTACT.3",
+      "count": 82
+    }
+  ],
+  "child_generation_status": {
+    "decoder_gate_cells": {
+      "generation_status": "L3_GDS_GENERATED_CANDIDATE_GEOMETRY",
+      "not_drc_clean_claimed": true
+    },
+    "row_decoder": {
+      "generation_status": "L3_GDS_GENERATED_CANDIDATE_GEOMETRY",
+      "not_drc_clean_claimed": true
+    },
+    "wordline_decoder": {
+      "generation_status": "L3_GDS_GENERATED_CANDIDATE_GEOMETRY",
+      "not_drc_clean_claimed": true
+    }
+  },
+  "root_cause_conclusion": [
+    "The 2663-marker explosion is dominated by grid violations plus contact/metal/poly/well template violations, not by a small number of route-end shorts.",
+    "All three imported decoder children are candidate geometry modules that explicitly do not claim DRC-clean status.",
+    "Under the current rules, top-level decoder DRC cannot be driven to 0 without either replacing these child candidates with new approved assets or generating new approved child pin/geometry contracts."
+  ]
+}

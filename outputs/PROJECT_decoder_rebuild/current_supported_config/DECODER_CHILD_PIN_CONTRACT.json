@@ -1,0 +1,49 @@
+{
+  "modules": [
+    {
+      "module": "decoder_gate_cells",
+      "gds_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/decoder_gate_cells/decoder_gate_cells.gds",
+      "gds_sha256": "27c050ae04593e536fb4a8b890e48d62657161fa1499e01f6188e41fc5b64c67",
+      "pins_json_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/decoder_gate_cells/pins.json",
+      "generator_manifest_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/decoder_gate_cells/generator_manifest.json",
+      "formal_scalar_pins": [],
+      "bus_pins_requiring_new_contract": [
+        "A[*]",
+        "GND",
+        "VDD",
+        "dec_stage[*]",
+        "enable"
+      ]
+    },
+    {
+      "module": "row_decoder",
+      "gds_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/row_decoder/row_decoder.gds",
+      "gds_sha256": "fe84bd37c4d5671aef6222cfe42991a72be84e1d5fe569ac53aa72d1a1e3e76c",
+      "pins_json_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/row_decoder/pins.json",
+      "generator_manifest_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/row_decoder/generator_manifest.json",
+      "formal_scalar_pins": [],
+      "bus_pins_requiring_new_contract": [
+        "A[*]",
+        "GND",
+        "VDD",
+        "dec_out[*]",
+        "enable"
+      ]
+    },
+    {
+      "module": "wordline_decoder",
+      "gds_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/wordline_decoder/wordline_decoder.gds",
+      "gds_sha256": "abeca5eaa4e5993ce8f83ce62f361800b1c2f6654e696df9775be6342c155e55",
+      "pins_json_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/wordline_decoder/pins.json",
+      "generator_manifest_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/wordline_decoder/generator_manifest.json",
+      "formal_scalar_pins": [],
+      "bus_pins_requiring_new_contract": [
+        "A[*]",
+        "DEC_WL[*]",
+        "GND",
+        "VDD",
+        "enable"
+      ]
+    }
+  ]
+}
