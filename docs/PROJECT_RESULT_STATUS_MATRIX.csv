@@ -9,7 +9,7 @@ DFF_BUF,HUMAN_REVIEWED,outputs/Wave3_DFF_BUF_reusable_release,human-reviewed reu
 PINV/TG,HUMAN_REVIEWED,outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells,primitive reusable library
 SRAM array,GENERATED,outputs/M2R_full_sram_regen/current_supported_config/openyield_layoutgen_full_sram_M2R.report.json,layoutgen-generated top-level trial
 WL driver,MACHINE_VERIFIED,outputs/M11C2H_confirm_wordline_driver_human_review/current_supported_config,smoke substitution passed with caveats
-decoder,BLOCKED,outputs/PROJECT_decoder_rebuild/current_supported_config/DECODER_MACHINE_GATE.json; docs/DECODER_REBUILD_CONTRACT_LOCK.json; docs/DECODER_REBUILD_EXECUTION_AUDIT.json,"Executable decoder rebuild loop exists, but audited child assets expose wildcard semantic pin exports with zero native GDS labels, each child remains L3 candidate geometry, and the resulting top trips 2663 DRC markers."
+decoder,BLOCKED,outputs/PROJECT_decoder_rebuild/current_supported_config/DECODER_MACHINE_GATE.json; docs/DECODER_REBUILD_CONTRACT_LOCK.json; docs/DECODER_REBUILD_EXECUTION_AUDIT.json,"Executable decoder rebuild exists; v2 logical contract extracted, but physical child regeneration and top DRC closure remain open."
 column mux,MACHINE_VERIFIED,docs/openyield_columnmux_adapter_report.json; technology/freepdk45/gds_lib/openyield_repaired/gen_col_mux_vdd_labeled.gds,adapter and repaired alias proven
 sense amp,HUMAN_REVIEWED,outputs/M11CH_confirm_M11C_human_review/current_supported_config,smoke substitution human-reviewed
 write driver,SOURCE_ONLY,docs/openyield_writedriver_adapter_report.json,"adapter exists, no final integrated closure"
@@ -18,7 +18,7 @@ precharge,GENERATED,technology/freepdk45/gds_lib/openram_replacements/gen_precha
 dummy 行列,GENERATED,outputs/openyield_module_gds/dummy_array,present in full-trial flow
 tap,SOURCE_ONLY,technology/freepdk45/gds_lib/gen_well_tap.gds,"leaf exists, project-level integration not separately audited"
 replica,GENERATED,outputs/openyield_module_gds/replica_array,present in full-trial flow
-代表性 SRAM 顶层结果,EXPERIMENTAL,docs/SRAM_CONFIGURATION_INVENTORY.csv; docs/HISTORICAL_30_CONFIG_21_MODULE_CLAIM_AUDIT.json,No new complete single-bank physical top was started because decoder machine closure is still blocked at child pin authority and DRC.
+代表性 SRAM 顶层结果,EXPERIMENTAL,docs/SRAM_CONFIGURATION_INVENTORY.csv; docs/HISTORICAL_30_CONFIG_21_MODULE_CLAIM_AUDIT.json,Complete-top package state synchronized to clean synced head; no new single-bank top started because decoder top gate is still red.
 服务器 EDA 工具,MACHINE_VERIFIED,docs/SERVER_EDA_TOOL_INVENTORY.csv; docs/SERVER_SIMULATOR_CAPABILITY_AUDIT.md,real server audit confirms ngspice/Xyce/iverilog/vvp/verilator/klayout/magic/yosys/openroad; no commercial license-backed flow is required for baseline evidence
 模块级逻辑仿真,BLOCKED,docs/PROJECT_SIMULATION_TOOL_SELECTION.md; docs/SIMULATION_INPUT_GAP_REPORT.md,"server has Icarus/Verilator, but trusted project Verilog assets for requested regressions were not discovered"
 模块级 SPICE 烟测,CLOSED_AS_PRIMARY_CHAIN_EVIDENCE,docs/SIMULATION_RESULTS_SUMMARY.md; docs/SIMULATION_TEST_MATRIX.csv; docs/DELAY_CHAIN_SPICE_VALIDATION_REPORT.md,real ngspice smoke now passes PNAND2/PNAND3/AND2/AND3/pdrive/wl_pdrive/pdrive2_for_pre/delay_chain/DFF/DFF_BUF; Xyce remains a secondary incompatible invocation rather than a blocker to the primary chain conclusion

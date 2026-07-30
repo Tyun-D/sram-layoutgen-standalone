@@ -1,0 +1,21 @@
+{
+  "classification": "PROJECT_EXPLORATORY_TB",
+  "claim_allowed": "engineering_debug_only",
+  "derived_from": [
+    "/data1/qujh/work/external/OpenYield/sram_compiler/testbenches/sram_6t_core_testbench.py",
+    "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/M12N2_clean_openyield_sram_top/current_supported_config/openyield_sram_top_v1_16x16.sp"
+  ],
+  "current_project_assets": [
+    "simulation/spice/testbenches/sram_basic_write_read_exploratory.sp",
+    "simulation/spice/run_sram_functional.py"
+  ],
+  "blocked_authority_fields": [
+    "TIME_schedule",
+    "write_sample_point",
+    "disabled_hold_semantics"
+  ],
+  "notes": [
+    "This testbench is allowed to drive engineering debug and waveform inspection only.",
+    "It must not be cited as final SRAM functional closure until the three unresolved timing-authority fields are owner-reviewed."
+  ]
+}

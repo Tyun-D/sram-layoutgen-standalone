@@ -1,0 +1,134 @@
+{
+  "scope": "decoder_v2_logical_contract",
+  "classification": "PROJECT_OWNED_REGENERATED_PHYSICAL_ASSET_INPUT_CONTRACT",
+  "openyield_authority": {
+    "repo_root": "/data1/qujh/work/external/OpenYield",
+    "commit": "1c34428d8b913963c4971d093b1a7c2df97a2509",
+    "source_file": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/decoder.py"
+  },
+  "decoder3_8": {
+    "formal_port_order": [
+      "VDD",
+      "VSS",
+      "EN",
+      "A0",
+      "A1",
+      "A2",
+      "WL0",
+      "WL1",
+      "WL2",
+      "WL3",
+      "WL4",
+      "WL5",
+      "WL6",
+      "WL7"
+    ],
+    "address_bit_direction": "A0/A1/A2 explicitly scalar, instantiated into cascade as address_nodes[2], address_nodes[1], address_nodes[0]",
+    "enable_polarity": "active_high",
+    "wordline_polarity": "active_high",
+    "instance_structure": {
+      "inv_count": 3,
+      "and3_count": 8,
+      "and2_enable_count": 8
+    },
+    "predecode_outputs": [
+      "WL0_pre",
+      "WL1_pre",
+      "WL2_pre",
+      "WL3_pre",
+      "WL4_pre",
+      "WL5_pre",
+      "WL6_pre",
+      "WL7_pre"
+    ],
+    "wordline_outputs": [
+      "WL0",
+      "WL1",
+      "WL2",
+      "WL3",
+      "WL4",
+      "WL5",
+      "WL6",
+      "WL7"
+    ]
+  },
+  "decoder_cascade": {
+    "class_name": "DECODER_CASCADE",
+    "source_file": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/decoder.py",
+    "source_line_or_ast_pointer": "DECODER_CASCADE",
+    "topology": "cascade_of_decoder3_8_blocks",
+    "enable_chain": "level0 enable_signal=VDD; later levels driven by prior level EN_* outputs",
+    "address_binding": "for each 3-bit group, child A0<-address_nodes[2], A1<-address_nodes[1], A2<-address_nodes[0]",
+    "output_naming": "last level outputs map to WL<row_index>; earlier levels map to EN_<level>_<decoder_idx>_<out_idx>"
+  },
+  "v2_child_targets": [
+    {
+      "module": "decoder_gate_cells_v2",
+      "logical_role": "predecode_plus_enable_leaf_group",
+      "ports": [
+        "A0",
+        "A1",
+        "A2",
+        "EN",
+        "WL0_pre",
+        "WL1_pre",
+        "WL2_pre",
+        "WL3_pre",
+        "WL4_pre",
+        "WL5_pre",
+        "WL6_pre",
+        "WL7_pre",
+        "WL0",
+        "WL1",
+        "WL2",
+        "WL3",
+        "WL4",
+        "WL5",
+        "WL6",
+        "WL7",
+        "VDD",
+        "VSS"
+      ]
+    },
+    {
+      "module": "row_decoder_v2",
+      "logical_role": "cascade_stage_decoder",
+      "ports": [
+        "A0",
+        "A1",
+        "A2",
+        "EN",
+        "WL0",
+        "WL1",
+        "WL2",
+        "WL3",
+        "WL4",
+        "WL5",
+        "WL6",
+        "WL7",
+        "VDD",
+        "VSS"
+      ]
+    },
+    {
+      "module": "wordline_decoder_v2",
+      "logical_role": "row_decoder_to_wordline_handoff",
+      "ports": [
+        "A0",
+        "A1",
+        "A2",
+        "EN",
+        "DEC_WL0",
+        "DEC_WL1",
+        "DEC_WL2",
+        "DEC_WL3",
+        "DEC_WL4",
+        "DEC_WL5",
+        "DEC_WL6",
+        "DEC_WL7",
+        "VDD",
+        "VSS"
+      ]
+    }
+  ]
+}

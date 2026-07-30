@@ -1,8 +1,8 @@
 {
   "workflow_state": "PROJECT_EXTERNAL_BLOCKER_EVIDENCE_REFRESHED",
-  "timestamp": "2026-07-30T14:35:00Z",
+  "timestamp": "2026-07-30T16:20:00Z",
   "git_branch": "project/mainline-inventory-20260726",
-  "git_head": "9f42d27dfaa108d2ed7e9a932403d65bf9f1c8f2",
+  "git_head": "2c593dbb79eb42fcc8abbdef65a652be91a43dab",
   "trusted_master_head": "c1fbd98",
   "remote_master_head_last_known": "489f3e04e85197a6501e48168627a7b8a9232550",
   "team_b_state": "TEAM_B_OWNER_HUMAN_REVIEWED_MERGED_TO_MAINLINE",
@@ -66,14 +66,14 @@
   "industrial_positioning_closed": true,
   "delivery": {
     "local_branch": "project/mainline-inventory-20260726",
-    "local_checkpoint_head": "aeb78085a4b0c60424e6dca9acddb756acb923de",
+    "local_checkpoint_head": "2c593dbb79eb42fcc8abbdef65a652be91a43dab",
     "remote_branch": "origin/project/mainline-inventory-20260726",
-    "remote_branch_head": "aeb78085a4b0c60424e6dca9acddb756acb923de",
+    "remote_branch_head": "2c593dbb79eb42fcc8abbdef65a652be91a43dab",
     "push_synced": true,
     "push_error": "",
-    "push_method": "git -c http.proxy= push",
-    "bundle_path": "/data1/qujh/project_checkpoints/project-mainline-inventory-9eef97f.bundle",
-    "bundle_sha256": "99d1551241d1d9803ad8844d3712ded6bcb5102dccd557c521ed2f791be751ee",
+    "push_method": "git -c http.proxy= push origin project/mainline-inventory-20260726",
+    "bundle_path": "",
+    "bundle_sha256": "",
     "working_tree_clean_at_checkpoint_commit": true
   },
   "latest_review_package": {
@@ -86,5 +86,21 @@
     "sha256_record_location": "/data1/qujh/PROJECT_INDUSTRIAL_GAP_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz.sha256",
     "package_build_head": "9eef97fbb3956ae155175ecff27ebfe485d3a636"
   },
-  "next_stage": "External blocker boundary reached: exact child pin authority and exact top-level SRAM timing oracle remain unavailable from current approved assets."
+  "next_stage": "Regenerate decoder child v2 physical assets or close physical work pending narrow timing authority review.",
+  "current_git_head": "2c593dbb79eb42fcc8abbdef65a652be91a43dab",
+  "remote_branch_head": "2c593dbb79eb42fcc8abbdef65a652be91a43dab",
+  "latest_complete_top_package": {
+    "path": "/data1/qujh/PROJECT_COMPLETE_TOP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "sha256_record_location": "/data1/qujh/PROJECT_COMPLETE_TOP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz.sha256",
+    "package_build_head": "2c593dbb79eb42fcc8abbdef65a652be91a43dab"
+  },
+  "latest_complete_top_full_evidence_package": {
+    "path": "/data1/qujh/PROJECT_COMPLETE_TOP_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
+    "sha256_record_location": "/data1/qujh/PROJECT_COMPLETE_TOP_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz.sha256",
+    "package_build_head": "2c593dbb79eb42fcc8abbdef65a652be91a43dab"
+  },
+  "latest_industrial_gap_package": {
+    "path": "/data1/qujh/PROJECT_INDUSTRIAL_GAP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "sha256_record_location": "/data1/qujh/PROJECT_INDUSTRIAL_GAP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz.sha256"
+  }
 }

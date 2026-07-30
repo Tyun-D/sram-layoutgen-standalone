@@ -255,3 +255,12 @@
 - decision: `treat decoder closure as blocked by missing bit-exact child authority and non-signoff child geometry; treat SRAM functional TB as blocked by unresolved exact timing oracle rather than missing code`
 - unresolved_items: `bit-exact decoder child pin authority`; `signoff-grade decoder child geometry`; `top-level TIME_schedule`; `write_sample_point`; `disabled_hold_semantics`
 - next_action: `checkpoint, push, and rebuild final review packages from clean head`
+
+## 2026-07-30T16:20:00Z project complete_top_state_sync_and_contract_refresh
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `2c593dbb79eb42fcc8abbdef65a652be91a43dab`
+- files_modified: `docs/PROJECT_CURRENT_STATUS.json`; `docs/PROJECT_DELIVERY_STATE.json`; `docs/PROJECT_EVIDENCE_PACKAGE_BUILD_MANIFEST.json`; `docs/DECODER_V2_LOGICAL_CONTRACT.*`; `docs/DECODER_V2_BIT_MAPPING.csv`; `docs/SRAM_TIMING_AUTHORITY_REVIEW_QUESTIONS.md`; `docs/SRAM_TIMING_AUTHORITY_REVIEW_PACKET.json`
+- result: `remote_branch_head=2c593dbb79eb42fcc8abbdef65a652be91a43dab`; `working_tree_clean=true_at_build_time`; `latest_complete_top_package=/data1/qujh/PROJECT_COMPLETE_TOP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`
+- decision: `synchronize complete-top delivery state to current synced head and promote decoder/timing evidence into explicit machine-readable review artifacts`
+- unresolved_items: `decoder v2 physical child regeneration still required`; `project authority timing fields still unresolved`
+- next_action: `commit clean state sync, push current branch, and rebuild complete-top evidence packages from clean head`

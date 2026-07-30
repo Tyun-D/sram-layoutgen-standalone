@@ -1,0 +1,16 @@
+{
+  "classification": "PROJECT_EXPLORATORY_TB",
+  "claim_allowed": "engineering_debug_only",
+  "testbench_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/simulation/spice/testbenches/sram_basic_write_read_exploratory.sp",
+  "simulator": "ngspice",
+  "executed": true,
+  "passed": false,
+  "notes": [
+    "This runner is intentionally exploratory and must not be used as final SRAM functional signoff.",
+    "Write success is observed only through later SA_Q/SA_QB readback because internal cell Q/QB is not exported by the current top."
+  ],
+  "returncode": 1,
+  "stdout": "******\n** ngspice-36 : Circuit level simulation program\n** The U. C. Berkeley CAD Group\n** Copyright 1985-1994, Regents of the University of California.\n** Copyright 2001-2020, The ngspice team.\n** Please get your ngspice manual from http://ngspice.sourceforge.net/docs.html\n** Please file your bug-reports at http://ngspice.sourceforge.net/bugrep.html\n** Creation Date: Mon Mar 11 21:44:53 UTC 2024\n******\n\nBatch mode\n\nComments and warnings go to log-file: /tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_exploratory_sram_tb/ngspice_exploratory.log\n\n",
+  "stderr": "",
+  "log_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_exploratory_sram_tb/ngspice_exploratory.log"
+}
