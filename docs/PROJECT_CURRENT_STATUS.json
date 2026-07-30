@@ -1,13 +1,13 @@
 {
-  "workflow_state": "PROJECT_ROW_DECODER_V2_REGEN_GATE_PARTIALLY_CLOSED",
-  "timestamp": "2026-07-30T19:05:00Z",
+  "workflow_state": "PROJECT_ROW_DECODER_V2_CHILD_GATE_CLOSED",
+  "timestamp": "2026-07-30T16:32:10Z",
   "git_branch": "project/mainline-inventory-20260726",
-  "git_head": "befd45e657cd1e302c330e9b7fd66bed5d11fc81",
+  "git_head": "32446e40b8a3996ca8d5c2661edf774777331e0b",
   "trusted_master_head": "c1fbd98",
   "remote_master_head_last_known": "489f3e04e85197a6501e48168627a7b8a9232550",
   "team_b_state": "TEAM_B_OWNER_HUMAN_REVIEWED_MERGED_TO_MAINLINE",
   "formal_config_count": 10,
-  "decoder_status": "BLOCKED_BY_CHILD_PIN_AUTHORITY_AND_NON_SIGNOFF_CHILD_GEOMETRY",
+  "decoder_status": "BLOCKED_BY_PARTIAL_CHILD_V2_REGEN_COMPLETE",
   "decoder_rebuild_status": {
     "historical_24_marker_baseline_recovered": false,
     "rebuild_selected": true,
@@ -30,8 +30,10 @@
       "formal AND2/AND3 clean gates are now resolvable from the primary repository and have been captured into a machine-readable decoder v2 leaf source inventory",
       "formal AND2/AND3 top-pin bbox maps have now been extracted from Team B clean gate label-hit evidence",
       "row_decoder_v2 exact source binding is now frozen as 3xINV + 8xAND3 + 8xAND2 with 19 exact leaf instances",
-      "row_decoder_v2 regenerated child geometry now reaches connectivity/namespace/hierarchy closure with 16 residual METAL2.2 markers after M3-trunk bus refactor",
-      "decoder_gate_cells_v2 and wordline_decoder_v2 geometry still have not been regenerated"
+      "row_decoder_v2 regenerated child geometry now reaches DRC=0 with connectivity/namespace/hierarchy closure preserved after A0/A0b branch-column shift",
+      "row_decoder_v2 child gate is now fully green and may be treated as the first project-owned regenerated decoder child v2 asset candidate",
+      "decoder_gate_cells_v2 and wordline_decoder_v2 geometry still have not been regenerated",
+      "decoder top machine gate has not yet been rerun against the partially refreshed child-v2 set"
     ]
   },
   "logic_simulation_status": "BLOCKED_BY_MISSING_TRUSTED_VERILOG_ASSETS",
@@ -72,12 +74,12 @@
   "industrial_positioning_closed": true,
   "delivery": {
     "local_branch": "project/mainline-inventory-20260726",
-    "local_checkpoint_head": "33752e0bde504f64eaf12d3dfda6bc5487835550",
+    "local_checkpoint_head": "32446e40b8a3996ca8d5c2661edf774777331e0b",
     "remote_branch": "origin/project/mainline-inventory-20260726",
     "remote_branch_head": "33752e0bde504f64eaf12d3dfda6bc5487835550",
-    "push_synced": true,
-    "push_error": "",
-    "push_method": "git -c http.proxy= push origin project/mainline-inventory-20260726",
+    "push_synced": false,
+    "push_error": "pending_push_after_row_decoder_v2_child_gate_commit",
+    "push_method": "",
     "bundle_path": "",
     "bundle_sha256": "",
     "working_tree_clean_at_checkpoint_commit": true
@@ -92,8 +94,8 @@
     "sha256_record_location": "/data1/qujh/PROJECT_INDUSTRIAL_GAP_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz.sha256",
     "package_build_head": "9eef97fbb3956ae155175ecff27ebfe485d3a636"
   },
-  "next_stage": "Eliminate the 16 residual row_decoder_v2 METAL2.2 markers, seal row_decoder_v2 child gate, then regenerate decoder_gate_cells_v2 and wordline_decoder_v2 before rerunning decoder rebuild.",
-  "current_git_head": "33752e0bde504f64eaf12d3dfda6bc5487835550",
+  "next_stage": "Regenerate decoder_gate_cells_v2 and wordline_decoder_v2 from exact child inputs, then rerun decoder rebuild against a partially refreshed child-v2 set.",
+  "current_git_head": "32446e40b8a3996ca8d5c2661edf774777331e0b",
   "remote_branch_head": "33752e0bde504f64eaf12d3dfda6bc5487835550",
   "latest_complete_top_package": {
     "path": "/data1/qujh/PROJECT_COMPLETE_TOP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",

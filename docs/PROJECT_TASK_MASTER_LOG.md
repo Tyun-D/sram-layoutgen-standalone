@@ -323,3 +323,13 @@
 - decision: `keep the M3 horizontal trunk plus M2 branch topology because it closes connectivity and reduces row_decoder_v2 DRC from 223 to 16 while isolating a single remaining rule family`
 - unresolved_items: `row_decoder_v2 residual METAL2.2 x16`; `decoder_gate_cells_v2 geometry not yet generated`; `wordline_decoder_v2 geometry not yet generated`; `decoder top still blocked on child v2 regeneration`
 - next_action: `cluster the 16 residual METAL2.2 edge-pairs, repair the repeated branch/pad spacing template, then seal row_decoder_v2 as the first project-owned regenerated decoder child`
+
+## 2026-07-30T16:32:10Z project row_decoder_v2_child_gate_closed
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `32446e40b8a3996ca8d5c2661edf774777331e0b`
+- files_read: `scripts/project_row_decoder_v2_generate.py`; `outputs/PROJECT_row_decoder_v2_regen/current_supported_config/{ROW_DECODER_V2_GATE.json,ROW_DECODER_V2_DRC.json,ROW_DECODER_V2_CONNECTIVITY.json,ROW_DECODER_V2_ROUTE_REPORT.json}`; `outputs/PROJECT_row_decoder_v2_regen/current_supported_config/drc/row_decoder_v2.lyrdb`
+- files_modified: `scripts/project_row_decoder_v2_generate.py`; `outputs/PROJECT_row_decoder_v2_regen/current_supported_config/*`; `docs/PROJECT_CURRENT_STATUS.json`; `docs/PROJECT_RESULT_STATUS_MATRIX.csv`; `docs/PROJECT_GAP_REGISTER.csv`; `docs/PROJECT_TASK_MASTER_LOG.md`; `docs/PROJECT_TASK_MASTER_LOG.jsonl`
+- result: `row_decoder_v2_drc_marker_count=0`; `row_decoder_v2_gate_passed=true`; `row_decoder_v2_connectivity_passed=true`; `row_decoder_v2_namespace_passed=true`; `row_decoder_v2_hierarchy_passed=true`; `repair_template=A0_and_A0b_branch_x_shift_minus_0p005um`
+- decision: `promote row_decoder_v2 to the first project-owned regenerated decoder child-v2 candidate with a fully green child machine gate, then use the same exact-input discipline to regenerate decoder_gate_cells_v2 and wordline_decoder_v2`
+- unresolved_items: `decoder_gate_cells_v2 geometry not yet generated`; `wordline_decoder_v2 geometry not yet generated`; `decoder top machine gate not rerun after refreshed child-v2 closure`
+- next_action: `generate decoder_gate_cells_v2 from exact clean primitive/formal leaf inputs, then close wordline_decoder_v2 and rerun decoder rebuild`
