@@ -104,6 +104,7 @@ def _bus_route(
     track_y: float,
     top_pin_name: str | None = None,
     top_pin_x: float | None = None,
+    branch_x_shift: float = 0.0,
 ) -> dict[str, Any]:
     grid = tech.manufacturing_grid
     m1_w = tech.layer("m1").min_width
@@ -118,12 +119,13 @@ def _bus_route(
     landing_half_w_m2 = max(m2_w * 0.5, via.size * 0.5 + via_enc)
     landing_half_w_m3 = max(m3_w * 0.5, via2.size * 0.5 + via_enc)
     centers = [_center(box) for box in endpoint_boxes]
-    min_cx = min(cx for cx, _ in centers)
-    max_cx = max(cx for cx, _ in centers)
+    branch_centers = [round(cx + branch_x_shift, 6) for cx, _ in centers]
+    min_cx = min(branch_centers)
+    max_cx = max(branch_centers)
     route_rows: list[dict[str, Any]] = []
     pin_bbox: dict[str, float] | None = None
     track_y = round(round(track_y / grid) * grid, 6)
-    for box, (cx, cy) in zip(endpoint_boxes, centers):
+    for box, (cx, cy), branch_cx in zip(endpoint_boxes, centers, branch_centers):
         escape_up = track_y >= cy
         via_cy = (
             max(cy, float(box["uy"]) + via.size * 0.5 + via_enc)
@@ -141,27 +143,27 @@ def _bus_route(
         )
         m2_lower_pad = _snap_box(
             {
-                "lx": cx - landing_half_w_m2,
+                "lx": branch_cx - landing_half_w_m2,
                 "by": via_cy - landing_half_w_m2,
-                "rx": cx + landing_half_w_m2,
+                "rx": branch_cx + landing_half_w_m2,
                 "uy": via_cy + landing_half_w_m2,
             },
             grid,
         )
         m2_upper_pad = _snap_box(
             {
-                "lx": cx - landing_half_w_m2,
+                "lx": branch_cx - landing_half_w_m2,
                 "by": track_y - landing_half_w_m2,
-                "rx": cx + landing_half_w_m2,
+                "rx": branch_cx + landing_half_w_m2,
                 "uy": track_y + landing_half_w_m2,
             },
             grid,
         )
         m2_branch = _snap_box(
             {
-                "lx": cx - m2_w * 0.5,
+                "lx": branch_cx - m2_w * 0.5,
                 "by": min(via_cy, track_y),
-                "rx": cx + m2_w * 0.5,
+                "rx": branch_cx + m2_w * 0.5,
                 "uy": max(via_cy, track_y),
             },
             grid,
@@ -182,18 +184,18 @@ def _bus_route(
         _via1_rect(top, via_bbox)
         via2_bbox = _snap_box(
             {
-                "lx": cx - via2.size * 0.5,
+                "lx": branch_cx - via2.size * 0.5,
                 "by": track_y - via2.size * 0.5,
-                "rx": cx + via2.size * 0.5,
+                "rx": branch_cx + via2.size * 0.5,
                 "uy": track_y + via2.size * 0.5,
             },
             grid,
         )
         m3_landing = _snap_box(
             {
-                "lx": cx - landing_half_w_m3,
+                "lx": branch_cx - landing_half_w_m3,
                 "by": track_y - landing_half_w_m3,
-                "rx": cx + landing_half_w_m3,
+                "rx": branch_cx + landing_half_w_m3,
                 "uy": track_y + landing_half_w_m3,
             },
             grid,
@@ -352,6 +354,7 @@ def main() -> int:
             track_y=input_tracks[net_name],
             top_pin_name=net_name,
             top_pin_x=top_pin_x,
+            branch_x_shift=-0.005 if net_name == "A0" else 0.0,
         )
         route_report["input_buses"][net_name] = route
         assert route["top_pin_bbox"] is not None
@@ -364,6 +367,7 @@ def main() -> int:
             tech=tech,
             endpoint_boxes=[row["bbox"] for row in endpoints_by_net[net_name]],
             track_y=complement_tracks[net_name],
+            branch_x_shift=-0.005 if net_name == "A0b" else 0.0,
         )
         route_report["internal_buses"][net_name] = route
 
