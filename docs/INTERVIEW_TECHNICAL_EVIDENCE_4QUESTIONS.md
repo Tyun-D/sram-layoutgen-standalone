@@ -24,3 +24,10 @@
 - 强项是开放、可修改、参数传播透明、逻辑到物理绑定可追踪、验证器可扩展、适合教学和研究。
 - 工业工具的优势仍然在多工艺/多 bank/多端口覆盖、characterization、PPA 优化、LVS/PEX/STA、IR/EM、长期回归、foundry signoff 和硅验证。
 - 因此项目当前最合适的对外表述是 `research/education-oriented evidence-trace platform`, not industrial signoff-complete compiler.
+
+## 2026-07-30 Decoder Rebuild Follow-up
+
+- Q: Did decoder remain a documentation-only blocker?
+  A: No. The project now contains an executable decoder rebuild path with a machine gate and negative regressions. The blocker is asset authority: wildcard child pin abstractions and 2663 fresh-run DRC markers, not missing code.
+- Q: Why is full SRAM functional simulation still blocked?
+  A: Because the project has only partially frozen the top-level control/timing contract. `clk/csb/web` and `TIME` interface fields are bound, but project-owned read/write scheduling and sampling oracles remain unresolved.

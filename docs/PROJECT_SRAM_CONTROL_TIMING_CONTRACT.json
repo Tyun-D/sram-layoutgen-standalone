@@ -1,0 +1,74 @@
+{
+  "scope": "project_sram_control_timing_contract",
+  "classification": "PROJECT_ADAPTATION_CONTRACT",
+  "dut_subckt": "OPENYIELD_SRAM_TOP_V1",
+  "time_subckt": "TIME",
+  "fields": [
+    {
+      "field": "clk",
+      "status": "CURRENT_TOP_INTERFACE",
+      "source": "openyield_sram_top_v1_16x16.sp .subckt OPENYIELD_SRAM_TOP_V1",
+      "meaning": "external clock input"
+    },
+    {
+      "field": "csb",
+      "status": "UPSTREAM_EXACT",
+      "source": "sram_6t_core_testbench.py create_time_circuit + OPENYIELD_SRAM_TOP_V1",
+      "meaning": "active-low chip select driven by TB then translated by TIME"
+    },
+    {
+      "field": "web",
+      "status": "UPSTREAM_EXACT",
+      "source": "sram_6t_core_testbench.py create_time_circuit + OPENYIELD_SRAM_TOP_V1",
+      "meaning": "active-low write enable driven by TB then translated by TIME"
+    },
+    {
+      "field": "wl_en",
+      "status": "CURRENT_TOP_INTERFACE",
+      "source": "TIME subckt pin list",
+      "meaning": "generated internal wordline enable"
+    },
+    {
+      "field": "s_en",
+      "status": "CURRENT_TOP_INTERFACE",
+      "source": "TIME subckt pin list",
+      "meaning": "generated internal sense enable"
+    },
+    {
+      "field": "w_en",
+      "status": "CURRENT_TOP_INTERFACE",
+      "source": "TIME subckt pin list",
+      "meaning": "generated internal write enable"
+    },
+    {
+      "field": "PRE",
+      "status": "CURRENT_TOP_INTERFACE",
+      "source": "TIME subckt pin list",
+      "meaning": "generated internal precharge control"
+    },
+    {
+      "field": "TIME_schedule",
+      "status": "UNRESOLVED",
+      "source": "no project-owned frozen write/read schedule",
+      "meaning": "exact cycle-by-cycle project sampling contract still missing"
+    },
+    {
+      "field": "read_sample_point",
+      "status": "UPSTREAM_EXACT",
+      "source": "sram_6t_core_testbench.py read measurements on WL/BL/SA_Q",
+      "meaning": "upstream uses transient triggers on WL, BL/BLB, SA outputs"
+    },
+    {
+      "field": "write_sample_point",
+      "status": "UNRESOLVED",
+      "source": "project has no reviewed readback oracle sequence yet",
+      "meaning": "write success to later readback sampling remains unfrozen"
+    },
+    {
+      "field": "disabled_hold_semantics",
+      "status": "UNRESOLVED",
+      "source": "project lacks reviewed top-level hold oracle",
+      "meaning": "hold/disabled mode is not yet frozen as project evidence"
+    }
+  ]
+}

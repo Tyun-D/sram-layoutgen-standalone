@@ -1,21 +1,32 @@
 {
-  "workflow_state": "PROJECT_EVIDENCE_SYNCHRONIZED_WITH_SPECIFIC_BLOCKERS",
-  "timestamp": "2026-07-30T11:45:00Z",
+  "workflow_state": "PROJECT_DECODER_REBUILD_EXECUTED_WITH_SPECIFIC_BLOCKERS",
+  "timestamp": "2026-07-30T13:10:00Z",
   "git_branch": "project/mainline-inventory-20260726",
-  "git_head": "9eef97fbb3956ae155175ecff27ebfe485d3a636",
+  "git_head": "aeb78085a4b0c60424e6dca9acddb756acb923de",
   "trusted_master_head": "c1fbd98",
   "remote_master_head_last_known": "489f3e04e85197a6501e48168627a7b8a9232550",
   "team_b_state": "TEAM_B_OWNER_HUMAN_REVIEWED_MERGED_TO_MAINLINE",
   "formal_config_count": 10,
-  "decoder_status": "REBUILD_SELECTED_BUT_BLOCKED_BY_MISSING_EXECUTABLE_DECODER_GATE",
+  "decoder_status": "EXECUTABLE_REBUILD_GATE_BLOCKED_BY_CHILD_PIN_ABSTRACTION",
   "decoder_rebuild_status": {
     "historical_24_marker_baseline_recovered": false,
     "rebuild_selected": true,
     "historical_equivalence_claim_allowed": false,
+    "executable_rebuild_available": true,
+    "latest_gate_path": "outputs/PROJECT_decoder_rebuild/current_supported_config/DECODER_MACHINE_GATE.json",
+    "latest_gate_passed": false,
+    "latest_drc_marker_count": 2663,
+    "negative_suite_passed": true,
+    "unexpected_negative_test_pass_count": 0,
     "preferred_route_contract": {
       "EN": "horizontal_m3_bus",
       "WL_pre": "vertical_m2_link"
-    }
+    },
+    "specific_blockers": [
+      "decoder child assets still export wildcard bus-style pins rather than bit-exact WL/input pins",
+      "fresh rebuild still trips 2663 FreePDK45 DRC markers",
+      "routing/power/connectivity/foreign-net/pin-access remain false because bit-exact child handoff is not yet authoritative"
+    ]
   },
   "logic_simulation_status": "BLOCKED_BY_MISSING_TRUSTED_VERILOG_ASSETS",
   "spice_simulation_status": "PRIMARY_CHAIN_CLOSED_FOR_REQUESTED_MODULE_SMOKE",
@@ -35,9 +46,9 @@
   ],
   "sram_functional_tb_status": "BLOCKED_BY_SPECIFIC_INTERFACE_GAPS",
   "sram_functional_tb_blockers": [
-    "No reviewed project-owned clk/csb/web/TIME scheduling contract for SRAM read/write sequences",
-    "Current authoritative core-array interface does not expose DIN, SA_Q, SA_QB, OUT, or control pins needed for full SRAM functional proof",
-    "OpenYield upstream TB remains reference-only rather than TRUSTED_PROJECT_TB"
+    "TIME_schedule",
+    "write_sample_point",
+    "disabled_hold_semantics"
   ],
   "post_layout_extraction_status": "NOT_AVAILABLE_WITH_CURRENT_EVIDENCE",
   "post_layout_extraction_reason": "KLayout FreePDK45 LVS/extraction assets exist, but Magic/Netgen/PEX rule provenance and refreshed project LVS/PEX binding do not.",
@@ -55,11 +66,12 @@
   "industrial_positioning_closed": true,
   "delivery": {
     "local_branch": "project/mainline-inventory-20260726",
-    "local_checkpoint_head": "9eef97fbb3956ae155175ecff27ebfe485d3a636",
+    "local_checkpoint_head": "aeb78085a4b0c60424e6dca9acddb756acb923de",
     "remote_branch": "origin/project/mainline-inventory-20260726",
-    "remote_branch_head": null,
-    "push_synced": false,
-    "push_error": "gnutls_handshake() failed: The TLS connection was non-properly terminated.",
+    "remote_branch_head": "aeb78085a4b0c60424e6dca9acddb756acb923de",
+    "push_synced": true,
+    "push_error": "",
+    "push_method": "git -c http.proxy= push",
     "bundle_path": "/data1/qujh/project_checkpoints/project-mainline-inventory-9eef97f.bundle",
     "bundle_sha256": "99d1551241d1d9803ad8844d3712ded6bcb5102dccd557c521ed2f791be751ee",
     "working_tree_clean_at_checkpoint_commit": true
@@ -74,5 +86,5 @@
     "sha256_record_location": "/data1/qujh/PROJECT_INDUSTRIAL_GAP_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz.sha256",
     "package_build_head": "9eef97fbb3956ae155175ecff27ebfe485d3a636"
   },
-  "next_stage": "Unified human review using current evidence packages, with explicit blockers on remote push, trusted Verilog assets, project SRAM TB binding, decoder executable rebuild gate, and post-layout extraction provenance."
+  "next_stage": "Commit decoder/TB contract updates, refresh clean delivery metadata, and rebuild human-review/full-evidence packages from a clean pushed head."
 }

@@ -40,3 +40,9 @@ multi-bank 当前状态为 `FUNCTIONAL_TOP_LEVEL_BLOCKED_BY_MISSING_AUTHORITY`�
 
 ## 作者贡献与 AI 边界
 曲珈豪负责全部版图相关工作；OpenYield 网表设计、电路结构优化、电路级优化由其他组员负责。Codex/AI 仅用于代码辅助、自动化验证和报告整理，关键结论仍以真实源码、GDS 与验证证据闭合。
+
+## 2026-07-30 Decoder/TB Update
+
+- Remote branch sync is now proven with `git -c http.proxy=`; the earlier TLS failure only applies to the conflicting proxy configuration.
+- Decoder is no longer blocked by a missing execution harness. A fresh rebuild, machine gate, DRC run, determinism rerun, and negative suite all execute successfully as a flow, but the design still fails closure because child module assets expose wildcard bus pins and the rebuilt top trips 2663 DRC markers.
+- The project now owns a SRAM control/timing contract draft, but `TIME_schedule`, `write_sample_point`, and `disabled_hold_semantics` remain unresolved, so full SRAM functional simulation remains specifically blocked at field level.

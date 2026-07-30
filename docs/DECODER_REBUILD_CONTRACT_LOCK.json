@@ -1,0 +1,114 @@
+{
+  "scope": "project_decoder_rebuild_contract_lock",
+  "selected_config_id": "formal_16x16_wpr1",
+  "selected_config_status": "CURRENT_SOURCE_BACKED",
+  "top_cell_name": "PROJECT_DECODER_REBUILD_16X16",
+  "route_strategy": {
+    "en_strategy": "horizontal_m3_bus",
+    "wl_pre_strategy": "vertical_m2_link",
+    "note": "fresh-run rebuild strategy; not a claim of historical 24-marker equivalence"
+  },
+  "openyield_authority": {
+    "repo_root": "/data1/qujh/work/external/OpenYield",
+    "commit": "1c34428d8b913963c4971d093b1a7c2df97a2509",
+    "decoder_py_blob": "03d791c1852c846dd5ae8c5a464ba89d71bf8180",
+    "wordline_driver_py_blob": "9b0875fa75e7c97f032cf9ba6d4823262e7d0333"
+  },
+  "semantic_contract_paths": [
+    "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/docs/mapping/openyield_decoder_wordline_semantic_contract.json",
+    "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/docs/openyield_module_contracts.md"
+  ],
+  "child_assets": [
+    {
+      "module": "decoder_gate_cells",
+      "root_cell_name": "decoder_gate_cells",
+      "gds_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/decoder_gate_cells/decoder_gate_cells.gds",
+      "gds_sha256": "27c050ae04593e536fb4a8b890e48d62657161fa1499e01f6188e41fc5b64c67",
+      "bbox_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/decoder_gate_cells/bbox.json",
+      "pin_map_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/decoder_gate_cells/pins.json",
+      "generator_manifest_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/decoder_gate_cells/generator_manifest.json",
+      "rail_report_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/decoder_gate_cells/rail_report.json",
+      "pin_names": [
+        "A[*]",
+        "GND",
+        "VDD",
+        "dec_stage[*]",
+        "enable"
+      ],
+      "pin_abstraction_complete": false
+    },
+    {
+      "module": "row_decoder",
+      "root_cell_name": "row_decoder",
+      "gds_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/row_decoder/row_decoder.gds",
+      "gds_sha256": "fe84bd37c4d5671aef6222cfe42991a72be84e1d5fe569ac53aa72d1a1e3e76c",
+      "bbox_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/row_decoder/bbox.json",
+      "pin_map_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/row_decoder/pins.json",
+      "generator_manifest_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/row_decoder/generator_manifest.json",
+      "rail_report_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/row_decoder/rail_report.json",
+      "pin_names": [
+        "A[*]",
+        "GND",
+        "VDD",
+        "dec_out[*]",
+        "enable"
+      ],
+      "pin_abstraction_complete": false
+    },
+    {
+      "module": "wordline_decoder",
+      "root_cell_name": "wordline_decoder",
+      "gds_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/wordline_decoder/wordline_decoder.gds",
+      "gds_sha256": "abeca5eaa4e5993ce8f83ce62f361800b1c2f6654e696df9775be6342c155e55",
+      "bbox_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/wordline_decoder/bbox.json",
+      "pin_map_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/wordline_decoder/pins.json",
+      "generator_manifest_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/wordline_decoder/generator_manifest.json",
+      "rail_report_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/openyield_module_gds/wordline_decoder/rail_report.json",
+      "pin_names": [
+        "A[*]",
+        "DEC_WL[*]",
+        "GND",
+        "VDD",
+        "enable"
+      ],
+      "pin_abstraction_complete": false
+    }
+  ],
+  "expected_top_pins": {
+    "inputs": [
+      "A0",
+      "A1",
+      "A2",
+      "A3",
+      "EN"
+    ],
+    "outputs": [
+      "WL0",
+      "WL1",
+      "WL2",
+      "WL3",
+      "WL4",
+      "WL5",
+      "WL6",
+      "WL7",
+      "WL8",
+      "WL9",
+      "WL10",
+      "WL11",
+      "WL12",
+      "WL13",
+      "WL14",
+      "WL15"
+    ],
+    "power": [
+      "VDD",
+      "VSS"
+    ]
+  },
+  "known_contract_limitations": [
+    "All currently approved decoder child module pin maps export wildcard bus labels rather than bit-exact pins.",
+    "The selected child assets are candidate module geometry, not previously closed decoder top-level routing.",
+    "This contract lock is sufficient for executable rebuild/validation, but not sufficient to claim pre-validated decoder route closure.",
+    "Formal inventory snapshot lines: 11"
+  ]
+}

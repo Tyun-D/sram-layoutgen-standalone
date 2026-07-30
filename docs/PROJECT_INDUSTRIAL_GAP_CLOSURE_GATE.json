@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-30T11:45:00Z",
-  "git_head": "9eef97fbb3956ae155175ecff27ebfe485d3a636",
+  "generated_at": "2026-07-30T13:10:00Z",
+  "git_head": "aeb78085a4b0c60424e6dca9acddb756acb923de",
   "status": "ADVANCED_WITH_SPECIFIC_BLOCKERS",
   "server_tools_real_audited": true,
   "simulation_tool_selection_complete": true,
@@ -23,16 +23,16 @@
   ],
   "delay_chain_validation_status": "PASS_ON_PRIMARY_CHAIN",
   "representative_sram_functional_closed": false,
-  "representative_sram_functional_blocker": "current project still lacks a reviewed project-owned functional TB that freezes clk/csb/web/TIME semantics even though upstream OpenYield TB contracts were extracted",
+  "representative_sram_functional_blocker": "project SRAM control/timing contract is partially frozen, but TIME_schedule, write_sample_point, and disabled_hold_semantics remain unresolved",
   "post_layout_simulation_closed": false,
   "post_layout_blocker": "partial KLayout extraction/LVS provenance exists, but refreshed project LVS/PEX binding and parasitic extraction evidence are not available",
   "decoder_closed": false,
-  "decoder_blocker": "historical live baseline was not recovered; reproducible rebuild is selected but current repo still lacks an executable decoder-specific production gate / determinism / negative-suite closure loop",
+  "decoder_blocker": "executable decoder rebuild flow now exists, but approved child assets still expose wildcard pin abstractions and the fresh rebuild fails with 2663 DRC markers and STRUCTURAL_CONTRACT_FAILED",
   "power_positive_connectivity_closed": true,
   "power_negative_closed": true,
   "power_negative_case_count": 6,
   "power_negative_tests_passed": true,
-  "remote_push_status": "FAILED_TLS_HANDSHAKE",
+  "remote_push_status": "PUSH_SYNCED_USING_HTTP_PROXY_BYPASS",
   "remote_bundle_ready": true,
   "bundle_path": "/data1/qujh/project_checkpoints/project-mainline-inventory-9eef97f.bundle",
   "bundle_sha256": "99d1551241d1d9803ad8844d3712ded6bcb5102dccd557c521ed2f791be751ee",
@@ -41,5 +41,5 @@
   "industrial_positioning_closed": true,
   "human_review_package_ready": true,
   "full_evidence_package_ready": true,
-  "stop_reason": "Reached the current real capability boundary after closing delay-chain SPICE on the primary chain and converting remaining decoder/TB/post-layout blockers into specific evidence-backed audit records."
+  "stop_reason": "Advanced decoder from audit-only blocker to executable rebuild evidence, froze the project SRAM control/timing contract, and reached the current capability boundary at child-asset pin authority and unresolved SRAM timing semantics."
 }

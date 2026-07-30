@@ -1,0 +1,15 @@
+{
+  "top_cell_name": "PROJECT_DECODER_REBUILD_16X16",
+  "instance_count": 3,
+  "route_strategy": {
+    "en_strategy": "horizontal_m3_bus",
+    "wl_pre_strategy": "vertical_m2_link",
+    "note": "fresh-run rebuild strategy; not a claim of historical 24-marker equivalence"
+  },
+  "child_modules": [
+    "decoder_gate_cells",
+    "row_decoder",
+    "wordline_decoder"
+  ],
+  "fresh_rebuild": true
+}

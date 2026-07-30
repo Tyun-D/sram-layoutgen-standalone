@@ -6,18 +6,12 @@
 
 ## Conclusion
 
-- The project can trust the upstream TB as a reference contract, not as a drop-in project TB.
-- The current clean-top SPICE proves that many subcircuits exist, including `TIME` and `OPENYIELD_SRAM_TOP_V1`.
-- However, the reviewed project evidence still lacks a project-owned top-level functional TB that freezes `clk/csb/web/PRE/TIME` scheduling and pass/fail sampling semantics.
+- The project now has a project-owned control/timing contract draft, but it still contains unresolved schedule/oracle fields.
+- `clk/csb/web` and internal `TIME` outputs are interface-bound; exact project pass/fail timing for SRAM write/read remains unresolved.
+- A project-adapted SRAM TB must stay blocked until those unresolved fields are frozen.
 
-## Specific Gaps
+## Specific Field Blockers
 
-- No reviewed project contract yet defines exact `clk` to `csb/web` sequencing for `write 0/read 0`, `write 1/read 1`, or hold.
-- The authoritative core-array subckt `SRAM_6T_CORE_16x16` does not itself expose the control/data/observe pins needed for full SRAM functional proof.
-- Treating the upstream Python harness as formal project evidence would over-claim authority and reproducibility.
-
-## Decision
-
-- Do not promote the upstream files to `TRUSTED_PROJECT_TB`.
-- Do not fabricate a new project SRAM TB until the missing control/TIME fields are frozen as project evidence.
-- Keep module-level SPICE closure active, and keep representative SRAM functional simulation explicitly blocked at field level.
+- `TIME_schedule`: no reviewed project cycle contract for write/read sequencing.
+- `write_sample_point`: no project-owned readback oracle timing after write.
+- `disabled_hold_semantics`: no reviewed hold-mode oracle for this top.

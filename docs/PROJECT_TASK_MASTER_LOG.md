@@ -235,3 +235,13 @@
 - git_head: `9eef97fbb3956ae155175ecff27ebfe485d3a636`
 - result: `delay_chain_primary_chain_closed=true`; `sram_tb_binding_status=BLOCKED_BY_SPECIFIC_INTERFACE_GAPS`; `decoder_rebuild_selected=true`; `post_layout_status=NOT_AVAILABLE_WITH_CURRENT_EVIDENCE`; `remote_push_status=FAILED_TLS_HANDSHAKE`; `bundle_created=true`; `bundle_sha256=99d1551241d1d9803ad8844d3712ded6bcb5102dccd557c521ed2f791be751ee`; `package_manifest_refreshed=true`
 - next_action: `rebuild human-review and full-evidence packages with external sha256 sidecars`
+
+## 2026-07-30T13:18:00Z project decoder_rebuild_executable_followup
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `aeb78085a4b0c60424e6dca9acddb756acb923de`
+- files_read: `outputs/PROJECT_decoder_rebuild/current_supported_config/*`; `docs/PROJECT_SRAM_CONTROL_TIMING_CONTRACT.json`; `git -c http.proxy= ls-remote origin`
+- files_modified: `docs/DECODER_REBUILD_CONTRACT_LOCK.*`; `docs/DECODER_REBUILD_EXECUTION_AUDIT.*`; `docs/PROJECT_CURRENT_STATUS.json`; `docs/PROJECT_DELIVERY_STATE.json`; `docs/PROJECT_REMOTE_SYNC_AUDIT.*`; `docs/PROJECT_INDUSTRIAL_GAP_CLOSURE_GATE.json`; `docs/PROJECT_RESULT_STATUS_MATRIX.csv`; `docs/PROJECT_GAP_REGISTER.csv`; `docs/PROJECT_FINAL_TECHNICAL_DRAFT.md`; `docs/INTERVIEW_TECHNICAL_EVIDENCE_4QUESTIONS.md`
+- result: `remote_sync_verified=true`; `remote_branch_head=aeb78085a4b0c60424e6dca9acddb756acb923de`; `decoder_executable_rebuild_available=true`; `decoder_machine_gate_passed=false`; `decoder_drc_marker_count=2663`; `decoder_negative_tests_passed=true`; `sram_control_timing_contract_exists=true`; `sram_functional_tb_still_blocked=true`
+- decision: `treat decoder as executable-but-asset-blocked rather than flow-missing, and keep complete-top generation blocked behind decoder machine closure`
+- unresolved_items: `decoder child wildcard pin abstractions`; `decoder 2663 DRC markers`; `TIME_schedule unresolved`; `write_sample_point unresolved`; `disabled_hold_semantics unresolved`
+- next_action: `commit decoder/TB updates, push current branch, and rebuild clean evidence packages from the pushed head`

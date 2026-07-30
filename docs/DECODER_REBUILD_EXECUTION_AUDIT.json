@@ -1,0 +1,27 @@
+{
+  "scope": "decoder_rebuild_execution_audit",
+  "timestamp": "2026-07-30T13:10:00Z",
+  "git_head_at_audit": "aeb78085a4b0c60424e6dca9acddb756acb923de",
+  "decoder_contract_lock_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/docs/DECODER_REBUILD_CONTRACT_LOCK.json",
+  "decoder_bundle_dir": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_rebuild/current_supported_config",
+  "machine_gate_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_rebuild/current_supported_config/DECODER_MACHINE_GATE.json",
+  "negative_summary_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_rebuild/current_supported_config/DECODER_NEGATIVE_TEST_SUMMARY.json",
+  "fresh_rebuild_executed": true,
+  "route_strategy": {
+    "EN": "horizontal_m3_bus",
+    "WL_pre": "vertical_m2_link"
+  },
+  "drc_marker_count": 2663,
+  "machine_gate_passed": false,
+  "negative_suite_passed": true,
+  "unexpected_negative_test_pass_count": 0,
+  "child_pin_abstraction_incomplete": true,
+  "hierarchy_closure_passed": true,
+  "determinism_passed": false,
+  "primary_rejection_code": "STRUCTURAL_CONTRACT_FAILED",
+  "blocking_dependencies": [
+    "decoder child assets still export wildcard bus-style pins rather than bit-exact WL/input pins",
+    "fresh rebuild still trips 2663 FreePDK45 DRC markers",
+    "routing/power/connectivity/foreign-net/pin-access remain false because bit-exact child handoff is not yet authoritative"
+  ]
+}
