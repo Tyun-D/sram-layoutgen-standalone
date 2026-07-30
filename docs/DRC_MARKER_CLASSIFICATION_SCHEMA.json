@@ -1,0 +1,25 @@
+{
+  "schema": "DRC_MARKER_CLASSIFICATION_SCHEMA",
+  "classes": [
+    {
+      "name": "PREEXISTING_CHILD_MARKER",
+      "required_fields": ["asset_path", "asset_sha256", "rule_name", "bbox", "source_stage"]
+    },
+    {
+      "name": "NEW_PARENT_GENERATED_MARKER",
+      "required_fields": ["parent_asset_path", "parent_git_head", "rule_name", "bbox", "generation_stage"]
+    },
+    {
+      "name": "BOUNDARY_INTERACTION_MARKER",
+      "required_fields": ["left_asset_sha256", "right_asset_sha256", "rule_name", "bbox", "boundary_description"]
+    },
+    {
+      "name": "APPROVED_WAIVER",
+      "required_fields": ["asset_sha256", "rule_name", "bbox", "approval_basis", "approval_reference"]
+    },
+    {
+      "name": "UNAPPROVED_MARKER",
+      "required_fields": ["asset_path", "rule_name", "bbox", "reason_unapproved"]
+    }
+  ]
+}

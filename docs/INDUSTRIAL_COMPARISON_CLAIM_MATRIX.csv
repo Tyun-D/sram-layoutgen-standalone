@@ -1,0 +1,11 @@
+claim_id,claim_text,status,evidence_or_reason
+IND-001,平台开放和可修改,ALLOWED,"repo source, scripts, docs, and generated evidence are locally inspectable and editable"
+IND-002,参数传播透明,ALLOWED,"FORMAL_SRAM_CONFIG_INVENTORY plus current simulation/tool audits provide traceable config-to-evidence linkage"
+IND-003,逻辑到物理绑定可追踪,ALLOWED,"M12N2 clean-top netlist, M7 extracted reports, and evidence matrices"
+IND-004,验证器和负例可扩展,ALLOWED,"existing Team B negative harness plus current audit scripts"
+IND-005,适合教学与研究,ALLOWED,"transparent scripts, reports, and auditable artifacts"
+IND-006,平台 PPA 优于工业工具,FORBIDDEN,"no industrial-quality characterization or optimization evidence"
+IND-007,平台可靠性优于工业工具,FORBIDDEN,"no IR/EM/silicon signoff evidence"
+IND-008,平台具备工业级 LVS/PEX/STA 闭环,FORBIDDEN,"current worktree lacks refreshed signoff provenance"
+IND-009,平台已 foundry signoff,FORBIDDEN,"no foundry signoff evidence"
+IND-010,平台已 silicon proven,FORBIDDEN,"no silicon validation evidence"

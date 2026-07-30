@@ -169,3 +169,43 @@
 - decision: `refresh package set with conservative P0-003 wording and specific decoder blocker audit; do not claim decoder closure`
 - unresolved_items: `decoder authority/generator/validation gaps`; `Owner-A source recovery authorization`
 - next_action: `user human review of refreshed project long-range package`
+
+## 2026-07-30T09:37:57Z project worktree_restore_and_reaudit_start
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `281bbf2eedfdea87dca1972063a574cafbf8b38b`
+- files_read: `docs/PROJECT_TASK_MASTER_LOG.*`; `docs/PROJECT_CURRENT_STATUS.json`; `docs/PROJECT_GAP_REGISTER.csv`; `docs/PROJECT_RESULT_STATUS_MATRIX.csv`; `docs/PROJECT_FINAL_TECHNICAL_DRAFT.md`; `docs/DECODER_PHYSICAL_CLOSURE_AUDIT.*`; `git worktree list`; `df -h`; `ps -ef`; `tmux ls`
+- files_modified: `docs/PROJECT_TASK_MASTER_LOG.md`; `docs/PROJECT_TASK_MASTER_LOG.jsonl`; `docs/PROJECT_CURRENT_STATUS.json`
+- result: `restored_missing_project_worktree_path=true`; `restored_path=/data1/qujh/worktrees/project_mainline_inventory_20260726`; `prior_status_timestamp=2026-07-26T16:10:44Z`; `decoder_prior_status=BLOCKED_TECHNICAL`; `disk_free_data1=260G`; `active_xyce_processes_detected=10`
+- decision: `resume work on restored project worktree and refresh all capability claims from live server evidence before attempting decoder or simulation closure`
+- unresolved_items: `server EDA tool inventory not yet refreshed`; `simulation asset inventory not yet rebuilt`; `decoder closure evidence is stale and must be revalidated`
+- next_action: `run server tool/model/netlist/testbench discovery and update project status`
+
+## 2026-07-30T09:49:58Z project server_simulation_and_power_audit
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `281bbf2eedfdea87dca1972063a574cafbf8b38b`
+- files_read: `outputs/M12N2_clean_openyield_sram_top/current_supported_config/openyield_sram_top_v1_16x16.sp`; `outputs/M12N_lock_openyield_authoritative_netlist/current_supported_config/sample_openyield_sram_netlist.sp`; `outputs/M7_correct_golden_reference/current_supported_config/extracted/full_layout_collection/*/*.report.json`; `docs/candidate_spice/README.md`; `technology/freepdk45/sp_lib/*.sp`; `git status --short`
+- files_modified: `scripts/project_server_inventory_audit.py`; `scripts/project_spice_smoke_regression.py`; `scripts/project_power_integrity_audit.py`; `simulation/logic/run_logic_regressions.py`; `sram_layoutgen/verification/power_connectivity.py`; `sram_layoutgen/verification/power_negative_regressions.py`; `docs/SERVER_EDA_TOOL_INVENTORY.*`; `docs/SERVER_SIMULATOR_CAPABILITY_AUDIT.md`; `docs/SIMULATION_INPUT_ASSET_INVENTORY.*`; `docs/SIMULATION_INPUT_GAP_REPORT.md`; `docs/PROJECT_SIMULATION_TOOL_SELECTION.*`; `docs/SIMULATION_CAPABILITY_AUDIT.md`; `docs/SIMULATION_TEST_MATRIX.csv`; `docs/SIMULATION_RESULTS_SUMMARY.md`; `docs/SIMULATION_BLOCKERS.md`; `docs/POWER_ROUTING_CORRECTNESS_METHOD.md`; `docs/POWER_ROUTING_CORRECTNESS_GATE.json`; `docs/POWER_ENDPOINT_COVERAGE.csv`; `docs/POWER_COMPONENT_SUMMARY.csv`; `docs/POWER_NEGATIVE_TEST_MATRIX.csv`; `docs/POWER_NEGATIVE_TEST_SUMMARY.json`; `docs/PROJECT_TASK_MASTER_LOG.*`; `docs/PROJECT_CURRENT_STATUS.json`
+- result: `usable_open_source_tools=ngspice,Xyce,iverilog,vvp,verilator,klayout,magic,yosys,openroad`; `trusted_verilog_assets=0`; `logic_level_blocked_by_assets=true`; `spice_smoke_passed_modules=PNAND2,PNAND3,AND2,AND3,pdrive,wl_pdrive,pdrive2_for_pre,DFF,DFF_BUF`; `spice_smoke_failed_modules=delay_chain`; `positive_power_configs_passed=3/3`; `power_negative_harness_available=false`
+- decision: `select ngspice as primary real simulation path, Xyce as secondary, treat Icarus/Verilator as tool-available but asset-blocked, and accept positive-only power validation while explicitly blocking raw-GDS negative power regressions`
+- unresolved_items: `decoder 24-marker/M2-only closure baseline not found in current worktree evidence`; `no authoritative Verilog assets for requested logic regressions`; `TIME role ambiguity still blocks representative SRAM functional simulation`; `no refreshed post-layout extraction-rule provenance`; `power negative mutation harness missing`
+- next_action: `continue industrial comparison, DRC provenance/waiver, and decoder live-blocker documentation unless stronger physical closure evidence is found`
+
+## 2026-07-30T10:08:30Z project industrial_gap_gate_and_report_refresh
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `281bbf2eedfdea87dca1972063a574cafbf8b38b`
+- files_read: `docs/SIMULATION_RESULTS_SUMMARY.md`; `docs/POWER_ROUTING_CORRECTNESS_GATE.json`; `docs/DRC_WAIVER_AUDIT.md`; `docs/INDUSTRIAL_SRAM_COMPILER_POSITIONING.md`; `docs/PROJECT_SIMULATION_TOOL_SELECTION.md`; `docs/FINAL_REPORT_SECTION_EVIDENCE_MATRIX.csv`
+- files_modified: `docs/PROJECT_CURRENT_STATUS.json`; `docs/PROJECT_RESULT_STATUS_MATRIX.csv`; `docs/PROJECT_GAP_REGISTER.csv`; `docs/PROJECT_FINAL_TECHNICAL_DRAFT.md`; `docs/FINAL_REPORT_SECTION_EVIDENCE_MATRIX.csv`; `docs/INTERVIEW_TECHNICAL_EVIDENCE_4QUESTIONS.md`; `docs/PROJECT_INDUSTRIAL_GAP_CLOSURE_GATE.json`; `docs/PROJECT_INDUSTRIAL_GAP_CLOSURE_GATE.md`
+- result: `industrial_positioning_revalidated=true`; `approved_drc_waiver_count=0`; `power_positive_connectivity_closed=true`; `logic_simulation_still_asset_blocked=true`; `decoder_live_baseline_found=false`
+- decision: `advance project-level report and machine gate to human-review-ready state without overstating decoder, functional simulation, or post-layout closure`
+- unresolved_items: `decoder live 24-marker baseline missing`; `trusted Verilog/testbench assets missing`; `representative SRAM functional TB and TIME semantics unresolved`; `power negative geometry mutation harness missing`; `post-layout extraction provenance missing`
+- next_action: `package unified human-review and full-evidence bundles with refreshed live-audit artifacts`
+
+## 2026-07-30T10:12:45Z project industrial_gap_review_package_refresh
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `281bbf2eedfdea87dca1972063a574cafbf8b38b`
+- files_read: `docs/PROJECT_FINAL_TECHNICAL_DRAFT.md`; `docs/PROJECT_CURRENT_STATUS.json`; `docs/PROJECT_RESULT_STATUS_MATRIX.csv`; `docs/PROJECT_GAP_REGISTER.csv`; `docs/PROJECT_INDUSTRIAL_GAP_CLOSURE_GATE.*`; `docs/SIMULATION_RESULTS_SUMMARY.md`; `docs/POWER_ROUTING_CORRECTNESS_GATE.json`; `docs/DRC_WAIVER_AUDIT.md`
+- files_modified: `docs/PROJECT_TASK_MASTER_LOG.md`; `docs/PROJECT_TASK_MASTER_LOG.jsonl`; `docs/PROJECT_CURRENT_STATUS.json`; `/data1/qujh/PROJECT_INDUSTRIAL_GAP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`; `/data1/qujh/PROJECT_INDUSTRIAL_GAP_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz`
+- result: `human_review_package_sha=0ca315a99a3c05deb3c96629dfb5fbfc652cab672e03330a268d41b56058d6e3`; `human_review_package_size_bytes=32003`; `full_evidence_package_sha=4df1067aa6d888203aac0f404bc7d93a090b5970c00a587d4d0fe1d129246ad8`; `full_evidence_package_size_bytes=47600`; `tar_readability_passed=true`
+- decision: `stop at real capability boundary and hand off unified audit package with explicit blockers instead of fabricating missing decoder/function/post-layout evidence`
+- unresolved_items: `decoder live closure baseline not found`; `trusted Verilog/testbench assets not found`; `SRAM functional simulation semantics unresolved`; `power negative mutation harness absent`; `post-layout extraction provenance absent`
+- next_action: `submit unified human review with industrial-gap closure gate and evidence bundles`

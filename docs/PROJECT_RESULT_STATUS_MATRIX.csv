@@ -14,8 +14,14 @@ column mux,MACHINE_VERIFIED,docs/openyield_columnmux_adapter_report.json; techno
 sense amp,HUMAN_REVIEWED,outputs/M11CH_confirm_M11C_human_review/current_supported_config,smoke substitution human-reviewed
 write driver,SOURCE_ONLY,docs/openyield_writedriver_adapter_report.json,"adapter exists, no final integrated closure"
 precharge,GENERATED,technology/freepdk45/gds_lib/openram_replacements/gen_precharge.gds; outputs/M2R_full_sram_regen,used in full-trial flow
-电源网络,EXPERIMENTAL,docs/openyield_storage_power_stitch_report.json; outputs/M2R_full_sram_regen,"partial proofs, not final global signoff"
+电源网络,CLOSED_AS_CONNECTIVITY_EVIDENCE,docs/POWER_ROUTING_CORRECTNESS_GATE.json; docs/POWER_COMPONENT_SUMMARY.csv; docs/POWER_ENDPOINT_COVERAGE.csv,"3 raw-source-backed extracted configs pass positive connectivity/topology checks; negative geometry-mutation harness remains unavailable; not IR/EM signoff"
 dummy 行列,GENERATED,outputs/openyield_module_gds/dummy_array,present in full-trial flow
 tap,SOURCE_ONLY,technology/freepdk45/gds_lib/gen_well_tap.gds,"leaf exists, project-level integration not separately audited"
 replica,GENERATED,outputs/openyield_module_gds/replica_array,present in full-trial flow
 代表性 SRAM 顶层结果,EXPERIMENTAL,docs/SRAM_CONFIGURATION_INVENTORY.csv; docs/HISTORICAL_30_CONFIG_21_MODULE_CLAIM_AUDIT.json,10 explicit config rows plus formal config inventory; use formal/inventory status instead of historical 30-config shorthand
+服务器 EDA 工具,MACHINE_VERIFIED,docs/SERVER_EDA_TOOL_INVENTORY.csv; docs/SERVER_SIMULATOR_CAPABILITY_AUDIT.md,"real server audit confirms ngspice/Xyce/iverilog/vvp/verilator/klayout/magic/yosys/openroad; no commercial license-backed flow is required for baseline evidence"
+模块级逻辑仿真,BLOCKED,docs/PROJECT_SIMULATION_TOOL_SELECTION.md; docs/SIMULATION_INPUT_GAP_REPORT.md,"server has Icarus/Verilator, but trusted project Verilog assets for requested regressions were not discovered"
+模块级 SPICE 烟测,PARTIALLY_CLOSED,docs/SIMULATION_RESULTS_SUMMARY.md; docs/SIMULATION_TEST_MATRIX.csv,"real ngspice smoke passes PNAND2/PNAND3/AND2/AND3/pdrive/wl_pdrive/pdrive2_for_pre/DFF/DFF_BUF; delay_chain currently fails polarity expectation"
+Post-layout 仿真,NOT_AVAILABLE_WITH_CURRENT_EVIDENCE,docs/PROJECT_SIMULATION_TOOL_SELECTION.md; docs/SIMULATION_BLOCKERS.md,"do not relabel historical extracted collateral as refreshed post-layout simulation without extraction-rule provenance and layout-netlist binding refresh"
+工业级定位,CLOSED_AS_REPORT_EVIDENCE,docs/INDUSTRIAL_SRAM_COMPILER_POSITIONING.md; docs/INDUSTRIAL_COMPARISON_CLAIM_MATRIX.csv,"project strengths are openness, traceability, and extensibility; no claim of superior PPA, reliability, or signoff over industrial SRAM compilers"
+DRC provenance / waiver,CLOSED_AS_REPORT_EVIDENCE,docs/DRC_WAIVER_AUDIT.md; docs/DRC_PROVENANCE_AND_WAIVER_POLICY.md,"approved waiver count remains 0; decoder waiver decision is blocked because live 24-marker baseline was not found in current worktree evidence"

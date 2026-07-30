@@ -1,0 +1,11 @@
+level,test_id,target,tool,status,artifact,notes
+SPICE,pnand2_inversion,PNAND2,ngspice,PASS,simulation/spice/logs/pnand2_inversion.log,z_final=1.840987e-05
+SPICE,pnand3_inversion,PNAND3,ngspice,PASS,simulation/spice/logs/pnand3_inversion.log,z_final=4.141989e-05
+SPICE,and2_truth,AND2,ngspice,PASS,simulation/spice/logs/and2_truth.log,z_final=0.9999978
+SPICE,and3_truth,AND3,ngspice,PASS,simulation/spice/logs/and3_truth.log,z_final=0.9999978
+SPICE,pdrive_buffer,pdrive,ngspice,PASS,simulation/spice/logs/pdrive_buffer.log,z_low=-0.02222769 z_high=1.020346
+SPICE,wl_pdrive_buffer,wl_pdrive,ngspice,PASS,simulation/spice/logs/wl_pdrive_buffer.log,z_low=-0.05707977 z_high=1.069538
+SPICE,pdrive2_for_pre_buffer,pdrive2_for_pre,ngspice,PASS,simulation/spice/logs/pdrive2_for_pre_buffer.log,z_low=-0.05707977 z_high=1.069538
+SPICE,delay_chain_polarity,delay_chain,ngspice,FAIL,simulation/spice/logs/delay_chain_polarity.log,z_low=0.9997884 z_high=1.010554
+SPICE,dff_capture,DFF,ngspice,PASS,simulation/spice/logs/dff_capture.log,q_first=-8.463124e-05 q_second=1.000024
+SPICE,dff_buf_capture,DFF_BUF,ngspice,PASS,simulation/spice/logs/dff_buf_capture.log,q_first=9.977353e-06 qb_first=0.9999867 q_second=0.9999971 qb_second=1.314608e-05

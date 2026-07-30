@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-07-30T10:08:30Z",
+  "status": "ADVANCED_WITH_SPECIFIC_BLOCKERS",
+  "server_tools_real_audited": true,
+  "simulation_tool_selection_complete": true,
+  "logic_simulation_closed": false,
+  "logic_simulation_blocker": "trusted project Verilog/testbench assets were not discovered in the current worktree evidence",
+  "spice_smoke_closed": false,
+  "spice_primary": "ngspice",
+  "spice_secondary": "Xyce",
+  "spice_pass_modules": [
+    "PNAND2",
+    "PNAND3",
+    "AND2",
+    "AND3",
+    "pdrive",
+    "wl_pdrive",
+    "pdrive2_for_pre",
+    "DFF",
+    "DFF_BUF"
+  ],
+  "spice_fail_modules": [
+    "delay_chain"
+  ],
+  "representative_sram_functional_closed": false,
+  "representative_sram_functional_blocker": "reviewed functional testbench/top netlist binding and TIME role semantics remain unresolved",
+  "post_layout_simulation_closed": false,
+  "post_layout_blocker": "refreshed extraction-rule provenance and layout-netlist binding are not available in current evidence",
+  "decoder_closed": false,
+  "decoder_blocker": "requested live 24-marker M2-only closure baseline and dedicated decoder machine gate were not found in restored worktree evidence",
+  "power_positive_connectivity_closed": true,
+  "power_negative_closed": false,
+  "power_negative_blocker": "no raw-GDS geometry mutation harness found for required negative power cases",
+  "drc_waiver_policy_closed": true,
+  "approved_drc_waiver_count": 0,
+  "industrial_positioning_closed": true,
+  "human_review_package_ready": true,
+  "full_evidence_package_ready": true,
+  "stop_reason": "Reached real capability boundary with specific technical/authority blockers captured for human review."
+}

@@ -1,0 +1,29 @@
+tool,absolute_path,version,license_required,license_detected,smoke_test,usable,recommended_role,limitations
+ngspice,/usr/bin/ngspice,******,False,False,version probe passed via --version,True,primary transistor-level spice smoke and regression,
+Xyce,/usr/local/xyce_parallel/bin/Xyce,Xyce DEVELOPMENT-202507091615-()-opensource,False,False,version probe passed via -v,True,secondary spice cross-check and large-netlist simulation,
+xyce,,,False,False,not found on PATH or known absolute locations,False,not_usable,not found or version probe failed
+iverilog,/usr/bin/iverilog,Icarus Verilog version 11.0 (stable) (),False,False,version probe passed via -V,True,preferred digital logic regression if trusted Verilog appears,no trusted Verilog assets discovered in current project audit
+vvp,/usr/bin/vvp,Icarus Verilog runtime version 11.0 (stable) (),False,False,version probe passed via -V,True,Icarus runtime for digital logic regression,
+verilator,/opt/pdk_klayout_openroad/oss-cad-suite/bin/verilator,Verilator 5.035 devel rev v5.034-106-ge6a997e31,False,False,version probe passed via --version,True,secondary digital lint / fast compile if trusted Verilog appears,not on PATH; only discoverable via absolute install path
+vcs,,,True,False,not found on PATH or known absolute locations,False,not_usable,not found or version probe failed; likely license-gated commercial tool
+simv,,,True,False,not found on PATH or known absolute locations,False,not_usable,not found or version probe failed; likely license-gated commercial tool
+xrun,,,True,False,not found on PATH or known absolute locations,False,not_usable,not found or version probe failed; likely license-gated commercial tool
+irun,,,True,False,not found on PATH or known absolute locations,False,not_usable,not found or version probe failed; likely license-gated commercial tool
+ncsim,,,True,False,not found on PATH or known absolute locations,False,not_usable,not found or version probe failed; likely license-gated commercial tool
+vsim,,,True,False,not found on PATH or known absolute locations,False,not_usable,not found or version probe failed; likely license-gated commercial tool
+vlog,,,True,False,not found on PATH or known absolute locations,False,not_usable,not found or version probe failed; likely license-gated commercial tool
+vlib,,,True,False,not found on PATH or known absolute locations,False,not_usable,not found or version probe failed; likely license-gated commercial tool
+hspice,,,True,False,not found on PATH or known absolute locations,False,not_usable,not found or version probe failed; likely license-gated commercial tool
+spectre,,,True,False,not found on PATH or known absolute locations,False,not_usable,not found or version probe failed; likely license-gated commercial tool
+aps,,,True,False,not found on PATH or known absolute locations,False,not_usable,not found or version probe failed; likely license-gated commercial tool
+gtkwave,/usr/bin/gtkwave,Usage: /usr/bin/gtkwave [OPTION]... [DUMPFILE] [SAVEFILE] [RCFILE],False,False,version probe passed via --version,True,waveform viewer (GUI required),GUI/X11 unavailable in current shell; viewer only; current shell lacks DISPLAY
+klayout,/usr/bin/klayout,KLayout 0.29.12,False,False,version probe passed via -v,True,layout viewing and possible DRC/LVS/manual inspection,
+magic,/usr/bin/magic,8.3.105,False,False,version probe passed via --version,True,layout viewing / open-source extraction candidate,no project-specific extraction/LVS deck provenance confirmed yet
+netgen,,,False,False,not found on PATH or known absolute locations,False,not_usable,not found or version probe failed; no project-specific LVS rule deck provenance confirmed yet
+yosys,/usr/bin/yosys,Yosys 0.9 (git sha1 1979e0b),False,False,version probe passed via -V,True,netlist inspection / synthesis experiments,
+openroad,/usr/bin/openroad,v2.0-17598-ga008522d8,False,False,version probe passed via -version,True,digital PnR experiments only,
+python3,/data1/qujh/.venv/bin/python3,Python 3.10.13,False,False,version probe passed via --version,True,general utility,
+make,/usr/bin/make,GNU Make 4.3,False,False,version probe passed via --version,True,general utility,
+cmake,/usr/bin/cmake,cmake version 3.22.1,False,False,version probe passed via --version,True,general utility,
+gcc,/usr/bin/gcc,gcc (Ubuntu 12.3.0-1ubuntu1~22.04.3) 12.3.0,False,False,version probe passed via --version,True,general utility,
+g++,/usr/bin/g++,g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0,False,False,version probe passed via --version,True,general utility,

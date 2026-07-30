@@ -1,8 +1,8 @@
 {
-  "workflow_state": "PROJECT_LONG_RANGE_ADVANCED_EXTERNAL_OWNER_CONFIRMATION_PENDING",
-  "timestamp": "2026-07-26T16:10:44Z",
+  "workflow_state": "PROJECT_REAUDIT_ADVANCED_WITH_LIVE_SERVER_EVIDENCE",
+  "timestamp": "2026-07-30T10:12:45Z",
   "git_branch": "project/mainline-inventory-20260726",
-  "git_head": "ae034bf5310e4b8a37e27d38d7fb73e1db193722",
+  "git_head": "281bbf2eedfdea87dca1972063a574cafbf8b38b",
   "trusted_master_head": "c1fbd98",
   "remote_master_head": "489f3e04e85197a6501e48168627a7b8a9232550",
   "team_b_state": "TEAM_B_OWNER_HUMAN_REVIEWED_MERGED_TO_MAINLINE",
@@ -54,22 +54,67 @@
   "gap_status_counts": {
     "BLOCKED_EXTERNAL": 1,
     "MACHINE_CLOSED": 1,
-    "BLOCKED_TECHNICAL": 1,
-    "CLOSED_AS_DOCUMENTED_BOUNDARY": 2,
-    "CLOSED_AS_REPORT_EVIDENCE": 2,
+    "BLOCKED_TECHNICAL": 4,
+    "CLOSED_AS_DOCUMENTED_BOUNDARY": 3,
+    "CLOSED_AS_REPORT_EVIDENCE": 3,
     "ROADMAP_DOCUMENTED": 1
   },
   "current_status_consistent": true,
   "no_unapproved_other_team_merge": true,
   "latest_review_package": {
-    "path": "/data1/qujh/PROJECT_LONG_RANGE_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
-    "sha256": "ceaea0d368dd30ee7688b11eba0cbe818b9a0af4b52af9fa8c12a12bd73f5219",
-    "size_bytes": 5626
+    "path": "/data1/qujh/PROJECT_INDUSTRIAL_GAP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "sha256": "0ca315a99a3c05deb3c96629dfb5fbfc652cab672e03330a268d41b56058d6e3",
+    "size_bytes": 32003
   },
   "latest_full_evidence_package": {
-    "path": "/data1/qujh/PROJECT_LONG_RANGE_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
-    "sha256": "253247d2d1a5aed75d0e7b4f09cdb3da104f242c0925ae105ee39dad5d179461",
-    "size_bytes": 16740
+    "path": "/data1/qujh/PROJECT_INDUSTRIAL_GAP_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
+    "sha256": "4df1067aa6d888203aac0f404bc7d93a090b5970c00a587d4d0fe1d129246ad8",
+    "size_bytes": 47600
   },
-  "next_stage": "Keep project progress and report drafting unblocked by P0-003, but do not recover or merge Owner-A source; treat decoder as specifically blocked by missing legal placement/handoff authority and missing decoder physical-generation / validation harness"
+  "next_stage": "Ready for unified human review with explicit blockers on decoder, trusted Verilog assets, SRAM functional testbench semantics, post-layout extraction provenance, and power-negative mutation harness",
+  "live_reaudit": {
+    "restored_worktree_path": "/data1/qujh/worktrees/project_mainline_inventory_20260726",
+    "restored_from_branch": "project/mainline-inventory-20260726",
+    "restored_from_head": "281bbf2eedfdea87dca1972063a574cafbf8b38b",
+    "restarted_at": "2026-07-30T09:37:57Z",
+    "server_tool_inventory_refreshed": true,
+    "simulation_asset_inventory_refreshed": true,
+    "decoder_revalidated": false,
+    "power_revalidated": true,
+    "simulation_revalidated": true,
+    "drc_provenance_revalidated": true,
+    "review_packages_refreshed": true,
+    "logic_level_status": "BLOCKED_BY_MISSING_TRUSTED_VERILOG_ASSETS",
+    "spice_primary": "ngspice",
+    "spice_secondary": "Xyce",
+    "spice_pass_modules": [
+      "PNAND2",
+      "PNAND3",
+      "AND2",
+      "AND3",
+      "pdrive",
+      "wl_pdrive",
+      "pdrive2_for_pre",
+      "DFF",
+      "DFF_BUF"
+    ],
+    "spice_fail_modules": [
+      "delay_chain"
+    ],
+    "power_positive_config_count": 3,
+    "power_negative_harness_available": false,
+    "decoder_live_blocker": "24-marker M2-only decoder closure baseline and dedicated decoder machine gate were not found in the restored current worktree evidence",
+    "industrial_positioning_revalidated": true,
+    "approved_drc_waiver_count": 0
+  },
+  "industrial_gap_closure": {
+    "server_tools_real_audited": true,
+    "logic_simulation_asset_closed": false,
+    "spice_smoke_regression_closed": false,
+    "power_positive_connectivity_closed": true,
+    "power_negative_regression_closed": false,
+    "decoder_physical_closure_closed": false,
+    "drc_waiver_policy_closed": true,
+    "review_ready_with_specific_blockers": true
+  }
 }

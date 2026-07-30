@@ -1,0 +1,102 @@
+{
+  "generated_at": "2026-07-30",
+  "spice_source_netlist": "outputs/M12N2_clean_openyield_sram_top/current_supported_config/openyield_sram_top_v1_16x16.sp",
+  "tool_used": "ngspice",
+  "test_rows": [
+    {
+      "level": "SPICE",
+      "test_id": "pnand2_inversion",
+      "target": "PNAND2",
+      "tool": "ngspice",
+      "status": "PASS",
+      "artifact": "simulation/spice/logs/pnand2_inversion.log",
+      "notes": "z_final=1.840987e-05"
+    },
+    {
+      "level": "SPICE",
+      "test_id": "pnand3_inversion",
+      "target": "PNAND3",
+      "tool": "ngspice",
+      "status": "PASS",
+      "artifact": "simulation/spice/logs/pnand3_inversion.log",
+      "notes": "z_final=4.141989e-05"
+    },
+    {
+      "level": "SPICE",
+      "test_id": "and2_truth",
+      "target": "AND2",
+      "tool": "ngspice",
+      "status": "PASS",
+      "artifact": "simulation/spice/logs/and2_truth.log",
+      "notes": "z_final=0.9999978"
+    },
+    {
+      "level": "SPICE",
+      "test_id": "and3_truth",
+      "target": "AND3",
+      "tool": "ngspice",
+      "status": "PASS",
+      "artifact": "simulation/spice/logs/and3_truth.log",
+      "notes": "z_final=0.9999978"
+    },
+    {
+      "level": "SPICE",
+      "test_id": "pdrive_buffer",
+      "target": "pdrive",
+      "tool": "ngspice",
+      "status": "PASS",
+      "artifact": "simulation/spice/logs/pdrive_buffer.log",
+      "notes": "z_low=-0.02222769 z_high=1.020346"
+    },
+    {
+      "level": "SPICE",
+      "test_id": "wl_pdrive_buffer",
+      "target": "wl_pdrive",
+      "tool": "ngspice",
+      "status": "PASS",
+      "artifact": "simulation/spice/logs/wl_pdrive_buffer.log",
+      "notes": "z_low=-0.05707977 z_high=1.069538"
+    },
+    {
+      "level": "SPICE",
+      "test_id": "pdrive2_for_pre_buffer",
+      "target": "pdrive2_for_pre",
+      "tool": "ngspice",
+      "status": "PASS",
+      "artifact": "simulation/spice/logs/pdrive2_for_pre_buffer.log",
+      "notes": "z_low=-0.05707977 z_high=1.069538"
+    },
+    {
+      "level": "SPICE",
+      "test_id": "delay_chain_polarity",
+      "target": "delay_chain",
+      "tool": "ngspice",
+      "status": "FAIL",
+      "artifact": "simulation/spice/logs/delay_chain_polarity.log",
+      "notes": "z_low=0.9997884 z_high=1.010554"
+    },
+    {
+      "level": "SPICE",
+      "test_id": "dff_capture",
+      "target": "DFF",
+      "tool": "ngspice",
+      "status": "PASS",
+      "artifact": "simulation/spice/logs/dff_capture.log",
+      "notes": "q_first=-8.463124e-05 q_second=1.000024"
+    },
+    {
+      "level": "SPICE",
+      "test_id": "dff_buf_capture",
+      "target": "DFF_BUF",
+      "tool": "ngspice",
+      "status": "PASS",
+      "artifact": "simulation/spice/logs/dff_buf_capture.log",
+      "notes": "q_first=9.977353e-06 qb_first=0.9999867 q_second=0.9999971 qb_second=1.314608e-05"
+    }
+  ],
+  "blockers": [
+    "Level 1 digital logic regression is asset-blocked: current project audit found no authoritative `.v/.sv` files for the requested control modules.",
+    "Level 2 representative SRAM functional simulation remains blocked by lack of a reviewed standalone SRAM functional testbench and unresolved TIME-role ambiguity in OpenYield clean-top evidence.",
+    "Post-layout simulation remains NOT_AVAILABLE_WITH_CURRENT_EVIDENCE because current repo lacks refreshed extraction-rule provenance and fresh LVS/PEX binding for a new regression loop."
+  ]
+}
