@@ -1,0 +1,54 @@
+{
+  "scope": "delay_chain_spice_validation",
+  "primary_tool": "ngspice",
+  "secondary_tool": "Xyce",
+  "contract_basis": {
+    "source": [
+      "simulation/spice/netlists/delay_chain.inc",
+      "docs/openyield_delay_chain_testbench_plan_report.json",
+      "/data1/qujh/work/external/OpenYield/sram_compiler/testbenches/sram_6t_core_testbench.py"
+    ],
+    "stage_count": 9,
+    "per_stage_load_inverters": 4,
+    "expected_polarity": "INVERTING",
+    "expected_role": "replica_bitline_delay / rbl_delay_generation"
+  },
+  "ngspice": {
+    "status": "PASS",
+    "transient_completed": true,
+    "syntax_or_model_crash": false,
+    "input_rise_time_s": 4.25e-11,
+    "output_fall_time_s": 2.15084e-10,
+    "rise_to_fall_delay_s": 1.72584e-10,
+    "input_fall_time_s": 1.675e-10,
+    "output_rise_time_s": 3.37391e-10,
+    "fall_to_rise_delay_s": 1.69891e-10,
+    "z_after_first_rise_v": -0.001098954,
+    "z_after_first_fall_v": 1.010294,
+    "z_min_v": -0.007786068,
+    "z_max_v": 1.010772,
+    "log": "simulation/spice/logs/delay_chain_polarity_ngspice.log"
+  },
+  "xyce": {
+    "status": "INCOMPATIBLE_SECONDARY",
+    "return_code": 1,
+    "syntax_or_model_crash": true,
+    "log": "simulation/spice/logs/delay_chain_polarity_xyce.log",
+    "notes": [
+      "Xyce ignored the ngspice-style .title line.",
+      "The standalone testbench includes an ngspice-specific .include bundle path and did not bind the delay_chain subckt under Xyce in this invocation.",
+      "Current project conclusion stays on ngspice primary evidence."
+    ]
+  },
+  "conclusion": {
+    "status": "PASS_ON_PRIMARY_CHAIN",
+    "final_polarity": "INVERTING",
+    "matching_edges_observed": true,
+    "characterization_claimed": false,
+    "notes": [
+      "The previous failure was caused by treating delay_chain as polarity-preserving and sampling before the delayed output settled.",
+      "This rerun uses edge-detection based measurements and a later stable observation point.",
+      "No formal delay characterization, corner sweep, or replica-bitline calibration is claimed."
+    ]
+  }
+}

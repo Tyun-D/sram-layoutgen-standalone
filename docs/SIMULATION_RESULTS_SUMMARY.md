@@ -12,6 +12,6 @@
 - pdrive_buffer / pdrive: `PASS` | z_low=-0.02222769 z_high=1.020346
 - wl_pdrive_buffer / wl_pdrive: `PASS` | z_low=-0.05707977 z_high=1.069538
 - pdrive2_for_pre_buffer / pdrive2_for_pre: `PASS` | z_low=-0.05707977 z_high=1.069538
-- delay_chain_polarity / delay_chain: `FAIL` | z_low=0.9997884 z_high=1.010554
+- delay_chain_polarity / delay_chain: `PASS` | z_after_first_rise=-0.001098954 z_after_first_fall=1.010294 tpd_rise_fall=1.72584e-10 tpd_fall_rise=1.69891e-10
 - dff_capture / DFF: `PASS` | q_first=-8.463124e-05 q_second=1.000024
 - dff_buf_capture / DFF_BUF: `PASS` | q_first=9.977353e-06 qb_first=0.9999867 q_second=0.9999971 qb_second=1.314608e-05

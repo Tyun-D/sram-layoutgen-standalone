@@ -1,0 +1,4 @@
+tool,tool_executable_available,technology_extraction_rules_available,device_recognition_available,lvs_reference_available,parasitic_extraction_available,current_gds_layer_map_compatible,status,notes
+klayout,true,true,true,true,false,true,PARTIAL,freepdk45.lylvs and freepdk45.lyt provide layer map plus device extraction and LVS target-netlist flow but no proven RC parasitic extraction loop
+magic,true,false,false,false,false,unknown,NOT_AVAILABLE_WITH_CURRENT_EVIDENCE,No project-local FreePDK45 magic techfile or extraction script was found in the audited evidence set
+netgen,false,false,false,false,false,unknown,NOT_AVAILABLE_WITH_CURRENT_EVIDENCE,No executable or project-local setup file was found in the audited evidence set

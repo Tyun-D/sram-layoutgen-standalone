@@ -1,0 +1,31 @@
+{
+  "scope": "post_layout_extraction_provenance_audit",
+  "tool_audit": {
+    "magic_executable_available": true,
+    "klayout_executable_available": true,
+    "ngspice_executable_available": true,
+    "xyce_executable_available": true,
+    "netgen_executable_available": false
+  },
+  "technology_assets": {
+    "klayout_lvs_script": "technology/freepdk45/tech/freepdk45.lylvs",
+    "klayout_tech_file": "technology/freepdk45/tech/freepdk45.lyt",
+    "klayout_layer_properties": "technology/freepdk45/tech/freepdk45.lyp",
+    "magic_techfile_found": false,
+    "magic_extraction_script_found": false,
+    "netgen_setup_found": false
+  },
+  "capability": {
+    "device_recognition_available": true,
+    "schematic_binding_available": true,
+    "target_netlist_write_available": true,
+    "parasitic_extraction_available": false,
+    "current_layout_to_lvs_binding_refresh_available": false
+  },
+  "status": "NOT_AVAILABLE_WITH_CURRENT_EVIDENCE",
+  "reason": [
+    "KLayout LVS-style extraction assets exist and reference FreePDK45 layer/device definitions.",
+    "The audited evidence set does not contain a Magic FreePDK45 extraction flow, a Netgen setup, or a proven parasitic RC extraction rule deck.",
+    "Therefore current project evidence is insufficient to claim refreshed post-layout simulation capability."
+  ]
+}

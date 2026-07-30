@@ -1,0 +1,36 @@
+{
+  "scope": "decoder_baseline_recovery_or_rebuild_decision",
+  "historical_recovery_status": "NOT_RECOVERED",
+  "search_evidence": {
+    "git_reflog_checked": true,
+    "git_fsck_checked": true,
+    "git_history_string_search_checked": true,
+    "checkpoint_and_tmp_search_checked": true,
+    "recovered_complete_baseline_bundle": false,
+    "unreachable_blob_relevant": false
+  },
+  "required_historical_binding": [
+    "GDS SHA",
+    "generator/config SHA",
+    "DRC database",
+    "machine gate",
+    "negative summary",
+    "route strategy"
+  ],
+  "decision": "REPRODUCIBLE_DECODER_BASELINE_REBUILD",
+  "rebuild_claim_boundary": {
+    "may_claim_historical_equivalence": false,
+    "may_claim_new_reproducible_baseline_only": true
+  },
+  "rebuild_target": {
+    "preferred_en_route_strategy": "horizontal_m3_bus",
+    "preferred_wl_pre_strategy": "vertical_m2_link",
+    "drc_marker_target": "fresh-result-driven, not historical 24-marker by assertion"
+  },
+  "current_blockers": [
+    "No decoder-specific production gate / determinism harness / negative suite was recovered with the historical baseline.",
+    "Current decoder flow evidence is still metadata/candidate oriented rather than a live one-parameter M2 repair loop.",
+    "No recovered marker atlas or machine-reviewed DRC delta loop is available for direct closure work."
+  ],
+  "status": "REBUILD_SELECTED_BUT_CLOSURE_STILL_BLOCKED_BY_MISSING_EXECUTABLE_DECODER_GATE"
+}

@@ -42,7 +42,7 @@ CASES = [
     SpiceCase("pdrive_buffer", "pdrive", "buffer", "buffer output should follow input"),
     SpiceCase("wl_pdrive_buffer", "wl_pdrive", "buffer", "WL driver output should follow input"),
     SpiceCase("pdrive2_for_pre_buffer", "pdrive2_for_pre", "buffer", "precharge buffer output should follow input"),
-    SpiceCase("delay_chain_polarity", "delay_chain", "buffer", "delay chain output should preserve polarity with delay"),
+    SpiceCase("delay_chain_polarity", "delay_chain", "delay_invert", "delay chain is a 9-stage loaded inverter chain and should invert after propagation"),
     SpiceCase("dff_capture", "DFF", "dff", "Q should capture D on clock edges"),
     SpiceCase("dff_buf_capture", "DFF_BUF", "dff_buf", "Q/QB should capture complementary state"),
 ]
@@ -154,6 +154,24 @@ XDUT VDD VSS A Z {subckt}
 .measure tran z_low MIN v(Z) FROM=0p TO=180p
 .measure tran z_high MAX v(Z) FROM=250p TO=460p
 """
+    elif case.check_kind == "delay_invert":
+        body = """
+VVDD VDD 0 1.0
+VVSS VSS 0 0
+VA A 0 PULSE(0 1.0 40p 5p 5p 120p 240p)
+XDUT VDD VSS A Z delay_chain
+.tran 1p 700p
+.measure tran t_in_rise WHEN v(A)=0.5 RISE=1
+.measure tran t_out_fall WHEN v(Z)=0.5 FALL=1
+.measure tran tpd_rise_fall PARAM='t_out_fall-t_in_rise'
+.measure tran t_in_fall WHEN v(A)=0.5 FALL=1
+.measure tran t_out_rise WHEN v(Z)=0.5 RISE=1
+.measure tran tpd_fall_rise PARAM='t_out_rise-t_in_fall'
+.measure tran z_after_first_rise FIND v(Z) AT=300p
+.measure tran z_after_first_fall FIND v(Z) AT=430p
+.measure tran z_min MIN v(Z) FROM=0p TO=700p
+.measure tran z_max MAX v(Z) FROM=0p TO=700p
+"""
     elif case.check_kind == "dff":
         body = """
 VVDD VDD 0 1.0
@@ -208,6 +226,22 @@ def evaluate(case: SpiceCase, measures: dict[str, float]) -> tuple[bool, str]:
     if case.check_kind == "buffer":
         ok = measures.get("z_low", 1.0) < 0.2 and measures.get("z_high", 0.0) > 0.8
         return ok, f"z_low={measures.get('z_low')} z_high={measures.get('z_high')}"
+    if case.check_kind == "delay_invert":
+        tpd_rise_fall = measures.get("tpd_rise_fall")
+        tpd_fall_rise = measures.get("tpd_fall_rise")
+        ok = (
+            measures.get("z_after_first_rise", 1.0) < 0.2
+            and measures.get("z_after_first_fall", 0.0) > 0.8
+            and tpd_rise_fall is not None
+            and tpd_fall_rise is not None
+            and tpd_rise_fall > 0.0
+            and tpd_fall_rise > 0.0
+        )
+        return ok, (
+            f"z_after_first_rise={measures.get('z_after_first_rise')} "
+            f"z_after_first_fall={measures.get('z_after_first_fall')} "
+            f"tpd_rise_fall={tpd_rise_fall} tpd_fall_rise={tpd_fall_rise}"
+        )
     if case.check_kind == "dff":
         ok = measures.get("q_first", 1.0) < 0.2 and measures.get("q_second", 0.0) > 0.8
         return ok, f"q_first={measures.get('q_first')} q_second={measures.get('q_second')}"
