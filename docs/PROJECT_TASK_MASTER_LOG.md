@@ -283,3 +283,13 @@
 - decision: `use DRC-clean primitive and formal Team B clean gates as exact decoder child v2 source inputs instead of continuing with broken wrapper outputs or wildcard-only child assets`
 - unresolved_items: `decoder_gate_cells_v2 geometry not yet generated`; `row_decoder_v2 geometry not yet generated`; `wordline_decoder_v2 geometry not yet generated`; `decoder top remains at 2663 DRC markers until child v2 regeneration lands`
 - next_action: `generate project-owned decoder child v2 physical assets from exact primitive and formal AND2/AND3 sources, then rerun decoder rebuild and machine gate`
+
+## 2026-07-30T17:18:00Z project decoder_v2_leaf_source_inventory_refresh
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `e411f6209f5b7a32b9514777e4c7ae37d08103ce`
+- files_read: `docs/mapping/openyield_decoder_wordline_semantic_contract.json`; `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_remaining9_reference_demo/current_supported_config/{AND2,AND3}/top_pin_contract.json`; `/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_remaining9_reference_demo/current_supported_config/PNAND3/pin_map.json`; `outputs/M12C3A4_canonical_primitive_label_cleanup/current_supported_config/reusable_cells/PINV_NW90_PW270_L50/PINV_NW90_PW270_L50_pin_map.json`
+- files_modified: `scripts/project_decoder_v2_leaf_source_inventory.py`; `docs/DECODER_V2_LEAF_SOURCE_INVENTORY.csv`; `docs/DECODER_V2_LEAF_SOURCE_INVENTORY.json`; `docs/DECODER_V2_LEAF_SOURCE_INVENTORY.md`; `outputs/PROJECT_decoder_v2_leaf_sources/current_supported_config/DECODER_V2_LEAF_SOURCE_INVENTORY.json`; `docs/PROJECT_CURRENT_STATUS.json`; `docs/PROJECT_TASK_MASTER_LOG.md`; `docs/PROJECT_TASK_MASTER_LOG.jsonl`
+- result: `exact_clean_gate_count=2`; `exact_primitive_count=2`; `all_recorded_sources_drc_zero=true`; `decoder_v2_leaf_sources_machine_readable=true`
+- decision: `freeze decoder v2 leaf input authority into project-owned inventory before regenerating child geometry`
+- unresolved_items: `decoder_gate_cells_v2 geometry not yet generated`; `row_decoder_v2 geometry not yet generated`; `wordline_decoder_v2 geometry not yet generated`
+- next_action: `convert the leaf inventory into regenerated child v2 physical assets and rerun decoder rebuild`
