@@ -1,13 +1,13 @@
 {
-  "workflow_state": "PROJECT_ROW_DECODER_V2_CHILD_GATE_CLOSED",
-  "timestamp": "2026-07-30T16:32:10Z",
+  "workflow_state": "DECODER_HIERARCHICAL_FLOORPLAN_READY_FOR_HUMAN_REVIEW",
+  "timestamp": "2026-07-31T08:29:31Z",
   "git_branch": "project/mainline-inventory-20260726",
-  "git_head": "32446e40b8a3996ca8d5c2661edf774777331e0b",
+  "git_head": "841329f4172b647de5f5693c801f2d24611f83a0",
   "trusted_master_head": "c1fbd98",
   "remote_master_head_last_known": "489f3e04e85197a6501e48168627a7b8a9232550",
   "team_b_state": "TEAM_B_OWNER_HUMAN_REVIEWED_MERGED_TO_MAINLINE",
   "formal_config_count": 10,
-  "decoder_status": "BLOCKED_BY_PARTIAL_CHILD_V2_REGEN_COMPLETE",
+  "decoder_status": "HIERARCHICAL_FLOORPLAN_MACHINE_GREEN_CANDIDATES_READY",
   "decoder_rebuild_status": {
     "historical_24_marker_baseline_recovered": false,
     "rebuild_selected": true,
@@ -94,8 +94,8 @@
     "sha256_record_location": "/data1/qujh/PROJECT_INDUSTRIAL_GAP_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz.sha256",
     "package_build_head": "9eef97fbb3956ae155175ecff27ebfe485d3a636"
   },
-  "next_stage": "Regenerate decoder_gate_cells_v2 and wordline_decoder_v2 from exact child inputs, then rerun decoder rebuild against a partially refreshed child-v2 set.",
-  "current_git_head": "32446e40b8a3996ca8d5c2661edf774777331e0b",
+  "next_stage": "Human review of hierarchical decoder floorplan candidate package",
+  "current_git_head": "841329f4172b647de5f5693c801f2d24611f83a0",
   "remote_branch_head": "33752e0bde504f64eaf12d3dfda6bc5487835550",
   "latest_complete_top_package": {
     "path": "/data1/qujh/PROJECT_COMPLETE_TOP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
@@ -110,5 +110,17 @@
   "latest_industrial_gap_package": {
     "path": "/data1/qujh/PROJECT_INDUSTRIAL_GAP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
     "sha256_record_location": "/data1/qujh/PROJECT_INDUSTRIAL_GAP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz.sha256"
+  },
+  "decoder_hierarchical_floorplan": {
+    "l0_completion_gate_path": "docs/DECODER_L0_COMPLETION_GATE.json",
+    "child_v3_pareto_path": "docs/DECODER_CHILD_V3_PARETO_SET.json",
+    "candidate_count": 3,
+    "selected_candidates": [
+      "baseline_v2_long_strip",
+      "candidate_a_compact_folded",
+      "candidate_b_wl_oriented"
+    ],
+    "human_review_package": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "full_evidence_package": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz"
   }
 }

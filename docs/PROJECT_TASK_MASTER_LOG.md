@@ -333,3 +333,11 @@
 - decision: `promote row_decoder_v2 to the first project-owned regenerated decoder child-v2 candidate with a fully green child machine gate, then use the same exact-input discipline to regenerate decoder_gate_cells_v2 and wordline_decoder_v2`
 - unresolved_items: `decoder_gate_cells_v2 geometry not yet generated`; `wordline_decoder_v2 geometry not yet generated`; `decoder top machine gate not rerun after refreshed child-v2 closure`
 - next_action: `generate decoder_gate_cells_v2 from exact clean primitive/formal leaf inputs, then close wordline_decoder_v2 and rerun decoder rebuild`
+## 2026-07-31T08:29:31Z
+
+- stage: `decoder_hierarchical_floorplan`
+- git_head: `841329f4172b647de5f5693c801f2d24611f83a0`
+- selected_candidates: `baseline_v2_long_strip, candidate_a_compact_folded, candidate_b_wl_oriented`
+- review_package: `/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`
+- full_evidence_package: `/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz`
+
