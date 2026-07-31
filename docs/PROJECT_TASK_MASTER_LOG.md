@@ -341,3 +341,36 @@
 - review_package: `/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`
 - full_evidence_package: `/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz`
 
+## 2026-07-31T08:31:57Z
+
+- stage: `decoder_hierarchical_floorplan`
+- git_head: `62c3d663d2dc4011b9c8d06c13d080c25535a327`
+- selected_candidates: `baseline_v2_long_strip, candidate_a_compact_folded, candidate_b_wl_oriented`
+- review_package: `/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`
+- full_evidence_package: `/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz`
+
+## 2026-07-31T08:33:00Z
+
+- stage: `decoder_hierarchical_floorplan_delivery`
+- git_head: `62c3d663d2dc4011b9c8d06c13d080c25535a327`
+- push_status: `blocked_by_https_tls_and_missing_ssh_publickey`
+- bundle_path: `/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_project_mainline_inventory_20260726_62c3d66.bundle`
+- bundle_sha256: `5b78d1c75c288c651a058e67745ba732b96ace23708080d82f40ddd6acaf4273`
+## 2026-07-31T08:34:02Z
+
+- stage: `decoder_hierarchical_floorplan`
+- git_head: `62c3d663d2dc4011b9c8d06c13d080c25535a327`
+- selected_candidates: `baseline_v2_long_strip, candidate_a_compact_folded, candidate_b_wl_oriented`
+- review_package: `/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`
+- full_evidence_package: `/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz`
+
+## 2026-07-31T08:40:00Z
+
+- stage: `decoder_hierarchical_floorplan_delivery`
+- git_head: `62c3d663d2dc4011b9c8d06c13d080c25535a327`
+- push_status: `synced`
+- push_method: `https_no_proxy`
+- remote_branch: `origin/project/mainline-inventory-20260726`
+- remote_branch_head: `62c3d663d2dc4011b9c8d06c13d080c25535a327`
+- bundle_path: `/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_project_mainline_inventory_20260726_62c3d66.bundle`
+- bundle_sha256: `5b78d1c75c288c651a058e67745ba732b96ace23708080d82f40ddd6acaf4273`
