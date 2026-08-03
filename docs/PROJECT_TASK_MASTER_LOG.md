@@ -374,3 +374,31 @@
 - remote_branch_head: `62c3d663d2dc4011b9c8d06c13d080c25535a327`
 - bundle_path: `/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_project_mainline_inventory_20260726_62c3d66.bundle`
 - bundle_sha256: `5b78d1c75c288c651a058e67745ba732b96ace23708080d82f40ddd6acaf4273`
+
+## 2026-07-31T16:05:00Z
+
+- stage: `decoder_hierarchical_floorplan_audit_correction`
+- git_head: `126f495bb8b4ffd242a1f5e1982d51bcebb0ef9c`
+- l0_status: `DECODER_L0_ABUTMENT_MATRIX_COMPLETE`
+- child_v3_status: `CHILD_V3_GEOMETRY_NOT_YET_GENERATED`
+- human_review_status: `HUMAN_REVIEW_NOT_READY`
+- correction_reason: `prior PASS_DECODER_HIERARCHICAL_FLOORPLAN_TO_HUMAN_REVIEW was unsupported because only baseline child artifacts were real; non-baseline child/top candidates had no geometry, atlas, or DRC evidence`
+- frozen_l0_lock: `docs/DECODER_L0_GOLDEN_LOCK.json`
+- next_action: `generate real child-v3 geometries and machine gates from the frozen L0 matrix`
+
+## 2026-07-31 Decoder Integration Closure
+
+- Candidate A, Candidate B, and baseline integration-shell gates now pass DRC=0, connectivity, foreign-net, power, pin access, determinism, and negative suite.
+- Packaged integration human-review bundle: `/data1/qujh/PROJECT_DECODER_INTEGRATION_CLOSURE_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`.
+- Packaged integration full-evidence bundle: `/data1/qujh/PROJECT_DECODER_INTEGRATION_CLOSURE_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz`.
+- Recommended candidate: `candidate_b_wl_oriented` based on shortest WL total/max route length among machine-green candidates.
+
+## 2026-08-03T16:46:54Z project true_multiline_decoder_packaging_checkpoint
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `126f495bb8b4ffd242a1f5e1982d51bcebb0ef9c`
+- files_read: `outputs/PROJECT_decoder_child_v3/decoder_gate_cells_v3/output_oriented_multiline/*`, `outputs/PROJECT_decoder_top_v3/candidate_true_wl_driver_array_oriented/*`, `outputs/PROJECT_decoder_wl_array_integration_shell/candidate_true_wl_driver_array_oriented/*`, `docs/DECODER_INTEGRATION_CLOSURE_SUMMARY.*`, `docs/PROJECT_CURRENT_STATUS.json`
+- files_modified: `docs/PROJECT_CURRENT_STATUS.json`, `docs/PROJECT_TASK_MASTER_LOG.md`, `docs/WORKTREE_MIGRATION_FROM_TMP_TO_DATA1.md`
+- result: `true multiline child/top/integration evidence verified before packaging`; `recommended_candidate=candidate_true_wl_driver_array_oriented`; `integration_gate_passed=true`
+- decision: `do not merge master`; `checkpoint current project branch`; `publish review/evidence packages under /data1/qujh`
+- unresolved_items: `worktree still resides under /tmp and needs planned migration`; `approved_array_physical_shell remains a nonzero physical shell and not full bitcell-array GDS`
+- next_action: `push checkpoint branch state and build /data1 review packages with SHA/index/manifest`
