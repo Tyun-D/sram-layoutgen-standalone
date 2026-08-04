@@ -23,6 +23,24 @@
       "authority_class": "FLAT_COMPLETE_SRAM_REFERENCE_NOT_STANDALONE_ARRAY_HANDOFF",
       "drc_status": "BUILT_IN_DRC_LITE_ZERO_EXTERNAL_DRC_PENDING",
       "rejection": "flat top has no standalone bitcell-array hierarchy or authoritative WL/BL/BR/VDD/VSS array pin manifest; report explicitly leaves external DRC/LVS/PEX pending"
+    },
+    {
+      "path": "/data1/qujh/PAPER_EVIDENCE_PACKAGE_20260713_043712.tar.gz::gds/bitcell_array.gds",
+      "sha256": "33f66f86206e184e7e8ffd4509f0893a0efaa8b9a02949fb3ddb8f81486b0a92",
+      "config": "4x4 standalone L3 template",
+      "rows": 4,
+      "columns": 4,
+      "authority_class": "L3_STANDALONE_TEMPLATE_NOT_FINAL_ARRAY",
+      "drc_status": "NOT_CLAIMED",
+      "rejection": "identical to the current 4x4 prototype; report has no child-source or real-instance authority"
+    },
+    {
+      "path": "/data1/qujh/OpenRAM/macro/sram_1rw0r0w_2_16_freepdk45/sram_1rw0r0w_2_16_freepdk45.gds",
+      "expected_sha256": "295745f5f633db052528300b20c90e26cc3322863820931574d6f92659d96b86",
+      "config": "2 columns x 16 rows historical OpenRAM macro",
+      "authority_class": "HISTORICAL_HIERARCHICAL_ASSET_NOT_RECOVERED",
+      "drc_status": "UNAVAILABLE",
+      "rejection": "the evidence inventory references this macro, but the source GDS is absent from the current filesystem"
     }
   ],
   "missing_items": ["approved standalone 16-row bitcell-array top cell", "authoritative WL0-WL15 pin geometry", "authoritative BL/BR pin geometry", "array VDD/VSS pin geometry and endpoint inventory", "external DRC result", "generation report binding config and source commit", "pin manifest SHA"],

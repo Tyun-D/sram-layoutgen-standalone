@@ -1,0 +1,28 @@
+{
+  "candidate_id": "PROJECT_bitcell_array_layoutgen_reuse_v2",
+  "status": "AUTHORITATIVE_ARRAY_ASSET_NOT_RECOVERED",
+  "reuse_contract_load_report": "REUSE_CONTRACT_LOAD_REPORT.json",
+  "reuse_contract_loaded": true,
+  "real_array_gds_path": null,
+  "real_array_gds_sha256": null,
+  "approved_for_integration": false,
+  "full_bitcell_array_gds_integration": false,
+  "blocked_gates": [
+    "hierarchical_16_row_gds_present",
+    "authoritative_pin_manifest_present",
+    "dummy_tap_replica_manifest_bound",
+    "array_level_drc_zero",
+    "bitcell_abutment_zero_gap",
+    "power_rail_union_passed",
+    "power_endpoint_coverage_100_percent",
+    "wl_bl_br_bit_exact",
+    "determinism_passed",
+    "negative_suite_passed"
+  ],
+  "forbidden_substitutions": [
+    "approved_nonzero_physical_shell",
+    "zero_width_proxy",
+    "L3_4x4_template",
+    "flat_clipped_region_without_authoritative_pin_manifest"
+  ]
+}

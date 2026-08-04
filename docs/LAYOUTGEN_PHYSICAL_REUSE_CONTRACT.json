@@ -1,0 +1,76 @@
+{
+  "contract_id": "LAYOUTGEN_PHYSICAL_REUSE_CONTRACT_V1",
+  "version": 1,
+  "authority_audit": "docs/LAYOUTGEN_EXISTING_ACHIEVEMENT_AUDIT.json",
+  "load_policy": {
+    "required": true,
+    "missing_or_invalid_rejection_code": "REUSE_CONTRACT_NOT_LOADED",
+    "machine_gate_load_report_required": true
+  },
+  "contracts": {
+    "BITCELL_ROW_PITCH_CONTRACT": {
+      "rule": "Every real, dummy and replica row origin must be an exact integer multiple of the locked native row pitch.",
+      "evidence_required": ["BITCELL_ARRAY_PLACEMENT.csv", "BITCELL_ABUTMENT_MATRIX.csv"]
+    },
+    "BITCELL_COLUMN_PITCH_CONTRACT": {
+      "rule": "Every real, dummy and replica column origin must be an exact integer multiple of the locked native column pitch.",
+      "evidence_required": ["BITCELL_ARRAY_PLACEMENT.csv", "BITCELL_ABUTMENT_MATRIX.csv"]
+    },
+    "BITCELL_EDGE_ABUTMENT_CONTRACT": {
+      "rule": "Every intended storage-family seam has zero geometric gap and no unauthorized signal contact after flatten/union.",
+      "evidence_required": ["BITCELL_ABUTMENT_MATRIX.csv", "BITCELL_ABUTMENT_WITNESS_ATLAS.gds"]
+    },
+    "SAME_NET_POWER_RAIL_OVERLAP_CONTRACT": {
+      "rule": "Same-layer, same-net rails must overlap or abut into one final-GDS component; labels alone are not evidence.",
+      "evidence_required": ["BITCELL_POWER_RAIL_UNION_REPORT.json"]
+    },
+    "PARENT_POWER_STITCH_CONTRACT": {
+      "rule": "A parent strap is valid only when every child endpoint has conductive overlap or a legal via/contact witness to it.",
+      "evidence_required": ["BITCELL_ARRAY_POWER_ENDPOINT_COVERAGE.csv", "POWER_WITNESS_ATLAS.gds"]
+    },
+    "WL_DRIVER_ARRAY_SEAM_CONTRACT": {
+      "rule": "Each driver output is row-aligned to its array WL pin and the intended bank seam satisfies the locked abutment/channel policy.",
+      "evidence_required": ["WL_DRIVER_ABUTMENT_COMPATIBILITY_MATRIX.csv", "WL_DRIVER_ARRAY_ALIGNMENT.csv"]
+    },
+    "DUMMY_ROW_COLUMN_CONTRACT": {
+      "rule": "Dummy rows and columns are explicit instances at every boundary required by the selected formal configuration.",
+      "evidence_required": ["BITCELL_ARRAY_PLACEMENT.csv", "hierarchy_inventory.json"]
+    },
+    "TAP_INSERTION_CONTRACT": {
+      "rule": "Tap insertion follows a versioned maximum-spacing and power-polarity rule with explicit instances and witnesses.",
+      "evidence_required": ["BITCELL_ARRAY_PLACEMENT.csv", "BITCELL_ARRAY_POWER_ENDPOINT_COVERAGE.csv"]
+    },
+    "REPLICA_CELL_COLUMN_CONTRACT": {
+      "rule": "Replica instances and pins are present only when required by the formal configuration and are bound to that configuration manifest.",
+      "evidence_required": ["BITCELL_ARRAY_PLACEMENT.csv", "pin_manifest.json"]
+    },
+    "PIN_ACCESS_CONTRACT": {
+      "rule": "WL, BL, BR, VDD and VSS access is proven on final clean GDS against obstruction and routing-track geometry.",
+      "evidence_required": ["pin_manifest.json", "pin_access_report.json"]
+    },
+    "HIERARCHICAL_CONNECTIVITY_CONTRACT": {
+      "rule": "The final hierarchy and flattened conductor graph agree on bit-exact WL/BL/BR mapping, isolated power nets and zero foreign-net merges.",
+      "evidence_required": ["hierarchy_inventory.json", "connectivity_report.json", "foreign_net_report.json"]
+    }
+  },
+  "authority_requirements": {
+    "forbid_as_authoritative_array": [
+      "approved_nonzero_physical_shell",
+      "zero_width_proxy",
+      "L3_4x4_template",
+      "flat_clipped_region_without_authoritative_pin_manifest"
+    ],
+    "required_array_gate_results": {
+      "drc_marker_count": 0,
+      "intended_gap_count": 0,
+      "pitch_exact": true,
+      "power_endpoint_coverage_fraction": 1.0,
+      "vdd_component_count": 1,
+      "vss_component_count": 1,
+      "vdd_vss_merged": false,
+      "wl_bl_br_bit_exact": true,
+      "determinism": true,
+      "negative_suite_unexpected_pass_count": 0
+    }
+  }
+}

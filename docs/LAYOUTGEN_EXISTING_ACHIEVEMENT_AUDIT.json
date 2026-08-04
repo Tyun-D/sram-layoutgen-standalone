@@ -1,0 +1,112 @@
+{
+  "audit_date": "2026-08-04",
+  "evidence_package": {
+    "path": "/data1/qujh/PAPER_EVIDENCE_PACKAGE_20260713_043712.tar.gz",
+    "sha256": "4eb62c04deb83eb64f5c07d1ba1a3700bbf47516f9c37da608fcbf806ca275c1",
+    "exists": true
+  },
+  "authority_conclusion": "AUTHORITATIVE_ARRAY_ASSET_NOT_RECOVERED",
+  "reusable_generator_root": "/data1/qujh/work/sram_layoutgen_step45_clean",
+  "achievements": [
+    {
+      "id": "native_storage_pitch",
+      "fact": "The standalone generator derives storage placement from native hard-macro pitch rather than a synthetic standard-cell grid.",
+      "source_path": "sram_layoutgen/standalone.py",
+      "source_sha256": "c53526acba2f1ab25606fa7a4b43f46aa00a7863ec179e6887218df327afb23e",
+      "gds_path": "technology/freepdk45/gds_lib/cell_1rw.gds",
+      "gds_sha256": "7bd6076b0c13eb0e92894a90d4530a9f9bd4eb52966003dbe468f74e86146bb4",
+      "report_path": "docs/openyield_storage_pitch_audit.json",
+      "applicable_config": "OpenYield standalone storage family",
+      "directly_reusable": true,
+      "migration_required": true
+    },
+    {
+      "id": "dummy_replica_family",
+      "fact": "Bitcell, dummy-cell and replica-cell hard macros are loaded as one storage family and placed on the same native pitch.",
+      "source_path": "sram_layoutgen/standalone.py",
+      "source_sha256": "c53526acba2f1ab25606fa7a4b43f46aa00a7863ec179e6887218df327afb23e",
+      "gds_path": "technology/freepdk45/gds_lib/dummy_cell_1rw.gds; technology/freepdk45/gds_lib/replica_cell_1rw.gds",
+      "gds_sha256": "7fd59f47af7ce0abc0318457faf07eda7a2cbc7dee2b025855e17a5159e7b214; 2f74ce27a7eb08e5d589113c4dcc1268f49ec44e95f67ba6094766fec3975c22",
+      "report_path": "docs/openyield_hardcell_drc_baseline_report.json",
+      "applicable_config": "storage array generation",
+      "directly_reusable": true,
+      "migration_required": true
+    },
+    {
+      "id": "same_net_power_and_parent_stitch",
+      "fact": "The generator classifies same-net rail overlap separately from foreign-net overlap and can create parent power stitching over child endpoints.",
+      "source_path": "sram_layoutgen/standalone.py; sram_layoutgen/verifier.py",
+      "source_sha256": "c53526acba2f1ab25606fa7a4b43f46aa00a7863ec179e6887218df327afb23e; 8d089649db26a150025bfd19087a426f95231302e43a7a6a2bec18aea9e69e5a",
+      "gds_path": "gds/openyield_storage_only_2x4_stitched.gds",
+      "gds_sha256": "NOT_LOCKED_AS_CURRENT_AUTHORITY",
+      "report_path": "POWER_RAIL_ASSEMBLY.json",
+      "applicable_config": "paper evidence storage smoke",
+      "directly_reusable": true,
+      "migration_required": true
+    },
+    {
+      "id": "wordline_row_alignment",
+      "fact": "The existing placement rules align row-decoder and wordline-driver stacks to storage rows and extract local WL pin geometry.",
+      "source_path": "sram_layoutgen/standalone.py; TOP_LEVEL_PLACEMENT_RULES.json",
+      "source_sha256": "c53526acba2f1ab25606fa7a4b43f46aa00a7863ec179e6887218df327afb23e",
+      "gds_path": "technology/freepdk45/gds_lib/gen_wl_driver.gds",
+      "gds_sha256": "6ca7b1ad4c1e06718bfd95d0ee9ab0fc78d1d600e9c9886bf379531cb72a7a30",
+      "report_path": "TOP_LEVEL_PLACEMENT_RULES.json",
+      "applicable_config": "OpenYield standalone placement",
+      "directly_reusable": true,
+      "migration_required": true
+    },
+    {
+      "id": "hierarchical_connectivity_and_pin_access",
+      "fact": "The existing verifier contains hierarchy, pin-access and foreign-overlap checks, but these are built-in checks and do not replace final-GDS DRC/LVS witnesses.",
+      "source_path": "sram_layoutgen/verifier.py",
+      "source_sha256": "8d089649db26a150025bfd19087a426f95231302e43a7a6a2bec18aea9e69e5a",
+      "gds_path": "gds/sram_1rw_32x14_freepdk45.gds",
+      "gds_sha256": "2fdaf7025ced96f4f91d505b6d1a988c170c15ecc655041830dff24f3122940e",
+      "report_path": "MODULE_IMPLEMENTATION_INVENTORY.json",
+      "applicable_config": "32x14 paper evidence only",
+      "directly_reusable": false,
+      "migration_required": true
+    }
+  ],
+  "rejected_authority_candidates": [
+    {
+      "asset": "paper evidence gds/bitcell_array.gds",
+      "sha256": "33f66f86206e184e7e8ffd4509f0893a0efaa8b9a02949fb3ddb8f81486b0a92",
+      "reason": "4x4 L3 geometric prototype; generation report records unavailable child-source and instance authority"
+    },
+    {
+      "asset": "openyield_raw_16x16_wpr1_fd45.gds",
+      "reason": "generation report is DRC-dirty with 46 built-in violations and records loose abutment, bitline misalignment, synthetic cells and no external DRC/LVS/PEX"
+    },
+    {
+      "asset": "flat sram_16x16_wpr1_fd45 golden reference",
+      "reason": "flat top has no separately authoritative bitcell-array hierarchy or pin handoff and no external DRC/LVS/PEX closure"
+    },
+    {
+      "asset": "/data1/qujh/OpenRAM/macro/sram_1rw0r0w_2_16_freepdk45/sram_1rw0r0w_2_16_freepdk45.gds",
+      "expected_sha256": "295745f5f633db052528300b20c90e26cc3322863820931574d6f92659d96b86",
+      "reason": "referenced by the evidence inventory but absent from the current filesystem"
+    }
+  ],
+  "hardcell_drc_context": {
+    "report": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/openyield_hardcell_drc_baseline_report.json",
+    "single_cell_marker_counts": {
+      "cell_1rw": 0,
+      "dummy_cell_1rw": 0,
+      "replica_cell_1rw": 0
+    },
+    "storage_aggregation_new_marker_count": 40,
+    "storage_aggregation_can_continue": false,
+    "interpretation": "Clean leaf baselines do not prove clean array aggregation."
+  },
+  "missing_authority_items": [
+    "accessible versioned hierarchical 16-row bitcell-array GDS",
+    "locked top-cell and hierarchy inventory",
+    "authoritative WL/BL/BR/VDD/VSS pin manifest",
+    "dummy/tap/replica configuration manifest",
+    "array-level external DRC=0 database",
+    "final-GDS power endpoint and same-net rail-union witnesses",
+    "deterministic generation report bound to source commit and GDS SHA"
+  ]
+}

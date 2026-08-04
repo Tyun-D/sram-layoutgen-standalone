@@ -432,3 +432,12 @@
 - The L3 4x4 array template is not a final array authority. The flat 16x16 golden-reference SRAM lacks a standalone array hierarchy/pin handoff and external DRC/LVS/PEX closure.
 - `TREAL_L3_array_authority_pending` is diagnostic only and fails with 4707 DRC markers plus alignment, connectivity, power, and foreign-net failures.
 - Stop classification: `PASS_WL_TIMING_ENGINEERING_CLOSURE_PENDING_ARRAY_GDS_AUTHORITY`.
+
+## 2026-08-04 Layoutgen reuse authority correction
+
+- Downgraded the current result to `WL_ROUTING_ENGINEERING_PROXY_COMPLETE`; it remains a floorplan-feasibility shell and is not an approved SRAM physical architecture.
+- Audited `/data1/qujh/PAPER_EVIDENCE_PACKAGE_20260713_043712.tar.gz` and the surviving Layoutgen tree. Native pitch, dummy/replica placement, same-net power handling, parent stitching, WL alignment, pin access, and hierarchical checks are reusable generator logic.
+- The package bitcell array is the rejected 4x4 L3 prototype. The inventoried hierarchical 2x16 OpenRAM macro is absent, the generated 16x16 array is DRC-dirty, and the flat 16x16 reference has no authoritative standalone array hierarchy/pin handoff.
+- Added `docs/LAYOUTGEN_PHYSICAL_REUSE_CONTRACT.json` and a fail-closed load gate. Missing or incomplete contracts reject with `REUSE_CONTRACT_NOT_LOADED`.
+- No P2/P3/T candidate GDS was modified. No real-array architecture package was generated.
+- Stop classification: `PASS_LAYOUTGEN_REUSE_CONTRACT_CLOSED_PENDING_AUTHORITATIVE_ARRAY_ASSET`.
