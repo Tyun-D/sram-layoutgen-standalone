@@ -1,0 +1,14 @@
+{
+  "selected_evidence_level": "NORMALIZED_GEOMETRY_RC_PROXY",
+  "not_post_layout_pex": true,
+  "pdk_techfile_rc_estimate_available": false,
+  "project_calibrated_rc_estimate_available": false,
+  "audit": [
+    {"source_file": "technology/freepdk45/tech/freepdk45.lyt", "source_sha256": "ce06052906479e3c98a22571a45dc4218d93ea3d15ab56d1795cef63c27912c9", "finding": "layer mapping and connectivity only; no sheet resistance, capacitance, or via resistance parameters"},
+    {"source_file": "technology/freepdk45/tech/freepdk45.lydrc", "finding": "geometric DRC rules only; no extraction-calibrated RC authority"},
+    {"source_file": "OpenYield simulation assets", "finding": "driver transistor models and abstract RC hooks exist, but no traceable geometry-to-RC layer parameter set is locked"}
+  ],
+  "missing_parameters": ["metal sheet resistance by layer", "fringe capacitance by layer", "area capacitance by layer", "via resistance by type", "validated layer mapping to extraction corners"],
+  "units": "not available from an authoritative local source",
+  "assumptions": "V2 preserves normalized geometry weighting and equal row-load proxy; absolute R/C values are deliberately not fabricated."
+}

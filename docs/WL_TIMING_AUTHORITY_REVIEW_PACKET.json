@@ -1,0 +1,16 @@
+{
+  "status": "LOGIC_OWNER_CONFIRMATION_REQUIRED",
+  "questions": [
+    "What is the WL active window?",
+    "What is the maximum permitted WL0-WL15 arrival skew?",
+    "What is the maximum permitted WL rise/fall time or latest stable time?",
+    "Do read and write use the same WL timing budget?"
+  ],
+  "current_engineering_evidence": {
+    "model": "SOURCE_BOUND_DRIVER_PLUS_NORMALIZED_GEOMETRY_RC_PROXY",
+    "not_post_layout_pex": true,
+    "best_machine_green_candidate": "T3_driver_column_spacing_pareto",
+    "max_arrival_skew_ps": 0.15823,
+    "slew_ratio": 1.0099272309
+  }
+}

@@ -46,6 +46,8 @@ class IntegrationCandidate:
     driver_x_gap: float
     array_x_gap: float
     diagnostic_only: bool = False
+    interleave_gap: float = 2.0
+    array_object: str = "approved_physical_shell"
 
 
 INTEGRATION_CANDIDATES = [
@@ -216,7 +218,7 @@ def _driver_layout_rows(
             return driver_x, rows, "1x16"
         # The current driver macro is taller than one array row, so a literal 1x16 stack overlaps.
         # Use two interleaved columns to keep exact row alignment without driver overlap.
-        interleave_x = round(driver_x + driver_w + 2.0, 6)
+        interleave_x = round(driver_x + driver_w + candidate.interleave_gap, 6)
         rows = []
         for wl_index in range(TOTAL_ROWS):
             target_center_y = round(wl_index * row_pitch + row_pitch * 0.5, 6)
@@ -702,7 +704,7 @@ def _generate_candidate(candidate: IntegrationCandidate) -> dict[str, Any]:
     driver_w = round(float(driver_bbox_raw[1][0] - driver_bbox_raw[0][0]), 6)
     driver_h = round(float(driver_bbox_raw[1][1] - driver_bbox_raw[0][1]), 6)
 
-    use_physical_shell = candidate.candidate_id != "baseline_v2_long_strip"
+    use_physical_shell = candidate.array_object != "full_bitcell_array_gds"
     if use_physical_shell:
         array_shell_cell, array_pin_map, array_meta = _build_array_physical_shell(tech)
         array_w = round(float(array_meta["bbox"]["width"]), 6)
@@ -992,7 +994,7 @@ def _generate_candidate(candidate: IntegrationCandidate) -> dict[str, Any]:
         "candidate_id": candidate.candidate_id,
         "architecture_family": candidate.architecture_family,
         "driver_layout_pattern": driver_layout_pattern,
-        "integration_level": "FLOORPLAN_FEASIBILITY_SHELL" if use_physical_shell else "ROUTING_HARNESS",
+        "integration_level": "FLOORPLAN_FEASIBILITY_SHELL" if use_physical_shell else "REAL_BITCELL_ARRAY_GDS_CANDIDATE",
         "integration_top_name": top_name,
         "clean_gds_path": str(clean_gds.resolve()),
         "clean_gds_sha256": _sha256(clean_gds),

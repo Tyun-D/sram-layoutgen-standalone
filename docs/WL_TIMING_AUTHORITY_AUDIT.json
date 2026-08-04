@@ -1,0 +1,18 @@
+{
+  "audit_result": "TIMING_BUDGET_AUTHORITY_PENDING",
+  "clock_period": {"classification": "AUTHORITY_PENDING", "value": null},
+  "wl_active_window": {"classification": "AUTHORITY_PENDING", "value": null},
+  "wl_assertion_deadline": {"classification": "AUTHORITY_PENDING", "value": null},
+  "wl_deassertion_deadline": {"classification": "AUTHORITY_PENDING", "value": null},
+  "wl_arrival_skew_limit": {"classification": "AUTHORITY_PENDING", "value": null},
+  "wl_slew_limit": {"classification": "AUTHORITY_PENDING", "value": null},
+  "read_write_budget_relationship": {"classification": "AUTHORITY_PENDING", "value": null},
+  "startup_clamp_effect": {"classification": "DERIVED_FROM_EXACT_RELATIONS", "value": "startup/control logic affects enable sequencing, but no source establishes a numeric first-valid-cycle WL budget"},
+  "sources": [
+    {"path": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/decoder.py", "sha256": "f64bc6a8aa3f6a90abb51035c6fa5d711a40eb4ff17f4437a3daf47459e3b7a2", "finding": "exact WL logical fanout and ordering; no numeric timing budget"},
+    {"path": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py", "sha256": "fa5277f078f79d5b43335c2dcd6e364625aa8ad17b7108d323b85e73dfeaae80", "finding": "exact generated enable topology; no authoritative WL window/skew/slew limit"},
+    {"path": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/wordline_driver.py", "sha256": "29c95d280842df61002a1ff3293e4ea780f15567435ec65c2d05c1b63c79dd2b", "finding": "exact driver circuit topology; no timing contract"},
+    {"path": "/data1/qujh/work/external/OpenYield/sram_compiler/config_yaml/global.yaml", "sha256": "a0927167d2db7d9730fc239065cd345c93c323d7de9f68b9351da3c03adba94f", "finding": "read/write delay objectives are declared but no WL-specific numeric authority exists"}
+  ],
+  "openyield_source_commit": "1c34428d8b913963c4971d093b1a7c2df97a2509"
+}

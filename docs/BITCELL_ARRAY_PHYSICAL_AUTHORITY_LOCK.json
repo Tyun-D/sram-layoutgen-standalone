@@ -1,0 +1,31 @@
+{
+  "authority_status": "FULL_BITCELL_ARRAY_GDS_AUTHORITY_PENDING",
+  "approved_for_real_decoder_integration": false,
+  "audited_assets": [
+    {
+      "path": "outputs/openyield_module_gds/bitcell_array/bitcell_array.gds",
+      "sha256": "33f66f86206e184e7e8ffd4509f0893a0efaa8b9a02949fb3ddb8f81486b0a92",
+      "top_cell": "bitcell_array",
+      "config": "4x4 standalone L3 template",
+      "rows": 4,
+      "columns": 4,
+      "authority_class": "L3_STANDALONE_TEMPLATE_NOT_FINAL_ARRAY",
+      "drc_status": "NOT_CLAIMED",
+      "rejection": "generation report explicitly says this is not final top-level SRAM array sizing"
+    },
+    {
+      "path": "outputs/M7_correct_golden_reference/current_supported_config/extracted/full_layout_collection/sram_16x16_wpr1/sram_16x16_wpr1_fd45.gds",
+      "sha256": "1cb65581e969d210c221bdc749aa726d0c738ebb5f6b5f66fe667b57af0f59ef",
+      "source_commit": "3203509e0db15d8fd58bd8047de04081bbb88c0b",
+      "config": "16x16_wpr1",
+      "rows": 16,
+      "columns": 16,
+      "authority_class": "FLAT_COMPLETE_SRAM_REFERENCE_NOT_STANDALONE_ARRAY_HANDOFF",
+      "drc_status": "BUILT_IN_DRC_LITE_ZERO_EXTERNAL_DRC_PENDING",
+      "rejection": "flat top has no standalone bitcell-array hierarchy or authoritative WL/BL/BR/VDD/VSS array pin manifest; report explicitly leaves external DRC/LVS/PEX pending"
+    }
+  ],
+  "missing_items": ["approved standalone 16-row bitcell-array top cell", "authoritative WL0-WL15 pin geometry", "authoritative BL/BR pin geometry", "array VDD/VSS pin geometry and endpoint inventory", "external DRC result", "generation report binding config and source commit", "pin manifest SHA"],
+  "array_integration_level": "FLOORPLAN_FEASIBILITY_SHELL",
+  "full_bitcell_array_gds_integration": "PENDING"
+}

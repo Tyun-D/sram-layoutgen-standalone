@@ -421,3 +421,14 @@
 - Integration authority remains `FLOORPLAN_FEASIBILITY_SHELL`; full bitcell-array GDS integration is pending.
 - Timing authority remains pending. Current evidence is `NORMALIZED_GEOMETRY_RC_PROXY`, not PEX: max arrival skew about 0.196 ps, slew ratio about 1.0121, and normalized RC max/median 1.4730.
 - P2/P3 artifacts are frozen by `docs/DECODER_PHYSICAL_ARCHITECTURE_GOLDEN_LOCK.json`; subsequent work is isolated under `outputs/PROJECT_decoder_physical_timing_closure/`.
+
+## 2026-08-04 WL timing engineering closure and array authority audit
+
+- Timing authority audit remains `TIMING_BUDGET_AUTHORITY_PENDING`; a four-question logic-owner review packet is available.
+- No authoritative PDK/extraction RC parameter set was found. V2 remains `NORMALIZED_GEOMETRY_RC_PROXY` and explicitly `NOT_POST_LAYOUT_PEX`.
+- T0 and T3 pass all shell-level machine gates. T3 is the only implemented non-baseline local optimization and reduces macro width/area and total WL length; its max normalized RC/median is 1.4617, arrival-skew proxy is 0.15823 ps, and slew ratio is 1.00993.
+- T1 and T2 are rejected with `SEMANTIC_CANDIDATE_NAME_CONTRACT_FAILED`; their generated geometry only changes spacing and does not implement the named egress/compensation structures.
+- T4 is rejected because driver height 1.8875 um exceeds array row pitch 1.565 um for a legal non-overlapping R0 1x16 column.
+- The L3 4x4 array template is not a final array authority. The flat 16x16 golden-reference SRAM lacks a standalone array hierarchy/pin handoff and external DRC/LVS/PEX closure.
+- `TREAL_L3_array_authority_pending` is diagnostic only and fails with 4707 DRC markers plus alignment, connectivity, power, and foreign-net failures.
+- Stop classification: `PASS_WL_TIMING_ENGINEERING_CLOSURE_PENDING_ARRAY_GDS_AUTHORITY`.
