@@ -173,7 +173,7 @@ def _rects_by_layer(flattened: gdstk.Cell) -> dict[str, list[Rect]]:
     return dict(layer_map)
 
 
-def extract_physical_connectivity(gds_path: Path, top_name: str | None = None) -> dict[str, Any]:
+def extract_physical_connectivity(gds_path: Path, top_name: str | None = None, *, metal_only: bool = False) -> dict[str, Any]:
     _, top = read_top_cell(gds_path, top_name)
     flattened = top.flatten()
     rects = _rects_by_layer(flattened)
@@ -187,25 +187,30 @@ def extract_physical_connectivity(gds_path: Path, top_name: str | None = None) -
     via2_rects = rects.get("via2", [])
     active_segments, parent_to_children = _split_active_segments(active_rects, poly_rects)
 
-    all_rects = {rect.rect_id: rect for rect in [*m1_rects, *m2_rects, *m3_rects, *poly_rects, *active_segments, *contact_rects, *via1_rects, *via2_rects]}
+    if metal_only:
+        all_rects = {rect.rect_id: rect for rect in [*m1_rects, *m2_rects, *m3_rects, *via1_rects, *via2_rects]}
+    else:
+        all_rects = {rect.rect_id: rect for rect in [*m1_rects, *m2_rects, *m3_rects, *poly_rects, *active_segments, *contact_rects, *via1_rects, *via2_rects]}
     uf = _UnionFind()
     for rect_id in all_rects:
         uf.add(rect_id)
 
-    for layer_rects in (m1_rects, m2_rects, m3_rects, poly_rects, active_segments):
+    layer_groups = (m1_rects, m2_rects, m3_rects) if metal_only else (m1_rects, m2_rects, m3_rects, poly_rects, active_segments)
+    for layer_rects in layer_groups:
         for index, left in enumerate(layer_rects):
             for right in layer_rects[index + 1 :]:
                 if _touch_or_overlap(left, right):
                     uf.union(left.rect_id, right.rect_id)
 
     contact_links: dict[str, list[str]] = {}
-    for contact in contact_rects:
-        linked: list[str] = []
-        for target in (*m1_rects, *poly_rects, *active_segments):
-            if _touch_or_overlap(contact, target):
-                uf.union(contact.rect_id, target.rect_id)
-                linked.append(target.rect_id)
-        contact_links[contact.rect_id] = sorted(linked)
+    if not metal_only:
+        for contact in contact_rects:
+            linked: list[str] = []
+            for target in (*m1_rects, *poly_rects, *active_segments):
+                if _touch_or_overlap(contact, target):
+                    uf.union(contact.rect_id, target.rect_id)
+                    linked.append(target.rect_id)
+            contact_links[contact.rect_id] = sorted(linked)
     via1_links: dict[str, list[str]] = {}
     for via1 in via1_rects:
         linked: list[str] = []
@@ -235,7 +240,7 @@ def extract_physical_connectivity(gds_path: Path, top_name: str | None = None) -
         labels.append(entry)
         text = str(label.text)
         m1_hits = [rect for rect in (*m1_rects, *m2_rects, *m3_rects) if _contains_point(rect, float(label.origin[0]), float(label.origin[1]))]
-        poly_hits = [rect for rect in poly_rects if _contains_point(rect, float(label.origin[0]), float(label.origin[1]))]
+        poly_hits = [] if metal_only else [rect for rect in poly_rects if _contains_point(rect, float(label.origin[0]), float(label.origin[1]))]
         hit_ids = [rect.rect_id for rect in m1_hits or poly_hits]
         label_hits.append({"text": text, "origin": entry["origin"], "shape_ids": hit_ids, "layer": entry["layer"]})
         pin_labels[text].append({"origin": entry["origin"], "shape_ids": hit_ids})
@@ -260,27 +265,29 @@ def extract_physical_connectivity(gds_path: Path, top_name: str | None = None) -
         bucket["bbox"] = [round(value, 6) for value in bucket["bbox"]]
 
     active_segment_details = []
-    for segment in active_segments:
-        overlaps = {
-            "nwell": any(_touch_or_overlap(segment, rect) for rect in rects.get("nwell", [])),
-            "pwell": any(_touch_or_overlap(segment, rect) for rect in rects.get("pwell", [])),
-            "nimplant": any(_touch_or_overlap(segment, rect) for rect in rects.get("nimplant", [])),
-            "pimplant": any(_touch_or_overlap(segment, rect) for rect in rects.get("pimplant", [])),
-            "contact_ids": sorted(rect.rect_id for rect in contact_rects if _touch_or_overlap(segment, rect)),
-            "component_id": uf.find(segment.rect_id),
-        }
-        active_segment_details.append(
-            {
-                "segment_id": segment.rect_id,
-                "parent_active_id": segment.source,
-                "bbox": segment.bbox(),
-                **overlaps,
+    if not metal_only:
+        for segment in active_segments:
+            overlaps = {
+                "nwell": any(_touch_or_overlap(segment, rect) for rect in rects.get("nwell", [])),
+                "pwell": any(_touch_or_overlap(segment, rect) for rect in rects.get("pwell", [])),
+                "nimplant": any(_touch_or_overlap(segment, rect) for rect in rects.get("nimplant", [])),
+                "pimplant": any(_touch_or_overlap(segment, rect) for rect in rects.get("pimplant", [])),
+                "contact_ids": sorted(rect.rect_id for rect in contact_rects if _touch_or_overlap(segment, rect)),
+                "component_id": uf.find(segment.rect_id),
             }
-        )
+            active_segment_details.append(
+                {
+                    "segment_id": segment.rect_id,
+                    "parent_active_id": segment.source,
+                    "bbox": segment.bbox(),
+                    **overlaps,
+                }
+            )
 
-    return {
+    report = {
         "gds_path": str(gds_path),
         "top_cell": top.name,
+        "extraction_mode": "metal_only" if metal_only else "full_device",
         "layers_present": {layer: len(items) for layer, items in sorted(rects.items())},
         "parent_active_to_segments": parent_to_children,
         "active_segments": active_segment_details,
@@ -294,9 +301,19 @@ def extract_physical_connectivity(gds_path: Path, top_name: str | None = None) -
         "rectangles": {
             "m1": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in m1_rects],
             "m2": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in m2_rects],
+            "m3": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in m3_rects],
             "poly": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in poly_rects],
             "active_segments": [{"rect_id": rect.rect_id, "bbox": rect.bbox(), "source": rect.source} for rect in active_segments],
             "contact": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in contact_rects],
             "via1": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in via1_rects],
+            "via2": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in via2_rects],
         },
     }
+    if not metal_only:
+        return report
+    report["active_segments"] = []
+    report["contact_links"] = {}
+    report["parent_active_to_segments"] = {}
+    report["rectangles"]["active_segments"] = []
+    report["rectangles"]["contact"] = []
+    return report

@@ -19,14 +19,22 @@ def _component_for_bbox(graph: dict[str, Any], bbox: dict[str, float], layers: s
     shape_lookup = _shape_to_component(graph)
     cx = round((bbox["lx"] + bbox["rx"]) * 0.5, 6)
     cy = round((bbox["by"] + bbox["uy"]) * 0.5, 6)
+    best_rect: dict[str, Any] | None = None
+    best_key: tuple[float, float, float, float] | None = None
     for layer_name, rects in graph.get("rectangles", {}).items():
         if layers and layer_name not in layers:
             continue
         for rect in rects:
             lx, by, rx, uy = rect["bbox"]
             if lx - 1e-6 <= cx <= rx + 1e-6 and by - 1e-6 <= cy <= uy + 1e-6:
-                return shape_lookup.get(rect["rect_id"])
-    return None
+                area = (rx - lx) * (uy - by)
+                bbox_distance = abs(lx - bbox["lx"]) + abs(by - bbox["by"]) + abs(rx - bbox["rx"]) + abs(uy - bbox["uy"])
+                center_distance = abs(((lx + rx) * 0.5) - cx) + abs(((by + uy) * 0.5) - cy)
+                key = (round(area, 12), round(bbox_distance, 12), round(center_distance, 12), float(len(rect["rect_id"])))
+                if best_key is None or key < best_key:
+                    best_key = key
+                    best_rect = rect
+    return shape_lookup.get(best_rect["rect_id"]) if best_rect is not None else None
 
 
 def verify_hierarchical_connectivity(
@@ -35,8 +43,9 @@ def verify_hierarchical_connectivity(
     top_name: str,
     endpoints_by_net: dict[str, list[dict[str, Any]]],
     top_pin_bboxes: dict[str, dict[str, float]],
+    metal_only: bool = False,
 ) -> dict[str, Any]:
-    graph = extract_physical_connectivity(gds_path, top_name)
+    graph = extract_physical_connectivity(gds_path, top_name, metal_only=metal_only)
     endpoint_to_net: dict[str, str] = {}
     endpoint_to_component: dict[str, str | None] = {}
     expected_components: dict[str, set[str]] = {}

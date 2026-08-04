@@ -1,29 +1,22 @@
 # Decoder Child V3 Comparison
 
-This round keeps the existing machine-green v2 regenerated children as the only Pareto-eligible v3 entrants.
-Other template families are scored as search/intention rows but remain non-Pareto because no regenerated geometry was produced for them in this round.
+Real child-v3 generation status as of 2026-07-31:
 
 ## decoder_gate_cells_v3
 
-- green_pareto_count: `1`
-- selected_green_candidate: `decoder_gate_cells_v3__baseline_strip`
-- baseline_width: `40.4125`
-- baseline_height: `1.8875`
-- baseline_area: `76.278594`
+- real_generated_candidate_count: `2`
+- machine_green_candidate_count: `2`
+- selected_green_candidates: `decoder_gate_cells_v3__baseline_strip, decoder_gate_cells_v3__compact_abutment`
 
 ## row_decoder_v3
 
-- green_pareto_count: `1`
-- selected_green_candidate: `row_decoder_v3__baseline_strip`
-- baseline_width: `40.4125`
-- baseline_height: `1.8875`
-- baseline_area: `76.278594`
+- real_generated_candidate_count: `2`
+- machine_green_candidate_count: `2`
+- selected_green_candidates: `row_decoder_v3__baseline_strip, row_decoder_v3__compact_abutment`
 
 ## wordline_decoder_v3
 
-- green_pareto_count: `1`
-- selected_green_candidate: `wordline_decoder_v3__baseline_strip`
-- baseline_width: `43.2125`
-- baseline_height: `1.8875`
-- baseline_area: `81.563594`
+- real_generated_candidate_count: `2`
+- machine_green_candidate_count: `2`
+- selected_green_candidates: `wordline_decoder_v3__baseline_strip, wordline_decoder_v3__compact_abutment`
 

@@ -1,0 +1,127 @@
+{
+  "pin_map": {
+    "A": [
+      {
+        "layer": "m1",
+        "lx": 0.165,
+        "by": 0.395,
+        "rx": 0.3,
+        "uy": 0.46
+      }
+    ],
+    "B": [
+      {
+        "layer": "m1",
+        "lx": 0.38,
+        "by": 0.675,
+        "rx": 0.515,
+        "uy": 0.74
+      }
+    ],
+    "VSS": [
+      {
+        "layer": "m1",
+        "lx": 0.0,
+        "by": -0.0325,
+        "rx": 2.965,
+        "uy": 0.0325
+      }
+    ],
+    "VDD": [
+      {
+        "layer": "m1",
+        "lx": 0.0,
+        "by": 1.3325,
+        "rx": 2.965,
+        "uy": 1.3975
+      }
+    ],
+    "Z": [
+      {
+        "layer": "m1",
+        "lx": 1.8225,
+        "by": 0.59,
+        "rx": 1.8875,
+        "uy": 0.655
+      }
+    ]
+  },
+  "evidence": {
+    "scope": "project_wordline_driver_v2_formal_pinmap",
+    "git_head": "841329f4172b647de5f5693c801f2d24611f83a0",
+    "source_gds": "/data1/qujh/work/sram_layoutgen_step45_clean/technology/freepdk45/gds_lib/openram_replacements/gen_wl_driver.gds",
+    "alignment_csv": "/data1/qujh/work/sram_layoutgen_step45_clean/docs/mapping/M11W_wordline_driver_pin_alignment_matrix.csv",
+    "pin_rows": [
+      {
+        "logical_pin": "A",
+        "golden_pin_name": "A",
+        "golden_pin_layer": "11/0",
+        "golden_pin_bbox": [
+          0.165,
+          0.395,
+          0.3,
+          0.46
+        ],
+        "alignment_status": "ALIGNED",
+        "delta_x": "0.08",
+        "delta_y": "0.105"
+      },
+      {
+        "logical_pin": "B",
+        "golden_pin_name": "B",
+        "golden_pin_layer": "11/0",
+        "golden_pin_bbox": [
+          0.38,
+          0.675,
+          0.515,
+          0.74
+        ],
+        "alignment_status": "ALIGNED",
+        "delta_x": "0.08",
+        "delta_y": "0.105"
+      },
+      {
+        "logical_pin": "VSS",
+        "golden_pin_name": "gnd",
+        "golden_pin_layer": "11/0",
+        "golden_pin_bbox": [
+          0.0,
+          -0.0325,
+          2.965,
+          0.0325
+        ],
+        "alignment_status": "ALIGNED",
+        "delta_x": "0.08",
+        "delta_y": "0.1045"
+      },
+      {
+        "logical_pin": "VDD",
+        "golden_pin_name": "vdd",
+        "golden_pin_layer": "11/0",
+        "golden_pin_bbox": [
+          0.0,
+          1.3325,
+          2.965,
+          1.3975
+        ],
+        "alignment_status": "ALIGNED",
+        "delta_x": "0.08",
+        "delta_y": "0.1045"
+      },
+      {
+        "logical_pin": "Z",
+        "golden_pin_name": "Z",
+        "golden_pin_layer": "11/0",
+        "golden_pin_bbox": [
+          1.8225,
+          0.59,
+          1.8875,
+          0.655
+        ],
+        "alignment_status": "ALIGNED",
+        "delta_x": "-1.0905",
+        "delta_y": "0.138"
+      }
+    ]
+  }
+}

@@ -1,8 +1,580 @@
 {
   "clean_gds_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_rebuild/current_supported_config/decoder_rebuild_clean.gds",
   "review_atlas_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_rebuild/current_supported_config/decoder_rebuild_review_atlas.gds",
+  "annotated_gds_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_rebuild/current_supported_config/decoder_rebuild_annotated.gds",
   "placement_csv_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_rebuild/current_supported_config/decoder_placement.csv",
   "hierarchy_manifest_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_rebuild/current_supported_config/decoder_hierarchy_manifest.json",
   "layout_metrics_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_rebuild/current_supported_config/decoder_layout_metrics.json",
-  "route_geometry_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_rebuild/current_supported_config/decoder_route_geometry.json"
+  "route_geometry_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_rebuild/current_supported_config/decoder_route_geometry.json",
+  "top_pin_map_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_rebuild/current_supported_config/decoder_top_pin_map.json",
+  "review_atlas_meta": {
+    "atlas_top_cell": "PROJECT_DECODER_REBUILD_16X16_REVIEW_ATLAS",
+    "panel_count": 2
+  },
+  "top_pin_labels": [
+    "A0",
+    "A1",
+    "A2",
+    "A3",
+    "WL0",
+    "WL1",
+    "WL2",
+    "WL3",
+    "WL4",
+    "WL5",
+    "WL6",
+    "WL7",
+    "WL8",
+    "WL9",
+    "WL10",
+    "WL11",
+    "WL12",
+    "WL13",
+    "WL14",
+    "WL15",
+    "VDD",
+    "VSS"
+  ],
+  "top_pin_bboxes": {
+    "VDD": {
+      "lx": 0.4725,
+      "by": 1.82,
+      "rx": 132.775,
+      "uy": 1.885
+    },
+    "VSS": {
+      "lx": 0.4725,
+      "by": 0.0,
+      "rx": 132.775,
+      "uy": 0.065
+    },
+    "A3": {
+      "lx": -0.4175,
+      "by": 6.5825,
+      "rx": -0.2825,
+      "uy": 6.7175
+    },
+    "A0": {
+      "lx": -0.4175,
+      "by": 4.1825,
+      "rx": -0.2825,
+      "uy": 4.3175
+    },
+    "A1": {
+      "lx": -0.4175,
+      "by": 4.6825,
+      "rx": -0.2825,
+      "uy": 4.8175
+    },
+    "A2": {
+      "lx": -0.4175,
+      "by": 5.1825,
+      "rx": -0.2825,
+      "uy": 5.3175
+    },
+    "WL0": {
+      "layer": "m1",
+      "lx": 53.74,
+      "by": 0.135,
+      "rx": 53.8375,
+      "uy": 1.66
+    },
+    "WL1": {
+      "layer": "m1",
+      "lx": 58.405,
+      "by": 0.135,
+      "rx": 58.5025,
+      "uy": 1.66
+    },
+    "WL2": {
+      "layer": "m1",
+      "lx": 63.07,
+      "by": 0.135,
+      "rx": 63.1675,
+      "uy": 1.66
+    },
+    "WL3": {
+      "layer": "m1",
+      "lx": 67.735,
+      "by": 0.135,
+      "rx": 67.8325,
+      "uy": 1.66
+    },
+    "WL4": {
+      "layer": "m1",
+      "lx": 72.4,
+      "by": 0.135,
+      "rx": 72.4975,
+      "uy": 1.66
+    },
+    "WL5": {
+      "layer": "m1",
+      "lx": 77.065,
+      "by": 0.135,
+      "rx": 77.1625,
+      "uy": 1.66
+    },
+    "WL6": {
+      "layer": "m1",
+      "lx": 81.73,
+      "by": 0.135,
+      "rx": 81.8275,
+      "uy": 1.66
+    },
+    "WL7": {
+      "layer": "m1",
+      "lx": 86.395,
+      "by": 0.135,
+      "rx": 86.4925,
+      "uy": 1.66
+    },
+    "WL8": {
+      "layer": "m1",
+      "lx": 99.74,
+      "by": 0.135,
+      "rx": 99.8375,
+      "uy": 1.66
+    },
+    "WL9": {
+      "layer": "m1",
+      "lx": 104.405,
+      "by": 0.135,
+      "rx": 104.5025,
+      "uy": 1.66
+    },
+    "WL10": {
+      "layer": "m1",
+      "lx": 109.07,
+      "by": 0.135,
+      "rx": 109.1675,
+      "uy": 1.66
+    },
+    "WL11": {
+      "layer": "m1",
+      "lx": 113.735,
+      "by": 0.135,
+      "rx": 113.8325,
+      "uy": 1.66
+    },
+    "WL12": {
+      "layer": "m1",
+      "lx": 118.4,
+      "by": 0.135,
+      "rx": 118.4975,
+      "uy": 1.66
+    },
+    "WL13": {
+      "layer": "m1",
+      "lx": 123.065,
+      "by": 0.135,
+      "rx": 123.1625,
+      "uy": 1.66
+    },
+    "WL14": {
+      "layer": "m1",
+      "lx": 127.73,
+      "by": 0.135,
+      "rx": 127.8275,
+      "uy": 1.66
+    },
+    "WL15": {
+      "layer": "m1",
+      "lx": 132.395,
+      "by": 0.135,
+      "rx": 132.4925,
+      "uy": 1.66
+    }
+  },
+  "endpoints_by_net": {
+    "VDD": [
+      {
+        "endpoint_name": "upper_enable_stage.VDD",
+        "bbox": {
+          "lx": 0.4725,
+          "by": 1.82,
+          "rx": 40.775,
+          "uy": 1.885
+        }
+      },
+      {
+        "endpoint_name": "lower_wordline_stage_0.VDD",
+        "bbox": {
+          "lx": 46.4725,
+          "by": 1.82,
+          "rx": 86.775,
+          "uy": 1.885
+        }
+      },
+      {
+        "endpoint_name": "lower_wordline_stage_1.VDD",
+        "bbox": {
+          "lx": 92.4725,
+          "by": 1.82,
+          "rx": 132.775,
+          "uy": 1.885
+        }
+      },
+      {
+        "endpoint_name": "upper_enable_stage.EN",
+        "bbox": {
+          "lx": 0.0,
+          "by": 2.0825,
+          "rx": 0.135,
+          "uy": 2.2175
+        }
+      }
+    ],
+    "VSS": [
+      {
+        "endpoint_name": "upper_enable_stage.VSS",
+        "bbox": {
+          "lx": 0.4725,
+          "by": 0.0,
+          "rx": 40.775,
+          "uy": 0.065
+        }
+      },
+      {
+        "endpoint_name": "lower_wordline_stage_0.VSS",
+        "bbox": {
+          "lx": 46.4725,
+          "by": 0.0,
+          "rx": 86.775,
+          "uy": 0.065
+        }
+      },
+      {
+        "endpoint_name": "lower_wordline_stage_1.VSS",
+        "bbox": {
+          "lx": 92.4725,
+          "by": 0.0,
+          "rx": 132.775,
+          "uy": 0.065
+        }
+      },
+      {
+        "endpoint_name": "upper_enable_stage.A0",
+        "bbox": {
+          "lx": 0.0,
+          "by": 2.3325,
+          "rx": 0.135,
+          "uy": 2.4675
+        }
+      },
+      {
+        "endpoint_name": "upper_enable_stage.A1",
+        "bbox": {
+          "lx": 0.0,
+          "by": 2.5825,
+          "rx": 0.135,
+          "uy": 2.7175
+        }
+      }
+    ],
+    "A3": [
+      {
+        "endpoint_name": "upper_enable_stage.A2",
+        "bbox": {
+          "lx": 0.0,
+          "by": 2.8325,
+          "rx": 0.135,
+          "uy": 2.9675
+        }
+      }
+    ],
+    "A0": [
+      {
+        "endpoint_name": "lower_wordline_stage_0.A2",
+        "bbox": {
+          "lx": 46.0,
+          "by": 2.8325,
+          "rx": 46.135,
+          "uy": 2.9675
+        }
+      },
+      {
+        "endpoint_name": "lower_wordline_stage_1.A2",
+        "bbox": {
+          "lx": 92.0,
+          "by": 2.8325,
+          "rx": 92.135,
+          "uy": 2.9675
+        }
+      }
+    ],
+    "A1": [
+      {
+        "endpoint_name": "lower_wordline_stage_0.A1",
+        "bbox": {
+          "lx": 46.0,
+          "by": 2.5825,
+          "rx": 46.135,
+          "uy": 2.7175
+        }
+      },
+      {
+        "endpoint_name": "lower_wordline_stage_1.A1",
+        "bbox": {
+          "lx": 92.0,
+          "by": 2.5825,
+          "rx": 92.135,
+          "uy": 2.7175
+        }
+      }
+    ],
+    "A2": [
+      {
+        "endpoint_name": "lower_wordline_stage_0.A0",
+        "bbox": {
+          "lx": 46.0,
+          "by": 2.3325,
+          "rx": 46.135,
+          "uy": 2.4675
+        }
+      },
+      {
+        "endpoint_name": "lower_wordline_stage_1.A0",
+        "bbox": {
+          "lx": 92.0,
+          "by": 2.3325,
+          "rx": 92.135,
+          "uy": 2.4675
+        }
+      }
+    ],
+    "EN_0_0_0": [
+      {
+        "endpoint_name": "upper_enable_stage.WL0",
+        "bbox": {
+          "layer": "m1",
+          "lx": 7.74,
+          "by": 0.135,
+          "rx": 7.8375,
+          "uy": 1.66
+        }
+      },
+      {
+        "endpoint_name": "lower_wordline_stage_0.EN",
+        "bbox": {
+          "lx": 46.0,
+          "by": 2.0825,
+          "rx": 46.135,
+          "uy": 2.2175
+        }
+      }
+    ],
+    "EN_0_0_1": [
+      {
+        "endpoint_name": "upper_enable_stage.WL1",
+        "bbox": {
+          "layer": "m1",
+          "lx": 12.405,
+          "by": 0.135,
+          "rx": 12.5025,
+          "uy": 1.66
+        }
+      },
+      {
+        "endpoint_name": "lower_wordline_stage_1.EN",
+        "bbox": {
+          "lx": 92.0,
+          "by": 2.0825,
+          "rx": 92.135,
+          "uy": 2.2175
+        }
+      }
+    ],
+    "WL0": [
+      {
+        "endpoint_name": "lower_wordline_stage_0.WL0",
+        "bbox": {
+          "layer": "m1",
+          "lx": 53.74,
+          "by": 0.135,
+          "rx": 53.8375,
+          "uy": 1.66
+        }
+      }
+    ],
+    "WL8": [
+      {
+        "endpoint_name": "lower_wordline_stage_1.WL0",
+        "bbox": {
+          "layer": "m1",
+          "lx": 99.74,
+          "by": 0.135,
+          "rx": 99.8375,
+          "uy": 1.66
+        }
+      }
+    ],
+    "WL1": [
+      {
+        "endpoint_name": "lower_wordline_stage_0.WL1",
+        "bbox": {
+          "layer": "m1",
+          "lx": 58.405,
+          "by": 0.135,
+          "rx": 58.5025,
+          "uy": 1.66
+        }
+      }
+    ],
+    "WL9": [
+      {
+        "endpoint_name": "lower_wordline_stage_1.WL1",
+        "bbox": {
+          "layer": "m1",
+          "lx": 104.405,
+          "by": 0.135,
+          "rx": 104.5025,
+          "uy": 1.66
+        }
+      }
+    ],
+    "WL2": [
+      {
+        "endpoint_name": "lower_wordline_stage_0.WL2",
+        "bbox": {
+          "layer": "m1",
+          "lx": 63.07,
+          "by": 0.135,
+          "rx": 63.1675,
+          "uy": 1.66
+        }
+      }
+    ],
+    "WL10": [
+      {
+        "endpoint_name": "lower_wordline_stage_1.WL2",
+        "bbox": {
+          "layer": "m1",
+          "lx": 109.07,
+          "by": 0.135,
+          "rx": 109.1675,
+          "uy": 1.66
+        }
+      }
+    ],
+    "WL3": [
+      {
+        "endpoint_name": "lower_wordline_stage_0.WL3",
+        "bbox": {
+          "layer": "m1",
+          "lx": 67.735,
+          "by": 0.135,
+          "rx": 67.8325,
+          "uy": 1.66
+        }
+      }
+    ],
+    "WL11": [
+      {
+        "endpoint_name": "lower_wordline_stage_1.WL3",
+        "bbox": {
+          "layer": "m1",
+          "lx": 113.735,
+          "by": 0.135,
+          "rx": 113.8325,
+          "uy": 1.66
+        }
+      }
+    ],
+    "WL4": [
+      {
+        "endpoint_name": "lower_wordline_stage_0.WL4",
+        "bbox": {
+          "layer": "m1",
+          "lx": 72.4,
+          "by": 0.135,
+          "rx": 72.4975,
+          "uy": 1.66
+        }
+      }
+    ],
+    "WL12": [
+      {
+        "endpoint_name": "lower_wordline_stage_1.WL4",
+        "bbox": {
+          "layer": "m1",
+          "lx": 118.4,
+          "by": 0.135,
+          "rx": 118.4975,
+          "uy": 1.66
+        }
+      }
+    ],
+    "WL5": [
+      {
+        "endpoint_name": "lower_wordline_stage_0.WL5",
+        "bbox": {
+          "layer": "m1",
+          "lx": 77.065,
+          "by": 0.135,
+          "rx": 77.1625,
+          "uy": 1.66
+        }
+      }
+    ],
+    "WL13": [
+      {
+        "endpoint_name": "lower_wordline_stage_1.WL5",
+        "bbox": {
+          "layer": "m1",
+          "lx": 123.065,
+          "by": 0.135,
+          "rx": 123.1625,
+          "uy": 1.66
+        }
+      }
+    ],
+    "WL6": [
+      {
+        "endpoint_name": "lower_wordline_stage_0.WL6",
+        "bbox": {
+          "layer": "m1",
+          "lx": 81.73,
+          "by": 0.135,
+          "rx": 81.8275,
+          "uy": 1.66
+        }
+      }
+    ],
+    "WL14": [
+      {
+        "endpoint_name": "lower_wordline_stage_1.WL6",
+        "bbox": {
+          "layer": "m1",
+          "lx": 127.73,
+          "by": 0.135,
+          "rx": 127.8275,
+          "uy": 1.66
+        }
+      }
+    ],
+    "WL7": [
+      {
+        "endpoint_name": "lower_wordline_stage_0.WL7",
+        "bbox": {
+          "layer": "m1",
+          "lx": 86.395,
+          "by": 0.135,
+          "rx": 86.4925,
+          "uy": 1.66
+        }
+      }
+    ],
+    "WL15": [
+      {
+        "endpoint_name": "lower_wordline_stage_1.WL7",
+        "bbox": {
+          "layer": "m1",
+          "lx": 132.395,
+          "by": 0.135,
+          "rx": 132.4925,
+          "uy": 1.66
+        }
+      }
+    ]
+  }
 }

@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-08-03T17:29:44Z",
+  "candidate_id": "candidate_true_wl_driver_array_oriented",
+  "clean_gds_opened": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_wl_array_integration_shell/candidate_true_wl_driver_array_oriented/integration_shell_clean.gds",
+  "atlas_opened_for_truth": false,
+  "opened_artifact_kind": "Level_A_final_clean_gds",
+  "classification": [
+    "INTERFACE_ROUTING_HARNESS_MACHINE_PASS",
+    "FINAL_SRAM_PHYSICAL_ARCHITECTURE_NOT_APPROVED",
+    "POWER_VISUAL_AND_GEOMETRY_WITNESS_REVIEW_PENDING",
+    "WL_TIMING_BALANCE_NOT_PROVEN",
+    "PLACEMENT_SEARCH_NOT_EXHAUSTED",
+    "ARRAY_INTEGRATION_LEVEL=FLOORPLAN_FEASIBILITY_SHELL",
+    "FULL_BITCELL_ARRAY_GDS_INTEGRATION=PENDING"
+  ],
+  "machine_gate_classification_demoted_from_final_pass": true,
+  "array_object_type": "approved_nonzero_physical_shell",
+  "full_bitcell_array_gds_included": false,
+  "actual_array_object_from_manifest": "approved_nonzero_physical_shell",
+  "power_endpoint_summary": {
+    "total_endpoints": 40,
+    "missing_vdd_endpoint_count": 0,
+    "missing_vss_endpoint_count": 0,
+    "vdd_component_count": 1,
+    "vss_component_count": 1,
+    "vdd_vss_merged": true,
+    "power_endpoint_coverage_passed": false
+  },
+  "wl_driver_placement": {
+    "driver_instance_count": 16,
+    "driver_unique_y0": [
+      0.0
+    ],
+    "driver_is_single_horizontal_row": true,
+    "driver_layout_pattern": "16x1"
+  },
+  "wl_route_geometry_summary": {
+    "row_pitch": 1.565,
+    "driver_unique_y0": [
+      0.0
+    ],
+    "driver_column_count": 16,
+    "driver_row_count": 1,
+    "driver_layout_pattern": "16x1",
+    "max_wl_length_proxy": 8604.778341,
+    "min_wl_length_proxy": 1733.033095,
+    "max_via_count": 2,
+    "min_via_count": 2,
+    "max_bend_count": 3,
+    "min_bend_count": 2
+  },
+  "level_a_evidence": {
+    "final_clean_gds": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_wl_array_integration_shell/candidate_true_wl_driver_array_oriented/integration_shell_clean.gds",
+    "power_endpoint_coverage_csv": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_wl_array_integration_shell/candidate_true_wl_driver_array_oriented/POWER_ENDPOINT_COVERAGE.csv",
+    "power_witness_atlas": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_wl_array_integration_shell/candidate_true_wl_driver_array_oriented/POWER_WITNESS_ATLAS.gds",
+    "wl_geometry_rc_csv": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_wl_array_integration_shell/candidate_true_wl_driver_array_oriented/WL_GEOMETRY_RC.csv",
+    "drc_database": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_wl_array_integration_shell/candidate_true_wl_driver_array_oriented/integration_drc.lyrdb"
+  },
+  "current_candidate_power_status": "CURRENT_CANDIDATE_POWER_FAILED"
+}

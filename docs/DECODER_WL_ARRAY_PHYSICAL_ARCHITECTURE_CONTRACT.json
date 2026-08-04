@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-08-03T17:29:44Z",
+  "array_side": "right",
+  "array_object_type": "approved_nonzero_physical_shell",
+  "row_pitch": 1.565,
+  "wl_y_coordinates": {
+    "WL0": 0.7825,
+    "WL1": 2.3475,
+    "WL2": 3.9125,
+    "WL3": 5.4775,
+    "WL4": 7.0425,
+    "WL5": 8.6075,
+    "WL6": 10.1725,
+    "WL7": 11.7375,
+    "WL8": 13.3025,
+    "WL9": 14.8675,
+    "WL10": 16.4325,
+    "WL11": 17.9975,
+    "WL12": 19.5625,
+    "WL13": 21.1275,
+    "WL14": 22.6925,
+    "WL15": 24.2575
+  },
+  "driver_size": {
+    "width": 2.16,
+    "height": 1.8875
+  },
+  "driver_output_pin": "Z",
+  "driver_input_pins": [
+    "A",
+    "B"
+  ],
+  "legal_driver_orientations": [
+    "R0"
+  ],
+  "decoder_stage_legal_orientations": [
+    "R0"
+  ],
+  "allowed_placement_regions": {
+    "decoder_control_side": {
+      "x0": 0.0,
+      "x1": 54.2525
+    },
+    "driver_channel": {
+      "x0": 59.2525,
+      "x1": 120.8125
+    },
+    "array_boundary_side": {
+      "x0": 126.6125,
+      "x1": 130.1925
+    }
+  },
+  "power_rail_directions": {
+    "m1": "horizontal",
+    "m2": "vertical",
+    "m3": "horizontal"
+  },
+  "routing_layer_preferences": {
+    "driver_output_to_array": [
+      "m1",
+      "via1",
+      "m2",
+      "via2",
+      "m3",
+      "via2",
+      "m2"
+    ],
+    "power": [
+      "m1"
+    ]
+  },
+  "timing_proxy_thresholds": {
+    "arrival_skew_fraction_of_active_window_max": 0.1,
+    "arrival_skew_fraction_of_clock_period_max": 0.05,
+    "slew_ratio_max": 1.2,
+    "normalized_rc_proxy_over_median_max": 1.25,
+    "timing_budget_authority": "TIMING_BUDGET_AUTHORITY_PENDING"
+  }
+}

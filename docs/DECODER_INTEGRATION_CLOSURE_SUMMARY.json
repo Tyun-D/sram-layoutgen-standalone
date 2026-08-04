@@ -1,0 +1,133 @@
+{
+  "scope": "decoder_integration_closure_summary",
+  "generated_at": "2026-07-31T00:00:00Z",
+  "recommended_candidate": "candidate_b_wl_oriented",
+  "rows": [
+    {
+      "candidate_id": "baseline_v2_long_strip",
+      "top_clean_gds": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_top_v3/baseline_v2_long_strip/clean.gds",
+      "top_clean_gds_sha256": "01a58a6b8a30ab96cd1380f4d34b30995fb79815267de73e3651b7835030afc3",
+      "top_bbox": [
+        -1.4175,
+        -0.035,
+        132.83,
+        7.185
+      ],
+      "integration_clean_gds": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_wl_array_integration_shell/baseline_v2_long_strip/integration_shell_clean.gds",
+      "integration_clean_gds_sha256": "a3cceeac742468369dff641b20114a0e9bfab3a8c0a281b25e3a6d78c2b2018e",
+      "integration_bbox": [
+        -1.4175,
+        -0.035,
+        145.6975,
+        24.325
+      ],
+      "child_candidate_ids": {
+        "child_template": "baseline_strip",
+        "instances": {
+          "upper_enable_stage": "decoder_gate_cells_v3__baseline_strip",
+          "lower_wordline_stage_0": "decoder_gate_cells_v3__baseline_strip",
+          "lower_wordline_stage_1": "decoder_gate_cells_v3__baseline_strip"
+        }
+      },
+      "drc_marker_count": 0,
+      "connectivity_passed": true,
+      "foreign_net_passed": true,
+      "power_continuity_passed": true,
+      "pin_access_passed": true,
+      "determinism_passed": true,
+      "negative_tests_passed": true,
+      "wl_route_length_total": 1158.705,
+      "wl_route_length_max": 113.915,
+      "wl_pitch_alignment": 1.565,
+      "wl_total_improvement_vs_baseline": 0.0,
+      "wl_max_improvement_vs_baseline": 0.0,
+      "integration_width": 147.115,
+      "integration_height": 24.36,
+      "top_width": 134.2475
+    },
+    {
+      "candidate_id": "candidate_a_compact_folded",
+      "top_clean_gds": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_top_v3/candidate_a_compact_folded/clean.gds",
+      "top_clean_gds_sha256": "6a55f28739fff559e6c4ef3052806a06c0f602abaf90b4d093a388aa702dfd50",
+      "top_bbox": [
+        -1.4175,
+        -0.035,
+        112.53,
+        7.185
+      ],
+      "integration_clean_gds": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_wl_array_integration_shell/candidate_a_compact_folded/integration_shell_clean.gds",
+      "integration_clean_gds_sha256": "934a77ade57ba974565e8ed6ac16530ff113c295235295ad0fa8e15f100bb6b5",
+      "integration_bbox": [
+        -1.4175,
+        -0.035,
+        123.3975,
+        24.325
+      ],
+      "child_candidate_ids": {
+        "child_template": "compact_abutment",
+        "instances": {
+          "upper_enable_stage": "decoder_gate_cells_v3__compact_abutment",
+          "lower_wordline_stage_0": "decoder_gate_cells_v3__compact_abutment",
+          "lower_wordline_stage_1": "decoder_gate_cells_v3__compact_abutment"
+        }
+      },
+      "drc_marker_count": 0,
+      "connectivity_passed": true,
+      "foreign_net_passed": true,
+      "power_continuity_passed": true,
+      "pin_access_passed": true,
+      "determinism_passed": true,
+      "negative_tests_passed": true,
+      "wl_route_length_total": 1031.5125,
+      "wl_route_length_max": 100.015,
+      "wl_pitch_alignment": 1.565,
+      "wl_total_improvement_vs_baseline": 127.1925,
+      "wl_max_improvement_vs_baseline": 13.9,
+      "integration_width": 124.815,
+      "integration_height": 24.36,
+      "top_width": 113.9475
+    },
+    {
+      "candidate_id": "candidate_b_wl_oriented",
+      "top_clean_gds": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_top_v3/candidate_b_wl_oriented/clean.gds",
+      "top_clean_gds_sha256": "5b0716de3ce248e9d0889ca6d27ffea0b249d0011d370f24e5f61a35ef6967ba",
+      "top_bbox": [
+        -6.4175,
+        -0.035,
+        107.53,
+        7.185
+      ],
+      "integration_clean_gds": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_decoder_wl_array_integration_shell/candidate_b_wl_oriented/integration_shell_clean.gds",
+      "integration_clean_gds_sha256": "a312fb0c378a42e1abb5c98311929fbd3d369281eca1275fc39279bb072ace59",
+      "integration_bbox": [
+        -6.4175,
+        -0.035,
+        116.3975,
+        24.325
+      ],
+      "child_candidate_ids": {
+        "child_template": "compact_abutment",
+        "instances": {
+          "upper_enable_stage": "decoder_gate_cells_v3__compact_abutment",
+          "lower_wordline_stage_0": "decoder_gate_cells_v3__compact_abutment",
+          "lower_wordline_stage_1": "decoder_gate_cells_v3__compact_abutment"
+        }
+      },
+      "drc_marker_count": 0,
+      "connectivity_passed": true,
+      "foreign_net_passed": true,
+      "power_continuity_passed": true,
+      "pin_access_passed": true,
+      "determinism_passed": true,
+      "negative_tests_passed": true,
+      "wl_route_length_total": 999.5175,
+      "wl_route_length_max": 98.02,
+      "wl_pitch_alignment": 1.565,
+      "wl_total_improvement_vs_baseline": 159.1875,
+      "wl_max_improvement_vs_baseline": 15.895,
+      "integration_width": 122.815,
+      "integration_height": 24.36,
+      "top_width": 113.9475
+    }
+  ]
+}

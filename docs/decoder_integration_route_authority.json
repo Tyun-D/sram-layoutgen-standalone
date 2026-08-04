@@ -1,0 +1,3277 @@
+{
+  "candidate_id": "candidate_a_compact_folded",
+  "top_decoder_route_geometry_path": "outputs/PROJECT_decoder_top_v3/candidate_a_compact_folded/route_geometry.json",
+  "integration_route_geometry_path": "outputs/PROJECT_decoder_wl_array_integration_shell/candidate_a_compact_folded/route_geometry.json",
+  "routes": [
+    {
+      "route_id": "A3",
+      "route_group": "top_input_buses",
+      "owner": "TOP_DECODER_ROUTE",
+      "net": "A3",
+      "segment_key": "top_pin_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        -0.4175,
+        6.05,
+        -0.2825,
+        6.185
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "A0",
+      "route_group": "top_input_buses",
+      "owner": "TOP_DECODER_ROUTE",
+      "net": "A0",
+      "segment_key": "top_pin_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        -0.4175,
+        4.15,
+        -0.2825,
+        4.285
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "A1",
+      "route_group": "top_input_buses",
+      "owner": "TOP_DECODER_ROUTE",
+      "net": "A1",
+      "segment_key": "top_pin_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        -0.4175,
+        4.65,
+        -0.2825,
+        4.785
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "A2",
+      "route_group": "top_input_buses",
+      "owner": "TOP_DECODER_ROUTE",
+      "net": "A2",
+      "segment_key": "top_pin_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        -0.4175,
+        5.15,
+        -0.2825,
+        5.285
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL0",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL0",
+      "segment_key": "source_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        45.34,
+        0.135,
+        45.4375,
+        1.66
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL0",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL0",
+      "segment_key": "dest_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        118.495,
+        0.7475,
+        118.565,
+        0.8175
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL0",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL0",
+      "segment_key": "source_m1_landing_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        45.32,
+        0.83,
+        45.455,
+        0.965
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL0",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL0",
+      "segment_key": "source_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        45.355,
+        0.865,
+        45.42,
+        0.93
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL0",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL0",
+      "segment_key": "source_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        45.32,
+        0.83,
+        45.455,
+        7.5275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL0",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL0",
+      "segment_key": "source_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        45.355,
+        7.4275,
+        45.42,
+        7.4925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL0",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL0",
+      "segment_key": "m3_trunk_bbox",
+      "layer": "m3",
+      "segment_bbox": [
+        45.32,
+        7.3925,
+        123.3975,
+        7.5275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL0",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL0",
+      "segment_key": "dest_top_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        123.2975,
+        7.4275,
+        123.3625,
+        7.4925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL0",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL0",
+      "segment_key": "dest_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        123.2625,
+        0.715,
+        123.3975,
+        7.5275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL0",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL0",
+      "segment_key": "dest_branch_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        123.2975,
+        0.75,
+        123.3625,
+        0.815
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL0",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL0",
+      "segment_key": "dest_m1_horizontal_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        118.4625,
+        0.715,
+        123.3975,
+        0.85
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL0",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL0",
+      "segment_key": "dest_pin_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        118.4975,
+        0.75,
+        118.5625,
+        0.815
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL0",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL0",
+      "segment_key": "dest_m2_landing_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        118.4625,
+        0.715,
+        118.5975,
+        0.85
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL1",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL1",
+      "segment_key": "source_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        49.305,
+        0.135,
+        49.4025,
+        1.66
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL1",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL1",
+      "segment_key": "dest_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        118.495,
+        2.3125,
+        118.565,
+        2.3825
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL1",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL1",
+      "segment_key": "source_m1_landing_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        49.285,
+        0.83,
+        49.42,
+        0.965
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL1",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL1",
+      "segment_key": "source_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        49.32,
+        0.865,
+        49.385,
+        0.93
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL1",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL1",
+      "segment_key": "source_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        49.285,
+        0.83,
+        49.42,
+        8.2275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL1",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL1",
+      "segment_key": "source_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        49.32,
+        8.1275,
+        49.385,
+        8.1925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL1",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL1",
+      "segment_key": "m3_trunk_bbox",
+      "layer": "m3",
+      "segment_bbox": [
+        49.285,
+        8.0925,
+        123.1175,
+        8.2275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL1",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL1",
+      "segment_key": "dest_top_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        123.0175,
+        8.1275,
+        123.0825,
+        8.1925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL1",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL1",
+      "segment_key": "dest_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        122.9825,
+        2.28,
+        123.1175,
+        8.2275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL1",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL1",
+      "segment_key": "dest_branch_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        123.0175,
+        2.315,
+        123.0825,
+        2.38
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL1",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL1",
+      "segment_key": "dest_m1_horizontal_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        118.4625,
+        2.28,
+        123.1175,
+        2.415
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL1",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL1",
+      "segment_key": "dest_pin_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        118.4975,
+        2.315,
+        118.5625,
+        2.38
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL1",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL1",
+      "segment_key": "dest_m2_landing_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        118.4625,
+        2.28,
+        118.5975,
+        2.415
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL2",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL2",
+      "segment_key": "source_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        53.27,
+        0.135,
+        53.3675,
+        1.66
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL2",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL2",
+      "segment_key": "dest_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        118.495,
+        3.8775,
+        118.565,
+        3.9475
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL2",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL2",
+      "segment_key": "source_m1_landing_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        53.25,
+        0.83,
+        53.385,
+        0.965
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL2",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL2",
+      "segment_key": "source_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        53.285,
+        0.865,
+        53.35,
+        0.93
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL2",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL2",
+      "segment_key": "source_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        53.25,
+        0.83,
+        53.385,
+        8.9275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL2",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL2",
+      "segment_key": "source_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        53.285,
+        8.8275,
+        53.35,
+        8.8925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL2",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL2",
+      "segment_key": "m3_trunk_bbox",
+      "layer": "m3",
+      "segment_bbox": [
+        53.25,
+        8.7925,
+        122.8375,
+        8.9275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL2",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL2",
+      "segment_key": "dest_top_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        122.7375,
+        8.8275,
+        122.8025,
+        8.8925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL2",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL2",
+      "segment_key": "dest_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        122.7025,
+        3.845,
+        122.8375,
+        8.9275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL2",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL2",
+      "segment_key": "dest_branch_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        122.7375,
+        3.88,
+        122.8025,
+        3.945
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL2",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL2",
+      "segment_key": "dest_m1_horizontal_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        118.4625,
+        3.845,
+        122.8375,
+        3.98
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL2",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL2",
+      "segment_key": "dest_pin_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        118.4975,
+        3.88,
+        118.5625,
+        3.945
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL2",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL2",
+      "segment_key": "dest_m2_landing_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        118.4625,
+        3.845,
+        118.5975,
+        3.98
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL3",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL3",
+      "segment_key": "source_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        57.235,
+        0.135,
+        57.3325,
+        1.66
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL3",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL3",
+      "segment_key": "dest_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        118.495,
+        5.4425,
+        118.565,
+        5.5125
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL3",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL3",
+      "segment_key": "source_m1_landing_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        57.215,
+        0.83,
+        57.35,
+        0.965
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL3",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL3",
+      "segment_key": "source_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        57.25,
+        0.865,
+        57.315,
+        0.93
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL3",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL3",
+      "segment_key": "source_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        57.215,
+        0.83,
+        57.35,
+        9.6275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL3",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL3",
+      "segment_key": "source_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        57.25,
+        9.5275,
+        57.315,
+        9.5925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL3",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL3",
+      "segment_key": "m3_trunk_bbox",
+      "layer": "m3",
+      "segment_bbox": [
+        57.215,
+        9.4925,
+        122.5575,
+        9.6275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL3",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL3",
+      "segment_key": "dest_top_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        122.4575,
+        9.5275,
+        122.5225,
+        9.5925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL3",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL3",
+      "segment_key": "dest_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        122.4225,
+        5.41,
+        122.5575,
+        9.6275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL3",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL3",
+      "segment_key": "dest_branch_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        122.4575,
+        5.445,
+        122.5225,
+        5.51
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL3",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL3",
+      "segment_key": "dest_m1_horizontal_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        118.4625,
+        5.41,
+        122.5575,
+        5.545
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL3",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL3",
+      "segment_key": "dest_pin_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        118.4975,
+        5.445,
+        118.5625,
+        5.51
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL3",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL3",
+      "segment_key": "dest_m2_landing_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        118.4625,
+        5.41,
+        118.5975,
+        5.545
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL4",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL4",
+      "segment_key": "source_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        61.2,
+        0.135,
+        61.2975,
+        1.66
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL4",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL4",
+      "segment_key": "dest_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        118.495,
+        7.0075,
+        118.565,
+        7.0775
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL4",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL4",
+      "segment_key": "source_m1_landing_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        61.18,
+        0.83,
+        61.315,
+        0.965
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL4",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL4",
+      "segment_key": "source_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        61.215,
+        0.865,
+        61.28,
+        0.93
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL4",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL4",
+      "segment_key": "source_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        61.18,
+        0.83,
+        61.315,
+        10.3275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL4",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL4",
+      "segment_key": "source_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        61.215,
+        10.2275,
+        61.28,
+        10.2925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL4",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL4",
+      "segment_key": "m3_trunk_bbox",
+      "layer": "m3",
+      "segment_bbox": [
+        61.18,
+        10.1925,
+        122.2775,
+        10.3275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL4",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL4",
+      "segment_key": "dest_top_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        122.1775,
+        10.2275,
+        122.2425,
+        10.2925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL4",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL4",
+      "segment_key": "dest_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        122.1425,
+        6.975,
+        122.2775,
+        10.3275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL4",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL4",
+      "segment_key": "dest_branch_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        122.1775,
+        7.01,
+        122.2425,
+        7.075
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL4",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL4",
+      "segment_key": "dest_m1_horizontal_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        118.4625,
+        6.975,
+        122.2775,
+        7.11
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL4",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL4",
+      "segment_key": "dest_pin_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        118.4975,
+        7.01,
+        118.5625,
+        7.075
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL4",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL4",
+      "segment_key": "dest_m2_landing_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        118.4625,
+        6.975,
+        118.5975,
+        7.11
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL5",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL5",
+      "segment_key": "source_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        65.165,
+        0.135,
+        65.2625,
+        1.66
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL5",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL5",
+      "segment_key": "dest_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        118.495,
+        8.5725,
+        118.565,
+        8.6425
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL5",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL5",
+      "segment_key": "source_m1_landing_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        65.1475,
+        0.83,
+        65.28,
+        0.965
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL5",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL5",
+      "segment_key": "source_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        65.18,
+        0.865,
+        65.245,
+        0.93
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL5",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL5",
+      "segment_key": "source_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        65.1475,
+        0.83,
+        65.28,
+        11.0275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL5",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL5",
+      "segment_key": "source_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        65.18,
+        10.9275,
+        65.245,
+        10.9925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL5",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL5",
+      "segment_key": "m3_trunk_bbox",
+      "layer": "m3",
+      "segment_bbox": [
+        65.1475,
+        10.8925,
+        121.9975,
+        11.0275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL5",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL5",
+      "segment_key": "dest_top_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        121.8975,
+        10.9275,
+        121.9625,
+        10.9925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL5",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL5",
+      "segment_key": "dest_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        121.8625,
+        8.54,
+        121.9975,
+        11.0275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL5",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL5",
+      "segment_key": "dest_branch_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        121.8975,
+        8.575,
+        121.9625,
+        8.64
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL5",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL5",
+      "segment_key": "dest_m1_horizontal_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        118.4625,
+        8.54,
+        121.9975,
+        8.675
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL5",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL5",
+      "segment_key": "dest_pin_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        118.4975,
+        8.575,
+        118.5625,
+        8.64
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL5",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL5",
+      "segment_key": "dest_m2_landing_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        118.4625,
+        8.54,
+        118.5975,
+        8.675
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL6",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL6",
+      "segment_key": "source_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        69.13,
+        0.135,
+        69.2275,
+        1.66
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL6",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL6",
+      "segment_key": "dest_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        118.495,
+        10.1375,
+        118.565,
+        10.2075
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL6",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL6",
+      "segment_key": "source_m1_landing_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        69.11,
+        0.83,
+        69.245,
+        0.965
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL6",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL6",
+      "segment_key": "source_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        69.145,
+        0.865,
+        69.21,
+        0.93
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL6",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL6",
+      "segment_key": "source_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        69.11,
+        0.83,
+        69.245,
+        11.7275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL6",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL6",
+      "segment_key": "source_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        69.145,
+        11.6275,
+        69.21,
+        11.6925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL6",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL6",
+      "segment_key": "m3_trunk_bbox",
+      "layer": "m3",
+      "segment_bbox": [
+        69.11,
+        11.5925,
+        121.7175,
+        11.7275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL6",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL6",
+      "segment_key": "dest_top_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        121.6175,
+        11.6275,
+        121.6825,
+        11.6925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL6",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL6",
+      "segment_key": "dest_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        121.5825,
+        10.105,
+        121.7175,
+        11.7275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL6",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL6",
+      "segment_key": "dest_branch_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        121.6175,
+        10.14,
+        121.6825,
+        10.205
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL6",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL6",
+      "segment_key": "dest_m1_horizontal_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        118.4625,
+        10.105,
+        121.7175,
+        10.24
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL6",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL6",
+      "segment_key": "dest_pin_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        118.4975,
+        10.14,
+        118.5625,
+        10.205
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL6",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL6",
+      "segment_key": "dest_m2_landing_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        118.4625,
+        10.105,
+        118.5975,
+        10.24
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL7",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL7",
+      "segment_key": "source_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        73.095,
+        0.135,
+        73.1925,
+        1.66
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL7",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL7",
+      "segment_key": "dest_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        118.495,
+        11.7025,
+        118.565,
+        11.7725
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL7",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL7",
+      "segment_key": "source_m1_landing_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        73.075,
+        0.83,
+        73.21,
+        0.965
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL7",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL7",
+      "segment_key": "source_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        73.11,
+        0.865,
+        73.175,
+        0.93
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL7",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL7",
+      "segment_key": "source_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        73.075,
+        0.83,
+        73.21,
+        12.4275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL7",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL7",
+      "segment_key": "source_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        73.11,
+        12.3275,
+        73.175,
+        12.3925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL7",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL7",
+      "segment_key": "m3_trunk_bbox",
+      "layer": "m3",
+      "segment_bbox": [
+        73.075,
+        12.2925,
+        121.4375,
+        12.4275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL7",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL7",
+      "segment_key": "dest_top_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        121.3375,
+        12.3275,
+        121.4025,
+        12.3925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL7",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL7",
+      "segment_key": "dest_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        121.3025,
+        11.67,
+        121.4375,
+        12.4275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL7",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL7",
+      "segment_key": "dest_branch_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        121.3375,
+        11.705,
+        121.4025,
+        11.77
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL7",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL7",
+      "segment_key": "dest_m1_horizontal_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        118.4625,
+        11.67,
+        121.4375,
+        11.805
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL7",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL7",
+      "segment_key": "dest_pin_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        118.4975,
+        11.705,
+        118.5625,
+        11.77
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL7",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL7",
+      "segment_key": "dest_m2_landing_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        118.4625,
+        11.67,
+        118.5975,
+        11.805
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL8",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL8",
+      "segment_key": "source_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        84.34,
+        0.135,
+        84.4375,
+        1.66
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL8",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL8",
+      "segment_key": "dest_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        118.495,
+        13.2675,
+        118.565,
+        13.3375
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL8",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL8",
+      "segment_key": "source_m1_landing_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        84.32,
+        0.83,
+        84.455,
+        0.965
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL8",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL8",
+      "segment_key": "source_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        84.355,
+        0.865,
+        84.42,
+        0.93
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL8",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL8",
+      "segment_key": "source_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        84.32,
+        0.83,
+        84.455,
+        13.1275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL8",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL8",
+      "segment_key": "source_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        84.355,
+        13.0275,
+        84.42,
+        13.0925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL8",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL8",
+      "segment_key": "m3_trunk_bbox",
+      "layer": "m3",
+      "segment_bbox": [
+        84.32,
+        12.9925,
+        121.1575,
+        13.1275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL8",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL8",
+      "segment_key": "dest_top_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        121.0575,
+        13.0275,
+        121.1225,
+        13.0925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL8",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL8",
+      "segment_key": "dest_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        121.0225,
+        12.9925,
+        121.1575,
+        13.37
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL8",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL8",
+      "segment_key": "dest_branch_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        121.0575,
+        13.27,
+        121.1225,
+        13.335
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL8",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL8",
+      "segment_key": "dest_m1_horizontal_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        118.4625,
+        13.235,
+        121.1575,
+        13.37
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL8",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL8",
+      "segment_key": "dest_pin_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        118.4975,
+        13.27,
+        118.5625,
+        13.335
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL8",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL8",
+      "segment_key": "dest_m2_landing_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        118.4625,
+        13.235,
+        118.5975,
+        13.37
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL9",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL9",
+      "segment_key": "source_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        88.305,
+        0.135,
+        88.4025,
+        1.66
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL9",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL9",
+      "segment_key": "dest_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        118.495,
+        14.8325,
+        118.565,
+        14.9025
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL9",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL9",
+      "segment_key": "source_m1_landing_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        88.285,
+        0.83,
+        88.42,
+        0.965
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL9",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL9",
+      "segment_key": "source_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        88.32,
+        0.865,
+        88.385,
+        0.93
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL9",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL9",
+      "segment_key": "source_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        88.285,
+        0.83,
+        88.42,
+        13.8275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL9",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL9",
+      "segment_key": "source_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        88.32,
+        13.7275,
+        88.385,
+        13.7925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL9",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL9",
+      "segment_key": "m3_trunk_bbox",
+      "layer": "m3",
+      "segment_bbox": [
+        88.285,
+        13.6925,
+        120.8775,
+        13.8275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL9",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL9",
+      "segment_key": "dest_top_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        120.7775,
+        13.7275,
+        120.8425,
+        13.7925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL9",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL9",
+      "segment_key": "dest_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        120.7425,
+        13.6925,
+        120.8775,
+        14.935
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL9",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL9",
+      "segment_key": "dest_branch_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        120.7775,
+        14.835,
+        120.8425,
+        14.9
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL9",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL9",
+      "segment_key": "dest_m1_horizontal_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        118.4625,
+        14.8,
+        120.8775,
+        14.935
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL9",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL9",
+      "segment_key": "dest_pin_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        118.4975,
+        14.835,
+        118.5625,
+        14.9
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL9",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL9",
+      "segment_key": "dest_m2_landing_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        118.4625,
+        14.8,
+        118.5975,
+        14.935
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL10",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL10",
+      "segment_key": "source_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        92.27,
+        0.135,
+        92.3675,
+        1.66
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL10",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL10",
+      "segment_key": "dest_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        118.495,
+        16.3975,
+        118.565,
+        16.4675
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL10",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL10",
+      "segment_key": "source_m1_landing_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        92.25,
+        0.83,
+        92.385,
+        0.965
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL10",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL10",
+      "segment_key": "source_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        92.285,
+        0.865,
+        92.35,
+        0.93
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL10",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL10",
+      "segment_key": "source_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        92.25,
+        0.83,
+        92.385,
+        14.5275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL10",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL10",
+      "segment_key": "source_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        92.285,
+        14.4275,
+        92.35,
+        14.4925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL10",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL10",
+      "segment_key": "m3_trunk_bbox",
+      "layer": "m3",
+      "segment_bbox": [
+        92.25,
+        14.3925,
+        120.5975,
+        14.5275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL10",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL10",
+      "segment_key": "dest_top_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        120.4975,
+        14.4275,
+        120.5625,
+        14.4925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL10",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL10",
+      "segment_key": "dest_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        120.4625,
+        14.3925,
+        120.5975,
+        16.5
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL10",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL10",
+      "segment_key": "dest_branch_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        120.4975,
+        16.4,
+        120.5625,
+        16.465
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL10",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL10",
+      "segment_key": "dest_m1_horizontal_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        118.4625,
+        16.365,
+        120.5975,
+        16.5
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL10",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL10",
+      "segment_key": "dest_pin_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        118.4975,
+        16.4,
+        118.5625,
+        16.465
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL10",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL10",
+      "segment_key": "dest_m2_landing_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        118.4625,
+        16.365,
+        118.5975,
+        16.5
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL11",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL11",
+      "segment_key": "source_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        96.235,
+        0.135,
+        96.3325,
+        1.66
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL11",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL11",
+      "segment_key": "dest_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        118.495,
+        17.9625,
+        118.565,
+        18.0325
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL11",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL11",
+      "segment_key": "source_m1_landing_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        96.215,
+        0.83,
+        96.35,
+        0.965
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL11",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL11",
+      "segment_key": "source_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        96.25,
+        0.865,
+        96.315,
+        0.93
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL11",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL11",
+      "segment_key": "source_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        96.215,
+        0.83,
+        96.35,
+        15.2275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL11",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL11",
+      "segment_key": "source_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        96.25,
+        15.1275,
+        96.315,
+        15.1925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL11",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL11",
+      "segment_key": "m3_trunk_bbox",
+      "layer": "m3",
+      "segment_bbox": [
+        96.215,
+        15.0925,
+        120.3175,
+        15.2275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL11",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL11",
+      "segment_key": "dest_top_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        120.2175,
+        15.1275,
+        120.2825,
+        15.1925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL11",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL11",
+      "segment_key": "dest_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        120.1825,
+        15.0925,
+        120.3175,
+        18.065
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL11",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL11",
+      "segment_key": "dest_branch_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        120.2175,
+        17.965,
+        120.2825,
+        18.03
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL11",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL11",
+      "segment_key": "dest_m1_horizontal_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        118.4625,
+        17.93,
+        120.3175,
+        18.065
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL11",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL11",
+      "segment_key": "dest_pin_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        118.4975,
+        17.965,
+        118.5625,
+        18.03
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL11",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL11",
+      "segment_key": "dest_m2_landing_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        118.4625,
+        17.93,
+        118.5975,
+        18.065
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL12",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL12",
+      "segment_key": "source_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        100.2,
+        0.135,
+        100.2975,
+        1.66
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL12",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL12",
+      "segment_key": "dest_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        118.495,
+        19.5275,
+        118.565,
+        19.5975
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL12",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL12",
+      "segment_key": "source_m1_landing_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        100.18,
+        0.83,
+        100.315,
+        0.965
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL12",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL12",
+      "segment_key": "source_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        100.215,
+        0.865,
+        100.28,
+        0.93
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL12",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL12",
+      "segment_key": "source_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        100.18,
+        0.83,
+        100.315,
+        15.9275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL12",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL12",
+      "segment_key": "source_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        100.215,
+        15.8275,
+        100.28,
+        15.8925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL12",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL12",
+      "segment_key": "m3_trunk_bbox",
+      "layer": "m3",
+      "segment_bbox": [
+        100.18,
+        15.7925,
+        120.0375,
+        15.9275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL12",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL12",
+      "segment_key": "dest_top_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        119.9375,
+        15.8275,
+        120.0025,
+        15.8925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL12",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL12",
+      "segment_key": "dest_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        119.9025,
+        15.7925,
+        120.0375,
+        19.63
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL12",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL12",
+      "segment_key": "dest_branch_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        119.9375,
+        19.53,
+        120.0025,
+        19.595
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL12",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL12",
+      "segment_key": "dest_m1_horizontal_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        118.4625,
+        19.495,
+        120.0375,
+        19.63
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL12",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL12",
+      "segment_key": "dest_pin_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        118.4975,
+        19.53,
+        118.5625,
+        19.595
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL12",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL12",
+      "segment_key": "dest_m2_landing_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        118.4625,
+        19.495,
+        118.5975,
+        19.63
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL13",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL13",
+      "segment_key": "source_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        104.165,
+        0.135,
+        104.2625,
+        1.66
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL13",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL13",
+      "segment_key": "dest_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        118.495,
+        21.0925,
+        118.565,
+        21.1625
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL13",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL13",
+      "segment_key": "source_m1_landing_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        104.145,
+        0.83,
+        104.28,
+        0.965
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL13",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL13",
+      "segment_key": "source_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        104.18,
+        0.865,
+        104.245,
+        0.93
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL13",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL13",
+      "segment_key": "source_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        104.145,
+        0.83,
+        104.28,
+        16.6275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL13",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL13",
+      "segment_key": "source_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        104.18,
+        16.5275,
+        104.245,
+        16.5925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL13",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL13",
+      "segment_key": "m3_trunk_bbox",
+      "layer": "m3",
+      "segment_bbox": [
+        104.145,
+        16.4925,
+        119.7575,
+        16.6275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL13",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL13",
+      "segment_key": "dest_top_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        119.6575,
+        16.5275,
+        119.7225,
+        16.5925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL13",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL13",
+      "segment_key": "dest_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        119.6225,
+        16.4925,
+        119.7575,
+        21.195
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL13",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL13",
+      "segment_key": "dest_branch_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        119.6575,
+        21.095,
+        119.7225,
+        21.16
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL13",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL13",
+      "segment_key": "dest_m1_horizontal_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        118.4625,
+        21.06,
+        119.7575,
+        21.195
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL13",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL13",
+      "segment_key": "dest_pin_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        118.4975,
+        21.095,
+        118.5625,
+        21.16
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL13",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL13",
+      "segment_key": "dest_m2_landing_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        118.4625,
+        21.06,
+        118.5975,
+        21.195
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL14",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL14",
+      "segment_key": "source_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        108.13,
+        0.135,
+        108.2275,
+        1.66
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL14",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL14",
+      "segment_key": "dest_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        118.495,
+        22.6575,
+        118.565,
+        22.7275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL14",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL14",
+      "segment_key": "source_m1_landing_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        108.11,
+        0.83,
+        108.245,
+        0.965
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL14",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL14",
+      "segment_key": "source_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        108.145,
+        0.865,
+        108.21,
+        0.93
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL14",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL14",
+      "segment_key": "source_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        108.11,
+        0.83,
+        108.245,
+        17.3275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL14",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL14",
+      "segment_key": "source_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        108.145,
+        17.2275,
+        108.21,
+        17.2925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL14",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL14",
+      "segment_key": "m3_trunk_bbox",
+      "layer": "m3",
+      "segment_bbox": [
+        108.11,
+        17.1925,
+        119.4775,
+        17.3275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL14",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL14",
+      "segment_key": "dest_top_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        119.3775,
+        17.2275,
+        119.4425,
+        17.2925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL14",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL14",
+      "segment_key": "dest_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        119.3425,
+        17.1925,
+        119.4775,
+        22.76
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL14",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL14",
+      "segment_key": "dest_branch_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        119.3775,
+        22.66,
+        119.4425,
+        22.725
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL14",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL14",
+      "segment_key": "dest_m1_horizontal_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        118.4625,
+        22.625,
+        119.4775,
+        22.76
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL14",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL14",
+      "segment_key": "dest_pin_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        118.4975,
+        22.66,
+        118.5625,
+        22.725
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL14",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL14",
+      "segment_key": "dest_m2_landing_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        118.4625,
+        22.625,
+        118.5975,
+        22.76
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL15",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL15",
+      "segment_key": "source_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        112.095,
+        0.135,
+        112.1925,
+        1.66
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL15",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL15",
+      "segment_key": "dest_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        118.495,
+        24.2225,
+        118.565,
+        24.2925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL15",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL15",
+      "segment_key": "source_m1_landing_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        112.075,
+        0.83,
+        112.21,
+        0.965
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL15",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL15",
+      "segment_key": "source_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        112.11,
+        0.865,
+        112.175,
+        0.93
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL15",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL15",
+      "segment_key": "source_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        112.075,
+        0.83,
+        112.21,
+        18.0275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL15",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL15",
+      "segment_key": "source_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        112.11,
+        17.9275,
+        112.175,
+        17.9925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL15",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL15",
+      "segment_key": "m3_trunk_bbox",
+      "layer": "m3",
+      "segment_bbox": [
+        112.075,
+        17.8925,
+        119.1975,
+        18.0275
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL15",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL15",
+      "segment_key": "dest_top_via2_bbox",
+      "layer": "via2",
+      "segment_bbox": [
+        119.0975,
+        17.9275,
+        119.1625,
+        17.9925
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL15",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL15",
+      "segment_key": "dest_m2_vertical_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        119.0625,
+        17.8925,
+        119.1975,
+        24.325
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL15",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL15",
+      "segment_key": "dest_branch_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        119.0975,
+        24.225,
+        119.1625,
+        24.29
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL15",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL15",
+      "segment_key": "dest_m1_horizontal_bbox",
+      "layer": "m1",
+      "segment_bbox": [
+        118.4625,
+        24.19,
+        119.1975,
+        24.325
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL15",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL15",
+      "segment_key": "dest_pin_via1_bbox",
+      "layer": "via1",
+      "segment_bbox": [
+        118.4975,
+        24.225,
+        118.5625,
+        24.29
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "WL15",
+      "route_group": "wl_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "WL15",
+      "segment_key": "dest_m2_landing_bbox",
+      "layer": "m2",
+      "segment_bbox": [
+        118.4625,
+        24.19,
+        118.5975,
+        24.325
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "array_interface_VDD",
+      "route_group": "power_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "VDD",
+      "segment_key": "power_bridge_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        112.475,
+        1.82,
+        118.4975,
+        1.885
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "array_interface_VDD",
+      "route_group": "power_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "VDD",
+      "segment_key": "source_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        0.4725,
+        1.82,
+        112.475,
+        1.885
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "array_interface_VDD",
+      "route_group": "power_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "VDD",
+      "segment_key": "dest_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        118.4975,
+        1.82,
+        118.5625,
+        1.885
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "array_interface_VSS",
+      "route_group": "power_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "VSS",
+      "segment_key": "power_bridge_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        112.475,
+        0.0,
+        118.4975,
+        0.065
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "array_interface_VSS",
+      "route_group": "power_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "VSS",
+      "segment_key": "source_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        0.4725,
+        0.0,
+        112.475,
+        0.065
+      ],
+      "via_ids": []
+    },
+    {
+      "route_id": "array_interface_VSS",
+      "route_group": "power_routes",
+      "owner": "PARENT_INTEGRATION_ROUTER",
+      "net": "VSS",
+      "segment_key": "dest_bbox",
+      "layer": "unknown",
+      "segment_bbox": [
+        118.4975,
+        0.0,
+        118.5625,
+        0.065
+      ],
+      "via_ids": []
+    }
+  ]
+}

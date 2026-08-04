@@ -1,0 +1,105 @@
+{
+  "candidate_id": "p2_control_centered_partitioned_decoder",
+  "case_count": 12,
+  "cases": [
+    {
+      "case_id": "break_one_cell_vdd_edge",
+      "expected_rejection_code": "POWER_ENDPOINT_VDD_WITNESS_MISSING",
+      "mutation_level": "validator_geometry_evidence_mutation",
+      "observed_rejection_code": "POWER_ENDPOINT_VDD_WITNESS_MISSING",
+      "passed": true,
+      "unexpected_pass": false
+    },
+    {
+      "case_id": "break_one_cell_vss_edge",
+      "expected_rejection_code": "POWER_ENDPOINT_VSS_WITNESS_MISSING",
+      "mutation_level": "validator_geometry_evidence_mutation",
+      "observed_rejection_code": "POWER_ENDPOINT_VSS_WITNESS_MISSING",
+      "passed": true,
+      "unexpected_pass": false
+    },
+    {
+      "case_id": "remove_parent_power_strap",
+      "expected_rejection_code": "POWER_COMPONENT_FRAGMENTED",
+      "mutation_level": "validator_geometry_evidence_mutation",
+      "observed_rejection_code": "POWER_COMPONENT_FRAGMENTED",
+      "passed": true,
+      "unexpected_pass": false
+    },
+    {
+      "case_id": "remove_single_cell_power_via",
+      "expected_rejection_code": "POWER_ENDPOINT_VIA_WITNESS_MISSING",
+      "mutation_level": "validator_geometry_evidence_mutation",
+      "observed_rejection_code": "POWER_ENDPOINT_VIA_WITNESS_MISSING",
+      "passed": true,
+      "unexpected_pass": false
+    },
+    {
+      "case_id": "swap_row_orientation_power_polarity",
+      "expected_rejection_code": "ROW_POWER_POLARITY_CONTRACT_FAILED",
+      "mutation_level": "validator_geometry_evidence_mutation",
+      "observed_rejection_code": "ROW_POWER_POLARITY_CONTRACT_FAILED",
+      "passed": true,
+      "unexpected_pass": false
+    },
+    {
+      "case_id": "share_two_wl_output_tracks",
+      "expected_rejection_code": "WL_OUTPUT_TRACK_ALIAS_DETECTED",
+      "mutation_level": "validator_geometry_evidence_mutation",
+      "observed_rejection_code": "WL_OUTPUT_TRACK_ALIAS_DETECTED",
+      "passed": true,
+      "unexpected_pass": false
+    },
+    {
+      "case_id": "add_extra_wl_via_at_crossing",
+      "expected_rejection_code": "FOREIGN_NET_VIA_CROSSING_DETECTED",
+      "mutation_level": "validator_geometry_evidence_mutation",
+      "observed_rejection_code": "FOREIGN_NET_VIA_CROSSING_DETECTED",
+      "passed": true,
+      "unexpected_pass": false
+    },
+    {
+      "case_id": "misalign_one_driver_by_one_row",
+      "expected_rejection_code": "DRIVER_ROW_ALIGNMENT_FAILED",
+      "mutation_level": "validator_geometry_evidence_mutation",
+      "observed_rejection_code": "DRIVER_ROW_ALIGNMENT_FAILED",
+      "passed": true,
+      "unexpected_pass": false
+    },
+    {
+      "case_id": "swap_WL7_WL8",
+      "expected_rejection_code": "WL_BIT_ORDER_SWAP_DETECTED",
+      "mutation_level": "validator_geometry_evidence_mutation",
+      "observed_rejection_code": "WL_BIT_ORDER_SWAP_DETECTED",
+      "passed": true,
+      "unexpected_pass": false
+    },
+    {
+      "case_id": "lengthen_one_WL_by_50_percent",
+      "expected_rejection_code": "WL_RC_PROXY_OUTLIER_DETECTED",
+      "mutation_level": "validator_geometry_evidence_mutation",
+      "observed_rejection_code": "WL_RC_PROXY_OUTLIER_DETECTED",
+      "passed": true,
+      "unexpected_pass": false
+    },
+    {
+      "case_id": "remove_one_driver_instance",
+      "expected_rejection_code": "WL_DRIVER_INSTANCE_COUNT_FAILED",
+      "mutation_level": "validator_geometry_evidence_mutation",
+      "observed_rejection_code": "WL_DRIVER_INSTANCE_COUNT_FAILED",
+      "passed": true,
+      "unexpected_pass": false
+    },
+    {
+      "case_id": "replace_real_array_with_proxy",
+      "expected_rejection_code": "FULL_BITCELL_ARRAY_GDS_REQUIRED_FOR_REAL_INTEGRATION",
+      "mutation_level": "validator_geometry_evidence_mutation",
+      "observed_rejection_code": "FULL_BITCELL_ARRAY_GDS_REQUIRED_FOR_REAL_INTEGRATION",
+      "passed": true,
+      "unexpected_pass": false
+    }
+  ],
+  "mutation_authority": "validator_geometry_evidence_mutation_not_raw_gds_mutation",
+  "negative_tests_passed": true,
+  "unexpected_pass_count": 0
+}

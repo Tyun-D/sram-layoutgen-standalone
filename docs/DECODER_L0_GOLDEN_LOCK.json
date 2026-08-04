@@ -1,0 +1,25 @@
+{
+  "scope": "decoder_l0_golden_lock",
+  "generated_at": "2026-07-31T16:05:00Z",
+  "current_git_head": "126f495bb8b4ffd242a1f5e1982d51bcebb0ef9c",
+  "status": "DECODER_L0_ABUTMENT_MATRIX_COMPLETE",
+  "expected_pair_count": 2304,
+  "completed_pass": 1374,
+  "completed_reject": 930,
+  "missing_pair_count": 0,
+  "corrupt_pair_count": 0,
+  "duplicate_pair_count": 0,
+  "locked_inputs": {
+    "l0_completion_gate_path": "docs/DECODER_L0_COMPLETION_GATE.json",
+    "l0_completion_gate_sha256": "8478c151d8f38c1bf552c5057d19027bcd73eed62a0bb5f9c91a2b76905fd37a",
+    "expected_pair_set_path": "docs/DECODER_L0_EXPECTED_PAIR_SET.csv",
+    "expected_pair_set_sha256": "dabcf4c10d25900158280f817d773ff5d15955544750c018481cebec937ad0ad",
+    "aggregate_matrix_path": "docs/DECODER_GATE_ABUTMENT_COMPATIBILITY_MATRIX.csv",
+    "aggregate_matrix_sha256": "8336c08aa551ec1b50df11c708b7965d145eab8521046ff997272a72f9652f56",
+    "aggregate_rebuild_a_sha256": "8336c08aa551ec1b50df11c708b7965d145eab8521046ff997272a72f9652f56",
+    "aggregate_rebuild_b_sha256": "8336c08aa551ec1b50df11c708b7965d145eab8521046ff997272a72f9652f56",
+    "pair_trial_root": "outputs/PROJECT_decoder_gate_abutment_matrix/_pair_trials"
+  },
+  "lock_rule": "All child-v3 generation and scoring must read only this frozen L0 matrix and its pair manifests; the 2304-pair L0 sweep must not be rerun.",
+  "passed": true
+}

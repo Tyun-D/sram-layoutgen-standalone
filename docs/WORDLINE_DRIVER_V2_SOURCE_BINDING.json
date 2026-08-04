@@ -1,0 +1,39 @@
+{
+  "scope": "project_wordline_driver_v2_source_binding",
+  "git_head": "841329f4172b647de5f5693c801f2d24611f83a0",
+  "source_authority": {
+    "logical_source_file": "/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/wordline_driver.py",
+    "logical_commit": "1c34428d8b913963c4971d093b1a7c2df97a2509",
+    "exact_leafs": [
+      "PNAND2_NW180_PW270_L50_FPDK45",
+      "PINV_NW90_PW270_L50"
+    ]
+  },
+  "binding_rows": [
+    {
+      "instance_name": "pnand2_stage",
+      "logical_child_type": "PNAND2",
+      "resolved_physical_cell_name": "PNAND2_NW180_PW270_L50_FPDK45",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"B\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"A\", \"B\", \"zb_int\"]",
+      "pin_map_pin_names": "[\"A\", \"B\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    },
+    {
+      "instance_name": "inv_stage",
+      "logical_child_type": "PINV",
+      "resolved_physical_cell_name": "PINV_NW90_PW270_L50",
+      "child_pin_order": "[\"VDD\", \"VSS\", \"A\", \"Z\"]",
+      "parent_net_connections": "[\"VDD\", \"VSS\", \"zb_int\", \"Z\"]",
+      "pin_map_pin_names": "[\"A\", \"VDD\", \"VSS\", \"Z\"]",
+      "binding_status": "APPROVED_EXACT_BINDING"
+    }
+  ],
+  "top_ports": [
+    "A",
+    "B",
+    "Z",
+    "VDD",
+    "VSS"
+  ]
+}

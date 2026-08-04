@@ -72,7 +72,11 @@ def build_top_level_library(
     top_cell_name: str = "openyield_top_level_candidate",
 ) -> tuple[gdstk.Library, dict[str, Any]]:
     registry = build_source_registry(search_paths)
-    library = gdstk.Library()
+    if import_plans:
+        source_lib = gdstk.read_gds(import_plans[0].module_gds_path)
+        library = gdstk.Library(unit=source_lib.unit, precision=source_lib.precision)
+    else:
+        library = gdstk.Library()
     top = library.new_cell(top_cell_name)
     imported: dict[tuple[str, Path, str], gdstk.Cell] = {}
     import_state: dict[tuple[str, Path, str], str] = {}

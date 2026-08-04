@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "lock_status": "P2_P3_IMMUTABLE_BASELINE",
+  "build_source_git_head": "5dc3f712a2fedf79c5f2f14192201bc58bb82104",
+  "new_work_root": "outputs/PROJECT_decoder_physical_timing_closure",
+  "candidates": [
+    {
+      "candidate_id": "p2_control_centered_partitioned_decoder",
+      "disposition": "PROVISIONAL_PREFERRED",
+      "top_gds": {"path": "outputs/PROJECT_decoder_top_v3/candidate_p2_partitioned_control_centered/clean.gds", "sha256": "1cfe89d6d322fe47bef617723caaff2b30b504611e5b4622886421a1dd3fcdd8"},
+      "integration_gds": {"path": "outputs/PROJECT_decoder_wl_array_integration_shell/p2_control_centered_partitioned_decoder/integration_shell_clean.gds", "sha256": "ab782be31840705a225c1e2a71a2bb88fe31d9ae5ac792cbe0c7bfe9348d88d9"},
+      "placement": {"path": "outputs/PROJECT_decoder_wl_array_integration_shell/p2_control_centered_partitioned_decoder/placement.csv", "sha256": "d40a383233eeda091e37e4007a18086cd2ab52a9c182046b8a9e20f05dc86dff"},
+      "power_witness": {"path": "outputs/PROJECT_decoder_wl_array_integration_shell/p2_control_centered_partitioned_decoder/POWER_WITNESS_ATLAS.gds", "sha256": "fcc1e0b42ecdd69132f62f8e698e851007048c07aa890bcd83219e61c8839e17"},
+      "power_endpoint_coverage": {"path": "outputs/PROJECT_decoder_wl_array_integration_shell/p2_control_centered_partitioned_decoder/POWER_ENDPOINT_COVERAGE.csv", "sha256": "604433062e417d487ca8d7580149c6b7ee6636bc3ae6d30177ea8f21d9eaa66c"},
+      "wl_geometry": {"path": "outputs/PROJECT_decoder_wl_array_integration_shell/p2_control_centered_partitioned_decoder/WL_GEOMETRY_RC.csv", "sha256": "8a4fb2e5644025b00e6311961455a6e5c101cb85d06296ee8ae2e4157d39f041"},
+      "timing_proxy": {"path": "outputs/PROJECT_decoder_wl_array_integration_shell/p2_control_centered_partitioned_decoder/WL_TIMING_PROXY.csv", "sha256": "5c70f7f28d497551e05ba31eaa864409b8c44297e2ec58977af28b6f58b4c33d"},
+      "drc_database": {"path": "outputs/PROJECT_decoder_wl_array_integration_shell/p2_control_centered_partitioned_decoder/integration_drc.lyrdb", "sha256": "be696aed599e6d987a452f96d6ad0e2f3a3c21e1185fc8f80522ae791ed95bfe"},
+      "machine_gate": {"path": "outputs/PROJECT_decoder_wl_array_integration_shell/p2_control_centered_partitioned_decoder/PHYSICAL_ARCHITECTURE_MACHINE_GATE.json", "sha256": "7d6e2f3ccce5650aef0ea00cbbd07ec241d7034d90490ef2e6df634888163bee"},
+      "negative_summary": {"path": "outputs/PROJECT_decoder_wl_array_integration_shell/p2_control_centered_partitioned_decoder/PHYSICAL_ARCHITECTURE_NEGATIVE_SUMMARY.json", "sha256": "a02d382ef2dfd2e69f485a410cd9988549322e17e861c651d59b4b7aeea44a60"}
+    },
+    {
+      "candidate_id": "p3_symmetric_lower_left_control_right",
+      "disposition": "RETAINED_ARCHITECTURAL_ALTERNATIVE",
+      "top_gds": {"path": "outputs/PROJECT_decoder_top_v3/candidate_p3_symmetric_lower_left_control_right/clean.gds", "sha256": "5815ba1fd6b7bb7c6d5bf7b57a5f79bb42df95cbae4bc33492dba9e0eb78a2c5"},
+      "integration_gds": {"path": "outputs/PROJECT_decoder_wl_array_integration_shell/p3_symmetric_lower_left_control_right/integration_shell_clean.gds", "sha256": "264ba18654070cd2e1471bcaff1a793b37c935a3bf4e8d6e2371c510577599e9"},
+      "placement": {"path": "outputs/PROJECT_decoder_wl_array_integration_shell/p3_symmetric_lower_left_control_right/placement.csv", "sha256": "686f25593e8693f6d3695ee8d675de562ffab422c72c2200e75cd79197ec66e2"},
+      "power_witness": {"path": "outputs/PROJECT_decoder_wl_array_integration_shell/p3_symmetric_lower_left_control_right/POWER_WITNESS_ATLAS.gds", "sha256": "a2fd3a41d79fe8d2971b4d87bd6833cf7b54c030b2e7b56117c812d1207d34d0"},
+      "power_endpoint_coverage": {"path": "outputs/PROJECT_decoder_wl_array_integration_shell/p3_symmetric_lower_left_control_right/POWER_ENDPOINT_COVERAGE.csv", "sha256": "85d94e9de13abafa7ad4d6024a26c83aa6c0ee4826fc84404e43bacc8cd21501"},
+      "wl_geometry": {"path": "outputs/PROJECT_decoder_wl_array_integration_shell/p3_symmetric_lower_left_control_right/WL_GEOMETRY_RC.csv", "sha256": "8a4fb2e5644025b00e6311961455a6e5c101cb85d06296ee8ae2e4157d39f041"},
+      "timing_proxy": {"path": "outputs/PROJECT_decoder_wl_array_integration_shell/p3_symmetric_lower_left_control_right/WL_TIMING_PROXY.csv", "sha256": "5c70f7f28d497551e05ba31eaa864409b8c44297e2ec58977af28b6f58b4c33d"},
+      "drc_database": {"path": "outputs/PROJECT_decoder_wl_array_integration_shell/p3_symmetric_lower_left_control_right/integration_drc.lyrdb", "sha256": "a7465eaa41c76ba3aa2f7f45cf470eaff541c88f9932e1f765eb9f1bdce787f5"},
+      "machine_gate": {"path": "outputs/PROJECT_decoder_wl_array_integration_shell/p3_symmetric_lower_left_control_right/PHYSICAL_ARCHITECTURE_MACHINE_GATE.json", "sha256": "aea0805b6c1ba933abfeb3979c9cc22225c638f0a05c54bbfc60b28d3b2ee700"},
+      "negative_summary": {"path": "outputs/PROJECT_decoder_wl_array_integration_shell/p3_symmetric_lower_left_control_right/PHYSICAL_ARCHITECTURE_NEGATIVE_SUMMARY.json", "sha256": "7b4774923e4a9144701009972d5f8a94cccfbb0534e353ed56ddb8b6366a4482"}
+    }
+  ],
+  "immutability_rule": "Do not modify locked artifacts in place; derive all timing-closure candidates under new_work_root and reference these SHA256 values."
+}

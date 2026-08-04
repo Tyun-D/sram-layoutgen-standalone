@@ -25,8 +25,8 @@ def main() -> int:
     write_text(OUT_DIR / "DECODER_REBUILD_CONTRACT_LOCK.md", build_decoder_contract_markdown(contract))
     manifest = generate_decoder_bundle(REPO_ROOT, OUT_DIR, contract)
     write_json(OUT_DIR / "decoder_bundle_manifest.json", manifest)
-    gate = validate_decoder_bundle(REPO_ROOT, OUT_DIR, run_determinism=True)
     negative = run_decoder_negative_regressions(repo_root=REPO_ROOT, bundle_dir=OUT_DIR)
+    gate = validate_decoder_bundle(REPO_ROOT, OUT_DIR, run_determinism=True)
     write_text(
         OUT_DIR / "DECODER_REBUILD_SUMMARY.md",
         "\n".join(

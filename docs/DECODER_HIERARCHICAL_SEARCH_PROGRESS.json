@@ -1,15 +1,19 @@
 {
   "scope": "decoder_hierarchical_search_progress",
-  "generated_at": "2026-07-31T08:29:31Z",
-  "current_git_head": "841329f4172b647de5f5693c801f2d24611f83a0",
+  "generated_at": "2026-07-31T16:45:00Z",
+  "current_git_head": "126f495bb8b4ffd242a1f5e1982d51bcebb0ef9c",
   "l0_completed": true,
-  "child_green_candidate_count": 3,
-  "stage_candidate_count": 3,
-  "selected_final_candidates": [
-    "baseline_v2_long_strip",
-    "candidate_a_compact_folded",
-    "candidate_b_wl_oriented"
-  ],
-  "final_status": "machine_green_candidates_ready",
-  "next_manual_action": "human review of hierarchical floorplan candidate packages"
+  "l0_status": "DECODER_L0_ABUTMENT_MATRIX_COMPLETE",
+  "child_v3_status": "CHILD_V3_PARTIAL_REAL_GENERATION_COMPLETE",
+  "human_review_status": "HUMAN_REVIEW_NOT_READY",
+  "child_green_candidate_count": 6,
+  "stage_candidate_count": 0,
+  "selected_final_candidates": [],
+  "final_status": "awaiting_additional_child_templates_and_top_floorplans",
+  "next_manual_action": "generate real child-v3 geometries, machine gates, and top-level integration evidence from the frozen L0 matrix",
+  "historical_false_ready_audit": {
+    "timestamp": "2026-07-31T16:05:00Z",
+    "incorrect_claim": "machine_green_candidates_ready",
+    "correction": "Only baseline child rows existed as real machine-green artifacts; compact and WL-oriented child/top candidates had not been generated."
+  }
 }

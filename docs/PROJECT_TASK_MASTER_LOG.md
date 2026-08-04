@@ -402,3 +402,22 @@
 - decision: `do not merge master`; `checkpoint current project branch`; `publish review/evidence packages under /data1/qujh`
 - unresolved_items: `worktree still resides under /tmp and needs planned migration`; `approved_array_physical_shell remains a nonzero physical shell and not full bitcell-array GDS`
 - next_action: `push checkpoint branch state and build /data1 review packages with SHA/index/manifest`
+
+## 2026-08-03T16:47:52Z project true_multiline_decoder_packaged_to_data1
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `5dc3f712a2fedf79c5f2f14192201bc58bb82104`
+- files_read: `docs/PROJECT_CURRENT_STATUS.json`, `docs/PROJECT_TASK_MASTER_LOG.md`, `outputs/PROJECT_decoder_child_v3/decoder_gate_cells_v3/output_oriented_multiline/*`, `outputs/PROJECT_decoder_top_v3/candidate_true_wl_driver_array_oriented/*`, `outputs/PROJECT_decoder_wl_array_integration_shell/candidate_true_wl_driver_array_oriented/*`
+- files_modified: `docs/PROJECT_CURRENT_STATUS.json`, `docs/PROJECT_TASK_MASTER_LOG.md`, `/data1/qujh/decoder_multiline_review/latest/*`, `/data1/qujh/decoder_multiline_review/packages/*`
+- result: `latest package tree rebuilt under /data1/qujh`; `human/full evidence bundles regenerated`; `candidate_true_wl_driver_array_oriented remains recommended`
+- decision: `preserve original /tmp outputs without modification`; `publish long-lived copies under /data1/qujh`; `do not move worktree in this round`
+- unresolved_items: `git push failed due to TLS handshake termination`; `approved_array_physical_shell is still a nonzero physical shell and not a full bitcell-array GDS`
+- next_action: `hand off /data1 packages for human review and separately resolve remote push connectivity if branch publication is required`
+
+## 2026-08-04 Decoder P2/P3 physical architecture checkpoint
+
+- P2 `p2_control_centered_partitioned_decoder` is the provisional preferred architecture.
+- P3 `p3_symmetric_lower_left_control_right` is retained as an architectural alternative.
+- Both candidates have DRC=0, 148/148 final-GDS power endpoint coverage, bit-exact WL mapping, driver-row alignment, zero output crossing, connectivity, foreign-net, Pin access, determinism, and negative-suite closure.
+- Integration authority remains `FLOORPLAN_FEASIBILITY_SHELL`; full bitcell-array GDS integration is pending.
+- Timing authority remains pending. Current evidence is `NORMALIZED_GEOMETRY_RC_PROXY`, not PEX: max arrival skew about 0.196 ps, slew ratio about 1.0121, and normalized RC max/median 1.4730.
+- P2/P3 artifacts are frozen by `docs/DECODER_PHYSICAL_ARCHITECTURE_GOLDEN_LOCK.json`; subsequent work is isolated under `outputs/PROJECT_decoder_physical_timing_closure/`.

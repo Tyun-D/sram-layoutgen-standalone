@@ -1,5 +1,6 @@
 {
-  "en_strategy": "horizontal_m3_bus",
-  "wl_pre_strategy": "vertical_m2_link",
-  "note": "fresh-run rebuild strategy; not a claim of historical 24-marker equivalence"
+  "topology": "decoder_cascade_1_plus_2",
+  "level0_enable_strategy": "decoder_gate_cells_v2_with_A0_A1_tied_to_VSS_and_EN_tied_to_VDD",
+  "level1_wordline_strategy": "two_decoder_gate_cells_v2_instances_driven_by_level0_WL0_WL1",
+  "note": "fresh-run cascade rebuild strategy derived from OpenYield DECODER_CASCADE(16)"
 }
