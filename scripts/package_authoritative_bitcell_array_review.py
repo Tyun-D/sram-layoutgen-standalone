@@ -88,7 +88,7 @@ def copy_tree() -> None:
     shutil.copy2(REPO / "tests/test_project_bitcell_array_layoutgen_reuse_v2.py", LATEST / "status/generator_test.py")
 
 
-def write_metadata(branch: str, head: str, clean: bool) -> None:
+def write_metadata(branch: str, head: str, remote: str, clean: bool) -> None:
     gate = json.loads((ARRAY / "BITCELL_ARRAY_MACHINE_GATE.json").read_text())
     lock = json.loads((ARRAY / "BITCELL_ARRAY_AUTHORITY_LOCK.json").read_text())
     status_path = LATEST / "docs/PROJECT_CURRENT_STATUS.json"
@@ -103,6 +103,8 @@ def write_metadata(branch: str, head: str, clean: bool) -> None:
 
 - Git branch: `{branch}`
 - Package build HEAD: `{head}`
+- Remote branch HEAD at package build: `{remote}`
+- Local/remote synchronized: `{str(head == remote).lower()}`
 - Source worktree: `{REPO}`
 - Authority: `A_CURRENT_SOURCE_EXACT`
 - Formal configuration: 16 rows x 16 columns, word size 16, words per row 1, one bank, FreePDK45 `cell_1rw`
@@ -131,6 +133,8 @@ The clean GDS is Level-A geometry. Atlases are review aids and do not replace th
         "source_worktree": str(REPO),
         "git_branch": branch,
         "git_head": head,
+        "remote_branch_head": remote,
+        "local_remote_synchronized": head == remote,
         "working_tree_clean": clean,
         "authority_level": "A_CURRENT_SOURCE_EXACT",
         "formal_config": "16x16_wpr1_freepdk45",
@@ -169,10 +173,11 @@ def main() -> None:
     head = run("git", "rev-parse", "HEAD")
     remote = run("git", "rev-parse", f"origin/{branch}")
     clean = not run("git", "status", "--short")
-    if not clean or head != remote:
+    allow_unsynced = os.environ.get("ALLOW_UNSYNCED_PACKAGE") == "1"
+    if not clean or (head != remote and not allow_unsynced):
         raise SystemExit("PACKAGE_GIT_STATE_NOT_SYNCHRONIZED")
     copy_tree()
-    write_metadata(branch, head, clean)
+    write_metadata(branch, head, remote, clean)
     write_index_and_sums()
 
     human = ROOT / "human_staging"
