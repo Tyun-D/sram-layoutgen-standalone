@@ -1,0 +1,84 @@
+{
+  "authority_level": "A_CURRENT_SOURCE_EXACT",
+  "candidate_id": "PROJECT_bitcell_array_layoutgen_reuse_v2",
+  "formal_config": {
+    "bank_count": 1,
+    "bitcell_type": "cell_1rw",
+    "num_cols": 16,
+    "num_rows": 16,
+    "num_words": 16,
+    "word_size": 16,
+    "words_per_row": 1
+  },
+  "gds": {
+    "path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_bitcell_array_layoutgen_reuse_v2/clean.gds",
+    "sha256": "555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac",
+    "top_cell": "sram_capped_replica_bitcell_array"
+  },
+  "generation": {
+    "generator_top_name": "sram_capped_replica_bitcell_array",
+    "height": 26.255,
+    "instance_count": 665,
+    "pin_count": 53,
+    "width": 15.265
+  },
+  "not_post_layout_pex": true,
+  "reuse_contract_sha256": "0a70eb7d526d7492459659dba7a8de7478404202556eae9f918310c9f4a46fe9",
+  "source_lock": {
+    "bitcell_array_generator": {
+      "exists": true,
+      "path": "/data1/qujh/My_OpenYield/LiteRAM-Layout/literam/modules/bitcell_array.py",
+      "sha256": "781c74d288a9cf57a85456a250a0bd851b74ff86a0f199db655d71cff702ad2a"
+    },
+    "bitcell_gds": {
+      "exists": true,
+      "path": "/data1/qujh/My_OpenYield/LiteRAM-Layout/technology/freepdk45/gds_lib/cell_1rw.gds",
+      "sha256": "7bd6076b0c13eb0e92894a90d4530a9f9bd4eb52966003dbe468f74e86146bb4"
+    },
+    "capped_array_generator": {
+      "exists": true,
+      "path": "/data1/qujh/My_OpenYield/LiteRAM-Layout/literam/modules/capped_replica_bitcell_array.py",
+      "sha256": "ecb2dc15959a42bb5b8b6fceaea8e122308a7168d2d8870da7743554a41eb903"
+    },
+    "current_generator": {
+      "exists": true,
+      "path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/scripts/project_bitcell_array_layoutgen_reuse_v2.py",
+      "sha256": "c0dc1db6d0f3f9c4ceb0f4dc9686f41c629133be2b42c556d9806dd4556ead39"
+    },
+    "drc_deck": {
+      "exists": true,
+      "path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/technology/freepdk45/tech/freepdk45.lydrc",
+      "sha256": "fa7edcc47d92eee4195693796c5e35b913ca476f8457965029d12372aa187db0"
+    },
+    "dummy_gds": {
+      "exists": true,
+      "path": "/data1/qujh/My_OpenYield/LiteRAM-Layout/technology/freepdk45/gds_lib/dummy_cell_1rw.gds",
+      "sha256": "7fd59f47af7ce0abc0318457faf07eda7a2cbc7dee2b025855e17a5159e7b214"
+    },
+    "layer_mapping": {
+      "exists": true,
+      "path": "/data1/qujh/My_OpenYield/LiteRAM-Layout/technology/freepdk45/layers.map",
+      "sha256": "879df782e505613d50bfce768108389988d20499ca06481f6c1f55bf54dc81e7"
+    },
+    "replica_array_generator": {
+      "exists": true,
+      "path": "/data1/qujh/My_OpenYield/LiteRAM-Layout/literam/modules/replica_bitcell_array.py",
+      "sha256": "cf9a316485cef692b928cda1e5728753d2f23882889836b6d9614c5a29fa5258"
+    },
+    "replica_gds": {
+      "exists": true,
+      "path": "/data1/qujh/My_OpenYield/LiteRAM-Layout/technology/freepdk45/gds_lib/replica_cell_1rw.gds",
+      "sha256": "2f74ce27a7eb08e5d589113c4dcc1268f49ec44e95f67ba6094766fec3975c22"
+    },
+    "reuse_contract": {
+      "exists": true,
+      "path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/docs/LAYOUTGEN_PHYSICAL_REUSE_CONTRACT.json",
+      "sha256": "0a70eb7d526d7492459659dba7a8de7478404202556eae9f918310c9f4a46fe9"
+    },
+    "tech_mapping": {
+      "exists": true,
+      "path": "/data1/qujh/My_OpenYield/LiteRAM-Layout/technology/freepdk45/tech/tech.py",
+      "sha256": "ae30816e00f05b32ab5d82710720c291b5ddbe1394ebd52922d0d9c0afda94ac"
+    }
+  }
+}

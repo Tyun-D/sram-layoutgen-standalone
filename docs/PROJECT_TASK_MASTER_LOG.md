@@ -441,3 +441,13 @@
 - Added `docs/LAYOUTGEN_PHYSICAL_REUSE_CONTRACT.json` and a fail-closed load gate. Missing or incomplete contracts reject with `REUSE_CONTRACT_NOT_LOADED`.
 - No P2/P3/T candidate GDS was modified. No real-array architecture package was generated.
 - Stop classification: `PASS_LAYOUTGEN_REUSE_CONTRACT_CLOSED_PENDING_AUTHORITATIVE_ARRAY_ASSET`.
+
+## 2026-08-04 Authoritative 16x16 array regeneration
+
+- Exhausted the paper evidence package, `/data1/qujh`, historical worktrees, checkpoints, download archives, and Git bundles for matching array assets.
+- Recovered a complete current LiteRAM source/PDK/hardcell set under `/data1/qujh/My_OpenYield/LiteRAM-Layout`; its existing 32-row FreePDK45 macro proved the source hierarchy but did not match the 16-WL configuration.
+- Regenerated `sram_capped_replica_bitcell_array` as 16 rows x 16 columns with 256 real bitcells, 88 dummy cells, and 17 replica cells.
+- Locked GDS SHA `555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac` after byte-exact A/B regeneration.
+- Array gate passes DRC=0, 722/722 power endpoint coverage, one isolated VDD and VSS component, zero intended horizontal/vertical gaps, bit-exact WL/BL/BR, connectivity, foreign-net, Pin access, hierarchy closure, and 16-case negative suite.
+- Standalone array authority is approved. Decoder/WL-driver integration remains pending and no shell result is promoted.
+- Stop classification: `PASS_AUTHORITATIVE_ARRAY_ASSET_REGENERATED_TO_HUMAN_REVIEW`.

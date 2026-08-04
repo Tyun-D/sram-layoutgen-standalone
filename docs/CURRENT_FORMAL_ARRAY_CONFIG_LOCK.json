@@ -1,0 +1,47 @@
+{
+  "lock_id": "CURRENT_FORMAL_ARRAY_CONFIG_16X16_WPR1_FREEPDK45",
+  "authority_level": "A_CURRENT_SOURCE_EXACT_WITH_LOCKED_HISTORICAL_CONFIG_CORROBORATION",
+  "num_rows": 16,
+  "num_cols": 16,
+  "word_size": 16,
+  "num_words": 16,
+  "words_per_row": 1,
+  "column_grouping": "ONE_PHYSICAL_COLUMN_PER_DATA_BIT_NO_COLUMN_MUX",
+  "bank_count": 1,
+  "bitcell_type": "cell_1rw",
+  "dummy_policy": "TOP_BOTTOM_DUMMY_ROWS_AND_LEFT_RIGHT_DUMMY_COLUMNS_PLUS_REPLICA_WORDLINE_DUMMY_ROW",
+  "tap_policy": "NO_DISCRETE_TAP_IN_LOCKED_FREEPDK45_LITERAM_STORAGE_FAMILY",
+  "replica_policy": "ONE_LEFT_REPLICA_COLUMN_WITH_ONE_RBL",
+  "metal_layer_policy": "M1_WORDLINE_AND_LOCAL_RAIL_M2_BITLINE_M3_M4_POWER_STITCH",
+  "field_authority": {
+    "num_rows": "CURRENT_SOURCE_EXACT",
+    "num_cols": "CURRENT_SOURCE_EXACT",
+    "word_size": "LOCKED_HISTORICAL_SOURCE_EXACT",
+    "num_words": "LOCKED_HISTORICAL_SOURCE_EXACT",
+    "words_per_row": "LOCKED_HISTORICAL_SOURCE_EXACT",
+    "bank_count": "LOCKED_HISTORICAL_SOURCE_EXACT",
+    "bitcell_type": "CURRENT_SOURCE_EXACT",
+    "dummy_policy": "CURRENT_SOURCE_EXACT",
+    "tap_policy": "CURRENT_SOURCE_EXACT",
+    "replica_policy": "CURRENT_SOURCE_EXACT",
+    "metal_layer_policy": "CURRENT_SOURCE_EXACT"
+  },
+  "sources": [
+    {
+      "path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M11_openyield_config_variation/current_supported_config/M11_config_extraction_trace.json",
+      "role": "current raw OpenYield num_rows=16 and num_cols=16 authority"
+    },
+    {
+      "path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/M7_correct_golden_reference/current_supported_config/extracted/full_layout_collection/sram_16x16_wpr1/sram_16x16_wpr1_fd45.report.json",
+      "role": "locked 16x16, word_size=16, num_words=16, words_per_row=1 configuration"
+    },
+    {
+      "path": "/data1/qujh/My_OpenYield/LiteRAM-Layout/literam/modules/capped_replica_bitcell_array.py",
+      "role": "current exact dummy and replica physical policy"
+    },
+    {
+      "path": "/data1/qujh/My_OpenYield/LiteRAM-Layout/technology/freepdk45/tech/tech.py",
+      "role": "current exact bitcell, grid, layer and power-routing policy"
+    }
+  ]
+}

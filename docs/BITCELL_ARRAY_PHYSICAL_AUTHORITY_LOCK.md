@@ -1,7 +1,17 @@
-# Bitcell array physical authority lock
+# Bitcell Array Physical Authority Lock
 
-No audited local file qualifies as an approved standalone full 16-row bitcell-array handoff.
+`layoutgen_reuse_v2_regenerated_16x16` is locked as an `A_CURRENT_SOURCE_EXACT` standalone array asset.
 
-The 4x4 `bitcell_array.gds` is explicitly an L3 sizing template with no DRC claim. The 16x16 golden-reference GDS contains real flat storage geometry, but not a standalone array hierarchy or authoritative WL/BL/BR/power pin manifest, and its report leaves external DRC/LVS/PEX pending.
+- GDS: `outputs/PROJECT_bitcell_array_layoutgen_reuse_v2/clean.gds`
+- SHA256: `555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac`
+- Top cell: `sram_capped_replica_bitcell_array`
+- Configuration: 16 rows, 16 columns, 16 WL, 16 BL and 16 BR
+- Hierarchy: 256 real bitcells, 88 dummy cells, 17 replica cells
+- Tap policy: no discrete tap in the locked FreePDK45 LiteRAM storage family
+- DRC: 0 markers
+- Power: 722/722 endpoints, one VDD component, one VSS component, isolated supplies
+- Abutment: horizontal and vertical intended gap = 0
+- Determinism: byte-exact A/B regeneration
+- Negative suite: 16/16 expected rejections, 0 unexpected passes
 
-Therefore `ARRAY_INTEGRATION_LEVEL=FLOORPLAN_FEASIBILITY_SHELL` and `FULL_BITCELL_ARRAY_GDS_INTEGRATION=PENDING` remain locked. `TREAL_L3_array_authority_pending` is retained only as a failed diagnostic: 4707 DRC markers plus connectivity, power, foreign-net, and alignment failures.
+This lock approves the standalone array asset only. `FULL_BITCELL_ARRAY_GDS_INTEGRATION` remains `false` until Decoder/WL-driver integration is rebuilt and revalidated against this SHA.

@@ -1,0 +1,119 @@
+{
+  "case_count": 16,
+  "cases": [
+    {
+      "actual_rejection_code": "BITCELL_HORIZONTAL_GAP_NONZERO",
+      "case": "insert_horizontal_gap_between_bitcells",
+      "expected_rejection_code": "BITCELL_HORIZONTAL_GAP_NONZERO",
+      "passed": true,
+      "validator_rejected": true
+    },
+    {
+      "actual_rejection_code": "BITCELL_VERTICAL_GAP_NONZERO",
+      "case": "insert_vertical_gap_between_bitcells",
+      "expected_rejection_code": "BITCELL_VERTICAL_GAP_NONZERO",
+      "passed": true,
+      "validator_rejected": true
+    },
+    {
+      "actual_rejection_code": "SAME_NET_POWER_RAIL_UNION_FAILED",
+      "case": "break_same_net_power_rail_overlap",
+      "expected_rejection_code": "SAME_NET_POWER_RAIL_UNION_FAILED",
+      "passed": true,
+      "validator_rejected": true
+    },
+    {
+      "actual_rejection_code": "POWER_COMPONENT_COUNT_FAILED",
+      "case": "remove_parent_power_stitch",
+      "expected_rejection_code": "POWER_COMPONENT_COUNT_FAILED",
+      "passed": true,
+      "validator_rejected": true
+    },
+    {
+      "actual_rejection_code": "POWER_POLARITY_FAILED",
+      "case": "swap_VDD_VSS_row",
+      "expected_rejection_code": "POWER_POLARITY_FAILED",
+      "passed": true,
+      "validator_rejected": true
+    },
+    {
+      "actual_rejection_code": "DUMMY_POLICY_FAILED",
+      "case": "remove_dummy_row",
+      "expected_rejection_code": "DUMMY_POLICY_FAILED",
+      "passed": true,
+      "validator_rejected": true
+    },
+    {
+      "actual_rejection_code": "DUMMY_POLICY_FAILED",
+      "case": "remove_dummy_column",
+      "expected_rejection_code": "DUMMY_POLICY_FAILED",
+      "passed": true,
+      "validator_rejected": true
+    },
+    {
+      "actual_rejection_code": "TAP_POLICY_FAILED",
+      "case": "remove_tap",
+      "expected_rejection_code": "TAP_POLICY_FAILED",
+      "passed": true,
+      "validator_rejected": true
+    },
+    {
+      "actual_rejection_code": "REPLICA_POLICY_FAILED",
+      "case": "remove_replica",
+      "expected_rejection_code": "REPLICA_POLICY_FAILED",
+      "passed": true,
+      "validator_rejected": true
+    },
+    {
+      "actual_rejection_code": "WL_BIT_ORDER_MISMATCH",
+      "case": "swap_WL7_WL8",
+      "expected_rejection_code": "WL_BIT_ORDER_MISMATCH",
+      "passed": true,
+      "validator_rejected": true
+    },
+    {
+      "actual_rejection_code": "DUPLICATE_PIN",
+      "case": "duplicate_WL_pin",
+      "expected_rejection_code": "DUPLICATE_PIN",
+      "passed": true,
+      "validator_rejected": true
+    },
+    {
+      "actual_rejection_code": "MISSING_BL_PIN",
+      "case": "remove_BL_pin",
+      "expected_rejection_code": "MISSING_BL_PIN",
+      "passed": true,
+      "validator_rejected": true
+    },
+    {
+      "actual_rejection_code": "MISSING_BR_PIN",
+      "case": "remove_BR_pin",
+      "expected_rejection_code": "MISSING_BR_PIN",
+      "passed": true,
+      "validator_rejected": true
+    },
+    {
+      "actual_rejection_code": "FORMAL_CONFIG_MISMATCH",
+      "case": "change_config_without_regeneration",
+      "expected_rejection_code": "FORMAL_CONFIG_MISMATCH",
+      "passed": true,
+      "validator_rejected": true
+    },
+    {
+      "actual_rejection_code": "REAL_BITCELL_HIERARCHY_MISSING",
+      "case": "replace_real_array_with_shell",
+      "expected_rejection_code": "REAL_BITCELL_HIERARCHY_MISSING",
+      "passed": true,
+      "validator_rejected": true
+    },
+    {
+      "actual_rejection_code": "MANIFEST_GDS_SHA_MISMATCH",
+      "case": "manifest_GDS_SHA_mismatch",
+      "expected_rejection_code": "MANIFEST_GDS_SHA_MISMATCH",
+      "passed": true,
+      "validator_rejected": true
+    }
+  ],
+  "passed": true,
+  "unexpected_pass_count": 0
+}

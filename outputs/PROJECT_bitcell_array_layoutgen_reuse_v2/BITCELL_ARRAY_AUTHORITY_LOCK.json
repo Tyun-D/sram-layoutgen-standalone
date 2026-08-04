@@ -1,28 +1,26 @@
 {
-  "candidate_id": "PROJECT_bitcell_array_layoutgen_reuse_v2",
-  "status": "AUTHORITATIVE_ARRAY_ASSET_NOT_RECOVERED",
-  "reuse_contract_load_report": "REUSE_CONTRACT_LOAD_REPORT.json",
-  "reuse_contract_loaded": true,
-  "real_array_gds_path": null,
-  "real_array_gds_sha256": null,
-  "approved_for_integration": false,
+  "approved_for_real_decoder_integration": true,
+  "authority_level": "A_CURRENT_SOURCE_EXACT",
+  "authority_status": "AUTHORITATIVE_ARRAY_ASSET_REGENERATED",
+  "dummy_policy": "TOP_BOTTOM_AND_LEFT_RIGHT_DUMMY_BOUNDARY",
+  "formal_config": {
+    "bank_count": 1,
+    "bitcell_type": "cell_1rw",
+    "num_cols": 16,
+    "num_rows": 16,
+    "num_words": 16,
+    "word_size": 16,
+    "words_per_row": 1
+  },
   "full_bitcell_array_gds_integration": false,
-  "blocked_gates": [
-    "hierarchical_16_row_gds_present",
-    "authoritative_pin_manifest_present",
-    "dummy_tap_replica_manifest_bound",
-    "array_level_drc_zero",
-    "bitcell_abutment_zero_gap",
-    "power_rail_union_passed",
-    "power_endpoint_coverage_100_percent",
-    "wl_bl_br_bit_exact",
-    "determinism_passed",
-    "negative_suite_passed"
-  ],
-  "forbidden_substitutions": [
-    "approved_nonzero_physical_shell",
-    "zero_width_proxy",
-    "L3_4x4_template",
-    "flat_clipped_region_without_authoritative_pin_manifest"
-  ]
+  "gds": {
+    "path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_bitcell_array_layoutgen_reuse_v2/clean.gds",
+    "sha256": "555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac",
+    "top_cell": "sram_capped_replica_bitcell_array"
+  },
+  "machine_gate_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_bitcell_array_layoutgen_reuse_v2/BITCELL_ARRAY_MACHINE_GATE.json",
+  "manifest_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_bitcell_array_layoutgen_reuse_v2/manifest.json",
+  "replica_policy": "ONE_LEFT_REPLICA_COLUMN_WITH_RBL",
+  "source_lock_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_bitcell_array_layoutgen_reuse_v2/source_lock.json",
+  "tap_policy": "NO_DISCRETE_TAP_IN_LOCKED_FREEPDK45_LITERAM_STORAGE_FAMILY"
 }

@@ -5,7 +5,18 @@
     "sha256": "4eb62c04deb83eb64f5c07d1ba1a3700bbf47516f9c37da608fcbf806ca275c1",
     "exists": true
   },
-  "authority_conclusion": "AUTHORITATIVE_ARRAY_ASSET_NOT_RECOVERED",
+  "authority_conclusion": "AUTHORITATIVE_ARRAY_SOURCE_RECOVERED_AND_REGENERATED",
+  "follow_up_recovery": {
+    "source_root": "/data1/qujh/My_OpenYield/LiteRAM-Layout",
+    "authority_level": "A_CURRENT_SOURCE_EXACT",
+    "selected_output": "outputs/PROJECT_bitcell_array_layoutgen_reuse_v2/clean.gds",
+    "selected_output_sha256": "555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac",
+    "top_cell": "sram_capped_replica_bitcell_array",
+    "formal_configuration": "16 rows x 16 columns, word_size=16, words_per_row=1, one bank, FreePDK45 cell_1rw family",
+    "source_lock": "outputs/PROJECT_bitcell_array_layoutgen_reuse_v2/source_lock.json",
+    "machine_gate": "outputs/PROJECT_bitcell_array_layoutgen_reuse_v2/BITCELL_ARRAY_MACHINE_GATE.json",
+    "integration_boundary": "Standalone array authority is closed; Decoder/WL-driver integration has not been rerun against this GDS."
+  },
   "reusable_generator_root": "/data1/qujh/work/sram_layoutgen_step45_clean",
   "achievements": [
     {
@@ -100,13 +111,9 @@
     "storage_aggregation_can_continue": false,
     "interpretation": "Clean leaf baselines do not prove clean array aggregation."
   },
-  "missing_authority_items": [
-    "accessible versioned hierarchical 16-row bitcell-array GDS",
-    "locked top-cell and hierarchy inventory",
-    "authoritative WL/BL/BR/VDD/VSS pin manifest",
-    "dummy/tap/replica configuration manifest",
-    "array-level external DRC=0 database",
-    "final-GDS power endpoint and same-net rail-union witnesses",
-    "deterministic generation report bound to source commit and GDS SHA"
+  "missing_authority_items": [],
+  "remaining_integration_items": [
+    "rerun Decoder and WL-driver placement against the locked array GDS SHA",
+    "rerun combined integration DRC, connectivity, foreign-net, power and pin-access checks"
   ]
 }

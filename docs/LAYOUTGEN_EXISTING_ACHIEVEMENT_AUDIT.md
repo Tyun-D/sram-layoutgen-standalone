@@ -18,8 +18,14 @@ The package's standalone `bitcell_array.gds` is the same 4x4 L3 geometric protot
 
 The historical hardcell baseline reports zero DRC markers for `cell_1rw`, `dummy_cell_1rw`, and `replica_cell_1rw`. The same report attributes 40 markers to storage aggregation and sets `storage_aggregation_can_continue=false`; leaf cleanliness therefore cannot be promoted to array cleanliness.
 
+## Follow-up Recovery
+
+The exhaustive server search recovered the complete current LiteRAM/Layoutgen source family at `/data1/qujh/My_OpenYield/LiteRAM-Layout`, including the hierarchical array generators, FreePDK45 layer mapping, and exact bitcell/dummy/replica hard macros. The locked formal 16-row by 16-column, one-bank, `word_size=16`, `words_per_row=1` configuration was regenerated as `outputs/PROJECT_bitcell_array_layoutgen_reuse_v2/clean.gds`.
+
+The regenerated top cell is `sram_capped_replica_bitcell_array`; its GDS SHA-256 is `555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac`. Source-file SHA locks, final hierarchy and pin inventories, external DRC, endpoint power witnesses, deterministic A/B generation, and the negative suite are bound in the output manifest and machine gate.
+
 ## Authority Boundary
 
-`AUTHORITATIVE_ARRAY_ASSET_NOT_RECOVERED`
+`AUTHORITATIVE_ARRAY_SOURCE_RECOVERED_AND_REGENERATED`
 
-No shell, 4x4 prototype, flat clipped region, or built-in DRC result is accepted as a complete bitcell array. The exact missing authority items are listed in the JSON companion file.
+This closes the standalone array authority only. Decoder and WL-driver physical integration has not been rerun against this GDS, so `FULL_BITCELL_ARRAY_GDS_INTEGRATION=false` remains in force. No shell, 4x4 prototype, or flat clipped region was promoted.
