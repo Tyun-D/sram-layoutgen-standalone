@@ -119,20 +119,32 @@ def shape_graph(graph: dict[str, Any]) -> tuple[dict[str, dict[str, Any]], dict[
         for row in rows:
             rects[row["rect_id"]] = {"layer": layer, "bbox": row["bbox"]}
             adjacency[row["rect_id"]] = set()
-    for link_name in ("contact_links", "via1_links", "via2_links"):
+    for link_name in ("contact_links", "via1_links", "via2_links", "via3_links", "via4_links", "via5_links"):
         for shape_id, peers in graph.get(link_name, {}).items():
             for peer in peers:
                 if shape_id in adjacency and peer in adjacency:
                     adjacency[shape_id].add(peer)
                     adjacency[peer].add(shape_id)
-    for layer, rows in graph.get("rectangles", {}).items():
-        for index, left in enumerate(rows):
-            a = left["bbox"]
-            for right in rows[index + 1 :]:
-                b = right["bbox"]
+    bucket_size = 2.0
+    for _layer, rows in graph.get("rectangles", {}).items():
+        buckets: dict[tuple[int, int], list[dict[str, Any]]] = {}
+        for row in rows:
+            lx, by, rx, uy = row["bbox"]
+            x0, x1 = int(lx // bucket_size), int(rx // bucket_size)
+            y0, y1 = int(by // bucket_size), int(uy // bucket_size)
+            candidates: dict[str, dict[str, Any]] = {}
+            for bx in range(x0, x1 + 1):
+                for by_index in range(y0, y1 + 1):
+                    for peer in buckets.get((bx, by_index), []):
+                        candidates[peer["rect_id"]] = peer
+            for peer in candidates.values():
+                a, b = row["bbox"], peer["bbox"]
                 if not (a[2] < b[0] - 1e-6 or b[2] < a[0] - 1e-6 or a[3] < b[1] - 1e-6 or b[3] < a[1] - 1e-6):
-                    adjacency[left["rect_id"]].add(right["rect_id"])
-                    adjacency[right["rect_id"]].add(left["rect_id"])
+                    adjacency[row["rect_id"]].add(peer["rect_id"])
+                    adjacency[peer["rect_id"]].add(row["rect_id"])
+            for bx in range(x0, x1 + 1):
+                for by_index in range(y0, y1 + 1):
+                    buckets.setdefault((bx, by_index), []).append(row)
     return rects, adjacency
 
 
@@ -140,7 +152,7 @@ def shapes_at(graph: dict[str, Any], box: dict[str, Any]) -> list[str]:
     cx, cy = center(box)
     hits: list[str] = []
     for layer, rows in graph.get("rectangles", {}).items():
-        if layer not in {"m1", "m2", "m3"}:
+        if layer not in {"m1", "m2", "m3", "m4", "m5", "m6"}:
             continue
         for row in rows:
             lx, by, rx, uy = row["bbox"]
@@ -216,12 +228,12 @@ def build_power_evidence(candidate: str, top_candidate: str) -> dict[str, Any]:
     graph = extract_physical_connectivity(out_dir / "integration_shell_clean.gds", top_name)
     rects, adjacency = shape_graph(graph)
     endpoints, top_pins, _ = endpoint_inventory(candidate, top_candidate)
-    top_components = {net: _component_for_bbox(graph, box, {"m1", "m2", "m3"}) for net, box in top_pins.items()}
+    top_components = {net: _component_for_bbox(graph, box, {"m1", "m2", "m3", "m4", "m5", "m6"}) for net, box in top_pins.items()}
     rows: list[dict[str, Any]] = []
     atlas_rows: list[tuple[dict[str, Any], list[str]]] = []
     for endpoint in endpoints:
         box = endpoint["endpoint_bbox_raw"]
-        component = _component_for_bbox(graph, box, {"m1", "m2", "m3"})
+        component = _component_for_bbox(graph, box, {"m1", "m2", "m3", "m4", "m5", "m6"})
         path = shortest_path(adjacency, shapes_at(graph, box), shapes_at(graph, top_pins[endpoint["endpoint_net"]])) if component == top_components[endpoint["endpoint_net"]] else []
         passed = bool(component and path and component == top_components[endpoint["endpoint_net"]])
         row = {
@@ -229,7 +241,7 @@ def build_power_evidence(candidate: str, top_candidate: str) -> dict[str, Any]:
             "endpoint_bbox": json.dumps(box, sort_keys=True),
             "top_component_id": top_components[endpoint["endpoint_net"]],
             "witness_path_shape_count": len(path),
-            "witness_path_via_count": sum(rects[item]["layer"] in {"via1", "via2"} for item in path),
+            "witness_path_via_count": sum(rects[item]["layer"] in {"via1", "via2", "via3", "via4"} for item in path),
             "passed": passed,
             "endpoint_component_id": component,
             "witness_path_shape_ids": json.dumps(path),
@@ -241,7 +253,7 @@ def build_power_evidence(candidate: str, top_candidate: str) -> dict[str, Any]:
 
     lib = gdstk.Library(unit=1e-6, precision=1e-9)
     atlas = lib.new_cell("POWER_WITNESS_ATLAS")
-    layers = {"m1": 11, "via1": 12, "m2": 13, "via2": 14, "m3": 15}
+    layers = {"m1": 11, "via1": 12, "m2": 13, "via2": 14, "m3": 15, "via3": 16, "m4": 17, "via4": 18, "m5": 19}
     for endpoint, path in atlas_rows:
         for shape_id in path:
             shape = rects[shape_id]
@@ -276,8 +288,8 @@ def build_power_evidence(candidate: str, top_candidate: str) -> dict[str, Any]:
 
 
 def route_metrics(route: dict[str, Any], tech: Tech) -> dict[str, Any]:
-    lengths = {"m1": 0.0, "m2": 0.0, "m3": 0.0}
-    vias = {"via1": 0, "via2": 0}
+    lengths = {"m1": 0.0, "m2": 0.0, "m3": 0.0, "m4": 0.0, "m5": 0.0}
+    vias = {"via1": 0, "via2": 0, "via3": 0, "via4": 0}
     axes: list[str] = []
     for key, box in route.items():
         if not isinstance(box, dict) or not {"lx", "by", "rx", "uy"} <= set(box):
@@ -286,20 +298,21 @@ def route_metrics(route: dict[str, Any], tech: Tech) -> dict[str, Any]:
             continue
         width = abs(float(box["rx"]) - float(box["lx"]))
         height = abs(float(box["uy"]) - float(box["by"]))
-        if "via1" in key:
-            vias["via1"] += 1
-        elif "via2" in key:
-            vias["via2"] += 1
+        if any(via in key for via in vias):
+            via = next(via for via in vias if via in key)
+            vias[via] += 1
         else:
-            layer = "m1" if "m1" in key else "m2" if "m2" in key else "m3"
+            layer = next(layer for layer in reversed(lengths) if layer in key)
             lengths[layer] += max(width, height)
             axes.append("V" if height > width else "H")
     bends = sum(left != right for left, right in zip(axes, axes[1:]))
-    normalized_r = sum(lengths[layer] / tech.layer(layer).min_width for layer in lengths) + vias["via1"] * 4.0 + vias["via2"] * 4.4
-    normalized_c = sum(lengths[layer] * tech.layer(layer).pitch for layer in lengths)
+    width = {"m1": 0.065, "m2": 0.07, "m3": 0.07, "m4": 0.14, "m5": 0.14}
+    pitch = {"m1": 0.13, "m2": 0.14, "m3": 0.14, "m4": 0.28, "m5": 0.28}
+    normalized_r = sum(lengths[layer] / width[layer] for layer in lengths) + sum(vias[via] * (4.0 + index * 0.4) for index, via in enumerate(vias))
+    normalized_c = sum(lengths[layer] * pitch[layer] for layer in lengths)
     return {
-        "m1_length_um": round(lengths["m1"], 6), "m2_length_um": round(lengths["m2"], 6), "m3_length_um": round(lengths["m3"], 6),
-        "metal_length_total_um": round(sum(lengths.values()), 6), "via1_count": vias["via1"], "via2_count": vias["via2"],
+        **{f"{layer}_length_um": round(value, 6) for layer, value in lengths.items()},
+        "metal_length_total_um": round(sum(lengths.values()), 6), **{f"{via}_count": value for via, value in vias.items()},
         "via_count": sum(vias.values()), "bend_count": bends,
         "normalized_route_r_proxy": round(normalized_r, 6), "normalized_route_c_proxy": round(normalized_c, 6),
         "normalized_rc_proxy": round(normalized_r * normalized_c, 6), "rc_model_kind": "NORMALIZED_GEOMETRY_RC_PROXY",

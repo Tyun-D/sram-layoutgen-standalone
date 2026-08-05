@@ -458,3 +458,12 @@
 - Synchronized checkpoint HEAD `c37558026f8052d1d8d273c113804e668ceeb347` with `origin/project/mainline-inventory-20260726` before this status-only commit.
 - Standalone array status remains `AUTHORITATIVE_ARRAY_ASSET_REGENERATED` with machine gate `PASS_AUTHORITATIVE_ARRAY_MACHINE_GATE` and locked GDS SHA `555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac`.
 - Full Decoder/WL-driver/array integration remains `RERUN_PENDING`; no shell result is promoted and `full_bitcell_array_gds_integration=false`.
+
+## 2026-08-05 Real array physical integration closure
+
+- Integrated the immutable authoritative 16x16 array GDS SHA `555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac`; no shell or proxy array is present.
+- `P2_REAL_ARRAY_V1` and `P3_REAL_ARRAY_V1` both pass combined DRC=0, 868/868 final-GDS power endpoint coverage, isolated single VDD/VSS components, connectivity, foreign-net, Pin access, bit-exact WL/BL/BR authority, alignment, determinism A/B, and the real-array negative suite.
+- P2 is recommended over P3 because the complete path proxy totals 784.1825 um versus 1104.1825 um and has lower max path length and arrival-skew proxy.
+- Complete Decoder-to-driver-to-array ngspice proxies cover 16/16 paths for both candidates. Evidence remains `NORMALIZED_GEOMETRY_RC_PROXY`, explicitly `NOT_POST_LAYOUT_PEX`.
+- Formal WL timing authority remains `TIMING_BUDGET_AUTHORITY_PENDING`; physical closure does not constitute formal timing signoff.
+- Stop classification: `PASS_REAL_ARRAY_PHYSICAL_CLOSURE_PENDING_NARROW_WL_TIMING_AUTHORITY`.

@@ -64,6 +64,7 @@ INTEGRATION_CANDIDATES = [
 ARRAY_MACRO_ROWS = 4
 ARRAY_MACRO_STACK = 4
 TOTAL_ROWS = ARRAY_MACRO_ROWS * ARRAY_MACRO_STACK
+NAMESPACE_IMPORTED_HIERARCHIES = False
 
 
 def _sha256(path: Path) -> str:
@@ -691,6 +692,9 @@ def _generate_candidate(candidate: IntegrationCandidate) -> dict[str, Any]:
     decoder_root = REPO_ROOT / "outputs" / "PROJECT_decoder_top_v3" / candidate.decoder_top_candidate
     decoder_lib = gdstk.read_gds(decoder_root / "clean.gds")
     decoder_cell = decoder_lib.top_level()[0]
+    if NAMESPACE_IMPORTED_HIERARCHIES:
+        for cell in decoder_lib.cells:
+            cell.name = f"decoder__{cell.name}"
     decoder_pin_map = read_json(decoder_root / "pin_map.json")
     decoder_bbox_raw = decoder_cell.bounding_box()
     assert decoder_bbox_raw is not None
@@ -698,6 +702,9 @@ def _generate_candidate(candidate: IntegrationCandidate) -> dict[str, Any]:
 
     driver_lib = gdstk.read_gds(REPO_ROOT / "outputs" / "PROJECT_wordline_driver_v2_regen" / "current_supported_config" / "wordline_driver_v2.gds")
     driver_cell = driver_lib.top_level()[0]
+    if NAMESPACE_IMPORTED_HIERARCHIES:
+        for cell in driver_lib.cells:
+            cell.name = f"wl_driver__{cell.name}"
     driver_pin_map = read_json(REPO_ROOT / "outputs" / "PROJECT_wordline_driver_v2_regen" / "current_supported_config" / "wordline_driver_v2_pin_map.json")
     driver_bbox_raw = driver_cell.bounding_box()
     assert driver_bbox_raw is not None
@@ -714,21 +721,30 @@ def _generate_candidate(candidate: IntegrationCandidate) -> dict[str, Any]:
         array_w = round(float(array_meta["bbox"]["width"]), 6)
         array_h = round(float(array_meta["bbox"]["height"]), 6)
 
-    lib = decoder_lib
-    existing_names = {cell.name for cell in lib.cells}
-    for cell in driver_lib.cells:
-        if cell.name not in existing_names:
-            lib.add(cell.copy(cell.name))
-            existing_names.add(cell.name)
-    if use_physical_shell:
-        if array_shell_cell.name not in existing_names:
-            lib.add(array_shell_cell.copy(array_shell_cell.name))
-            existing_names.add(array_shell_cell.name)
+    if NAMESPACE_IMPORTED_HIERARCHIES:
+        lib = gdstk.Library(unit=decoder_lib.unit, precision=decoder_lib.precision)
+        lib.add(*decoder_lib.cells)
+        lib.add(*driver_lib.cells)
+        if use_physical_shell:
+            lib.add(array_shell_cell)
+        else:
+            lib.add(*array_lib.cells)
     else:
-        for cell in array_lib.cells:
+        lib = decoder_lib
+        existing_names = {cell.name for cell in lib.cells}
+        for cell in driver_lib.cells:
             if cell.name not in existing_names:
                 lib.add(cell.copy(cell.name))
                 existing_names.add(cell.name)
+        if use_physical_shell:
+            if array_shell_cell.name not in existing_names:
+                lib.add(array_shell_cell.copy(array_shell_cell.name))
+                existing_names.add(array_shell_cell.name)
+        else:
+            for cell in array_lib.cells:
+                if cell.name not in existing_names:
+                    lib.add(cell.copy(cell.name))
+                    existing_names.add(cell.name)
     cell_by_name = {cell.name: cell for cell in lib.cells}
     decoder_ref_cell = cell_by_name[decoder_cell.name]
     driver_ref_cell = cell_by_name[driver_cell.name]

@@ -10,6 +10,7 @@ import gdstk
 from sram_layoutgen.openyield_adapter.primitive_geometry_verifier import read_top_cell
 
 EPSILON = 1e-6
+SPATIAL_BUCKET_SIZE = 1.0
 LAYER_NAME_BY_GDS = {
     (1, 0): "active",
     (2, 0): "pwell",
@@ -24,6 +25,12 @@ LAYER_NAME_BY_GDS = {
     (13, 0): "m2",
     (14, 0): "via2",
     (15, 0): "m3",
+    (16, 0): "via3",
+    (17, 0): "m4",
+    (18, 0): "via4",
+    (19, 0): "m5",
+    (20, 0): "via5",
+    (21, 0): "m6",
     (239, 0): "text",
 }
 
@@ -69,6 +76,39 @@ def _touch_or_overlap(a: Rect, b: Rect) -> bool:
     return not (a.rx < b.lx - EPSILON or b.rx < a.lx - EPSILON or a.uy < b.by - EPSILON or b.uy < a.by - EPSILON)
 
 
+def _bucket_keys(rect: Rect) -> list[tuple[int, int]]:
+    import math
+
+    x0 = math.floor((rect.lx - EPSILON) / SPATIAL_BUCKET_SIZE)
+    x1 = math.floor((rect.rx + EPSILON) / SPATIAL_BUCKET_SIZE)
+    y0 = math.floor((rect.by - EPSILON) / SPATIAL_BUCKET_SIZE)
+    y1 = math.floor((rect.uy + EPSILON) / SPATIAL_BUCKET_SIZE)
+    return [(x, y) for x in range(x0, x1 + 1) for y in range(y0, y1 + 1)]
+
+
+def _spatial_index(rects: list[Rect] | tuple[Rect, ...]) -> dict[tuple[int, int], list[Rect]]:
+    index: dict[tuple[int, int], list[Rect]] = defaultdict(list)
+    for rect in rects:
+        for key in _bucket_keys(rect):
+            index[key].append(rect)
+    return index
+
+
+def _overlapping(rect: Rect, index: dict[tuple[int, int], list[Rect]]) -> list[Rect]:
+    candidates: dict[str, Rect] = {}
+    for key in _bucket_keys(rect):
+        for candidate in index.get(key, []):
+            candidates[candidate.rect_id] = candidate
+    return [candidate for candidate in candidates.values() if candidate.rect_id != rect.rect_id and _touch_or_overlap(rect, candidate)]
+
+
+def _at_point(x: float, y: float, index: dict[tuple[int, int], list[Rect]]) -> list[Rect]:
+    import math
+
+    key = (math.floor(x / SPATIAL_BUCKET_SIZE), math.floor(y / SPATIAL_BUCKET_SIZE))
+    return [rect for rect in index.get(key, []) if _contains_point(rect, x, y)]
+
+
 def _contains_point(rect: Rect, x: float, y: float) -> bool:
     return rect.lx - EPSILON <= x <= rect.rx + EPSILON and rect.by - EPSILON <= y <= rect.uy + EPSILON
 
@@ -104,9 +144,10 @@ def _rect_from_polygon(poly: gdstk.Polygon, index: int) -> Rect:
 def _split_active_segments(active_rects: list[Rect], poly_rects: list[Rect]) -> tuple[list[Rect], dict[str, list[str]]]:
     segments: list[Rect] = []
     parent_to_children: dict[str, list[str]] = {}
+    poly_index = _spatial_index(poly_rects)
     for active_rect in active_rects:
         cut_intervals: list[tuple[float, float]] = []
-        for poly_rect in poly_rects:
+        for poly_rect in _overlapping(active_rect, poly_index):
             if poly_rect.uy <= active_rect.by + EPSILON or poly_rect.by >= active_rect.uy - EPSILON:
                 continue
             overlap_left = max(active_rect.lx, poly_rect.lx)
@@ -182,52 +223,87 @@ def extract_physical_connectivity(gds_path: Path, top_name: str | None = None, *
     m1_rects = rects.get("m1", [])
     m2_rects = rects.get("m2", [])
     m3_rects = rects.get("m3", [])
+    m4_rects = rects.get("m4", [])
+    m5_rects = rects.get("m5", [])
+    m6_rects = rects.get("m6", [])
     contact_rects = rects.get("contact", [])
     via1_rects = rects.get("via1", [])
     via2_rects = rects.get("via2", [])
+    via3_rects = rects.get("via3", [])
+    via4_rects = rects.get("via4", [])
+    via5_rects = rects.get("via5", [])
     active_segments, parent_to_children = _split_active_segments(active_rects, poly_rects)
 
     if metal_only:
-        all_rects = {rect.rect_id: rect for rect in [*m1_rects, *m2_rects, *m3_rects, *via1_rects, *via2_rects]}
+        all_rects = {rect.rect_id: rect for rect in [*m1_rects, *m2_rects, *m3_rects, *m4_rects, *m5_rects, *m6_rects, *via1_rects, *via2_rects, *via3_rects, *via4_rects, *via5_rects]}
     else:
-        all_rects = {rect.rect_id: rect for rect in [*m1_rects, *m2_rects, *m3_rects, *poly_rects, *active_segments, *contact_rects, *via1_rects, *via2_rects]}
+        all_rects = {rect.rect_id: rect for rect in [*m1_rects, *m2_rects, *m3_rects, *m4_rects, *m5_rects, *m6_rects, *poly_rects, *active_segments, *contact_rects, *via1_rects, *via2_rects, *via3_rects, *via4_rects, *via5_rects]}
     uf = _UnionFind()
     for rect_id in all_rects:
         uf.add(rect_id)
 
-    layer_groups = (m1_rects, m2_rects, m3_rects) if metal_only else (m1_rects, m2_rects, m3_rects, poly_rects, active_segments)
+    layer_groups = (m1_rects, m2_rects, m3_rects, m4_rects, m5_rects, m6_rects) if metal_only else (m1_rects, m2_rects, m3_rects, m4_rects, m5_rects, m6_rects, poly_rects, active_segments)
     for layer_rects in layer_groups:
-        for index, left in enumerate(layer_rects):
-            for right in layer_rects[index + 1 :]:
-                if _touch_or_overlap(left, right):
+        spatial = _spatial_index(layer_rects)
+        for left in layer_rects:
+            for right in _overlapping(left, spatial):
+                if left.rect_id < right.rect_id:
                     uf.union(left.rect_id, right.rect_id)
 
     contact_links: dict[str, list[str]] = {}
     if not metal_only:
+        contact_targets = (*m1_rects, *poly_rects, *active_segments)
+        contact_target_index = _spatial_index(contact_targets)
         for contact in contact_rects:
             linked: list[str] = []
-            for target in (*m1_rects, *poly_rects, *active_segments):
-                if _touch_or_overlap(contact, target):
-                    uf.union(contact.rect_id, target.rect_id)
-                    linked.append(target.rect_id)
+            for target in _overlapping(contact, contact_target_index):
+                uf.union(contact.rect_id, target.rect_id)
+                linked.append(target.rect_id)
             contact_links[contact.rect_id] = sorted(linked)
     via1_links: dict[str, list[str]] = {}
+    via1_target_index = _spatial_index((*m1_rects, *m2_rects))
     for via1 in via1_rects:
         linked: list[str] = []
-        for target in (*m1_rects, *m2_rects):
-            if _touch_or_overlap(via1, target):
-                uf.union(via1.rect_id, target.rect_id)
-                linked.append(target.rect_id)
+        for target in _overlapping(via1, via1_target_index):
+            uf.union(via1.rect_id, target.rect_id)
+            linked.append(target.rect_id)
         via1_links[via1.rect_id] = sorted(linked)
     via2_links: dict[str, list[str]] = {}
+    via2_target_index = _spatial_index((*m2_rects, *m3_rects))
     for via2 in via2_rects:
         linked: list[str] = []
-        for target in (*m2_rects, *m3_rects):
-            if _touch_or_overlap(via2, target):
-                uf.union(via2.rect_id, target.rect_id)
-                linked.append(target.rect_id)
+        for target in _overlapping(via2, via2_target_index):
+            uf.union(via2.rect_id, target.rect_id)
+            linked.append(target.rect_id)
         via2_links[via2.rect_id] = sorted(linked)
+    via3_links: dict[str, list[str]] = {}
+    via3_target_index = _spatial_index((*m3_rects, *m4_rects))
+    for via3 in via3_rects:
+        linked = []
+        for target in _overlapping(via3, via3_target_index):
+            uf.union(via3.rect_id, target.rect_id)
+            linked.append(target.rect_id)
+        via3_links[via3.rect_id] = sorted(linked)
+    via4_links: dict[str, list[str]] = {}
+    via4_target_index = _spatial_index((*m4_rects, *m5_rects))
+    for via4 in via4_rects:
+        linked = []
+        for target in _overlapping(via4, via4_target_index):
+            uf.union(via4.rect_id, target.rect_id)
+            linked.append(target.rect_id)
+        via4_links[via4.rect_id] = sorted(linked)
 
+    via5_links: dict[str, list[str]] = {}
+    via5_target_index = _spatial_index((*m5_rects, *m6_rects))
+    for via5 in via5_rects:
+        linked = []
+        for target in _overlapping(via5, via5_target_index):
+            uf.union(via5.rect_id, target.rect_id)
+            linked.append(target.rect_id)
+        via5_links[via5.rect_id] = sorted(linked)
+
+    conductor_label_index = _spatial_index((*m1_rects, *m2_rects, *m3_rects, *m4_rects, *m5_rects, *m6_rects))
+    poly_label_index = _spatial_index(poly_rects)
     labels = []
     pin_labels: dict[str, list[dict[str, Any]]] = defaultdict(list)
     label_hits: list[dict[str, Any]] = []
@@ -239,8 +315,8 @@ def extract_physical_connectivity(gds_path: Path, top_name: str | None = None, *
         }
         labels.append(entry)
         text = str(label.text)
-        m1_hits = [rect for rect in (*m1_rects, *m2_rects, *m3_rects) if _contains_point(rect, float(label.origin[0]), float(label.origin[1]))]
-        poly_hits = [] if metal_only else [rect for rect in poly_rects if _contains_point(rect, float(label.origin[0]), float(label.origin[1]))]
+        m1_hits = _at_point(float(label.origin[0]), float(label.origin[1]), conductor_label_index)
+        poly_hits = [] if metal_only else _at_point(float(label.origin[0]), float(label.origin[1]), poly_label_index)
         hit_ids = [rect.rect_id for rect in m1_hits or poly_hits]
         label_hits.append({"text": text, "origin": entry["origin"], "shape_ids": hit_ids, "layer": entry["layer"]})
         pin_labels[text].append({"origin": entry["origin"], "shape_ids": hit_ids})
@@ -266,13 +342,18 @@ def extract_physical_connectivity(gds_path: Path, top_name: str | None = None, *
 
     active_segment_details = []
     if not metal_only:
+        nwell_index = _spatial_index(rects.get("nwell", []))
+        pwell_index = _spatial_index(rects.get("pwell", []))
+        nimplant_index = _spatial_index(rects.get("nimplant", []))
+        pimplant_index = _spatial_index(rects.get("pimplant", []))
+        contact_index = _spatial_index(contact_rects)
         for segment in active_segments:
             overlaps = {
-                "nwell": any(_touch_or_overlap(segment, rect) for rect in rects.get("nwell", [])),
-                "pwell": any(_touch_or_overlap(segment, rect) for rect in rects.get("pwell", [])),
-                "nimplant": any(_touch_or_overlap(segment, rect) for rect in rects.get("nimplant", [])),
-                "pimplant": any(_touch_or_overlap(segment, rect) for rect in rects.get("pimplant", [])),
-                "contact_ids": sorted(rect.rect_id for rect in contact_rects if _touch_or_overlap(segment, rect)),
+                "nwell": bool(_overlapping(segment, nwell_index)),
+                "pwell": bool(_overlapping(segment, pwell_index)),
+                "nimplant": bool(_overlapping(segment, nimplant_index)),
+                "pimplant": bool(_overlapping(segment, pimplant_index)),
+                "contact_ids": sorted(rect.rect_id for rect in _overlapping(segment, contact_index)),
                 "component_id": uf.find(segment.rect_id),
             }
             active_segment_details.append(
@@ -294,6 +375,9 @@ def extract_physical_connectivity(gds_path: Path, top_name: str | None = None, *
         "contact_links": contact_links,
         "via1_links": via1_links,
         "via2_links": via2_links,
+        "via3_links": via3_links,
+        "via4_links": via4_links,
+        "via5_links": via5_links,
         "components": sorted(components.values(), key=lambda item: item["component_id"]),
         "pin_labels": {key: value for key, value in sorted(pin_labels.items())},
         "label_hits": label_hits,
@@ -302,11 +386,17 @@ def extract_physical_connectivity(gds_path: Path, top_name: str | None = None, *
             "m1": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in m1_rects],
             "m2": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in m2_rects],
             "m3": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in m3_rects],
+            "m4": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in m4_rects],
+            "m5": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in m5_rects],
+            "m6": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in m6_rects],
             "poly": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in poly_rects],
             "active_segments": [{"rect_id": rect.rect_id, "bbox": rect.bbox(), "source": rect.source} for rect in active_segments],
             "contact": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in contact_rects],
             "via1": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in via1_rects],
             "via2": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in via2_rects],
+            "via3": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in via3_rects],
+            "via4": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in via4_rects],
+            "via5": [{"rect_id": rect.rect_id, "bbox": rect.bbox()} for rect in via5_rects],
         },
     }
     if not metal_only:

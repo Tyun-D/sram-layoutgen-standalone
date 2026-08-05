@@ -1,0 +1,100 @@
+{
+  "candidate_id": "P3_REAL_ARRAY_V1",
+  "validator": "real_array_parent_integration_facts_validator",
+  "case_count": 13,
+  "unexpected_pass_count": 0,
+  "negative_tests_passed": true,
+  "cases": [
+    {
+      "case_id": "replace_real_array_with_shell",
+      "expected_rejection_code": "REAL_ARRAY_INSTANCE_REQUIRED",
+      "observed_rejection_code": "REAL_ARRAY_INSTANCE_REQUIRED",
+      "unexpected_pass": false,
+      "passed": true
+    },
+    {
+      "case_id": "array_GDS_SHA_mismatch",
+      "expected_rejection_code": "ARRAY_GDS_SHA_MISMATCH",
+      "observed_rejection_code": "ARRAY_GDS_SHA_MISMATCH",
+      "unexpected_pass": false,
+      "passed": true
+    },
+    {
+      "case_id": "move_array_without_rerouting",
+      "expected_rejection_code": "STALE_ROUTE_AFTER_ARRAY_MOVE",
+      "observed_rejection_code": "STALE_ROUTE_AFTER_ARRAY_MOVE",
+      "unexpected_pass": false,
+      "passed": true
+    },
+    {
+      "case_id": "break_array_VDD_stitch",
+      "expected_rejection_code": "ARRAY_VDD_STITCH_MISSING",
+      "observed_rejection_code": "ARRAY_VDD_STITCH_MISSING",
+      "unexpected_pass": false,
+      "passed": true
+    },
+    {
+      "case_id": "break_array_VSS_stitch",
+      "expected_rejection_code": "ARRAY_VSS_STITCH_MISSING",
+      "observed_rejection_code": "ARRAY_VSS_STITCH_MISSING",
+      "unexpected_pass": false,
+      "passed": true
+    },
+    {
+      "case_id": "misalign_WL_driver_by_one_row",
+      "expected_rejection_code": "DRIVER_ROW_ALIGNMENT_FAILED",
+      "observed_rejection_code": "DRIVER_ROW_ALIGNMENT_FAILED",
+      "unexpected_pass": false,
+      "passed": true
+    },
+    {
+      "case_id": "swap_WL7_WL8",
+      "expected_rejection_code": "WL_BIT_ORDER_SWAP_DETECTED",
+      "observed_rejection_code": "WL_BIT_ORDER_SWAP_DETECTED",
+      "unexpected_pass": false,
+      "passed": true
+    },
+    {
+      "case_id": "short_WL_to_BL",
+      "expected_rejection_code": "WL_TO_BL_FOREIGN_NET_SHORT",
+      "observed_rejection_code": "WL_TO_BL_FOREIGN_NET_SHORT",
+      "unexpected_pass": false,
+      "passed": true
+    },
+    {
+      "case_id": "short_WL_to_BR",
+      "expected_rejection_code": "WL_TO_BR_FOREIGN_NET_SHORT",
+      "observed_rejection_code": "WL_TO_BR_FOREIGN_NET_SHORT",
+      "unexpected_pass": false,
+      "passed": true
+    },
+    {
+      "case_id": "drop_one_BL_interface_pin",
+      "expected_rejection_code": "BL_INTERFACE_PIN_MISSING",
+      "observed_rejection_code": "BL_INTERFACE_PIN_MISSING",
+      "unexpected_pass": false,
+      "passed": true
+    },
+    {
+      "case_id": "drop_one_BR_interface_pin",
+      "expected_rejection_code": "BR_INTERFACE_PIN_MISSING",
+      "observed_rejection_code": "BR_INTERFACE_PIN_MISSING",
+      "unexpected_pass": false,
+      "passed": true
+    },
+    {
+      "case_id": "modify_bitcell_pitch_in_parent_manifest",
+      "expected_rejection_code": "ARRAY_CHILD_IMMUTABILITY_FAILED",
+      "observed_rejection_code": "ARRAY_CHILD_IMMUTABILITY_FAILED",
+      "unexpected_pass": false,
+      "passed": true
+    },
+    {
+      "case_id": "reuse_shell_route_on_real_array",
+      "expected_rejection_code": "SHELL_ROUTE_REUSE_FORBIDDEN",
+      "observed_rejection_code": "SHELL_ROUTE_REUSE_FORBIDDEN",
+      "unexpected_pass": false,
+      "passed": true
+    }
+  ]
+}

@@ -53,14 +53,14 @@ def verify_hierarchical_connectivity(
         for endpoint in endpoints:
             endpoint_name = endpoint["endpoint_name"]
             endpoint_to_net[endpoint_name] = net_name
-            component = _component_for_bbox(graph, endpoint["bbox"], {"m1", "m2"})
+            component = _component_for_bbox(graph, endpoint["bbox"], {"m1", "m2", "m3", "m4", "m5", "m6"})
             endpoint_to_component[endpoint_name] = component
             if component is not None:
                 expected_components.setdefault(net_name, set()).add(component)
     for pin_name, bbox in top_pin_bboxes.items():
         endpoint_name = f"TOP.{pin_name}"
         endpoint_to_net[endpoint_name] = pin_name
-        component = _component_for_bbox(graph, bbox, {"m1", "m2"})
+        component = _component_for_bbox(graph, bbox, {"m1", "m2", "m3", "m4", "m5", "m6"})
         endpoint_to_component[endpoint_name] = component
         if component is not None:
             expected_components.setdefault(pin_name, set()).add(component)
@@ -106,7 +106,7 @@ def verify_hierarchical_connectivity(
             }
         )
 
-    top_comp = {name: _component_for_bbox(graph, bbox, {"m1", "m2"}) for name, bbox in top_pin_bboxes.items()}
+    top_comp = {name: _component_for_bbox(graph, bbox, {"m1", "m2", "m3", "m4", "m5", "m6"}) for name, bbox in top_pin_bboxes.items()}
     actual_components = {
         row["component_id"]
         for row in per_net
