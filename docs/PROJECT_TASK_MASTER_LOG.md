@@ -451,3 +451,10 @@
 - Array gate passes DRC=0, 722/722 power endpoint coverage, one isolated VDD and VSS component, zero intended horizontal/vertical gaps, bit-exact WL/BL/BR, connectivity, foreign-net, Pin access, hierarchy closure, and 16-case negative suite.
 - Standalone array authority is approved. Decoder/WL-driver integration remains pending and no shell result is promoted.
 - Stop classification: `PASS_AUTHORITATIVE_ARRAY_ASSET_REGENERATED_TO_HUMAN_REVIEW`.
+
+## 2026-08-05 Authoritative array SSH publication checkpoint
+
+- Published local authoritative-array commits through the project-specific `github-sram-layoutgen` SSH identity without force push.
+- Synchronized checkpoint HEAD `c37558026f8052d1d8d273c113804e668ceeb347` with `origin/project/mainline-inventory-20260726` before this status-only commit.
+- Standalone array status remains `AUTHORITATIVE_ARRAY_ASSET_REGENERATED` with machine gate `PASS_AUTHORITATIVE_ARRAY_MACHINE_GATE` and locked GDS SHA `555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac`.
+- Full Decoder/WL-driver/array integration remains `RERUN_PENDING`; no shell result is promoted and `full_bitcell_array_gds_integration=false`.
