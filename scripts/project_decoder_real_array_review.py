@@ -198,6 +198,18 @@ def package() -> dict[str, Any]:
         (root / "docs").mkdir()
         for name in docs:
             if (DOCS / name).exists(): shutil.copy2(DOCS / name, root / "docs" / name)
+        status_path = root / "docs" / "PROJECT_CURRENT_STATUS.json"
+        if status_path.exists():
+            status = read_json(status_path)
+            status["git_head"] = head
+            status["current_git_head"] = head
+            status["remote_branch_head"] = remote
+            status["delivery"]["local_checkpoint_head"] = head
+            status["delivery"]["remote_branch_head"] = remote
+            status["delivery"]["push_synced"] = True
+            status["delivery"]["push_error"] = None
+            status["delivery"]["push_method"] = "SSH"
+            write_json(status_path, status)
     shutil.copytree(OUT, latest / "candidates")
     human_files = {
         "integration_shell_clean.gds", "WL_ROUTE_ATLAS.gds", "POWER_WITNESS_ATLAS.gds", "DRIVER_ROW_ALIGNMENT_ATLAS.gds",
