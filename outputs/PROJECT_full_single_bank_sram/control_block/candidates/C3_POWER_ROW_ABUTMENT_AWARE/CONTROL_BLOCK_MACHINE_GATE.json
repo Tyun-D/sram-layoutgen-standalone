@@ -1,0 +1,40 @@
+{
+  "candidate_id": "C3_POWER_ROW_ABUTMENT_AWARE",
+  "status": "CONTROL_BLOCK_MACHINE_GATE_FAILED",
+  "passed": false,
+  "checks": {
+    "logical_authority_locked": true,
+    "required_child_assets_qualified": true,
+    "child_sha_match": true,
+    "placement": true,
+    "orientation_legality": true,
+    "power_endpoint_coverage_100_percent": true,
+    "vdd_vss_isolation": true,
+    "routing_connectivity": true,
+    "foreign_net": true,
+    "pin_access": true,
+    "drc_zero": false,
+    "determinism": true,
+    "negative_suite": true
+  },
+  "metrics": {
+    "candidate_id": "C3_POWER_ROW_ABUTMENT_AWARE",
+    "style": "power",
+    "width": 152.0,
+    "height": 184.0,
+    "area": 27968.0,
+    "total_route_length": 8889.885,
+    "max_route_length": 319.7325,
+    "route_count": 87
+  },
+  "drc": {
+    "ran": true,
+    "returncode": 0,
+    "marker_count": 192,
+    "passed": false,
+    "database": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C3_POWER_ROW_ABUTMENT_AWARE/CONTROL_BLOCK_DRC.lyrdb",
+    "log": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C3_POWER_ROW_ABUTMENT_AWARE/CONTROL_BLOCK_DRC.log"
+  },
+  "clean_gds": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C3_POWER_ROW_ABUTMENT_AWARE/clean.gds",
+  "clean_gds_sha256": "4b1e668da19d036a1e5ffeaa7fdcb29efc0f72110c6de7ea78e2282f237b9333"
+}

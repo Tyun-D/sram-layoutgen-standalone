@@ -1,0 +1,40 @@
+{
+  "candidate_id": "C1_OUTPUT_DRIVEN_CLUSTERING",
+  "status": "CONTROL_BLOCK_MACHINE_GATE_FAILED",
+  "passed": false,
+  "checks": {
+    "logical_authority_locked": true,
+    "required_child_assets_qualified": true,
+    "child_sha_match": true,
+    "placement": true,
+    "orientation_legality": true,
+    "power_endpoint_coverage_100_percent": true,
+    "vdd_vss_isolation": true,
+    "routing_connectivity": true,
+    "foreign_net": true,
+    "pin_access": true,
+    "drc_zero": false,
+    "determinism": true,
+    "negative_suite": true
+  },
+  "metrics": {
+    "candidate_id": "C1_OUTPUT_DRIVEN_CLUSTERING",
+    "style": "output",
+    "width": 264.0,
+    "height": 226.0,
+    "area": 59664.0,
+    "total_route_length": 11071.045,
+    "max_route_length": 380.6275,
+    "route_count": 87
+  },
+  "drc": {
+    "ran": true,
+    "returncode": 0,
+    "marker_count": 166,
+    "passed": false,
+    "database": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C1_OUTPUT_DRIVEN_CLUSTERING/CONTROL_BLOCK_DRC.lyrdb",
+    "log": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C1_OUTPUT_DRIVEN_CLUSTERING/CONTROL_BLOCK_DRC.log"
+  },
+  "clean_gds": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C1_OUTPUT_DRIVEN_CLUSTERING/clean.gds",
+  "clean_gds_sha256": "b60f2e81c9ab7e3dc15a8558b9bdc4047219bbd7c34493e6091868b202a2415d"
+}

@@ -1,0 +1,40 @@
+{
+  "candidate_id": "C4_AUTOMATED_PARETO",
+  "status": "CONTROL_BLOCK_MACHINE_GATE_FAILED",
+  "passed": false,
+  "checks": {
+    "logical_authority_locked": true,
+    "required_child_assets_qualified": true,
+    "child_sha_match": true,
+    "placement": true,
+    "orientation_legality": true,
+    "power_endpoint_coverage_100_percent": true,
+    "vdd_vss_isolation": true,
+    "routing_connectivity": true,
+    "foreign_net": true,
+    "pin_access": true,
+    "drc_zero": false,
+    "determinism": true,
+    "negative_suite": true
+  },
+  "metrics": {
+    "candidate_id": "C4_AUTOMATED_PARETO",
+    "style": "pareto",
+    "width": 184.0,
+    "height": 226.0,
+    "area": 41584.0,
+    "total_route_length": 10123.795,
+    "max_route_length": 293.1275,
+    "route_count": 87
+  },
+  "drc": {
+    "ran": true,
+    "returncode": 0,
+    "marker_count": 171,
+    "passed": false,
+    "database": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C4_AUTOMATED_PARETO/CONTROL_BLOCK_DRC.lyrdb",
+    "log": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C4_AUTOMATED_PARETO/CONTROL_BLOCK_DRC.log"
+  },
+  "clean_gds": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C4_AUTOMATED_PARETO/clean.gds",
+  "clean_gds_sha256": "6d2a4c35f39d103832b799867b00fdc078da781b7957e57be9e4aabda0ac295d"
+}

@@ -1,0 +1,34 @@
+{
+  "created_at": "2026-08-09T14:10:57Z",
+  "git_branch": "project/mainline-inventory-20260726",
+  "git_head": "4eaf02887641a78b56a9a445bce90b06bbd324fe",
+  "status": "BLOCKED_BY_CONTROL_BLOCK_PHYSICAL_AUTHORITY",
+  "reason": "CONTROL_BLOCK_PARENT_ROUTE_DRC_NOT_CLOSED",
+  "physical_top_entry_allowed": false,
+  "formal_functional_timing_closure": false,
+  "candidate_count": 5,
+  "passing_candidate_count": 0,
+  "candidate_drc_markers": {
+    "C0_LOGICAL_TOPOLOGY_BASELINE": 293,
+    "C1_OUTPUT_DRIVEN_CLUSTERING": 166,
+    "C2_TIMING_CHAIN_ORIENTED": 147,
+    "C3_POWER_ROW_ABUTMENT_AWARE": 192,
+    "C4_AUTOMATED_PARETO": 171
+  },
+  "candidate_gate_paths": {
+    "C0_LOGICAL_TOPOLOGY_BASELINE": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C0_LOGICAL_TOPOLOGY_BASELINE/CONTROL_BLOCK_MACHINE_GATE.json",
+    "C1_OUTPUT_DRIVEN_CLUSTERING": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C1_OUTPUT_DRIVEN_CLUSTERING/CONTROL_BLOCK_MACHINE_GATE.json",
+    "C2_TIMING_CHAIN_ORIENTED": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/CONTROL_BLOCK_MACHINE_GATE.json",
+    "C3_POWER_ROW_ABUTMENT_AWARE": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C3_POWER_ROW_ABUTMENT_AWARE/CONTROL_BLOCK_MACHINE_GATE.json",
+    "C4_AUTOMATED_PARETO": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C4_AUTOMATED_PARETO/CONTROL_BLOCK_MACHINE_GATE.json"
+  },
+  "required_child_missing_asset_count": 0,
+  "top_physical_pin_contract": "READY",
+  "remaining_functional_timing_authority_gaps": [
+    "TIME_schedule",
+    "write_sample_point",
+    "disabled_hold_semantics",
+    "formal_WL_timing_authority"
+  ],
+  "next_action": "Repair CONTROL_BLOCK_HIERARCHICAL_V1 parent routing and rerun DRC before Full SRAM Top Entry Gate V3 can pass."
+}

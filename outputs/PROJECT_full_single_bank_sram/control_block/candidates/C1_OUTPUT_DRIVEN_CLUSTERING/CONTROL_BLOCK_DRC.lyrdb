@@ -1,0 +1,2956 @@
+<?xml version="1.0" encoding="utf-8"?>
+<report-database>
+ <description>FreePDK45 DRC runset</description>
+ <original-file/>
+ <generator>drc: script='/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/technology/freepdk45/tech/freepdk45.lydrc'</generator>
+ <top-cell>control_block_hierarchical_v1_c1_output_driven_clustering</top-cell>
+ <tags>
+ </tags>
+ <categories>
+  <category>
+   <name>WELL.1</name>
+   <description>WELL.1 : nwell/pwell must not overlap</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>WELL.4</name>
+   <description>WELL.4 : Minimum width of nwell/pwell : 200nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VT.1</name>
+   <description>VT.1 : Vth adjust layers must coincide with well</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>POLY.1</name>
+   <description>POLY.1 : Minimum width of poly : 50nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>POLY.3</name>
+   <description>POLY.3 : Minimum poly extension beyond active : 55nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>POLY.4</name>
+   <description>POLY.4 : Minimum enclosure of active around gate : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>POLY.5</name>
+   <description>POLY.5 : Minimum spacing of field poly to active: 50nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>POLY.6</name>
+   <description>POLY.6 : Minimum spacing of field poly: 75nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.1</name>
+   <description>ACTIVE.1 : Minimum width of active : 90nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.2</name>
+   <description>ACTIVE.2 : Minimum spacing of active : 80nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.3</name>
+   <description>ACTIVE.3 : Minimum enclosure/spacing of nwell/pwell to active: 55nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.4</name>
+   <description>ACTIVE.4 : active must be inside nwell or pwell</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>IMPLANT.1</name>
+   <description>IMPLANT.1 : Minimum spacing of nimplant/ pimplant to channel : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>IMPLANT.2</name>
+   <description>IMPLANT.1 : Minimum spacing of nimplant/ pimplant to contact : 25nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>IMPLANT.3</name>
+   <description>IMPLANT.3 : Minimum width of nimplant/ pimplant  : 45nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>IMPLANT.4</name>
+   <description>IMPLANT.4 : Minimum spacing of nimplant/ pimplant  : 45nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>IMPLANT.5</name>
+   <description>IMPLANT.5 : Nimplant and pimplant must not overlap</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.1</name>
+   <description>CONTACT.1 : Minimum/Maximum width of contact : 65nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.2</name>
+   <description>CONTACT.2 : Minimum spacing of contact : 75nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.3</name>
+   <description>CONTACT.3 : contact must be inside active or poly or metal1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.4</name>
+   <description>CONTACT.4 : Minimum enclosure of active around contact : 5nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.5</name>
+   <description>CONTACT.5 : Minimum enclosure of poly around contact : 5nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.6</name>
+   <description>CONTACT.6 : Minimum spacing of contact and poly : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.1</name>
+   <description>METAL1.1 : Minimum width of metal1 : 65nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.2</name>
+   <description>METAL1.2 : Minimum spacing of metal1 : 65nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.3</name>
+   <description>METAL1.3 : Minimum enclosure around contact on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.4</name>
+   <description>METAL1.4 : Minimum enclosure around via1 on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.5</name>
+   <description>METAL1.5 : Minimum spacing of metal1 wider than 90 nm and longer than 300 nm : 90nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.6</name>
+   <description>METAL1.6 : Minimum spacing of metal1 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.7</name>
+   <description>METAL1.7 : Minimum spacing of metal1 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.8</name>
+   <description>METAL1.8 : Minimum spacing of metal1 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.9</name>
+   <description>METAL1.9 : Minimum spacing of metal1 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA1.1</name>
+   <description>VIA1.1 : Minimum/Maximum width of via1 : 65nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA1.2</name>
+   <description>VIA1.2 : Minimum spacing of via1 : 75nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA1.3</name>
+   <description>VIA1.3 : via1 must be inside metal1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA1.4</name>
+   <description>VIA1.4 : via1 must be inside metal2</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.1</name>
+   <description>METAL2.1 : Minimum width of  intermediate metal2 : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.2</name>
+   <description>METAL2.2 : Minimum spacing of  intermediate metal2 : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.3</name>
+   <description>METAL2.3 : Minimum enclosure around via1 on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.4</name>
+   <description>METAL2.4 : Minimum enclosure around via2 on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.5</name>
+   <description>METAL2.5 : Minimum spacing of  intermediate metal2 wider than 90 nm and longer than 300 nm : 90nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.6</name>
+   <description>METAL2.6 : Minimum spacing of  intermediate metal2 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.7</name>
+   <description>METAL2.7 : Minimum spacing of  intermediate metal2 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.8</name>
+   <description>METAL2.8 : Minimum spacing of  intermediate metal2 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.9</name>
+   <description>METAL2.9 : Minimum spacing of  intermediate metal2 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA2.1</name>
+   <description>VIA2.1 : Minimum/Maximum width of via2 : 65nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA2.2</name>
+   <description>VIA2.2 : Minimum spacing of via2 : 85nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA2.3</name>
+   <description>VIA2.3 : via2 must be inside metal2</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA2.4</name>
+   <description>VIA2.4 : via2 must be inside metal3</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.1</name>
+   <description>METAL3.1 : Minimum width of  intermediate metal3 : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.2</name>
+   <description>METAL3.2 : Minimum spacing of  intermediate metal3 : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.3</name>
+   <description>METAL3.3 : Minimum enclosure around via2 on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.4</name>
+   <description>METAL3.4 : Minimum enclosure around via3 on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.5</name>
+   <description>METAL3.5 : Minimum spacing of  intermediate metal3 wider than 90 nm and longer than 300 nm : 90nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.6</name>
+   <description>METAL3.6 : Minimum spacing of  intermediate metal3 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.7</name>
+   <description>METAL3.7 : Minimum spacing of  intermediate metal3 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.8</name>
+   <description>METAL3.8 : Minimum spacing of  intermediate metal3 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.9</name>
+   <description>METAL3.9 : Minimum spacing of  intermediate metal3 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA3.1</name>
+   <description>VIA3.1 : Minimum/Maximum width of via3 : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA3.2</name>
+   <description>VIA3.2 : Minimum spacing of via3 : 85nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA3.3</name>
+   <description>VIA3.3 : via3 must be inside metal3</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA3.4</name>
+   <description>VIA3.4 : via3 must be inside metal4</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4.1</name>
+   <description>METAL4.1 : Minimum width of  semi-global metal4 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4.2</name>
+   <description>METAL4.2 : Minimum spacing of  semi-global metal4 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4.6</name>
+   <description>METAL4.6 : Minimum spacing of semi-global metal4 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4.7</name>
+   <description>METAL4.7 : Minimum spacing of semi-global metal4 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4.8</name>
+   <description>METAL4.8 : Minimum spacing of semi-global meta4l wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA4.1</name>
+   <description>VIA4.1 : Minimum/Maximum width of via4 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA4.2</name>
+   <description>VIA4.2 : Minimum spacing of via4 : 160nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA4.3</name>
+   <description>VIA4.3 : via4 must be inside metal4</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA4.4</name>
+   <description>VIA4.4 : via4 must be inside metal5</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5.1</name>
+   <description>METAL5.1 : Minimum width of semi-global metal5 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5.2</name>
+   <description>METAL5.2 : Minimum spacing of semi-global metal5 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5.6</name>
+   <description>METAL5.6 : Minimum spacing of semi-global metal5 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5.7</name>
+   <description>METAL5.7 : Minimum spacing of semi-global metal5 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5.8</name>
+   <description>METAL5.8 : Minimum spacing of semi-global meta5l wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA5.1</name>
+   <description>VIA5.1 : Minimum/Maximum width of via5 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA5.2</name>
+   <description>VIA5.2 : Minimum spacing of via5 : 160nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA5.3</name>
+   <description>VIA5.3 : via5 must be inside metal5</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA5.4</name>
+   <description>VIA5.4 : via5 must be inside metal6</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6.1</name>
+   <description>METAL6.1 : Minimum width of semi-global metal6 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6.2</name>
+   <description>METAL6.2 : Minimum spacing of semi-global metal6 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6.6</name>
+   <description>METAL6.6 : Minimum spacing of semi-global metal6 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6.7</name>
+   <description>METAL6.7 : Minimum spacing of semi-global metal6 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6.8</name>
+   <description>METAL6.8 : Minimum spacing of semi-global metal6 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA6.1</name>
+   <description>VIA6.1 : Minimum/Maximum width of via7 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA6.2</name>
+   <description>VIA6.2 : Minimum spacing of via7 : 440nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA6.3</name>
+   <description>VIA6.3 : via6 must be inside metal6</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA6.4</name>
+   <description>VIA6.4 : via6 must be inside metal7</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7.1</name>
+   <description>METAL7.1 : Minimum width of thin global metal7 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7.2</name>
+   <description>METAL7.2 : Minimum spacing of thin global metal7 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7.7</name>
+   <description>METAL7.7 : Minimum spacing of thin global metal7 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7.8</name>
+   <description>METAL7.8 : Minimum spacing of thin global metal7 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7.9</name>
+   <description>METAL7.9 : Minimum spacing of thin global meta7l wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA7.3</name>
+   <description>VIA7.3 : via7 must be inside metal7</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA7.4</name>
+   <description>VIA7.4 : via7 must be inside metal8</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8.1</name>
+   <description>METAL8.1 : Minimum width of thin global metal8 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8.2</name>
+   <description>METAL8.2 : Minimum spacing of thin global metal8 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8.7</name>
+   <description>METAL8.7 : Minimum spacing of thin global metal8 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8.8</name>
+   <description>METAL8.8 : Minimum spacing of thin global metal8 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8.9</name>
+   <description>METAL8.9 : Minimum spacing of thin global metal8 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA8.1</name>
+   <description>VIA8.1 : Minimum/Maximum width of via8 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA8.2</name>
+   <description>VIA8.2 : Minimum spacing of via8 : 440nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA8.3</name>
+   <description>VIA8.3 : via8 must be inside metal8</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA8.4</name>
+   <description>VIA8.4 : via8 must be inside metal9</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9.1</name>
+   <description>METAL9.1 : Minimum width of global metal9 : 800nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9.2</name>
+   <description>METAL9.2 : Minimum spacing of global metal9 : 800nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9.7</name>
+   <description>METAL9.7 : Minimum spacing of global metal9 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9.8</name>
+   <description>METAL9.8 : Minimum spacing of global metal9 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9.9</name>
+   <description>METAL9.9 : Minimum spacing of global metal9 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA9.1</name>
+   <description>VIA9.1 : Minimum/Maximum width of via9 : 800nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA9.2</name>
+   <description>VIA9.2 : Minimum spacing of via9 : 880nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA9.3</name>
+   <description>VIA9.3 : via9 must be inside metal9</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA9.4</name>
+   <description>VIA9.4 : via9 must be inside metal10</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10.1</name>
+   <description>METAL10.1 : Minimum width of global metal10 : 800nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10.2</name>
+   <description>METAL10.2 : Minimum spacing of global metal10 : 800nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10.7</name>
+   <description>METAL10.7 : Minimum spacing of global metal10 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10.8</name>
+   <description>METAL10.8 : Minimum spacing of global metal10 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10.9</name>
+   <description>METAL10.9 : Minimum spacing of global metal10 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer well not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer active not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer vtg not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer vth not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer pplus not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer nplus not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer poly not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer thkox not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer cont not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal1 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via1 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal2 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via2 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal3 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via3 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal4 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via4 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal5 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via5 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal6 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via6 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal7 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via7 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal8 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via8 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal9 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via9 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal10 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1_ANTENNA</name>
+   <description>METAL1_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2_ANTENNA</name>
+   <description>METAL2_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3_ANTENNA</name>
+   <description>METAL3_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4_ANTENNA</name>
+   <description>METAL4_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5_ANTENNA</name>
+   <description>METAL5_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6_ANTENNA</name>
+   <description>METAL6_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7_ANTENNA</name>
+   <description>METAL7_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8_ANTENNA</name>
+   <description>METAL8_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9_ANTENNA</name>
+   <description>METAL9_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10_ANTENNA</name>
+   <description>METAL10_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+ </categories>
+ <cells>
+  <cell>
+   <name>control_block_hierarchical_v1_c1_output_driven_clustering</name>
+   <variant/>
+   <layout-name/>
+   <references>
+   </references>
+  </cell>
+ </cells>
+ <items>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (229.1885,144.23;229.1375,144.23)|(229.0165,144.3;229.0675,144.3)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (229.1375,144.23;229.1375,144.179)|(229.0675,144.3;229.0675,144.351)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (6.78,124.7425;6.729,124.7425)|(6.85,124.8125;6.901,124.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (6.78,124.6915;6.78,124.7425)|(6.85,124.8635;6.85,124.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (7.38,134.6915;7.38,134.7425)|(7.45,134.8635;7.45,134.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (7.38,134.7425;7.329,134.7425)|(7.45,134.8125;7.501,134.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (15.3075,115.4425;15.2565,115.4425)|(15.3775,115.5125;15.4285,115.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (15.3075,115.3915;15.3075,115.4425)|(15.3775,115.5635;15.3775,115.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (15.9075,125.3915;15.9075,125.4425)|(15.9775,125.5635;15.9775,125.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (15.9075,125.4425;15.8565,125.4425)|(15.9775,125.5125;16.0285,125.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (16.5075,135.3915;16.5075,135.4425)|(16.5775,135.5635;16.5775,135.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (16.5075,135.4425;16.4565,135.4425)|(16.5775,135.5125;16.6285,135.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (68.0275,144.23;67.9765,144.23)|(68.0975,144.3;68.1485,144.3)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (68.0275,144.179;68.0275,144.23)|(68.0975,144.351;68.0975,144.3)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (6.18,114.7425;6.129,114.7425)|(6.25,114.8125;6.301,114.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (6.18,114.6915;6.18,114.7425)|(6.25,114.8635;6.25,114.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (7.98,144.7425;7.929,144.7425)|(8.05,144.8125;8.101,144.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (7.98,144.6915;7.98,144.7425)|(8.05,144.8635;8.05,144.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (8.58,154.7425;8.529,154.7425)|(8.65,154.8125;8.701,154.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (8.58,154.6915;8.58,154.7425)|(8.65,154.8635;8.65,154.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (9.18,164.7425;9.129,164.7425)|(9.25,164.8125;9.301,164.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (9.18,164.6915;9.18,164.7425)|(9.25,164.8635;9.25,164.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (9.78,174.6915;9.78,174.7425)|(9.85,174.8635;9.85,174.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (9.78,174.7425;9.729,174.7425)|(9.85,174.8125;9.901,174.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (10.38,184.7425;10.329,184.7425)|(10.45,184.8125;10.501,184.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (10.38,184.6915;10.38,184.7425)|(10.45,184.8635;10.45,184.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.1075,145.4425;17.0565,145.4425)|(17.1775,145.5125;17.2285,145.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.1075,145.3915;17.1075,145.4425)|(17.1775,145.5635;17.1775,145.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.7075,155.4425;17.6565,155.4425)|(17.7775,155.5125;17.8285,155.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.7075,155.3915;17.7075,155.4425)|(17.7775,155.5635;17.7775,155.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (18.215,165.3725;18.215,165.5125)|(18.3075,165.4425;18.3075,165.3725)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (18.3075,165.4425;18.3075,165.3915)|(18.2375,165.5125;18.2375,165.5635)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (18.3585,165.4425;18.3075,165.4425)|(18.215,165.5125;18.2375,165.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (18.9075,175.4425;18.9075,175.3915)|(18.8375,175.5125;18.8375,175.5635)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (18.9585,175.4425;18.9075,175.4425)|(18.7865,175.5125;18.8375,175.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (19.5585,185.4425;19.5075,185.4425)|(19.3865,185.5125;19.4375,185.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (19.5075,185.4425;19.5075,185.3915)|(19.4375,185.5125;19.4375,185.5635)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (20.1585,195.4425;20.1075,195.4425)|(19.9865,195.5125;20.0375,195.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (20.1075,195.4425;20.1075,195.3915)|(20.0375,195.5125;20.0375,195.5635)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (51.005,205.1115;51.005,205.1625)|(51.075,205.2835;51.075,205.2325)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (51.005,205.1625;50.954,205.1625)|(51.075,205.2325;51.126,205.2325)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (-1.829,214.7425;-1.88,214.7425)|(-2.001,214.8125;-1.95,214.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (-1.88,214.7425;-1.88,214.6915)|(-1.95,214.8125;-1.95,214.8635)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (106.9725,215.1625;106.9215,215.1625)|(107.0425,215.2325;107.0935,215.2325)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (106.9725,215.1115;106.9725,215.1625)|(107.0425,215.2835;107.0425,215.2325)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (107.1475,215.3215;107.1475,215.3725)|(107.2175,215.4935;107.2175,215.4425)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (107.1475,215.3725;107.0965,215.3725)|(107.2175,215.4425;107.2685,215.4425)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.0375,224.879;17.0375,224.93)|(17.1075,225.051;17.1075,225)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.0375,224.93;16.9865,224.93)|(17.1075,225;17.13,225)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.1775,224.93;17.1775,224.8685)|(17.13,225;17.13,225.0615)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.251,224.93;17.1775,224.93)|(17.1075,225;17.13,225)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.6375,224.879;17.6375,224.93)|(17.7075,225.051;17.7075,225)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.6375,224.93;17.5865,224.93)|(17.7075,225;17.7585,225)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (18.4285,224.93;18.3775,224.93)|(18.2565,225;18.3075,225)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (18.3775,224.93;18.3775,224.879)|(18.3075,225;18.3075,225.051)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (18.9775,224.93;18.9775,224.879)|(18.9075,225;18.9075,225.051)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (19.0285,224.93;18.9775,224.93)|(18.8565,225;18.9075,225)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (-1.899,1.5;-1.95,1.5)|(-2.071,1.57;-2.02,1.57)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (-1.95,1.5;-1.95,1.449)|(-2.02,1.57;-2.02,1.621)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (-1.829,34.7425;-1.88,34.7425)|(-2.001,34.8125;-1.95,34.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (-1.88,34.7425;-1.88,34.6915)|(-1.95,34.8125;-1.95,34.8635)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (2.05,-3;1.999,-3)|(2.12,-2.93;2.171,-2.93)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (2.05,-3.051;2.05,-3)|(2.12,-2.879;2.12,-2.93)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (12.0975,0.8975;12.0465,0.8975)|(12.1675,0.9675;12.2185,0.9675)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (12.0975,0.8465;12.0975,0.8975)|(12.1675,1.0185;12.1675,0.9675)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (36.855,0.8465;36.855,0.8975)|(36.925,1.0185;36.925,0.9675)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (36.855,0.8975;36.804,0.8975)|(36.925,0.9675;36.976,0.9675)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (51.075,0.409;51.075,0.46)|(51.145,0.581;51.145,0.53)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (51.075,0.46;51.024,0.46)|(51.145,0.53;51.196,0.53)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (70.465,0.689;70.465,0.74)|(70.535,0.8275;70.535,0.81)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (70.465,0.74;70.414,0.74)|(70.535,0.81;70.586,0.81)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (117.9925,0.9675;117.9925,5.3725)|(118.13,5.3725;118.13,0.9675)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.515,4.5515;17.515,4.6025)|(17.585,4.7235;17.585,4.6725)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.515,4.6025;17.464,4.6025)|(17.585,4.6725;17.636,4.6725)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (117.9925,5.5125;117.9925,10.8275)|(118.13,10.8275;118.13,5.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (107.0425,12.96;106.9915,12.96)|(107.1125,13.03;107.1635,13.03)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (107.0425,12.909;107.0425,12.96)|(107.1125,13.081;107.1125,13.03)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (117.9925,10.9675;117.9925,12.89)|(118.13,12.89;118.13,10.9675)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (117.9925,13.03;117.9925,15.3725)|(118.13,15.3725;118.13,13.03)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (107.2175,22.909;107.2175,22.96)|(107.2875,23.081;107.2875,23.03)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (107.2175,22.96;107.1665,22.96)|(107.2875,23.03;107.3385,23.03)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (117.9925,20.8275;117.9415,20.8275)|(118.0625,20.8975;118.1135,20.8975)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (117.9925,20.7765;117.9925,20.8275)|(118.0625,20.9485;118.0625,20.8975)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (117.9925,15.5125;117.9925,20.8275)|(118.13,20.854;118.13,15.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (12.0275,44.279;12.0275,44.33)|(12.0975,44.451;12.0975,44.4)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (12.0275,44.33;11.9765,44.33)|(12.0975,44.4;12.1485,44.4)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (-1.95,77.7;-1.95,77.649)|(-2.02,77.77;-2.02,77.821)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (-1.899,77.7;-1.95,77.7)|(-2.071,77.77;-2.02,77.77)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (1.98,44.6915;1.98,44.7425)|(2.05,44.8635;2.05,44.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (1.98,44.7425;1.929,44.7425)|(2.05,44.8125;2.101,44.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (2.58,54.6915;2.58,54.7425)|(2.65,54.8635;2.65,54.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (2.58,54.7425;2.529,54.7425)|(2.65,54.8125;2.701,54.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (3.18,64.6915;3.18,64.7425)|(3.25,64.8635;3.25,64.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (3.18,64.7425;3.129,64.7425)|(3.25,64.8125;3.301,64.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (3.78,74.7425;3.729,74.7425)|(3.85,74.8125;3.901,74.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (3.78,74.6915;3.78,74.7425)|(3.85,74.8635;3.85,74.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (11.7075,55.3915;11.7075,55.4425)|(11.7775,55.5635;11.7775,55.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (11.7075,55.4425;11.6565,55.4425)|(11.7775,55.5125;11.8285,55.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (12.3075,65.4425;12.2565,65.4425)|(12.3775,65.5125;12.4285,65.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (12.3075,65.3915;12.3075,65.4425)|(12.3775,65.5635;12.3775,65.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (12.9075,75.3915;12.9075,75.4425)|(12.9775,75.5635;12.9775,75.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (12.9075,75.4425;12.8565,75.4425)|(12.9775,75.5125;13.0285,75.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (4.38,84.6915;4.38,84.7425)|(4.45,84.8635;4.45,84.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (4.38,84.7425;4.329,84.7425)|(4.45,84.8125;4.501,84.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (4.98,94.7425;4.929,94.7425)|(5.05,94.8125;5.101,94.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (4.98,94.6915;4.98,94.7425)|(5.05,94.8635;5.05,94.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (5.58,104.6915;5.58,104.7425)|(5.65,104.8635;5.65,104.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (5.58,104.7425;5.529,104.7425)|(5.65,104.8125;5.701,104.8125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (13.5075,85.3915;13.5075,85.4425)|(13.5775,85.5635;13.5775,85.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (13.5075,85.4425;13.4565,85.4425)|(13.5775,85.5125;13.6285,85.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (14.1075,95.4425;14.0565,95.4425)|(14.1775,95.5125;14.2285,95.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (14.1075,95.3915;14.1075,95.4425)|(14.1775,95.5635;14.1775,95.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (14.7075,105.3915;14.7075,105.4425)|(14.7775,105.5635;14.7775,105.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (14.7075,105.4425;14.6565,105.4425)|(14.7775,105.5125;14.8285,105.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (141.3575,30.67;141.3575,30.619)|(141.2875,30.74;141.2875,30.791)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (210.505,31.3065;210.505,31.3575)|(210.575,31.4785;210.575,31.4275)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (210.505,31.3575;210.454,31.3575)|(210.575,31.4275;210.626,31.4275)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (242.6975,44.33;242.6975,44.279)|(242.6275,44.4;242.6275,44.451)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (242.7485,44.33;242.6975,44.33)|(242.5765,44.4;242.6275,44.4)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (126.855,3.3675;126.804,3.3675)|(126.925,3.4375;126.976,3.4375)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (126.855,3.3165;126.855,3.3675)|(126.925,3.4885;126.925,3.4375)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (139.1075,1.449;139.1075,1.5)|(139.1775,1.621;139.1775,1.57)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (126.255,10.9675;126.255,12.89)|(126.3925,12.89;126.3925,10.9675)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (126.255,15.5125;126.255,22.89)|(126.3925,22.89;126.3925,15.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (126.255,23.03;126.255,25.3725)|(126.3925,25.3725;126.3925,23.03)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (229.0675,13.3975;229.0675,13.3465)|(228.9975,13.4675;228.9975,13.5185)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (229.1185,13.3975;229.0675,13.3975)|(228.9465,13.4675;228.9975,13.4675)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (126.255,25.5125;126.255,30.4165)|(126.3925,30.39;126.3925,25.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (126.3925,30.39;126.3925,30.3375)|(126.325,30.46;126.325,30.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (126.446,30.39;126.3925,30.39)|(126.2715,30.46;126.325,30.46)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (126.255,13.03;126.255,15.3725)|(126.3925,15.3725;126.3925,13.03)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (139.1075,1.5;139.0565,1.5)|(139.1775,1.57;139.2285,1.57)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (139.0375,35.3215;139.0375,35.3725)|(139.1075,35.4935;139.1075,35.4425)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (139.0375,35.3725;138.9865,35.3725)|(139.1075,35.4425;139.1585,35.4425)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (141.4085,30.67;141.3575,30.67)|(141.2365,30.74;141.2875,30.74)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (228.8275,77.63;228.8275,77.579)|(228.7575,77.7;228.7575,77.751)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.1'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (228.8785,77.63;228.8275,77.63)|(228.7065,77.7;228.7575,77.7)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (141.0775,0.9675;141.0775,1.43)|(141.0625,1.43;141.0625,0.9675)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (141.0775,2.57;141.0775,3.2975)|(141.0625,3.2975;141.0625,2.57)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (56.2885,10.81;68.0275,10.81)|(68.0275,10.8275;56.4275,10.8275)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (107.2175,22.89;107.2175,22.96)|(107.1125,23.0525;107.1125,22.7975)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (107.1475,22.96;107.1475,25.3725)|(107.1125,25.3725;107.1125,22.8245)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (107.1475,25.5125;107.1475,35.3725)|(107.1125,35.3725;107.1125,25.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (68.1675,10.81;84.5025,10.81)|(84.6415,10.8275;68.1675,10.8275)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (107.1475,35.5125;107.1475,215.368)|(107.1125,215.2325;107.1125,35.5125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (70.535,0.81;84.5025,0.81)|(84.6415,0.8275;70.535,0.8275)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.6375,155.4425;17.6375,204.7325)|(17.585,204.6025;17.585,155.3125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.6375,155.4425;17.6375,164.7325)|(17.585,164.6025;17.585,155.3125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.6375,155.4425;17.6375,184.7325)|(17.585,184.6025;17.585,155.3125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.6375,155.4425;17.6375,174.7325)|(17.585,174.6025;17.585,155.3125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (188.355,23.24;188.355,23.31)|(188.285,23.431;188.285,23.24)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (19.5775,215.3025;20.0375,215.3025)|(20.0375,215.3725;19.5775,215.3725)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (56.056,10.81;68.0275,10.81)|(68.0275,10.8275;56.195,10.8275)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (107.1475,215.14;107.1475,215.3725)|(107.0425,215.3025;107.0425,215.2325)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (188.145,30.6;188.215,30.6)|(188.215,30.67;188.024,30.67)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.865,205.1625;17.865,205.3025)|(17.7775,205.412;17.7775,205.053)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.13,225;17.13,225.07)|(17.1075,225.07;17.1075,225)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (20.1775,215.3025;107.0425,215.3025)|(107.1475,215.3725;20.1775,215.3725)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (18.9775,215.3025;19.4375,215.3025)|(19.4375,215.3725;18.9775,215.3725)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (18.3775,215.3025;18.8375,215.3025)|(18.8375,215.3725;18.3775,215.3725)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.6375,155.4425;17.6375,194.7325)|(17.585,194.6025;17.585,155.3125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (18.094,215.3025;18.2375,215.3025)|(18.2375,215.3725;18.215,215.3725)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (141.0775,1.57;141.0775,2.43)|(141.0625,2.43;141.0625,1.57)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.865,215.1625;17.865,215.3025)|(17.7775,215.412;17.7775,215.053)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.6375,155.4425;17.6375,214.7325)|(17.585,214.6025;17.585,155.3125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL6.2'</category>
+   <cell>control_block_hierarchical_v1_c1_output_driven_clustering</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (17.7075,155.3725;17.7075,155.4425)|(17.585,155.5105;17.585,155.3045)</value>
+   </values>
+  </item>
+ </items>
+</report-database>

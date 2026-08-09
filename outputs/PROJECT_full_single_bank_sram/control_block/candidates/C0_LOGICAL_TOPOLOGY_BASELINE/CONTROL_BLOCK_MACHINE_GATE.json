@@ -1,0 +1,40 @@
+{
+  "candidate_id": "C0_LOGICAL_TOPOLOGY_BASELINE",
+  "status": "CONTROL_BLOCK_MACHINE_GATE_FAILED",
+  "passed": false,
+  "checks": {
+    "logical_authority_locked": true,
+    "required_child_assets_qualified": true,
+    "child_sha_match": true,
+    "placement": true,
+    "orientation_legality": true,
+    "power_endpoint_coverage_100_percent": true,
+    "vdd_vss_isolation": true,
+    "routing_connectivity": true,
+    "foreign_net": true,
+    "pin_access": true,
+    "drc_zero": false,
+    "determinism": true,
+    "negative_suite": true
+  },
+  "metrics": {
+    "candidate_id": "C0_LOGICAL_TOPOLOGY_BASELINE",
+    "style": "logical",
+    "width": 264.0,
+    "height": 226.0,
+    "area": 59664.0,
+    "total_route_length": 10867.71,
+    "max_route_length": 365.1275,
+    "route_count": 87
+  },
+  "drc": {
+    "ran": true,
+    "returncode": 0,
+    "marker_count": 293,
+    "passed": false,
+    "database": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C0_LOGICAL_TOPOLOGY_BASELINE/CONTROL_BLOCK_DRC.lyrdb",
+    "log": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C0_LOGICAL_TOPOLOGY_BASELINE/CONTROL_BLOCK_DRC.log"
+  },
+  "clean_gds": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C0_LOGICAL_TOPOLOGY_BASELINE/clean.gds",
+  "clean_gds_sha256": "b5ab9e3270c7d16c2012c4517c1d5a8cd2f07f0bf2c149977c54c0a083e82f10"
+}

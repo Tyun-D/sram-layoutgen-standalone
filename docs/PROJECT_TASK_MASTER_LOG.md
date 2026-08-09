@@ -507,3 +507,15 @@
 - negative suite: 9/9 specific rejection codes matched; unexpected pass count is 0.
 - decision: do not enter full SRAM floorplanning or routing until `CONTROL_BLOCK_HIERARCHICAL_V1` physical authority is closed.
 - remaining authority gaps: `TIME_schedule`, `write_sample_point`, `disabled_hold_semantics`, and formal WL timing authority.
+
+## 2026-08-09T14:10:57Z control_block_hierarchical_v1_physical_authority_attempt
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `4eaf02887641a78b56a9a445bce90b06bbd324fe`
+- result: `BLOCKED_BY_CONTROL_BLOCK_PHYSICAL_AUTHORITY`; reason: `CONTROL_BLOCK_PARENT_ROUTE_DRC_NOT_CLOSED`
+- source-exact hierarchy lock generated for `CONTROL_BLOCK_HIERARCHICAL_V1`; current source confirms hierarchical TIME/control composition, not a monolithic `control_logic.gds` requirement.
+- child physical lock generated; required child missing asset count is `0`. Existing recovered/qualified child assets include `DFF_BUF`, `PINV`, `AND2`, `AND3`, `PNAND3`, `pdrive`, `wl_pdrive`, `pdrive2_for_pre`, and `delay_chain`.
+- generated five real parent candidates: `C0_LOGICAL_TOPOLOGY_BASELINE`, `C1_OUTPUT_DRIVEN_CLUSTERING`, `C2_TIMING_CHAIN_ORIENTED`, `C3_POWER_ROW_ABUTMENT_AWARE`, and `C4_AUTOMATED_PARETO`.
+- true KLayout/FreePDK45 DRC marker counts: C0=`293`, C1=`166`, C2=`147`, C3=`192`, C4=`171`; passing candidate count=`0`.
+- `FULL_SRAM_TOP_ENTRY_GATE_V3.json` remains blocked with `PHYSICAL_TOP_ENTRY_ALLOWED=false` and `FORMAL_FUNCTIONAL_TIMING_CLOSURE=false`.
+- no `FULL_SRAM_TOP_PHYSICAL_INPUT_LOCK.json` was produced because V3 did not pass.
+- decision: do not enter full SRAM floorplanning. Next action is parent control-route template/channel repair and rerun of control-block machine gate.

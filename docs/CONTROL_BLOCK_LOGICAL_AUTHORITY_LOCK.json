@@ -1,0 +1,1309 @@
+{
+  "created_at": "2026-08-09T14:10:57Z",
+  "parent_logical_block_name": "CONTROL_BLOCK_HIERARCHICAL_V1",
+  "source_file": "docs/mapping/M12C4R2_config_active_net_connection_matrix_16x16.csv",
+  "source_sha": "136d0be48e607909e8e42a80fc3f67a51f2d3ed639bf012e3562371d3178bc33",
+  "source_commit": "4eaf02887641a78b56a9a445bce90b06bbd324fe",
+  "monolithic_control_logic_required": false,
+  "child_instance_count": 34,
+  "child_instance_list": [
+    {
+      "instance": "addr_dff_0",
+      "logical_module": "ADDR_DFF_BIT",
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf_addr",
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "A0",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "A_dff0",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "A_dff0_bar",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        }
+      ]
+    },
+    {
+      "instance": "addr_dff_1",
+      "logical_module": "ADDR_DFF_BIT",
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf_addr",
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "A1",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "A_dff1",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "A_dff1_bar",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        }
+      ]
+    },
+    {
+      "instance": "addr_dff_2",
+      "logical_module": "ADDR_DFF_BIT",
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf_addr",
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "A2",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "A_dff2",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "A_dff2_bar",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        }
+      ]
+    },
+    {
+      "instance": "addr_dff_3",
+      "logical_module": "ADDR_DFF_BIT",
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf_addr",
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "A3",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "A_dff3",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "A_dff3_bar",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        }
+      ]
+    },
+    {
+      "instance": "data_dff_0",
+      "logical_module": "DATA_DFF_BIT",
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf_data",
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "DIN0",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "DIN_dff0",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "DIN_dff0_bar",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        }
+      ]
+    },
+    {
+      "instance": "data_dff_1",
+      "logical_module": "DATA_DFF_BIT",
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf_data",
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "DIN1",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "DIN_dff1",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "DIN_dff1_bar",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        }
+      ]
+    },
+    {
+      "instance": "data_dff_2",
+      "logical_module": "DATA_DFF_BIT",
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf_data",
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "DIN2",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "DIN_dff2",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "DIN_dff2_bar",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        }
+      ]
+    },
+    {
+      "instance": "data_dff_3",
+      "logical_module": "DATA_DFF_BIT",
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf_data",
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "DIN3",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "DIN_dff3",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "DIN_dff3_bar",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        }
+      ]
+    },
+    {
+      "instance": "data_dff_4",
+      "logical_module": "DATA_DFF_BIT",
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf_data",
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "DIN4",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "DIN_dff4",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "DIN_dff4_bar",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        }
+      ]
+    },
+    {
+      "instance": "data_dff_5",
+      "logical_module": "DATA_DFF_BIT",
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf_data",
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "DIN5",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "DIN_dff5",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "DIN_dff5_bar",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        }
+      ]
+    },
+    {
+      "instance": "data_dff_6",
+      "logical_module": "DATA_DFF_BIT",
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf_data",
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "DIN6",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "DIN_dff6",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "DIN_dff6_bar",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        }
+      ]
+    },
+    {
+      "instance": "data_dff_7",
+      "logical_module": "DATA_DFF_BIT",
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf_data",
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "DIN7",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "DIN_dff7",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "DIN_dff7_bar",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        }
+      ]
+    },
+    {
+      "instance": "data_dff_8",
+      "logical_module": "DATA_DFF_BIT",
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf_data",
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "DIN8",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "DIN_dff8",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "DIN_dff8_bar",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        }
+      ]
+    },
+    {
+      "instance": "data_dff_9",
+      "logical_module": "DATA_DFF_BIT",
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf_data",
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "DIN9",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "DIN_dff9",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "DIN_dff9_bar",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        }
+      ]
+    },
+    {
+      "instance": "data_dff_10",
+      "logical_module": "DATA_DFF_BIT",
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf_data",
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "DIN10",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "DIN_dff10",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "DIN_dff10_bar",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        }
+      ]
+    },
+    {
+      "instance": "data_dff_11",
+      "logical_module": "DATA_DFF_BIT",
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf_data",
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "DIN11",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "DIN_dff11",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "DIN_dff11_bar",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        }
+      ]
+    },
+    {
+      "instance": "data_dff_12",
+      "logical_module": "DATA_DFF_BIT",
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf_data",
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "DIN12",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "DIN_dff12",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "DIN_dff12_bar",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        }
+      ]
+    },
+    {
+      "instance": "data_dff_13",
+      "logical_module": "DATA_DFF_BIT",
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf_data",
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "DIN13",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "DIN_dff13",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "DIN_dff13_bar",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        }
+      ]
+    },
+    {
+      "instance": "data_dff_14",
+      "logical_module": "DATA_DFF_BIT",
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf_data",
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "DIN14",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "DIN_dff14",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "DIN_dff14_bar",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        }
+      ]
+    },
+    {
+      "instance": "data_dff_15",
+      "logical_module": "DATA_DFF_BIT",
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf_data",
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "DIN15",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "DIN_dff15",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "DIN_dff15_bar",
+          "authority_level": "DERIVED_FROM_EXACT_RELATIONS"
+        }
+      ]
+    },
+    {
+      "instance": "clkbuf",
+      "source_line": "579",
+      "logical_module": "pdrive",
+      "active_for_config": true,
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "A",
+          "net": "clk",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Z",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        }
+      ],
+      "physical_module": "pdrive",
+      "source_parent": "clkbuf"
+    },
+    {
+      "instance": "inv_clk_bar",
+      "source_line": "591",
+      "logical_module": "PINV",
+      "active_for_config": true,
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "A",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Z",
+          "net": "clk_bar",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        }
+      ],
+      "physical_module": "PINV",
+      "source_parent": "inv_clk_bar"
+    },
+    {
+      "instance": "dff_buf",
+      "source_line": "598",
+      "logical_module": "DFF_BUF",
+      "active_for_config": true,
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "csb",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "cs_bar",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "cs",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        }
+      ],
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf"
+    },
+    {
+      "instance": "dff_buf1",
+      "source_line": "605",
+      "logical_module": "DFF_BUF",
+      "active_for_config": true,
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "D",
+          "net": "web",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Q",
+          "net": "we_bar",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "QB",
+          "net": "we",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "CLK",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        }
+      ],
+      "physical_module": "DFF_BUF",
+      "source_parent": "dff_buf1"
+    },
+    {
+      "instance": "and2_gated_clk_bar",
+      "source_line": "621",
+      "logical_module": "AND2",
+      "active_for_config": true,
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "A",
+          "net": "cs",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "B",
+          "net": "clk_bar",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Z",
+          "net": "gated_clk_bar",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        }
+      ],
+      "physical_module": "AND2",
+      "source_parent": "and2_gated_clk_bar"
+    },
+    {
+      "instance": "and2_gated_clk_buf",
+      "source_line": "637",
+      "logical_module": "AND2",
+      "active_for_config": true,
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "A",
+          "net": "cs",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "B",
+          "net": "clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Z",
+          "net": "gated_clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        }
+      ],
+      "physical_module": "AND2",
+      "source_parent": "and2_gated_clk_buf"
+    },
+    {
+      "instance": "wl_en",
+      "source_line": "643",
+      "logical_module": "wl_pdrive",
+      "active_for_config": true,
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "A",
+          "net": "gated_clk_bar",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Z",
+          "net": "wl_en",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        }
+      ],
+      "physical_module": "wl_pdrive",
+      "source_parent": "wl_en"
+    },
+    {
+      "instance": "inv_wl_en_bar",
+      "source_line": "655",
+      "logical_module": "PINV",
+      "active_for_config": true,
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "A",
+          "net": "wl_en",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Z",
+          "net": "wl_en_bar",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        }
+      ],
+      "physical_module": "PINV",
+      "source_parent": "inv_wl_en_bar"
+    },
+    {
+      "instance": "delaychain",
+      "source_line": "662",
+      "logical_module": "delay_chain",
+      "active_for_config": true,
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "in",
+          "net": "rbl",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "out",
+          "net": "rbl_delay",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        }
+      ],
+      "physical_module": "delay_chain",
+      "source_parent": "delaychain"
+    },
+    {
+      "instance": "inv_rbl_delay_bar",
+      "source_line": "674",
+      "logical_module": "PINV",
+      "active_for_config": true,
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "A",
+          "net": "rbl_delay",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Z",
+          "net": "rbl_delay_bar",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        }
+      ],
+      "physical_module": "PINV",
+      "source_parent": "inv_rbl_delay_bar"
+    },
+    {
+      "instance": "w_en",
+      "source_line": "702",
+      "logical_module": "AND3",
+      "active_for_config": true,
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "A",
+          "net": "w_en_rbl_input",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "B",
+          "net": "gated_clk_bar",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "C",
+          "net": "we",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Z",
+          "net": "w_en",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        }
+      ],
+      "physical_module": "AND3",
+      "source_parent": "w_en"
+    },
+    {
+      "instance": "s_en",
+      "source_line": "718",
+      "logical_module": "AND3",
+      "active_for_config": true,
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "A",
+          "net": "rbl_delay",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "B",
+          "net": "gated_clk_bar",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "C",
+          "net": "we_bar",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Z",
+          "net": "s_en",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        }
+      ],
+      "physical_module": "AND3",
+      "source_parent": "s_en"
+    },
+    {
+      "instance": "pre_unbuf",
+      "source_line": "743",
+      "logical_module": "PNAND3",
+      "active_for_config": true,
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "A",
+          "net": "gated_clk_buf",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "B",
+          "net": "rbl_delay",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "C",
+          "net": "wl_en_bar",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Z",
+          "net": "PRE_UNBUF",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        }
+      ],
+      "physical_module": "PNAND3",
+      "source_parent": "pre_unbuf"
+    },
+    {
+      "instance": "pre",
+      "source_line": "754",
+      "logical_module": "pdrive2_for_pre",
+      "active_for_config": true,
+      "pins": [
+        {
+          "child_pin": "VDD",
+          "net": "VDD",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "VSS",
+          "net": "VSS",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "A",
+          "net": "PRE_UNBUF",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        },
+        {
+          "child_pin": "Z",
+          "net": "PRE",
+          "authority_level": "CURRENT_SOURCE_EXACT"
+        }
+      ],
+      "physical_module": "pdrive2_for_pre",
+      "source_parent": "pre"
+    }
+  ],
+  "parent_input_pins": [
+    "CLK",
+    "CSB",
+    "WEB",
+    "RBL",
+    "A0",
+    "A1",
+    "A2",
+    "A3",
+    "DIN0",
+    "DIN1",
+    "DIN2",
+    "DIN3",
+    "DIN4",
+    "DIN5",
+    "DIN6",
+    "DIN7",
+    "DIN8",
+    "DIN9",
+    "DIN10",
+    "DIN11",
+    "DIN12",
+    "DIN13",
+    "DIN14",
+    "DIN15"
+  ],
+  "parent_output_pins": [
+    "PRE",
+    "WL_EN",
+    "S_EN",
+    "W_EN",
+    "A_dff0",
+    "A_dff1",
+    "A_dff2",
+    "A_dff3",
+    "DIN_dff0",
+    "DIN_dff1",
+    "DIN_dff2",
+    "DIN_dff3",
+    "DIN_dff4",
+    "DIN_dff5",
+    "DIN_dff6",
+    "DIN_dff7",
+    "DIN_dff8",
+    "DIN_dff9",
+    "DIN_dff10",
+    "DIN_dff11",
+    "DIN_dff12",
+    "DIN_dff13",
+    "DIN_dff14",
+    "DIN_dff15"
+  ],
+  "power_pins": [
+    "VDD",
+    "VSS"
+  ],
+  "authority_level": "CURRENT_SOURCE_EXACT",
+  "formal_timing_authority": "PENDING"
+}
