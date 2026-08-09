@@ -1,0 +1,38 @@
+{
+  "created_at": "2026-08-09T14:39:21Z",
+  "status": "READY",
+  "closed_candidates": [
+    "C2_TIMING_CHAIN_ORIENTED",
+    "C5_TIMING_CHAIN_STAGGERED_CHANNEL"
+  ],
+  "root_causes": [
+    {
+      "root_cause_id": "RC1",
+      "marker_count": "dominant initial",
+      "affected_candidates": "C0-C4",
+      "affected_nets": "control parent routes",
+      "affected_layers": "metal6",
+      "common_pattern": "simple rectangle Manhattan router crossed child/pin geometry",
+      "proposed_general_fix": "parent-only track routing"
+    },
+    {
+      "root_cause_id": "RC2",
+      "marker_count": "dominant iteration1",
+      "affected_candidates": "C0-C4",
+      "affected_nets": "control parent routes",
+      "affected_layers": "via9/metal9/metal10",
+      "common_pattern": "incomplete high-layer via stack without child-pin access authority",
+      "proposed_general_fix": "single-layer parent route until via stack contract exists"
+    },
+    {
+      "root_cause_id": "RC3",
+      "marker_count": "dominant mid iterations",
+      "affected_candidates": "C0-C4",
+      "affected_nets": "multi-sink nets",
+      "affected_layers": "metal3/4/5/6",
+      "common_pattern": "same-layer multi-sink density and L-corner interactions",
+      "proposed_general_fix": "layer-palette track assignment and timing-chain candidate selection"
+    }
+  ],
+  "marker_coordinate_special_cases": false
+}

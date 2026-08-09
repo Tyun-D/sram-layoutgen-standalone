@@ -1,368 +1,350 @@
 {
-    "workflow_state": "BLOCKED_BY_CONTROL_BLOCK_PHYSICAL_AUTHORITY",
-    "timestamp": "2026-08-09T14:11:31Z",
-    "git_branch": "project/mainline-inventory-20260726",
-    "git_head": "4eaf02887641a78b56a9a445bce90b06bbd324fe",
-    "trusted_master_head": "c1fbd98",
-    "remote_master_head_last_known": "489f3e04e85197a6501e48168627a7b8a9232550",
-    "team_b_state": "TEAM_B_OWNER_HUMAN_REVIEWED_MERGED_TO_MAINLINE",
-    "formal_config_count": 10,
-    "decoder_status": "P2_PROVISIONAL_PREFERRED_P3_RETAINED_ALTERNATIVE",
-    "array_integration_level": "REAL_BITCELL_ARRAY_GDS",
-    "full_bitcell_array_gds_integration": true,
-    "formal_wl_timing": "PENDING",
-    "current_rc_evidence": "NORMALIZED_GEOMETRY_RC_PROXY",
-    "wl_routing_status": "WL_ROUTING_ENGINEERING_PROXY_COMPLETE",
-    "real_bitcell_array_physical_integration": "PHYSICAL_CLOSURE_COMPLETE_FORMAL_TIMING_AUTHORITY_PENDING",
-    "layoutgen_reuse_contract": "LOAD_GATE_CLOSED_MANDATORY_FOR_NEW_CANDIDATES",
-    "decoder_orientation_search": "INCOMPLETE",
-    "wl_driver_abutment_search": "INCOMPLETE",
-    "final_sram_physical_architecture": "NOT_APPROVED",
-    "current_proxy_max_arrival_skew_ps": 0.15823,
-    "current_proxy_slew_ratio": 1.0099272309,
-    "current_normalized_rc_max_over_median": 1.4617223037,
-    "wl_timing_engineering_closure": {
-        "recommended_local_candidate": "T3_driver_column_spacing_pareto",
-        "machine_green_local_candidate_count": 1,
-        "timing_authority": "PENDING",
-        "rc_evidence_level": "NORMALIZED_GEOMETRY_RC_PROXY",
-        "not_post_layout_pex": true,
-        "authority_review_packet": "docs/WL_TIMING_AUTHORITY_REVIEW_PACKET.json",
-        "array_authority_lock": "docs/BITCELL_ARRAY_PHYSICAL_AUTHORITY_LOCK.json"
+  "workflow_state": "PASS_FULL_SINGLE_BANK_SRAM_FLOORPLAN_TO_HUMAN_REVIEW",
+  "timestamp": "2026-08-09T14:11:31Z",
+  "git_branch": "project/mainline-inventory-20260726",
+  "git_head": "PENDING_COMMIT",
+  "trusted_master_head": "c1fbd98",
+  "remote_master_head_last_known": "489f3e04e85197a6501e48168627a7b8a9232550",
+  "team_b_state": "TEAM_B_OWNER_HUMAN_REVIEWED_MERGED_TO_MAINLINE",
+  "formal_config_count": 10,
+  "decoder_status": "P2_PROVISIONAL_PREFERRED_P3_RETAINED_ALTERNATIVE",
+  "array_integration_level": "REAL_BITCELL_ARRAY_GDS",
+  "full_bitcell_array_gds_integration": true,
+  "formal_wl_timing": "PENDING",
+  "current_rc_evidence": "NORMALIZED_GEOMETRY_RC_PROXY",
+  "wl_routing_status": "WL_ROUTING_ENGINEERING_PROXY_COMPLETE",
+  "real_bitcell_array_physical_integration": "PHYSICAL_CLOSURE_COMPLETE_FORMAL_TIMING_AUTHORITY_PENDING",
+  "layoutgen_reuse_contract": "LOAD_GATE_CLOSED_MANDATORY_FOR_NEW_CANDIDATES",
+  "decoder_orientation_search": "INCOMPLETE",
+  "wl_driver_abutment_search": "INCOMPLETE",
+  "final_sram_physical_architecture": "NOT_APPROVED",
+  "current_proxy_max_arrival_skew_ps": 0.15823,
+  "current_proxy_slew_ratio": 1.0099272309,
+  "current_normalized_rc_max_over_median": 1.4617223037,
+  "wl_timing_engineering_closure": {
+    "recommended_local_candidate": "T3_driver_column_spacing_pareto",
+    "machine_green_local_candidate_count": 1,
+    "timing_authority": "PENDING",
+    "rc_evidence_level": "NORMALIZED_GEOMETRY_RC_PROXY",
+    "not_post_layout_pex": true,
+    "authority_review_packet": "docs/WL_TIMING_AUTHORITY_REVIEW_PACKET.json",
+    "array_authority_lock": "docs/BITCELL_ARRAY_PHYSICAL_AUTHORITY_LOCK.json"
+  },
+  "layoutgen_reuse_closure": {
+    "audit": "docs/LAYOUTGEN_EXISTING_ACHIEVEMENT_AUDIT.json",
+    "contract": "docs/LAYOUTGEN_PHYSICAL_REUSE_CONTRACT.json",
+    "contract_gate": "scripts/project_layoutgen_reuse_contract_gate.py",
+    "contract_load_report": "outputs/PROJECT_bitcell_array_layoutgen_reuse_v2/REUSE_CONTRACT_LOAD_REPORT.json",
+    "authority_conclusion": "AUTHORITATIVE_ARRAY_ASSET_REGENERATED",
+    "paper_evidence_package_sha256": "4eb62c04deb83eb64f5c07d1ba1a3700bbf47516f9c37da608fcbf806ca275c1",
+    "full_bitcell_array_gds_integrated": false,
+    "authoritative_array_gds": "outputs/PROJECT_bitcell_array_layoutgen_reuse_v2/clean.gds",
+    "authoritative_array_gds_sha256": "555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac",
+    "authoritative_array_top_cell": "sram_capped_replica_bitcell_array",
+    "authoritative_array_machine_gate_passed": true,
+    "new_architecture_review_package_generated": false
+  },
+  "authoritative_array_status": "AUTHORITATIVE_ARRAY_ASSET_REGENERATED",
+  "array_gds_sha": "555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac",
+  "standalone_array_machine_gate": "PASS_AUTHORITATIVE_ARRAY_MACHINE_GATE",
+  "real_decoder_wl_driver_array_integration": "PASS_REAL_ARRAY_PHYSICAL_CLOSURE_PENDING_NARROW_WL_TIMING_AUTHORITY",
+  "real_array_integration_closure": {
+    "recommended_candidate": "P2_REAL_ARRAY_V1",
+    "retained_alternative": "P3_REAL_ARRAY_V1",
+    "machine_green_candidate_count": 2,
+    "authoritative_array_gds_sha256": "555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac",
+    "combined_drc_marker_count_each": 0,
+    "power_endpoint_coverage_each": "868/868",
+    "connectivity": true,
+    "foreign_net": true,
+    "pin_access": true,
+    "wl_bit_exact": true,
+    "determinism_a_b": true,
+    "negative_unexpected_pass_count": 0,
+    "full_path_ngspice_proxy_completed": true,
+    "rc_evidence_level": "NORMALIZED_GEOMETRY_RC_PROXY",
+    "not_post_layout_pex": true,
+    "formal_timing_authority": "TIMING_BUDGET_AUTHORITY_PENDING"
+  },
+  "decoder_rebuild_status": {
+    "historical_24_marker_baseline_recovered": false,
+    "rebuild_selected": true,
+    "historical_equivalence_claim_allowed": false,
+    "executable_rebuild_available": true,
+    "latest_gate_path": "outputs/PROJECT_decoder_rebuild/current_supported_config/DECODER_MACHINE_GATE.json",
+    "latest_gate_passed": false,
+    "latest_drc_marker_count": 2663,
+    "negative_suite_passed": true,
+    "unexpected_negative_test_pass_count": 0,
+    "preferred_route_contract": {
+      "EN": "horizontal_m3_bus",
+      "WL_pre": "vertical_m2_link"
     },
-    "layoutgen_reuse_closure": {
-        "audit": "docs/LAYOUTGEN_EXISTING_ACHIEVEMENT_AUDIT.json",
-        "contract": "docs/LAYOUTGEN_PHYSICAL_REUSE_CONTRACT.json",
-        "contract_gate": "scripts/project_layoutgen_reuse_contract_gate.py",
-        "contract_load_report": "outputs/PROJECT_bitcell_array_layoutgen_reuse_v2/REUSE_CONTRACT_LOAD_REPORT.json",
-        "authority_conclusion": "AUTHORITATIVE_ARRAY_ASSET_REGENERATED",
-        "paper_evidence_package_sha256": "4eb62c04deb83eb64f5c07d1ba1a3700bbf47516f9c37da608fcbf806ca275c1",
-        "full_bitcell_array_gds_integrated": false,
-        "authoritative_array_gds": "outputs/PROJECT_bitcell_array_layoutgen_reuse_v2/clean.gds",
-        "authoritative_array_gds_sha256": "555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac",
-        "authoritative_array_top_cell": "sram_capped_replica_bitcell_array",
-        "authoritative_array_machine_gate_passed": true,
-        "new_architecture_review_package_generated": false
-    },
-    "authoritative_array_status": "AUTHORITATIVE_ARRAY_ASSET_REGENERATED",
-    "array_gds_sha": "555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac",
-    "standalone_array_machine_gate": "PASS_AUTHORITATIVE_ARRAY_MACHINE_GATE",
-    "real_decoder_wl_driver_array_integration": "PASS_REAL_ARRAY_PHYSICAL_CLOSURE_PENDING_NARROW_WL_TIMING_AUTHORITY",
-    "real_array_integration_closure": {
-        "recommended_candidate": "P2_REAL_ARRAY_V1",
-        "retained_alternative": "P3_REAL_ARRAY_V1",
-        "machine_green_candidate_count": 2,
-        "authoritative_array_gds_sha256": "555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac",
-        "combined_drc_marker_count_each": 0,
-        "power_endpoint_coverage_each": "868/868",
-        "connectivity": true,
-        "foreign_net": true,
-        "pin_access": true,
-        "wl_bit_exact": true,
-        "determinism_a_b": true,
-        "negative_unexpected_pass_count": 0,
-        "full_path_ngspice_proxy_completed": true,
-        "rc_evidence_level": "NORMALIZED_GEOMETRY_RC_PROXY",
-        "not_post_layout_pex": true,
-        "formal_timing_authority": "TIMING_BUDGET_AUTHORITY_PENDING"
-    },
-    "decoder_rebuild_status": {
-        "historical_24_marker_baseline_recovered": false,
-        "rebuild_selected": true,
-        "historical_equivalence_claim_allowed": false,
-        "executable_rebuild_available": true,
-        "latest_gate_path": "outputs/PROJECT_decoder_rebuild/current_supported_config/DECODER_MACHINE_GATE.json",
-        "latest_gate_passed": false,
-        "latest_drc_marker_count": 2663,
-        "negative_suite_passed": true,
-        "unexpected_negative_test_pass_count": 0,
-        "preferred_route_contract": {
-            "EN": "horizontal_m3_bus",
-            "WL_pre": "vertical_m2_link"
-        },
-        "specific_blockers": [
-            "decoder child assets expose only wildcard semantic pin exports and zero native GDS pin labels",
-            "decoder child generation reports explicitly remain L3 candidate geometry and not DRC-clean",
-            "fresh rebuild still trips 2663 FreePDK45 DRC markers dominated by grid/contact/template violations",
-            "project-owned primitive DRC wrapper was fixed and gen_inv/gen_nand2/gen_wl_driver now re-check at DRC=0, but decoder child v2 geometry has not been regenerated yet",
-            "formal AND2/AND3 clean gates are now resolvable from the primary repository and have been captured into a machine-readable decoder v2 leaf source inventory",
-            "formal AND2/AND3 top-pin bbox maps have now been extracted from Team B clean gate label-hit evidence",
-            "row_decoder_v2 exact source binding is now frozen as 3xINV + 8xAND3 + 8xAND2 with 19 exact leaf instances",
-            "row_decoder_v2 regenerated child geometry now reaches DRC=0 with connectivity/namespace/hierarchy closure preserved after A0/A0b branch-column shift",
-            "row_decoder_v2 child gate is now fully green and may be treated as the first project-owned regenerated decoder child v2 asset candidate",
-            "decoder_gate_cells_v2 and wordline_decoder_v2 geometry still have not been regenerated",
-            "decoder top machine gate has not yet been rerun against the partially refreshed child-v2 set"
-        ]
-    },
-    "logic_simulation_status": "BLOCKED_BY_MISSING_TRUSTED_VERILOG_ASSETS",
-    "spice_simulation_status": "PRIMARY_CHAIN_CLOSED_FOR_REQUESTED_MODULE_SMOKE",
-    "spice_primary": "ngspice",
-    "spice_secondary": "Xyce",
-    "spice_pass_modules": [
-        "PNAND2",
-        "PNAND3",
-        "AND2",
-        "AND3",
-        "pdrive",
-        "wl_pdrive",
-        "pdrive2_for_pre",
-        "delay_chain",
-        "DFF",
-        "DFF_BUF"
-    ],
-    "sram_functional_tb_status": "BLOCKED_BY_EXACT_TIMING_ORACLE_GAPS",
-    "sram_functional_tb_blockers": [
-        "TIME_schedule",
-        "write_sample_point",
-        "disabled_hold_semantics"
-    ],
-    "post_layout_extraction_status": "NOT_AVAILABLE_WITH_CURRENT_EVIDENCE",
-    "post_layout_extraction_reason": "KLayout FreePDK45 LVS/extraction assets exist, but Magic/Netgen/PEX rule provenance and refreshed project LVS/PEX binding do not.",
-    "power_status": {
-        "positive_config_count": 3,
-        "positive_gate_passed": true,
-        "negative_case_count": 6,
-        "negative_gate_passed": true,
-        "ir_em_or_dynamic_signoff": false
-    },
-    "drc_waiver_status": {
-        "approved_waiver_count": 0,
-        "waiver_policy_closed": true
-    },
-    "industrial_positioning_closed": true,
-    "delivery": {
-        "local_branch": "project/mainline-inventory-20260726",
-        "local_checkpoint_head": "4eaf02887641a78b56a9a445bce90b06bbd324fe",
-        "remote_branch": "origin/project/mainline-inventory-20260726",
-        "remote_branch_head": "4eaf02887641a78b56a9a445bce90b06bbd324fe",
-        "push_synced": true,
-        "push_error": null,
-        "push_method": "SSH",
-        "remote_url": "git@github-sram-layoutgen:Tyun-D/sram-layoutgen-standalone.git",
-        "bundle_path": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_project_mainline_inventory_20260726_62c3d66.bundle",
-        "bundle_sha256": "5b78d1c75c288c651a058e67745ba732b96ace23708080d82f40ddd6acaf4273",
-        "working_tree_clean_at_checkpoint_commit": true
-    },
-    "latest_review_package": {
-        "path": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
-        "sha256_record_location": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz.sha256",
-        "package_build_head": "62c3d663d2dc4011b9c8d06c13d080c25535a327"
-    },
-    "latest_full_evidence_package": {
-        "path": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
-        "sha256_record_location": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz.sha256",
-        "package_build_head": "62c3d663d2dc4011b9c8d06c13d080c25535a327"
-    },
-    "next_stage": "Repair CONTROL_BLOCK_HIERARCHICAL_V1 parent routing DRC before Full SRAM floorplanning.",
-    "current_git_head": "4eaf02887641a78b56a9a445bce90b06bbd324fe",
+    "specific_blockers": [
+      "decoder child assets expose only wildcard semantic pin exports and zero native GDS pin labels",
+      "decoder child generation reports explicitly remain L3 candidate geometry and not DRC-clean",
+      "fresh rebuild still trips 2663 FreePDK45 DRC markers dominated by grid/contact/template violations",
+      "project-owned primitive DRC wrapper was fixed and gen_inv/gen_nand2/gen_wl_driver now re-check at DRC=0, but decoder child v2 geometry has not been regenerated yet",
+      "formal AND2/AND3 clean gates are now resolvable from the primary repository and have been captured into a machine-readable decoder v2 leaf source inventory",
+      "formal AND2/AND3 top-pin bbox maps have now been extracted from Team B clean gate label-hit evidence",
+      "row_decoder_v2 exact source binding is now frozen as 3xINV + 8xAND3 + 8xAND2 with 19 exact leaf instances",
+      "row_decoder_v2 regenerated child geometry now reaches DRC=0 with connectivity/namespace/hierarchy closure preserved after A0/A0b branch-column shift",
+      "row_decoder_v2 child gate is now fully green and may be treated as the first project-owned regenerated decoder child v2 asset candidate",
+      "decoder_gate_cells_v2 and wordline_decoder_v2 geometry still have not been regenerated",
+      "decoder top machine gate has not yet been rerun against the partially refreshed child-v2 set"
+    ]
+  },
+  "logic_simulation_status": "BLOCKED_BY_MISSING_TRUSTED_VERILOG_ASSETS",
+  "spice_simulation_status": "PRIMARY_CHAIN_CLOSED_FOR_REQUESTED_MODULE_SMOKE",
+  "spice_primary": "ngspice",
+  "spice_secondary": "Xyce",
+  "spice_pass_modules": [
+    "PNAND2",
+    "PNAND3",
+    "AND2",
+    "AND3",
+    "pdrive",
+    "wl_pdrive",
+    "pdrive2_for_pre",
+    "delay_chain",
+    "DFF",
+    "DFF_BUF"
+  ],
+  "sram_functional_tb_status": "BLOCKED_BY_EXACT_TIMING_ORACLE_GAPS",
+  "sram_functional_tb_blockers": [
+    "TIME_schedule",
+    "write_sample_point",
+    "disabled_hold_semantics"
+  ],
+  "post_layout_extraction_status": "NOT_AVAILABLE_WITH_CURRENT_EVIDENCE",
+  "post_layout_extraction_reason": "KLayout FreePDK45 LVS/extraction assets exist, but Magic/Netgen/PEX rule provenance and refreshed project LVS/PEX binding do not.",
+  "power_status": {
+    "positive_config_count": 3,
+    "positive_gate_passed": true,
+    "negative_case_count": 6,
+    "negative_gate_passed": true,
+    "ir_em_or_dynamic_signoff": false
+  },
+  "drc_waiver_status": {
+    "approved_waiver_count": 0,
+    "waiver_policy_closed": true
+  },
+  "industrial_positioning_closed": true,
+  "delivery": {
+    "local_branch": "project/mainline-inventory-20260726",
+    "local_checkpoint_head": "4eaf02887641a78b56a9a445bce90b06bbd324fe",
+    "remote_branch": "origin/project/mainline-inventory-20260726",
     "remote_branch_head": "4eaf02887641a78b56a9a445bce90b06bbd324fe",
-    "latest_complete_top_package": {
-        "path": "/data1/qujh/PROJECT_COMPLETE_TOP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
-        "sha256_record_location": "/data1/qujh/PROJECT_COMPLETE_TOP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz.sha256",
-        "package_build_head": "099911771ad94c26ed6fdc3afc8bcb0bb705b29d"
-    },
-    "latest_complete_top_full_evidence_package": {
-        "path": "/data1/qujh/PROJECT_COMPLETE_TOP_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
-        "sha256_record_location": "/data1/qujh/PROJECT_COMPLETE_TOP_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz.sha256",
-        "package_build_head": "099911771ad94c26ed6fdc3afc8bcb0bb705b29d"
-    },
-    "latest_industrial_gap_package": {
-        "path": "/data1/qujh/PROJECT_INDUSTRIAL_GAP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
-        "sha256_record_location": "/data1/qujh/PROJECT_INDUSTRIAL_GAP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz.sha256"
-    },
-    "decoder_hierarchical_floorplan": {
-        "l0_completion_gate_path": "docs/DECODER_L0_COMPLETION_GATE.json",
-        "l0_golden_lock_path": "docs/DECODER_L0_GOLDEN_LOCK.json",
-        "child_v3_pareto_path": "docs/DECODER_CHILD_V3_PARETO_SET.json",
-        "candidate_count": 0,
-        "selected_candidates": [],
-        "human_review_package": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
-        "full_evidence_package": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
-        "status_audit": {
-            "l0_status": "DECODER_L0_ABUTMENT_MATRIX_COMPLETE",
-            "child_v3_status": "CHILD_V3_GEOMETRY_NOT_YET_GENERATED",
-            "human_review_status": "HUMAN_REVIEW_NOT_READY",
-            "false_ready_audit_timestamp": "2026-07-31T16:05:00Z",
-            "false_ready_reasons": [
-                "child score table only had baseline child entries passing while non-baseline templates were NOT_RUN with NO_REGENERATED_GEOMETRY_THIS_ROUND",
-                "child Pareto JSON only contained baseline_strip rows and no real compact or WL-oriented child-v3 geometries",
-                "human review and full evidence packages did not include candidate clean GDS, review atlas GDS, or DRC lyrdb for compact or WL-oriented top candidates",
-                "candidate_a_compact_folded and candidate_b_wl_oriented existed only in status and log records without geometry SHA or machine gate evidence"
-            ]
-        }
-    },
-    "decoder_integration_closure_state": "INTERFACE_ROUTING_HARNESS_MACHINE_PASS_FINAL_SRAM_PHYSICAL_ARCHITECTURE_NOT_APPROVED",
-    "decoder_integration_human_review_ready": false,
-    "decoder_integration_recommended_candidate": "candidate_true_wl_driver_array_oriented",
-    "decoder_integration_human_package": "/data1/qujh/PROJECT_TRUE_MULTILINE_DECODER_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
-    "decoder_integration_full_package": "/data1/qujh/PROJECT_TRUE_MULTILINE_DECODER_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
-    "legacy_layoutgen_student_handoff_evaluation": {
-        "timestamp": "2026-08-09T05:02:51Z",
-        "status": "LEGACY_FULL_MACRO_GENERATOR_PRESERVED_HANDOFF_PACKAGING_REQUIRED",
-        "git_branch": "project/mainline-inventory-20260726",
-        "git_head": "da41cc22109c7f6ce314b2cf038d82e086f12775",
-        "entrypoint": "python -m sram_layoutgen",
-        "source_preserved": true,
-        "runtime_smoke_passed": true,
-        "smoke_root": "/data1/qujh/layoutgen_handoff_evaluation/20260809T050251Z",
-        "smoke_configs": [
-            {
-                "word_size": 16,
-                "num_words": 16,
-                "words_per_row": 1,
-                "status": "PASS"
-            },
-            {
-                "word_size": 16,
-                "num_words": 32,
-                "words_per_row": 1,
-                "status": "PASS"
-            },
-            {
-                "word_size": 16,
-                "num_words": 32,
-                "words_per_row": 2,
-                "status": "PASS"
-            }
-        ],
-        "parameterization": "true_for_single_bank_freepdk45",
-        "student_one_command_flow_ready": false,
-        "handoff_readiness": "packaging_required",
-        "mandatory_next_action": "prepare README, requirements, configs, generate_example.sh, hardmacro bundle, and path cleanup notes before external student handoff"
-    },
-    "row_path_physical_closure": "PASS",
-    "authoritative_bitcell_array": "LOCKED",
-    "real_array_integration": "PASS_ROW_PATH_ONLY_FOR_DECODER_WL_DRIVER_ARRAY",
-    "full_single_bank_sram_top": "NOT_GENERATED_BLOCKED_BY_CONTROL_BLOCK_PHYSICAL_AUTHORITY",
-    "functional_oracle": "FUNCTIONAL_ORACLE_PENDING_OWNER_REVIEW",
-    "formal_timing_authority": "FORMAL_TIMING_AUTHORITY_PENDING",
-    "full_sram_top_readiness": {
-        "status": "BLOCKED_BY_MISSING_FULL_SRAM_MODULE_ASSET",
-        "module_readiness_audit": "docs/FULL_SRAM_MODULE_READINESS_AUDIT.json",
-        "logical_contract": "docs/FULL_SRAM_TOP_LOGICAL_CONTRACT.json",
-        "connectivity_csv": "docs/FULL_SRAM_TOP_CONNECTIVITY.csv",
-        "pin_contract_csv": "docs/FULL_SRAM_TOP_PIN_CONTRACT.csv",
-        "control_path_authority": "docs/FULL_SRAM_CONTROL_PATH_AUTHORITY.json",
-        "entry_gate": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_TOP_ENTRY_GATE.json",
-        "column_path_generated": false,
-        "control_path_generated": false,
-        "full_floorplan_generated": false,
-        "missing_or_unready_modules": [
-            "precharge",
-            "column_mux",
-            "sense_amplifier",
-            "write_driver",
-            "control_logic",
-            "delay_chain",
-            "pdrive",
-            "wl_pdrive",
-            "pdrive2_for_pre",
-            "top_level_input_output_interface"
-        ],
-        "exact_blocking_missing_assets": {
-            "pdrive": [
-                "GDS",
-                "Pin map",
-                "DRC gate",
-                "connectivity gate",
-                "power endpoint coverage",
-                "negative suite"
-            ],
-            "wl_pdrive": [
-                "GDS",
-                "Pin map",
-                "DRC gate",
-                "connectivity gate",
-                "power endpoint coverage",
-                "negative suite"
-            ],
-            "pdrive2_for_pre": [
-                "GDS",
-                "Pin map",
-                "DRC gate",
-                "connectivity gate",
-                "power endpoint coverage",
-                "negative suite"
-            ],
-            "top_level_input_output_interface": [
-                "full physical Pin contract",
-                "TIME/write/disabled-hold functional authority"
-            ]
-        },
-        "unqualified_assets": {
-            "precharge": "GDS exists but L4/L5 top-entry verification is not closed",
-            "column_mux": "GDS exists but locked 16x16/wpr1 config conflicts with mandatory column mux use and VDD pin shape evidence is incomplete",
-            "sense_amplifier": "GDS/SPICE exist but only isolated substitution/heuristic evidence was found",
-            "write_driver": "GDS/SPICE exist but no standalone top-entry machine gate was found",
-            "control_logic": "candidate geometry exists; control physical ready remains false",
-            "delay_chain": "candidate geometry/SPICE proxy exist; placement/routing/top-use gate not closed"
-        },
-        "search_scope_exhausted": [
-            "current repository docs/outputs/source",
-            "/data1/qujh/PAPER_EVIDENCE_PACKAGE_20260713_043712.tar.gz",
-            "/data1/qujh/layoutgen_array_recovery/evidence_package",
-            "/data1/qujh/My_OpenYield/LiteRAM-Layout",
-            "/data1/qujh/work/github_exports",
-            "git history on current branch"
-        ],
-        "status_record_head": "8b3389c92895cc2b5a1cb5d010b47b698ca89d81"
-    },
-    "full_sram_top_entry_recovery_v2": {
-        "status": "BLOCKED_BY_CONTROL_BLOCK_PHYSICAL_AUTHORITY",
-        "gate_path": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_TOP_ENTRY_GATE_V2.json",
-        "readiness_audit": "docs/FULL_SRAM_MODULE_READINESS_AUDIT_V2.json",
-        "physical_top_entry_allowed": false,
-        "formal_functional_timing_closure": false,
-        "recovered_existing_assets": [
-            "pdrive",
-            "wl_pdrive",
-            "pdrive2_for_pre",
-            "delay_chain"
-        ],
-        "newly_qualified_assets": [
-            "precharge",
-            "sense_amplifier",
-            "write_driver"
-        ],
-        "config_excluded_modules": [
-            "column_mux"
-        ],
-        "blocking_modules": [
-            "CONTROL_BLOCK_HIERARCHICAL_V1"
-        ],
-        "control_block_implementation": "CONTROL_BLOCK_HIERARCHICAL_V1_LOGICAL_BINDING_RECOVERED_PARENT_PHYSICAL_PENDING",
-        "top_physical_pin_contract": "READY",
-        "top_physical_pin_contract_path": "docs/FULL_SRAM_TOP_PHYSICAL_PIN_CONTRACT.json",
-        "negative_unexpected_pass_count": 0,
-        "required_module_missing_asset_count": 0,
-        "existing_unqualified_misclassified_as_missing": false
-    },
-    "remaining_functional_timing_authority_gaps": [
-        "TIME_schedule",
-        "write_sample_point",
-        "disabled_hold_semantics",
-        "formal_WL_timing_authority"
-    ],
-    "control_block_physical_authority": "BLOCKED_BY_PARENT_ROUTE_DRC_NOT_CLOSED",
-    "full_sram_top_entry_gate_v3": {
-        "status": "BLOCKED_BY_CONTROL_BLOCK_PHYSICAL_AUTHORITY",
-        "reason": "CONTROL_BLOCK_PARENT_ROUTE_DRC_NOT_CLOSED",
-        "gate_path": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_TOP_ENTRY_GATE_V3.json",
-        "physical_top_entry_allowed": false,
-        "formal_functional_timing_closure": false,
-        "candidate_count": 5,
-        "passing_candidate_count": 0,
-        "candidate_drc_markers": {
-            "C0_LOGICAL_TOPOLOGY_BASELINE": 293,
-            "C1_OUTPUT_DRIVEN_CLUSTERING": 166,
-            "C2_TIMING_CHAIN_ORIENTED": 147,
-            "C3_POWER_ROW_ABUTMENT_AWARE": 192,
-            "C4_AUTOMATED_PARETO": 171
-        },
-        "required_child_missing_asset_count": 0,
-        "top_physical_pin_contract": "READY",
-        "logical_authority_lock": "docs/CONTROL_BLOCK_LOGICAL_AUTHORITY_LOCK.json",
-        "child_physical_lock": "docs/CONTROL_CHILD_PHYSICAL_LOCK.json",
-        "pin_contract": "docs/CONTROL_BLOCK_PHYSICAL_PIN_CONTRACT.json"
+    "push_synced": true,
+    "push_error": null,
+    "push_method": "SSH",
+    "remote_url": "git@github-sram-layoutgen:Tyun-D/sram-layoutgen-standalone.git",
+    "bundle_path": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_project_mainline_inventory_20260726_62c3d66.bundle",
+    "bundle_sha256": "5b78d1c75c288c651a058e67745ba732b96ace23708080d82f40ddd6acaf4273",
+    "working_tree_clean_at_checkpoint_commit": true
+  },
+  "latest_review_package": {
+    "path": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "sha256_record_location": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz.sha256",
+    "package_build_head": "62c3d663d2dc4011b9c8d06c13d080c25535a327"
+  },
+  "latest_full_evidence_package": {
+    "path": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
+    "sha256_record_location": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz.sha256",
+    "package_build_head": "62c3d663d2dc4011b9c8d06c13d080c25535a327"
+  },
+  "next_stage": "Human review of full SRAM floorplan before detailed routing.",
+  "current_git_head": "PENDING_COMMIT",
+  "remote_branch_head": "PENDING_COMMIT",
+  "latest_complete_top_package": {
+    "path": "/data1/qujh/PROJECT_COMPLETE_TOP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "sha256_record_location": "/data1/qujh/PROJECT_COMPLETE_TOP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz.sha256",
+    "package_build_head": "099911771ad94c26ed6fdc3afc8bcb0bb705b29d"
+  },
+  "latest_complete_top_full_evidence_package": {
+    "path": "/data1/qujh/PROJECT_COMPLETE_TOP_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
+    "sha256_record_location": "/data1/qujh/PROJECT_COMPLETE_TOP_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz.sha256",
+    "package_build_head": "099911771ad94c26ed6fdc3afc8bcb0bb705b29d"
+  },
+  "latest_industrial_gap_package": {
+    "path": "/data1/qujh/PROJECT_INDUSTRIAL_GAP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "sha256_record_location": "/data1/qujh/PROJECT_INDUSTRIAL_GAP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz.sha256"
+  },
+  "decoder_hierarchical_floorplan": {
+    "l0_completion_gate_path": "docs/DECODER_L0_COMPLETION_GATE.json",
+    "l0_golden_lock_path": "docs/DECODER_L0_GOLDEN_LOCK.json",
+    "child_v3_pareto_path": "docs/DECODER_CHILD_V3_PARETO_SET.json",
+    "candidate_count": 0,
+    "selected_candidates": [],
+    "human_review_package": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "full_evidence_package": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
+    "status_audit": {
+      "l0_status": "DECODER_L0_ABUTMENT_MATRIX_COMPLETE",
+      "child_v3_status": "CHILD_V3_GEOMETRY_NOT_YET_GENERATED",
+      "human_review_status": "HUMAN_REVIEW_NOT_READY",
+      "false_ready_audit_timestamp": "2026-07-31T16:05:00Z",
+      "false_ready_reasons": [
+        "child score table only had baseline child entries passing while non-baseline templates were NOT_RUN with NO_REGENERATED_GEOMETRY_THIS_ROUND",
+        "child Pareto JSON only contained baseline_strip rows and no real compact or WL-oriented child-v3 geometries",
+        "human review and full evidence packages did not include candidate clean GDS, review atlas GDS, or DRC lyrdb for compact or WL-oriented top candidates",
+        "candidate_a_compact_folded and candidate_b_wl_oriented existed only in status and log records without geometry SHA or machine gate evidence"
+      ]
     }
+  },
+  "decoder_integration_closure_state": "INTERFACE_ROUTING_HARNESS_MACHINE_PASS_FINAL_SRAM_PHYSICAL_ARCHITECTURE_NOT_APPROVED",
+  "decoder_integration_human_review_ready": false,
+  "decoder_integration_recommended_candidate": "candidate_true_wl_driver_array_oriented",
+  "decoder_integration_human_package": "/data1/qujh/PROJECT_TRUE_MULTILINE_DECODER_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+  "decoder_integration_full_package": "/data1/qujh/PROJECT_TRUE_MULTILINE_DECODER_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
+  "legacy_layoutgen_student_handoff_evaluation": {
+    "timestamp": "2026-08-09T05:02:51Z",
+    "status": "LEGACY_FULL_MACRO_GENERATOR_PRESERVED_HANDOFF_PACKAGING_REQUIRED",
+    "git_branch": "project/mainline-inventory-20260726",
+    "git_head": "da41cc22109c7f6ce314b2cf038d82e086f12775",
+    "entrypoint": "python -m sram_layoutgen",
+    "source_preserved": true,
+    "runtime_smoke_passed": true,
+    "smoke_root": "/data1/qujh/layoutgen_handoff_evaluation/20260809T050251Z",
+    "smoke_configs": [
+      {
+        "word_size": 16,
+        "num_words": 16,
+        "words_per_row": 1,
+        "status": "PASS"
+      },
+      {
+        "word_size": 16,
+        "num_words": 32,
+        "words_per_row": 1,
+        "status": "PASS"
+      },
+      {
+        "word_size": 16,
+        "num_words": 32,
+        "words_per_row": 2,
+        "status": "PASS"
+      }
+    ],
+    "parameterization": "true_for_single_bank_freepdk45",
+    "student_one_command_flow_ready": false,
+    "handoff_readiness": "packaging_required",
+    "mandatory_next_action": "prepare README, requirements, configs, generate_example.sh, hardmacro bundle, and path cleanup notes before external student handoff"
+  },
+  "row_path_physical_closure": "PASS",
+  "authoritative_bitcell_array": "LOCKED",
+  "real_array_integration": "PASS_ROW_PATH_ONLY_FOR_DECODER_WL_DRIVER_ARRAY",
+  "full_single_bank_sram_top": "FLOORPLAN_READY_FOR_HUMAN_REVIEW_DETAILED_ROUTING_NOT_STARTED",
+  "functional_oracle": "FUNCTIONAL_ORACLE_PENDING_OWNER_REVIEW",
+  "formal_timing_authority": "FORMAL_TIMING_AUTHORITY_PENDING",
+  "full_sram_top_readiness": {
+    "status": "BLOCKED_BY_MISSING_FULL_SRAM_MODULE_ASSET",
+    "module_readiness_audit": "docs/FULL_SRAM_MODULE_READINESS_AUDIT.json",
+    "logical_contract": "docs/FULL_SRAM_TOP_LOGICAL_CONTRACT.json",
+    "connectivity_csv": "docs/FULL_SRAM_TOP_CONNECTIVITY.csv",
+    "pin_contract_csv": "docs/FULL_SRAM_TOP_PIN_CONTRACT.csv",
+    "control_path_authority": "docs/FULL_SRAM_CONTROL_PATH_AUTHORITY.json",
+    "entry_gate": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_TOP_ENTRY_GATE.json",
+    "column_path_generated": false,
+    "control_path_generated": false,
+    "full_floorplan_generated": false,
+    "missing_or_unready_modules": [
+      "precharge",
+      "column_mux",
+      "sense_amplifier",
+      "write_driver",
+      "control_logic",
+      "delay_chain",
+      "pdrive",
+      "wl_pdrive",
+      "pdrive2_for_pre",
+      "top_level_input_output_interface"
+    ],
+    "exact_blocking_missing_assets": {
+      "pdrive": [
+        "GDS",
+        "Pin map",
+        "DRC gate",
+        "connectivity gate",
+        "power endpoint coverage",
+        "negative suite"
+      ],
+      "wl_pdrive": [
+        "GDS",
+        "Pin map",
+        "DRC gate",
+        "connectivity gate",
+        "power endpoint coverage",
+        "negative suite"
+      ],
+      "pdrive2_for_pre": [
+        "GDS",
+        "Pin map",
+        "DRC gate",
+        "connectivity gate",
+        "power endpoint coverage",
+        "negative suite"
+      ],
+      "top_level_input_output_interface": [
+        "full physical Pin contract",
+        "TIME/write/disabled-hold functional authority"
+      ]
+    },
+    "unqualified_assets": {
+      "precharge": "GDS exists but L4/L5 top-entry verification is not closed",
+      "column_mux": "GDS exists but locked 16x16/wpr1 config conflicts with mandatory column mux use and VDD pin shape evidence is incomplete",
+      "sense_amplifier": "GDS/SPICE exist but only isolated substitution/heuristic evidence was found",
+      "write_driver": "GDS/SPICE exist but no standalone top-entry machine gate was found",
+      "control_logic": "candidate geometry exists; control physical ready remains false",
+      "delay_chain": "candidate geometry/SPICE proxy exist; placement/routing/top-use gate not closed"
+    },
+    "search_scope_exhausted": [
+      "current repository docs/outputs/source",
+      "/data1/qujh/PAPER_EVIDENCE_PACKAGE_20260713_043712.tar.gz",
+      "/data1/qujh/layoutgen_array_recovery/evidence_package",
+      "/data1/qujh/My_OpenYield/LiteRAM-Layout",
+      "/data1/qujh/work/github_exports",
+      "git history on current branch"
+    ],
+    "status_record_head": "8b3389c92895cc2b5a1cb5d010b47b698ca89d81"
+  },
+  "full_sram_top_entry_recovery_v2": {
+    "status": "BLOCKED_BY_CONTROL_BLOCK_PHYSICAL_AUTHORITY",
+    "gate_path": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_TOP_ENTRY_GATE_V2.json",
+    "readiness_audit": "docs/FULL_SRAM_MODULE_READINESS_AUDIT_V2.json",
+    "physical_top_entry_allowed": false,
+    "formal_functional_timing_closure": false,
+    "recovered_existing_assets": [
+      "pdrive",
+      "wl_pdrive",
+      "pdrive2_for_pre",
+      "delay_chain"
+    ],
+    "newly_qualified_assets": [
+      "precharge",
+      "sense_amplifier",
+      "write_driver"
+    ],
+    "config_excluded_modules": [
+      "column_mux"
+    ],
+    "blocking_modules": [
+      "CONTROL_BLOCK_HIERARCHICAL_V1"
+    ],
+    "control_block_implementation": "CONTROL_BLOCK_HIERARCHICAL_V1_LOGICAL_BINDING_RECOVERED_PARENT_PHYSICAL_PENDING",
+    "top_physical_pin_contract": "READY",
+    "top_physical_pin_contract_path": "docs/FULL_SRAM_TOP_PHYSICAL_PIN_CONTRACT.json",
+    "negative_unexpected_pass_count": 0,
+    "required_module_missing_asset_count": 0,
+    "existing_unqualified_misclassified_as_missing": false
+  },
+  "remaining_functional_timing_authority_gaps": [
+    "TIME_schedule",
+    "write_sample_point",
+    "disabled_hold_semantics",
+    "formal_WL_timing_authority"
+  ],
+  "control_block_physical_authority": "READY",
+  "full_sram_top_entry_gate_v3": "PASS",
+  "physical_top_entry_allowed": true,
+  "latest_full_sram_floorplan_package": "/data1/qujh/PROJECT_FULL_SINGLE_BANK_SRAM_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz"
 }

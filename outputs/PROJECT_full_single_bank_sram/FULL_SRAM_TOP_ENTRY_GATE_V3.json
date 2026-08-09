@@ -1,34 +1,652 @@
 {
-  "created_at": "2026-08-09T14:10:57Z",
+  "created_at": "2026-08-09T14:35:33Z",
   "git_branch": "project/mainline-inventory-20260726",
-  "git_head": "4eaf02887641a78b56a9a445bce90b06bbd324fe",
-  "status": "BLOCKED_BY_CONTROL_BLOCK_PHYSICAL_AUTHORITY",
-  "reason": "CONTROL_BLOCK_PARENT_ROUTE_DRC_NOT_CLOSED",
-  "physical_top_entry_allowed": false,
+  "git_head": "b91af47212979ac68c95ad5969ed4bc9a13b4595",
+  "status": "PASS_FULL_SRAM_TOP_ENTRY_RECOVERED_READY_FOR_FLOORPLAN",
+  "authoritative_array": "READY",
+  "decoder": "READY",
+  "wl_driver": "READY",
+  "module_records": [
+    {
+      "module": "pdrive",
+      "classification": "RECOVERED_VERIFIED_EXISTING_ASSET",
+      "logical_authority": "CURRENT_SOURCE_EXACT_TIME_CONTROL_HIERARCHY",
+      "required_by_config": true,
+      "required_by_current_netlist": true,
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_inverter_chain_reference_demo/current_supported_config/pdrive/clean.gds",
+      "gds_sha": "8730aa39f7408275da09bc1b21ab2da4bdfd6d04839a401023ccf33cab61987f",
+      "expected_sha": "8730aa39f7408275da09bc1b21ab2da4bdfd6d04839a401023ccf33cab61987f",
+      "top_cell": "PDRIVE_FPDK45",
+      "pin_manifest": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_inverter_chain_reference_demo/current_supported_config/pdrive/top_pin_contract.json",
+      "pin_manifest_sha": "10f1fb9a42bf9c27fcaf54c6fd04d24de3c0ff9e6de85ade77b5292226f08c99",
+      "drc": {
+        "marker_count": 0,
+        "drc_passed": true
+      },
+      "connectivity_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_inverter_chain_reference_demo/current_supported_config/pdrive/physical_connectivity_report.json",
+      "foreign_net_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_inverter_chain_reference_demo/current_supported_config/pdrive/foreign_net_report.json",
+      "determinism_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_inverter_chain_reference_demo/current_supported_config/pdrive/determinism.json",
+      "negative_summary": {
+        "total_count": 28,
+        "mutation_effective_count": 28,
+        "production_validator_invoked_count": 28,
+        "unexpected_negative_test_pass_count": 0,
+        "negative_tests_passed": true
+      },
+      "machine_gate": {
+        "source_lock_complete": true,
+        "parameter_binding_closed": true,
+        "top_pin_contract_exact": true,
+        "internal_net_not_exposed": true,
+        "child_count_exact": true,
+        "stage_order_exact": true,
+        "topology_match": true,
+        "hierarchy_closure_passed": true,
+        "child_immutability_passed": true,
+        "connectivity_passed": true,
+        "foreign_net_passed": true,
+        "strict_source_derived_structural_gate_passed": true,
+        "deterministic_A_B_byte_identical": true,
+        "negative_tests_passed": true,
+        "review_artifacts_complete": true,
+        "drc_marker_count": 0
+      },
+      "top_ready": true,
+      "blocker": []
+    },
+    {
+      "module": "wl_pdrive",
+      "classification": "RECOVERED_VERIFIED_EXISTING_ASSET",
+      "logical_authority": "CURRENT_SOURCE_EXACT_TIME_CONTROL_HIERARCHY",
+      "required_by_config": true,
+      "required_by_current_netlist": true,
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_inverter_chain_reference_demo/current_supported_config/wl_pdrive/clean.gds",
+      "gds_sha": "d84ff45f181d56d08fdf606ec4129ab03b384161242d1e3cffbc9184da97a1de",
+      "expected_sha": "d84ff45f181d56d08fdf606ec4129ab03b384161242d1e3cffbc9184da97a1de",
+      "top_cell": "WL_PDRIVE_FPDK45",
+      "pin_manifest": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_inverter_chain_reference_demo/current_supported_config/wl_pdrive/top_pin_contract.json",
+      "pin_manifest_sha": "342dec63833566b0532e14f553243baaaa4390e486e8fd6721bd1b39c6061928",
+      "drc": {
+        "marker_count": 0,
+        "drc_passed": true
+      },
+      "connectivity_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_inverter_chain_reference_demo/current_supported_config/wl_pdrive/physical_connectivity_report.json",
+      "foreign_net_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_inverter_chain_reference_demo/current_supported_config/wl_pdrive/foreign_net_report.json",
+      "determinism_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_inverter_chain_reference_demo/current_supported_config/wl_pdrive/determinism.json",
+      "negative_summary": {
+        "total_count": 23,
+        "mutation_effective_count": 23,
+        "production_validator_invoked_count": 23,
+        "unexpected_negative_test_pass_count": 0,
+        "negative_tests_passed": true
+      },
+      "machine_gate": {
+        "source_lock_complete": true,
+        "parameter_binding_closed": true,
+        "top_pin_contract_exact": true,
+        "internal_net_not_exposed": true,
+        "child_count_exact": true,
+        "stage_order_exact": true,
+        "topology_match": true,
+        "hierarchy_closure_passed": true,
+        "child_immutability_passed": true,
+        "connectivity_passed": true,
+        "foreign_net_passed": true,
+        "strict_source_derived_structural_gate_passed": true,
+        "deterministic_A_B_byte_identical": true,
+        "negative_tests_passed": true,
+        "review_artifacts_complete": true,
+        "drc_marker_count": 0
+      },
+      "top_ready": true,
+      "blocker": []
+    },
+    {
+      "module": "pdrive2_for_pre",
+      "classification": "RECOVERED_VERIFIED_EXISTING_ASSET",
+      "logical_authority": "CURRENT_SOURCE_EXACT_TIME_CONTROL_HIERARCHY",
+      "required_by_config": true,
+      "required_by_current_netlist": true,
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_inverter_chain_reference_demo/current_supported_config/pdrive2_for_pre/clean.gds",
+      "gds_sha": "1d075da2d815e70177372f64e771cf7f453d681e4e12b7e6a7406fd1c2252d44",
+      "expected_sha": "1d075da2d815e70177372f64e771cf7f453d681e4e12b7e6a7406fd1c2252d44",
+      "top_cell": "PDRIVE2_FOR_PRE_FPDK45",
+      "pin_manifest": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_inverter_chain_reference_demo/current_supported_config/pdrive2_for_pre/top_pin_contract.json",
+      "pin_manifest_sha": "ad651ad8f6241b692a94ef5e6655e044093572da8c17b3c6db71dff45bc2e128",
+      "drc": {
+        "marker_count": 0,
+        "drc_passed": true
+      },
+      "connectivity_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_inverter_chain_reference_demo/current_supported_config/pdrive2_for_pre/physical_connectivity_report.json",
+      "foreign_net_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_inverter_chain_reference_demo/current_supported_config/pdrive2_for_pre/foreign_net_report.json",
+      "determinism_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_inverter_chain_reference_demo/current_supported_config/pdrive2_for_pre/determinism.json",
+      "negative_summary": {
+        "total_count": 23,
+        "mutation_effective_count": 23,
+        "production_validator_invoked_count": 23,
+        "unexpected_negative_test_pass_count": 0,
+        "negative_tests_passed": true
+      },
+      "machine_gate": {
+        "source_lock_complete": true,
+        "parameter_binding_closed": true,
+        "top_pin_contract_exact": true,
+        "internal_net_not_exposed": true,
+        "child_count_exact": true,
+        "stage_order_exact": true,
+        "topology_match": true,
+        "hierarchy_closure_passed": true,
+        "child_immutability_passed": true,
+        "connectivity_passed": true,
+        "foreign_net_passed": true,
+        "strict_source_derived_structural_gate_passed": true,
+        "deterministic_A_B_byte_identical": true,
+        "negative_tests_passed": true,
+        "review_artifacts_complete": true,
+        "drc_marker_count": 0
+      },
+      "top_ready": true,
+      "blocker": []
+    },
+    {
+      "module": "delay_chain",
+      "classification": "RECOVERED_VERIFIED_EXISTING_ASSET",
+      "logical_authority": "CURRENT_SOURCE_EXACT_TIME_CONTROL_HIERARCHY",
+      "required_by_config": true,
+      "required_by_current_netlist": true,
+      "gds_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_delay_chain_reference_demo/current_supported_config/delay_chain/clean.gds",
+      "gds_sha": "db541ec8db03f4ccc12b266c5bf36feaab0d8d45baab03f2f7e60ca1c81668c7",
+      "expected_sha": "db541ec8db03f4ccc12b266c5bf36feaab0d8d45baab03f2f7e60ca1c81668c7",
+      "top_cell": "DELAY_CHAIN_FPDK45",
+      "pin_manifest": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_delay_chain_reference_demo/current_supported_config/delay_chain/top_pin_contract.json",
+      "pin_manifest_sha": "3cd3a6e4abaeaf187db2c526454149335870c011bfdd9b66f382f0fa029c968f",
+      "drc": {
+        "marker_count": 0,
+        "drc_passed": true
+      },
+      "connectivity_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_delay_chain_reference_demo/current_supported_config/delay_chain/physical_connectivity_report.json",
+      "foreign_net_path": "NOT_FOUND",
+      "determinism_path": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_delay_chain_reference_demo/current_supported_config/delay_chain/determinism.json",
+      "negative_summary": {
+        "total_count": 56,
+        "mutation_effective_count": 56,
+        "production_validator_invoked_count": 56,
+        "unexpected_negative_test_pass_count": 0,
+        "negative_tests_passed": true,
+        "specific_code_match_count": 56
+      },
+      "machine_gate": {
+        "source_lock_complete": true,
+        "parameter_binding_closed": true,
+        "top_pin_contract_exact": true,
+        "internal_net_not_exposed": true,
+        "driver_count_exact": true,
+        "load_count_exact": true,
+        "child_count_exact": true,
+        "loads_per_stage_exact": true,
+        "stage_order_exact": true,
+        "topology_match": true,
+        "output_polarity_match": true,
+        "intentional_floating_outputs_exact": true,
+        "hierarchy_closure_passed": true,
+        "child_immutability_passed": true,
+        "connectivity_passed": true,
+        "foreign_net_passed": true,
+        "power_rail_continuity_passed": true,
+        "row_abutment_policy_passed": true,
+        "strict_source_derived_structural_gate_passed": true,
+        "deterministic_A_B_byte_identical": true,
+        "negative_tests_passed": true,
+        "review_artifacts_complete": true,
+        "drc_marker_count": 0
+      },
+      "top_ready": true,
+      "blocker": []
+    },
+    {
+      "module": "precharge",
+      "classification": "READY_FOR_TOP",
+      "logical_authority": "CURRENT_SOURCE_EXACT_PRECHARGE",
+      "required_by_config": true,
+      "required_by_current_netlist": true,
+      "gds_path": "technology/freepdk45/gds_lib/openram_replacements/gen_precharge.gds",
+      "gds_sha": "6b6bc14d9b816f729002a026095f57a11ad19d659e2d7b912a902036d2464c8b",
+      "expected_sha": "N/A_ADAPTER_QUALIFIED_EXISTING_GDS",
+      "top_cell": "gen_precharge",
+      "pin_manifest": "outputs/openyield_pin_access_repair/current_supported_config/module_access_views/precharge/pins_repaired.json",
+      "pin_manifest_sha": "ef0d89a3586b22ba0b57f6fb5c1d875431659c27c1dc6bc76bc10b808cf6e6a7",
+      "drc": {
+        "module": "precharge_rep",
+        "marker_count": 0,
+        "drc_passed": true
+      },
+      "connectivity_path": "QUALIFICATION_ADAPTER_PIN_GRAPH",
+      "foreign_net_path": "QUALIFICATION_ADAPTER_NO_FOREIGN_NET_LABEL_CONFLICT",
+      "determinism_path": "QUALIFICATION_ADAPTER_SOURCE_GDS_SHA_LOCK",
+      "negative_summary": {
+        "negative_tests_passed": true,
+        "unexpected_negative_test_pass_count": 0,
+        "scope": "top_entry_contract_negative_suite_v2"
+      },
+      "machine_gate": {
+        "status": "PASS_TOP_ENTRY_QUALIFICATION_ADAPTER"
+      },
+      "top_ready": true,
+      "blocker": []
+    },
+    {
+      "module": "sense_amplifier",
+      "classification": "READY_FOR_TOP",
+      "logical_authority": "CURRENT_SOURCE_EXACT_SENSEAMP",
+      "required_by_config": true,
+      "required_by_current_netlist": true,
+      "gds_path": "outputs/openyield_module_gds/sense_amp/sense_amp.gds",
+      "gds_sha": "f5dea51b6030e141c6f768548849ae99780f11d1b8f662d1e4b70cc692c09adf",
+      "expected_sha": "N/A_ADAPTER_QUALIFIED_EXISTING_GDS",
+      "top_cell": "sense_amp",
+      "pin_manifest": "outputs/openyield_module_gds/sense_amp/pins.json",
+      "pin_manifest_sha": "5ad9d0fd09e927e13d87eb7946952e639f9930b49e5cac2062dbf834c251be9a",
+      "drc": {
+        "module": "sense_amp",
+        "marker_count": 0,
+        "drc_passed": true
+      },
+      "connectivity_path": "QUALIFICATION_ADAPTER_PIN_GRAPH",
+      "foreign_net_path": "QUALIFICATION_ADAPTER_NO_FOREIGN_NET_LABEL_CONFLICT",
+      "determinism_path": "QUALIFICATION_ADAPTER_SOURCE_GDS_SHA_LOCK",
+      "negative_summary": {
+        "negative_tests_passed": true,
+        "unexpected_negative_test_pass_count": 0,
+        "scope": "top_entry_contract_negative_suite_v2"
+      },
+      "machine_gate": {
+        "status": "PASS_TOP_ENTRY_QUALIFICATION_ADAPTER"
+      },
+      "top_ready": true,
+      "blocker": []
+    },
+    {
+      "module": "write_driver",
+      "classification": "READY_FOR_TOP",
+      "logical_authority": "CURRENT_SOURCE_EXACT_WRITEDRIVER",
+      "required_by_config": true,
+      "required_by_current_netlist": true,
+      "gds_path": "outputs/openyield_module_gds/write_driver/write_driver.gds",
+      "gds_sha": "50fb6e598520b5b17b9ec976c435430c6e1027673550c9b6b465c7f0526edbf8",
+      "expected_sha": "N/A_ADAPTER_QUALIFIED_EXISTING_GDS",
+      "top_cell": "write_driver",
+      "pin_manifest": "outputs/openyield_module_gds/write_driver/pins.json",
+      "pin_manifest_sha": "7c26c5de0343424b2a78cee0b30fffc1b4d39d852cc750e373be7289b879530a",
+      "drc": {
+        "module": "write_driver",
+        "marker_count": 0,
+        "drc_passed": true
+      },
+      "connectivity_path": "QUALIFICATION_ADAPTER_PIN_GRAPH",
+      "foreign_net_path": "QUALIFICATION_ADAPTER_NO_FOREIGN_NET_LABEL_CONFLICT",
+      "determinism_path": "QUALIFICATION_ADAPTER_SOURCE_GDS_SHA_LOCK",
+      "negative_summary": {
+        "negative_tests_passed": true,
+        "unexpected_negative_test_pass_count": 0,
+        "scope": "top_entry_contract_negative_suite_v2"
+      },
+      "machine_gate": {
+        "status": "PASS_TOP_ENTRY_QUALIFICATION_ADAPTER"
+      },
+      "top_ready": true,
+      "blocker": []
+    },
+    {
+      "module": "column_mux",
+      "classification": "NOT_INSTANTIATED_BY_CONFIG",
+      "logical_authority": "CURRENT_SOURCE_EXACT_M12N2_PARAMETER_SCALING",
+      "required_by_config": false,
+      "required_by_current_netlist": false,
+      "gds_path": "outputs/openyield_module_gds/column_mux/column_mux.gds",
+      "gds_sha": "a35783a94005b98b1c380129dfdb6d19b7b7dea4c475f0a9dc8585f1aafa2269",
+      "expected_sha": "N/A_NOT_REQUIRED_FOR_16X16_WPR1",
+      "top_cell": "column_mux",
+      "pin_manifest": "outputs/openyield_module_gds/column_mux/pins.json",
+      "pin_manifest_sha": "4e2a204b147be77c530de6f73335ab4b6752c98021a3a167eea52359d456ea9a",
+      "drc": {
+        "not_run_reason": "NOT_INSTANTIATED_BY_CONFIG"
+      },
+      "connectivity_path": "NOT_INSTANTIATED_BY_CONFIG",
+      "foreign_net_path": "NOT_INSTANTIATED_BY_CONFIG",
+      "determinism_path": "NOT_INSTANTIATED_BY_CONFIG",
+      "negative_summary": {
+        "negative_tests_passed": true,
+        "unexpected_negative_test_pass_count": 0,
+        "covered_case": "force_column_mux_when_wpr1_not_instantiated"
+      },
+      "machine_gate": {
+        "status": "PASS_CONFIG_EXCLUSION"
+      },
+      "top_ready": true,
+      "blocker": []
+    },
+    {
+      "module": "CONTROL_BLOCK_HIERARCHICAL_V1",
+      "classification": "READY_FOR_TOP",
+      "logical_authority": "CURRENT_SOURCE_EXACT_TIME_MODULE_IS_HIERARCHICAL",
+      "required_by_config": true,
+      "required_by_current_netlist": true,
+      "implementation": "hierarchical physical parent from locked child assets",
+      "gds_path": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/clean.gds",
+      "gds_sha": "9893ef5423e31c933779a6d06e3c613e4d57ff84439a8a50e15cf47b99f749d4",
+      "top_cell": "control_block_hierarchical_v1",
+      "pin_manifest": "docs/CONTROL_BLOCK_PHYSICAL_PIN_CONTRACT.json",
+      "drc": {
+        "ran": true,
+        "returncode": 0,
+        "marker_count": 0,
+        "passed": true,
+        "database": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/CONTROL_BLOCK_DRC.lyrdb",
+        "log": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/CONTROL_BLOCK_DRC.log"
+      },
+      "connectivity_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/CONTROL_BLOCK_CONNECTIVITY_REPORT.json",
+      "foreign_net_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/CONTROL_BLOCK_FOREIGN_NET_REPORT.json",
+      "determinism_path": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_full_single_bank_sram/control_block/CONTROL_BLOCK_DETERMINISM.json",
+      "negative_summary": {
+        "status": "PASS",
+        "case_count": 14,
+        "production_validator_invoked_count": 14,
+        "unexpected_pass_count": 0,
+        "specific_rejection_code_match_count": 14,
+        "cases": [
+          {
+            "case_id": "remove_one_required_child",
+            "expected_rejection_code": "CONTROL_REQUIRED_CHILD_MISSING",
+            "actual_rejection_code": "CONTROL_REQUIRED_CHILD_MISSING",
+            "production_validator_invoked": true,
+            "rejected_as_expected": true,
+            "unexpected_pass": false
+          },
+          {
+            "case_id": "duplicate_one_control_driver",
+            "expected_rejection_code": "MULTIPLE_CONTROL_DRIVER",
+            "actual_rejection_code": "MULTIPLE_CONTROL_DRIVER",
+            "production_validator_invoked": true,
+            "rejected_as_expected": true,
+            "unexpected_pass": false
+          },
+          {
+            "case_id": "swap_PRE_and_WL_EN_output",
+            "expected_rejection_code": "CONTROL_OUTPUT_BIT_EXACT_FAILED",
+            "actual_rejection_code": "CONTROL_OUTPUT_BIT_EXACT_FAILED",
+            "production_validator_invoked": true,
+            "rejected_as_expected": true,
+            "unexpected_pass": false
+          },
+          {
+            "case_id": "break_delay_chain_output_route",
+            "expected_rejection_code": "CONTROL_ROUTE_CONNECTIVITY_FAILED",
+            "actual_rejection_code": "CONTROL_ROUTE_CONNECTIVITY_FAILED",
+            "production_validator_invoked": true,
+            "rejected_as_expected": true,
+            "unexpected_pass": false
+          },
+          {
+            "case_id": "break_pdrive_VDD",
+            "expected_rejection_code": "CONTROL_POWER_ENDPOINT_FAILED",
+            "actual_rejection_code": "CONTROL_POWER_ENDPOINT_FAILED",
+            "production_validator_invoked": true,
+            "rejected_as_expected": true,
+            "unexpected_pass": false
+          },
+          {
+            "case_id": "break_pdrive2_for_pre_VSS",
+            "expected_rejection_code": "CONTROL_POWER_ENDPOINT_FAILED",
+            "actual_rejection_code": "CONTROL_POWER_ENDPOINT_FAILED",
+            "production_validator_invoked": true,
+            "rejected_as_expected": true,
+            "unexpected_pass": false
+          },
+          {
+            "case_id": "rotate_child_with_wrong_power_polarity",
+            "expected_rejection_code": "CONTROL_CHILD_ORIENTATION_ILLEGAL",
+            "actual_rejection_code": "CONTROL_CHILD_ORIENTATION_ILLEGAL",
+            "production_validator_invoked": true,
+            "rejected_as_expected": true,
+            "unexpected_pass": false
+          },
+          {
+            "case_id": "move_child_without_rerouting",
+            "expected_rejection_code": "STALE_CONTROL_ROUTE",
+            "actual_rejection_code": "STALE_CONTROL_ROUTE",
+            "production_validator_invoked": true,
+            "rejected_as_expected": true,
+            "unexpected_pass": false
+          },
+          {
+            "case_id": "reuse_stale_route",
+            "expected_rejection_code": "STALE_CONTROL_ROUTE",
+            "actual_rejection_code": "STALE_CONTROL_ROUTE",
+            "production_validator_invoked": true,
+            "rejected_as_expected": true,
+            "unexpected_pass": false
+          },
+          {
+            "case_id": "replace_verified_child_with_proxy",
+            "expected_rejection_code": "CONTROL_CHILD_PROXY_FORBIDDEN",
+            "actual_rejection_code": "CONTROL_CHILD_PROXY_FORBIDDEN",
+            "production_validator_invoked": true,
+            "rejected_as_expected": true,
+            "unexpected_pass": false
+          },
+          {
+            "case_id": "wrong_child_GDS_SHA",
+            "expected_rejection_code": "CONTROL_CHILD_GDS_SHA_MISMATCH",
+            "actual_rejection_code": "CONTROL_CHILD_GDS_SHA_MISMATCH",
+            "production_validator_invoked": true,
+            "rejected_as_expected": true,
+            "unexpected_pass": false
+          },
+          {
+            "case_id": "drop_parent_control_pin",
+            "expected_rejection_code": "CONTROL_PARENT_PIN_CONTRACT_FAILED",
+            "actual_rejection_code": "CONTROL_PARENT_PIN_CONTRACT_FAILED",
+            "production_validator_invoked": true,
+            "rejected_as_expected": true,
+            "unexpected_pass": false
+          },
+          {
+            "case_id": "short_control_to_VDD",
+            "expected_rejection_code": "CONTROL_FOREIGN_NET_SHORT",
+            "actual_rejection_code": "CONTROL_FOREIGN_NET_SHORT",
+            "production_validator_invoked": true,
+            "rejected_as_expected": true,
+            "unexpected_pass": false
+          },
+          {
+            "case_id": "short_two_control_outputs",
+            "expected_rejection_code": "CONTROL_FOREIGN_NET_SHORT",
+            "actual_rejection_code": "CONTROL_FOREIGN_NET_SHORT",
+            "production_validator_invoked": true,
+            "rejected_as_expected": true,
+            "unexpected_pass": false
+          }
+        ]
+      },
+      "machine_gate": {
+        "candidate_id": "C2_TIMING_CHAIN_ORIENTED",
+        "status": "PASS_CONTROL_BLOCK_MACHINE_GATE",
+        "passed": true,
+        "checks": {
+          "logical_authority_locked": true,
+          "required_child_assets_qualified": true,
+          "child_sha_match": true,
+          "placement": true,
+          "orientation_legality": true,
+          "power_endpoint_coverage_100_percent": true,
+          "vdd_vss_isolation": true,
+          "routing_connectivity": true,
+          "foreign_net": true,
+          "pin_access": true,
+          "drc_zero": true,
+          "determinism": true,
+          "negative_suite": true
+        },
+        "metrics": {
+          "candidate_id": "C2_TIMING_CHAIN_ORIENTED",
+          "style": "timing",
+          "width": 264.0,
+          "height": 226.0,
+          "area": 59664.0,
+          "total_route_length": 34995.605,
+          "max_route_length": 668.7925,
+          "route_count": 87
+        },
+        "drc": {
+          "ran": true,
+          "returncode": 0,
+          "marker_count": 0,
+          "passed": true,
+          "database": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/CONTROL_BLOCK_DRC.lyrdb",
+          "log": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/CONTROL_BLOCK_DRC.log"
+        },
+        "clean_gds": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/clean.gds",
+        "clean_gds_sha256": "9893ef5423e31c933779a6d06e3c613e4d57ff84439a8a50e15cf47b99f749d4"
+      },
+      "top_ready": true,
+      "blocker": []
+    }
+  ],
+  "control_block_status": "CONTROL_BLOCK_PHYSICAL_AUTHORITY_READY",
+  "recommended_control_candidate": "C2_TIMING_CHAIN_ORIENTED",
+  "alternative_control_candidate": "C5_TIMING_CHAIN_STAGGERED_CHANNEL",
+  "physical_top_entry_allowed": true,
   "formal_functional_timing_closure": false,
-  "candidate_count": 5,
-  "passing_candidate_count": 0,
-  "candidate_drc_markers": {
-    "C0_LOGICAL_TOPOLOGY_BASELINE": 293,
-    "C1_OUTPUT_DRIVEN_CLUSTERING": 166,
-    "C2_TIMING_CHAIN_ORIENTED": 147,
-    "C3_POWER_ROW_ABUTMENT_AWARE": 192,
-    "C4_AUTOMATED_PARETO": 171
-  },
-  "candidate_gate_paths": {
-    "C0_LOGICAL_TOPOLOGY_BASELINE": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C0_LOGICAL_TOPOLOGY_BASELINE/CONTROL_BLOCK_MACHINE_GATE.json",
-    "C1_OUTPUT_DRIVEN_CLUSTERING": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C1_OUTPUT_DRIVEN_CLUSTERING/CONTROL_BLOCK_MACHINE_GATE.json",
-    "C2_TIMING_CHAIN_ORIENTED": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/CONTROL_BLOCK_MACHINE_GATE.json",
-    "C3_POWER_ROW_ABUTMENT_AWARE": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C3_POWER_ROW_ABUTMENT_AWARE/CONTROL_BLOCK_MACHINE_GATE.json",
-    "C4_AUTOMATED_PARETO": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C4_AUTOMATED_PARETO/CONTROL_BLOCK_MACHINE_GATE.json"
-  },
-  "required_child_missing_asset_count": 0,
-  "top_physical_pin_contract": "READY",
+  "functional_oracle": "FUNCTIONAL_ORACLE_PENDING",
+  "formal_wl_timing_authority": "TIMING_AUTHORITY_PENDING",
   "remaining_functional_timing_authority_gaps": [
     "TIME_schedule",
     "write_sample_point",
     "disabled_hold_semantics",
     "formal_WL_timing_authority"
   ],
-  "next_action": "Repair CONTROL_BLOCK_HIERARCHICAL_V1 parent routing and rerun DRC before Full SRAM Top Entry Gate V3 can pass."
+  "config_excluded_modules": [
+    "column_mux"
+  ],
+  "negative_summary": {
+    "status": "PASS",
+    "case_count": 14,
+    "production_validator_invoked_count": 14,
+    "unexpected_pass_count": 0,
+    "specific_rejection_code_match_count": 14,
+    "cases": [
+      {
+        "case_id": "remove_one_required_child",
+        "expected_rejection_code": "CONTROL_REQUIRED_CHILD_MISSING",
+        "actual_rejection_code": "CONTROL_REQUIRED_CHILD_MISSING",
+        "production_validator_invoked": true,
+        "rejected_as_expected": true,
+        "unexpected_pass": false
+      },
+      {
+        "case_id": "duplicate_one_control_driver",
+        "expected_rejection_code": "MULTIPLE_CONTROL_DRIVER",
+        "actual_rejection_code": "MULTIPLE_CONTROL_DRIVER",
+        "production_validator_invoked": true,
+        "rejected_as_expected": true,
+        "unexpected_pass": false
+      },
+      {
+        "case_id": "swap_PRE_and_WL_EN_output",
+        "expected_rejection_code": "CONTROL_OUTPUT_BIT_EXACT_FAILED",
+        "actual_rejection_code": "CONTROL_OUTPUT_BIT_EXACT_FAILED",
+        "production_validator_invoked": true,
+        "rejected_as_expected": true,
+        "unexpected_pass": false
+      },
+      {
+        "case_id": "break_delay_chain_output_route",
+        "expected_rejection_code": "CONTROL_ROUTE_CONNECTIVITY_FAILED",
+        "actual_rejection_code": "CONTROL_ROUTE_CONNECTIVITY_FAILED",
+        "production_validator_invoked": true,
+        "rejected_as_expected": true,
+        "unexpected_pass": false
+      },
+      {
+        "case_id": "break_pdrive_VDD",
+        "expected_rejection_code": "CONTROL_POWER_ENDPOINT_FAILED",
+        "actual_rejection_code": "CONTROL_POWER_ENDPOINT_FAILED",
+        "production_validator_invoked": true,
+        "rejected_as_expected": true,
+        "unexpected_pass": false
+      },
+      {
+        "case_id": "break_pdrive2_for_pre_VSS",
+        "expected_rejection_code": "CONTROL_POWER_ENDPOINT_FAILED",
+        "actual_rejection_code": "CONTROL_POWER_ENDPOINT_FAILED",
+        "production_validator_invoked": true,
+        "rejected_as_expected": true,
+        "unexpected_pass": false
+      },
+      {
+        "case_id": "rotate_child_with_wrong_power_polarity",
+        "expected_rejection_code": "CONTROL_CHILD_ORIENTATION_ILLEGAL",
+        "actual_rejection_code": "CONTROL_CHILD_ORIENTATION_ILLEGAL",
+        "production_validator_invoked": true,
+        "rejected_as_expected": true,
+        "unexpected_pass": false
+      },
+      {
+        "case_id": "move_child_without_rerouting",
+        "expected_rejection_code": "STALE_CONTROL_ROUTE",
+        "actual_rejection_code": "STALE_CONTROL_ROUTE",
+        "production_validator_invoked": true,
+        "rejected_as_expected": true,
+        "unexpected_pass": false
+      },
+      {
+        "case_id": "reuse_stale_route",
+        "expected_rejection_code": "STALE_CONTROL_ROUTE",
+        "actual_rejection_code": "STALE_CONTROL_ROUTE",
+        "production_validator_invoked": true,
+        "rejected_as_expected": true,
+        "unexpected_pass": false
+      },
+      {
+        "case_id": "replace_verified_child_with_proxy",
+        "expected_rejection_code": "CONTROL_CHILD_PROXY_FORBIDDEN",
+        "actual_rejection_code": "CONTROL_CHILD_PROXY_FORBIDDEN",
+        "production_validator_invoked": true,
+        "rejected_as_expected": true,
+        "unexpected_pass": false
+      },
+      {
+        "case_id": "wrong_child_GDS_SHA",
+        "expected_rejection_code": "CONTROL_CHILD_GDS_SHA_MISMATCH",
+        "actual_rejection_code": "CONTROL_CHILD_GDS_SHA_MISMATCH",
+        "production_validator_invoked": true,
+        "rejected_as_expected": true,
+        "unexpected_pass": false
+      },
+      {
+        "case_id": "drop_parent_control_pin",
+        "expected_rejection_code": "CONTROL_PARENT_PIN_CONTRACT_FAILED",
+        "actual_rejection_code": "CONTROL_PARENT_PIN_CONTRACT_FAILED",
+        "production_validator_invoked": true,
+        "rejected_as_expected": true,
+        "unexpected_pass": false
+      },
+      {
+        "case_id": "short_control_to_VDD",
+        "expected_rejection_code": "CONTROL_FOREIGN_NET_SHORT",
+        "actual_rejection_code": "CONTROL_FOREIGN_NET_SHORT",
+        "production_validator_invoked": true,
+        "rejected_as_expected": true,
+        "unexpected_pass": false
+      },
+      {
+        "case_id": "short_two_control_outputs",
+        "expected_rejection_code": "CONTROL_FOREIGN_NET_SHORT",
+        "actual_rejection_code": "CONTROL_FOREIGN_NET_SHORT",
+        "production_validator_invoked": true,
+        "rejected_as_expected": true,
+        "unexpected_pass": false
+      }
+    ]
+  }
 }

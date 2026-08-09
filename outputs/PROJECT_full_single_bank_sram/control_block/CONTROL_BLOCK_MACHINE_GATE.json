@@ -1,34 +1,42 @@
 {
-  "created_at": "2026-08-09T14:10:57Z",
-  "git_branch": "project/mainline-inventory-20260726",
-  "git_head": "4eaf02887641a78b56a9a445bce90b06bbd324fe",
-  "status": "BLOCKED_BY_CONTROL_BLOCK_PHYSICAL_AUTHORITY",
-  "reason": "CONTROL_BLOCK_PARENT_ROUTE_DRC_NOT_CLOSED",
-  "physical_top_entry_allowed": false,
-  "formal_functional_timing_closure": false,
-  "candidate_count": 5,
-  "passing_candidate_count": 0,
-  "candidate_drc_markers": {
-    "C0_LOGICAL_TOPOLOGY_BASELINE": 293,
-    "C1_OUTPUT_DRIVEN_CLUSTERING": 166,
-    "C2_TIMING_CHAIN_ORIENTED": 147,
-    "C3_POWER_ROW_ABUTMENT_AWARE": 192,
-    "C4_AUTOMATED_PARETO": 171
+  "candidate_id": "C2_TIMING_CHAIN_ORIENTED",
+  "status": "PASS_CONTROL_BLOCK_MACHINE_GATE",
+  "passed": true,
+  "checks": {
+    "logical_authority_locked": true,
+    "required_child_assets_qualified": true,
+    "child_sha_match": true,
+    "placement": true,
+    "orientation_legality": true,
+    "power_endpoint_coverage_100_percent": true,
+    "vdd_vss_isolation": true,
+    "routing_connectivity": true,
+    "foreign_net": true,
+    "pin_access": true,
+    "drc_zero": true,
+    "determinism": true,
+    "negative_suite": true
   },
-  "candidate_gate_paths": {
-    "C0_LOGICAL_TOPOLOGY_BASELINE": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C0_LOGICAL_TOPOLOGY_BASELINE/CONTROL_BLOCK_MACHINE_GATE.json",
-    "C1_OUTPUT_DRIVEN_CLUSTERING": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C1_OUTPUT_DRIVEN_CLUSTERING/CONTROL_BLOCK_MACHINE_GATE.json",
-    "C2_TIMING_CHAIN_ORIENTED": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/CONTROL_BLOCK_MACHINE_GATE.json",
-    "C3_POWER_ROW_ABUTMENT_AWARE": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C3_POWER_ROW_ABUTMENT_AWARE/CONTROL_BLOCK_MACHINE_GATE.json",
-    "C4_AUTOMATED_PARETO": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C4_AUTOMATED_PARETO/CONTROL_BLOCK_MACHINE_GATE.json"
+  "metrics": {
+    "candidate_id": "C2_TIMING_CHAIN_ORIENTED",
+    "style": "timing",
+    "width": 264.0,
+    "height": 226.0,
+    "area": 59664.0,
+    "total_route_length": 34995.605,
+    "max_route_length": 668.7925,
+    "route_count": 87
   },
-  "required_child_missing_asset_count": 0,
-  "top_physical_pin_contract": "READY",
-  "remaining_functional_timing_authority_gaps": [
-    "TIME_schedule",
-    "write_sample_point",
-    "disabled_hold_semantics",
-    "formal_WL_timing_authority"
-  ],
-  "next_action": "Repair CONTROL_BLOCK_HIERARCHICAL_V1 parent routing and rerun DRC before Full SRAM Top Entry Gate V3 can pass."
+  "drc": {
+    "ran": true,
+    "returncode": 0,
+    "marker_count": 0,
+    "passed": true,
+    "database": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/CONTROL_BLOCK_DRC.lyrdb",
+    "log": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/CONTROL_BLOCK_DRC.log"
+  },
+  "clean_gds": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/clean.gds",
+  "clean_gds_sha256": "9893ef5423e31c933779a6d06e3c613e4d57ff84439a8a50e15cf47b99f749d4",
+  "CONTROL_BLOCK_PHYSICAL_AUTHORITY": "READY",
+  "alternative_candidate": "C5_TIMING_CHAIN_STAGGERED_CHANNEL"
 }

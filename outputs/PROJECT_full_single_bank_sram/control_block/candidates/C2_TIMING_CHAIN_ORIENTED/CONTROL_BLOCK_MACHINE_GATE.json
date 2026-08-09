@@ -1,7 +1,7 @@
 {
   "candidate_id": "C2_TIMING_CHAIN_ORIENTED",
-  "status": "CONTROL_BLOCK_MACHINE_GATE_FAILED",
-  "passed": false,
+  "status": "PASS_CONTROL_BLOCK_MACHINE_GATE",
+  "passed": true,
   "checks": {
     "logical_authority_locked": true,
     "required_child_assets_qualified": true,
@@ -13,7 +13,7 @@
     "routing_connectivity": true,
     "foreign_net": true,
     "pin_access": true,
-    "drc_zero": false,
+    "drc_zero": true,
     "determinism": true,
     "negative_suite": true
   },
@@ -23,18 +23,18 @@
     "width": 264.0,
     "height": 226.0,
     "area": 59664.0,
-    "total_route_length": 11157.67,
-    "max_route_length": 332.1275,
+    "total_route_length": 34995.605,
+    "max_route_length": 668.7925,
     "route_count": 87
   },
   "drc": {
     "ran": true,
     "returncode": 0,
-    "marker_count": 147,
-    "passed": false,
+    "marker_count": 0,
+    "passed": true,
     "database": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/CONTROL_BLOCK_DRC.lyrdb",
     "log": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/CONTROL_BLOCK_DRC.log"
   },
   "clean_gds": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/clean.gds",
-  "clean_gds_sha256": "57cabeb8e056a206a983f68592fcebf51ef717421b9d1570cd9bac0762f19f2b"
+  "clean_gds_sha256": "9893ef5423e31c933779a6d06e3c613e4d57ff84439a8a50e15cf47b99f749d4"
 }

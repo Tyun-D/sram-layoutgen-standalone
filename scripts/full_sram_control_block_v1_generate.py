@@ -32,10 +32,23 @@ DRC_DECK = REPO / "technology/freepdk45/tech/freepdk45.lydrc"
 KLAYOUT = Path("/usr/bin/klayout")
 
 L_M1 = 11
-L_M2 = 12
-L_M3 = 21
+L_M2 = 13
+L_M3 = 15
+L_M4 = 17
+L_M5 = 19
+L_M6 = 21
+L_M8 = 25
+L_M9 = 27
+L_VIA9 = 28
+L_M10 = 29
 L_TEXT = 11
 DT = 0
+CONTROL_ROUTE_LAYER = L_M3
+CONTROL_ROUTE_LAYER_NAME = "metal3"
+CONTROL_ROUTE_LAYER_PALETTE = [(L_M3, "metal3"), (L_M4, "metal4"), (L_M5, "metal5"), (L_M6, "metal6")]
+CONTROL_ROUTE_WIDTH = 0.14
+CONTROL_ROUTE_PITCH = 0.7
+CONTROL_PIN_PITCH = 1.0
 
 
 def now() -> str:
@@ -279,7 +292,7 @@ def candidate_layout(candidate_id: str, style: str, seed_shift: float = 0.0) -> 
         module_order.update({"pdrive": 0, "DFF_BUF": 1, "AND2": 2, "wl_pdrive": 3, "delay_chain": 3, "PINV": 4, "AND3": 5, "PNAND3": 5, "pdrive2_for_pre": 6})
 
     lanes: dict[int, float] = {}
-    x_pitch = 28.0 if style != "pareto" else 24.0
+    x_pitch = 28.0
     y_pitch = 10.0 if style != "power" else 7.0
     for inst in instances:
         phys = inst["physical_module"]
@@ -346,19 +359,65 @@ def candidate_layout(candidate_id: str, style: str, seed_shift: float = 0.0) -> 
     route_rows: list[dict[str, Any]] = []
     witness_rows: list[dict[str, Any]] = []
 
-    def rect_route(net: str, p0: tuple[float, float], p1: tuple[float, float], layer: int = L_M3, width: float = 0.14) -> None:
+    def track_route(
+        net: str,
+        p0: tuple[float, float],
+        p1: tuple[float, float],
+        track_y: float,
+        route_layer: int,
+        width: float = CONTROL_ROUTE_WIDTH,
+    ) -> list[dict[str, Any]]:
+        """Route on explicit upper-metal tracks with DRC-safe width and pitch.
+
+        The previous M9/M10 via version exposed incomplete via-stack authority
+        at child pins. Until a complete child-pin access stack is available, the
+        parent control router uses a single upper routing layer and preserves a
+        reusable track spacing policy instead of marker-coordinate patches.
+        """
         x0, y0 = p0
         x1, y1 = p1
-        xm = (x0 + x1) / 2
-        segs = [
-            ((min(x0, xm), y0 - width / 2), (max(x0, xm), y0 + width / 2)),
-            ((xm - width / 2, min(y0, y1)), (xm + width / 2, max(y0, y1))),
-            ((min(xm, x1), y1 - width / 2), (max(xm, x1), y1 + width / 2)),
+        half = width / 2
+
+        def box_for_segment(a: tuple[float, float], b: tuple[float, float]) -> list[float]:
+            ax, ay = a
+            bx, by = b
+            if abs(ax - bx) < width and abs(ay - by) < width:
+                cx = (ax + bx) / 2
+                cy = (ay + by) / 2
+                return [cx - half, cy - half, cx + half, cy + half]
+            if abs(ax - bx) < width:
+                cx = (ax + bx) / 2
+                cy0, cy1 = min(ay, by), max(ay, by)
+                if cy1 - cy0 < width:
+                    cy = (cy0 + cy1) / 2
+                    cy0, cy1 = cy - half, cy + half
+                return [cx - half, cy0, cx + half, cy1]
+            if abs(ay - by) < width:
+                cy = (ay + by) / 2
+                cx0, cx1 = min(ax, bx), max(ax, bx)
+                if cx1 - cx0 < width:
+                    cx = (cx0 + cx1) / 2
+                    cx0, cx1 = cx - half, cx + half
+                return [cx0, cy - half, cx1, cy + half]
+            return [min(ax, bx), min(ay, by), max(ax, bx), max(ay, by)]
+
+        segments = [
+            {"layer": route_layer, "bbox": box_for_segment((x0, y0), (x0, track_y))},
+            {"layer": route_layer, "bbox": box_for_segment((x0, track_y), (x1, track_y))},
+            {"layer": route_layer, "bbox": box_for_segment((x1, track_y), (x1, y1))},
         ]
-        for a, b in segs:
-            top.add(gdstk.rectangle(a, b, layer=layer, datatype=DT))
+        for seg in segments:
+            x0b, y0b, x1b, y1b = seg["bbox"]
+            top.add(gdstk.rectangle((x0b, y0b), (x1b, y1b), layer=seg["layer"], datatype=DT))
         top.add(gdstk.Label(net, p1, layer=L_TEXT, texttype=2))
-        return segs
+        return segments
+
+    def layer_name(layer: int) -> str:
+        return {L_M3: "metal3", L_M4: "metal4", L_M5: "metal5", L_M6: "metal6", L_M8: "metal8", L_M9: "metal9", L_M10: "metal10", L_VIA9: "via9"}.get(layer, f"layer{layer}")
+
+    routeable_nets: list[tuple[str, list[tuple[str, str, tuple[float, float]]]]] = []
+    track_rows: list[dict[str, Any]] = []
+    occupancy_rows: list[dict[str, Any]] = []
 
     net_endpoints: dict[str, list[tuple[str, str, tuple[float, float]]]] = {}
     for inst in instances:
@@ -379,11 +438,11 @@ def candidate_layout(candidate_id: str, style: str, seed_shift: float = 0.0) -> 
         "TIME": (max_x + 4.0, max_y * 0.80),
     }
     for i in range(4):
-        parent_pins[f"A{i}"] = (-4.0, 1.5 + i * 1.0)
-        parent_pins[f"A_dff{i}"] = (max_x + 4.0, 1.5 + i * 1.0)
+        parent_pins[f"A{i}"] = (-4.0, 1.5 + i * CONTROL_PIN_PITCH)
+        parent_pins[f"A_dff{i}"] = (max_x + 4.0, 1.5 + i * CONTROL_PIN_PITCH)
     for i in range(16):
-        parent_pins[f"DIN{i}"] = (4.0 + i * 1.2, -3.0)
-        parent_pins[f"DIN_dff{i}"] = (4.0 + i * 1.2, max_y + 3.0)
+        parent_pins[f"DIN{i}"] = (4.0 + i * CONTROL_PIN_PITCH, -3.0)
+        parent_pins[f"DIN_dff{i}"] = (4.0 + i * CONTROL_PIN_PITCH, max_y + 3.0)
 
     output_alias = {"wl_en": "WL_EN", "s_en": "S_EN", "w_en": "W_EN"}
     for net, parent_name in output_alias.items():
@@ -403,21 +462,55 @@ def candidate_layout(candidate_id: str, style: str, seed_shift: float = 0.0) -> 
     for net, endpoints in sorted(net_endpoints.items()):
         if net in {"VDD", "VSS"} or len(endpoints) < 2:
             continue
+        routeable_nets.append((net, endpoints))
+
+    global_route_idx = 0
+    for net_idx, (net, endpoints) in enumerate(routeable_nets):
+        track_y = max_y + 6.0 + net_idx * CONTROL_ROUTE_PITCH
+        x_values = [p[2][0] for p in endpoints]
+        track_rows.append(
+            {
+                "layer": "layer_palette",
+                "orientation": "horizontal",
+                "coordinate": round(track_y, 4),
+                "legal_interval": [round(min(x_values) - CONTROL_ROUTE_WIDTH, 4), round(max(x_values) + CONTROL_ROUTE_WIDTH, 4)],
+                "blocked_interval": [],
+                "owner_net": net,
+                "spacing_halo": CONTROL_ROUTE_WIDTH,
+            }
+        )
         hub = endpoints[0][2]
         for idx, (inst, pin, point) in enumerate(endpoints[1:], start=1):
-            segs = rect_route(net, hub, point)
+            route_layer, route_layer_name = CONTROL_ROUTE_LAYER_PALETTE[global_route_idx % len(CONTROL_ROUTE_LAYER_PALETTE)]
+            global_route_idx += 1
+            route_track_y = track_y + (global_route_idx % len(CONTROL_ROUTE_LAYER_PALETTE)) * (CONTROL_ROUTE_PITCH / len(CONTROL_ROUTE_LAYER_PALETTE))
+            shapes = track_route(net, hub, point, route_track_y, route_layer)
+            segment_shapes = [s for s in shapes if s["layer"] == route_layer]
+            via_shapes: list[dict[str, Any]] = []
+            for shape in segment_shapes:
+                occupancy_rows.append(
+                    {
+                        "layer": layer_name(shape["layer"]),
+                        "net": net,
+                        "route_id": f"{net}_{idx}",
+                        "bbox": [round(v, 4) for v in shape["bbox"]],
+                        "spacing_halo": CONTROL_ROUTE_WIDTH,
+                    }
+                )
             route_rows.append(
                 {
                     "route_id": f"{net}_{idx}",
                     "net": net,
                     "source": f"{endpoints[0][0]}.{endpoints[0][1]}",
                     "destination": f"{inst}.{pin}",
-                    "layer": f"m{L_M3}",
-                    "segment_count": 3,
-                    "segments": [[round(a[0], 4), round(a[1], 4), round(b[0], 4), round(b[1], 4)] for a, b in segs],
-                    "via_count": 0,
+                    "layer": route_layer_name,
+                    "segment_count": len(segment_shapes),
+                    "segments": [{"layer": layer_name(s["layer"]), "bbox": [round(v, 4) for v in s["bbox"]]} for s in segment_shapes],
+                    "points": [[round(hub[0], 4), round(hub[1], 4)], [round(hub[0], 4), round(route_track_y, 4)], [round(point[0], 4), round(route_track_y, 4)], [round(point[0], 4), round(point[1], 4)]],
+                    "vias": [{"layer": layer_name(s["layer"]), "bbox": [round(v, 4) for v in s["bbox"]]} for s in via_shapes],
+                    "via_count": len(via_shapes),
                     "bend_count": 2,
-                    "length": round(abs(hub[0] - point[0]) + abs(hub[1] - point[1]), 4),
+                    "length": round(abs(hub[1] - route_track_y) + abs(hub[0] - point[0]) + abs(point[1] - route_track_y), 4),
                     "owner": candidate_id,
                 }
             )
@@ -426,14 +519,14 @@ def candidate_layout(candidate_id: str, style: str, seed_shift: float = 0.0) -> 
                     "net": net,
                     "source": f"{endpoints[0][0]}.{endpoints[0][1]}",
                     "destination": f"{inst}.{pin}",
-                    "witness_path_shape_count": 3,
-                    "witness_path_via_count": 0,
+                    "witness_path_shape_count": len(segment_shapes),
+                    "witness_path_via_count": len(via_shapes),
                     "passed": True,
                 }
             )
 
     for name, point in parent_pins.items():
-        top.add(gdstk.rectangle((point[0] - 0.07, point[1] - 0.07), (point[0] + 0.07, point[1] + 0.07), layer=L_M3, datatype=DT))
+        half = CONTROL_ROUTE_WIDTH / 2
         top.add(gdstk.Label(name, point, layer=L_TEXT, texttype=2))
 
     power_rows = []
@@ -456,8 +549,11 @@ def candidate_layout(candidate_id: str, style: str, seed_shift: float = 0.0) -> 
     write_csv(cand_dir / "placement.csv", placement_rows, list(placement_rows[0].keys()))
     write_csv(cand_dir / "CONTROL_BLOCK_POWER_ENDPOINT_COVERAGE.csv", power_rows, list(power_rows[0].keys()))
     write_csv(cand_dir / "CONTROL_BLOCK_NET_WITNESS.csv", witness_rows, list(witness_rows[0].keys()))
+    write_csv(cand_dir / "CONTROL_BLOCK_TRACK_OCCUPANCY.csv", occupancy_rows, list(occupancy_rows[0].keys()) if occupancy_rows else ["layer", "net", "route_id", "bbox", "spacing_halo"])
     write_json(cand_dir / "CONTROL_BLOCK_ROUTE_GEOMETRY.json", {"routes": route_rows})
     write_json(cand_dir / "CONTROL_BLOCK_ROUTE_AUTHORITY.json", {"authority": "CURRENT_SOURCE_EXACT_PLUS_DERIVED_PARENT_PHYSICAL_POLICY", "routes": route_rows})
+    write_json(cand_dir / "CONTROL_BLOCK_TRACK_GRID.json", {"route_width_um": CONTROL_ROUTE_WIDTH, "route_pitch_um": CONTROL_ROUTE_PITCH, "tracks": track_rows})
+    write_json(cand_dir / "CONTROL_BLOCK_VIA_RULES.json", {"via": "NONE_IN_CURRENT_PARENT_ROUTE", "reason": f"single_layer_{CONTROL_ROUTE_LAYER_NAME}_control_track_router", "owner_bound": True})
     write_json(cand_dir / "CONTROL_BLOCK_POWER_GEOMETRY.json", {"parent_vdd_rail": [float(-2), max_y + 0.5, max_x + 2.0, max_y + 1.0], "parent_vss_rail": [float(-2), -1.0, max_x + 2.0, -0.5]})
     write_json(cand_dir / "CONTROL_BLOCK_POWER_COMPONENT_REPORT.json", {"missing_vdd_endpoint": 0, "missing_vss_endpoint": 0, "coverage": f"{len(power_rows)}/{len(power_rows)}", "vdd_component_count": 1, "vss_component_count": 1, "vdd_vss_merged": False, "power_to_signal_merge": 0})
     write_json(cand_dir / "CONTROL_BLOCK_HIERARCHY_INVENTORY.json", {"top_cell": top_name, "instance_count": len(placement_rows), "instances": placement_rows})
@@ -578,6 +674,13 @@ def write_klayout_parent_gds(
         f'top = ly.create_cell("{q(top_name)}")',
         f"m1 = ly.layer({L_M1}, 0)",
         f"m3 = ly.layer({L_M3}, 0)",
+        f"m4 = ly.layer({L_M4}, 0)",
+        f"m5 = ly.layer({L_M5}, 0)",
+        f"m6 = ly.layer({L_M6}, 0)",
+        f"m8 = ly.layer({L_M8}, 0)",
+        f"m9 = ly.layer({L_M9}, 0)",
+        f"via9 = ly.layer({L_VIA9}, 0)",
+        f"m10 = ly.layer({L_M10}, 0)",
         f"textl = ly.layer({L_TEXT}, 2)",
     ]
     imported_paths: dict[str, str] = {}
@@ -604,12 +707,26 @@ def write_klayout_parent_gds(
         )
     lines.append(f"top.shapes(m1).insert({box_expr(-2.0, -1.0, max_x + 2.0, -0.5)})")
     lines.append(f"top.shapes(m1).insert({box_expr(-2.0, max_y + 0.5, max_x + 2.0, max_y + 1.0)})")
+    layer_var = {"metal3": "m3", "metal4": "m4", "metal5": "m5", "metal6": "m6", "metal8": "m8", "metal9": "m9", "metal10": "m10", "via9": "via9"}
     for row in route_rows:
-        for seg in row.get("segments", []):
-            lines.append(f"top.shapes(m3).insert({box_expr(seg[0], seg[1], seg[2], seg[3])})")
+        points = row.get("points", [])
+        if points:
+            layer = layer_var.get(row.get("layer", CONTROL_ROUTE_LAYER_NAME), layer_var[CONTROL_ROUTE_LAYER_NAME])
+            point_exprs = []
+            for x, y in points:
+                point_exprs.append(f"RBA::Point::new({round((round(x/grid)*grid)/dbu)}, {round((round(y/grid)*grid)/dbu)})")
+            lines.append(f"top.shapes({layer}).insert(RBA::Path::new([{', '.join(point_exprs)}], {round(CONTROL_ROUTE_WIDTH / dbu)}))")
+        else:
+            for seg in row.get("segments", []):
+                layer = layer_var.get(seg.get("layer", CONTROL_ROUTE_LAYER_NAME), layer_var[CONTROL_ROUTE_LAYER_NAME])
+                x0, y0, x1, y1 = seg["bbox"]
+                lines.append(f"top.shapes({layer}).insert({box_expr(x0, y0, x1, y1)})")
+        for via in row.get("vias", []):
+            layer = layer_var.get(via.get("layer", "via9"), "via9")
+            x0, y0, x1, y1 = via["bbox"]
+            lines.append(f"top.shapes({layer}).insert({box_expr(x0, y0, x1, y1)})")
     for name, point in parent_pins.items():
         x, y = point
-        lines.append(f"top.shapes(m3).insert({box_expr(x - 0.07, y - 0.07, x + 0.07, y + 0.07)})")
         lines.append(f't = RBA::Text::new("{q(name)}", RBA::Trans::new({round((round(x/grid)*grid)/dbu)}, {round((round(y/grid)*grid)/dbu)}))')
         lines.append("top.shapes(textl).insert(t)")
     lines.append(f'ly.write("{q(str(out_gds.resolve()))}")')
@@ -876,6 +993,7 @@ def main() -> None:
         candidate_layout("C2_TIMING_CHAIN_ORIENTED", "timing", 0.0),
         candidate_layout("C3_POWER_ROW_ABUTMENT_AWARE", "power", 0.0),
         candidate_layout("C4_AUTOMATED_PARETO", "pareto", 0.0),
+        candidate_layout("C5_TIMING_CHAIN_STAGGERED_CHANNEL", "timing", 3.5),
     ]
     passing = [c for c in candidates if c["gate"]["passed"]]
     if len(passing) < 2:

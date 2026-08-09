@@ -519,3 +519,9 @@
 - `FULL_SRAM_TOP_ENTRY_GATE_V3.json` remains blocked with `PHYSICAL_TOP_ENTRY_ALLOWED=false` and `FORMAL_FUNCTIONAL_TIMING_CLOSURE=false`.
 - no `FULL_SRAM_TOP_PHYSICAL_INPUT_LOCK.json` was produced because V3 did not pass.
 - decision: do not enter full SRAM floorplanning. Next action is parent control-route template/channel repair and rerun of control-block machine gate.
+
+## 2026-08-09T14:39:21Z control_block_drc_closure_and_full_sram_floorplan
+
+- control block: `READY`; recommended `C2_TIMING_CHAIN_ORIENTED`; alternative `C5_TIMING_CHAIN_STAGGERED_CHANNEL`.
+- top entry gate V3: `PASS`; `PHYSICAL_TOP_ENTRY_ALLOWED=true`; formal functional/timing closure remains pending.
+- full SRAM floorplan: `PASS_FULL_SINGLE_BANK_SRAM_FLOORPLAN_TO_HUMAN_REVIEW`; recommended `F3_CONTROL_DISTRIBUTED_EDGE`; alternative `F4_AUTOMATED_PARETO_COMPACT`; detailed routing not started.

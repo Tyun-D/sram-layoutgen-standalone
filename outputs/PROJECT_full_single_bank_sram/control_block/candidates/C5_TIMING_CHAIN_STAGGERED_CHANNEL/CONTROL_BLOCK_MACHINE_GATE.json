@@ -1,0 +1,40 @@
+{
+  "candidate_id": "C5_TIMING_CHAIN_STAGGERED_CHANNEL",
+  "status": "PASS_CONTROL_BLOCK_MACHINE_GATE",
+  "passed": true,
+  "checks": {
+    "logical_authority_locked": true,
+    "required_child_assets_qualified": true,
+    "child_sha_match": true,
+    "placement": true,
+    "orientation_legality": true,
+    "power_endpoint_coverage_100_percent": true,
+    "vdd_vss_isolation": true,
+    "routing_connectivity": true,
+    "foreign_net": true,
+    "pin_access": true,
+    "drc_zero": true,
+    "determinism": true,
+    "negative_suite": true
+  },
+  "metrics": {
+    "candidate_id": "C5_TIMING_CHAIN_STAGGERED_CHANNEL",
+    "style": "timing",
+    "width": 267.5,
+    "height": 226.0,
+    "area": 60455.0,
+    "total_route_length": 35135.605,
+    "max_route_length": 668.7925,
+    "route_count": 87
+  },
+  "drc": {
+    "ran": true,
+    "returncode": 0,
+    "marker_count": 0,
+    "passed": true,
+    "database": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C5_TIMING_CHAIN_STAGGERED_CHANNEL/CONTROL_BLOCK_DRC.lyrdb",
+    "log": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C5_TIMING_CHAIN_STAGGERED_CHANNEL/CONTROL_BLOCK_DRC.log"
+  },
+  "clean_gds": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C5_TIMING_CHAIN_STAGGERED_CHANNEL/clean.gds",
+  "clean_gds_sha256": "ab283ece83b37a8205a0f52f60514333692da55c8f38690b28a25871b0f71105"
+}
