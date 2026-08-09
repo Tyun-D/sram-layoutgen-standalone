@@ -494,3 +494,16 @@
 - result: `STATUS_HEAD_SYNCED_AFTER_READINESS_AUDIT_COMMIT`
 - decision: bind status metadata to the full-top readiness audit checkpoint before push.
 - unresolved_items: `BLOCKED_BY_MISSING_FULL_SRAM_MODULE_ASSET`
+
+## 2026-08-09T11:30:49Z full_sram_top_entry_recovery_reclassification_v2
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `0e87a15e8c844a2ddf805081d4b7cbac32f50c3f`
+- result: `BLOCKED_BY_CONTROL_BLOCK_PHYSICAL_AUTHORITY`; `physical_top_entry_allowed=false`; `formal_functional_timing_closure=false`
+- recovered_existing_assets: `pdrive`, `wl_pdrive`, `pdrive2_for_pre`, `delay_chain`; each matched the locked Team B SHA and retained DRC/connectivity/foreign-net or machine-gate evidence.
+- newly_qualified_assets: `precharge`, `sense_amplifier`, `write_driver`; these are existing GDS assets with top-entry qualification evidence, not proxy replacements.
+- config_excluded_modules: `column_mux`; current 16x16 `words_per_row=1` source sets `mux_ratio=1` and `choose_columnmux=False`.
+- control block: current source indicates hierarchical TIME/control composition, not a required monolithic `control_logic` macro. `CONTROL_BLOCK_HIERARCHICAL_V1` logical binding and pin map were recovered, but parent physical GDS, placement/routing/power, DRC, determinism, and negative gate remain pending.
+- top physical Pin contract: `READY` for `addr[0:3]`, `din[0:15]`, `dout[0:15]`, `clk`, `csb`, `web`, `vdd`, and `gnd`. Preferred boundary sides are physical-design policy and do not claim timing authority.
+- negative suite: 9/9 specific rejection codes matched; unexpected pass count is 0.
+- decision: do not enter full SRAM floorplanning or routing until `CONTROL_BLOCK_HIERARCHICAL_V1` physical authority is closed.
+- remaining authority gaps: `TIME_schedule`, `write_sample_point`, `disabled_hold_semantics`, and formal WL timing authority.

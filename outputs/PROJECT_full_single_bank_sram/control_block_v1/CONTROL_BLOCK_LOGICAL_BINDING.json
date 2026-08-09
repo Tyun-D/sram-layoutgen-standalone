@@ -1,0 +1,86 @@
+{
+  "created_at": "2026-08-09T11:32:16Z",
+  "status": "LOGICAL_BINDING_RECOVERED_PHYSICAL_PARENT_PENDING",
+  "monolithic_control_logic_required": false,
+  "control_block_id": "CONTROL_BLOCK_HIERARCHICAL_V1",
+  "source_authority": "outputs/M12N2_clean_openyield_sram_top/current_supported_config/openyield_sram_top_v1_modules.csv",
+  "instances": [
+    {
+      "instance": "addr_dff",
+      "module": "DFF/DFF_BUF array",
+      "status": "subassets_recovered"
+    },
+    {
+      "instance": "data_dff",
+      "module": "DFF/DFF_BUF array",
+      "status": "subassets_recovered"
+    },
+    {
+      "instance": "clk_buffer",
+      "module": "pdrive",
+      "status": "RECOVERED_VERIFIED_EXISTING_ASSET"
+    },
+    {
+      "instance": "wl_enable_buffer",
+      "module": "wl_pdrive",
+      "status": "RECOVERED_VERIFIED_EXISTING_ASSET"
+    },
+    {
+      "instance": "precharge_buffer",
+      "module": "pdrive2_for_pre",
+      "status": "RECOVERED_VERIFIED_EXISTING_ASSET"
+    },
+    {
+      "instance": "replica_delay",
+      "module": "delay_chain",
+      "status": "RECOVERED_VERIFIED_EXISTING_ASSET"
+    },
+    {
+      "instance": "logic_gates",
+      "module": "PNAND2/PNAND3/AND2/AND3/PINV",
+      "status": "Team B/project assets available"
+    }
+  ],
+  "nets": [
+    {
+      "net": "clk",
+      "source": "top.clk",
+      "sink": "pdrive.A"
+    },
+    {
+      "net": "clk_buf",
+      "source": "pdrive.Z",
+      "sink": "DFF/DFF_BUF.CLK and control gates"
+    },
+    {
+      "net": "rbl",
+      "source": "array.RBL",
+      "sink": "delay_chain.in"
+    },
+    {
+      "net": "rbl_delay",
+      "source": "delay_chain.out",
+      "sink": "control gates"
+    },
+    {
+      "net": "wl_en",
+      "source": "wl_pdrive.Z",
+      "sink": "wordline_driver.B"
+    },
+    {
+      "net": "PRE",
+      "source": "pdrive2_for_pre.Z",
+      "sink": "precharge.ENB"
+    },
+    {
+      "net": "S_EN",
+      "source": "control gates",
+      "sink": "sense_amp.EN"
+    },
+    {
+      "net": "W_EN",
+      "source": "control gates",
+      "sink": "write_driver.EN"
+    }
+  ]
+}
