@@ -533,3 +533,12 @@
 - generated bounded floorplan contract, allowed region, adjacency, connected-distance, compactness, dominance and visual gates.
 - new recommended: `SRAM_BOUNDED_V2_S5_AUTOMATED_PARETO`; alternative: `SRAM_BOUNDED_V2_S0_CLASSIC_COMPACT`.
 - detailed routing remains `NOT_STARTED`.
+
+## 2026-08-09T16:20:00Z full_sram_real_hierarchical_floorplan_v1
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `30562958d4c52e1387e70dd1354920e61557c325` before checkpoint commit
+- result: `PASS_REAL_HIERARCHICAL_FULL_SINGLE_BANK_SRAM_FLOORPLAN_TO_HUMAN_REVIEW`
+- correction: previous bounded result reclassified as `ABSTRACT_BOUNDED_FLOORPLAN_MODEL_PASS`; real hierarchical GDS now generated with unique top and resolved child references.
+- generated: real precharge/sense/write banks with 16 real unit instances each; two full hierarchical floorplan candidates; review package under `/data1/qujh`.
+- boundary: detailed routing `NOT_STARTED`; formal functional/timing authority remains pending; compact control V3 is not claimed, real DRC-clean control baseline is reused.
+- next_action: human review of real hierarchical floorplan GDS before full-top detailed routing.

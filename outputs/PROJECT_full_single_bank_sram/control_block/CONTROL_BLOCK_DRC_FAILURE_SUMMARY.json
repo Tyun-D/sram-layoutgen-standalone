@@ -1,26 +1,28 @@
 {
-  "created_at": "2026-08-09T14:34:33Z",
+  "created_at": "2026-08-09T16:19:02Z",
   "git_branch": "project/mainline-inventory-20260726",
-  "git_head": "b91af47212979ac68c95ad5969ed4bc9a13b4595",
+  "git_head": "30562958d4c52e1387e70dd1354920e61557c325",
   "status": "BLOCKED_BY_CONTROL_BLOCK_PHYSICAL_AUTHORITY",
   "reason": "CONTROL_BLOCK_PARENT_ROUTE_DRC_NOT_CLOSED",
   "physical_top_entry_allowed": false,
   "formal_functional_timing_closure": false,
-  "candidate_count": 5,
+  "candidate_count": 6,
   "passing_candidate_count": 0,
   "candidate_drc_markers": {
-    "C0_LOGICAL_TOPOLOGY_BASELINE": 309,
-    "C1_OUTPUT_DRIVEN_CLUSTERING": 198,
-    "C2_TIMING_CHAIN_ORIENTED": 242,
-    "C3_POWER_ROW_ABUTMENT_AWARE": 264,
-    "C4_AUTOMATED_PARETO": 314
+    "C0_LOGICAL_TOPOLOGY_BASELINE": 761,
+    "C1_OUTPUT_DRIVEN_CLUSTERING": 644,
+    "C2_TIMING_CHAIN_ORIENTED": 772,
+    "C3_POWER_ROW_ABUTMENT_AWARE": 718,
+    "C4_AUTOMATED_PARETO": 826,
+    "C5_TIMING_CHAIN_STAGGERED_CHANNEL": 784
   },
   "candidate_gate_paths": {
     "C0_LOGICAL_TOPOLOGY_BASELINE": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C0_LOGICAL_TOPOLOGY_BASELINE/CONTROL_BLOCK_MACHINE_GATE.json",
     "C1_OUTPUT_DRIVEN_CLUSTERING": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C1_OUTPUT_DRIVEN_CLUSTERING/CONTROL_BLOCK_MACHINE_GATE.json",
     "C2_TIMING_CHAIN_ORIENTED": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/CONTROL_BLOCK_MACHINE_GATE.json",
     "C3_POWER_ROW_ABUTMENT_AWARE": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C3_POWER_ROW_ABUTMENT_AWARE/CONTROL_BLOCK_MACHINE_GATE.json",
-    "C4_AUTOMATED_PARETO": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C4_AUTOMATED_PARETO/CONTROL_BLOCK_MACHINE_GATE.json"
+    "C4_AUTOMATED_PARETO": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C4_AUTOMATED_PARETO/CONTROL_BLOCK_MACHINE_GATE.json",
+    "C5_TIMING_CHAIN_STAGGERED_CHANNEL": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C5_TIMING_CHAIN_STAGGERED_CHANNEL/CONTROL_BLOCK_MACHINE_GATE.json"
   },
   "required_child_missing_asset_count": 0,
   "top_physical_pin_contract": "READY",

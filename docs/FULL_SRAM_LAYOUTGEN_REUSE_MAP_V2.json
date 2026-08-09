@@ -1,0 +1,55 @@
+{
+  "status": "READY",
+  "items": [
+    {
+      "problem": "storage array aggregation",
+      "historical_solution": "array_aggregation.py native pitch + dummy/replica policy",
+      "source_evidence": "docs/LAYOUTGEN_EXISTING_ACHIEVEMENT_AUDIT.json; sram_layoutgen/standalone.py",
+      "current_reusable_asset": "authoritative array reused as-is",
+      "reused_as_is": true,
+      "adapter_required": false,
+      "regeneration_required": false,
+      "reason": "source-exact 16x16 WPR1 compatible"
+    },
+    {
+      "problem": "peripheral replication",
+      "historical_solution": "standalone.py word_size loops for precharge/sense/write arrays",
+      "source_evidence": "docs/LAYOUTGEN_EXISTING_ACHIEVEMENT_AUDIT.json; sram_layoutgen/standalone.py",
+      "current_reusable_asset": "bank builder uses 16 real unit SREFs",
+      "reused_as_is": true,
+      "adapter_required": false,
+      "regeneration_required": false,
+      "reason": "source-exact 16x16 WPR1 compatible"
+    },
+    {
+      "problem": "Pin extraction",
+      "historical_solution": "GDS labels + pin_map.json",
+      "source_evidence": "docs/LAYOUTGEN_EXISTING_ACHIEVEMENT_AUDIT.json; sram_layoutgen/standalone.py",
+      "current_reusable_asset": "bank pin_map.json and interface lock",
+      "reused_as_is": true,
+      "adapter_required": false,
+      "regeneration_required": false,
+      "reason": "source-exact 16x16 WPR1 compatible"
+    },
+    {
+      "problem": "hierarchical GDS writing",
+      "historical_solution": "gds hierarchy export/reuse",
+      "source_evidence": "docs/LAYOUTGEN_EXISTING_ACHIEVEMENT_AUDIT.json; sram_layoutgen/standalone.py",
+      "current_reusable_asset": "full_hierarchical_floorplan.gds uses SREF hierarchy",
+      "reused_as_is": true,
+      "adapter_required": false,
+      "regeneration_required": false,
+      "reason": "source-exact 16x16 WPR1 compatible"
+    },
+    {
+      "problem": "power stitching",
+      "historical_solution": "parent power stitch contract",
+      "source_evidence": "docs/LAYOUTGEN_EXISTING_ACHIEVEMENT_AUDIT.json; sram_layoutgen/standalone.py",
+      "current_reusable_asset": "power preplan only; detailed power stitching not started",
+      "reused_as_is": true,
+      "adapter_required": false,
+      "regeneration_required": false,
+      "reason": "source-exact 16x16 WPR1 compatible"
+    }
+  ]
+}

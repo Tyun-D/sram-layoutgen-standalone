@@ -1,6 +1,6 @@
 {
-  "workflow_state": "PASS_BOUNDED_COMPACT_FULL_SINGLE_BANK_SRAM_FLOORPLAN_TO_HUMAN_REVIEW",
-  "timestamp": "2026-08-09T14:11:31Z",
+  "workflow_state": "PASS_REAL_HIERARCHICAL_FULL_SINGLE_BANK_SRAM_FLOORPLAN_TO_HUMAN_REVIEW",
+  "timestamp": "2026-08-09T16:20:36Z",
   "git_branch": "project/mainline-inventory-20260726",
   "git_head": "PENDING_COMMIT",
   "trusted_master_head": "c1fbd98",
@@ -233,7 +233,7 @@
   "row_path_physical_closure": "PASS",
   "authoritative_bitcell_array": "LOCKED",
   "real_array_integration": "PASS_ROW_PATH_ONLY_FOR_DECODER_WL_DRIVER_ARRAY",
-  "full_single_bank_sram_top": "BOUNDED_COMPACT_FLOORPLAN_READY_FOR_HUMAN_REVIEW_DETAILED_ROUTING_NOT_STARTED",
+  "full_single_bank_sram_top": "REAL_HIERARCHICAL_FLOORPLAN_TO_HUMAN_REVIEW",
   "functional_oracle": "FUNCTIONAL_ORACLE_PENDING_OWNER_REVIEW",
   "formal_timing_authority": "FORMAL_TIMING_AUTHORITY_PENDING",
   "full_sram_top_readiness": {
@@ -356,5 +356,30 @@
   "bounded_floorplan_recommended": "SRAM_BOUNDED_V2_S5_AUTOMATED_PARETO",
   "bounded_floorplan_alternative": "SRAM_BOUNDED_V2_S0_CLASSIC_COMPACT",
   "detailed_routing": "NOT_STARTED",
-  "latest_bounded_floorplan_package": "/data1/qujh/PROJECT_BOUNDED_COMPACT_FULL_SINGLE_BANK_SRAM_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz"
+  "latest_bounded_floorplan_package": "/data1/qujh/PROJECT_BOUNDED_COMPACT_FULL_SINGLE_BANK_SRAM_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+  "previous_bounded_floorplan_status": "ABSTRACT_BOUNDED_FLOORPLAN_MODEL_PASS",
+  "abstract_bounded_floorplan_reclassification": {
+    "abstract_bounded_floorplan_model": "PASS",
+    "real_hierarchical_floorplan_generated": "YES_CURRENT_STAGE",
+    "old_F0_F4": "HUMAN_REJECTED_ARCHITECTURE_BASELINE",
+    "detailed_routing": "NOT_STARTED"
+  },
+  "real_hierarchical_full_sram_floorplan": {
+    "status": "PASS_REAL_HIERARCHICAL_FULL_SINGLE_BANK_SRAM_FLOORPLAN_TO_HUMAN_REVIEW",
+    "recommended": "REAL_S0_CLASSIC_COMPACT",
+    "alternative": "REAL_S3_CONTROL_NEAR_SINKS",
+    "precharge_bank": "outputs/PROJECT_full_single_bank_sram/real_hierarchical_floorplan_v1/physical_banks/precharge_v1/clean.gds",
+    "sense_amp_bank": "outputs/PROJECT_full_single_bank_sram/real_hierarchical_floorplan_v1/physical_banks/sense_amp_v1/clean.gds",
+    "write_driver_bank": "outputs/PROJECT_full_single_bank_sram/real_hierarchical_floorplan_v1/physical_banks/write_driver_v1/clean.gds",
+    "control_block_source": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/clean.gds",
+    "control_block_boundary": "REAL_CONTROL_BASELINE_REUSED; CONTROL_BLOCK_COMPACT_PHYSICAL_V3_NOT_CLAIMED",
+    "real_hierarchy_gate": "PASS",
+    "region_gate": "PASS",
+    "adjacency_gate": "PASS",
+    "compactness_gate": "PASS",
+    "power_preplan": "PASS",
+    "global_route_feasibility": "PASS",
+    "detailed_routing": "NOT_STARTED",
+    "package": "/data1/qujh/PROJECT_REAL_HIERARCHICAL_FULL_SINGLE_BANK_SRAM_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz"
+  }
 }

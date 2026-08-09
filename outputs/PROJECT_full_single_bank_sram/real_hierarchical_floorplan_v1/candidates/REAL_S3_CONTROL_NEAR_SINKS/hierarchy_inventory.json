@@ -1,0 +1,68 @@
+{
+  "top_cell": "REAL_S3_CONTROL_NEAR_SINKS",
+  "expected_top_child_count": 5,
+  "actual_top_child_count": 5,
+  "hierarchy_depth": 3,
+  "real_child_count": 5,
+  "bitcell_count": 256,
+  "dummy_count": 88,
+  "replica_count": 17,
+  "wl_driver_present": true,
+  "decoder_present": true,
+  "precharge_unit_count": 16,
+  "sense_amp_unit_count": 16,
+  "write_driver_unit_count": 16,
+  "control_child_present": true,
+  "children": [
+    {
+      "instance": "row_path",
+      "x": 0.0,
+      "y": 0.0,
+      "width": 105.00250000000001,
+      "height": 41.620000000000005,
+      "source": "outputs/PROJECT_decoder_real_array_integration_v1/P2_REAL_ARRAY_V1/integration_shell_clean.gds",
+      "sha": "41820f1a32b0b8d6066c2d49c081489dfd74eb9b0e6e8e3be655c071abc7fba4",
+      "orientation": "R0"
+    },
+    {
+      "instance": "precharge_bank",
+      "x": 0.0,
+      "y": 49.620000000000005,
+      "width": 14.400000000000002,
+      "height": 1.3900000000000001,
+      "source": "outputs/PROJECT_full_single_bank_sram/real_hierarchical_floorplan_v1/physical_banks/precharge_v1/clean.gds",
+      "sha": "c18f34407006af1fd66f4e3ea45a456459296e66fe5d37f5b82105d0c46194f7",
+      "orientation": "R0"
+    },
+    {
+      "instance": "sense_amp_bank",
+      "x": 0.0,
+      "y": -14.009999999999962,
+      "width": 15.399999999999926,
+      "height": 6.009999999999963,
+      "source": "outputs/PROJECT_full_single_bank_sram/real_hierarchical_floorplan_v1/physical_banks/sense_amp_v1/clean.gds",
+      "sha": "39c03bf8369f806a809bbe573890c59746822f61b915470a49cc014937be5926",
+      "orientation": "R0"
+    },
+    {
+      "instance": "write_driver_bank",
+      "x": 0.0,
+      "y": -26.18499999999994,
+      "width": 16.43999999999992,
+      "height": 4.174999999999975,
+      "source": "outputs/PROJECT_full_single_bank_sram/real_hierarchical_floorplan_v1/physical_banks/write_driver_v1/clean.gds",
+      "sha": "bcb328239b9e2e756069299d425f33fd56a6427ecb6cb86303a72d03e9cf23d6",
+      "orientation": "R0"
+    },
+    {
+      "instance": "control_block",
+      "x": 113.00250000000001,
+      "y": -6.009999999999963,
+      "width": 264.14,
+      "height": 271.495,
+      "source": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/clean.gds",
+      "sha": "8f5f56670b99dd0428d69d35e87b61512a7a931582d9c2b89ae17cf9340e81bc",
+      "orientation": "R0"
+    }
+  ]
+}
