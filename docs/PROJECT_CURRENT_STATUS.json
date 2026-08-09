@@ -1,8 +1,8 @@
 {
-  "workflow_state": "REAL_HIERARCHICAL_FULL_SINGLE_BANK_SRAM_FLOORPLAN_V2_CONTROL_COMPACTION_NOT_CLOSED",
-  "timestamp": "2026-08-09T17:19:01Z",
+  "workflow_state": "PASS_FULL_SINGLE_BANK_SRAM_REAL_TOP_PHYSICAL_INTEGRATION_TO_HUMAN_REVIEW",
+  "timestamp": "2026-08-09T18:05:00Z",
   "git_branch": "project/mainline-inventory-20260726",
-  "git_head": "e5a1fc708732bb54e436652e629d816931924507",
+  "git_head": "PENDING_COMMIT",
   "trusted_master_head": "c1fbd98",
   "remote_master_head_last_known": "489f3e04e85197a6501e48168627a7b8a9232550",
   "team_b_state": "TEAM_B_OWNER_HUMAN_REVIEWED_MERGED_TO_MAINLINE",
@@ -153,7 +153,7 @@
     "sha256_record_location": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz.sha256",
     "package_build_head": "62c3d663d2dc4011b9c8d06c13d080c25535a327"
   },
-  "next_stage": "Human review of bounded compact SRAM floorplan before detailed routing.",
+  "next_stage": "Human review of full single-bank SRAM real top physical integration; formal functional/timing owner authority remains pending.",
   "current_git_head": "PENDING_COMMIT",
   "remote_branch_head": "PENDING_COMMIT",
   "latest_complete_top_package": {
@@ -233,7 +233,7 @@
   "row_path_physical_closure": "PASS",
   "authoritative_bitcell_array": "LOCKED",
   "real_array_integration": "PASS_ROW_PATH_ONLY_FOR_DECODER_WL_DRIVER_ARRAY",
-  "full_single_bank_sram_top": "REAL_HIERARCHICAL_FLOORPLAN_V2_PARTIAL_BANK_ALIGNMENT_PASS_CONTROL_COMPACTION_NOT_CLOSED",
+  "full_single_bank_sram_top": "PHYSICAL_INTEGRATION_CLOSED_TO_HUMAN_REVIEW",
   "functional_oracle": "FUNCTIONAL_ORACLE_PENDING_OWNER_REVIEW",
   "formal_timing_authority": "FORMAL_TIMING_AUTHORITY_PENDING",
   "full_sram_top_readiness": {
@@ -395,5 +395,62 @@
     "detailed_routing": "NOT_STARTED",
     "package": "/data1/qujh/PROJECT_REAL_HIERARCHICAL_FULL_SINGLE_BANK_SRAM_FLOORPLAN_V2_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
     "build_head": "e5a1fc708732bb54e436652e629d816931924507"
+  },
+  "top_physical_architecture": "REAL_TOP_PHYSICAL_INTEGRATION_CLOSED",
+  "top_intermodule_routing": "PHYSICALLY_ROUTED_AND_DRC_CLEAN",
+  "control_physical_architecture": "IN_CONTEXT_CONTROL_CLUSTERS_ROUTED",
+  "row_path_top_level_replanning": "ROW_PATH_DECOMPOSED_DECODER_WL_DRIVER_ARRAY_INSTANTIATED_SEPARATELY",
+  "formal_functional_timing_closure": false,
+  "post_layout_pex": false,
+  "ir_em_signoff": false,
+  "full_single_bank_sram_real_top_v1": {
+    "status": "PASS_FULL_SINGLE_BANK_SRAM_REAL_TOP_PHYSICAL_INTEGRATION_TO_HUMAN_REVIEW",
+    "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SINGLE_BANK_SRAM_REAL_TOP_V1/clean.gds",
+    "gds_sha": "be7dfe1a7eb8d3f49485d61205e407b54efacb81b66d64fc9f23cb493a3946ff",
+    "width": 261.87,
+    "height": 177.615,
+    "area": 46512.0401,
+    "hierarchy_depth": 4,
+    "real_child_counts": {
+      "bitcell": 256,
+      "dummy": 88,
+      "replica": 17,
+      "wl_driver": 16,
+      "precharge": 16,
+      "sense_amp": 16,
+      "write_driver": 16,
+      "control_child": 34
+    },
+    "routing": {
+      "BL_BR": "100%",
+      "WL": "100%",
+      "control": "100%",
+      "DIN_DOUT": "100%",
+      "address_clock": "100%"
+    },
+    "power": {
+      "endpoint_coverage": "100%",
+      "VDD_components": 1,
+      "VSS_components": 1
+    },
+    "drc_marker_count": 0,
+    "connectivity": {
+      "required_connectivity_percent": 100,
+      "missing": 0,
+      "wrong_bit": 0,
+      "duplicate": 0,
+      "floating_required_pin": 0,
+      "route_count": 172
+    },
+    "negative_unexpected_pass": 0,
+    "pending_authority": [
+      "TIME_schedule",
+      "write_sample_point",
+      "disabled_hold_semantics",
+      "formal_WL_timing_authority"
+    ],
+    "package": "/data1/qujh/PROJECT_FULL_SINGLE_BANK_SRAM_REAL_TOP_PHYSICAL_INTEGRATION_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "package_sha256": "2656aa629fe6fb0e928b7247a77fe4eb20477afcc92d9cb97460fe92c3911642",
+    "package_build_head": "PENDING_COMMIT"
   }
 }

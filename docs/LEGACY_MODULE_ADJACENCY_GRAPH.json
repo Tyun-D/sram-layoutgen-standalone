@@ -1,0 +1,29 @@
+{
+  "anchor": "authoritative_array",
+  "edges": [
+    [
+      "decoder",
+      "wl_driver"
+    ],
+    [
+      "wl_driver",
+      "array"
+    ],
+    [
+      "array",
+      "precharge"
+    ],
+    [
+      "array",
+      "sense_amp"
+    ],
+    [
+      "array",
+      "write_driver"
+    ],
+    [
+      "control_clusters",
+      "precharge/sense/write/wl_driver"
+    ]
+  ]
+}

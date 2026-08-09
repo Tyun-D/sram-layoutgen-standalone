@@ -1,0 +1,59 @@
+{
+  "status": "PASS_FULL_SINGLE_BANK_SRAM_REAL_TOP_PHYSICAL_INTEGRATION_TO_HUMAN_REVIEW",
+  "physical_integration_closed": true,
+  "formal_functional_timing_closure": false,
+  "post_layout_pex": false,
+  "ir_em_signoff": false,
+  "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SINGLE_BANK_SRAM_REAL_TOP_V1/clean.gds",
+  "gds_sha": "be7dfe1a7eb8d3f49485d61205e407b54efacb81b66d64fc9f23cb493a3946ff",
+  "width": 261.87,
+  "height": 177.615,
+  "area": 46512.0401,
+  "hierarchy_depth": 4,
+  "real_child_counts": {
+    "bitcell": 256,
+    "dummy": 88,
+    "replica": 17,
+    "wl_driver": 16,
+    "precharge": 16,
+    "sense_amp": 16,
+    "write_driver": 16,
+    "control_child": 34
+  },
+  "routing": {
+    "BL_BR": "100%",
+    "WL": "100%",
+    "control": "100%",
+    "DIN_DOUT": "100%",
+    "address_clock": "100%"
+  },
+  "power": {
+    "endpoint_coverage": "100%",
+    "VDD_components": 1,
+    "VSS_components": 1
+  },
+  "drc": {
+    "returncode": 0,
+    "marker_count": 0,
+    "passed": true,
+    "database": "outputs/PROJECT_full_single_bank_sram/FULL_SINGLE_BANK_SRAM_REAL_TOP_V1/drc/FULL_SRAM_TOP_DRC.lyrdb",
+    "log": "outputs/PROJECT_full_single_bank_sram/FULL_SINGLE_BANK_SRAM_REAL_TOP_V1/drc/FULL_SRAM_TOP_DRC.log"
+  },
+  "connectivity": {
+    "required_connectivity_percent": 100,
+    "missing": 0,
+    "wrong_bit": 0,
+    "duplicate": 0,
+    "floating_required_pin": 0,
+    "route_count": 172
+  },
+  "negative_suite": {
+    "unexpected_pass": 0
+  },
+  "pending_authority": [
+    "TIME_schedule",
+    "write_sample_point",
+    "disabled_hold_semantics",
+    "formal_WL_timing_authority"
+  ]
+}

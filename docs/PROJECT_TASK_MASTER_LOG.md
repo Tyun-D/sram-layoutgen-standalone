@@ -551,3 +551,15 @@
 - not_closed: `CONTROL_COMPACTION_GATE`; C2 remains real DRC-clean baseline but is not claimed as `CONTROL_COMPACT_PHYSICAL_V3`.
 - detailed_routing: `NOT_STARTED`
 - next_action: close true compact control parent GDS before returning V2 PASS.
+
+## 2026-08-09T18:05:00Z full_single_bank_sram_real_top_physical_integration_v1
+- git_branch: `project/mainline-inventory-20260726`
+- result: `PASS_FULL_SINGLE_BANK_SRAM_REAL_TOP_PHYSICAL_INTEGRATION_TO_HUMAN_REVIEW`
+- correction: previous V2 remains `REAL_BANK_ASSETS_READY` and `REAL_HIERARCHY_ASSEMBLY_READY`; it is not treated as a complete routed top. This checkpoint decomposes the row path and avoids using the monolithic control macro as a final top-level black box.
+- legacy reference: regenerated `16x16 words_per_row=1` layoutgen reference under `/data1/qujh/full_sram_architecture_recovery/legacy_16x16_wpr1` and captured the architecture transfer documents.
+- generated top: `outputs/PROJECT_full_single_bank_sram/FULL_SINGLE_BANK_SRAM_REAL_TOP_V1/clean.gds`.
+- real hierarchy: authoritative array, decoder, 16 WL drivers, 16 precharge units, 16 sense amps, 16 write drivers, and 34 in-context control child instances.
+- real routing: BL/BR, WL, control, DIN/DOUT, address/clock, and VDD/VSS route geometry generated with final-GDS witnesses.
+- verification: KLayout/FreePDK45 combined DRC marker count `0`; required connectivity witness `100%`; power endpoint coverage `100%`; foreign-net report `PASS`; negative unexpected pass `0`.
+- boundary: `FORMAL_FUNCTIONAL_TIMING_CLOSURE=false`, `POST_LAYOUT_PEX=false`, `IR_EM_SIGNOFF=false`; pending owner authority remains `TIME_schedule`, `write_sample_point`, `disabled_hold_semantics`, and `formal_WL_timing_authority`.
+- review package: `/data1/qujh/PROJECT_FULL_SINGLE_BANK_SRAM_REAL_TOP_PHYSICAL_INTEGRATION_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`.
