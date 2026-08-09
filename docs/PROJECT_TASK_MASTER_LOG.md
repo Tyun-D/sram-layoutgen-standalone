@@ -542,3 +542,12 @@
 - generated: real precharge/sense/write banks with 16 real unit instances each; two full hierarchical floorplan candidates; review package under `/data1/qujh`.
 - boundary: detailed routing `NOT_STARTED`; formal functional/timing authority remains pending; compact control V3 is not claimed, real DRC-clean control baseline is reused.
 - next_action: human review of real hierarchical floorplan GDS before full-top detailed routing.
+
+## 2026-08-09T17:20:00Z full_sram_real_hierarchical_floorplan_v2_partial
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `f5715a9d2347e3ef50155a88c54bb9d43427ed03` before checkpoint commit
+- result: `REAL_HIERARCHICAL_FULL_SINGLE_BANK_SRAM_FLOORPLAN_V2_CONTROL_COMPACTION_NOT_CLOSED`
+- completed: old S0 dominance rejection; real-GDS bbox audit; numeric column-periphery alignment; real DRC-clean even/odd two-row bank V2 candidates for precharge/sense/write.
+- not_closed: `CONTROL_COMPACTION_GATE`; C2 remains real DRC-clean baseline but is not claimed as `CONTROL_COMPACT_PHYSICAL_V3`.
+- detailed_routing: `NOT_STARTED`
+- next_action: close true compact control parent GDS before returning V2 PASS.

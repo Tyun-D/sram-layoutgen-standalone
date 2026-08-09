@@ -1,0 +1,83 @@
+{
+  "candidate": "REAL_V2_S1_TWO_ROW_PERIPHERY",
+  "status": "REAL_HIERARCHICAL_FLOORPLAN_V2_MACHINE_GREEN",
+  "real_hierarchy_gate": true,
+  "region_gate": true,
+  "adjacency_gate": true,
+  "pin_alignment_gate": true,
+  "compactness_gate": true,
+  "control_compaction_gate": false,
+  "orientation_gate": true,
+  "power_preplan": true,
+  "global_route_feasibility": true,
+  "detailed_routing": "NOT_STARTED",
+  "gds": "outputs/PROJECT_full_single_bank_sram/real_hierarchical_floorplan_v2/candidates/REAL_V2_S1_TWO_ROW_PERIPHERY/full_hierarchical_floorplan.gds",
+  "gds_sha": "276524715b3296d840035d2c123b803730449c9a943c29ac82bc20e907fec5e1",
+  "atlas": "outputs/PROJECT_full_single_bank_sram/real_hierarchical_floorplan_v2/candidates/REAL_V2_S1_TWO_ROW_PERIPHERY/floorplan_atlas.gds",
+  "width": 375.1425,
+  "height": 293.845,
+  "area": 110233.7479,
+  "whitespace": 0.306799,
+  "maximum_connected_module_distance": 284.16,
+  "estimated_total_route_length": 388.17,
+  "top_cell": "REAL_V2_S1_TWO_ROW_PERIPHERY",
+  "hierarchy_depth": 3,
+  "real_child_count": 5,
+  "bitcell_count": 256,
+  "precharge_unit_count": 16,
+  "sense_amp_unit_count": 16,
+  "write_driver_unit_count": 16,
+  "control_child_count": 1,
+  "children": [
+    {
+      "instance": "row_path",
+      "x": 0.0,
+      "y": 0.0,
+      "width": 105.00250000000001,
+      "height": 41.620000000000005,
+      "source": "outputs/PROJECT_decoder_real_array_integration_v1/P2_REAL_ARRAY_V1/integration_shell_clean.gds",
+      "sha": "41820f1a32b0b8d6066c2d49c081489dfd74eb9b0e6e8e3be655c071abc7fba4",
+      "orientation": "R0"
+    },
+    {
+      "instance": "precharge_bank_v2",
+      "x": 0.0,
+      "y": 47.620000000000005,
+      "width": 11.287500000000001,
+      "height": 4.78,
+      "source": "outputs/PROJECT_full_single_bank_sram/real_hierarchical_floorplan_v2/physical_banks/precharge_even_odd_2row_v2/clean.gds",
+      "sha": "063e37376a3db48d5d64f2ab25f6f036571b69a0a863f035abf843a80319adc0",
+      "orientation": "R0"
+    },
+    {
+      "instance": "sense_amp_bank_v2",
+      "x": 0.0,
+      "y": -20.019999999999914,
+      "width": 11.34999999999993,
+      "height": 14.019999999999914,
+      "source": "outputs/PROJECT_full_single_bank_sram/real_hierarchical_floorplan_v2/physical_banks/sense_amp_even_odd_2row_v2/clean.gds",
+      "sha": "819433bc0d8e4e8a089c78d2ffd5d55e90f58724759f31cf2ef2ecb3750e5689",
+      "orientation": "R0"
+    },
+    {
+      "instance": "write_driver_bank_v2",
+      "x": 0.0,
+      "y": -36.36999999999985,
+      "width": 11.41499999999993,
+      "height": 10.349999999999937,
+      "source": "outputs/PROJECT_full_single_bank_sram/real_hierarchical_floorplan_v2/physical_banks/write_driver_even_odd_2row_v2/clean.gds",
+      "sha": "0b54dd2b5b2ba9ff8fecfe1c76f06ab9e506bfe34b7a6c67988c1943c0c0b9ce",
+      "orientation": "R0"
+    },
+    {
+      "instance": "control_block",
+      "x": -270.14,
+      "y": -14.019999999999914,
+      "width": 264.14,
+      "height": 271.495,
+      "source": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/clean.gds",
+      "sha": "2b969218ba57808c96fb017fe367cefd5952bd47c7ea40d3b75a9bee5b177332",
+      "orientation": "R0"
+    }
+  ]
+}
