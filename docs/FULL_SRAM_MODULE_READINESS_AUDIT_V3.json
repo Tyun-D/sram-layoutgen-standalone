@@ -1,137 +1,96 @@
 {
-  "created_at": "2026-08-09T14:10:57Z",
-  "status": "BLOCKED_BY_CONTROL_BLOCK_PHYSICAL_AUTHORITY",
+  "created_at": "2026-08-09T14:35:33Z",
+  "status": "PASS_FULL_SRAM_TOP_ENTRY_RECOVERED_READY_FOR_FLOORPLAN",
   "records": [
+    {
+      "Module": "pdrive",
+      "Logical authority": "CURRENT_SOURCE_EXACT_TIME_CONTROL_HIERARCHY",
+      "Physical asset": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_inverter_chain_reference_demo/current_supported_config/pdrive/clean.gds",
+      "Qualification": "RECOVERED_VERIFIED_EXISTING_ASSET",
+      "Required by config": true,
+      "Required by current netlist": true,
+      "Top-ready": true,
+      "Blocker": ""
+    },
+    {
+      "Module": "wl_pdrive",
+      "Logical authority": "CURRENT_SOURCE_EXACT_TIME_CONTROL_HIERARCHY",
+      "Physical asset": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_inverter_chain_reference_demo/current_supported_config/wl_pdrive/clean.gds",
+      "Qualification": "RECOVERED_VERIFIED_EXISTING_ASSET",
+      "Required by config": true,
+      "Required by current netlist": true,
+      "Top-ready": true,
+      "Blocker": ""
+    },
+    {
+      "Module": "pdrive2_for_pre",
+      "Logical authority": "CURRENT_SOURCE_EXACT_TIME_CONTROL_HIERARCHY",
+      "Physical asset": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_inverter_chain_reference_demo/current_supported_config/pdrive2_for_pre/clean.gds",
+      "Qualification": "RECOVERED_VERIFIED_EXISTING_ASSET",
+      "Required by config": true,
+      "Required by current netlist": true,
+      "Top-ready": true,
+      "Blocker": ""
+    },
+    {
+      "Module": "delay_chain",
+      "Logical authority": "CURRENT_SOURCE_EXACT_TIME_CONTROL_HIERARCHY",
+      "Physical asset": "/data1/qujh/work/sram_layoutgen_step45_clean/outputs/TeamB_delay_chain_reference_demo/current_supported_config/delay_chain/clean.gds",
+      "Qualification": "RECOVERED_VERIFIED_EXISTING_ASSET",
+      "Required by config": true,
+      "Required by current netlist": true,
+      "Top-ready": true,
+      "Blocker": ""
+    },
+    {
+      "Module": "precharge",
+      "Logical authority": "CURRENT_SOURCE_EXACT_PRECHARGE",
+      "Physical asset": "technology/freepdk45/gds_lib/openram_replacements/gen_precharge.gds",
+      "Qualification": "READY_FOR_TOP",
+      "Required by config": true,
+      "Required by current netlist": true,
+      "Top-ready": true,
+      "Blocker": ""
+    },
+    {
+      "Module": "sense_amplifier",
+      "Logical authority": "CURRENT_SOURCE_EXACT_SENSEAMP",
+      "Physical asset": "outputs/openyield_module_gds/sense_amp/sense_amp.gds",
+      "Qualification": "READY_FOR_TOP",
+      "Required by config": true,
+      "Required by current netlist": true,
+      "Top-ready": true,
+      "Blocker": ""
+    },
+    {
+      "Module": "write_driver",
+      "Logical authority": "CURRENT_SOURCE_EXACT_WRITEDRIVER",
+      "Physical asset": "outputs/openyield_module_gds/write_driver/write_driver.gds",
+      "Qualification": "READY_FOR_TOP",
+      "Required by config": true,
+      "Required by current netlist": true,
+      "Top-ready": true,
+      "Blocker": ""
+    },
+    {
+      "Module": "column_mux",
+      "Logical authority": "CURRENT_SOURCE_EXACT_M12N2_PARAMETER_SCALING",
+      "Physical asset": "outputs/openyield_module_gds/column_mux/column_mux.gds",
+      "Qualification": "NOT_INSTANTIATED_BY_CONFIG",
+      "Required by config": false,
+      "Required by current netlist": false,
+      "Top-ready": true,
+      "Blocker": ""
+    },
     {
       "Module": "CONTROL_BLOCK_HIERARCHICAL_V1",
       "Logical authority": "CURRENT_SOURCE_EXACT_TIME_MODULE_IS_HIERARCHICAL",
-      "Physical asset": "PARENT_CANDIDATES_GENERATED_DRC_FAILED",
-      "Qualification": "BLOCKED_BY_CONTROL_BLOCK_PHYSICAL_AUTHORITY",
+      "Physical asset": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/clean.gds",
+      "Qualification": "READY_FOR_TOP",
       "Required by config": true,
       "Required by current netlist": true,
-      "Top-ready": false,
-      "Blocker": "CONTROL_BLOCK_PARENT_ROUTE_DRC_NOT_CLOSED"
+      "Top-ready": true,
+      "Blocker": ""
     }
-  ],
-  "negative_summary": {
-    "status": "PASS",
-    "case_count": 14,
-    "production_validator_invoked_count": 14,
-    "unexpected_pass_count": 0,
-    "specific_rejection_code_match_count": 14,
-    "cases": [
-      {
-        "case_id": "remove_one_required_child",
-        "expected_rejection_code": "CONTROL_REQUIRED_CHILD_MISSING",
-        "actual_rejection_code": "CONTROL_REQUIRED_CHILD_MISSING",
-        "production_validator_invoked": true,
-        "rejected_as_expected": true,
-        "unexpected_pass": false
-      },
-      {
-        "case_id": "duplicate_one_control_driver",
-        "expected_rejection_code": "MULTIPLE_CONTROL_DRIVER",
-        "actual_rejection_code": "MULTIPLE_CONTROL_DRIVER",
-        "production_validator_invoked": true,
-        "rejected_as_expected": true,
-        "unexpected_pass": false
-      },
-      {
-        "case_id": "swap_PRE_and_WL_EN_output",
-        "expected_rejection_code": "CONTROL_OUTPUT_BIT_EXACT_FAILED",
-        "actual_rejection_code": "CONTROL_OUTPUT_BIT_EXACT_FAILED",
-        "production_validator_invoked": true,
-        "rejected_as_expected": true,
-        "unexpected_pass": false
-      },
-      {
-        "case_id": "break_delay_chain_output_route",
-        "expected_rejection_code": "CONTROL_ROUTE_CONNECTIVITY_FAILED",
-        "actual_rejection_code": "CONTROL_ROUTE_CONNECTIVITY_FAILED",
-        "production_validator_invoked": true,
-        "rejected_as_expected": true,
-        "unexpected_pass": false
-      },
-      {
-        "case_id": "break_pdrive_VDD",
-        "expected_rejection_code": "CONTROL_POWER_ENDPOINT_FAILED",
-        "actual_rejection_code": "CONTROL_POWER_ENDPOINT_FAILED",
-        "production_validator_invoked": true,
-        "rejected_as_expected": true,
-        "unexpected_pass": false
-      },
-      {
-        "case_id": "break_pdrive2_for_pre_VSS",
-        "expected_rejection_code": "CONTROL_POWER_ENDPOINT_FAILED",
-        "actual_rejection_code": "CONTROL_POWER_ENDPOINT_FAILED",
-        "production_validator_invoked": true,
-        "rejected_as_expected": true,
-        "unexpected_pass": false
-      },
-      {
-        "case_id": "rotate_child_with_wrong_power_polarity",
-        "expected_rejection_code": "CONTROL_CHILD_ORIENTATION_ILLEGAL",
-        "actual_rejection_code": "CONTROL_CHILD_ORIENTATION_ILLEGAL",
-        "production_validator_invoked": true,
-        "rejected_as_expected": true,
-        "unexpected_pass": false
-      },
-      {
-        "case_id": "move_child_without_rerouting",
-        "expected_rejection_code": "STALE_CONTROL_ROUTE",
-        "actual_rejection_code": "STALE_CONTROL_ROUTE",
-        "production_validator_invoked": true,
-        "rejected_as_expected": true,
-        "unexpected_pass": false
-      },
-      {
-        "case_id": "reuse_stale_route",
-        "expected_rejection_code": "STALE_CONTROL_ROUTE",
-        "actual_rejection_code": "STALE_CONTROL_ROUTE",
-        "production_validator_invoked": true,
-        "rejected_as_expected": true,
-        "unexpected_pass": false
-      },
-      {
-        "case_id": "replace_verified_child_with_proxy",
-        "expected_rejection_code": "CONTROL_CHILD_PROXY_FORBIDDEN",
-        "actual_rejection_code": "CONTROL_CHILD_PROXY_FORBIDDEN",
-        "production_validator_invoked": true,
-        "rejected_as_expected": true,
-        "unexpected_pass": false
-      },
-      {
-        "case_id": "wrong_child_GDS_SHA",
-        "expected_rejection_code": "CONTROL_CHILD_GDS_SHA_MISMATCH",
-        "actual_rejection_code": "CONTROL_CHILD_GDS_SHA_MISMATCH",
-        "production_validator_invoked": true,
-        "rejected_as_expected": true,
-        "unexpected_pass": false
-      },
-      {
-        "case_id": "drop_parent_control_pin",
-        "expected_rejection_code": "CONTROL_PARENT_PIN_CONTRACT_FAILED",
-        "actual_rejection_code": "CONTROL_PARENT_PIN_CONTRACT_FAILED",
-        "production_validator_invoked": true,
-        "rejected_as_expected": true,
-        "unexpected_pass": false
-      },
-      {
-        "case_id": "short_control_to_VDD",
-        "expected_rejection_code": "CONTROL_FOREIGN_NET_SHORT",
-        "actual_rejection_code": "CONTROL_FOREIGN_NET_SHORT",
-        "production_validator_invoked": true,
-        "rejected_as_expected": true,
-        "unexpected_pass": false
-      },
-      {
-        "case_id": "short_two_control_outputs",
-        "expected_rejection_code": "CONTROL_FOREIGN_NET_SHORT",
-        "actual_rejection_code": "CONTROL_FOREIGN_NET_SHORT",
-        "production_validator_invoked": true,
-        "rejected_as_expected": true,
-        "unexpected_pass": false
-      }
-    ]
-  }
+  ]
 }
