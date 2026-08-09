@@ -574,3 +574,14 @@
 - equivalence: flattened intended-top geometry signature matches the old intended-top reachable subgraph; placement, route, pin, and power geometry are unchanged.
 - rebound verification: KLayout/FreePDK45 DRC marker count `0`; connectivity witness `100%`; power endpoint coverage `100%`; foreign-net `PASS`.
 - review package: `/data1/qujh/PROJECT_FULL_SINGLE_BANK_SRAM_REAL_TOP_UNIQUE_TOP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`.
+
+## 2026-08-09T19:20:00Z full_sram_dff_decoder_replanned_v2
+- git_branch: `project/mainline-inventory-20260726`
+- result: `PASS_DFF_DECODER_REPLANNED_FULL_SRAM_REAL_TOP_V2_TO_HUMAN_REVIEW`
+- DFF audit: `DFF_BUF_FPDK45_6058eaf43739_HPA1` remains required for two control DFFs with Q/QB fanout; the qualified `DFF_TG4_INV7_FPDK45_26d9543b82b7` core is used for 20 DFFs with no current internal Q/QB fanout.
+- DFF area: old DFF cell bbox area `2220.1443 um^2`; V2 mixed strategy `1370.8446 um^2`; cell-area reduction `38.25%`.
+- decoder audit: prior L0 orientation/abutment matrix is reused as legality source (`2304` candidates, `1374` pass, `930` reject). Current P2 decoder was R0-only and stage-macro based.
+- decoder V2: replaces old `46.0325 x 29.135 um` P2 stage macro with DRC-clean output-oriented multiline fine-grain candidate `23.0975 x 5.9425 um`.
+- full SRAM V2: unique top `FULL_SINGLE_BANK_SRAM_REAL_TOP_V2`; GDS `outputs/PROJECT_full_single_bank_sram/FULL_SINGLE_BANK_SRAM_REAL_TOP_V2_DFF_DECODER_REPLANNED/clean_unique_top.gds`.
+- verification: KLayout/FreePDK45 DRC marker count `0`; required connectivity `100%`; power endpoint coverage `100%`; foreign-net `PASS`.
+- package: `/data1/qujh/PROJECT_FULL_SRAM_DFF_DECODER_REPLANNED_V2_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`.

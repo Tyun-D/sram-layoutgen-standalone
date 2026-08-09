@@ -1,0 +1,43 @@
+{
+  "status": "PASS_DFF_DECODER_REPLANNED_FULL_SRAM_REAL_TOP_V2_TO_HUMAN_REVIEW",
+  "unique_top_count": 1,
+  "top_names": [
+    "FULL_SINGLE_BANK_SRAM_REAL_TOP_V2"
+  ],
+  "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SINGLE_BANK_SRAM_REAL_TOP_V2_DFF_DECODER_REPLANNED/clean_unique_top.gds",
+  "gds_sha": "514b3bdae4c2cb54ea500fbc2f0cf0e146a989971fabf0a793afdf003b7ef2a6",
+  "bbox": {
+    "width": 261.87,
+    "height": 176.615,
+    "area": 46250.1701
+  },
+  "drc": {
+    "returncode": 0,
+    "marker_count": 0,
+    "passed": true,
+    "database": "outputs/PROJECT_full_single_bank_sram/FULL_SINGLE_BANK_SRAM_REAL_TOP_V2_DFF_DECODER_REPLANNED/drc/FULL_SRAM_TOP_V2_DRC.lyrdb",
+    "log": "outputs/PROJECT_full_single_bank_sram/FULL_SINGLE_BANK_SRAM_REAL_TOP_V2_DFF_DECODER_REPLANNED/drc/FULL_SRAM_TOP_V2_DRC.log"
+  },
+  "connectivity": "100%",
+  "power_endpoint_coverage": "100%",
+  "foreign_net": "PASS",
+  "dff": {
+    "old_cell": "DFF_BUF_FPDK45_6058eaf43739_HPA1",
+    "selected_strategy": "mixed",
+    "buffered_count": 2,
+    "core_count": 20,
+    "cell_area_reduction_percent": 38.25
+  },
+  "decoder": {
+    "old_bbox": [
+      46.0325,
+      29.135
+    ],
+    "new_bbox": [
+      23.0975,
+      5.9425
+    ],
+    "old_all_R0": true,
+    "fine_grain_placement": true
+  }
+}

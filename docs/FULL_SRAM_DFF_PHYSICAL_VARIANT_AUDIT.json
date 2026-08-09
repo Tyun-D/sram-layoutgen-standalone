@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "variants": [
+    {
+      "variant": "DFF_BUF_FPDK45_6058eaf43739_HPA1",
+      "bbox_width": 18.315,
+      "bbox_height": 5.51,
+      "area": 100.91565,
+      "pins": "D,CLK,Q,QB,VDD,VSS",
+      "output_buffer_stages": 2,
+      "selected_use": "retain only for control DFFs with Q/QB fanout"
+    },
+    {
+      "variant": "DFF_TG4_INV7_FPDK45_26d9543b82b7",
+      "bbox_width": 13.745,
+      "bbox_height": 4.2525,
+      "area": 58.4506125,
+      "pins": "D,CLK,Q,VDD,VSS",
+      "output_buffer_stages": 0,
+      "selected_use": "use for DFFs with no QB fanout in current binding"
+    }
+  ],
+  "selected_strategy": "mixed DFF core plus retained DFF_BUF",
+  "blind_replacement_allowed": false
+}
