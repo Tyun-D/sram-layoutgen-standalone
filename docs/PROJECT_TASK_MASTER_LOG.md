@@ -487,3 +487,10 @@
 - decision: stop before column/control/full-top layout because required real module assets or top-entry gates are missing.
 - blockers: `pdrive`, `wl_pdrive`, `pdrive2_for_pre` lack GDS/Pin/machine gates; column/control modules remain unqualified for top use; full top interface/timing authority pending.
 - next_action: recover or generate versioned physical assets before entering full single-bank SRAM top generation.
+
+## 2026-08-09T09:57:00Z full_single_bank_sram_status_head_sync
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `8b3389c92895cc2b5a1cb5d010b47b698ca89d81`
+- result: `STATUS_HEAD_SYNCED_AFTER_READINESS_AUDIT_COMMIT`
+- decision: bind status metadata to the full-top readiness audit checkpoint before push.
+- unresolved_items: `BLOCKED_BY_MISSING_FULL_SRAM_MODULE_ASSET`
