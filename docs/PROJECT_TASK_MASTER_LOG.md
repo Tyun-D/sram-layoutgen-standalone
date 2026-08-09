@@ -525,3 +525,11 @@
 - control block: `READY`; recommended `C2_TIMING_CHAIN_ORIENTED`; alternative `C5_TIMING_CHAIN_STAGGERED_CHANNEL`.
 - top entry gate V3: `PASS`; `PHYSICAL_TOP_ENTRY_ALLOWED=true`; formal functional/timing closure remains pending.
 - full SRAM floorplan: `PASS_FULL_SINGLE_BANK_SRAM_FLOORPLAN_TO_HUMAN_REVIEW`; recommended `F3_CONTROL_DISTRIBUTED_EDGE`; alternative `F4_AUTOMATED_PARETO_COMPACT`; detailed routing not started.
+
+## 2026-08-09T15:41:57Z bounded_compact_full_sram_floorplan_v2
+
+- downgraded previous F0-F4 result to `FULL_SRAM_FLOORPLAN_LEGALITY_PASS` and `HUMAN_REJECTED_ARCHITECTURE_BASELINE`.
+- old control `C2/C5` rejected from recommendation by compactness/dominance policy.
+- generated bounded floorplan contract, allowed region, adjacency, connected-distance, compactness, dominance and visual gates.
+- new recommended: `SRAM_BOUNDED_V2_S5_AUTOMATED_PARETO`; alternative: `SRAM_BOUNDED_V2_S0_CLASSIC_COMPACT`.
+- detailed routing remains `NOT_STARTED`.

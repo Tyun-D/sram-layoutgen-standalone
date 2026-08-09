@@ -1,5 +1,5 @@
 {
-  "workflow_state": "PASS_FULL_SINGLE_BANK_SRAM_FLOORPLAN_TO_HUMAN_REVIEW",
+  "workflow_state": "PASS_BOUNDED_COMPACT_FULL_SINGLE_BANK_SRAM_FLOORPLAN_TO_HUMAN_REVIEW",
   "timestamp": "2026-08-09T14:11:31Z",
   "git_branch": "project/mainline-inventory-20260726",
   "git_head": "PENDING_COMMIT",
@@ -153,7 +153,7 @@
     "sha256_record_location": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz.sha256",
     "package_build_head": "62c3d663d2dc4011b9c8d06c13d080c25535a327"
   },
-  "next_stage": "Human review of full SRAM floorplan before detailed routing.",
+  "next_stage": "Human review of bounded compact SRAM floorplan before detailed routing.",
   "current_git_head": "PENDING_COMMIT",
   "remote_branch_head": "PENDING_COMMIT",
   "latest_complete_top_package": {
@@ -233,7 +233,7 @@
   "row_path_physical_closure": "PASS",
   "authoritative_bitcell_array": "LOCKED",
   "real_array_integration": "PASS_ROW_PATH_ONLY_FOR_DECODER_WL_DRIVER_ARRAY",
-  "full_single_bank_sram_top": "FLOORPLAN_READY_FOR_HUMAN_REVIEW_DETAILED_ROUTING_NOT_STARTED",
+  "full_single_bank_sram_top": "BOUNDED_COMPACT_FLOORPLAN_READY_FOR_HUMAN_REVIEW_DETAILED_ROUTING_NOT_STARTED",
   "functional_oracle": "FUNCTIONAL_ORACLE_PENDING_OWNER_REVIEW",
   "formal_timing_authority": "FORMAL_TIMING_AUTHORITY_PENDING",
   "full_sram_top_readiness": {
@@ -346,5 +346,15 @@
   "control_block_physical_authority": "READY",
   "full_sram_top_entry_gate_v3": "PASS",
   "physical_top_entry_allowed": true,
-  "latest_full_sram_floorplan_package": "/data1/qujh/PROJECT_FULL_SINGLE_BANK_SRAM_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz"
+  "latest_full_sram_floorplan_package": "/data1/qujh/PROJECT_FULL_SINGLE_BANK_SRAM_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+  "previous_full_sram_floorplan_status": "FULL_SRAM_FLOORPLAN_LEGALITY_PASS_HUMAN_REJECTED_ARCHITECTURE_BASELINE",
+  "compactness_constraint": "CLOSED_FOR_FLOORPLAN_REVIEW",
+  "region_constraint": "CLOSED_FOR_FLOORPLAN_REVIEW",
+  "placement_quality_gate": "CLOSED_FOR_FLOORPLAN_REVIEW",
+  "old_F3_F4_status": "HUMAN_REJECTED_ARCHITECTURE_BASELINE",
+  "old_C2_C5_status": "HUMAN_REJECTED_ARCHITECTURE_BASELINE",
+  "bounded_floorplan_recommended": "SRAM_BOUNDED_V2_S5_AUTOMATED_PARETO",
+  "bounded_floorplan_alternative": "SRAM_BOUNDED_V2_S0_CLASSIC_COMPACT",
+  "detailed_routing": "NOT_STARTED",
+  "latest_bounded_floorplan_package": "/data1/qujh/PROJECT_BOUNDED_COMPACT_FULL_SINGLE_BANK_SRAM_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz"
 }
