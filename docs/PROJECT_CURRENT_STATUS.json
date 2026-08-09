@@ -1,8 +1,8 @@
 {
-  "workflow_state": "REAL_ARRAY_PHYSICAL_CLOSURE_PENDING_NARROW_WL_TIMING_AUTHORITY",
-  "timestamp": "2026-08-05T00:00:00Z",
+  "workflow_state": "BLOCKED_BY_MISSING_FULL_SRAM_MODULE_ASSET",
+  "timestamp": "2026-08-09T09:56:17Z",
   "git_branch": "project/mainline-inventory-20260726",
-  "git_head": "c37558026f8052d1d8d273c113804e668ceeb347",
+  "git_head": "da41cc22109c7f6ce314b2cf038d82e086f12775",
   "trusted_master_head": "c1fbd98",
   "remote_master_head_last_known": "489f3e04e85197a6501e48168627a7b8a9232550",
   "team_b_state": "TEAM_B_OWNER_HUMAN_REVIEWED_MERGED_TO_MAINLINE",
@@ -154,8 +154,8 @@
     "package_build_head": "62c3d663d2dc4011b9c8d06c13d080c25535a327"
   },
   "next_stage": "Obtain the four-item WL timing authority response before any formal timing-pass claim or full single-bank SRAM start.",
-  "current_git_head": "c37558026f8052d1d8d273c113804e668ceeb347",
-  "remote_branch_head": "c37558026f8052d1d8d273c113804e668ceeb347",
+  "current_git_head": "da41cc22109c7f6ce314b2cf038d82e086f12775",
+  "remote_branch_head": "da41cc22109c7f6ce314b2cf038d82e086f12775",
   "latest_complete_top_package": {
     "path": "/data1/qujh/PROJECT_COMPLETE_TOP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
     "sha256_record_location": "/data1/qujh/PROJECT_COMPLETE_TOP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz.sha256",
@@ -195,5 +195,115 @@
   "decoder_integration_human_review_ready": false,
   "decoder_integration_recommended_candidate": "candidate_true_wl_driver_array_oriented",
   "decoder_integration_human_package": "/data1/qujh/PROJECT_TRUE_MULTILINE_DECODER_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
-  "decoder_integration_full_package": "/data1/qujh/PROJECT_TRUE_MULTILINE_DECODER_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz"
+  "decoder_integration_full_package": "/data1/qujh/PROJECT_TRUE_MULTILINE_DECODER_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
+  "legacy_layoutgen_student_handoff_evaluation": {
+    "timestamp": "2026-08-09T05:02:51Z",
+    "status": "LEGACY_FULL_MACRO_GENERATOR_PRESERVED_HANDOFF_PACKAGING_REQUIRED",
+    "git_branch": "project/mainline-inventory-20260726",
+    "git_head": "da41cc22109c7f6ce314b2cf038d82e086f12775",
+    "entrypoint": "python -m sram_layoutgen",
+    "source_preserved": true,
+    "runtime_smoke_passed": true,
+    "smoke_root": "/data1/qujh/layoutgen_handoff_evaluation/20260809T050251Z",
+    "smoke_configs": [
+      {
+        "word_size": 16,
+        "num_words": 16,
+        "words_per_row": 1,
+        "status": "PASS"
+      },
+      {
+        "word_size": 16,
+        "num_words": 32,
+        "words_per_row": 1,
+        "status": "PASS"
+      },
+      {
+        "word_size": 16,
+        "num_words": 32,
+        "words_per_row": 2,
+        "status": "PASS"
+      }
+    ],
+    "parameterization": "true_for_single_bank_freepdk45",
+    "student_one_command_flow_ready": false,
+    "handoff_readiness": "packaging_required",
+    "mandatory_next_action": "prepare README, requirements, configs, generate_example.sh, hardmacro bundle, and path cleanup notes before external student handoff"
+  },
+  "row_path_physical_closure": "PASS",
+  "authoritative_bitcell_array": "LOCKED",
+  "real_array_integration": "PASS_ROW_PATH_ONLY_FOR_DECODER_WL_DRIVER_ARRAY",
+  "full_single_bank_sram_top": "NOT_GENERATED_BLOCKED_BY_MODULE_READINESS",
+  "functional_oracle": "FUNCTIONAL_ORACLE_PENDING_OWNER_REVIEW",
+  "formal_timing_authority": "FORMAL_TIMING_AUTHORITY_PENDING",
+  "full_sram_top_readiness": {
+    "status": "BLOCKED_BY_MISSING_FULL_SRAM_MODULE_ASSET",
+    "module_readiness_audit": "docs/FULL_SRAM_MODULE_READINESS_AUDIT.json",
+    "logical_contract": "docs/FULL_SRAM_TOP_LOGICAL_CONTRACT.json",
+    "connectivity_csv": "docs/FULL_SRAM_TOP_CONNECTIVITY.csv",
+    "pin_contract_csv": "docs/FULL_SRAM_TOP_PIN_CONTRACT.csv",
+    "control_path_authority": "docs/FULL_SRAM_CONTROL_PATH_AUTHORITY.json",
+    "entry_gate": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_TOP_ENTRY_GATE.json",
+    "column_path_generated": false,
+    "control_path_generated": false,
+    "full_floorplan_generated": false,
+    "missing_or_unready_modules": [
+      "precharge",
+      "column_mux",
+      "sense_amplifier",
+      "write_driver",
+      "control_logic",
+      "delay_chain",
+      "pdrive",
+      "wl_pdrive",
+      "pdrive2_for_pre",
+      "top_level_input_output_interface"
+    ],
+    "exact_blocking_missing_assets": {
+      "pdrive": [
+        "GDS",
+        "Pin map",
+        "DRC gate",
+        "connectivity gate",
+        "power endpoint coverage",
+        "negative suite"
+      ],
+      "wl_pdrive": [
+        "GDS",
+        "Pin map",
+        "DRC gate",
+        "connectivity gate",
+        "power endpoint coverage",
+        "negative suite"
+      ],
+      "pdrive2_for_pre": [
+        "GDS",
+        "Pin map",
+        "DRC gate",
+        "connectivity gate",
+        "power endpoint coverage",
+        "negative suite"
+      ],
+      "top_level_input_output_interface": [
+        "full physical Pin contract",
+        "TIME/write/disabled-hold functional authority"
+      ]
+    },
+    "unqualified_assets": {
+      "precharge": "GDS exists but L4/L5 top-entry verification is not closed",
+      "column_mux": "GDS exists but locked 16x16/wpr1 config conflicts with mandatory column mux use and VDD pin shape evidence is incomplete",
+      "sense_amplifier": "GDS/SPICE exist but only isolated substitution/heuristic evidence was found",
+      "write_driver": "GDS/SPICE exist but no standalone top-entry machine gate was found",
+      "control_logic": "candidate geometry exists; control physical ready remains false",
+      "delay_chain": "candidate geometry/SPICE proxy exist; placement/routing/top-use gate not closed"
+    },
+    "search_scope_exhausted": [
+      "current repository docs/outputs/source",
+      "/data1/qujh/PAPER_EVIDENCE_PACKAGE_20260713_043712.tar.gz",
+      "/data1/qujh/layoutgen_array_recovery/evidence_package",
+      "/data1/qujh/My_OpenYield/LiteRAM-Layout",
+      "/data1/qujh/work/github_exports",
+      "git history on current branch"
+    ]
+  }
 }

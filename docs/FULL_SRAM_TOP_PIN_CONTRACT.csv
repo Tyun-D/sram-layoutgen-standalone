@@ -1,0 +1,42 @@
+net_name,net_class,source_instance,source_pin,destination_instance,destination_pin,bit_index,authority_level,note
+DIN0,data_write,top_pin,DIN0,write_driver,DIN,0,AUTHORITY_PENDING,write path physical contract not closed
+DOUT0,data_read,sense_amplifier,Q,top_pin,DOUT0,0,AUTHORITY_PENDING,read path physical contract not closed
+DIN1,data_write,top_pin,DIN1,write_driver,DIN,1,AUTHORITY_PENDING,write path physical contract not closed
+DOUT1,data_read,sense_amplifier,Q,top_pin,DOUT1,1,AUTHORITY_PENDING,read path physical contract not closed
+DIN2,data_write,top_pin,DIN2,write_driver,DIN,2,AUTHORITY_PENDING,write path physical contract not closed
+DOUT2,data_read,sense_amplifier,Q,top_pin,DOUT2,2,AUTHORITY_PENDING,read path physical contract not closed
+DIN3,data_write,top_pin,DIN3,write_driver,DIN,3,AUTHORITY_PENDING,write path physical contract not closed
+DOUT3,data_read,sense_amplifier,Q,top_pin,DOUT3,3,AUTHORITY_PENDING,read path physical contract not closed
+DIN4,data_write,top_pin,DIN4,write_driver,DIN,4,AUTHORITY_PENDING,write path physical contract not closed
+DOUT4,data_read,sense_amplifier,Q,top_pin,DOUT4,4,AUTHORITY_PENDING,read path physical contract not closed
+DIN5,data_write,top_pin,DIN5,write_driver,DIN,5,AUTHORITY_PENDING,write path physical contract not closed
+DOUT5,data_read,sense_amplifier,Q,top_pin,DOUT5,5,AUTHORITY_PENDING,read path physical contract not closed
+DIN6,data_write,top_pin,DIN6,write_driver,DIN,6,AUTHORITY_PENDING,write path physical contract not closed
+DOUT6,data_read,sense_amplifier,Q,top_pin,DOUT6,6,AUTHORITY_PENDING,read path physical contract not closed
+DIN7,data_write,top_pin,DIN7,write_driver,DIN,7,AUTHORITY_PENDING,write path physical contract not closed
+DOUT7,data_read,sense_amplifier,Q,top_pin,DOUT7,7,AUTHORITY_PENDING,read path physical contract not closed
+DIN8,data_write,top_pin,DIN8,write_driver,DIN,8,AUTHORITY_PENDING,write path physical contract not closed
+DOUT8,data_read,sense_amplifier,Q,top_pin,DOUT8,8,AUTHORITY_PENDING,read path physical contract not closed
+DIN9,data_write,top_pin,DIN9,write_driver,DIN,9,AUTHORITY_PENDING,write path physical contract not closed
+DOUT9,data_read,sense_amplifier,Q,top_pin,DOUT9,9,AUTHORITY_PENDING,read path physical contract not closed
+DIN10,data_write,top_pin,DIN10,write_driver,DIN,10,AUTHORITY_PENDING,write path physical contract not closed
+DOUT10,data_read,sense_amplifier,Q,top_pin,DOUT10,10,AUTHORITY_PENDING,read path physical contract not closed
+DIN11,data_write,top_pin,DIN11,write_driver,DIN,11,AUTHORITY_PENDING,write path physical contract not closed
+DOUT11,data_read,sense_amplifier,Q,top_pin,DOUT11,11,AUTHORITY_PENDING,read path physical contract not closed
+DIN12,data_write,top_pin,DIN12,write_driver,DIN,12,AUTHORITY_PENDING,write path physical contract not closed
+DOUT12,data_read,sense_amplifier,Q,top_pin,DOUT12,12,AUTHORITY_PENDING,read path physical contract not closed
+DIN13,data_write,top_pin,DIN13,write_driver,DIN,13,AUTHORITY_PENDING,write path physical contract not closed
+DOUT13,data_read,sense_amplifier,Q,top_pin,DOUT13,13,AUTHORITY_PENDING,read path physical contract not closed
+DIN14,data_write,top_pin,DIN14,write_driver,DIN,14,AUTHORITY_PENDING,write path physical contract not closed
+DOUT14,data_read,sense_amplifier,Q,top_pin,DOUT14,14,AUTHORITY_PENDING,read path physical contract not closed
+DIN15,data_write,top_pin,DIN15,write_driver,DIN,15,AUTHORITY_PENDING,write path physical contract not closed
+DOUT15,data_read,sense_amplifier,Q,top_pin,DOUT15,15,AUTHORITY_PENDING,read path physical contract not closed
+PRE,control,top_pin,PRE,precharge.ENB,ENB,,AUTHORITY_PENDING,"active-low precharge enable metadata exists, physical handoff not closed"
+WL_EN,control,top_pin,WL_EN,wl_driver.B,B,,AUTHORITY_PENDING,"row path local proof exists, full control-source proof pending"
+S_EN,control,top_pin,S_EN,sense_amplifier.EN,EN,,AUTHORITY_PENDING,"consumer metadata exists, physical handoff not closed"
+W_EN,control,top_pin,W_EN,write_driver.EN,EN,,AUTHORITY_PENDING,"consumer metadata exists, physical handoff not closed"
+TIME,control,top_pin,TIME,control_logic,control_logic,,AUTHORITY_PENDING,schedule authority pending
+CLK,control,top_pin,CLK,DFF/DFF_BUF/control_logic,DFF/DFF_BUF/control_logic,,AUTHORITY_PENDING,clock distribution physical contract pending
+CSB,control,top_pin,CSB,control_logic,control_logic,,AUTHORITY_PENDING,control polarity metadata only
+WEB,control,top_pin,WEB,control_logic,control_logic,,AUTHORITY_PENDING,control polarity metadata only
+RBL,control,top_pin,RBL,array.replica_bitline,replica_bitline,,AUTHORITY_PENDING,"array pin exists, upper column/control connection pending"

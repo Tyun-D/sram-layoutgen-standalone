@@ -1,0 +1,14 @@
+{
+  "audit_timestamp": "2026-08-09T05:02:51Z",
+  "classification": "LEGACY_FULL_MACRO_GENERATOR_PRESERVED_HANDOFF_PACKAGING_REQUIRED",
+  "student_one_command_flow_ready": false,
+  "current_cli_ready": true,
+  "recommended_tree": ["README.md", "requirements.txt", "configs", "sram_layoutgen", "technology", "hardmacros", "scripts", "examples", "validation"],
+  "mandatory_generator_source": ["sram_layoutgen/__main__.py", "sram_layoutgen/standalone.py", "sram_layoutgen/geometry.py", "sram_layoutgen/gds_writer.py", "sram_layoutgen/gds_util.py", "sram_layoutgen/lef_writer.py", "sram_layoutgen/netlist_writer.py", "sram_layoutgen/tech.py", "sram_layoutgen/stdcell.py", "sram_layoutgen/openram_placement.py", "sram_layoutgen/occupancy.py", "sram_layoutgen/verifier.py", "sram_layoutgen/openyield_adapter/imported_helper_subset"],
+  "mandatory_hardmacros": ["technology/freepdk45/gds_lib/cell_1rw.gds", "technology/freepdk45/gds_lib/dummy_cell_1rw.gds", "technology/freepdk45/gds_lib/replica_cell_1rw.gds", "technology/freepdk45/gds_lib/dff.gds", "technology/freepdk45/gds_lib/sense_amp.gds", "technology/freepdk45/gds_lib/write_driver.gds", "technology/freepdk45/gds_lib/tri_gate.gds", "technology/freepdk45/gds_lib/openram_replacements/*.gds"],
+  "mandatory_technology_files": ["technology/freepdk45/layers.map", "technology/freepdk45/replacement_macros.json", "technology/freepdk45/openyield_repaired_macro_aliases.json"],
+  "mandatory_spice": ["technology/freepdk45/sp_lib/*.sp"],
+  "mandatory_new_packaging_items": ["README.md", "requirements.txt", "configs/sram_16x16_wpr1.json", "configs/sram_32x16_wpr1.json", "configs/sram_32x16_wpr2.json", "scripts/generate_example.sh"],
+  "optional_files": ["technology/freepdk45/tech/*.ly*", "sram_layoutgen/signoff.py", "OpenRAM reference code", "selected OpenYield validation modules"],
+  "not_mandatory_for_legacy_handoff": ["authoritative array regeneration outputs", "P2/P3 architecture outputs", "current full-top reconstruction outputs", "external OpenYield source tree"]
+}

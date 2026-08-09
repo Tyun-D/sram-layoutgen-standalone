@@ -1,0 +1,27 @@
+{
+  "audit_timestamp": "2026-08-09T05:02:51Z",
+  "entrypoint": "python -m sram_layoutgen",
+  "parameters": {
+    "word_size": {"status": "CURRENTLY_RUNNABLE", "constraint": "positive integer"},
+    "num_words": {"status": "CURRENTLY_RUNNABLE", "constraint": "positive integer"},
+    "words_per_row": {"status": "CURRENTLY_RUNNABLE", "candidate_values": [1, 2, 4, 8, 16], "constraints": ["num_words % words_per_row == 0", "num_words / words_per_row >= 16"], "default": "max legal value"},
+    "name": {"status": "CURRENTLY_RUNNABLE", "constraint": "optional string"},
+    "out": {"status": "CURRENTLY_RUNNABLE", "constraint": "output directory"},
+    "technology": {"status": "SUPPORTED_WITH_CONSTRAINTS", "value": "bundled FreePDK45 only through current CLI"},
+    "bank_count": {"status": "NOT_SUPPORTED"},
+    "openyield_adapter_flags": {"status": "PARTIAL", "note": "dataclass/internal, not CLI handoff surface"}
+  },
+  "derived_logic": {
+    "rows": "num_words // words_per_row",
+    "cols": "word_size * words_per_row",
+    "addr_bits": "max(1, (num_words - 1).bit_length())",
+    "row_addr_bits": "max(1, (rows - 1).bit_length())",
+    "col_addr_bits": "max(0, (words_per_row - 1).bit_length())"
+  },
+  "smoke_tested_configs": [
+    {"word_size": 16, "num_words": 16, "words_per_row": 1, "status": "CURRENTLY_RUNNABLE"},
+    {"word_size": 16, "num_words": 32, "words_per_row": 1, "status": "CURRENTLY_RUNNABLE"},
+    {"word_size": 16, "num_words": 32, "words_per_row": 2, "status": "CURRENTLY_RUNNABLE"}
+  ],
+  "parameterization": "true_for_single_bank_freepdk45"
+}

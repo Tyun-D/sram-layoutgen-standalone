@@ -1,0 +1,25 @@
+{
+  "audit_timestamp": "2026-08-09T05:02:51Z",
+  "python": "3.13.5",
+  "python_executable": "/opt/anaconda3/bin/python",
+  "klayout_binary": {"present": true, "version": "0.29.12", "status": "OPTIONAL"},
+  "klayout_python_api": {"present": false, "required_for_legacy_smoke": false},
+  "gdstk": {"present": true, "version": "1.0.0", "required_for_legacy_smoke": false},
+  "gdspy": {"present": true, "version": "1.6.13", "required_for_legacy_smoke": false},
+  "environment_variables": {"OPENYIELD_ROOT": "unset", "PYTHONPATH": "unset", "PDK_ROOT": "unset", "OPENRAM_HOME": "unset"},
+  "dependencies": [
+    {"item": "sram_layoutgen", "classification": "PORTABLE"},
+    {"item": "technology/freepdk45/layers.map", "classification": "PORTABLE"},
+    {"item": "technology/freepdk45/gds_lib", "classification": "NEEDS_PACKAGING"},
+    {"item": "technology/freepdk45/sp_lib", "classification": "NEEDS_PACKAGING"},
+    {"item": "technology/freepdk45/tech", "classification": "OPTIONAL"},
+    {"item": "OpenRAM source", "classification": "OPTIONAL"},
+    {"item": "OpenYield external source", "classification": "OPTIONAL_FOR_NEW_PATH"}
+  ],
+  "absolute_path_assessment": {
+    "legacy_generator_core": "PORTABLE",
+    "docs_tests_scripts_simulation": "SERVER_SPECIFIC_OR_NEEDS_PACKAGING",
+    "impact": "not blocking for default legacy CLI; requires cleanup for polished student release"
+  },
+  "handoff_blockers": ["README/config/examples/requirements packaging missing"]
+}

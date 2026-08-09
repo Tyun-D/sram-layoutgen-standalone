@@ -1,0 +1,19 @@
+{
+  "audit_timestamp": "2026-08-09T05:02:51Z",
+  "evidence_package": "/data1/qujh/PAPER_EVIDENCE_PACKAGE_20260713_043712.tar.gz",
+  "legacy_baseline_gds_inside_package": "PAPER_LAYOUTGEN_EVIDENCE_STAGING_20260713_041505/gds/legacy_baseline.gds",
+  "legacy_baseline_sha256": "80d2a37a1bc36692fde44e46cdcfcc3478b7ccdbdbd622dc1630a07de6d3eae0",
+  "legacy_top_cell": "legacy_baseline",
+  "historical_structures": 33,
+  "historical_references": 788,
+  "historical_hierarchy_depth": 5,
+  "historical_parameters": ["num_words", "word_size", "words_per_row"],
+  "historical_derived_parameters": ["rows", "cols", "addr_bits", "row_addr_bits", "col_addr_bits"],
+  "historical_modules": ["bitcell", "dummy", "replica", "precharge", "column_mux", "sense_amp", "write_driver", "tri_gate", "wordline_driver", "DFF", "INV", "NAND", "delay_inv", "control_glue"],
+  "historical_outputs": ["main_gds", "lef", "structural_spice", "layout_json", "report_json", "report_md", "presentation_gds", "debug_gds", "complete_gds", "integration_gds", "architecture_gds", "route_guide_gds", "architecture_svg", "occupancy_svg"],
+  "boundary": {
+    "openram_original_reference_path": "not the handoff target",
+    "legacy_simplified_layoutgen_path": "handoff candidate",
+    "openyield_validated_physical_integration_path": "new validation/integration path; full top still separate"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "created_at": "2026-08-09T09:55:27Z",
+  "gate": "FULL_SINGLE_BANK_SRAM_TOP_ENTRY_GATE",
+  "status": "BLOCKED_BY_MISSING_FULL_SRAM_MODULE_ASSET",
+  "can_enter_column_path_integration": false,
+  "can_enter_control_path_integration": false,
+  "can_enter_full_floorplan": false,
+  "missing_or_unready_module_count": 10,
+  "missing_or_unready_modules": [
+    "precharge",
+    "column_mux",
+    "sense_amplifier",
+    "write_driver",
+    "control_logic",
+    "delay_chain",
+    "pdrive",
+    "wl_pdrive",
+    "pdrive2_for_pre",
+    "top_level_input_output_interface"
+  ],
+  "formal_config": {
+    "num_rows": 16,
+    "num_cols": 16,
+    "word_size": 16,
+    "words_per_row": 1,
+    "bank_count": 1,
+    "column_mux_required_by_locked_config": false,
+    "column_mux_requirement_conflict": "USER_REQUEST_REQUIRES_COLUMN_MUX_BUT_LOCKED_WPR1_CONFIG_HAS_NO_MUX"
+  },
+  "row_path_physical_closure": "PASS",
+  "authoritative_array_locked": true,
+  "real_array_integration": "PASS_ROW_PATH_ONLY",
+  "functional_oracle": "FUNCTIONAL_ORACLE_PENDING_OWNER_REVIEW",
+  "formal_timing_authority": "FORMAL_TIMING_AUTHORITY_PENDING",
+  "search_scope_exhausted": [
+    "current repository docs/outputs/source",
+    "/data1/qujh/PAPER_EVIDENCE_PACKAGE_20260713_043712.tar.gz",
+    "/data1/qujh/layoutgen_array_recovery/evidence_package",
+    "/data1/qujh/My_OpenYield/LiteRAM-Layout",
+    "/data1/qujh/work/github_exports",
+    "git history on the current branch"
+  ],
+  "hard_stop_reason": "Top generation would require proxy/candidate control or column assets, which is prohibited by the current task."
+}

@@ -1,0 +1,24 @@
+{
+  "audit_timestamp": "2026-08-09T05:02:51Z",
+  "package_root": "sram_layoutgen",
+  "entrypoint": "python -m sram_layoutgen",
+  "current_head": "da41cc22109c7f6ce314b2cf038d82e086f12775",
+  "source_files": [
+    {"path": "sram_layoutgen/__main__.py", "role": "CLI/config loader", "sha256": "9d45373b171e6890d66fce0d805d89e1e5b3b3d3ec23e716dcd0b0ee15e3eb76", "git_tracked": true},
+    {"path": "sram_layoutgen/standalone.py", "role": "StandaloneSpec/build_layout/write_standalone", "sha256": "c53526acba2f1ab25606fa7a4b43f46aa00a7863ec179e6887218df327afb23e", "git_tracked": true},
+    {"path": "sram_layoutgen/tech.py", "role": "technology and hardmacro loader", "sha256": "5c296c65764a3cdc3fc7ce42bb9308b990e5c9e7ad3b0965aa1e5d15093090ed", "git_tracked": true},
+    {"path": "sram_layoutgen/gds_writer.py", "role": "GDS writer", "sha256": "86d5ab3898adf08fb7cd54956f7450d93e8c3f2b11a11155f50611c80b2cbd62", "git_tracked": true},
+    {"path": "sram_layoutgen/lef_writer.py", "role": "LEF writer", "sha256": "f9d083a4dd97ed42ba00d0773a5fe492f2bbb5f28f1a82e45f221125373a361e", "git_tracked": true},
+    {"path": "sram_layoutgen/netlist_writer.py", "role": "structural SPICE writer", "sha256": "d5436d3929c4c00c06ed4a46ca609c3ae920014a4ba0037aa10df5c17aa68cae", "git_tracked": true},
+    {"path": "sram_layoutgen/geometry.py", "role": "layout DB/pins/JSON/SVG", "sha256": "7052f636f6c8d88f0335ff9f42511962431359d350c01e87d123194ebce7ecfa", "git_tracked": true},
+    {"path": "sram_layoutgen/gds_util.py", "role": "GDS inspection", "sha256": "f6269a803a43e83c793a9a56000509522a0314e46ddce314524513f1bb8a7f52", "git_tracked": true},
+    {"path": "sram_layoutgen/verifier.py", "role": "built-in verification helpers", "sha256": "8d089649db26a150025bfd19087a426f95231302e43a7a6a2bec18aea9e69e5a", "git_tracked": true},
+    {"path": "sram_layoutgen/occupancy.py", "role": "occupancy report/SVG", "sha256": "515aa7aa995a8c6ba1c9ce3e5ff7ef5543a1e1ad4ec8dd96aa62372eb5b8ed59", "git_tracked": true},
+    {"path": "sram_layoutgen/openram_placement.py", "role": "OpenRAM-style placement helpers", "sha256": "82b2afc61f1bf6eabce6b7cda84445ef45796815343416d18967442daef66843", "git_tracked": true},
+    {"path": "sram_layoutgen/stdcell.py", "role": "generated standard-cell helper", "sha256": "5f6087b82ec40aff9bb022c79937e00c2c181504087807692a72bfd4f0f00e2c", "git_tracked": true}
+  ],
+  "required_data_files": ["technology/freepdk45/layers.map", "technology/freepdk45/replacement_macros.json", "technology/freepdk45/openyield_repaired_macro_aliases.json"],
+  "required_hardmacro_assets": ["technology/freepdk45/gds_lib", "technology/freepdk45/sp_lib"],
+  "legacy_core": ["sram_layoutgen/__main__.py", "sram_layoutgen/standalone.py", "sram_layoutgen/geometry.py", "sram_layoutgen/gds_writer.py", "sram_layoutgen/lef_writer.py", "sram_layoutgen/netlist_writer.py", "sram_layoutgen/tech.py"],
+  "current_openyield_path": ["sram_layoutgen/openyield_adapter", "outputs/openyield_*", "outputs/PROJECT_*"]
+}

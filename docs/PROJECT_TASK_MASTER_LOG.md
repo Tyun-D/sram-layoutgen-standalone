@@ -467,3 +467,23 @@
 - Complete Decoder-to-driver-to-array ngspice proxies cover 16/16 paths for both candidates. Evidence remains `NORMALIZED_GEOMETRY_RC_PROXY`, explicitly `NOT_POST_LAYOUT_PEX`.
 - Formal WL timing authority remains `TIMING_BUDGET_AUTHORITY_PENDING`; physical closure does not constitute formal timing signoff.
 - Stop classification: `PASS_REAL_ARRAY_PHYSICAL_CLOSURE_PENDING_NARROW_WL_TIMING_AUTHORITY`.
+
+## 2026-08-09 Legacy layoutgen student handoff evaluation
+
+- Scope was deliberately limited to legacy/simplified `sram_layoutgen` handoff evaluation. No authoritative array, P2/P3, or full-top development code was modified.
+- Confirmed historical `legacy_baseline.gds` in `/data1/qujh/PAPER_EVIDENCE_PACKAGE_20260713_043712.tar.gz` with SHA256 `80d2a37a1bc36692fde44e46cdcfcc3478b7ccdbdbd622dc1630a07de6d3eae0`.
+- Confirmed current generator entrypoint `python -m sram_layoutgen` and source path `sram_layoutgen/__main__.py` -> `StandaloneSpec`/`write_standalone` in `sram_layoutgen/standalone.py`.
+- Ran three current-HEAD smoke tests outside the repo under `/data1/qujh/layoutgen_handoff_evaluation/20260809T050251Z/`: `16x16_wpr1`, `32x16_wpr1`, and `32x16_wpr2`; all returned success.
+- Each smoke test regenerated main GDS, LEF, structural SPICE, layout JSON, report JSON/Markdown, presentation/debug/complete/integration/architecture/route-guide GDS, and occupancy/architecture SVG.
+- Parsed new GDS/layout outputs: generated macros preserve bitcell, dummy, replica, precharge, column mux, sense amp, write driver, tri-gate, WL driver, DFF, INV/NAND glue, delay inverter, power pins, data/control pins, and BL/BR/WL labels.
+- Parameter propagation is proven by changed rows/cols/address bits/module counts/references/bbox across the three runs.
+- Result classification: `LEGACY_FULL_MACRO_GENERATOR_PRESERVED_HANDOFF_PACKAGING_REQUIRED`.
+- Required next action is a light portable release package: README, requirements, config examples, one-command script, hardmacro asset bundle, and cleanup/annotation of server-specific historical paths.
+
+## 2026-08-09T09:56:17Z full_single_bank_sram_module_readiness_audit
+- git_branch: `project/mainline-inventory-20260726`
+- git_head: `da41cc22109c7f6ce314b2cf038d82e086f12775`
+- result: `BLOCKED_BY_MISSING_FULL_SRAM_MODULE_ASSET`; `missing_or_unready_module_count=10`; `full_top_generated=false`
+- decision: stop before column/control/full-top layout because required real module assets or top-entry gates are missing.
+- blockers: `pdrive`, `wl_pdrive`, `pdrive2_for_pre` lack GDS/Pin/machine gates; column/control modules remain unqualified for top use; full top interface/timing authority pending.
+- next_action: recover or generate versioned physical assets before entering full single-bank SRAM top generation.
