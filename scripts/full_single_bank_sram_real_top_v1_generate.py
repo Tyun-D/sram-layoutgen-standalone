@@ -102,20 +102,48 @@ def run_drc(gds: Path, top: str, out_dir: Path) -> dict[str, Any]:
     return {"returncode": result.returncode, "marker_count": markers, "passed": result.returncode == 0 and markers == 0, "database": rel(lyrdb), "log": rel(log)}
 
 
-def copy_cells(dst: gdstk.Library, src_path: Path, prefix: str, declared: bool = True) -> tuple[gdstk.Cell, tuple[float, float, float, float]]:
-    src_lib, src_top, bb = h1.read_declared_gds_top(src_path) if declared else h1.read_gds_top(src_path)
+def reachable_cell_names(top: gdstk.Cell) -> set[str]:
+    seen: set[str] = set()
+    stack = [top]
+    while stack:
+        cell = stack.pop()
+        if cell.name in seen:
+            continue
+        seen.add(cell.name)
+        for ref in cell.references:
+            if hasattr(ref.cell, "name"):
+                stack.append(ref.cell)
+    return seen
+
+
+def copy_selected_closure(dst: gdstk.Library, src_lib: gdstk.Library, src_top: gdstk.Cell, prefix: str) -> gdstk.Cell:
+    """Copy only the selected source cell's reachable closure into dst.
+
+    Whole-library namespace copying leaves unrelated source top cells in the
+    destination GDS. KLayout then presents those orphan parents as peer tops.
+    """
+    keep = reachable_cell_names(src_top)
     mapping: dict[str, gdstk.Cell] = {}
     for cell in src_lib.cells:
+        if cell.name not in keep:
+            continue
         new = cell.copy(name=f"{prefix}__{cell.name}", deep_copy=False)
         mapping[cell.name] = new
         dst.add(new)
     for old in src_lib.cells:
+        if old.name not in keep:
+            continue
         new = mapping[old.name]
         for ref in old.references:
             rn = ref.cell.name if hasattr(ref.cell, "name") else str(ref.cell)
             if rn in mapping:
                 ref.cell = mapping[rn]
-    return mapping[src_top.name], bb
+    return mapping[src_top.name]
+
+
+def copy_cells(dst: gdstk.Library, src_path: Path, prefix: str, declared: bool = True) -> tuple[gdstk.Cell, tuple[float, float, float, float]]:
+    src_lib, src_top, bb = h1.read_declared_gds_top(src_path) if declared else h1.read_gds_top(src_path)
+    return copy_selected_closure(dst, src_lib, src_top, prefix), bb
 
 
 def p2_child_cells() -> dict[str, Any]:
@@ -129,18 +157,10 @@ def p2_child_cells() -> dict[str, Any]:
 
 def import_named_cell(dst: gdstk.Library, src_path: Path, cell_name: str, prefix: str) -> tuple[gdstk.Cell, tuple[float, float, float, float]]:
     src_lib = gdstk.read_gds(str(src_path))
-    mapping: dict[str, gdstk.Cell] = {}
-    for cell in src_lib.cells:
-        new = cell.copy(name=f"{prefix}__{cell.name}", deep_copy=False)
-        mapping[cell.name] = new
-        dst.add(new)
-    for old in src_lib.cells:
-        new = mapping[old.name]
-        for ref in old.references:
-            rn = ref.cell.name if hasattr(ref.cell, "name") else str(ref.cell)
-            if rn in mapping:
-                ref.cell = mapping[rn]
-    cell = mapping[cell_name]
+    source = next((c for c in src_lib.cells if c.name == cell_name), None)
+    if source is None:
+        raise RuntimeError(cell_name)
+    cell = copy_selected_closure(dst, src_lib, source, prefix)
     bb = cell.bounding_box()
     if bb is None:
         raise RuntimeError(cell_name)

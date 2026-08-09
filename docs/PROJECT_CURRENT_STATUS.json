@@ -1,6 +1,6 @@
 {
-  "workflow_state": "PASS_FULL_SINGLE_BANK_SRAM_REAL_TOP_PHYSICAL_INTEGRATION_TO_HUMAN_REVIEW",
-  "timestamp": "2026-08-09T18:05:00Z",
+  "workflow_state": "PASS_FULL_SRAM_UNIQUE_TOP_REVIEW_PACKAGE_TO_HUMAN_REVIEW",
+  "timestamp": "2026-08-09T18:40:00Z",
   "git_branch": "project/mainline-inventory-20260726",
   "git_head": "PENDING_COMMIT",
   "trusted_master_head": "c1fbd98",
@@ -153,7 +153,7 @@
     "sha256_record_location": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz.sha256",
     "package_build_head": "62c3d663d2dc4011b9c8d06c13d080c25535a327"
   },
-  "next_stage": "Human review of full single-bank SRAM real top physical integration; formal functional/timing owner authority remains pending.",
+  "next_stage": "Human review should open clean_unique_top.gds with unique top FULL_SINGLE_BANK_SRAM_REAL_TOP_V1.",
   "current_git_head": "PENDING_COMMIT",
   "remote_branch_head": "PENDING_COMMIT",
   "latest_complete_top_package": {
@@ -452,5 +452,34 @@
     "package": "/data1/qujh/PROJECT_FULL_SINGLE_BANK_SRAM_REAL_TOP_PHYSICAL_INTEGRATION_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
     "package_sha256": "FINAL_PACKAGE_SHA_PENDING_AFTER_COMMIT",
     "package_build_head": "PENDING_COMMIT"
+  },
+  "full_sram_human_review_gds_unique_top_gate": "PASS",
+  "full_single_bank_sram_real_top_unique_review": {
+    "status": "PASS_FULL_SRAM_UNIQUE_TOP_REVIEW_PACKAGE_TO_HUMAN_REVIEW",
+    "old_gds_top_count": 12,
+    "new_gds_top_count": 1,
+    "new_top": "FULL_SINGLE_BANK_SRAM_REAL_TOP_V1",
+    "old_orphan_tops_removed": [
+      "control_child_0__control_block_hierarchical_v1_c2_timing_chain_oriented",
+      "control_child_1__control_block_hierarchical_v1_c2_timing_chain_oriented",
+      "control_child_2__control_block_hierarchical_v1_c2_timing_chain_oriented",
+      "control_child_3__control_block_hierarchical_v1_c2_timing_chain_oriented",
+      "control_child_4__control_block_hierarchical_v1_c2_timing_chain_oriented",
+      "control_child_5__control_block_hierarchical_v1_c2_timing_chain_oriented",
+      "control_child_6__control_block_hierarchical_v1_c2_timing_chain_oriented",
+      "control_child_7__control_block_hierarchical_v1_c2_timing_chain_oriented",
+      "control_child_8__control_block_hierarchical_v1_c2_timing_chain_oriented",
+      "row_decoder__P2_REAL_ARRAY_V1_integration_shell",
+      "wl_driver__P2_REAL_ARRAY_V1_integration_shell"
+    ],
+    "geometry_equivalence": true,
+    "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SINGLE_BANK_SRAM_REAL_TOP_V1_REVIEW_CLEAN/clean_unique_top.gds",
+    "gds_sha": "1d31db72f790f54f7c1b59b0ec70a43cb435a445e215b3e691db479ab7b5a151",
+    "drc_marker_count": 0,
+    "connectivity_percent": 100,
+    "power_endpoint_coverage": "100%",
+    "foreign_net": "PASS",
+    "package": "/data1/qujh/PROJECT_FULL_SINGLE_BANK_SRAM_REAL_TOP_UNIQUE_TOP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "package_sha256": "FINAL_PACKAGE_SHA_PENDING_AFTER_COMMIT"
   }
 }

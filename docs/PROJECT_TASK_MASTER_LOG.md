@@ -563,3 +563,14 @@
 - verification: KLayout/FreePDK45 combined DRC marker count `0`; required connectivity witness `100%`; power endpoint coverage `100%`; foreign-net report `PASS`; negative unexpected pass `0`.
 - boundary: `FORMAL_FUNCTIONAL_TIMING_CLOSURE=false`, `POST_LAYOUT_PEX=false`, `IR_EM_SIGNOFF=false`; pending owner authority remains `TIME_schedule`, `write_sample_point`, `disabled_hold_semantics`, and `formal_WL_timing_authority`.
 - review package: `/data1/qujh/PROJECT_FULL_SINGLE_BANK_SRAM_REAL_TOP_PHYSICAL_INTEGRATION_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`.
+
+## 2026-08-09T18:40:00Z full_sram_unique_top_review_package
+- git_branch: `project/mainline-inventory-20260726`
+- result: `PASS_FULL_SRAM_UNIQUE_TOP_REVIEW_PACKAGE_TO_HUMAN_REVIEW`
+- correction: previous real-top `clean.gds` is no longer accepted as the human-review deliverable because it exported 12 peer top-level structures. KLayout could open an orphan control parent instead of the intended SRAM top.
+- old GDS topology: top count `12`; intended top `FULL_SINGLE_BANK_SRAM_REAL_TOP_V1`; orphan parent tops include nine `control_child_*__control_block_hierarchical_v1_c2_timing_chain_oriented` entries plus `row_decoder__P2_REAL_ARRAY_V1_integration_shell` and `wl_driver__P2_REAL_ARRAY_V1_integration_shell`.
+- root-cause fix: selected-cell GDS import now copies only the selected source cell reachable closure instead of namespace-copying entire source libraries.
+- new review GDS: `outputs/PROJECT_full_single_bank_sram/FULL_SINGLE_BANK_SRAM_REAL_TOP_V1_REVIEW_CLEAN/clean_unique_top.gds`; top count `1`; unique top `FULL_SINGLE_BANK_SRAM_REAL_TOP_V1`.
+- equivalence: flattened intended-top geometry signature matches the old intended-top reachable subgraph; placement, route, pin, and power geometry are unchanged.
+- rebound verification: KLayout/FreePDK45 DRC marker count `0`; connectivity witness `100%`; power endpoint coverage `100%`; foreign-net `PASS`.
+- review package: `/data1/qujh/PROJECT_FULL_SINGLE_BANK_SRAM_REAL_TOP_UNIQUE_TOP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`.
