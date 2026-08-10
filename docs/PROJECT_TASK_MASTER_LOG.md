@@ -585,3 +585,14 @@
 - full SRAM V2: unique top `FULL_SINGLE_BANK_SRAM_REAL_TOP_V2`; GDS `outputs/PROJECT_full_single_bank_sram/FULL_SINGLE_BANK_SRAM_REAL_TOP_V2_DFF_DECODER_REPLANNED/clean_unique_top.gds`.
 - verification: KLayout/FreePDK45 DRC marker count `0`; required connectivity `100%`; power endpoint coverage `100%`; foreign-net `PASS`.
 - package: `/data1/qujh/PROJECT_FULL_SRAM_DFF_DECODER_REPLANNED_V2_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`.
+
+## 2026-08-10T00:00:00Z full_sram_true_4to16_decoder_dff_semantic_v3
+- git_branch: `project/mainline-inventory-20260726`
+- V2 correction: `PROJECT_FULL_SRAM_DFF_DECODER_REPLANNED_V2_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz` is reclassified as `HUMAN_REVIEW_REJECTED_STRUCTURAL_DECODER_MISMATCH`; the 3-to-8 `decoder_gate_cells_v3` child was incorrectly used as a full 4-to-16 decoder replacement.
+- result: `PASS_FULL_SRAM_TRUE_4TO16_DECODER_DFF_SEMANTIC_COMPACTION_V3_TO_HUMAN_REVIEW`
+- decoder: restored complete source-backed P2 4-to-16 decoder hierarchy; physical address inputs `A0..A3`; physical WL output set exactly `WL0..WL15`; missing/duplicate WL count `0`.
+- DFF: generated source-backed roles for `ADDR_DFF[0..3]`, `DATA_DFF[0..15]`, `CS_DFF_BUF`, and `WE_DFF_BUF`; added Q-to-sink semantic routes for address and data DFFs.
+- bundled DFF: explicitly audited and rejected for this checkpoint because source/physical equivalence authority is weaker than the project-qualified `DFF_TG4_INV7` binding.
+- semantic gates: row path, data/write path, read path, control path, power, and foreign-net all `PASS`.
+- verification: unique top `1`; KLayout/FreePDK45 DRC marker count `0`; power endpoint coverage `100%`; negative unexpected pass `0`; determinism `PASS`.
+- package: `/data1/qujh/PROJECT_FULL_SRAM_TRUE_4TO16_DECODER_DFF_SEMANTIC_COMPACTION_V3_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`.

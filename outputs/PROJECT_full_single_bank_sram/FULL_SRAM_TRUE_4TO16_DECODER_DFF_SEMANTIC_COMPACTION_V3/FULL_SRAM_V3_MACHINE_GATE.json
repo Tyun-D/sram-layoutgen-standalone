@@ -1,0 +1,69 @@
+{
+  "status": "PASS_FULL_SRAM_TRUE_4TO16_DECODER_DFF_SEMANTIC_COMPACTION_V3_TO_HUMAN_REVIEW",
+  "unique_top_count": 1,
+  "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_TRUE_4TO16_DECODER_DFF_SEMANTIC_COMPACTION_V3/clean_unique_top.gds",
+  "gds_sha": "13ca58e32ec8b3d2efaf51bb50555fba506d37b0b8a88ba583729e284d496c72",
+  "bbox": {
+    "width": 261.87,
+    "height": 210.655,
+    "area": 55164.2249
+  },
+  "drc": {
+    "returncode": 0,
+    "marker_count": 0,
+    "passed": true,
+    "database": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_TRUE_4TO16_DECODER_DFF_SEMANTIC_COMPACTION_V3/drc/FULL_SRAM_V3_DRC.lyrdb",
+    "log": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_TRUE_4TO16_DECODER_DFF_SEMANTIC_COMPACTION_V3/drc/FULL_SRAM_V3_DRC.log"
+  },
+  "decoder_4to16_gate": {
+    "address_input_count": 4,
+    "physical_address_inputs": [
+      "A0",
+      "A1",
+      "A2",
+      "A3"
+    ],
+    "source_address_width": 4,
+    "source_wl_count": 16,
+    "physical_unique_wl_output_count": 16,
+    "physical_wl_index_set": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "missing_wl": [],
+    "duplicate_wl": 0,
+    "passed": true
+  },
+  "dff_roles": {
+    "ADDR": 4,
+    "DATA": 16,
+    "buffered_control": 2
+  },
+  "semantic_connectivity": {
+    "ROW_PATH_SEMANTIC_CONNECTIVITY": "PASS",
+    "DATA_WRITE_PATH_SEMANTIC_CONNECTIVITY": "PASS",
+    "READ_PATH_SEMANTIC_CONNECTIVITY": "PASS",
+    "CONTROL_PATH_SEMANTIC_CONNECTIVITY": "PASS",
+    "POWER_CONNECTIVITY": "PASS",
+    "FOREIGN_NET": "PASS"
+  },
+  "power": "100%",
+  "foreign_net": "PASS",
+  "negative_unexpected_pass": 0,
+  "determinism": true,
+  "formal_timing": "PENDING"
+}

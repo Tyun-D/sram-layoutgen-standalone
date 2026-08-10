@@ -1,6 +1,6 @@
 {
-  "workflow_state": "PASS_DFF_DECODER_REPLANNED_FULL_SRAM_REAL_TOP_V2_TO_HUMAN_REVIEW",
-  "timestamp": "2026-08-09T19:20:00Z",
+  "workflow_state": "PASS_FULL_SRAM_TRUE_4TO16_DECODER_DFF_SEMANTIC_COMPACTION_V3_TO_HUMAN_REVIEW",
+  "timestamp": "2026-08-10T00:00:00Z",
   "git_branch": "project/mainline-inventory-20260726",
   "git_head": "PENDING_COMMIT",
   "trusted_master_head": "c1fbd98",
@@ -153,7 +153,7 @@
     "sha256_record_location": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz.sha256",
     "package_build_head": "62c3d663d2dc4011b9c8d06c13d080c25535a327"
   },
-  "next_stage": "Human review of DFF/decoder replanned full SRAM V2; timing/function owner authority remains pending.",
+  "next_stage": "Human review of V3 true 4-to-16 decoder and DFF semantic compaction package.",
   "current_git_head": "PENDING_COMMIT",
   "remote_branch_head": "PENDING_COMMIT",
   "latest_complete_top_package": {
@@ -516,6 +516,72 @@
       "fine_grain_placement": true
     },
     "package": "/data1/qujh/PROJECT_FULL_SRAM_DFF_DECODER_REPLANNED_V2_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "package_sha256": "FINAL_PACKAGE_SHA_PENDING_AFTER_COMMIT"
+  },
+  "v2_human_review_status": "HUMAN_REVIEW_REJECTED_STRUCTURAL_DECODER_MISMATCH",
+  "v2_rejection_reason": "REJECT_V2_DUE_TO_DECODER_STRUCTURAL_MISMATCH_AND_DFF_SEMANTIC_PLACEMENT_GAPS",
+  "full_sram_true_4to16_decoder_dff_semantic_v3": {
+    "status": "PASS_FULL_SRAM_TRUE_4TO16_DECODER_DFF_SEMANTIC_COMPACTION_V3_TO_HUMAN_REVIEW",
+    "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_TRUE_4TO16_DECODER_DFF_SEMANTIC_COMPACTION_V3/clean_unique_top.gds",
+    "gds_sha": "13ca58e32ec8b3d2efaf51bb50555fba506d37b0b8a88ba583729e284d496c72",
+    "bbox": {
+      "width": 261.87,
+      "height": 210.655,
+      "area": 55164.2249
+    },
+    "drc_marker_count": 0,
+    "decoder_4to16_gate": {
+      "address_input_count": 4,
+      "physical_address_inputs": [
+        "A0",
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "source_address_width": 4,
+      "source_wl_count": 16,
+      "physical_unique_wl_output_count": 16,
+      "physical_wl_index_set": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "missing_wl": [],
+      "duplicate_wl": 0,
+      "passed": true
+    },
+    "dff_roles": {
+      "ADDR": 4,
+      "DATA": 16,
+      "buffered_control": 2
+    },
+    "semantic_connectivity": {
+      "ROW_PATH_SEMANTIC_CONNECTIVITY": "PASS",
+      "DATA_WRITE_PATH_SEMANTIC_CONNECTIVITY": "PASS",
+      "READ_PATH_SEMANTIC_CONNECTIVITY": "PASS",
+      "CONTROL_PATH_SEMANTIC_CONNECTIVITY": "PASS",
+      "POWER_CONNECTIVITY": "PASS",
+      "FOREIGN_NET": "PASS"
+    },
+    "power": "100%",
+    "foreign_net": "PASS",
+    "negative_unexpected_pass": 0,
+    "determinism": true,
+    "formal_timing": "PENDING",
+    "package": "/data1/qujh/PROJECT_FULL_SRAM_TRUE_4TO16_DECODER_DFF_SEMANTIC_COMPACTION_V3_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
     "package_sha256": "FINAL_PACKAGE_SHA_PENDING_AFTER_COMMIT"
   }
 }
