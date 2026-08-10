@@ -1,0 +1,1841 @@
+{
+  "array": {
+    "bitline_pitch_um": 0.705,
+    "pin_map": "outputs/PROJECT_bitcell_array_layoutgen_reuse_v2/pin_map.json",
+    "row_pitch_source": "authoritative array locked value; WL y-pitch extraction not available from x-only helper",
+    "row_pitch_um": 1.565
+  },
+  "column_banks": {
+    "current_architecture": "even_odd_2row",
+    "policy": "retain Bank V2; do not redesign units unless exact-topology pitch gate proves need",
+    "precharge_even_odd_2row_v2": {
+      "area_um2": 53.95425,
+      "bbox": [
+        0.0,
+        0.0,
+        11.2875,
+        4.78
+      ],
+      "height_um": 4.78,
+      "path": "outputs/PROJECT_full_single_bank_sram/real_hierarchical_floorplan_v2/physical_banks/precharge_even_odd_2row_v2/clean.gds",
+      "sha256": "063e37376a3db48d5d64f2ab25f6f036571b69a0a863f035abf843a80319adc0",
+      "structure_count": 8,
+      "top_cell": "precharge_even_odd_2row_v2",
+      "width_um": 11.2875
+    },
+    "sense_amp_even_odd_2row_v2": {
+      "area_um2": 159.127,
+      "bbox": [
+        0.0,
+        0.0,
+        11.35,
+        14.02
+      ],
+      "height_um": 14.02,
+      "path": "outputs/PROJECT_full_single_bank_sram/real_hierarchical_floorplan_v2/physical_banks/sense_amp_even_odd_2row_v2/clean.gds",
+      "sha256": "819433bc0d8e4e8a089c78d2ffd5d55e90f58724759f31cf2ef2ecb3750e5689",
+      "structure_count": 2,
+      "top_cell": "sense_amp_even_odd_2row_v2",
+      "width_um": 11.35
+    },
+    "write_driver_even_odd_2row_v2": {
+      "area_um2": 118.14525,
+      "bbox": [
+        0.0,
+        0.0,
+        11.415,
+        10.35
+      ],
+      "height_um": 10.35,
+      "path": "outputs/PROJECT_full_single_bank_sram/real_hierarchical_floorplan_v2/physical_banks/write_driver_even_odd_2row_v2/clean.gds",
+      "sha256": "0b54dd2b5b2ba9ff8fecfe1c76f06ab9e506bfe34b7a6c67988c1943c0c0b9ce",
+      "structure_count": 2,
+      "top_cell": "write_driver_even_odd_2row_v2",
+      "width_um": 11.415
+    }
+  },
+  "decoder": {
+    "current_status": "complete 4to16 restored but internal 2D/orientation compaction remains future V5 work",
+    "same_pdk_optimization_potential": [
+      "reuse historical L0 orientation/abutment matrix for current FreePDK45 INV/AND/NAND gates",
+      "flatten physical placement granularity below three-stage macros without altering 4to16 logic",
+      "evaluate current-PDK optimized gates only after function/DRC/connectivity gates pass"
+    ],
+    "v41_decoder_refs": [
+      {
+        "area_um2": 728.5,
+        "bbox": [
+          2.0,
+          0.5,
+          49.0,
+          16.0
+        ],
+        "height_um": 15.5,
+        "name": "decoder_v4_complete_4to16_folded_2d",
+        "origin_x": 8.0,
+        "origin_y": 43.0,
+        "rotation": 0.0,
+        "width_um": 47.0,
+        "x_reflection": false
+      }
+    ]
+  },
+  "dff": {
+    "DFF_BUF": {
+      "area_um2": 100.91565,
+      "bbox": [
+        -0.45,
+        0.0,
+        17.865,
+        5.51
+      ],
+      "height_um": 5.51,
+      "path": "outputs/Wave3_DFF_BUF_human_review_seal/_readonly_probe/DFF_BUF_FPDK45_6058eaf43739_HPA1/DFF_BUF_FPDK45_6058eaf43739_HPA1.gds",
+      "sha256": "f80dbdb1b9f5852c90801cdbee823db945a64693f4e4bec53381d533b48d6299",
+      "structure_count": 38,
+      "top_cell": "DFF_BUF_FPDK45_6058eaf43739_HPA1",
+      "width_um": 18.315
+    },
+    "DFF_TG4_INV7": {
+      "area_um2": 58.450613,
+      "bbox": [
+        -0.0725,
+        0.0,
+        13.6725,
+        4.2525
+      ],
+      "height_um": 4.2525,
+      "path": "outputs/M12C4AC_dff_connectivity_repair/current_supported_config/DFF_TG4_INV7_FPDK45_26d9543b82b7/DFF_TG4_INV7_FPDK45_26d9543b82b7.gds",
+      "sha256": "f6995536077a191c31e10644bbfcfb4075cda64b7da131987c70a59353c4e45d",
+      "structure_count": 19,
+      "top_cell": "DFF_TG4_INV7_FPDK45_26d9543b82b7",
+      "width_um": 13.745
+    },
+    "bundled_freepdk45_dff": {
+      "area_um2": 7.6362,
+      "bbox": [
+        0.0,
+        -0.1,
+        2.86,
+        2.57
+      ],
+      "current_authority": "NOT_AUTHORIZED_FOR_OPENYIELD_ADDR_DATA_REPLACEMENT_IN_THIS_EXPLORATION",
+      "height_um": 2.67,
+      "path": "technology/freepdk45/gds_lib/dff.gds",
+      "reason": "V4 equivalence was revoked; this round does not introduce a new valid A/B equivalence proof.",
+      "sha256": "4da01ddcf4739ae1e9ad51442b739d67ef3f29561eec63a0bf505568502f9a19",
+      "structure_count": 1,
+      "top_cell": "dff",
+      "width_um": 2.86
+    },
+    "v41_core_dff_arrangement": {
+      "count": 20,
+      "unique_x": [
+        -4.0,
+        10.165,
+        24.33,
+        38.495,
+        55.0,
+        69.165,
+        83.33,
+        97.495,
+        111.66,
+        125.825,
+        139.99,
+        154.155
+      ],
+      "unique_y": [
+        -16.0,
+        -11.2675,
+        34.0
+      ],
+      "x_diffs": [
+        14.165,
+        14.165,
+        14.165,
+        16.505,
+        14.165,
+        14.165,
+        14.165,
+        14.165,
+        14.165,
+        14.165,
+        14.165
+      ],
+      "y_diffs": [
+        4.7325,
+        45.2675
+      ]
+    }
+  },
+  "git_head": "6612256348a5a9d6d52a86e5bbf21b931617b22b",
+  "pdk_policy": {
+    "external_standard_cell_library_used_in_final_candidates": false,
+    "forbidden_external_libraries": [
+      "Nangate45",
+      "SKY130",
+      "GF180",
+      "ASAP7"
+    ],
+    "pdk": "technology/freepdk45",
+    "pdk_changed": false
+  },
+  "source_gds": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41/clean_unique_top.gds",
+  "source_gds_sha256": "5f48d1de1ab31091a7ded24e3721b9c4afbbfd3e8ad75fff6a351a08539fda6f",
+  "timestamp": "2026-08-10T19:04:49.048704+00:00",
+  "v41_final_gds": {
+    "decoder_refs": [
+      {
+        "area_um2": 728.5,
+        "bbox": [
+          2.0,
+          0.5,
+          49.0,
+          16.0
+        ],
+        "height_um": 15.5,
+        "name": "decoder_v4_complete_4to16_folded_2d",
+        "origin_x": 8.0,
+        "origin_y": 43.0,
+        "rotation": 0.0,
+        "width_um": 47.0,
+        "x_reflection": false
+      }
+    ],
+    "dff_buf_refs": [
+      {
+        "area_um2": 100.91565,
+        "bbox": [
+          -0.45,
+          0.0,
+          17.865,
+          5.51
+        ],
+        "height_um": 5.51,
+        "name": "control_child_0__DFF_BUF_FPDK45_6058eaf43739_HPA1",
+        "origin_x": 49.0,
+        "origin_y": 17.5,
+        "rotation": 0.0,
+        "width_um": 18.315,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 100.91565,
+        "bbox": [
+          -0.45,
+          0.0,
+          17.865,
+          5.51
+        ],
+        "height_um": 5.51,
+        "name": "control_child_0__DFF_BUF_FPDK45_6058eaf43739_HPA1",
+        "origin_x": 70.0,
+        "origin_y": 17.5,
+        "rotation": 0.0,
+        "width_um": 18.315,
+        "x_reflection": false
+      }
+    ],
+    "dff_core_refs": [
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": -4.0,
+        "origin_y": 34.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 10.165,
+        "origin_y": 34.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 24.33,
+        "origin_y": 34.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 38.495,
+        "origin_y": 34.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 55.0,
+        "origin_y": -16.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 69.165,
+        "origin_y": -16.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 83.33,
+        "origin_y": -16.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 97.495,
+        "origin_y": -16.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 111.66,
+        "origin_y": -16.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 125.825,
+        "origin_y": -16.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 139.99,
+        "origin_y": -16.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 154.155,
+        "origin_y": -16.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 55.0,
+        "origin_y": -11.2675,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 69.165,
+        "origin_y": -11.2675,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 83.33,
+        "origin_y": -11.2675,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 97.495,
+        "origin_y": -11.2675,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 111.66,
+        "origin_y": -11.2675,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 125.825,
+        "origin_y": -11.2675,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 139.99,
+        "origin_y": -11.2675,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 154.155,
+        "origin_y": -11.2675,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      }
+    ],
+    "precharge_refs": [
+      {
+        "area_um2": 53.95425,
+        "bbox": [
+          0.0,
+          0.0,
+          11.2875,
+          4.78
+        ],
+        "height_um": 4.78,
+        "name": "precharge_aligned_v41__precharge_even_odd_2row_v2",
+        "origin_x": 72.345,
+        "origin_y": 79.285,
+        "rotation": 0.0,
+        "width_um": 11.2875,
+        "x_reflection": false
+      }
+    ],
+    "references": [
+      {
+        "area_um2": 401.240525,
+        "bbox": [
+          0.0,
+          0.0,
+          15.265,
+          26.285
+        ],
+        "height_um": 26.285,
+        "name": "array__sram_capped_replica_bitcell_array",
+        "origin_x": 70.0,
+        "origin_y": 45.0,
+        "rotation": 0.0,
+        "width_um": 15.265,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 63.0,
+        "origin_y": 46.1,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 65.9,
+        "origin_y": 47.665,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 63.0,
+        "origin_y": 49.23,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 65.9,
+        "origin_y": 50.795,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 63.0,
+        "origin_y": 52.36,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 65.9,
+        "origin_y": 53.925,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 63.0,
+        "origin_y": 55.49,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 65.9,
+        "origin_y": 57.055,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 63.0,
+        "origin_y": 58.62,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 65.9,
+        "origin_y": 60.185,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 63.0,
+        "origin_y": 61.75,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 65.9,
+        "origin_y": 63.315,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 63.0,
+        "origin_y": 64.88,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 65.9,
+        "origin_y": 66.445,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 63.0,
+        "origin_y": 68.01,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 65.9,
+        "origin_y": 69.575,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 53.95425,
+        "bbox": [
+          0.0,
+          0.0,
+          11.2875,
+          4.78
+        ],
+        "height_um": 4.78,
+        "name": "precharge_aligned_v41__precharge_even_odd_2row_v2",
+        "origin_x": 72.345,
+        "origin_y": 79.285,
+        "rotation": 0.0,
+        "width_um": 11.2875,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 159.127,
+        "bbox": [
+          0.0,
+          0.0,
+          11.35,
+          14.02
+        ],
+        "height_um": 14.02,
+        "name": "sense_aligned_v41__sense_amp_even_odd_2row_v2",
+        "origin_x": 72.3075,
+        "origin_y": 22.98,
+        "rotation": 0.0,
+        "width_um": 11.35,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 118.14525,
+        "bbox": [
+          0.0,
+          0.0,
+          11.415,
+          10.35
+        ],
+        "height_um": 10.35,
+        "name": "write_aligned_v41__write_driver_even_odd_2row_v2",
+        "origin_x": 72.2425,
+        "origin_y": 4.63,
+        "rotation": 0.0,
+        "width_um": 11.415,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 728.5,
+        "bbox": [
+          2.0,
+          0.5,
+          49.0,
+          16.0
+        ],
+        "height_um": 15.5,
+        "name": "decoder_v4_complete_4to16_folded_2d",
+        "origin_x": 8.0,
+        "origin_y": 43.0,
+        "rotation": 0.0,
+        "width_um": 47.0,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": -4.0,
+        "origin_y": 34.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 10.165,
+        "origin_y": 34.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 24.33,
+        "origin_y": 34.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 38.495,
+        "origin_y": 34.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 55.0,
+        "origin_y": -16.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 69.165,
+        "origin_y": -16.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 83.33,
+        "origin_y": -16.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 97.495,
+        "origin_y": -16.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 111.66,
+        "origin_y": -16.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 125.825,
+        "origin_y": -16.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 139.99,
+        "origin_y": -16.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 154.155,
+        "origin_y": -16.0,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 55.0,
+        "origin_y": -11.2675,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 69.165,
+        "origin_y": -11.2675,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 83.33,
+        "origin_y": -11.2675,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 97.495,
+        "origin_y": -11.2675,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 111.66,
+        "origin_y": -11.2675,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 125.825,
+        "origin_y": -11.2675,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 139.99,
+        "origin_y": -11.2675,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 58.450613,
+        "bbox": [
+          -0.0725,
+          0.0,
+          13.6725,
+          4.2525
+        ],
+        "height_um": 4.2525,
+        "name": "dff_core_v41__DFF_TG4_INV7_FPDK45_26d9543b82b7",
+        "origin_x": 154.155,
+        "origin_y": -11.2675,
+        "rotation": 0.0,
+        "width_um": 13.745,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 100.91565,
+        "bbox": [
+          -0.45,
+          0.0,
+          17.865,
+          5.51
+        ],
+        "height_um": 5.51,
+        "name": "control_child_0__DFF_BUF_FPDK45_6058eaf43739_HPA1",
+        "origin_x": 49.0,
+        "origin_y": 17.5,
+        "rotation": 0.0,
+        "width_um": 18.315,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 100.91565,
+        "bbox": [
+          -0.45,
+          0.0,
+          17.865,
+          5.51
+        ],
+        "height_um": 5.51,
+        "name": "control_child_0__DFF_BUF_FPDK45_6058eaf43739_HPA1",
+        "origin_x": 70.0,
+        "origin_y": 17.5,
+        "rotation": 0.0,
+        "width_um": 18.315,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 14.845187,
+        "bbox": [
+          0.0,
+          0.0,
+          7.865,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "control_child_1__PDRIVE_FPDK45",
+        "origin_x": -22.0,
+        "origin_y": 94.0,
+        "rotation": 0.0,
+        "width_um": 7.865,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 1.505281,
+        "bbox": [
+          -0.055,
+          -0.0325,
+          0.7425,
+          1.855
+        ],
+        "height_um": 1.8875,
+        "name": "control_child_2__PINV_NW90_PW270_L50",
+        "origin_x": 27.0,
+        "origin_y": 94.0,
+        "rotation": 0.0,
+        "width_um": 0.7975,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "control_child_3__AND2_PNAND2_PINV_FPDK45",
+        "origin_x": 34.0,
+        "origin_y": 94.0,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "control_child_3__AND2_PNAND2_PINV_FPDK45",
+        "origin_x": 42.0,
+        "origin_y": 78.0,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.048687,
+        "bbox": [
+          0.0,
+          0.0,
+          2.145,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "control_child_4__WL_PDRIVE_FPDK45",
+        "origin_x": 52.0,
+        "origin_y": 78.0,
+        "rotation": 0.0,
+        "width_um": 2.145,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 1.505281,
+        "bbox": [
+          -0.055,
+          -0.0325,
+          0.7425,
+          1.855
+        ],
+        "height_um": 1.8875,
+        "name": "control_child_2__PINV_NW90_PW270_L50",
+        "origin_x": 70.0,
+        "origin_y": 86.0,
+        "rotation": 0.0,
+        "width_um": 0.7975,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 94.329,
+        "bbox": [
+          0.0,
+          0.0,
+          44.6,
+          2.115
+        ],
+        "height_um": 2.115,
+        "name": "control_child_5__DELAY_CHAIN_FPDK45",
+        "origin_x": 78.0,
+        "origin_y": 86.0,
+        "rotation": 0.0,
+        "width_um": 44.6,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 1.505281,
+        "bbox": [
+          -0.055,
+          -0.0325,
+          0.7425,
+          1.855
+        ],
+        "height_um": 1.8875,
+        "name": "control_child_2__PINV_NW90_PW270_L50",
+        "origin_x": 86.0,
+        "origin_y": 11.0,
+        "rotation": 0.0,
+        "width_um": 0.7975,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.728187,
+        "bbox": [
+          0.0,
+          0.0,
+          2.505,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "control_child_6__AND3_PNAND3_PINV_FPDK45",
+        "origin_x": 86.0,
+        "origin_y": 29.0,
+        "rotation": 0.0,
+        "width_um": 2.505,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.728187,
+        "bbox": [
+          0.0,
+          0.0,
+          2.505,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "control_child_6__AND3_PNAND3_PINV_FPDK45",
+        "origin_x": 93.0,
+        "origin_y": 11.0,
+        "rotation": 0.0,
+        "width_um": 2.505,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 2.562281,
+        "bbox": [
+          -0.055,
+          -0.0325,
+          1.3025,
+          1.855
+        ],
+        "height_um": 1.8875,
+        "name": "control_child_7__PNAND3_NW180_PW270_L50_FPDK45",
+        "origin_x": 93.0,
+        "origin_y": 29.0,
+        "rotation": 0.0,
+        "width_um": 1.3575,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 3.529625,
+        "bbox": [
+          0.0,
+          0.0,
+          1.87,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "control_child_8__PDRIVE2_FOR_PRE_FPDK45",
+        "origin_x": 104.0,
+        "origin_y": 29.0,
+        "rotation": 0.0,
+        "width_um": 1.87,
+        "x_reflection": false
+      }
+    ],
+    "sense_amp_refs": [
+      {
+        "area_um2": 159.127,
+        "bbox": [
+          0.0,
+          0.0,
+          11.35,
+          14.02
+        ],
+        "height_um": 14.02,
+        "name": "sense_aligned_v41__sense_amp_even_odd_2row_v2",
+        "origin_x": 72.3075,
+        "origin_y": 22.98,
+        "rotation": 0.0,
+        "width_um": 11.35,
+        "x_reflection": false
+      }
+    ],
+    "structure_count": 1716,
+    "top_bbox": {
+      "area_um2": 21255.268375,
+      "bbox": [
+        -22.0,
+        -16.0,
+        167.97,
+        95.8875
+      ],
+      "height_um": 111.8875,
+      "width_um": 189.97
+    },
+    "top_cell": "FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41",
+    "top_level_cells": [
+      "FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41"
+    ],
+    "top_ref_count": 55,
+    "wl_driver_refs": [
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 63.0,
+        "origin_y": 46.1,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 65.9,
+        "origin_y": 47.665,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 63.0,
+        "origin_y": 49.23,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 65.9,
+        "origin_y": 50.795,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 63.0,
+        "origin_y": 52.36,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 65.9,
+        "origin_y": 53.925,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 63.0,
+        "origin_y": 55.49,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 65.9,
+        "origin_y": 57.055,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 63.0,
+        "origin_y": 58.62,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 65.9,
+        "origin_y": 60.185,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 63.0,
+        "origin_y": 61.75,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 65.9,
+        "origin_y": 63.315,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 63.0,
+        "origin_y": 64.88,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 65.9,
+        "origin_y": 66.445,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 63.0,
+        "origin_y": 68.01,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      },
+      {
+        "area_um2": 4.077,
+        "bbox": [
+          0.0,
+          0.0,
+          2.16,
+          1.8875
+        ],
+        "height_um": 1.8875,
+        "name": "wl_driver__wl_driver__wordline_driver_v2",
+        "origin_x": 65.9,
+        "origin_y": 69.575,
+        "rotation": 0.0,
+        "width_um": 2.16,
+        "x_reflection": false
+      }
+    ],
+    "write_driver_refs": [
+      {
+        "area_um2": 118.14525,
+        "bbox": [
+          0.0,
+          0.0,
+          11.415,
+          10.35
+        ],
+        "height_um": 10.35,
+        "name": "write_aligned_v41__write_driver_even_odd_2row_v2",
+        "origin_x": 72.2425,
+        "origin_y": 4.63,
+        "rotation": 0.0,
+        "width_um": 11.415,
+        "x_reflection": false
+      }
+    ]
+  },
+  "wl_driver": {
+    "current_bbox": {
+      "area_um2": 4.077,
+      "bbox": [
+        0.0,
+        0.0,
+        2.16,
+        1.8875
+      ],
+      "height_um": 1.8875,
+      "path": "outputs/PROJECT_wordline_driver_v2_regen/current_supported_config/wordline_driver_v2.gds",
+      "sha256": "d88cd3d15b7306faf8f932455b55f48e85cdf872f786b988dbab22cc5853291f",
+      "structure_count": 20,
+      "top_cell": "wordline_driver_v2",
+      "width_um": 2.16
+    },
+    "current_gds": "outputs/PROJECT_wordline_driver_v2_regen/current_supported_config/wordline_driver_v2.gds",
+    "current_height_vs_array_row_pitch": 1.20607,
+    "current_issue": "height exceeds array row pitch; exact-topology compact cell required before single-column one-driver-per-row can be authorized",
+    "current_one_driver_per_row_feasible": false,
+    "is_staggered_double_column": true,
+    "top_instances_in_v41": 16,
+    "v41_arrangement": {
+      "count": 16,
+      "unique_x": [
+        63.0,
+        65.9
+      ],
+      "unique_y": [
+        46.1,
+        47.665,
+        49.23,
+        50.795,
+        52.36,
+        53.925,
+        55.49,
+        57.055,
+        58.62,
+        60.185,
+        61.75,
+        63.315,
+        64.88,
+        66.445,
+        68.01,
+        69.575
+      ],
+      "x_diffs": [
+        2.9
+      ],
+      "y_diffs": [
+        1.565,
+        1.565,
+        1.565,
+        1.565,
+        1.565,
+        1.565,
+        1.565,
+        1.565,
+        1.565,
+        1.565,
+        1.565,
+        1.565,
+        1.565,
+        1.565,
+        1.565
+      ]
+    }
+  }
+}

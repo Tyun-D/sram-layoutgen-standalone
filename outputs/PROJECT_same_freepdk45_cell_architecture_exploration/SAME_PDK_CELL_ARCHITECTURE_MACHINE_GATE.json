@@ -1,0 +1,23 @@
+{
+  "current_baseline_assets_locked": true,
+  "external_standard_cell_library_used_in_final_candidates": false,
+  "formal_integration_candidates": [
+    "CURRENT_BASELINE retained"
+  ],
+  "lclayout": {
+    "adapter": "experiments/lclayout/freepdk45_current_project_tech.py",
+    "formal_candidate_allowed": false,
+    "installed": false,
+    "reason": "NOT_INSTALLED"
+  },
+  "official_full_sram_top_modified": false,
+  "pdk_changed": false,
+  "recommended_next_experiments": [
+    "project-native exact-topology WL_DRIVER_COMPACT_CELL height<=array_row_pitch",
+    "project-native exact-topology DFF_TG4_INV7 compactor",
+    "FreePDK45 LCLayout adapter rule closure before any LCLayout GDS candidate",
+    "decoder fine-grain 2D placement using current FreePDK45 optimized gate candidates only after their leaf gates pass"
+  ],
+  "same_pdk_replacement_authorized_this_round": false,
+  "status": "PASS_SAME_FREEPDK45_CELL_ARCHITECTURE_EXPLORATION_TO_HUMAN_REVIEW"
+}

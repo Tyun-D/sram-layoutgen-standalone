@@ -1,85 +1,64 @@
 {
-  "workflow_state": "PASS_FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41_TO_HUMAN_REVIEW",
-  "timestamp": "2026-08-10T00:00:00Z",
-  "git_branch": "project/mainline-inventory-20260726",
-  "git_head": "PENDING_COMMIT",
-  "trusted_master_head": "c1fbd98",
-  "remote_master_head_last_known": "489f3e04e85197a6501e48168627a7b8a9232550",
-  "team_b_state": "TEAM_B_OWNER_HUMAN_REVIEWED_MERGED_TO_MAINLINE",
-  "formal_config_count": 10,
-  "decoder_status": "P2_PROVISIONAL_PREFERRED_P3_RETAINED_ALTERNATIVE",
+  "abstract_bounded_floorplan_reclassification": {
+    "abstract_bounded_floorplan_model": "PASS",
+    "detailed_routing": "NOT_STARTED",
+    "old_F0_F4": "HUMAN_REJECTED_ARCHITECTURE_BASELINE",
+    "real_hierarchical_floorplan_generated": "YES_CURRENT_STAGE"
+  },
+  "array_gds_sha": "555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac",
   "array_integration_level": "REAL_BITCELL_ARRAY_GDS",
-  "full_bitcell_array_gds_integration": true,
-  "formal_wl_timing": "PENDING",
-  "current_rc_evidence": "NORMALIZED_GEOMETRY_RC_PROXY",
-  "wl_routing_status": "WL_ROUTING_ENGINEERING_PROXY_COMPLETE",
-  "real_bitcell_array_physical_integration": "PHYSICAL_CLOSURE_COMPLETE_FORMAL_TIMING_AUTHORITY_PENDING",
-  "layoutgen_reuse_contract": "LOAD_GATE_CLOSED_MANDATORY_FOR_NEW_CANDIDATES",
-  "decoder_orientation_search": "INCOMPLETE",
-  "wl_driver_abutment_search": "INCOMPLETE",
-  "final_sram_physical_architecture": "NOT_APPROVED",
+  "authoritative_array_status": "AUTHORITATIVE_ARRAY_ASSET_REGENERATED",
+  "authoritative_bitcell_array": "LOCKED",
+  "bounded_floorplan_alternative": "SRAM_BOUNDED_V2_S0_CLASSIC_COMPACT",
+  "bounded_floorplan_recommended": "SRAM_BOUNDED_V2_S5_AUTOMATED_PARETO",
+  "compactness_constraint": "CLOSED_FOR_FLOORPLAN_REVIEW",
+  "control_block_physical_authority": "READY",
+  "control_physical_architecture": "IN_CONTEXT_CONTROL_CLUSTERS_ROUTED",
+  "current_git_head": "PENDING_COMMIT",
+  "current_normalized_rc_max_over_median": 1.4617223037,
   "current_proxy_max_arrival_skew_ps": 0.15823,
   "current_proxy_slew_ratio": 1.0099272309,
-  "current_normalized_rc_max_over_median": 1.4617223037,
-  "wl_timing_engineering_closure": {
-    "recommended_local_candidate": "T3_driver_column_spacing_pareto",
-    "machine_green_local_candidate_count": 1,
-    "timing_authority": "PENDING",
-    "rc_evidence_level": "NORMALIZED_GEOMETRY_RC_PROXY",
-    "not_post_layout_pex": true,
-    "authority_review_packet": "docs/WL_TIMING_AUTHORITY_REVIEW_PACKET.json",
-    "array_authority_lock": "docs/BITCELL_ARRAY_PHYSICAL_AUTHORITY_LOCK.json"
+  "current_rc_evidence": "NORMALIZED_GEOMETRY_RC_PROXY",
+  "decoder_hierarchical_floorplan": {
+    "candidate_count": 0,
+    "child_v3_pareto_path": "docs/DECODER_CHILD_V3_PARETO_SET.json",
+    "full_evidence_package": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
+    "human_review_package": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "l0_completion_gate_path": "docs/DECODER_L0_COMPLETION_GATE.json",
+    "l0_golden_lock_path": "docs/DECODER_L0_GOLDEN_LOCK.json",
+    "selected_candidates": [],
+    "status_audit": {
+      "child_v3_status": "CHILD_V3_GEOMETRY_NOT_YET_GENERATED",
+      "false_ready_audit_timestamp": "2026-07-31T16:05:00Z",
+      "false_ready_reasons": [
+        "child score table only had baseline child entries passing while non-baseline templates were NOT_RUN with NO_REGENERATED_GEOMETRY_THIS_ROUND",
+        "child Pareto JSON only contained baseline_strip rows and no real compact or WL-oriented child-v3 geometries",
+        "human review and full evidence packages did not include candidate clean GDS, review atlas GDS, or DRC lyrdb for compact or WL-oriented top candidates",
+        "candidate_a_compact_folded and candidate_b_wl_oriented existed only in status and log records without geometry SHA or machine gate evidence"
+      ],
+      "human_review_status": "HUMAN_REVIEW_NOT_READY",
+      "l0_status": "DECODER_L0_ABUTMENT_MATRIX_COMPLETE"
+    }
   },
-  "layoutgen_reuse_closure": {
-    "audit": "docs/LAYOUTGEN_EXISTING_ACHIEVEMENT_AUDIT.json",
-    "contract": "docs/LAYOUTGEN_PHYSICAL_REUSE_CONTRACT.json",
-    "contract_gate": "scripts/project_layoutgen_reuse_contract_gate.py",
-    "contract_load_report": "outputs/PROJECT_bitcell_array_layoutgen_reuse_v2/REUSE_CONTRACT_LOAD_REPORT.json",
-    "authority_conclusion": "AUTHORITATIVE_ARRAY_ASSET_REGENERATED",
-    "paper_evidence_package_sha256": "4eb62c04deb83eb64f5c07d1ba1a3700bbf47516f9c37da608fcbf806ca275c1",
-    "full_bitcell_array_gds_integrated": false,
-    "authoritative_array_gds": "outputs/PROJECT_bitcell_array_layoutgen_reuse_v2/clean.gds",
-    "authoritative_array_gds_sha256": "555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac",
-    "authoritative_array_top_cell": "sram_capped_replica_bitcell_array",
-    "authoritative_array_machine_gate_passed": true,
-    "new_architecture_review_package_generated": false
-  },
-  "authoritative_array_status": "AUTHORITATIVE_ARRAY_ASSET_REGENERATED",
-  "array_gds_sha": "555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac",
-  "standalone_array_machine_gate": "PASS_AUTHORITATIVE_ARRAY_MACHINE_GATE",
-  "real_decoder_wl_driver_array_integration": "PASS_REAL_ARRAY_PHYSICAL_CLOSURE_PENDING_NARROW_WL_TIMING_AUTHORITY",
-  "real_array_integration_closure": {
-    "recommended_candidate": "P2_REAL_ARRAY_V1",
-    "retained_alternative": "P3_REAL_ARRAY_V1",
-    "machine_green_candidate_count": 2,
-    "authoritative_array_gds_sha256": "555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac",
-    "combined_drc_marker_count_each": 0,
-    "power_endpoint_coverage_each": "868/868",
-    "connectivity": true,
-    "foreign_net": true,
-    "pin_access": true,
-    "wl_bit_exact": true,
-    "determinism_a_b": true,
-    "negative_unexpected_pass_count": 0,
-    "full_path_ngspice_proxy_completed": true,
-    "rc_evidence_level": "NORMALIZED_GEOMETRY_RC_PROXY",
-    "not_post_layout_pex": true,
-    "formal_timing_authority": "TIMING_BUDGET_AUTHORITY_PENDING"
-  },
+  "decoder_integration_closure_state": "INTERFACE_ROUTING_HARNESS_MACHINE_PASS_FINAL_SRAM_PHYSICAL_ARCHITECTURE_NOT_APPROVED",
+  "decoder_integration_full_package": "/data1/qujh/PROJECT_TRUE_MULTILINE_DECODER_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
+  "decoder_integration_human_package": "/data1/qujh/PROJECT_TRUE_MULTILINE_DECODER_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+  "decoder_integration_human_review_ready": false,
+  "decoder_integration_recommended_candidate": "candidate_true_wl_driver_array_oriented",
+  "decoder_orientation_search": "INCOMPLETE",
   "decoder_rebuild_status": {
-    "historical_24_marker_baseline_recovered": false,
-    "rebuild_selected": true,
-    "historical_equivalence_claim_allowed": false,
     "executable_rebuild_available": true,
-    "latest_gate_path": "outputs/PROJECT_decoder_rebuild/current_supported_config/DECODER_MACHINE_GATE.json",
-    "latest_gate_passed": false,
+    "historical_24_marker_baseline_recovered": false,
+    "historical_equivalence_claim_allowed": false,
     "latest_drc_marker_count": 2663,
+    "latest_gate_passed": false,
+    "latest_gate_path": "outputs/PROJECT_decoder_rebuild/current_supported_config/DECODER_MACHINE_GATE.json",
     "negative_suite_passed": true,
-    "unexpected_negative_test_pass_count": 0,
     "preferred_route_contract": {
       "EN": "horizontal_m3_bus",
       "WL_pre": "vertical_m2_link"
     },
+    "rebuild_selected": true,
     "specific_blockers": [
       "decoder child assets expose only wildcard semantic pin exports and zero native GDS pin labels",
       "decoder child generation reports explicitly remain L3 candidate geometry and not DRC-clean",
@@ -92,183 +71,249 @@
       "row_decoder_v2 child gate is now fully green and may be treated as the first project-owned regenerated decoder child v2 asset candidate",
       "decoder_gate_cells_v2 and wordline_decoder_v2 geometry still have not been regenerated",
       "decoder top machine gate has not yet been rerun against the partially refreshed child-v2 set"
-    ]
+    ],
+    "unexpected_negative_test_pass_count": 0
   },
-  "logic_simulation_status": "BLOCKED_BY_MISSING_TRUSTED_VERILOG_ASSETS",
-  "spice_simulation_status": "PRIMARY_CHAIN_CLOSED_FOR_REQUESTED_MODULE_SMOKE",
-  "spice_primary": "ngspice",
-  "spice_secondary": "Xyce",
-  "spice_pass_modules": [
-    "PNAND2",
-    "PNAND3",
-    "AND2",
-    "AND3",
-    "pdrive",
-    "wl_pdrive",
-    "pdrive2_for_pre",
-    "delay_chain",
-    "DFF",
-    "DFF_BUF"
-  ],
-  "sram_functional_tb_status": "BLOCKED_BY_EXACT_TIMING_ORACLE_GAPS",
-  "sram_functional_tb_blockers": [
-    "TIME_schedule",
-    "write_sample_point",
-    "disabled_hold_semantics"
-  ],
-  "post_layout_extraction_status": "NOT_AVAILABLE_WITH_CURRENT_EVIDENCE",
-  "post_layout_extraction_reason": "KLayout FreePDK45 LVS/extraction assets exist, but Magic/Netgen/PEX rule provenance and refreshed project LVS/PEX binding do not.",
-  "power_status": {
-    "positive_config_count": 3,
-    "positive_gate_passed": true,
-    "negative_case_count": 6,
-    "negative_gate_passed": true,
-    "ir_em_or_dynamic_signoff": false
+  "decoder_status": "P2_PROVISIONAL_PREFERRED_P3_RETAINED_ALTERNATIVE",
+  "delivery": {
+    "bundle_path": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_project_mainline_inventory_20260726_62c3d66.bundle",
+    "bundle_sha256": "5b78d1c75c288c651a058e67745ba732b96ace23708080d82f40ddd6acaf4273",
+    "local_branch": "project/mainline-inventory-20260726",
+    "local_checkpoint_head": "4eaf02887641a78b56a9a445bce90b06bbd324fe",
+    "push_error": null,
+    "push_method": "SSH",
+    "push_synced": true,
+    "remote_branch": "origin/project/mainline-inventory-20260726",
+    "remote_branch_head": "4eaf02887641a78b56a9a445bce90b06bbd324fe",
+    "remote_url": "git@github-sram-layoutgen:Tyun-D/sram-layoutgen-standalone.git",
+    "working_tree_clean_at_checkpoint_commit": true
   },
+  "detailed_routing": "NOT_STARTED",
   "drc_waiver_status": {
     "approved_waiver_count": 0,
     "waiver_policy_closed": true
   },
-  "industrial_positioning_closed": true,
-  "delivery": {
-    "local_branch": "project/mainline-inventory-20260726",
-    "local_checkpoint_head": "4eaf02887641a78b56a9a445bce90b06bbd324fe",
-    "remote_branch": "origin/project/mainline-inventory-20260726",
-    "remote_branch_head": "4eaf02887641a78b56a9a445bce90b06bbd324fe",
-    "push_synced": true,
-    "push_error": null,
-    "push_method": "SSH",
-    "remote_url": "git@github-sram-layoutgen:Tyun-D/sram-layoutgen-standalone.git",
-    "bundle_path": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_project_mainline_inventory_20260726_62c3d66.bundle",
-    "bundle_sha256": "5b78d1c75c288c651a058e67745ba732b96ace23708080d82f40ddd6acaf4273",
-    "working_tree_clean_at_checkpoint_commit": true
-  },
-  "latest_review_package": {
-    "path": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
-    "sha256_record_location": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz.sha256",
-    "package_build_head": "62c3d663d2dc4011b9c8d06c13d080c25535a327"
-  },
-  "latest_full_evidence_package": {
-    "path": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
-    "sha256_record_location": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz.sha256",
-    "package_build_head": "62c3d663d2dc4011b9c8d06c13d080c25535a327"
-  },
-  "next_stage": "Human review of V4.1 DFF authority and column interface alignment package.",
-  "current_git_head": "PENDING_COMMIT",
-  "remote_branch_head": "PENDING_COMMIT",
-  "latest_complete_top_package": {
-    "path": "/data1/qujh/PROJECT_COMPLETE_TOP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
-    "sha256_record_location": "/data1/qujh/PROJECT_COMPLETE_TOP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz.sha256",
-    "package_build_head": "099911771ad94c26ed6fdc3afc8bcb0bb705b29d"
-  },
-  "latest_complete_top_full_evidence_package": {
-    "path": "/data1/qujh/PROJECT_COMPLETE_TOP_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
-    "sha256_record_location": "/data1/qujh/PROJECT_COMPLETE_TOP_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz.sha256",
-    "package_build_head": "099911771ad94c26ed6fdc3afc8bcb0bb705b29d"
-  },
-  "latest_industrial_gap_package": {
-    "path": "/data1/qujh/PROJECT_INDUSTRIAL_GAP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
-    "sha256_record_location": "/data1/qujh/PROJECT_INDUSTRIAL_GAP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz.sha256"
-  },
-  "decoder_hierarchical_floorplan": {
-    "l0_completion_gate_path": "docs/DECODER_L0_COMPLETION_GATE.json",
-    "l0_golden_lock_path": "docs/DECODER_L0_GOLDEN_LOCK.json",
-    "child_v3_pareto_path": "docs/DECODER_CHILD_V3_PARETO_SET.json",
-    "candidate_count": 0,
-    "selected_candidates": [],
-    "human_review_package": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
-    "full_evidence_package": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
-    "status_audit": {
-      "l0_status": "DECODER_L0_ABUTMENT_MATRIX_COMPLETE",
-      "child_v3_status": "CHILD_V3_GEOMETRY_NOT_YET_GENERATED",
-      "human_review_status": "HUMAN_REVIEW_NOT_READY",
-      "false_ready_audit_timestamp": "2026-07-31T16:05:00Z",
-      "false_ready_reasons": [
-        "child score table only had baseline child entries passing while non-baseline templates were NOT_RUN with NO_REGENERATED_GEOMETRY_THIS_ROUND",
-        "child Pareto JSON only contained baseline_strip rows and no real compact or WL-oriented child-v3 geometries",
-        "human review and full evidence packages did not include candidate clean GDS, review atlas GDS, or DRC lyrdb for compact or WL-oriented top candidates",
-        "candidate_a_compact_folded and candidate_b_wl_oriented existed only in status and log records without geometry SHA or machine gate evidence"
-      ]
-    }
-  },
-  "decoder_integration_closure_state": "INTERFACE_ROUTING_HARNESS_MACHINE_PASS_FINAL_SRAM_PHYSICAL_ARCHITECTURE_NOT_APPROVED",
-  "decoder_integration_human_review_ready": false,
-  "decoder_integration_recommended_candidate": "candidate_true_wl_driver_array_oriented",
-  "decoder_integration_human_package": "/data1/qujh/PROJECT_TRUE_MULTILINE_DECODER_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
-  "decoder_integration_full_package": "/data1/qujh/PROJECT_TRUE_MULTILINE_DECODER_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
-  "legacy_layoutgen_student_handoff_evaluation": {
-    "timestamp": "2026-08-09T05:02:51Z",
-    "status": "LEGACY_FULL_MACRO_GENERATOR_PRESERVED_HANDOFF_PACKAGING_REQUIRED",
-    "git_branch": "project/mainline-inventory-20260726",
-    "git_head": "da41cc22109c7f6ce314b2cf038d82e086f12775",
-    "entrypoint": "python -m sram_layoutgen",
-    "source_preserved": true,
-    "runtime_smoke_passed": true,
-    "smoke_root": "/data1/qujh/layoutgen_handoff_evaluation/20260809T050251Z",
-    "smoke_configs": [
-      {
-        "word_size": 16,
-        "num_words": 16,
-        "words_per_row": 1,
-        "status": "PASS"
-      },
-      {
-        "word_size": 16,
-        "num_words": 32,
-        "words_per_row": 1,
-        "status": "PASS"
-      },
-      {
-        "word_size": 16,
-        "num_words": 32,
-        "words_per_row": 2,
-        "status": "PASS"
-      }
-    ],
-    "parameterization": "true_for_single_bank_freepdk45",
-    "student_one_command_flow_ready": false,
-    "handoff_readiness": "packaging_required",
-    "mandatory_next_action": "prepare README, requirements, configs, generate_example.sh, hardmacro bundle, and path cleanup notes before external student handoff"
-  },
-  "row_path_physical_closure": "PASS",
-  "authoritative_bitcell_array": "LOCKED",
-  "real_array_integration": "PASS_ROW_PATH_ONLY_FOR_DECODER_WL_DRIVER_ARRAY",
-  "full_single_bank_sram_top": "PHYSICAL_INTEGRATION_CLOSED_TO_HUMAN_REVIEW",
-  "functional_oracle": "FUNCTIONAL_ORACLE_PENDING_OWNER_REVIEW",
+  "final_sram_physical_architecture": "NOT_APPROVED",
+  "formal_config_count": 10,
+  "formal_functional_timing_closure": false,
   "formal_timing_authority": "FORMAL_TIMING_AUTHORITY_PENDING",
-  "full_sram_top_readiness": {
-    "status": "BLOCKED_BY_MISSING_FULL_SRAM_MODULE_ASSET",
-    "module_readiness_audit": "docs/FULL_SRAM_MODULE_READINESS_AUDIT.json",
-    "logical_contract": "docs/FULL_SRAM_TOP_LOGICAL_CONTRACT.json",
-    "connectivity_csv": "docs/FULL_SRAM_TOP_CONNECTIVITY.csv",
-    "pin_contract_csv": "docs/FULL_SRAM_TOP_PIN_CONTRACT.csv",
-    "control_path_authority": "docs/FULL_SRAM_CONTROL_PATH_AUTHORITY.json",
-    "entry_gate": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_TOP_ENTRY_GATE.json",
-    "column_path_generated": false,
-    "control_path_generated": false,
-    "full_floorplan_generated": false,
-    "missing_or_unready_modules": [
+  "formal_wl_timing": "PENDING",
+  "full_bitcell_array_gds_integration": true,
+  "full_single_bank_sram_real_top_unique_review": {
+    "connectivity_percent": 100,
+    "drc_marker_count": 0,
+    "foreign_net": "PASS",
+    "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SINGLE_BANK_SRAM_REAL_TOP_V1_REVIEW_CLEAN/clean_unique_top.gds",
+    "gds_sha": "1d31db72f790f54f7c1b59b0ec70a43cb435a445e215b3e691db479ab7b5a151",
+    "geometry_equivalence": true,
+    "new_gds_top_count": 1,
+    "new_top": "FULL_SINGLE_BANK_SRAM_REAL_TOP_V1",
+    "old_gds_top_count": 12,
+    "old_orphan_tops_removed": [
+      "control_child_0__control_block_hierarchical_v1_c2_timing_chain_oriented",
+      "control_child_1__control_block_hierarchical_v1_c2_timing_chain_oriented",
+      "control_child_2__control_block_hierarchical_v1_c2_timing_chain_oriented",
+      "control_child_3__control_block_hierarchical_v1_c2_timing_chain_oriented",
+      "control_child_4__control_block_hierarchical_v1_c2_timing_chain_oriented",
+      "control_child_5__control_block_hierarchical_v1_c2_timing_chain_oriented",
+      "control_child_6__control_block_hierarchical_v1_c2_timing_chain_oriented",
+      "control_child_7__control_block_hierarchical_v1_c2_timing_chain_oriented",
+      "control_child_8__control_block_hierarchical_v1_c2_timing_chain_oriented",
+      "row_decoder__P2_REAL_ARRAY_V1_integration_shell",
+      "wl_driver__P2_REAL_ARRAY_V1_integration_shell"
+    ],
+    "package": "/data1/qujh/PROJECT_FULL_SINGLE_BANK_SRAM_REAL_TOP_UNIQUE_TOP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "package_sha256": "FINAL_PACKAGE_SHA_PENDING_AFTER_COMMIT",
+    "power_endpoint_coverage": "100%",
+    "status": "PASS_FULL_SRAM_UNIQUE_TOP_REVIEW_PACKAGE_TO_HUMAN_REVIEW"
+  },
+  "full_single_bank_sram_real_top_v1": {
+    "area": 46512.0401,
+    "connectivity": {
+      "duplicate": 0,
+      "floating_required_pin": 0,
+      "missing": 0,
+      "required_connectivity_percent": 100,
+      "route_count": 172,
+      "wrong_bit": 0
+    },
+    "drc_marker_count": 0,
+    "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SINGLE_BANK_SRAM_REAL_TOP_V1/clean.gds",
+    "gds_sha": "2c02fe9e4f160ffe1d48314b069675d74a214d2a3ba9114df7284ea3751e1f6e",
+    "height": 177.615,
+    "hierarchy_depth": 4,
+    "negative_unexpected_pass": 0,
+    "package": "/data1/qujh/PROJECT_FULL_SINGLE_BANK_SRAM_REAL_TOP_PHYSICAL_INTEGRATION_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "package_build_head": "PENDING_COMMIT",
+    "package_sha256": "FINAL_PACKAGE_SHA_PENDING_AFTER_COMMIT",
+    "pending_authority": [
+      "TIME_schedule",
+      "write_sample_point",
+      "disabled_hold_semantics",
+      "formal_WL_timing_authority"
+    ],
+    "power": {
+      "VDD_components": 1,
+      "VSS_components": 1,
+      "endpoint_coverage": "100%"
+    },
+    "real_child_counts": {
+      "bitcell": 256,
+      "control_child": 34,
+      "dummy": 88,
+      "precharge": 16,
+      "replica": 17,
+      "sense_amp": 16,
+      "wl_driver": 16,
+      "write_driver": 16
+    },
+    "routing": {
+      "BL_BR": "100%",
+      "DIN_DOUT": "100%",
+      "WL": "100%",
+      "address_clock": "100%",
+      "control": "100%"
+    },
+    "status": "PASS_FULL_SINGLE_BANK_SRAM_REAL_TOP_PHYSICAL_INTEGRATION_TO_HUMAN_REVIEW",
+    "width": 261.87
+  },
+  "full_single_bank_sram_top": "PHYSICAL_INTEGRATION_CLOSED_TO_HUMAN_REVIEW",
+  "full_sram_dff_authority_column_alignment_v41": {
+    "blbr": {
+      "actual_routes_regenerated": true,
+      "pins_matched_per_bank": "32/32",
+      "stale_route_gate": "PASS"
+    },
+    "column_interface": {
+      "precharge": {
+        "max_residual": 0.045,
+        "new_origin_x": 72.345,
+        "old_origin_x": 70.0,
+        "rms_residual": 0.045,
+        "solved_dx": 2.345
+      },
+      "sense": {
+        "max_residual": 0.0025,
+        "new_origin_x": 72.3075,
+        "old_origin_x": 70.0,
+        "rms_residual": 0.0025,
+        "solved_dx": 2.3075
+      },
+      "write": {
+        "max_residual": 0.0025,
+        "new_origin_x": 72.2425,
+        "old_origin_x": 70.0,
+        "rms_residual": 0.0025,
+        "solved_dx": 2.2425
+      }
+    },
+    "determinism": "PASS",
+    "dff": {
+      "bundled_dff_final_authority": "REVOKED",
+      "final_selected_ADDR_DATA_cell": "DFF_TG4_INV7",
+      "old_v4_equivalence_evidence": "INVALID",
+      "spice_run_health_gate_detected_v4_failure": true
+    },
+    "drc_marker_count": 0,
+    "foreign_net": "PASS",
+    "formal_timing_authority": "PENDING",
+    "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41/clean_unique_top.gds",
+    "gds_sha256": "5f48d1de1ab31091a7ded24e3721b9c4afbbfd3e8ad75fff6a351a08539fda6f",
+    "negative_unexpected_pass": 0,
+    "post_layout_pex": "NOT_CLAIMED",
+    "power": "100%",
+    "review_package": "/data1/qujh/PROJECT_FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "semantic_connectivity": {
+      "control": "PASS",
+      "data_write": "PASS",
+      "foreign_net": "PASS",
+      "power": "PASS",
+      "read": "PASS",
+      "row": "PASS"
+    },
+    "status": "PASS_FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41_TO_HUMAN_REVIEW",
+    "top_name": "FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41"
+  },
+  "full_sram_dff_control_decoder_physical_compaction_v4": {
+    "area_less_than_v3": true,
+    "bundled_dff_result": "BUNDLED_DFF_FUNCTIONALLY_EQUIVALENT_FOR_ADDR_DATA",
+    "control_fixed_step_detector": "PASS_FINAL_GDS_VERIFIED",
+    "decoder": {
+      "physical_address_input_count": 4,
+      "physical_unique_wl_output_count": 16,
+      "source_address_width": 4,
+      "source_wl_count": 16
+    },
+    "determinism": "PASS",
+    "dff_roles": {
+      "ADDR": 4,
+      "DATA": 16,
+      "buffered_control": 2
+    },
+    "drc_marker_count": 0,
+    "final_gds_fact_audit": "PASS",
+    "foreign_net": "PASS",
+    "formal_timing_authority": "PENDING",
+    "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4/clean_unique_top.gds",
+    "gds_sha256": "2d6f87607b4048ba52c82e503a3ea0b0527096329f7edd37e9b0b47ae610e8b6",
+    "negative_unexpected_pass": 0,
+    "post_layout_pex": "NOT_CLAIMED",
+    "power_endpoint_coverage": "100%",
+    "review_package": "/data1/qujh/PROJECT_FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "semantic_connectivity": {
+      "control": "PASS",
+      "data_write": "PASS",
+      "foreign_net": "PASS",
+      "power": "PASS",
+      "read": "PASS",
+      "row": "PASS"
+    },
+    "status": "PASS_FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4_TO_HUMAN_REVIEW",
+    "top_area_um2": 46250.1701,
+    "top_name": "FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4",
+    "unique_top_count": 1,
+    "v3_top_area_um2": 55164.2249
+  },
+  "full_sram_human_review_gds_unique_top_gate": "PASS",
+  "full_sram_top_entry_gate_v3": "PASS",
+  "full_sram_top_entry_recovery_v2": {
+    "blocking_modules": [
+      "CONTROL_BLOCK_HIERARCHICAL_V1"
+    ],
+    "config_excluded_modules": [
+      "column_mux"
+    ],
+    "control_block_implementation": "CONTROL_BLOCK_HIERARCHICAL_V1_LOGICAL_BINDING_RECOVERED_PARENT_PHYSICAL_PENDING",
+    "existing_unqualified_misclassified_as_missing": false,
+    "formal_functional_timing_closure": false,
+    "gate_path": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_TOP_ENTRY_GATE_V2.json",
+    "negative_unexpected_pass_count": 0,
+    "newly_qualified_assets": [
       "precharge",
-      "column_mux",
       "sense_amplifier",
-      "write_driver",
-      "control_logic",
-      "delay_chain",
+      "write_driver"
+    ],
+    "physical_top_entry_allowed": false,
+    "readiness_audit": "docs/FULL_SRAM_MODULE_READINESS_AUDIT_V2.json",
+    "recovered_existing_assets": [
       "pdrive",
       "wl_pdrive",
       "pdrive2_for_pre",
-      "top_level_input_output_interface"
+      "delay_chain"
     ],
+    "required_module_missing_asset_count": 0,
+    "status": "BLOCKED_BY_CONTROL_BLOCK_PHYSICAL_AUTHORITY",
+    "top_physical_pin_contract": "READY",
+    "top_physical_pin_contract_path": "docs/FULL_SRAM_TOP_PHYSICAL_PIN_CONTRACT.json"
+  },
+  "full_sram_top_readiness": {
+    "column_path_generated": false,
+    "connectivity_csv": "docs/FULL_SRAM_TOP_CONNECTIVITY.csv",
+    "control_path_authority": "docs/FULL_SRAM_CONTROL_PATH_AUTHORITY.json",
+    "control_path_generated": false,
+    "entry_gate": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_TOP_ENTRY_GATE.json",
     "exact_blocking_missing_assets": {
       "pdrive": [
-        "GDS",
-        "Pin map",
-        "DRC gate",
-        "connectivity gate",
-        "power endpoint coverage",
-        "negative suite"
-      ],
-      "wl_pdrive": [
         "GDS",
         "Pin map",
         "DRC gate",
@@ -287,16 +332,32 @@
       "top_level_input_output_interface": [
         "full physical Pin contract",
         "TIME/write/disabled-hold functional authority"
+      ],
+      "wl_pdrive": [
+        "GDS",
+        "Pin map",
+        "DRC gate",
+        "connectivity gate",
+        "power endpoint coverage",
+        "negative suite"
       ]
     },
-    "unqualified_assets": {
-      "precharge": "GDS exists but L4/L5 top-entry verification is not closed",
-      "column_mux": "GDS exists but locked 16x16/wpr1 config conflicts with mandatory column mux use and VDD pin shape evidence is incomplete",
-      "sense_amplifier": "GDS/SPICE exist but only isolated substitution/heuristic evidence was found",
-      "write_driver": "GDS/SPICE exist but no standalone top-entry machine gate was found",
-      "control_logic": "candidate geometry exists; control physical ready remains false",
-      "delay_chain": "candidate geometry/SPICE proxy exist; placement/routing/top-use gate not closed"
-    },
+    "full_floorplan_generated": false,
+    "logical_contract": "docs/FULL_SRAM_TOP_LOGICAL_CONTRACT.json",
+    "missing_or_unready_modules": [
+      "precharge",
+      "column_mux",
+      "sense_amplifier",
+      "write_driver",
+      "control_logic",
+      "delay_chain",
+      "pdrive",
+      "wl_pdrive",
+      "pdrive2_for_pre",
+      "top_level_input_output_interface"
+    ],
+    "module_readiness_audit": "docs/FULL_SRAM_MODULE_READINESS_AUDIT.json",
+    "pin_contract_csv": "docs/FULL_SRAM_TOP_PIN_CONTRACT.csv",
     "search_scope_exhausted": [
       "current repository docs/outputs/source",
       "/data1/qujh/PAPER_EVIDENCE_PACKAGE_20260713_043712.tar.gz",
@@ -305,241 +366,34 @@
       "/data1/qujh/work/github_exports",
       "git history on current branch"
     ],
-    "status_record_head": "8b3389c92895cc2b5a1cb5d010b47b698ca89d81"
+    "status": "BLOCKED_BY_MISSING_FULL_SRAM_MODULE_ASSET",
+    "status_record_head": "8b3389c92895cc2b5a1cb5d010b47b698ca89d81",
+    "unqualified_assets": {
+      "column_mux": "GDS exists but locked 16x16/wpr1 config conflicts with mandatory column mux use and VDD pin shape evidence is incomplete",
+      "control_logic": "candidate geometry exists; control physical ready remains false",
+      "delay_chain": "candidate geometry/SPICE proxy exist; placement/routing/top-use gate not closed",
+      "precharge": "GDS exists but L4/L5 top-entry verification is not closed",
+      "sense_amplifier": "GDS/SPICE exist but only isolated substitution/heuristic evidence was found",
+      "write_driver": "GDS/SPICE exist but no standalone top-entry machine gate was found"
+    }
   },
-  "full_sram_top_entry_recovery_v2": {
-    "status": "BLOCKED_BY_CONTROL_BLOCK_PHYSICAL_AUTHORITY",
-    "gate_path": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_TOP_ENTRY_GATE_V2.json",
-    "readiness_audit": "docs/FULL_SRAM_MODULE_READINESS_AUDIT_V2.json",
-    "physical_top_entry_allowed": false,
-    "formal_functional_timing_closure": false,
-    "recovered_existing_assets": [
-      "pdrive",
-      "wl_pdrive",
-      "pdrive2_for_pre",
-      "delay_chain"
-    ],
-    "newly_qualified_assets": [
-      "precharge",
-      "sense_amplifier",
-      "write_driver"
-    ],
-    "config_excluded_modules": [
-      "column_mux"
-    ],
-    "blocking_modules": [
-      "CONTROL_BLOCK_HIERARCHICAL_V1"
-    ],
-    "control_block_implementation": "CONTROL_BLOCK_HIERARCHICAL_V1_LOGICAL_BINDING_RECOVERED_PARENT_PHYSICAL_PENDING",
-    "top_physical_pin_contract": "READY",
-    "top_physical_pin_contract_path": "docs/FULL_SRAM_TOP_PHYSICAL_PIN_CONTRACT.json",
-    "negative_unexpected_pass_count": 0,
-    "required_module_missing_asset_count": 0,
-    "existing_unqualified_misclassified_as_missing": false
-  },
-  "remaining_functional_timing_authority_gaps": [
-    "TIME_schedule",
-    "write_sample_point",
-    "disabled_hold_semantics",
-    "formal_WL_timing_authority"
-  ],
-  "control_block_physical_authority": "READY",
-  "full_sram_top_entry_gate_v3": "PASS",
-  "physical_top_entry_allowed": true,
-  "latest_full_sram_floorplan_package": "/data1/qujh/PROJECT_FULL_SINGLE_BANK_SRAM_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
-  "previous_full_sram_floorplan_status": "FULL_SRAM_FLOORPLAN_LEGALITY_PASS_HUMAN_REJECTED_ARCHITECTURE_BASELINE",
-  "compactness_constraint": "CLOSED_FOR_FLOORPLAN_REVIEW",
-  "region_constraint": "CLOSED_FOR_FLOORPLAN_REVIEW",
-  "placement_quality_gate": "CLOSED_FOR_FLOORPLAN_REVIEW",
-  "old_F3_F4_status": "HUMAN_REJECTED_ARCHITECTURE_BASELINE",
-  "old_C2_C5_status": "HUMAN_REJECTED_ARCHITECTURE_BASELINE",
-  "bounded_floorplan_recommended": "SRAM_BOUNDED_V2_S5_AUTOMATED_PARETO",
-  "bounded_floorplan_alternative": "SRAM_BOUNDED_V2_S0_CLASSIC_COMPACT",
-  "detailed_routing": "NOT_STARTED",
-  "latest_bounded_floorplan_package": "/data1/qujh/PROJECT_BOUNDED_COMPACT_FULL_SINGLE_BANK_SRAM_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
-  "previous_bounded_floorplan_status": "ABSTRACT_BOUNDED_FLOORPLAN_MODEL_PASS",
-  "abstract_bounded_floorplan_reclassification": {
-    "abstract_bounded_floorplan_model": "PASS",
-    "real_hierarchical_floorplan_generated": "YES_CURRENT_STAGE",
-    "old_F0_F4": "HUMAN_REJECTED_ARCHITECTURE_BASELINE",
-    "detailed_routing": "NOT_STARTED"
-  },
-  "real_hierarchical_full_sram_floorplan": {
-    "status": "PASS_REAL_HIERARCHICAL_FULL_SINGLE_BANK_SRAM_FLOORPLAN_TO_HUMAN_REVIEW",
-    "recommended": "REAL_S0_CLASSIC_COMPACT",
-    "alternative": "REAL_S3_CONTROL_NEAR_SINKS",
-    "precharge_bank": "outputs/PROJECT_full_single_bank_sram/real_hierarchical_floorplan_v1/physical_banks/precharge_v1/clean.gds",
-    "sense_amp_bank": "outputs/PROJECT_full_single_bank_sram/real_hierarchical_floorplan_v1/physical_banks/sense_amp_v1/clean.gds",
-    "write_driver_bank": "outputs/PROJECT_full_single_bank_sram/real_hierarchical_floorplan_v1/physical_banks/write_driver_v1/clean.gds",
-    "control_block_source": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/clean.gds",
-    "control_block_boundary": "REAL_CONTROL_BASELINE_REUSED; CONTROL_BLOCK_COMPACT_PHYSICAL_V3_NOT_CLAIMED",
-    "real_hierarchy_gate": "PASS",
-    "region_gate": "PASS",
-    "adjacency_gate": "PASS",
-    "compactness_gate": "PASS",
-    "power_preplan": "PASS",
-    "global_route_feasibility": "PASS",
-    "detailed_routing": "NOT_STARTED",
-    "package": "/data1/qujh/PROJECT_REAL_HIERARCHICAL_FULL_SINGLE_BANK_SRAM_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
-    "build_head": "225c28e1d4adcd8f4b67055f5336315d43afe5ed"
-  },
-  "real_hierarchical_full_sram_floorplan_v2": {
-    "status": "REAL_HIERARCHICAL_FULL_SINGLE_BANK_SRAM_FLOORPLAN_V2_CONTROL_COMPACTION_NOT_CLOSED",
-    "old_s0": "DOMINATED_BASELINE",
-    "selected_bank_architecture": "even_odd_2row",
-    "bank_v2_alignment": "PASS",
-    "control_compaction_gate": "FAIL",
-    "control_v3": "NOT_CLOSED",
-    "recommended_if_control_accepted": "REAL_V2_S3_CONTROL_NEAR_SINKS",
-    "alternative": "REAL_V2_S1_TWO_ROW_PERIPHERY",
-    "detailed_routing": "NOT_STARTED",
-    "package": "/data1/qujh/PROJECT_REAL_HIERARCHICAL_FULL_SINGLE_BANK_SRAM_FLOORPLAN_V2_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
-    "build_head": "e5a1fc708732bb54e436652e629d816931924507"
-  },
-  "top_physical_architecture": "REAL_TOP_PHYSICAL_INTEGRATION_CLOSED",
-  "top_intermodule_routing": "PHYSICALLY_ROUTED_AND_DRC_CLEAN",
-  "control_physical_architecture": "IN_CONTEXT_CONTROL_CLUSTERS_ROUTED",
-  "row_path_top_level_replanning": "ROW_PATH_DECOMPOSED_DECODER_WL_DRIVER_ARRAY_INSTANTIATED_SEPARATELY",
-  "formal_functional_timing_closure": false,
-  "post_layout_pex": false,
-  "ir_em_signoff": false,
-  "full_single_bank_sram_real_top_v1": {
-    "status": "PASS_FULL_SINGLE_BANK_SRAM_REAL_TOP_PHYSICAL_INTEGRATION_TO_HUMAN_REVIEW",
-    "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SINGLE_BANK_SRAM_REAL_TOP_V1/clean.gds",
-    "gds_sha": "2c02fe9e4f160ffe1d48314b069675d74a214d2a3ba9114df7284ea3751e1f6e",
-    "width": 261.87,
-    "height": 177.615,
-    "area": 46512.0401,
-    "hierarchy_depth": 4,
-    "real_child_counts": {
-      "bitcell": 256,
-      "dummy": 88,
-      "replica": 17,
-      "wl_driver": 16,
-      "precharge": 16,
-      "sense_amp": 16,
-      "write_driver": 16,
-      "control_child": 34
-    },
-    "routing": {
-      "BL_BR": "100%",
-      "WL": "100%",
-      "control": "100%",
-      "DIN_DOUT": "100%",
-      "address_clock": "100%"
-    },
-    "power": {
-      "endpoint_coverage": "100%",
-      "VDD_components": 1,
-      "VSS_components": 1
-    },
-    "drc_marker_count": 0,
-    "connectivity": {
-      "required_connectivity_percent": 100,
-      "missing": 0,
-      "wrong_bit": 0,
-      "duplicate": 0,
-      "floating_required_pin": 0,
-      "route_count": 172
-    },
-    "negative_unexpected_pass": 0,
-    "pending_authority": [
-      "TIME_schedule",
-      "write_sample_point",
-      "disabled_hold_semantics",
-      "formal_WL_timing_authority"
-    ],
-    "package": "/data1/qujh/PROJECT_FULL_SINGLE_BANK_SRAM_REAL_TOP_PHYSICAL_INTEGRATION_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
-    "package_sha256": "FINAL_PACKAGE_SHA_PENDING_AFTER_COMMIT",
-    "package_build_head": "PENDING_COMMIT"
-  },
-  "full_sram_human_review_gds_unique_top_gate": "PASS",
-  "full_single_bank_sram_real_top_unique_review": {
-    "status": "PASS_FULL_SRAM_UNIQUE_TOP_REVIEW_PACKAGE_TO_HUMAN_REVIEW",
-    "old_gds_top_count": 12,
-    "new_gds_top_count": 1,
-    "new_top": "FULL_SINGLE_BANK_SRAM_REAL_TOP_V1",
-    "old_orphan_tops_removed": [
-      "control_child_0__control_block_hierarchical_v1_c2_timing_chain_oriented",
-      "control_child_1__control_block_hierarchical_v1_c2_timing_chain_oriented",
-      "control_child_2__control_block_hierarchical_v1_c2_timing_chain_oriented",
-      "control_child_3__control_block_hierarchical_v1_c2_timing_chain_oriented",
-      "control_child_4__control_block_hierarchical_v1_c2_timing_chain_oriented",
-      "control_child_5__control_block_hierarchical_v1_c2_timing_chain_oriented",
-      "control_child_6__control_block_hierarchical_v1_c2_timing_chain_oriented",
-      "control_child_7__control_block_hierarchical_v1_c2_timing_chain_oriented",
-      "control_child_8__control_block_hierarchical_v1_c2_timing_chain_oriented",
-      "row_decoder__P2_REAL_ARRAY_V1_integration_shell",
-      "wl_driver__P2_REAL_ARRAY_V1_integration_shell"
-    ],
-    "geometry_equivalence": true,
-    "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SINGLE_BANK_SRAM_REAL_TOP_V1_REVIEW_CLEAN/clean_unique_top.gds",
-    "gds_sha": "1d31db72f790f54f7c1b59b0ec70a43cb435a445e215b3e691db479ab7b5a151",
-    "drc_marker_count": 0,
-    "connectivity_percent": 100,
-    "power_endpoint_coverage": "100%",
-    "foreign_net": "PASS",
-    "package": "/data1/qujh/PROJECT_FULL_SINGLE_BANK_SRAM_REAL_TOP_UNIQUE_TOP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
-    "package_sha256": "FINAL_PACKAGE_SHA_PENDING_AFTER_COMMIT"
-  },
-  "full_sram_v2_dff_decoder_replanned": {
-    "status": "PASS_DFF_DECODER_REPLANNED_FULL_SRAM_REAL_TOP_V2_TO_HUMAN_REVIEW",
-    "unique_top_count": 1,
-    "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SINGLE_BANK_SRAM_REAL_TOP_V2_DFF_DECODER_REPLANNED/clean_unique_top.gds",
-    "gds_sha": "514b3bdae4c2cb54ea500fbc2f0cf0e146a989971fabf0a793afdf003b7ef2a6",
-    "bbox": {
-      "width": 261.87,
-      "height": 176.615,
-      "area": 46250.1701
-    },
-    "drc_marker_count": 0,
-    "connectivity": "100%",
-    "power_endpoint_coverage": "100%",
-    "foreign_net": "PASS",
-    "dff": {
-      "old_cell": "DFF_BUF_FPDK45_6058eaf43739_HPA1",
-      "selected_strategy": "mixed",
-      "buffered_count": 2,
-      "core_count": 20,
-      "cell_area_reduction_percent": 38.25
-    },
-    "decoder": {
-      "old_bbox": [
-        46.0325,
-        29.135
-      ],
-      "new_bbox": [
-        23.0975,
-        5.9425
-      ],
-      "old_all_R0": true,
-      "fine_grain_placement": true
-    },
-    "package": "/data1/qujh/PROJECT_FULL_SRAM_DFF_DECODER_REPLANNED_V2_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
-    "package_sha256": "FINAL_PACKAGE_SHA_PENDING_AFTER_COMMIT"
-  },
-  "v2_human_review_status": "HUMAN_REVIEW_REJECTED_STRUCTURAL_DECODER_MISMATCH",
-  "v2_rejection_reason": "REJECT_V2_DUE_TO_DECODER_STRUCTURAL_MISMATCH_AND_DFF_SEMANTIC_PLACEMENT_GAPS",
   "full_sram_true_4to16_decoder_dff_semantic_v3": {
-    "status": "PASS_FULL_SRAM_TRUE_4TO16_DECODER_DFF_SEMANTIC_COMPACTION_V3_TO_HUMAN_REVIEW",
-    "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_TRUE_4TO16_DECODER_DFF_SEMANTIC_COMPACTION_V3/clean_unique_top.gds",
-    "gds_sha": "13ca58e32ec8b3d2efaf51bb50555fba506d37b0b8a88ba583729e284d496c72",
     "bbox": {
-      "width": 261.87,
+      "area": 55164.2249,
       "height": 210.655,
-      "area": 55164.2249
+      "width": 261.87
     },
-    "drc_marker_count": 0,
     "decoder_4to16_gate": {
       "address_input_count": 4,
+      "duplicate_wl": 0,
+      "missing_wl": [],
+      "passed": true,
       "physical_address_inputs": [
         "A0",
         "A1",
         "A2",
         "A3"
       ],
-      "source_address_width": 4,
-      "source_wl_count": 16,
       "physical_unique_wl_output_count": 16,
       "physical_wl_index_set": [
         0,
@@ -559,128 +413,286 @@
         14,
         15
       ],
-      "missing_wl": [],
-      "duplicate_wl": 0,
-      "passed": true
+      "source_address_width": 4,
+      "source_wl_count": 16
     },
+    "determinism": true,
     "dff_roles": {
       "ADDR": 4,
       "DATA": 16,
       "buffered_control": 2
     },
-    "semantic_connectivity": {
-      "ROW_PATH_SEMANTIC_CONNECTIVITY": "PASS",
-      "DATA_WRITE_PATH_SEMANTIC_CONNECTIVITY": "PASS",
-      "READ_PATH_SEMANTIC_CONNECTIVITY": "PASS",
-      "CONTROL_PATH_SEMANTIC_CONNECTIVITY": "PASS",
-      "POWER_CONNECTIVITY": "PASS",
-      "FOREIGN_NET": "PASS"
-    },
-    "power": "100%",
+    "drc_marker_count": 0,
     "foreign_net": "PASS",
-    "negative_unexpected_pass": 0,
-    "determinism": true,
     "formal_timing": "PENDING",
+    "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_TRUE_4TO16_DECODER_DFF_SEMANTIC_COMPACTION_V3/clean_unique_top.gds",
+    "gds_sha": "13ca58e32ec8b3d2efaf51bb50555fba506d37b0b8a88ba583729e284d496c72",
+    "negative_unexpected_pass": 0,
     "package": "/data1/qujh/PROJECT_FULL_SRAM_TRUE_4TO16_DECODER_DFF_SEMANTIC_COMPACTION_V3_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
-    "package_sha256": "FINAL_PACKAGE_SHA_PENDING_AFTER_COMMIT"
+    "package_sha256": "FINAL_PACKAGE_SHA_PENDING_AFTER_COMMIT",
+    "power": "100%",
+    "semantic_connectivity": {
+      "CONTROL_PATH_SEMANTIC_CONNECTIVITY": "PASS",
+      "DATA_WRITE_PATH_SEMANTIC_CONNECTIVITY": "PASS",
+      "FOREIGN_NET": "PASS",
+      "POWER_CONNECTIVITY": "PASS",
+      "READ_PATH_SEMANTIC_CONNECTIVITY": "PASS",
+      "ROW_PATH_SEMANTIC_CONNECTIVITY": "PASS"
+    },
+    "status": "PASS_FULL_SRAM_TRUE_4TO16_DECODER_DFF_SEMANTIC_COMPACTION_V3_TO_HUMAN_REVIEW"
   },
+  "full_sram_v2_dff_decoder_replanned": {
+    "bbox": {
+      "area": 46250.1701,
+      "height": 176.615,
+      "width": 261.87
+    },
+    "connectivity": "100%",
+    "decoder": {
+      "fine_grain_placement": true,
+      "new_bbox": [
+        23.0975,
+        5.9425
+      ],
+      "old_all_R0": true,
+      "old_bbox": [
+        46.0325,
+        29.135
+      ]
+    },
+    "dff": {
+      "buffered_count": 2,
+      "cell_area_reduction_percent": 38.25,
+      "core_count": 20,
+      "old_cell": "DFF_BUF_FPDK45_6058eaf43739_HPA1",
+      "selected_strategy": "mixed"
+    },
+    "drc_marker_count": 0,
+    "foreign_net": "PASS",
+    "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SINGLE_BANK_SRAM_REAL_TOP_V2_DFF_DECODER_REPLANNED/clean_unique_top.gds",
+    "gds_sha": "514b3bdae4c2cb54ea500fbc2f0cf0e146a989971fabf0a793afdf003b7ef2a6",
+    "package": "/data1/qujh/PROJECT_FULL_SRAM_DFF_DECODER_REPLANNED_V2_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "package_sha256": "FINAL_PACKAGE_SHA_PENDING_AFTER_COMMIT",
+    "power_endpoint_coverage": "100%",
+    "status": "PASS_DFF_DECODER_REPLANNED_FULL_SRAM_REAL_TOP_V2_TO_HUMAN_REVIEW",
+    "unique_top_count": 1
+  },
+  "functional_oracle": "FUNCTIONAL_ORACLE_PENDING_OWNER_REVIEW",
+  "git_branch": "project/mainline-inventory-20260726",
+  "git_head": "PENDING_COMMIT",
+  "industrial_positioning_closed": true,
+  "ir_em_signoff": false,
+  "latest_bounded_floorplan_package": "/data1/qujh/PROJECT_BOUNDED_COMPACT_FULL_SINGLE_BANK_SRAM_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+  "latest_complete_top_full_evidence_package": {
+    "package_build_head": "099911771ad94c26ed6fdc3afc8bcb0bb705b29d",
+    "path": "/data1/qujh/PROJECT_COMPLETE_TOP_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
+    "sha256_record_location": "/data1/qujh/PROJECT_COMPLETE_TOP_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz.sha256"
+  },
+  "latest_complete_top_package": {
+    "package_build_head": "099911771ad94c26ed6fdc3afc8bcb0bb705b29d",
+    "path": "/data1/qujh/PROJECT_COMPLETE_TOP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "sha256_record_location": "/data1/qujh/PROJECT_COMPLETE_TOP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz.sha256"
+  },
+  "latest_full_evidence_package": {
+    "package_build_head": "62c3d663d2dc4011b9c8d06c13d080c25535a327",
+    "path": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz",
+    "sha256_record_location": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz.sha256"
+  },
+  "latest_full_sram_floorplan_package": "/data1/qujh/PROJECT_FULL_SINGLE_BANK_SRAM_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+  "latest_industrial_gap_package": {
+    "path": "/data1/qujh/PROJECT_INDUSTRIAL_GAP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "sha256_record_location": "/data1/qujh/PROJECT_INDUSTRIAL_GAP_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz.sha256"
+  },
+  "latest_review_package": {
+    "package_build_head": "62c3d663d2dc4011b9c8d06c13d080c25535a327",
+    "path": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "sha256_record_location": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz.sha256"
+  },
+  "layoutgen_reuse_closure": {
+    "audit": "docs/LAYOUTGEN_EXISTING_ACHIEVEMENT_AUDIT.json",
+    "authoritative_array_gds": "outputs/PROJECT_bitcell_array_layoutgen_reuse_v2/clean.gds",
+    "authoritative_array_gds_sha256": "555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac",
+    "authoritative_array_machine_gate_passed": true,
+    "authoritative_array_top_cell": "sram_capped_replica_bitcell_array",
+    "authority_conclusion": "AUTHORITATIVE_ARRAY_ASSET_REGENERATED",
+    "contract": "docs/LAYOUTGEN_PHYSICAL_REUSE_CONTRACT.json",
+    "contract_gate": "scripts/project_layoutgen_reuse_contract_gate.py",
+    "contract_load_report": "outputs/PROJECT_bitcell_array_layoutgen_reuse_v2/REUSE_CONTRACT_LOAD_REPORT.json",
+    "full_bitcell_array_gds_integrated": false,
+    "new_architecture_review_package_generated": false,
+    "paper_evidence_package_sha256": "4eb62c04deb83eb64f5c07d1ba1a3700bbf47516f9c37da608fcbf806ca275c1"
+  },
+  "layoutgen_reuse_contract": "LOAD_GATE_CLOSED_MANDATORY_FOR_NEW_CANDIDATES",
+  "legacy_layoutgen_student_handoff_evaluation": {
+    "entrypoint": "python -m sram_layoutgen",
+    "git_branch": "project/mainline-inventory-20260726",
+    "git_head": "da41cc22109c7f6ce314b2cf038d82e086f12775",
+    "handoff_readiness": "packaging_required",
+    "mandatory_next_action": "prepare README, requirements, configs, generate_example.sh, hardmacro bundle, and path cleanup notes before external student handoff",
+    "parameterization": "true_for_single_bank_freepdk45",
+    "runtime_smoke_passed": true,
+    "smoke_configs": [
+      {
+        "num_words": 16,
+        "status": "PASS",
+        "word_size": 16,
+        "words_per_row": 1
+      },
+      {
+        "num_words": 32,
+        "status": "PASS",
+        "word_size": 16,
+        "words_per_row": 1
+      },
+      {
+        "num_words": 32,
+        "status": "PASS",
+        "word_size": 16,
+        "words_per_row": 2
+      }
+    ],
+    "smoke_root": "/data1/qujh/layoutgen_handoff_evaluation/20260809T050251Z",
+    "source_preserved": true,
+    "status": "LEGACY_FULL_MACRO_GENERATOR_PRESERVED_HANDOFF_PACKAGING_REQUIRED",
+    "student_one_command_flow_ready": false,
+    "timestamp": "2026-08-09T05:02:51Z"
+  },
+  "logic_simulation_status": "BLOCKED_BY_MISSING_TRUSTED_VERILOG_ASSETS",
+  "next_stage": "Human review of same-FreePDK45 cell architecture exploration before any full-top reintegration.",
+  "old_C2_C5_status": "HUMAN_REJECTED_ARCHITECTURE_BASELINE",
+  "old_F3_F4_status": "HUMAN_REJECTED_ARCHITECTURE_BASELINE",
+  "physical_top_entry_allowed": true,
+  "placement_quality_gate": "CLOSED_FOR_FLOORPLAN_REVIEW",
+  "post_layout_extraction_reason": "KLayout FreePDK45 LVS/extraction assets exist, but Magic/Netgen/PEX rule provenance and refreshed project LVS/PEX binding do not.",
+  "post_layout_extraction_status": "NOT_AVAILABLE_WITH_CURRENT_EVIDENCE",
+  "post_layout_pex": false,
+  "power_status": {
+    "ir_em_or_dynamic_signoff": false,
+    "negative_case_count": 6,
+    "negative_gate_passed": true,
+    "positive_config_count": 3,
+    "positive_gate_passed": true
+  },
+  "previous_bounded_floorplan_status": "ABSTRACT_BOUNDED_FLOORPLAN_MODEL_PASS",
+  "previous_full_sram_floorplan_status": "FULL_SRAM_FLOORPLAN_LEGALITY_PASS_HUMAN_REJECTED_ARCHITECTURE_BASELINE",
+  "real_array_integration": "PASS_ROW_PATH_ONLY_FOR_DECODER_WL_DRIVER_ARRAY",
+  "real_array_integration_closure": {
+    "authoritative_array_gds_sha256": "555df9b1fcbd9dda7e4c8959942e27b8f093c36b0a8c67a7ac213f9946b9a1ac",
+    "combined_drc_marker_count_each": 0,
+    "connectivity": true,
+    "determinism_a_b": true,
+    "foreign_net": true,
+    "formal_timing_authority": "TIMING_BUDGET_AUTHORITY_PENDING",
+    "full_path_ngspice_proxy_completed": true,
+    "machine_green_candidate_count": 2,
+    "negative_unexpected_pass_count": 0,
+    "not_post_layout_pex": true,
+    "pin_access": true,
+    "power_endpoint_coverage_each": "868/868",
+    "rc_evidence_level": "NORMALIZED_GEOMETRY_RC_PROXY",
+    "recommended_candidate": "P2_REAL_ARRAY_V1",
+    "retained_alternative": "P3_REAL_ARRAY_V1",
+    "wl_bit_exact": true
+  },
+  "real_bitcell_array_physical_integration": "PHYSICAL_CLOSURE_COMPLETE_FORMAL_TIMING_AUTHORITY_PENDING",
+  "real_decoder_wl_driver_array_integration": "PASS_REAL_ARRAY_PHYSICAL_CLOSURE_PENDING_NARROW_WL_TIMING_AUTHORITY",
+  "real_hierarchical_full_sram_floorplan": {
+    "adjacency_gate": "PASS",
+    "alternative": "REAL_S3_CONTROL_NEAR_SINKS",
+    "build_head": "225c28e1d4adcd8f4b67055f5336315d43afe5ed",
+    "compactness_gate": "PASS",
+    "control_block_boundary": "REAL_CONTROL_BASELINE_REUSED; CONTROL_BLOCK_COMPACT_PHYSICAL_V3_NOT_CLAIMED",
+    "control_block_source": "outputs/PROJECT_full_single_bank_sram/control_block/candidates/C2_TIMING_CHAIN_ORIENTED/clean.gds",
+    "detailed_routing": "NOT_STARTED",
+    "global_route_feasibility": "PASS",
+    "package": "/data1/qujh/PROJECT_REAL_HIERARCHICAL_FULL_SINGLE_BANK_SRAM_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "power_preplan": "PASS",
+    "precharge_bank": "outputs/PROJECT_full_single_bank_sram/real_hierarchical_floorplan_v1/physical_banks/precharge_v1/clean.gds",
+    "real_hierarchy_gate": "PASS",
+    "recommended": "REAL_S0_CLASSIC_COMPACT",
+    "region_gate": "PASS",
+    "sense_amp_bank": "outputs/PROJECT_full_single_bank_sram/real_hierarchical_floorplan_v1/physical_banks/sense_amp_v1/clean.gds",
+    "status": "PASS_REAL_HIERARCHICAL_FULL_SINGLE_BANK_SRAM_FLOORPLAN_TO_HUMAN_REVIEW",
+    "write_driver_bank": "outputs/PROJECT_full_single_bank_sram/real_hierarchical_floorplan_v1/physical_banks/write_driver_v1/clean.gds"
+  },
+  "real_hierarchical_full_sram_floorplan_v2": {
+    "alternative": "REAL_V2_S1_TWO_ROW_PERIPHERY",
+    "bank_v2_alignment": "PASS",
+    "build_head": "e5a1fc708732bb54e436652e629d816931924507",
+    "control_compaction_gate": "FAIL",
+    "control_v3": "NOT_CLOSED",
+    "detailed_routing": "NOT_STARTED",
+    "old_s0": "DOMINATED_BASELINE",
+    "package": "/data1/qujh/PROJECT_REAL_HIERARCHICAL_FULL_SINGLE_BANK_SRAM_FLOORPLAN_V2_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "recommended_if_control_accepted": "REAL_V2_S3_CONTROL_NEAR_SINKS",
+    "selected_bank_architecture": "even_odd_2row",
+    "status": "REAL_HIERARCHICAL_FULL_SINGLE_BANK_SRAM_FLOORPLAN_V2_CONTROL_COMPACTION_NOT_CLOSED"
+  },
+  "region_constraint": "CLOSED_FOR_FLOORPLAN_REVIEW",
+  "remaining_functional_timing_authority_gaps": [
+    "TIME_schedule",
+    "write_sample_point",
+    "disabled_hold_semantics",
+    "formal_WL_timing_authority"
+  ],
+  "remote_branch_head": "PENDING_COMMIT",
+  "remote_master_head_last_known": "489f3e04e85197a6501e48168627a7b8a9232550",
+  "row_path_physical_closure": "PASS",
+  "row_path_top_level_replanning": "ROW_PATH_DECOMPOSED_DECODER_WL_DRIVER_ARRAY_INSTANTIATED_SEPARATELY",
+  "same_pdk_cell_architecture_exploration": {
+    "audit": "docs/V41_SAME_PDK_CELL_GEOMETRY_AUDIT.json",
+    "external_standard_cell_library_used_in_final_candidates": false,
+    "formal_same_pdk_replacement_authorized": false,
+    "lclayout_status": "NOT_INSTALLED",
+    "machine_gate": "outputs/PROJECT_same_freepdk45_cell_architecture_exploration/SAME_PDK_CELL_ARCHITECTURE_MACHINE_GATE.json",
+    "official_full_sram_top_modified": false,
+    "pdk_changed": false,
+    "review_package": "/data1/qujh/PROJECT_SAME_FREEPDK45_CELL_ARCHITECTURE_EXPLORATION_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "review_package_sha256": "cbcfe7ac592c5cdde4e2a8b32c3bb0a9bf220129192c08dfd1857e06b9eda3ab",
+    "status": "PASS_SAME_FREEPDK45_CELL_ARCHITECTURE_EXPLORATION_TO_HUMAN_REVIEW"
+  },
+  "spice_pass_modules": [
+    "PNAND2",
+    "PNAND3",
+    "AND2",
+    "AND3",
+    "pdrive",
+    "wl_pdrive",
+    "pdrive2_for_pre",
+    "delay_chain",
+    "DFF",
+    "DFF_BUF"
+  ],
+  "spice_primary": "ngspice",
+  "spice_secondary": "Xyce",
+  "spice_simulation_status": "PRIMARY_CHAIN_CLOSED_FOR_REQUESTED_MODULE_SMOKE",
+  "sram_functional_tb_blockers": [
+    "TIME_schedule",
+    "write_sample_point",
+    "disabled_hold_semantics"
+  ],
+  "sram_functional_tb_status": "BLOCKED_BY_EXACT_TIMING_ORACLE_GAPS",
+  "standalone_array_machine_gate": "PASS_AUTHORITATIVE_ARRAY_MACHINE_GATE",
+  "team_b_state": "TEAM_B_OWNER_HUMAN_REVIEWED_MERGED_TO_MAINLINE",
+  "timestamp": "2026-08-10T00:00:00Z",
+  "top_intermodule_routing": "PHYSICALLY_ROUTED_AND_DRC_CLEAN",
+  "top_physical_architecture": "REAL_TOP_PHYSICAL_INTEGRATION_CLOSED",
+  "trusted_master_head": "c1fbd98",
+  "v2_human_review_status": "HUMAN_REVIEW_REJECTED_STRUCTURAL_DECODER_MISMATCH",
+  "v2_rejection_reason": "REJECT_V2_DUE_TO_DECODER_STRUCTURAL_MISMATCH_AND_DFF_SEMANTIC_PLACEMENT_GAPS",
   "v3_human_review_status": "SEMANTIC_STRUCTURE_RECOVERY_PASS_PHYSICAL_COMPACTION_FAIL",
   "v3_reclassification": "SEMANTIC_STRUCTURE_RECOVERY_PASS_CONTROL_PLACEMENT_REPLAN_FAIL_DECODER_INTERNAL_2D_REPLAN_FAIL_FINAL_GDS_EVIDENCE_QUALITY_FAIL",
-  "full_sram_dff_control_decoder_physical_compaction_v4": {
-    "status": "PASS_FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4_TO_HUMAN_REVIEW",
-    "top_name": "FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4",
-    "unique_top_count": 1,
-    "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4/clean_unique_top.gds",
-    "gds_sha256": "2d6f87607b4048ba52c82e503a3ea0b0527096329f7edd37e9b0b47ae610e8b6",
-    "drc_marker_count": 0,
-    "power_endpoint_coverage": "100%",
-    "foreign_net": "PASS",
-    "semantic_connectivity": {
-      "row": "PASS",
-      "data_write": "PASS",
-      "read": "PASS",
-      "control": "PASS",
-      "power": "PASS",
-      "foreign_net": "PASS"
-    },
-    "bundled_dff_result": "BUNDLED_DFF_FUNCTIONALLY_EQUIVALENT_FOR_ADDR_DATA",
-    "dff_roles": {
-      "ADDR": 4,
-      "DATA": 16,
-      "buffered_control": 2
-    },
-    "control_fixed_step_detector": "PASS_FINAL_GDS_VERIFIED",
-    "decoder": {
-      "source_address_width": 4,
-      "physical_address_input_count": 4,
-      "source_wl_count": 16,
-      "physical_unique_wl_output_count": 16
-    },
-    "top_area_um2": 46250.1701,
-    "v3_top_area_um2": 55164.2249,
-    "area_less_than_v3": true,
-    "final_gds_fact_audit": "PASS",
-    "negative_unexpected_pass": 0,
-    "determinism": "PASS",
-    "formal_timing_authority": "PENDING",
-    "post_layout_pex": "NOT_CLAIMED",
-    "review_package": "/data1/qujh/PROJECT_FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz"
-  },
   "v4_human_review_status": "HUMAN_REVIEW_REJECTED_DUE_TO_INVALID_DFF_EQUIVALENCE_EVIDENCE_AND_BANK_INTERFACE_TRANSLATION_REGRESSION",
-  "full_sram_dff_authority_column_alignment_v41": {
-    "status": "PASS_FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41_TO_HUMAN_REVIEW",
-    "top_name": "FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41",
-    "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41/clean_unique_top.gds",
-    "gds_sha256": "5f48d1de1ab31091a7ded24e3721b9c4afbbfd3e8ad75fff6a351a08539fda6f",
-    "drc_marker_count": 0,
-    "dff": {
-      "old_v4_equivalence_evidence": "INVALID",
-      "bundled_dff_final_authority": "REVOKED",
-      "final_selected_ADDR_DATA_cell": "DFF_TG4_INV7",
-      "spice_run_health_gate_detected_v4_failure": true
-    },
-    "column_interface": {
-      "precharge": {
-        "old_origin_x": 70.0,
-        "new_origin_x": 72.345,
-        "solved_dx": 2.345,
-        "max_residual": 0.045,
-        "rms_residual": 0.045
-      },
-      "sense": {
-        "old_origin_x": 70.0,
-        "new_origin_x": 72.3075,
-        "solved_dx": 2.3075,
-        "max_residual": 0.0025,
-        "rms_residual": 0.0025
-      },
-      "write": {
-        "old_origin_x": 70.0,
-        "new_origin_x": 72.2425,
-        "solved_dx": 2.2425,
-        "max_residual": 0.0025,
-        "rms_residual": 0.0025
-      }
-    },
-    "blbr": {
-      "pins_matched_per_bank": "32/32",
-      "actual_routes_regenerated": true,
-      "stale_route_gate": "PASS"
-    },
-    "semantic_connectivity": {
-      "row": "PASS",
-      "data_write": "PASS",
-      "read": "PASS",
-      "control": "PASS",
-      "power": "PASS",
-      "foreign_net": "PASS"
-    },
-    "power": "100%",
-    "foreign_net": "PASS",
-    "negative_unexpected_pass": 0,
-    "determinism": "PASS",
-    "formal_timing_authority": "PENDING",
-    "post_layout_pex": "NOT_CLAIMED",
-    "review_package": "/data1/qujh/PROJECT_FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz"
-  }
+  "wl_driver_abutment_search": "INCOMPLETE",
+  "wl_routing_status": "WL_ROUTING_ENGINEERING_PROXY_COMPLETE",
+  "wl_timing_engineering_closure": {
+    "array_authority_lock": "docs/BITCELL_ARRAY_PHYSICAL_AUTHORITY_LOCK.json",
+    "authority_review_packet": "docs/WL_TIMING_AUTHORITY_REVIEW_PACKET.json",
+    "machine_green_local_candidate_count": 1,
+    "not_post_layout_pex": true,
+    "rc_evidence_level": "NORMALIZED_GEOMETRY_RC_PROXY",
+    "recommended_local_candidate": "T3_driver_column_spacing_pareto",
+    "timing_authority": "PENDING"
+  },
+  "workflow_state": "PASS_SAME_FREEPDK45_CELL_ARCHITECTURE_EXPLORATION_TO_HUMAN_REVIEW"
 }

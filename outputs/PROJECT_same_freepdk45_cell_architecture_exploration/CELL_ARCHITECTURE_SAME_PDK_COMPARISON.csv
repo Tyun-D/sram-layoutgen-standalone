@@ -1,0 +1,7 @@
+category,role,candidate,pdk,external_stdcell_gds,exact_topology,gds_generated,drc,function,bbox_area_um2,replacement_allowed,notes
+CURRENT_BASELINE,DFF_ADDR_DATA,DFF_TG4_INV7_FPDK45_26d9543b82b7,current FreePDK45,False,True,True,PASS_EXISTING_QUALIFIED,PASS_SOURCE_BOUND,58.450613,True,current selected ADDR/DATA DFF baseline
+LCLAYOUT_FREEPDK45,DFF_ADDR_DATA,LCLayout exact DFF_TG4_INV7 topology,current FreePDK45 adapter,False,REQUIRED,False,NOT_RUN,NOT_RUN,,False,LCLayout unavailable or adapter rules incomplete
+PROJECT_NATIVE_OPTIMIZED_FREEPDK45,DFF_ADDR_DATA,native exact-topology TG DFF compactor,current FreePDK45,False,REQUIRED,False,NOT_RUN,NOT_RUN,,False,recommended next implementation path; no formal candidate generated this round
+CURRENT_BASELINE,WL_DRIVER,wordline_driver_v2 PNAND2+INV hierarchy,current FreePDK45,False,True,True,PASS_EXISTING_QUALIFIED,PASS_SOURCE_BOUND,4.077,True,height 1.8875um > row pitch 1.565um; single-row per WL not feasible
+PROJECT_NATIVE_OPTIMIZED_FREEPDK45,WL_DRIVER,flattened exact PNAND2+INV compact cell,current FreePDK45,False,REQUIRED,False,NOT_RUN,NOT_RUN,,False,priority candidate if height can be reduced below authoritative array row pitch
+CURRENT_BASELINE,COLUMN_PERIPHERY,precharge/sense/write even_odd_2row_v2,current FreePDK45,False,True,True,PASS_EXISTING_QUALIFIED,PASS_SOURCE_BOUND,331.2265,True,two-row interleaving remains justified because native unit pitch exceeds 0.705um bit pitch

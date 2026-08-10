@@ -617,3 +617,19 @@
 - BL/BR: 32/32 pins matched per required bank; array-to-bank BL/BR route witness regenerated after bank move; stale-route gate `PASS`.
 - Verification: unique top `1`; KLayout/FreePDK45 DRC marker count `0`; semantic row/write/read/control/power/foreign-net gates all `PASS`; power `100%`; negative unexpected pass `0`; determinism `PASS`.
 - package: `/data1/qujh/PROJECT_FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`.
+
+## 2026-08-10T00:00:00Z same_freepdk45_cell_architecture_exploration
+- result: `PASS_SAME_FREEPDK45_CELL_ARCHITECTURE_EXPLORATION_TO_HUMAN_REVIEW`
+- correction: previous external-library exploration route is revoked; this checkpoint keeps `technology/freepdk45` as the only physical implementation authority.
+- policy: PDK changed `false`; external standard-cell library used in final candidates `false`; formal full SRAM top not modified.
+- LCLayout: `NOT_INSTALLED`; FreePDK45 adapter/provenance generated but no LCLayout formal GDS candidate authorized.
+- outputs: same-PDK final-GDS geometry audit, pitch feasibility audit, WL-driver abutment candidate matrix, and same-PDK comparison table.
+- package: `/data1/qujh/PROJECT_SAME_FREEPDK45_CELL_ARCHITECTURE_EXPLORATION_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`.
+
+## 2026-08-10T00:00:00Z same_freepdk45_cell_architecture_exploration
+- result: `PASS_SAME_FREEPDK45_CELL_ARCHITECTURE_EXPLORATION_TO_HUMAN_REVIEW`
+- correction: previous external-library exploration route is revoked; this checkpoint keeps `technology/freepdk45` as the only physical implementation authority.
+- policy: PDK changed `false`; external standard-cell library used in final candidates `false`; formal full SRAM top not modified.
+- LCLayout: `NOT_INSTALLED`; FreePDK45 adapter/provenance generated but no LCLayout formal GDS candidate authorized.
+- outputs: same-PDK final-GDS geometry audit, pitch feasibility audit, WL-driver abutment candidate matrix, and same-PDK comparison table.
+- package: `/data1/qujh/PROJECT_SAME_FREEPDK45_CELL_ARCHITECTURE_EXPLORATION_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`.
