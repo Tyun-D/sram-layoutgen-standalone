@@ -1,0 +1,3952 @@
+<?xml version="1.0" encoding="utf-8"?>
+<report-database>
+ <description>FreePDK45 DRC runset</description>
+ <original-file/>
+ <generator>drc: script='/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/technology/freepdk45/tech/freepdk45.lydrc'</generator>
+ <top-cell>WLC_flattened_exact_topology_full_cell</top-cell>
+ <tags>
+ </tags>
+ <categories>
+  <category>
+   <name>WELL.1</name>
+   <description>WELL.1 : nwell/pwell must not overlap</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>WELL.4</name>
+   <description>WELL.4 : Minimum width of nwell/pwell : 200nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VT.1</name>
+   <description>VT.1 : Vth adjust layers must coincide with well</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>POLY.1</name>
+   <description>POLY.1 : Minimum width of poly : 50nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>POLY.3</name>
+   <description>POLY.3 : Minimum poly extension beyond active : 55nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>POLY.4</name>
+   <description>POLY.4 : Minimum enclosure of active around gate : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>POLY.5</name>
+   <description>POLY.5 : Minimum spacing of field poly to active: 50nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>POLY.6</name>
+   <description>POLY.6 : Minimum spacing of field poly: 75nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.1</name>
+   <description>ACTIVE.1 : Minimum width of active : 90nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.2</name>
+   <description>ACTIVE.2 : Minimum spacing of active : 80nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.3</name>
+   <description>ACTIVE.3 : Minimum enclosure/spacing of nwell/pwell to active: 55nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.4</name>
+   <description>ACTIVE.4 : active must be inside nwell or pwell</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>IMPLANT.1</name>
+   <description>IMPLANT.1 : Minimum spacing of nimplant/ pimplant to channel : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>IMPLANT.2</name>
+   <description>IMPLANT.1 : Minimum spacing of nimplant/ pimplant to contact : 25nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>IMPLANT.3</name>
+   <description>IMPLANT.3 : Minimum width of nimplant/ pimplant  : 45nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>IMPLANT.4</name>
+   <description>IMPLANT.4 : Minimum spacing of nimplant/ pimplant  : 45nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>IMPLANT.5</name>
+   <description>IMPLANT.5 : Nimplant and pimplant must not overlap</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.1</name>
+   <description>CONTACT.1 : Minimum/Maximum width of contact : 65nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.2</name>
+   <description>CONTACT.2 : Minimum spacing of contact : 75nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.3</name>
+   <description>CONTACT.3 : contact must be inside active or poly or metal1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.4</name>
+   <description>CONTACT.4 : Minimum enclosure of active around contact : 5nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.5</name>
+   <description>CONTACT.5 : Minimum enclosure of poly around contact : 5nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.6</name>
+   <description>CONTACT.6 : Minimum spacing of contact and poly : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.1</name>
+   <description>METAL1.1 : Minimum width of metal1 : 65nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.2</name>
+   <description>METAL1.2 : Minimum spacing of metal1 : 65nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.3</name>
+   <description>METAL1.3 : Minimum enclosure around contact on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.4</name>
+   <description>METAL1.4 : Minimum enclosure around via1 on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.5</name>
+   <description>METAL1.5 : Minimum spacing of metal1 wider than 90 nm and longer than 300 nm : 90nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.6</name>
+   <description>METAL1.6 : Minimum spacing of metal1 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.7</name>
+   <description>METAL1.7 : Minimum spacing of metal1 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.8</name>
+   <description>METAL1.8 : Minimum spacing of metal1 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.9</name>
+   <description>METAL1.9 : Minimum spacing of metal1 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA1.1</name>
+   <description>VIA1.1 : Minimum/Maximum width of via1 : 65nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA1.2</name>
+   <description>VIA1.2 : Minimum spacing of via1 : 75nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA1.3</name>
+   <description>VIA1.3 : via1 must be inside metal1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA1.4</name>
+   <description>VIA1.4 : via1 must be inside metal2</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.1</name>
+   <description>METAL2.1 : Minimum width of  intermediate metal2 : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.2</name>
+   <description>METAL2.2 : Minimum spacing of  intermediate metal2 : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.3</name>
+   <description>METAL2.3 : Minimum enclosure around via1 on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.4</name>
+   <description>METAL2.4 : Minimum enclosure around via2 on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.5</name>
+   <description>METAL2.5 : Minimum spacing of  intermediate metal2 wider than 90 nm and longer than 300 nm : 90nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.6</name>
+   <description>METAL2.6 : Minimum spacing of  intermediate metal2 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.7</name>
+   <description>METAL2.7 : Minimum spacing of  intermediate metal2 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.8</name>
+   <description>METAL2.8 : Minimum spacing of  intermediate metal2 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.9</name>
+   <description>METAL2.9 : Minimum spacing of  intermediate metal2 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA2.1</name>
+   <description>VIA2.1 : Minimum/Maximum width of via2 : 65nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA2.2</name>
+   <description>VIA2.2 : Minimum spacing of via2 : 85nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA2.3</name>
+   <description>VIA2.3 : via2 must be inside metal2</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA2.4</name>
+   <description>VIA2.4 : via2 must be inside metal3</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.1</name>
+   <description>METAL3.1 : Minimum width of  intermediate metal3 : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.2</name>
+   <description>METAL3.2 : Minimum spacing of  intermediate metal3 : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.3</name>
+   <description>METAL3.3 : Minimum enclosure around via2 on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.4</name>
+   <description>METAL3.4 : Minimum enclosure around via3 on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.5</name>
+   <description>METAL3.5 : Minimum spacing of  intermediate metal3 wider than 90 nm and longer than 300 nm : 90nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.6</name>
+   <description>METAL3.6 : Minimum spacing of  intermediate metal3 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.7</name>
+   <description>METAL3.7 : Minimum spacing of  intermediate metal3 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.8</name>
+   <description>METAL3.8 : Minimum spacing of  intermediate metal3 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.9</name>
+   <description>METAL3.9 : Minimum spacing of  intermediate metal3 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA3.1</name>
+   <description>VIA3.1 : Minimum/Maximum width of via3 : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA3.2</name>
+   <description>VIA3.2 : Minimum spacing of via3 : 85nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA3.3</name>
+   <description>VIA3.3 : via3 must be inside metal3</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA3.4</name>
+   <description>VIA3.4 : via3 must be inside metal4</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4.1</name>
+   <description>METAL4.1 : Minimum width of  semi-global metal4 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4.2</name>
+   <description>METAL4.2 : Minimum spacing of  semi-global metal4 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4.6</name>
+   <description>METAL4.6 : Minimum spacing of semi-global metal4 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4.7</name>
+   <description>METAL4.7 : Minimum spacing of semi-global metal4 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4.8</name>
+   <description>METAL4.8 : Minimum spacing of semi-global meta4l wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA4.1</name>
+   <description>VIA4.1 : Minimum/Maximum width of via4 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA4.2</name>
+   <description>VIA4.2 : Minimum spacing of via4 : 160nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA4.3</name>
+   <description>VIA4.3 : via4 must be inside metal4</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA4.4</name>
+   <description>VIA4.4 : via4 must be inside metal5</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5.1</name>
+   <description>METAL5.1 : Minimum width of semi-global metal5 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5.2</name>
+   <description>METAL5.2 : Minimum spacing of semi-global metal5 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5.6</name>
+   <description>METAL5.6 : Minimum spacing of semi-global metal5 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5.7</name>
+   <description>METAL5.7 : Minimum spacing of semi-global metal5 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5.8</name>
+   <description>METAL5.8 : Minimum spacing of semi-global meta5l wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA5.1</name>
+   <description>VIA5.1 : Minimum/Maximum width of via5 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA5.2</name>
+   <description>VIA5.2 : Minimum spacing of via5 : 160nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA5.3</name>
+   <description>VIA5.3 : via5 must be inside metal5</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA5.4</name>
+   <description>VIA5.4 : via5 must be inside metal6</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6.1</name>
+   <description>METAL6.1 : Minimum width of semi-global metal6 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6.2</name>
+   <description>METAL6.2 : Minimum spacing of semi-global metal6 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6.6</name>
+   <description>METAL6.6 : Minimum spacing of semi-global metal6 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6.7</name>
+   <description>METAL6.7 : Minimum spacing of semi-global metal6 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6.8</name>
+   <description>METAL6.8 : Minimum spacing of semi-global metal6 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA6.1</name>
+   <description>VIA6.1 : Minimum/Maximum width of via7 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA6.2</name>
+   <description>VIA6.2 : Minimum spacing of via7 : 440nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA6.3</name>
+   <description>VIA6.3 : via6 must be inside metal6</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA6.4</name>
+   <description>VIA6.4 : via6 must be inside metal7</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7.1</name>
+   <description>METAL7.1 : Minimum width of thin global metal7 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7.2</name>
+   <description>METAL7.2 : Minimum spacing of thin global metal7 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7.7</name>
+   <description>METAL7.7 : Minimum spacing of thin global metal7 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7.8</name>
+   <description>METAL7.8 : Minimum spacing of thin global metal7 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7.9</name>
+   <description>METAL7.9 : Minimum spacing of thin global meta7l wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA7.3</name>
+   <description>VIA7.3 : via7 must be inside metal7</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA7.4</name>
+   <description>VIA7.4 : via7 must be inside metal8</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8.1</name>
+   <description>METAL8.1 : Minimum width of thin global metal8 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8.2</name>
+   <description>METAL8.2 : Minimum spacing of thin global metal8 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8.7</name>
+   <description>METAL8.7 : Minimum spacing of thin global metal8 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8.8</name>
+   <description>METAL8.8 : Minimum spacing of thin global metal8 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8.9</name>
+   <description>METAL8.9 : Minimum spacing of thin global metal8 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA8.1</name>
+   <description>VIA8.1 : Minimum/Maximum width of via8 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA8.2</name>
+   <description>VIA8.2 : Minimum spacing of via8 : 440nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA8.3</name>
+   <description>VIA8.3 : via8 must be inside metal8</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA8.4</name>
+   <description>VIA8.4 : via8 must be inside metal9</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9.1</name>
+   <description>METAL9.1 : Minimum width of global metal9 : 800nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9.2</name>
+   <description>METAL9.2 : Minimum spacing of global metal9 : 800nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9.7</name>
+   <description>METAL9.7 : Minimum spacing of global metal9 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9.8</name>
+   <description>METAL9.8 : Minimum spacing of global metal9 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9.9</name>
+   <description>METAL9.9 : Minimum spacing of global metal9 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA9.1</name>
+   <description>VIA9.1 : Minimum/Maximum width of via9 : 800nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA9.2</name>
+   <description>VIA9.2 : Minimum spacing of via9 : 880nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA9.3</name>
+   <description>VIA9.3 : via9 must be inside metal9</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA9.4</name>
+   <description>VIA9.4 : via9 must be inside metal10</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10.1</name>
+   <description>METAL10.1 : Minimum width of global metal10 : 800nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10.2</name>
+   <description>METAL10.2 : Minimum spacing of global metal10 : 800nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10.7</name>
+   <description>METAL10.7 : Minimum spacing of global metal10 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10.8</name>
+   <description>METAL10.8 : Minimum spacing of global metal10 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10.9</name>
+   <description>METAL10.9 : Minimum spacing of global metal10 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer well not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer active not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer vtg not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer vth not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer pplus not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer nplus not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer poly not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer thkox not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer cont not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal1 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via1 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal2 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via2 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal3 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via3 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal4 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via4 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal5 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via5 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal6 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via6 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal7 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via7 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal8 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via8 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal9 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via9 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal10 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1_ANTENNA</name>
+   <description>METAL1_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2_ANTENNA</name>
+   <description>METAL2_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3_ANTENNA</name>
+   <description>METAL3_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4_ANTENNA</name>
+   <description>METAL4_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5_ANTENNA</name>
+   <description>METAL5_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6_ANTENNA</name>
+   <description>METAL6_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7_ANTENNA</name>
+   <description>METAL7_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8_ANTENNA</name>
+   <description>METAL8_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9_ANTENNA</name>
+   <description>METAL9_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10_ANTENNA</name>
+   <description>METAL10_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+ </categories>
+ <cells>
+  <cell>
+   <name>WLC_flattened_exact_topology_full_cell</name>
+   <variant/>
+   <layout-name/>
+   <references>
+   </references>
+  </cell>
+ </cells>
+ <items>
+  <item>
+   <tags/>
+   <category>'POLY.1'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.263,0.103;0.263,0.422)|(0.312,0.422;0.312,0.103)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'POLY.1'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.263,0.498;0.263,1.782)|(0.312,1.782;0.312,0.498)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'POLY.3'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.625,0.103;1.625,0.157;1.675,0.157;1.675,0.103)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'POLY.3'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.477,0.103;0.477,0.157;0.527,0.157;0.527,0.103)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'POLY.3'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.263,0.103;0.263,0.157;0.312,0.157;0.312,0.103)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.578,0.28;0.642,0.28)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.642,0.215;0.578,0.215)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.578,1.625;0.642,1.625)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.642,1.56;0.578,1.56)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.255,0.427;0.255,0.493)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.32,0.493;0.32,0.427)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL1.1'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.578,0.18;0.578,0.326)|(0.642,0.315;0.642,0.18)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer well not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.002,1.877;1.002,1.897;1.022,1.897;1.022,1.877)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer well not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.002,-0.01;1.002,0.01;1.022,0.01;1.022,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer well not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.353,-0.01;1.353,0.01;1.373,0.01;1.373,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer well not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.353,1.877;1.353,1.897;1.373,1.897;1.373,1.877)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.125,1.447;0.125,1.467;0.145,1.467;0.145,1.447)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.125,1.717;0.125,1.737;0.145,1.737;0.145,1.717)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.645,1.717;0.645,1.737;0.665,1.737;0.665,1.717)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.645,1.447;0.645,1.467;0.665,1.467;0.665,1.447)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.125,0.147;0.125,0.167;0.145,0.167;0.145,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.125,0.328;0.125,0.348;0.145,0.348;0.145,0.328)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.645,0.328;0.645,0.348;0.665,0.348;0.665,0.328)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.645,0.147;0.645,0.167;0.665,0.167;0.665,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.487,1.447;1.487,1.467;1.507,1.467;1.507,1.447)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.487,1.717;1.487,1.737;1.507,1.737;1.507,1.717)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.792,1.717;1.792,1.737;1.812,1.737;1.812,1.717)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.792,1.447;1.792,1.467;1.812,1.467;1.812,1.447)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.487,0.147;1.487,0.167;1.507,0.167;1.507,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.487,0.237;1.487,0.257;1.507,0.257;1.507,0.237)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.792,0.237;1.792,0.257;1.812,0.257;1.812,0.237)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.792,0.147;1.792,0.167;1.812,0.167;1.812,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.725,1.627;0.725,1.647;0.745,1.647;0.745,1.627)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.725,1.717;0.725,1.737;0.745,1.737;0.745,1.717)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.815,1.717;0.815,1.737;0.835,1.737;0.835,1.717)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.815,1.627;0.815,1.647;0.835,1.647;0.835,1.627)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.725,0.147;0.725,0.167;0.745,0.167;0.745,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.725,0.238;0.725,0.258;0.745,0.258;0.745,0.238)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.815,0.238;0.815,0.258;0.835,0.258;0.835,0.238)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.815,0.147;0.815,0.167;0.835,0.167;0.835,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.872,1.627;1.872,1.647;1.892,1.647;1.892,1.627)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.872,1.717;1.872,1.737;1.892,1.737;1.892,1.717)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.963,1.717;1.963,1.737;1.983,1.737;1.983,1.717)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.963,1.627;1.963,1.647;1.983,1.647;1.983,1.627)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.872,0.147;1.872,0.167;1.892,0.167;1.892,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.872,0.238;1.872,0.258;1.892,0.258;1.892,0.238)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.963,0.238;1.963,0.258;1.983,0.258;1.983,0.238)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.963,0.147;1.963,0.167;1.983,0.167;1.983,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer vtg not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.002,1.877;1.002,1.897;1.022,1.897;1.022,1.877)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer vtg not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.002,-0.01;1.002,0.01;1.022,0.01;1.022,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer vtg not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.353,-0.01;1.353,0.01;1.373,0.01;1.373,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer vtg not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.353,1.877;1.353,1.897;1.373,1.897;1.373,1.877)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.125,1.447;0.125,1.467;0.145,1.467;0.145,1.447)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.125,1.717;0.125,1.737;0.145,1.737;0.145,1.717)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.645,1.717;0.645,1.737;0.665,1.737;0.665,1.717)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.645,1.447;0.645,1.467;0.665,1.467;0.665,1.447)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.487,1.447;1.487,1.467;1.507,1.467;1.507,1.447)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.487,1.717;1.487,1.737;1.507,1.737;1.507,1.717)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.792,1.717;1.792,1.737;1.812,1.737;1.812,1.717)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.792,1.447;1.792,1.467;1.812,1.467;1.812,1.447)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.725,0.147;0.725,0.167;0.745,0.167;0.745,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.725,0.238;0.725,0.258;0.745,0.258;0.745,0.238)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.815,0.238;0.815,0.258;0.835,0.258;0.835,0.238)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.815,0.147;0.815,0.167;0.835,0.167;0.835,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.872,0.147;1.872,0.167;1.892,0.167;1.892,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.872,0.238;1.872,0.258;1.892,0.258;1.892,0.238)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.963,0.238;1.963,0.258;1.983,0.258;1.983,0.238)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.963,0.147;1.963,0.167;1.983,0.167;1.983,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.125,0.147;0.125,0.167;0.145,0.167;0.145,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.125,0.328;0.125,0.348;0.145,0.348;0.145,0.328)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.645,0.328;0.645,0.348;0.665,0.348;0.665,0.328)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.645,0.147;0.645,0.167;0.665,0.167;0.665,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.487,0.147;1.487,0.167;1.507,0.167;1.507,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.487,0.237;1.487,0.257;1.507,0.257;1.507,0.237)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.792,0.237;1.792,0.257;1.812,0.257;1.812,0.237)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.792,0.147;1.792,0.167;1.812,0.167;1.812,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.725,1.627;0.725,1.647;0.745,1.647;0.745,1.627)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.725,1.717;0.725,1.737;0.745,1.737;0.745,1.717)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.815,1.717;0.815,1.737;0.835,1.737;0.835,1.717)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.815,1.627;0.815,1.647;0.835,1.647;0.835,1.627)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.872,1.627;1.872,1.647;1.892,1.647;1.892,1.627)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.872,1.717;1.872,1.737;1.892,1.737;1.892,1.717)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.963,1.717;1.963,1.737;1.983,1.737;1.983,1.717)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.963,1.627;1.963,1.647;1.983,1.647;1.983,1.627)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.253,0.093;0.253,0.113;0.273,0.113;0.273,0.093)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.253,0.412;0.253,0.432;0.273,0.432;0.273,0.412)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.24,0.412;0.24,0.432;0.26,0.432;0.26,0.412)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.24,0.488;0.24,0.508;0.26,0.508;0.26,0.488)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.253,0.488;0.253,0.508;0.273,0.508;0.273,0.488)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.253,1.772;0.253,1.792;0.273,1.792;0.273,1.772)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.315,0.488;0.315,0.508;0.335,0.508;0.335,0.488)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.315,0.412;0.315,0.432;0.335,0.432;0.335,0.412)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.302,0.412;0.302,0.432;0.322,0.432;0.322,0.412)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.302,0.093;0.302,0.113;0.322,0.113;0.322,0.093)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.467,0.093;0.467,0.113;0.487,0.113;0.487,0.093)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.517,1.772;0.517,1.792;0.537,1.792;0.537,1.772)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.517,1.393;0.517,1.413;0.537,1.413;0.537,1.393)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.518,1.393;0.518,1.413;0.538,1.413;0.538,1.393)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.518,0.382;0.518,0.402;0.538,0.402;0.538,0.382)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.517,0.382;0.517,0.402;0.537,0.402;0.537,0.382)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.517,0.093;0.517,0.113;0.537,0.113;0.537,0.093)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.615,0.093;1.615,0.113;1.635,0.113;1.635,0.093)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.615,0.85;1.615,0.87;1.635,0.87;1.635,0.85)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.51,0.85;1.51,0.87;1.53,0.87;1.53,0.85)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.51,0.925;1.51,0.945;1.53,0.945;1.53,0.925)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.615,0.925;1.615,0.945;1.635,0.945;1.635,0.925)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.615,1.772;1.615,1.792;1.635,1.792;1.635,1.772)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.665,1.772;1.665,1.792;1.685,1.792;1.685,1.772)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.665,0.093;1.665,0.113;1.685,0.113;1.685,0.093)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.352,1.55;0.352,1.57;0.372,1.57;0.372,1.55)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.352,1.615;0.352,1.635;0.372,1.635;0.372,1.615)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.417,1.615;0.417,1.635;0.437,1.635;0.437,1.615)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.417,1.55;0.417,1.57;0.437,1.57;0.437,1.55)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.137,1.615;0.137,1.635;0.157,1.635;0.157,1.615)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.202,1.615;0.202,1.635;0.222,1.635;0.222,1.615)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.202,1.55;0.202,1.57;0.222,1.57;0.222,1.55)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.568,1.55;0.568,1.57;0.588,1.57;0.588,1.55)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.568,1.615;0.568,1.635;0.588,1.635;0.588,1.615)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.632,1.615;0.632,1.635;0.652,1.635;0.652,1.615)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.137,0.205;0.137,0.225;0.157,0.225;0.157,0.205)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.137,0.27;0.137,0.29;0.157,0.29;0.157,0.27)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.202,0.27;0.202,0.29;0.222,0.29;0.222,0.27)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.202,0.205;0.202,0.225;0.222,0.225;0.222,0.205)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.568,0.205;0.568,0.225;0.588,0.225;0.588,0.205)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.568,0.27;0.568,0.29;0.588,0.29;0.588,0.27)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.632,0.27;0.632,0.29;0.652,0.29;0.652,0.27)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.632,0.205;0.632,0.225;0.652,0.225;0.652,0.205)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.738,1.64;0.738,1.66;0.758,1.66;0.758,1.64)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.738,1.705;0.738,1.725;0.758,1.725;0.758,1.705)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.803,1.705;0.803,1.725;0.823,1.725;0.823,1.705)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.738,0.16;0.738,0.18;0.758,0.18;0.758,0.16)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.738,0.225;0.738,0.245;0.758,0.245;0.758,0.225)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.803,0.225;0.803,0.245;0.823,0.245;0.823,0.225)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.803,0.16;0.803,0.18;0.823,0.18;0.823,0.16)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.245,0.417;0.245,0.437;0.265,0.437;0.265,0.417)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.245,0.483;0.245,0.503;0.265,0.503;0.265,0.483)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.31,0.483;0.31,0.503;0.33,0.503;0.33,0.483)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.31,0.417;0.31,0.437;0.33,0.437;0.33,0.417)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.46,0.697;0.46,0.717;0.48,0.717;0.48,0.697)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.46,0.762;0.46,0.782;0.48,0.782;0.48,0.762)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.525,0.762;0.525,0.782;0.545,0.782;0.545,0.762)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.525,0.697;0.525,0.717;0.545,0.717;0.545,0.697)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.5,1.55;1.5,1.57;1.52,1.57;1.52,1.55)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.5,1.615;1.5,1.635;1.52,1.635;1.52,1.615)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.565,1.615;1.565,1.635;1.585,1.635;1.585,1.615)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.715,1.615;1.715,1.635;1.735,1.635;1.735,1.615)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.78,1.615;1.78,1.635;1.8,1.635;1.8,1.615)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.78,1.55;1.78,1.57;1.8,1.57;1.8,1.55)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.5,0.16;1.5,0.18;1.52,0.18;1.52,0.16)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.5,0.225;1.5,0.245;1.52,0.245;1.52,0.225)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.565,0.225;1.565,0.245;1.585,0.245;1.585,0.225)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.565,0.16;1.565,0.18;1.585,0.18;1.585,0.16)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.715,0.16;1.715,0.18;1.735,0.18;1.735,0.16)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.715,0.225;1.715,0.245;1.735,0.245;1.735,0.225)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.78,0.225;1.78,0.245;1.8,0.245;1.8,0.225)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.78,0.16;1.78,0.18;1.8,0.18;1.8,0.16)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.885,1.64;1.885,1.66;1.905,1.66;1.905,1.64)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.885,1.705;1.885,1.725;1.905,1.725;1.905,1.705)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.95,1.705;1.95,1.725;1.97,1.725;1.97,1.705)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.95,1.64;1.95,1.66;1.97,1.66;1.97,1.64)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.885,0.16;1.885,0.18;1.905,0.18;1.905,0.16)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.885,0.225;1.885,0.245;1.905,0.245;1.905,0.225)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.95,0.225;1.95,0.245;1.97,0.245;1.97,0.225)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.95,0.16;1.95,0.18;1.97,0.18;1.97,0.16)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.515,0.855;1.515,0.875;1.535,0.875;1.535,0.855)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.515,0.92;1.515,0.94;1.535,0.94;1.535,0.92)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.58,0.855;1.58,0.875;1.6,0.875;1.6,0.855)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.137,1.515;0.137,1.535;0.157,1.535;0.157,1.515)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.137,1.81;0.137,1.83;0.157,1.83;0.157,1.81)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.045,1.81;0.045,1.83;0.065,1.83;0.065,1.81)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.045,1.875;0.045,1.895;0.065,1.895;0.065,1.875)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (2.095,1.875;2.095,1.895;2.115,1.895;2.115,1.875)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (2.095,1.81;2.095,1.83;2.115,1.83;2.115,1.81)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.95,1.81;1.95,1.83;1.97,1.83;1.97,1.81)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.95,1.605;1.95,1.625;1.97,1.625;1.97,1.605)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.885,1.605;1.885,1.625;1.905,1.625;1.905,1.605)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.885,1.81;1.885,1.83;1.905,1.83;1.905,1.81)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.565,1.81;1.565,1.83;1.585,1.83;1.585,1.81)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.565,1.515;1.565,1.535;1.585,1.535;1.585,1.515)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.5,1.515;1.5,1.535;1.52,1.535;1.52,1.515)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.5,1.81;1.5,1.83;1.52,1.83;1.52,1.81)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.803,1.81;0.803,1.83;0.823,1.83;0.823,1.81)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.803,1.605;0.803,1.625;0.823,1.625;0.823,1.605)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.738,1.605;0.738,1.625;0.758,1.625;0.758,1.605)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.738,1.81;0.738,1.83;0.758,1.83;0.758,1.81)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.633,1.81;0.633,1.83;0.653,1.83;0.653,1.81)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.633,1.515;0.633,1.535;0.653,1.535;0.653,1.515)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.568,1.515;0.568,1.535;0.588,1.535;0.588,1.515)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.568,1.81;0.568,1.83;0.588,1.83;0.588,1.81)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.202,1.81;0.202,1.83;0.222,1.83;0.222,1.81)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.202,1.515;0.202,1.535;0.222,1.535;0.222,1.515)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.045,-0.01;0.045,0.01;0.065,0.01;0.065,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.045,0.055;0.045,0.075;0.065,0.075;0.065,0.055)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.137,0.055;0.137,0.075;0.157,0.075;0.157,0.055)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.202,0.305;0.202,0.325;0.222,0.325;0.222,0.305)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.202,0.055;0.202,0.075;0.222,0.075;0.222,0.055)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.738,0.055;0.738,0.075;0.758,0.075;0.758,0.055)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.738,0.26;0.738,0.28;0.758,0.28;0.758,0.26)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.803,0.055;0.803,0.075;0.823,0.075;0.823,0.055)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.5,0.055;1.5,0.075;1.52,0.075;1.52,0.055)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.5,0.26;1.5,0.28;1.52,0.28;1.52,0.26)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.565,0.055;1.565,0.075;1.585,0.075;1.585,0.055)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.885,0.055;1.885,0.075;1.905,0.075;1.905,0.055)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.885,0.26;1.885,0.28;1.905,0.28;1.905,0.26)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.95,0.26;1.95,0.28;1.97,0.28;1.97,0.26)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.95,0.055;1.95,0.075;1.97,0.075;1.97,0.055)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (2.095,0.055;2.095,0.075;2.115,0.075;2.115,0.055)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (2.095,-0.01;2.095,0.01;2.115,0.01;2.115,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.568,0.17;0.568,0.19;0.588,0.19;0.588,0.17)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.568,0.468;0.568,0.488;0.588,0.488;0.588,0.468)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.697,0.468;0.697,0.488;0.717,0.488;0.717,0.468)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.697,1.022;0.697,1.042;0.717,1.042;0.717,1.022)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.352,1.385;0.352,1.405;0.372,1.405;0.372,1.385)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.352,1.65;0.352,1.67;0.372,1.67;0.372,1.65)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.417,1.65;0.417,1.67;0.437,1.67;0.437,1.65)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.417,1.45;0.417,1.47;0.437,1.47;0.437,1.45)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.797,1.45;0.797,1.47;0.817,1.47;0.817,1.45)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.763,1.022;0.763,1.042;0.783,1.042;0.783,1.022)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.763,0.402;0.763,0.422;0.783,0.422;0.783,0.402)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.633,0.402;0.633,0.422;0.653,0.422;0.653,0.402)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.633,0.305;0.633,0.325;0.653,0.325;0.653,0.305)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.48,0.855;1.48,0.875;1.5,0.875;1.5,0.855)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.48,1.157;1.48,1.177;1.5,1.177;1.5,1.157)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.615,1.157;1.615,1.177;1.635,1.177;1.635,1.157)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.615,0.855;1.615,0.875;1.635,0.875;1.635,0.855)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.21,0.417;0.21,0.437;0.23,0.437;0.23,0.417)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.21,0.483;0.21,0.503;0.23,0.503;0.23,0.483)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.345,0.483;0.345,0.503;0.365,0.503;0.365,0.483)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.345,0.417;0.345,0.437;0.365,0.437;0.365,0.417)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.425,0.697;0.425,0.717;0.445,0.717;0.445,0.697)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.425,0.762;0.425,0.782;0.445,0.782;0.445,0.762)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.56,0.762;0.56,0.782;0.58,0.782;0.58,0.762)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.56,0.697;0.56,0.717;0.58,0.717;0.58,0.697)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.715,1.65;1.715,1.67;1.735,1.67;1.735,1.65)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.78,1.65;1.78,1.67;1.8,1.67;1.8,1.65)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.78,0.92;1.78,0.94;1.8,0.94;1.8,0.92)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.812,0.92;1.812,0.94;1.832,0.94;1.832,0.92)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.812,0.855;1.812,0.875;1.832,0.875;1.832,0.855)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.78,0.855;1.78,0.875;1.8,0.875;1.8,0.855)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.78,0.125;1.78,0.145;1.8,0.145;1.8,0.125)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer via1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.697,1.058;0.697,1.078;0.717,1.078;0.717,1.058)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer via1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.697,1.123;0.697,1.143;0.717,1.143;0.717,1.123)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer via1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.762,1.123;0.762,1.143;0.782,1.143;0.782,1.123)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer via1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.762,1.058;0.762,1.078;0.782,1.078;0.782,1.058)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer via1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.515,1.058;1.515,1.078;1.535,1.078;1.535,1.058)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer via1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.515,1.123;1.515,1.143;1.535,1.143;1.535,1.123)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer via1 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.58,1.123;1.58,1.143;1.6,1.143;1.6,1.123)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal2 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.615,1.157;1.615,1.177;1.635,1.177;1.635,1.157)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal2 not on grid of 0.0025'</category>
+   <cell>WLC_flattened_exact_topology_full_cell</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.615,1.022;1.615,1.042;1.635,1.042;1.635,1.022)</value>
+   </values>
+  </item>
+ </items>
+</report-database>

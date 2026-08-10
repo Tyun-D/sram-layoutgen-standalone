@@ -633,3 +633,27 @@
 - LCLayout: `NOT_INSTALLED`; FreePDK45 adapter/provenance generated but no LCLayout formal GDS candidate authorized.
 - outputs: same-PDK final-GDS geometry audit, pitch feasibility audit, WL-driver abutment candidate matrix, and same-PDK comparison table.
 - package: `/data1/qujh/PROJECT_SAME_FREEPDK45_CELL_ARCHITECTURE_EXPLORATION_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`.
+
+## 2026-08-10T00:00:00Z same_freepdk45_real_cell_candidates
+- result: `PASS_SAME_FREEPDK45_REAL_CELL_CANDIDATES_TO_HUMAN_REVIEW`
+- correction: previous same-PDK checkpoint is reclassified as `SAME_PDK_BASELINE_AUDIT_PASS`; this checkpoint contains real GDS generation/DRC experiments.
+- policy: PDK changed `false`; external standard-cell library used in final candidates `false`; formal full SRAM top modified `false`.
+- LCLayout: isolated venv installed and attempted; adapter remains exploratory until source-exact netlists and all required tech fields are closed.
+- generated: WL-driver gap-sweep GDS/DRC, DFF native candidate GDS/DRC, DFF cluster prototypes, and periphery bank gap-sweep GDS/DRC.
+- package: `/data1/qujh/PROJECT_SAME_FREEPDK45_REAL_CELL_CANDIDATES_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`.
+
+## 2026-08-10T00:00:00Z same_freepdk45_real_cell_candidates
+- result: `PASS_SAME_FREEPDK45_REAL_CELL_CANDIDATES_TO_HUMAN_REVIEW`
+- correction: previous same-PDK checkpoint is reclassified as `SAME_PDK_BASELINE_AUDIT_PASS`; this checkpoint contains real GDS generation/DRC experiments.
+- policy: PDK changed `false`; external standard-cell library used in final candidates `false`; formal full SRAM top modified `false`.
+- LCLayout: isolated venv installed and attempted; adapter remains exploratory until source-exact netlists and all required tech fields are closed.
+- generated: WL-driver gap-sweep GDS/DRC, DFF native candidate GDS/DRC, DFF cluster prototypes, and periphery bank gap-sweep GDS/DRC.
+- package: `/data1/qujh/PROJECT_SAME_FREEPDK45_REAL_CELL_CANDIDATES_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`.
+
+## 2026-08-10T00:00:00Z same_freepdk45_real_cell_candidates
+- result: `PASS_SAME_FREEPDK45_REAL_CELL_CANDIDATES_TO_HUMAN_REVIEW`
+- correction: previous same-PDK checkpoint is reclassified as `SAME_PDK_BASELINE_AUDIT_PASS`; this checkpoint contains real GDS generation/DRC experiments.
+- policy: PDK changed `false`; external standard-cell library used in final candidates `false`; formal full SRAM top modified `false`.
+- LCLayout: isolated venv installed and attempted; adapter remains exploratory until source-exact netlists and all required tech fields are closed.
+- generated: WL-driver gap-sweep GDS/DRC, DFF native candidate GDS/DRC, DFF cluster prototypes, and periphery bank gap-sweep GDS/DRC.
+- package: `/data1/qujh/PROJECT_SAME_FREEPDK45_REAL_CELL_CANDIDATES_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`.

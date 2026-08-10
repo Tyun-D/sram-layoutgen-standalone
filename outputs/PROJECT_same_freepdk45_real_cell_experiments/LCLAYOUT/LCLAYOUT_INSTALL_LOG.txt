@@ -1,0 +1,77 @@
+START 2026-08-10T19:18:49Z
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Requirement already satisfied: pip in ./venv/lib/python3.10/site-packages (26.2.1)
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting lclayout
+  Using cached lclayout-0.0.18-py3-none-any.whl
+Collecting z3-solver
+  Using cached z3_solver-5.0.0.0-py3-none-manylinux_2_27_x86_64.whl (33.0 MB)
+Collecting toml>=0.10 (from lclayout)
+  Using cached toml-0.10.2-py2.py3-none-any.whl (16 kB)
+Collecting klayout>=0.27.3 (from lclayout)
+  Using cached klayout-0.30.10-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (27.3 MB)
+Collecting numpy>=1.0 (from lclayout)
+  Downloading numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.8/16.8 MB 7.6 MB/s  0:00:02
+Collecting networkx>=2.5 (from lclayout)
+  Using cached networkx-3.4.2-py3-none-any.whl (1.7 MB)
+Collecting scipy>=1.5 (from lclayout)
+  Downloading scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 8.4 MB/s  0:00:04
+Collecting liberty-parser>=0.0.19 (from lclayout)
+  Using cached liberty_parser-0.0.29-py3-none-any.whl
+Collecting pysmt>=0.9 (from lclayout)
+  Using cached PySMT-0.9.6-py2.py3-none-any.whl (326 kB)
+Collecting sympy>=1.6 (from liberty-parser>=0.0.19->lclayout)
+  Using cached sympy-1.14.0-py3-none-any.whl (6.3 MB)
+Collecting lark>=1.1 (from liberty-parser>=0.0.19->lclayout)
+  Using cached lark-1.3.1-py3-none-any.whl (113 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.6->liberty-parser>=0.0.19->lclayout)
+  Using cached mpmath-1.3.0-py3-none-any.whl (536 kB)
+Installing collected packages: z3-solver, pysmt, mpmath, klayout, toml, sympy, numpy, networkx, lark, scipy, liberty-parser, lclayout
+
+Successfully installed klayout-0.30.10 lark-1.3.1 lclayout-0.0.18 liberty-parser-0.0.29 mpmath-1.3.0 networkx-3.4.2 numpy-2.2.6 pysmt-0.9.6 scipy-1.15.3 sympy-1.14.0 toml-0.10.2 z3-solver-5.0.0.0
+IMPORT_TEST
+UNKNOWN
+CLI_TEST
+usage: lclayout [-h] --cell NAME --netlist FILE [--output-dir DIR]
+                [--debug-output-dir DIR] --tech FILE [--debug-routing-graph]
+                [--debug-smt-solver] [--placer PLACER]
+                [--placement-file PLACEMENTFILE]
+                [--signal-router SIGNAL_ROUTER] [--route-max-iter MAX_ITER]
+                [--place-max-candidates MAX_NUM_PLACEMENTS] [-v]
+                [--ignore-lvs] [-q] [--log LOG_FILE]
+
+Generate GDS layout from SPICE netlist.
+
+options:
+  -h, --help            show this help message and exit
+  --cell NAME           cell name
+  --netlist FILE        path to SPICE netlist
+  --output-dir DIR      output directory for layouts
+  --debug-output-dir DIR
+                        output directory for debug layouts
+  --tech FILE           technology file
+  --debug-routing-graph
+                        write full routing graph to the layout instead of
+                        wires
+  --debug-smt-solver    enable debug mode: display routing nodes in layout,
+                        show unsatisfiable core if SMT DRC cleaning fails.
+  --placer PLACER       placement algorithm (flat, hierarchical, meta, smt)
+  --placement-file PLACEMENTFILE
+                        Use this file to store the placement such that it can
+                        be reused between runs. JSON format is used.
+  --signal-router SIGNAL_ROUTER
+                        routing algorithm for single signals (dijkstra,
+                        steiner)
+  --route-max-iter MAX_ITER
+                        maximum number of iterations for routing (if the
+                        router supports it)
+  --place-max-candidates MAX_NUM_PLACEMENTS
+                        maximum number of placement candidates to try
+  -v, --verbose         show more information
+  --ignore-lvs          Write the layout file even if the LVS check failed.
+  -q, --quiet           don't show any information except fatal events
+                        (overwrites --verbose)
+  --log LOG_FILE        write log to this file instead of stdout
+END 2026-08-10T19:19:26Z

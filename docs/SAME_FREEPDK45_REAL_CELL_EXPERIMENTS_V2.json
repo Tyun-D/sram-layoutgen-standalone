@@ -1,0 +1,131 @@
+{
+  "conclusion": "Real GDS generation and DRC experiments were run. Formal compact replacements are not authorized unless exact-topology routing/connectivity also closes; current DRC-clean formal candidates remain baseline same-PDK assets.",
+  "dff": {
+    "area_reduction_percent": 0.0,
+    "baseline_bbox": {
+      "area": 58.450613,
+      "height": 4.2525,
+      "width": 13.745
+    },
+    "best_drc_clean_candidate": {
+      "bbox_area": 58.450613,
+      "bbox_height": 4.2525,
+      "bbox_width": 13.745,
+      "candidate": "DFF_NATIVE_A_SOURCE_ORDER",
+      "drc_marker_count": 0,
+      "drc_pass": true,
+      "formal_replacement_allowed": true,
+      "function_smoke": "SOURCE_BOUND_EXISTING_PASS",
+      "gds": "outputs/PROJECT_same_freepdk45_real_cell_experiments/DFF/DFF_NATIVE_A_SOURCE_ORDER/clean.gds",
+      "notes": "Generated from current source-bound DFF closure; exact topology and existing parent routing retained.",
+      "topology_exact": true,
+      "wl_exact": true
+    },
+    "cluster_prototypes": {
+      "ADDR": "outputs/PROJECT_same_freepdk45_real_cell_experiments/DFF/ADDR_DFF_4_CLUSTER_PROTOTYPE/clean.gds",
+      "DATA": "outputs/PROJECT_same_freepdk45_real_cell_experiments/DFF/DATA_DFF_16_CLUSTER_PROTOTYPE/clean.gds"
+    }
+  },
+  "external_standard_cell_library_used_in_final_candidates": false,
+  "formal_full_sram_top_modified": false,
+  "lclayout": {
+    "attempts": [
+      {
+        "cell": "gen_inv",
+        "formal_candidate": false,
+        "generated_gds": [],
+        "installed": true,
+        "log": "outputs/PROJECT_same_freepdk45_real_cell_experiments/LCLAYOUT/gen_inv/generation.log",
+        "reason": "exploratory adapter not formal and source-exact netlist extraction not complete for LCLayout",
+        "returncode": 1
+      },
+      {
+        "cell": "gen_nand2",
+        "formal_candidate": false,
+        "generated_gds": [],
+        "installed": true,
+        "log": "outputs/PROJECT_same_freepdk45_real_cell_experiments/LCLAYOUT/gen_nand2/generation.log",
+        "reason": "exploratory adapter not formal and source-exact netlist extraction not complete for LCLayout",
+        "returncode": 1
+      },
+      {
+        "cell": "DFF_TG4_INV7",
+        "formal_candidate": false,
+        "generated_gds": [],
+        "installed": true,
+        "log": "outputs/PROJECT_same_freepdk45_real_cell_experiments/LCLAYOUT/DFF_TG4_INV7/generation.log",
+        "reason": "exploratory adapter not formal and source-exact netlist extraction not complete for LCLayout",
+        "returncode": 1
+      }
+    ],
+    "version": {
+      "isolated_venv": true,
+      "lclayout_binary": "/data1/qujh/tool_experiments/lclayout_freepdk45/venv/bin/lclayout",
+      "lclayout_module": true,
+      "python": "/data1/qujh/tool_experiments/lclayout_freepdk45/venv/bin/python",
+      "version": "UNKNOWN"
+    }
+  },
+  "pdk_changed": false,
+  "periphery": {
+    "precharge": {
+      "best_drc_clean": {
+        "bbox_height": 4.78,
+        "bbox_width": 11.2875,
+        "candidate": "baseline_even_odd_v2",
+        "drc_marker_count": 0,
+        "drc_pass": true,
+        "gap_um": 2.0,
+        "gds": "outputs/PROJECT_same_freepdk45_real_cell_experiments/PERIPHERY/precharge/baseline_even_odd_v2/clean.gds"
+      },
+      "candidate_count": 10,
+      "drc_clean_count": 1
+    },
+    "sense_amp": {
+      "best_drc_clean": {
+        "bbox_height": 14.02,
+        "bbox_width": 11.35,
+        "candidate": "baseline_even_odd_v2",
+        "drc_marker_count": 0,
+        "drc_pass": true,
+        "gap_um": 2.0,
+        "gds": "outputs/PROJECT_same_freepdk45_real_cell_experiments/PERIPHERY/sense_amp/baseline_even_odd_v2/clean.gds"
+      },
+      "candidate_count": 10,
+      "drc_clean_count": 1
+    },
+    "write_driver": {
+      "best_drc_clean": {
+        "bbox_height": 10.35,
+        "bbox_width": 11.415,
+        "candidate": "baseline_even_odd_v2",
+        "drc_marker_count": 0,
+        "drc_pass": true,
+        "gap_um": 2.0,
+        "gds": "outputs/PROJECT_same_freepdk45_real_cell_experiments/PERIPHERY/write_driver/baseline_even_odd_v2/clean.gds"
+      },
+      "candidate_count": 10,
+      "drc_clean_count": 1
+    }
+  },
+  "status": "PASS_SAME_FREEPDK45_REAL_CELL_CANDIDATES_TO_HUMAN_REVIEW",
+  "wl_driver": {
+    "best_drc_clean_candidate": {
+      "bbox_height": 1.8875,
+      "bbox_width": 2.16,
+      "candidate": "WLA_existing_child_routed_baseline",
+      "drc_marker_count": 0,
+      "drc_pass": true,
+      "formal_replacement_allowed": true,
+      "gap_um": 0.35,
+      "gds": "outputs/PROJECT_same_freepdk45_real_cell_experiments/WL_DRIVER/WLA_existing_child_routed_baseline/clean.gds",
+      "height_le_array_row_pitch": false,
+      "notes": "Current fully routed exact-topology WL driver; no compaction applied.",
+      "route": "existing-child routed baseline"
+    },
+    "height_target_met": false,
+    "height_target_um": 1.565,
+    "old_gap_um": 0.35,
+    "one_driver_per_row_prototype_status": "NOT_AUTHORIZED_HEIGHT_TARGET_NOT_MET"
+  }
+}

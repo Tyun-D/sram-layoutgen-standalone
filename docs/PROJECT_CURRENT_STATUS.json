@@ -558,7 +558,7 @@
     "timestamp": "2026-08-09T05:02:51Z"
   },
   "logic_simulation_status": "BLOCKED_BY_MISSING_TRUSTED_VERILOG_ASSETS",
-  "next_stage": "Human review of same-FreePDK45 cell architecture exploration before any full-top reintegration.",
+  "next_stage": "Human review of real same-FreePDK45 cell candidates before any full-top reintegration.",
   "old_C2_C5_status": "HUMAN_REJECTED_ARCHITECTURE_BASELINE",
   "old_F3_F4_status": "HUMAN_REJECTED_ARCHITECTURE_BASELINE",
   "physical_top_entry_allowed": true,
@@ -639,6 +639,15 @@
   "remote_master_head_last_known": "489f3e04e85197a6501e48168627a7b8a9232550",
   "row_path_physical_closure": "PASS",
   "row_path_top_level_replanning": "ROW_PATH_DECOMPOSED_DECODER_WL_DRIVER_ARRAY_INSTANTIATED_SEPARATELY",
+  "same_freepdk45_real_cell_candidates": {
+    "external_standard_cell_library_used_in_final_candidates": false,
+    "formal_full_sram_top_modified": false,
+    "package": "/data1/qujh/PROJECT_SAME_FREEPDK45_REAL_CELL_CANDIDATES_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "package_sha256": "6b12c8f157b70ea2d6effe123cd845b797971a3f570161fcc4041fb42a3b9f97",
+    "pdk_changed": false,
+    "status": "PASS_SAME_FREEPDK45_REAL_CELL_CANDIDATES_TO_HUMAN_REVIEW",
+    "summary": "outputs/PROJECT_same_freepdk45_real_cell_experiments/SAME_FREEPDK45_REAL_CELL_EXPERIMENT_SUMMARY.json"
+  },
   "same_pdk_cell_architecture_exploration": {
     "audit": "docs/V41_SAME_PDK_CELL_GEOMETRY_AUDIT.json",
     "external_standard_cell_library_used_in_final_candidates": false,
@@ -649,7 +658,7 @@
     "pdk_changed": false,
     "review_package": "/data1/qujh/PROJECT_SAME_FREEPDK45_CELL_ARCHITECTURE_EXPLORATION_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
     "review_package_sha256": "cbcfe7ac592c5cdde4e2a8b32c3bb0a9bf220129192c08dfd1857e06b9eda3ab",
-    "status": "PASS_SAME_FREEPDK45_CELL_ARCHITECTURE_EXPLORATION_TO_HUMAN_REVIEW"
+    "status": "SAME_PDK_BASELINE_AUDIT_PASS_REAL_CELL_EXPERIMENTS_COMPLETED"
   },
   "spice_pass_modules": [
     "PNAND2",
@@ -694,5 +703,5 @@
     "recommended_local_candidate": "T3_driver_column_spacing_pareto",
     "timing_authority": "PENDING"
   },
-  "workflow_state": "PASS_SAME_FREEPDK45_CELL_ARCHITECTURE_EXPLORATION_TO_HUMAN_REVIEW"
+  "workflow_state": "PASS_SAME_FREEPDK45_REAL_CELL_CANDIDATES_TO_HUMAN_REVIEW"
 }

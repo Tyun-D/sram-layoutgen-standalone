@@ -1,0 +1,4103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<report-database>
+ <description>FreePDK45 DRC runset</description>
+ <original-file/>
+ <generator>drc: script='/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/technology/freepdk45/tech/freepdk45.lydrc'</generator>
+ <top-cell>DFF_NATIVE_B_DIFFUSION_SHARE</top-cell>
+ <tags>
+ </tags>
+ <categories>
+  <category>
+   <name>WELL.1</name>
+   <description>WELL.1 : nwell/pwell must not overlap</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>WELL.4</name>
+   <description>WELL.4 : Minimum width of nwell/pwell : 200nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VT.1</name>
+   <description>VT.1 : Vth adjust layers must coincide with well</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>POLY.1</name>
+   <description>POLY.1 : Minimum width of poly : 50nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>POLY.3</name>
+   <description>POLY.3 : Minimum poly extension beyond active : 55nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>POLY.4</name>
+   <description>POLY.4 : Minimum enclosure of active around gate : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>POLY.5</name>
+   <description>POLY.5 : Minimum spacing of field poly to active: 50nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>POLY.6</name>
+   <description>POLY.6 : Minimum spacing of field poly: 75nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.1</name>
+   <description>ACTIVE.1 : Minimum width of active : 90nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.2</name>
+   <description>ACTIVE.2 : Minimum spacing of active : 80nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.3</name>
+   <description>ACTIVE.3 : Minimum enclosure/spacing of nwell/pwell to active: 55nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.4</name>
+   <description>ACTIVE.4 : active must be inside nwell or pwell</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>IMPLANT.1</name>
+   <description>IMPLANT.1 : Minimum spacing of nimplant/ pimplant to channel : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>IMPLANT.2</name>
+   <description>IMPLANT.1 : Minimum spacing of nimplant/ pimplant to contact : 25nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>IMPLANT.3</name>
+   <description>IMPLANT.3 : Minimum width of nimplant/ pimplant  : 45nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>IMPLANT.4</name>
+   <description>IMPLANT.4 : Minimum spacing of nimplant/ pimplant  : 45nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>IMPLANT.5</name>
+   <description>IMPLANT.5 : Nimplant and pimplant must not overlap</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.1</name>
+   <description>CONTACT.1 : Minimum/Maximum width of contact : 65nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.2</name>
+   <description>CONTACT.2 : Minimum spacing of contact : 75nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.3</name>
+   <description>CONTACT.3 : contact must be inside active or poly or metal1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.4</name>
+   <description>CONTACT.4 : Minimum enclosure of active around contact : 5nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.5</name>
+   <description>CONTACT.5 : Minimum enclosure of poly around contact : 5nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.6</name>
+   <description>CONTACT.6 : Minimum spacing of contact and poly : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.1</name>
+   <description>METAL1.1 : Minimum width of metal1 : 65nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.2</name>
+   <description>METAL1.2 : Minimum spacing of metal1 : 65nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.3</name>
+   <description>METAL1.3 : Minimum enclosure around contact on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.4</name>
+   <description>METAL1.4 : Minimum enclosure around via1 on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.5</name>
+   <description>METAL1.5 : Minimum spacing of metal1 wider than 90 nm and longer than 300 nm : 90nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.6</name>
+   <description>METAL1.6 : Minimum spacing of metal1 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.7</name>
+   <description>METAL1.7 : Minimum spacing of metal1 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.8</name>
+   <description>METAL1.8 : Minimum spacing of metal1 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.9</name>
+   <description>METAL1.9 : Minimum spacing of metal1 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA1.1</name>
+   <description>VIA1.1 : Minimum/Maximum width of via1 : 65nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA1.2</name>
+   <description>VIA1.2 : Minimum spacing of via1 : 75nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA1.3</name>
+   <description>VIA1.3 : via1 must be inside metal1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA1.4</name>
+   <description>VIA1.4 : via1 must be inside metal2</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.1</name>
+   <description>METAL2.1 : Minimum width of  intermediate metal2 : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.2</name>
+   <description>METAL2.2 : Minimum spacing of  intermediate metal2 : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.3</name>
+   <description>METAL2.3 : Minimum enclosure around via1 on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.4</name>
+   <description>METAL2.4 : Minimum enclosure around via2 on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.5</name>
+   <description>METAL2.5 : Minimum spacing of  intermediate metal2 wider than 90 nm and longer than 300 nm : 90nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.6</name>
+   <description>METAL2.6 : Minimum spacing of  intermediate metal2 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.7</name>
+   <description>METAL2.7 : Minimum spacing of  intermediate metal2 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.8</name>
+   <description>METAL2.8 : Minimum spacing of  intermediate metal2 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.9</name>
+   <description>METAL2.9 : Minimum spacing of  intermediate metal2 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA2.1</name>
+   <description>VIA2.1 : Minimum/Maximum width of via2 : 65nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA2.2</name>
+   <description>VIA2.2 : Minimum spacing of via2 : 85nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA2.3</name>
+   <description>VIA2.3 : via2 must be inside metal2</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA2.4</name>
+   <description>VIA2.4 : via2 must be inside metal3</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.1</name>
+   <description>METAL3.1 : Minimum width of  intermediate metal3 : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.2</name>
+   <description>METAL3.2 : Minimum spacing of  intermediate metal3 : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.3</name>
+   <description>METAL3.3 : Minimum enclosure around via2 on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.4</name>
+   <description>METAL3.4 : Minimum enclosure around via3 on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.5</name>
+   <description>METAL3.5 : Minimum spacing of  intermediate metal3 wider than 90 nm and longer than 300 nm : 90nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.6</name>
+   <description>METAL3.6 : Minimum spacing of  intermediate metal3 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.7</name>
+   <description>METAL3.7 : Minimum spacing of  intermediate metal3 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.8</name>
+   <description>METAL3.8 : Minimum spacing of  intermediate metal3 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.9</name>
+   <description>METAL3.9 : Minimum spacing of  intermediate metal3 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA3.1</name>
+   <description>VIA3.1 : Minimum/Maximum width of via3 : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA3.2</name>
+   <description>VIA3.2 : Minimum spacing of via3 : 85nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA3.3</name>
+   <description>VIA3.3 : via3 must be inside metal3</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA3.4</name>
+   <description>VIA3.4 : via3 must be inside metal4</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4.1</name>
+   <description>METAL4.1 : Minimum width of  semi-global metal4 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4.2</name>
+   <description>METAL4.2 : Minimum spacing of  semi-global metal4 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4.6</name>
+   <description>METAL4.6 : Minimum spacing of semi-global metal4 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4.7</name>
+   <description>METAL4.7 : Minimum spacing of semi-global metal4 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4.8</name>
+   <description>METAL4.8 : Minimum spacing of semi-global meta4l wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA4.1</name>
+   <description>VIA4.1 : Minimum/Maximum width of via4 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA4.2</name>
+   <description>VIA4.2 : Minimum spacing of via4 : 160nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA4.3</name>
+   <description>VIA4.3 : via4 must be inside metal4</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA4.4</name>
+   <description>VIA4.4 : via4 must be inside metal5</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5.1</name>
+   <description>METAL5.1 : Minimum width of semi-global metal5 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5.2</name>
+   <description>METAL5.2 : Minimum spacing of semi-global metal5 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5.6</name>
+   <description>METAL5.6 : Minimum spacing of semi-global metal5 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5.7</name>
+   <description>METAL5.7 : Minimum spacing of semi-global metal5 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5.8</name>
+   <description>METAL5.8 : Minimum spacing of semi-global meta5l wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA5.1</name>
+   <description>VIA5.1 : Minimum/Maximum width of via5 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA5.2</name>
+   <description>VIA5.2 : Minimum spacing of via5 : 160nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA5.3</name>
+   <description>VIA5.3 : via5 must be inside metal5</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA5.4</name>
+   <description>VIA5.4 : via5 must be inside metal6</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6.1</name>
+   <description>METAL6.1 : Minimum width of semi-global metal6 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6.2</name>
+   <description>METAL6.2 : Minimum spacing of semi-global metal6 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6.6</name>
+   <description>METAL6.6 : Minimum spacing of semi-global metal6 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6.7</name>
+   <description>METAL6.7 : Minimum spacing of semi-global metal6 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6.8</name>
+   <description>METAL6.8 : Minimum spacing of semi-global metal6 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA6.1</name>
+   <description>VIA6.1 : Minimum/Maximum width of via7 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA6.2</name>
+   <description>VIA6.2 : Minimum spacing of via7 : 440nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA6.3</name>
+   <description>VIA6.3 : via6 must be inside metal6</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA6.4</name>
+   <description>VIA6.4 : via6 must be inside metal7</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7.1</name>
+   <description>METAL7.1 : Minimum width of thin global metal7 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7.2</name>
+   <description>METAL7.2 : Minimum spacing of thin global metal7 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7.7</name>
+   <description>METAL7.7 : Minimum spacing of thin global metal7 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7.8</name>
+   <description>METAL7.8 : Minimum spacing of thin global metal7 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7.9</name>
+   <description>METAL7.9 : Minimum spacing of thin global meta7l wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA7.3</name>
+   <description>VIA7.3 : via7 must be inside metal7</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA7.4</name>
+   <description>VIA7.4 : via7 must be inside metal8</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8.1</name>
+   <description>METAL8.1 : Minimum width of thin global metal8 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8.2</name>
+   <description>METAL8.2 : Minimum spacing of thin global metal8 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8.7</name>
+   <description>METAL8.7 : Minimum spacing of thin global metal8 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8.8</name>
+   <description>METAL8.8 : Minimum spacing of thin global metal8 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8.9</name>
+   <description>METAL8.9 : Minimum spacing of thin global metal8 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA8.1</name>
+   <description>VIA8.1 : Minimum/Maximum width of via8 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA8.2</name>
+   <description>VIA8.2 : Minimum spacing of via8 : 440nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA8.3</name>
+   <description>VIA8.3 : via8 must be inside metal8</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA8.4</name>
+   <description>VIA8.4 : via8 must be inside metal9</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9.1</name>
+   <description>METAL9.1 : Minimum width of global metal9 : 800nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9.2</name>
+   <description>METAL9.2 : Minimum spacing of global metal9 : 800nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9.7</name>
+   <description>METAL9.7 : Minimum spacing of global metal9 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9.8</name>
+   <description>METAL9.8 : Minimum spacing of global metal9 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9.9</name>
+   <description>METAL9.9 : Minimum spacing of global metal9 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA9.1</name>
+   <description>VIA9.1 : Minimum/Maximum width of via9 : 800nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA9.2</name>
+   <description>VIA9.2 : Minimum spacing of via9 : 880nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA9.3</name>
+   <description>VIA9.3 : via9 must be inside metal9</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA9.4</name>
+   <description>VIA9.4 : via9 must be inside metal10</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10.1</name>
+   <description>METAL10.1 : Minimum width of global metal10 : 800nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10.2</name>
+   <description>METAL10.2 : Minimum spacing of global metal10 : 800nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10.7</name>
+   <description>METAL10.7 : Minimum spacing of global metal10 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10.8</name>
+   <description>METAL10.8 : Minimum spacing of global metal10 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10.9</name>
+   <description>METAL10.9 : Minimum spacing of global metal10 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer well not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer active not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer vtg not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer vth not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer pplus not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer nplus not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer poly not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer thkox not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer cont not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal1 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via1 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal2 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via2 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal3 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via3 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal4 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via4 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal5 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via5 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal6 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via6 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal7 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via7 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal8 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via8 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal9 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via9 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal10 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1_ANTENNA</name>
+   <description>METAL1_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2_ANTENNA</name>
+   <description>METAL2_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3_ANTENNA</name>
+   <description>METAL3_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4_ANTENNA</name>
+   <description>METAL4_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5_ANTENNA</name>
+   <description>METAL5_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6_ANTENNA</name>
+   <description>METAL6_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7_ANTENNA</name>
+   <description>METAL7_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8_ANTENNA</name>
+   <description>METAL8_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9_ANTENNA</name>
+   <description>METAL9_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10_ANTENNA</name>
+   <description>METAL10_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+ </categories>
+ <cells>
+  <cell>
+   <name>DFF_NATIVE_B_DIFFUSION_SHARE</name>
+   <variant/>
+   <layout-name/>
+   <references>
+   </references>
+  </cell>
+  <cell>
+   <name>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</name>
+   <variant/>
+   <layout-name>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</layout-name>
+   <references>
+    <ref>
+     <parent>DFF_NATIVE_B_DIFFUSION_SHARE</parent>
+     <trans>r0 *1 0.055,0.033</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</name>
+   <variant/>
+   <layout-name>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</layout-name>
+   <references>
+    <ref>
+     <parent>DFF_NATIVE_B_DIFFUSION_SHARE</parent>
+     <trans>r0 *1 0.055,0.033</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1_da_p</name>
+   <variant/>
+   <layout-name>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1_da_p</layout-name>
+   <references>
+    <ref>
+     <parent>DFF_NATIVE_B_DIFFUSION_SHARE</parent>
+     <trans>r0 *1 0.135,1.228</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_8</name>
+   <variant/>
+   <layout-name>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_8</layout-name>
+   <references>
+    <ref>
+     <parent>DFF_NATIVE_B_DIFFUSION_SHARE</parent>
+     <trans>r0 *1 0.135,1.41</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1_da_p</name>
+   <variant/>
+   <layout-name>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1_da_p</layout-name>
+   <references>
+    <ref>
+     <parent>DFF_NATIVE_B_DIFFUSION_SHARE</parent>
+     <trans>r0 *1 0.135,0.158</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_7</name>
+   <variant/>
+   <layout-name>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_7</layout-name>
+   <references>
+    <ref>
+     <parent>DFF_NATIVE_B_DIFFUSION_SHARE</parent>
+     <trans>r0 *1 0.135,0.215</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</name>
+   <variant/>
+   <layout-name>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</layout-name>
+   <references>
+    <ref>
+     <parent>DFF_NATIVE_B_DIFFUSION_SHARE</parent>
+     <trans>r0 *1 0.52,1.615</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</name>
+   <variant/>
+   <layout-name>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</layout-name>
+   <references>
+    <ref>
+     <parent>DFF_NATIVE_B_DIFFUSION_SHARE</parent>
+     <trans>r0 *1 0.52,0.136</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</name>
+   <variant/>
+   <layout-name>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</layout-name>
+   <references>
+    <ref>
+     <parent>DFF_NATIVE_B_DIFFUSION_SHARE</parent>
+     <trans>r0 *1 2.155,0.033</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</name>
+   <variant/>
+   <layout-name>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</layout-name>
+   <references>
+    <ref>
+     <parent>DFF_NATIVE_B_DIFFUSION_SHARE</parent>
+     <trans>r0 *1 2.155,0.033</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1</name>
+   <variant/>
+   <layout-name>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1</layout-name>
+   <references>
+    <ref>
+     <parent>DFF_NATIVE_B_DIFFUSION_SHARE</parent>
+     <trans>r0 *1 2.235,1.183</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_8</name>
+   <variant/>
+   <layout-name>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_8</layout-name>
+   <references>
+    <ref>
+     <parent>DFF_NATIVE_B_DIFFUSION_SHARE</parent>
+     <trans>r0 *1 2.235,1.365</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1</name>
+   <variant/>
+   <layout-name>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1</layout-name>
+   <references>
+    <ref>
+     <parent>DFF_NATIVE_B_DIFFUSION_SHARE</parent>
+     <trans>r0 *1 2.235,0.203</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_7</name>
+   <variant/>
+   <layout-name>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_7</layout-name>
+   <references>
+    <ref>
+     <parent>DFF_NATIVE_B_DIFFUSION_SHARE</parent>
+     <trans>r0 *1 2.235,0.26</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</name>
+   <variant/>
+   <layout-name>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</layout-name>
+   <references>
+    <ref>
+     <parent>DFF_NATIVE_B_DIFFUSION_SHARE</parent>
+     <trans>r0 *1 2.62,1.571</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</name>
+   <variant/>
+   <layout-name>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</layout-name>
+   <references>
+    <ref>
+     <parent>DFF_NATIVE_B_DIFFUSION_SHARE</parent>
+     <trans>r0 *1 2.62,0.18</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW180_PW270_L50_contact_11</name>
+   <variant/>
+   <layout-name>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW180_PW270_L50_contact_11</layout-name>
+   <references>
+    <ref>
+     <parent>DFF_NATIVE_B_DIFFUSION_SHARE</parent>
+     <trans>r0 *1 0.127,0.843</trans>
+    </ref>
+   </references>
+  </cell>
+ </cells>
+ <items>
+  <item>
+   <tags/>
+   <category>'POLY.1'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.208,0.43;0.208,0.44)|(0.257,0.43;0.257,0.42)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'POLY.1'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.208,1.13;0.208,1.14)|(0.257,1.15;0.257,1.14)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_8</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.077,0.035;0.013,0.035)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_8</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.013,0.1;0.077,0.1)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_7</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.077,0.035;0.013,0.035)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_7</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.013,0.1;0.077,0.1)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.077,0.035;0.013,0.035)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.013,0.1;0.077,0.1)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.077,0.035;0.013,0.035)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.013,0.1;0.077,0.1)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_8</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.077,0.035;0.013,0.035)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_8</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.013,0.1;0.077,0.1)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_7</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.077,0.035;0.013,0.035)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_7</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.013,0.1;0.077,0.1)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.077,0.035;0.013,0.035)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.013,0.1;0.077,0.1)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.077,0.035;0.013,0.035)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.013,0.1;0.077,0.1)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL1.1'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.478,1.582;0.478,1.787)|(0.542,1.787;0.542,1.582)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL1.1'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.093,0.182;0.093,0.317)|(0.157,0.317;0.157,0.171)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL1.1'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.478,0.033;0.478,0.238)|(0.542,0.238;0.542,0.033)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL1.1'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.478,1.538;0.478,1.787)|(0.542,1.787;0.542,1.538)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL1.1'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.478,0.033;0.478,0.282)|(0.542,0.282;0.542,0.033)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer well not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.065,1.845;-0.065,1.865;-0.045,1.865;-0.045,1.845)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer well not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.733,1.845;0.733,1.865;0.753,1.865;0.753,1.845)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer well not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.065,1.842;-0.065,1.862;-0.045,1.862;-0.045,1.842)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer well not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.733,1.842;0.733,1.862;0.753,1.862;0.753,1.842)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,-0.01;-0.01,0.01;0.01,0.01;0.01,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.295,0.49;0.295,0.51;0.315,0.51;0.315,0.49)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.295,-0.01;0.295,0.01;0.315,0.01;0.315,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,-0.01;-0.01,0.01;0.01,0.01;0.01,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.295,0.24;0.295,0.26;0.315,0.26;0.315,0.24)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.295,-0.01;0.295,0.01;0.315,0.01;0.315,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.012;-0.01,0.032;0.01,0.032;0.01,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.102;-0.01,0.122;0.01,0.122;0.01,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.102;0.08,0.122;0.1,0.122;0.1,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.012;0.08,0.032;0.1,0.032;0.1,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.012;-0.01,0.032;0.01,0.032;0.01,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.102;-0.01,0.122;0.01,0.122;0.01,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.102;0.08,0.122;0.1,0.122;0.1,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.012;0.08,0.032;0.1,0.032;0.1,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,-0.01;-0.01,0.01;0.01,0.01;0.01,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.295,0.49;0.295,0.51;0.315,0.51;0.315,0.49)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.295,-0.01;0.295,0.01;0.315,0.01;0.315,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,-0.01;-0.01,0.01;0.01,0.01;0.01,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.295,0.24;0.295,0.26;0.315,0.26;0.315,0.24)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.295,-0.01;0.295,0.01;0.315,0.01;0.315,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.012;-0.01,0.032;0.01,0.032;0.01,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.102;-0.01,0.122;0.01,0.122;0.01,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.102;0.08,0.122;0.1,0.122;0.1,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.012;0.08,0.032;0.1,0.032;0.1,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.012;-0.01,0.032;0.01,0.032;0.01,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.102;-0.01,0.122;0.01,0.122;0.01,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.102;0.08,0.122;0.1,0.122;0.1,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.012;0.08,0.032;0.1,0.032;0.1,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer vtg not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.065,1.845;-0.065,1.865;-0.045,1.865;-0.045,1.845)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer vtg not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.733,1.845;0.733,1.865;0.753,1.865;0.753,1.845)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer vtg not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.065,1.842;-0.065,1.862;-0.045,1.862;-0.045,1.842)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer vtg not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.733,1.842;0.733,1.862;0.753,1.862;0.753,1.842)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,-0.01;-0.01,0.01;0.01,0.01;0.01,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.295,0.49;0.295,0.51;0.315,0.51;0.315,0.49)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.295,-0.01;0.295,0.01;0.315,0.01;0.315,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.012;-0.01,0.032;0.01,0.032;0.01,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.102;-0.01,0.122;0.01,0.122;0.01,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.102;0.08,0.122;0.1,0.122;0.1,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.012;0.08,0.032;0.1,0.032;0.1,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,-0.01;-0.01,0.01;0.01,0.01;0.01,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.295,0.49;0.295,0.51;0.315,0.51;0.315,0.49)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.295,-0.01;0.295,0.01;0.315,0.01;0.315,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.012;-0.01,0.032;0.01,0.032;0.01,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.102;-0.01,0.122;0.01,0.122;0.01,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.102;0.08,0.122;0.1,0.122;0.1,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.012;0.08,0.032;0.1,0.032;0.1,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,-0.01;-0.01,0.01;0.01,0.01;0.01,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.295,0.24;0.295,0.26;0.315,0.26;0.315,0.24)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.295,-0.01;0.295,0.01;0.315,0.01;0.315,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.012;-0.01,0.032;0.01,0.032;0.01,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.102;-0.01,0.122;0.01,0.122;0.01,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.102;0.08,0.122;0.1,0.122;0.1,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.012;0.08,0.032;0.1,0.032;0.1,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,-0.01;-0.01,0.01;0.01,0.01;0.01,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.295,0.24;0.295,0.26;0.315,0.26;0.315,0.24)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.295,-0.01;0.295,0.01;0.315,0.01;0.315,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.012;-0.01,0.032;0.01,0.032;0.01,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.102;-0.01,0.122;0.01,0.122;0.01,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.102;0.08,0.122;0.1,0.122;0.1,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.012;0.08,0.032;0.1,0.032;0.1,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.197,0.06;0.197,0.08;0.217,0.08;0.217,0.06)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.197,0.42;0.197,0.44;0.217,0.44;0.217,0.42)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.198,0.42;0.198,0.44;0.218,0.44;0.218,0.42)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.198,0.8;0.198,0.82;0.218,0.82;0.218,0.8)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.092,0.8;0.092,0.82;0.112,0.82;0.112,0.8)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.092,0.875;0.092,0.895;0.112,0.895;0.112,0.875)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.198,0.875;0.198,0.895;0.218,0.895;0.218,0.875)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.198,1.13;0.198,1.15;0.218,1.15;0.218,1.13)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.197,1.13;0.197,1.15;0.217,1.15;0.217,1.13)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.197,1.74;0.197,1.76;0.217,1.76;0.217,1.74)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.247,1.74;0.247,1.76;0.267,1.76;0.267,1.74)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.248,1.13;0.248,1.15;0.268,1.15;0.268,1.13)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.248,0.42;0.248,0.44;0.268,0.44;0.268,0.42)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.247,0.42;0.247,0.44;0.267,0.44;0.267,0.42)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.247,0.06;0.247,0.08;0.267,0.08;0.267,0.06)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.603,1.01;0.603,1.03;0.623,1.03;0.623,1.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.603,1.022;0.603,1.042;0.623,1.042;0.623,1.022)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.198,1.022;0.198,1.042;0.218,1.042;0.218,1.022)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.198,1.085;0.198,1.105;0.218,1.105;0.218,1.085)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.197,1.085;0.197,1.105;0.217,1.105;0.217,1.085)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.197,1.695;0.197,1.715;0.217,1.715;0.217,1.695)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.247,1.695;0.247,1.715;0.267,1.715;0.267,1.695)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.247,1.39;0.247,1.41;0.267,1.41;0.267,1.39)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.248,1.39;0.248,1.41;0.268,1.41;0.268,1.39)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.248,1.073;0.248,1.093;0.268,1.093;0.268,1.073)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.603,1.073;0.603,1.093;0.623,1.093;0.623,1.073)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.603,1.085;0.603,1.105;0.623,1.105;0.623,1.085)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.678,1.085;0.678,1.105;0.698,1.105;0.698,1.085)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.678,1.01;0.678,1.03;0.698,1.03;0.698,1.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.197,0.105;0.197,0.125;0.217,0.125;0.217,0.105)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.197,0.465;0.197,0.485;0.217,0.485;0.217,0.465)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.198,0.465;0.198,0.485;0.218,0.485;0.218,0.465)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.198,0.527;0.198,0.547;0.218,0.547;0.218,0.527)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.603,0.527;0.603,0.547;0.623,0.547;0.623,0.527)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.603,0.54;0.603,0.56;0.623,0.56;0.623,0.54)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.678,0.54;0.678,0.56;0.698,0.56;0.698,0.54)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.678,0.465;0.678,0.485;0.698,0.485;0.698,0.465)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.603,0.465;0.603,0.485;0.623,0.485;0.623,0.465)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.603,0.477;0.603,0.497;0.623,0.497;0.623,0.477)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.248,0.477;0.248,0.497;0.268,0.497;0.268,0.477)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.248,0.285;0.248,0.305;0.268,0.305;0.268,0.285)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.247,0.285;0.247,0.305;0.267,0.305;0.267,0.285)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.247,0.105;0.247,0.125;0.267,0.125;0.267,0.105)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.207;0.003,0.227;0.023,0.227;0.023,0.207)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.272;0.003,0.292;0.023,0.292;0.023,0.272)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.272;0.067,0.292;0.087,0.292;0.087,0.272)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.207;0.067,0.227;0.087,0.227;0.087,0.207)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.218,0.207;0.218,0.227;0.238,0.227;0.238,0.207)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.218,0.272;0.218,0.292;0.238,0.292;0.238,0.272)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.282,0.272;0.282,0.292;0.302,0.292;0.302,0.272)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.282,0.207;0.282,0.227;0.302,0.227;0.302,0.207)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.082;0.003,0.102;0.023,0.102;0.023,0.082)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.147;0.003,0.167;0.023,0.167;0.023,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.147;0.067,0.167;0.087,0.167;0.087,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.082;0.067,0.102;0.087,0.102;0.087,0.082)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.218,0.082;0.218,0.102;0.238,0.102;0.238,0.082)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.282,0.147;0.282,0.167;0.302,0.167;0.302,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.282,0.082;0.282,0.102;0.302,0.102;0.302,0.082)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.025;0.003,0.045;0.023,0.045;0.023,0.025)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.09;0.003,0.11;0.023,0.11;0.023,0.09)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.09;0.067,0.11;0.087,0.11;0.087,0.09)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.025;0.003,0.045;0.023,0.045;0.023,0.025)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.09;0.003,0.11;0.023,0.11;0.023,0.09)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.09;0.067,0.11;0.087,0.11;0.087,0.09)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW180_PW270_L50_contact_11</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.025,-0.005;0.025,0.015;0.045,0.015;0.045,-0.005)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW180_PW270_L50_contact_11</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.025,0.06;0.025,0.08;0.045,0.08;0.045,0.06)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW180_PW270_L50_contact_11</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.09,0.06;0.09,0.08;0.11,0.08;0.11,0.06)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW180_PW270_L50_contact_11</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.09,-0.005;0.09,0.015;0.11,0.015;0.11,-0.005)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.608,1.015;0.608,1.035;0.628,1.035;0.628,1.015)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.608,1.08;0.608,1.1;0.628,1.1;0.628,1.08)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.673,1.08;0.673,1.1;0.693,1.1;0.693,1.08)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.673,1.015;0.673,1.035;0.693,1.035;0.693,1.015)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.608,0.47;0.608,0.49;0.628,0.49;0.628,0.47)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.608,0.535;0.608,0.555;0.628,0.555;0.628,0.535)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.673,0.535;0.673,0.555;0.693,0.555;0.693,0.535)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.207;0.003,0.227;0.023,0.227;0.023,0.207)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.272;0.003,0.292;0.023,0.292;0.023,0.272)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.272;0.067,0.292;0.087,0.292;0.087,0.272)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.207;0.067,0.227;0.087,0.227;0.087,0.207)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.218,0.207;0.218,0.227;0.238,0.227;0.238,0.207)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.218,0.272;0.218,0.292;0.238,0.292;0.238,0.272)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.282,0.272;0.282,0.292;0.302,0.292;0.302,0.272)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_pmos_m1_w0_500_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.282,0.207;0.282,0.227;0.302,0.227;0.302,0.207)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.082;0.003,0.102;0.023,0.102;0.023,0.082)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.147;0.003,0.167;0.023,0.167;0.023,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.147;0.067,0.167;0.087,0.167;0.087,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.082;0.067,0.102;0.087,0.102;0.087,0.082)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.218,0.082;0.218,0.102;0.238,0.102;0.238,0.082)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.282,0.147;0.282,0.167;0.302,0.167;0.302,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_nmos_m1_w0_250_sm1_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.282,0.082;0.282,0.102;0.302,0.102;0.302,0.082)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.025;0.003,0.045;0.023,0.045;0.023,0.025)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.09;0.003,0.11;0.023,0.11;0.023,0.09)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.025;0.067,0.045;0.087,0.045;0.087,0.025)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.025;0.003,0.045;0.023,0.045;0.023,0.025)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.09;0.003,0.11;0.023,0.11;0.023,0.09)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.09;0.067,0.11;0.087,0.11;0.087,0.09)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.025;0.067,0.045;0.087,0.045;0.087,0.025)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.062,0.805;0.062,0.825;0.082,0.825;0.082,0.805)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.062,0.87;0.062,0.89;0.082,0.89;0.082,0.87)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.198,0.87;0.198,0.89;0.218,0.89;0.218,0.87)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.198,0.805;0.198,0.825;0.218,0.825;0.218,0.805)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.297,0.172;0.297,0.192;0.317,0.192;0.317,0.172)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.297,1.502;0.297,1.522;0.317,1.522;0.317,1.502)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.362,1.502;0.362,1.522;0.382,1.522;0.382,1.502)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.362,0.87;0.362,0.89;0.382,0.89;0.382,0.87)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.395,0.87;0.395,0.89;0.415,0.89;0.415,0.87)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.395,0.805;0.395,0.825;0.415,0.825;0.415,0.805)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.362,0.805;0.362,0.825;0.382,0.825;0.382,0.805)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.362,0.172;0.362,0.192;0.382,0.192;0.382,0.172)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.082,1.777;0.082,1.797;0.102,1.797;0.102,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,1.777;-0.01,1.797;0.01,1.797;0.01,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,1.842;-0.01,1.862;0.01,1.862;0.01,1.842)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.677,1.842;0.677,1.862;0.697,1.862;0.697,1.842)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.677,1.777;0.677,1.797;0.697,1.797;0.697,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.532,1.777;0.532,1.797;0.552,1.797;0.552,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.532,1.572;0.532,1.592;0.552,1.592;0.552,1.572)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.468,1.572;0.468,1.592;0.488,1.592;0.488,1.572)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.468,1.777;0.468,1.797;0.488,1.797;0.488,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.147,1.777;0.147,1.797;0.167,1.797;0.167,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.147,1.367;0.147,1.387;0.167,1.387;0.167,1.367)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,-0.043;-0.01,-0.023;0.01,-0.023;0.01,-0.043)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.023;-0.01,0.043;0.01,0.043;0.01,0.023)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.082,0.172;0.082,0.192;0.102,0.192;0.102,0.172)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.083,0.172;0.083,0.192;0.103,0.192;0.103,0.172)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.083,0.307;0.083,0.327;0.103,0.327;0.103,0.307)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.147,0.307;0.147,0.327;0.167,0.327;0.167,0.307)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.147,0.023;0.147,0.043;0.167,0.043;0.167,0.023)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.468,0.023;0.468,0.043;0.488,0.043;0.488,0.023)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.468,0.228;0.468,0.248;0.488,0.248;0.488,0.228)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.532,0.228;0.532,0.248;0.552,0.248;0.552,0.228)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.677,0.023;0.677,0.043;0.697,0.043;0.697,0.023)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50__PINV_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.677,-0.043;0.677,-0.023;0.697,-0.023;0.697,-0.043)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.082,0.217;0.082,0.237;0.102,0.237;0.102,0.217)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.147,1.457;0.147,1.477;0.167,1.477;0.167,1.457)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.147,0.217;0.147,0.237;0.167,0.237;0.167,0.217)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.297,0.217;0.297,0.237;0.317,0.237;0.317,0.217)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.297,1.457;0.297,1.477;0.317,1.477;0.317,1.457)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.362,1.457;0.362,1.477;0.382,1.477;0.382,1.457)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.362,0.217;0.362,0.237;0.382,0.237;0.382,0.217)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.573,1.015;0.573,1.035;0.593,1.035;0.593,1.015)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.573,1.08;0.573,1.1;0.593,1.1;0.593,1.08)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.708,1.08;0.708,1.1;0.728,1.1;0.728,1.08)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.708,1.015;0.708,1.035;0.728,1.035;0.728,1.015)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.573,0.47;0.573,0.49;0.593,0.49;0.593,0.47)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.573,0.535;0.573,0.555;0.593,0.555;0.593,0.535)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.708,0.535;0.708,0.555;0.728,0.555;0.728,0.535)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.708,0.47;0.708,0.49;0.728,0.49;0.728,0.47)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.468,1.528;0.468,1.548;0.488,1.548;0.488,1.528)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.468,1.777;0.468,1.797;0.488,1.797;0.488,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,1.777;-0.01,1.797;0.01,1.797;0.01,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,1.842;-0.01,1.862;0.01,1.862;0.01,1.842)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.55,1.842;0.55,1.862;0.57,1.862;0.57,1.842)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.55,1.777;0.55,1.797;0.57,1.797;0.57,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.532,1.777;0.532,1.797;0.552,1.797;0.552,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.532,1.528;0.532,1.548;0.552,1.548;0.552,1.528)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,-0.043;-0.01,-0.023;0.01,-0.023;0.01,-0.043)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.023;-0.01,0.043;0.01,0.043;0.01,0.023)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.468,0.023;0.468,0.043;0.488,0.043;0.488,0.023)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>COMPOSE_CHILD__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50__TRANSMISSION_GATE_NW250_PW500_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.468,0.272;0.468,0.292;0.488,0.292;0.488,0.272)</value>
+   </values>
+  </item>
+ </items>
+</report-database>

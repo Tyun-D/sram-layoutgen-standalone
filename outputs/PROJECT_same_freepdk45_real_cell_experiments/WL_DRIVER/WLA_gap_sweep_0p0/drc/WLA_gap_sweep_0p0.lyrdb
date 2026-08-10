@@ -1,0 +1,4690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<report-database>
+ <description>FreePDK45 DRC runset</description>
+ <original-file/>
+ <generator>drc: script='/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/technology/freepdk45/tech/freepdk45.lydrc'</generator>
+ <top-cell>WLA_gap_sweep_0p0</top-cell>
+ <tags>
+ </tags>
+ <categories>
+  <category>
+   <name>WELL.1</name>
+   <description>WELL.1 : nwell/pwell must not overlap</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>WELL.4</name>
+   <description>WELL.4 : Minimum width of nwell/pwell : 200nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VT.1</name>
+   <description>VT.1 : Vth adjust layers must coincide with well</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>POLY.1</name>
+   <description>POLY.1 : Minimum width of poly : 50nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>POLY.3</name>
+   <description>POLY.3 : Minimum poly extension beyond active : 55nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>POLY.4</name>
+   <description>POLY.4 : Minimum enclosure of active around gate : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>POLY.5</name>
+   <description>POLY.5 : Minimum spacing of field poly to active: 50nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>POLY.6</name>
+   <description>POLY.6 : Minimum spacing of field poly: 75nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.1</name>
+   <description>ACTIVE.1 : Minimum width of active : 90nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.2</name>
+   <description>ACTIVE.2 : Minimum spacing of active : 80nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.3</name>
+   <description>ACTIVE.3 : Minimum enclosure/spacing of nwell/pwell to active: 55nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>ACTIVE.4</name>
+   <description>ACTIVE.4 : active must be inside nwell or pwell</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>IMPLANT.1</name>
+   <description>IMPLANT.1 : Minimum spacing of nimplant/ pimplant to channel : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>IMPLANT.2</name>
+   <description>IMPLANT.1 : Minimum spacing of nimplant/ pimplant to contact : 25nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>IMPLANT.3</name>
+   <description>IMPLANT.3 : Minimum width of nimplant/ pimplant  : 45nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>IMPLANT.4</name>
+   <description>IMPLANT.4 : Minimum spacing of nimplant/ pimplant  : 45nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>IMPLANT.5</name>
+   <description>IMPLANT.5 : Nimplant and pimplant must not overlap</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.1</name>
+   <description>CONTACT.1 : Minimum/Maximum width of contact : 65nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.2</name>
+   <description>CONTACT.2 : Minimum spacing of contact : 75nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.3</name>
+   <description>CONTACT.3 : contact must be inside active or poly or metal1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.4</name>
+   <description>CONTACT.4 : Minimum enclosure of active around contact : 5nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.5</name>
+   <description>CONTACT.5 : Minimum enclosure of poly around contact : 5nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>CONTACT.6</name>
+   <description>CONTACT.6 : Minimum spacing of contact and poly : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.1</name>
+   <description>METAL1.1 : Minimum width of metal1 : 65nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.2</name>
+   <description>METAL1.2 : Minimum spacing of metal1 : 65nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.3</name>
+   <description>METAL1.3 : Minimum enclosure around contact on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.4</name>
+   <description>METAL1.4 : Minimum enclosure around via1 on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.5</name>
+   <description>METAL1.5 : Minimum spacing of metal1 wider than 90 nm and longer than 300 nm : 90nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.6</name>
+   <description>METAL1.6 : Minimum spacing of metal1 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.7</name>
+   <description>METAL1.7 : Minimum spacing of metal1 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.8</name>
+   <description>METAL1.8 : Minimum spacing of metal1 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1.9</name>
+   <description>METAL1.9 : Minimum spacing of metal1 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA1.1</name>
+   <description>VIA1.1 : Minimum/Maximum width of via1 : 65nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA1.2</name>
+   <description>VIA1.2 : Minimum spacing of via1 : 75nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA1.3</name>
+   <description>VIA1.3 : via1 must be inside metal1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA1.4</name>
+   <description>VIA1.4 : via1 must be inside metal2</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.1</name>
+   <description>METAL2.1 : Minimum width of  intermediate metal2 : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.2</name>
+   <description>METAL2.2 : Minimum spacing of  intermediate metal2 : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.3</name>
+   <description>METAL2.3 : Minimum enclosure around via1 on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.4</name>
+   <description>METAL2.4 : Minimum enclosure around via2 on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.5</name>
+   <description>METAL2.5 : Minimum spacing of  intermediate metal2 wider than 90 nm and longer than 300 nm : 90nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.6</name>
+   <description>METAL2.6 : Minimum spacing of  intermediate metal2 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.7</name>
+   <description>METAL2.7 : Minimum spacing of  intermediate metal2 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.8</name>
+   <description>METAL2.8 : Minimum spacing of  intermediate metal2 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2.9</name>
+   <description>METAL2.9 : Minimum spacing of  intermediate metal2 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA2.1</name>
+   <description>VIA2.1 : Minimum/Maximum width of via2 : 65nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA2.2</name>
+   <description>VIA2.2 : Minimum spacing of via2 : 85nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA2.3</name>
+   <description>VIA2.3 : via2 must be inside metal2</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA2.4</name>
+   <description>VIA2.4 : via2 must be inside metal3</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.1</name>
+   <description>METAL3.1 : Minimum width of  intermediate metal3 : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.2</name>
+   <description>METAL3.2 : Minimum spacing of  intermediate metal3 : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.3</name>
+   <description>METAL3.3 : Minimum enclosure around via2 on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.4</name>
+   <description>METAL3.4 : Minimum enclosure around via3 on two opposite sides : 35nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.5</name>
+   <description>METAL3.5 : Minimum spacing of  intermediate metal3 wider than 90 nm and longer than 300 nm : 90nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.6</name>
+   <description>METAL3.6 : Minimum spacing of  intermediate metal3 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.7</name>
+   <description>METAL3.7 : Minimum spacing of  intermediate metal3 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.8</name>
+   <description>METAL3.8 : Minimum spacing of  intermediate metal3 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3.9</name>
+   <description>METAL3.9 : Minimum spacing of  intermediate metal3 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA3.1</name>
+   <description>VIA3.1 : Minimum/Maximum width of via3 : 70nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA3.2</name>
+   <description>VIA3.2 : Minimum spacing of via3 : 85nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA3.3</name>
+   <description>VIA3.3 : via3 must be inside metal3</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA3.4</name>
+   <description>VIA3.4 : via3 must be inside metal4</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4.1</name>
+   <description>METAL4.1 : Minimum width of  semi-global metal4 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4.2</name>
+   <description>METAL4.2 : Minimum spacing of  semi-global metal4 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4.6</name>
+   <description>METAL4.6 : Minimum spacing of semi-global metal4 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4.7</name>
+   <description>METAL4.7 : Minimum spacing of semi-global metal4 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4.8</name>
+   <description>METAL4.8 : Minimum spacing of semi-global meta4l wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA4.1</name>
+   <description>VIA4.1 : Minimum/Maximum width of via4 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA4.2</name>
+   <description>VIA4.2 : Minimum spacing of via4 : 160nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA4.3</name>
+   <description>VIA4.3 : via4 must be inside metal4</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA4.4</name>
+   <description>VIA4.4 : via4 must be inside metal5</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5.1</name>
+   <description>METAL5.1 : Minimum width of semi-global metal5 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5.2</name>
+   <description>METAL5.2 : Minimum spacing of semi-global metal5 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5.6</name>
+   <description>METAL5.6 : Minimum spacing of semi-global metal5 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5.7</name>
+   <description>METAL5.7 : Minimum spacing of semi-global metal5 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5.8</name>
+   <description>METAL5.8 : Minimum spacing of semi-global meta5l wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA5.1</name>
+   <description>VIA5.1 : Minimum/Maximum width of via5 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA5.2</name>
+   <description>VIA5.2 : Minimum spacing of via5 : 160nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA5.3</name>
+   <description>VIA5.3 : via5 must be inside metal5</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA5.4</name>
+   <description>VIA5.4 : via5 must be inside metal6</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6.1</name>
+   <description>METAL6.1 : Minimum width of semi-global metal6 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6.2</name>
+   <description>METAL6.2 : Minimum spacing of semi-global metal6 : 140nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6.6</name>
+   <description>METAL6.6 : Minimum spacing of semi-global metal6 wider than 270 nm and longer than 900 nm : 270nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6.7</name>
+   <description>METAL6.7 : Minimum spacing of semi-global metal6 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6.8</name>
+   <description>METAL6.8 : Minimum spacing of semi-global metal6 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA6.1</name>
+   <description>VIA6.1 : Minimum/Maximum width of via7 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA6.2</name>
+   <description>VIA6.2 : Minimum spacing of via7 : 440nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA6.3</name>
+   <description>VIA6.3 : via6 must be inside metal6</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA6.4</name>
+   <description>VIA6.4 : via6 must be inside metal7</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7.1</name>
+   <description>METAL7.1 : Minimum width of thin global metal7 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7.2</name>
+   <description>METAL7.2 : Minimum spacing of thin global metal7 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7.7</name>
+   <description>METAL7.7 : Minimum spacing of thin global metal7 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7.8</name>
+   <description>METAL7.8 : Minimum spacing of thin global metal7 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7.9</name>
+   <description>METAL7.9 : Minimum spacing of thin global meta7l wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA7.3</name>
+   <description>VIA7.3 : via7 must be inside metal7</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA7.4</name>
+   <description>VIA7.4 : via7 must be inside metal8</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8.1</name>
+   <description>METAL8.1 : Minimum width of thin global metal8 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8.2</name>
+   <description>METAL8.2 : Minimum spacing of thin global metal8 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8.7</name>
+   <description>METAL8.7 : Minimum spacing of thin global metal8 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8.8</name>
+   <description>METAL8.8 : Minimum spacing of thin global metal8 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8.9</name>
+   <description>METAL8.9 : Minimum spacing of thin global metal8 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA8.1</name>
+   <description>VIA8.1 : Minimum/Maximum width of via8 : 400nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA8.2</name>
+   <description>VIA8.2 : Minimum spacing of via8 : 440nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA8.3</name>
+   <description>VIA8.3 : via8 must be inside metal8</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA8.4</name>
+   <description>VIA8.4 : via8 must be inside metal9</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9.1</name>
+   <description>METAL9.1 : Minimum width of global metal9 : 800nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9.2</name>
+   <description>METAL9.2 : Minimum spacing of global metal9 : 800nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9.7</name>
+   <description>METAL9.7 : Minimum spacing of global metal9 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9.8</name>
+   <description>METAL9.8 : Minimum spacing of global metal9 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9.9</name>
+   <description>METAL9.9 : Minimum spacing of global metal9 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA9.1</name>
+   <description>VIA9.1 : Minimum/Maximum width of via9 : 800nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA9.2</name>
+   <description>VIA9.2 : Minimum spacing of via9 : 880nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA9.3</name>
+   <description>VIA9.3 : via9 must be inside metal9</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>VIA9.4</name>
+   <description>VIA9.4 : via9 must be inside metal10</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10.1</name>
+   <description>METAL10.1 : Minimum width of global metal10 : 800nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10.2</name>
+   <description>METAL10.2 : Minimum spacing of global metal10 : 800nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10.7</name>
+   <description>METAL10.7 : Minimum spacing of global metal10 wider than 500 nm and longer than 1.8 um : 500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10.8</name>
+   <description>METAL10.8 : Minimum spacing of global metal10 wider than 900 nm and longer than 2.7 um : 900nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10.9</name>
+   <description>METAL10.9 : Minimum spacing of global metal10 wider than 1500 nm and longer than 4.0 um : 1500nm</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer well not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer active not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer vtg not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer vth not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer pplus not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer nplus not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer poly not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer thkox not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer cont not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal1 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via1 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal2 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via2 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal3 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via3 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal4 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via4 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal5 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via5 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal6 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via6 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal7 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via7 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal8 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via8 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal9 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer via9 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>GRID: vertexes on layer metal10 not on grid of 0.0025</name>
+   <description/>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL1_ANTENNA</name>
+   <description>METAL1_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL2_ANTENNA</name>
+   <description>METAL2_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL3_ANTENNA</name>
+   <description>METAL3_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL4_ANTENNA</name>
+   <description>METAL4_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL5_ANTENNA</name>
+   <description>METAL5_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL6_ANTENNA</name>
+   <description>METAL6_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL7_ANTENNA</name>
+   <description>METAL7_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL8_ANTENNA</name>
+   <description>METAL8_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL9_ANTENNA</name>
+   <description>METAL9_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+  <category>
+   <name>METAL10_ANTENNA</name>
+   <description>METAL10_ANTENNA : Ratio of Maximum Allowed (Field poly area or Metal Layer Area) to transistor gate area : 300:1</description>
+   <categories>
+   </categories>
+  </category>
+ </categories>
+ <cells>
+  <cell>
+   <name>WLA_gap_sweep_0p0</name>
+   <variant/>
+   <layout-name/>
+   <references>
+   </references>
+  </cell>
+  <cell>
+   <name>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</name>
+   <variant/>
+   <layout-name>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</layout-name>
+   <references>
+    <ref>
+     <parent>WLA_gap_sweep_0p0</parent>
+     <trans>r0 *1 0.055,0.033</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</name>
+   <variant/>
+   <layout-name>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</layout-name>
+   <references>
+    <ref>
+     <parent>WLA_gap_sweep_0p0</parent>
+     <trans>r0 *1 0.055,0.033</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</name>
+   <variant/>
+   <layout-name>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</layout-name>
+   <references>
+    <ref>
+     <parent>WLA_gap_sweep_0p0</parent>
+     <trans>r0 *1 1.067,0.033</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_core</name>
+   <variant/>
+   <layout-name>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_core</layout-name>
+   <references>
+    <ref>
+     <parent>WLA_gap_sweep_0p0</parent>
+     <trans>r0 *1 1.067,0.033</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_nmos_m1_w0_180_sm1_dactive</name>
+   <variant/>
+   <layout-name>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_nmos_m1_w0_180_sm1_dactive</layout-name>
+   <references>
+    <ref>
+     <parent>WLA_gap_sweep_0p0</parent>
+     <trans>r0 *1 0.135,0.158</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pmos_m1_w0_270_sm1_dm1</name>
+   <variant/>
+   <layout-name>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pmos_m1_w0_270_sm1_dm1</layout-name>
+   <references>
+    <ref>
+     <parent>WLA_gap_sweep_0p0</parent>
+     <trans>r0 *1 0.135,1.458</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_8</name>
+   <variant/>
+   <layout-name>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_8</layout-name>
+   <references>
+    <ref>
+     <parent>WLA_gap_sweep_0p0</parent>
+     <trans>r0 *1 0.135,1.526</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_7</name>
+   <variant/>
+   <layout-name>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_7</layout-name>
+   <references>
+    <ref>
+     <parent>WLA_gap_sweep_0p0</parent>
+     <trans>r0 *1 0.135,0.18</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_nmos_m1_w0_180_sactive_dm1</name>
+   <variant/>
+   <layout-name>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_nmos_m1_w0_180_sactive_dm1</layout-name>
+   <references>
+    <ref>
+     <parent>WLA_gap_sweep_0p0</parent>
+     <trans>r0 *1 0.35,0.158</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_9</name>
+   <variant/>
+   <layout-name>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_9</layout-name>
+   <references>
+    <ref>
+     <parent>WLA_gap_sweep_0p0</parent>
+     <trans>r0 *1 0.735,1.615</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_10</name>
+   <variant/>
+   <layout-name>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_10</layout-name>
+   <references>
+    <ref>
+     <parent>WLA_gap_sweep_0p0</parent>
+     <trans>r0 *1 0.735,0.136</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW180_PW270_L50_pmos_m1_w0_270_sm1_dm1_da_p</name>
+   <variant/>
+   <layout-name>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW180_PW270_L50_pmos_m1_w0_270_sm1_dm1_da_p</layout-name>
+   <references>
+    <ref>
+     <parent>WLA_gap_sweep_0p0</parent>
+     <trans>r0 *1 1.147,1.458</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_8</name>
+   <variant/>
+   <layout-name>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_8</layout-name>
+   <references>
+    <ref>
+     <parent>WLA_gap_sweep_0p0</parent>
+     <trans>r0 *1 1.147,1.526</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_nmos_m1_w0_090_sm1_dm1_da_p</name>
+   <variant/>
+   <layout-name>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_nmos_m1_w0_090_sm1_dm1_da_p</layout-name>
+   <references>
+    <ref>
+     <parent>WLA_gap_sweep_0p0</parent>
+     <trans>r0 *1 1.147,0.158</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_7</name>
+   <variant/>
+   <layout-name>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_7</layout-name>
+   <references>
+    <ref>
+     <parent>WLA_gap_sweep_0p0</parent>
+     <trans>r0 *1 1.147,0.136</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</name>
+   <variant/>
+   <layout-name>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</layout-name>
+   <references>
+    <ref>
+     <parent>WLA_gap_sweep_0p0</parent>
+     <trans>r0 *1 1.532,1.615</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</name>
+   <variant/>
+   <layout-name>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</layout-name>
+   <references>
+    <ref>
+     <parent>WLA_gap_sweep_0p0</parent>
+     <trans>r0 *1 1.532,0.136</trans>
+    </ref>
+   </references>
+  </cell>
+  <cell>
+   <name>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW180_PW270_L50_contact_11</name>
+   <variant/>
+   <layout-name>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW180_PW270_L50_contact_11</layout-name>
+   <references>
+    <ref>
+     <parent>WLA_gap_sweep_0p0</parent>
+     <trans>r0 *1 1.139,0.86</trans>
+    </ref>
+   </references>
+  </cell>
+ </cells>
+ <items>
+  <item>
+   <tags/>
+   <category>'POLY.1'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.208,0.36;0.208,0.37)|(0.257,0.36;0.257,0.35)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'POLY.1'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.208,1.36;0.208,1.37)|(0.257,1.38;0.257,1.37)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'POLY.1'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.208,0.27;0.208,0.28)|(0.257,0.27;0.257,0.26)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'POLY.1'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.208,1.36;0.208,1.37)|(0.257,1.38;0.257,1.37)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'POLY.6'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.207,0.36;0.208,0.36)|(0.208,0.39;0.195,0.39)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'POLY.6'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_nmos_m1_w0_180_sm1_dactive</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.127,0.235;0.128,0.235)|(0.128,0.265;0.115,0.265)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_8</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.077,0.035;0.013,0.035)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_8</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.013,0.1;0.077,0.1)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_7</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.077,0.035;0.013,0.035)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_7</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.013,0.1;0.077,0.1)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.077,0.035;0.013,0.035)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.013,0.1;0.077,0.1)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.077,0.035;0.013,0.035)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.013,0.1;0.077,0.1)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_8</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.077,0.035;0.013,0.035)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_8</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.013,0.1;0.077,0.1)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_7</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.077,0.035;0.013,0.035)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_7</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.013,0.1;0.077,0.1)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.077,0.035;0.013,0.035)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.013,0.1;0.077,0.1)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.077,0.035;0.013,0.035)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'CONTACT.1'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge: (0.013,0.1;0.077,0.1)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL1.1'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.652,1.363;0.361,1.363)|(0.372,1.427;0.663,1.427)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL1.1'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.693,1.582;0.693,1.65)|(0.757,1.65;0.757,1.582)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL1.1'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.093,0.147;0.093,0.282)|(0.157,0.282;0.157,0.136)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL1.1'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.693,0.17;0.693,0.238)|(0.757,0.238;0.757,0.17)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL1.1'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.478,1.582;0.478,1.787)|(0.542,1.787;0.542,1.582)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL1.1'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.093,0.103;0.093,0.238)|(0.157,0.238;0.157,0.092)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL1.1'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.478,0.033;0.478,0.238)|(0.542,0.238;0.542,0.033)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL1.2'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.522,0.282;0.587,0.282)|(0.588,0.283;0.522,0.283)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL1.2'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.307,1.492;0.372,1.492)|(0.372,1.493;0.307,1.493)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL1.2'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.307,1.492;0.372,1.492)|(0.372,1.493;0.308,1.493)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL1.2'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_nmos_m1_w0_180_sactive_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.227,0.157;0.292,0.157)|(0.293,0.158;0.227,0.158)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'METAL1.2'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_nmos_m1_w0_180_sactive_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>edge-pair: (0.228,0.157;0.292,0.157)|(0.293,0.158;0.227,0.158)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer well not on grid of 0.0025'</category>
+   <cell>WLA_gap_sweep_0p0</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,1.878;-0.01,1.898;0.01,1.898;0.01,1.878)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer well not on grid of 0.0025'</category>
+   <cell>WLA_gap_sweep_0p0</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.8,1.878;1.8,1.898;1.82,1.898;1.82,1.878)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer well not on grid of 0.0025'</category>
+   <cell>WLA_gap_sweep_0p0</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.8,-0.01;1.8,0.01;1.82,0.01;1.82,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.07,0.115;0.07,0.135;0.09,0.135;0.09,0.115)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.07,0.295;0.07,0.315;0.09,0.315;0.09,0.295)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.59,0.295;0.59,0.315;0.61,0.315;0.61,0.295)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.59,0.115;0.59,0.135;0.61,0.135;0.61,0.115)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.59,1.685;0.59,1.705;0.61,1.705;0.61,1.685)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.59,1.415;0.59,1.435;0.61,1.435;0.61,1.415)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.012;-0.01,0.032;0.01,0.032;0.01,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.102;-0.01,0.122;0.01,0.122;0.01,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.102;0.08,0.122;0.1,0.122;0.1,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.012;0.08,0.032;0.1,0.032;0.1,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.012;-0.01,0.032;0.01,0.032;0.01,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.102;-0.01,0.122;0.01,0.122;0.01,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.102;0.08,0.122;0.1,0.122;0.1,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.012;0.08,0.032;0.1,0.032;0.1,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW180_PW270_L50_pmos_m1_w0_270_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,-0.01;-0.01,0.01;0.01,0.01;0.01,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW180_PW270_L50_pmos_m1_w0_270_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.26;-0.01,0.28;0.01,0.28;0.01,0.26)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_nmos_m1_w0_090_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,-0.01;-0.01,0.01;0.01,0.01;0.01,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_nmos_m1_w0_090_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.08;-0.01,0.1;0.01,0.1;0.01,0.08)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_nmos_m1_w0_090_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.295,0.08;0.295,0.1;0.315,0.1;0.315,0.08)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_nmos_m1_w0_090_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.295,-0.01;0.295,0.01;0.315,0.01;0.315,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.012;-0.01,0.032;0.01,0.032;0.01,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.102;-0.01,0.122;0.01,0.122;0.01,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.102;0.08,0.122;0.1,0.122;0.1,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.012;0.08,0.032;0.1,0.032;0.1,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.012;-0.01,0.032;0.01,0.032;0.01,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.102;-0.01,0.122;0.01,0.122;0.01,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.102;0.08,0.122;0.1,0.122;0.1,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer active not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.012;0.08,0.032;0.1,0.032;0.1,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer vtg not on grid of 0.0025'</category>
+   <cell>WLA_gap_sweep_0p0</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,1.878;-0.01,1.898;0.01,1.898;0.01,1.878)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer vtg not on grid of 0.0025'</category>
+   <cell>WLA_gap_sweep_0p0</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.8,1.878;1.8,1.898;1.82,1.898;1.82,1.878)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer vtg not on grid of 0.0025'</category>
+   <cell>WLA_gap_sweep_0p0</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (1.8,-0.01;1.8,0.01;1.82,0.01;1.82,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.59,1.685;0.59,1.705;0.61,1.705;0.61,1.685)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.59,1.415;0.59,1.435;0.61,1.435;0.61,1.415)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.012;-0.01,0.032;0.01,0.032;0.01,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.102;-0.01,0.122;0.01,0.122;0.01,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.102;0.08,0.122;0.1,0.122;0.1,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.012;0.08,0.032;0.1,0.032;0.1,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW180_PW270_L50_pmos_m1_w0_270_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,-0.01;-0.01,0.01;0.01,0.01;0.01,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW180_PW270_L50_pmos_m1_w0_270_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.26;-0.01,0.28;0.01,0.28;0.01,0.26)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.012;-0.01,0.032;0.01,0.032;0.01,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.102;-0.01,0.122;0.01,0.122;0.01,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.102;0.08,0.122;0.1,0.122;0.1,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer pplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.012;0.08,0.032;0.1,0.032;0.1,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.07,0.115;0.07,0.135;0.09,0.135;0.09,0.115)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.07,0.295;0.07,0.315;0.09,0.315;0.09,0.295)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.59,0.295;0.59,0.315;0.61,0.315;0.61,0.295)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.59,0.115;0.59,0.135;0.61,0.135;0.61,0.115)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.012;-0.01,0.032;0.01,0.032;0.01,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.102;-0.01,0.122;0.01,0.122;0.01,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.102;0.08,0.122;0.1,0.122;0.1,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.012;0.08,0.032;0.1,0.032;0.1,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_nmos_m1_w0_090_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,-0.01;-0.01,0.01;0.01,0.01;0.01,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_nmos_m1_w0_090_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.08;-0.01,0.1;0.01,0.1;0.01,0.08)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_nmos_m1_w0_090_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.295,0.08;0.295,0.1;0.315,0.1;0.315,0.08)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_nmos_m1_w0_090_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.295,-0.01;0.295,0.01;0.315,0.01;0.315,-0.01)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.012;-0.01,0.032;0.01,0.032;0.01,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.102;-0.01,0.122;0.01,0.122;0.01,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.102;0.08,0.122;0.1,0.122;0.1,0.102)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer nplus not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.08,0.012;0.08,0.032;0.1,0.032;0.1,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.197,0.06;0.197,0.08;0.217,0.08;0.217,0.06)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.197,0.35;0.197,0.37;0.217,0.37;0.217,0.35)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.198,0.35;0.198,0.37;0.218,0.37;0.218,0.35)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.198,0.38;0.198,0.4;0.218,0.4;0.218,0.38)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.185,0.38;0.185,0.4;0.205,0.4;0.205,0.38)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.185,0.455;0.185,0.475;0.205,0.475;0.205,0.455)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.198,0.455;0.198,0.475;0.218,0.475;0.218,0.455)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.198,1.36;0.198,1.38;0.218,1.38;0.218,1.36)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.197,1.36;0.197,1.38;0.217,1.38;0.217,1.36)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.197,1.74;0.197,1.76;0.217,1.76;0.217,1.74)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.247,1.74;0.247,1.76;0.267,1.76;0.267,1.74)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.247,1.36;0.247,1.38;0.267,1.38;0.267,1.36)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.248,1.36;0.248,1.38;0.268,1.38;0.268,1.36)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.248,0.455;0.248,0.475;0.268,0.475;0.268,0.455)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.26,0.455;0.26,0.475;0.28,0.475;0.28,0.455)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.26,0.38;0.26,0.4;0.28,0.4;0.28,0.38)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.248,0.38;0.248,0.4;0.268,0.4;0.268,0.38)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.248,0.35;0.248,0.37;0.268,0.37;0.268,0.35)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.247,0.06;0.247,0.08;0.267,0.08;0.267,0.06)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.412,0.06;0.412,0.08;0.432,0.08;0.432,0.06)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.412,0.66;0.412,0.68;0.432,0.68;0.432,0.66)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.4,0.66;0.4,0.68;0.42,0.68;0.42,0.66)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.4,0.735;0.4,0.755;0.42,0.755;0.42,0.735)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.412,0.735;0.412,0.755;0.432,0.755;0.432,0.735)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.412,1.74;0.412,1.76;0.432,1.76;0.432,1.74)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.462,1.74;0.462,1.76;0.482,1.76;0.482,1.74)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.462,1.36;0.462,1.38;0.482,1.38;0.482,1.36)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.463,1.36;0.463,1.38;0.483,1.38;0.483,1.36)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.463,0.735;0.463,0.755;0.483,0.755;0.483,0.735)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.475,0.735;0.475,0.755;0.495,0.755;0.495,0.735)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.475,0.66;0.475,0.68;0.495,0.68;0.495,0.66)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.463,0.66;0.463,0.68;0.483,0.68;0.483,0.66)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.462,0.35;0.462,0.37;0.482,0.37;0.482,0.35)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.462,0.06;0.462,0.08;0.482,0.08;0.482,0.06)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.197,0.06;0.197,0.08;0.217,0.08;0.217,0.06)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.197,0.26;0.197,0.28;0.217,0.28;0.217,0.26)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.198,0.817;0.198,0.837;0.218,0.837;0.218,0.817)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.092,0.817;0.092,0.837;0.112,0.837;0.112,0.817)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.092,0.892;0.092,0.912;0.112,0.912;0.112,0.892)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.198,0.892;0.198,0.912;0.218,0.912;0.218,0.892)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.198,1.36;0.198,1.38;0.218,1.38;0.218,1.36)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.197,1.36;0.197,1.38;0.217,1.38;0.217,1.36)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.197,1.74;0.197,1.76;0.217,1.76;0.217,1.74)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.247,1.74;0.247,1.76;0.267,1.76;0.267,1.74)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.247,1.36;0.247,1.38;0.267,1.38;0.267,1.36)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.248,1.36;0.248,1.38;0.268,1.38;0.268,1.36)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.248,0.26;0.248,0.28;0.268,0.28;0.268,0.26)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.247,0.26;0.247,0.28;0.267,0.28;0.267,0.26)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer poly not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_core</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.247,0.06;0.247,0.08;0.267,0.08;0.267,0.06)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.083,1.518;0.083,1.538;0.103,1.538;0.103,1.518)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.083,1.583;0.083,1.603;0.103,1.603;0.103,1.583)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.147,1.583;0.147,1.603;0.167,1.603;0.167,1.583)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.147,1.518;0.147,1.538;0.167,1.538;0.167,1.518)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.298,1.518;0.298,1.538;0.318,1.538;0.318,1.518)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.362,1.583;0.362,1.603;0.382,1.603;0.382,1.583)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.362,1.518;0.362,1.538;0.382,1.538;0.382,1.518)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.298,1.518;0.298,1.538;0.318,1.538;0.318,1.518)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.362,1.583;0.362,1.603;0.382,1.603;0.382,1.583)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.362,1.518;0.362,1.538;0.382,1.538;0.382,1.518)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.513,1.518;0.513,1.538;0.533,1.538;0.533,1.518)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.513,1.583;0.513,1.603;0.533,1.603;0.533,1.583)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.577,1.518;0.577,1.538;0.597,1.538;0.597,1.518)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.19,0.385;0.19,0.405;0.21,0.405;0.21,0.385)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.19,0.45;0.19,0.47;0.21,0.47;0.21,0.45)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.255,0.45;0.255,0.47;0.275,0.47;0.275,0.45)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.255,0.385;0.255,0.405;0.275,0.405;0.275,0.385)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.405,0.665;0.405,0.685;0.425,0.685;0.425,0.665)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.405,0.73;0.405,0.75;0.425,0.75;0.425,0.73)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.47,0.73;0.47,0.75;0.49,0.75;0.49,0.73)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.47,0.665;0.47,0.685;0.49,0.685;0.49,0.665)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_nmos_m1_w0_180_sm1_dactive</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.047;0.003,0.067;0.023,0.067;0.023,0.047)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_nmos_m1_w0_180_sm1_dactive</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.112;0.003,0.132;0.023,0.132;0.023,0.112)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_nmos_m1_w0_180_sm1_dactive</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.112;0.067,0.132;0.087,0.132;0.087,0.112)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_nmos_m1_w0_180_sm1_dactive</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.047;0.067,0.067;0.087,0.067;0.087,0.047)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_nmos_m1_w0_180_sactive_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.218,0.047;0.218,0.067;0.238,0.067;0.238,0.047)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_nmos_m1_w0_180_sactive_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.218,0.112;0.218,0.132;0.238,0.132;0.238,0.112)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_nmos_m1_w0_180_sactive_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.282,0.112;0.282,0.132;0.302,0.132;0.302,0.112)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_nmos_m1_w0_180_sactive_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.282,0.047;0.282,0.067;0.302,0.067;0.302,0.047)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.025;0.003,0.045;0.023,0.045;0.023,0.025)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.09;0.003,0.11;0.023,0.11;0.023,0.09)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.09;0.067,0.11;0.087,0.11;0.087,0.09)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.025;0.067,0.045;0.087,0.045;0.087,0.025)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.025;0.003,0.045;0.023,0.045;0.023,0.025)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.09;0.003,0.11;0.023,0.11;0.023,0.09)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.09;0.067,0.11;0.087,0.11;0.087,0.09)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.025;0.067,0.045;0.087,0.045;0.087,0.025)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW180_PW270_L50_pmos_m1_w0_270_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.093;0.003,0.113;0.023,0.113;0.023,0.093)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW180_PW270_L50_pmos_m1_w0_270_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.158;0.003,0.178;0.023,0.178;0.023,0.158)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW180_PW270_L50_pmos_m1_w0_270_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.093;0.067,0.113;0.087,0.113;0.087,0.093)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW180_PW270_L50_pmos_m1_w0_270_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.218,0.093;0.218,0.113;0.238,0.113;0.238,0.093)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW180_PW270_L50_pmos_m1_w0_270_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.218,0.158;0.218,0.178;0.238,0.178;0.238,0.158)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW180_PW270_L50_pmos_m1_w0_270_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.282,0.158;0.282,0.178;0.302,0.178;0.302,0.158)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW180_PW270_L50_pmos_m1_w0_270_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.282,0.093;0.282,0.113;0.302,0.113;0.302,0.093)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_nmos_m1_w0_090_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.003;0.003,0.023;0.023,0.023;0.023,0.003)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_nmos_m1_w0_090_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.068;0.003,0.088;0.023,0.088;0.023,0.068)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_nmos_m1_w0_090_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.068;0.067,0.088;0.087,0.088;0.087,0.068)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_nmos_m1_w0_090_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.218,0.003;0.218,0.023;0.238,0.023;0.238,0.003)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_nmos_m1_w0_090_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.218,0.068;0.218,0.088;0.238,0.088;0.238,0.068)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_nmos_m1_w0_090_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.282,0.068;0.282,0.088;0.302,0.088;0.302,0.068)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50_nmos_m1_w0_090_sm1_dm1_da_p</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.282,0.003;0.282,0.023;0.302,0.023;0.302,0.003)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.09;0.003,0.11;0.023,0.11;0.023,0.09)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.09;0.067,0.11;0.087,0.11;0.087,0.09)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_9</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.025;0.067,0.045;0.087,0.045;0.087,0.025)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.003,0.09;0.003,0.11;0.023,0.11;0.023,0.09)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.09;0.067,0.11;0.087,0.11;0.087,0.09)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__TRANSMISSION_GATE_NW250_PW500_L50_contact_10</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.067,0.025;0.067,0.045;0.087,0.045;0.087,0.025)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW180_PW270_L50_contact_11</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.025,-0.005;0.025,0.015;0.045,0.015;0.045,-0.005)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW180_PW270_L50_contact_11</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.025,0.06;0.025,0.08;0.045,0.08;0.045,0.06)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer cont not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW180_PW270_L50_contact_11</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.09,-0.005;0.09,0.015;0.11,0.015;0.11,-0.005)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.155,0.385;0.155,0.405;0.175,0.405;0.175,0.385)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.155,0.45;0.155,0.47;0.175,0.47;0.175,0.45)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.29,0.45;0.29,0.47;0.31,0.47;0.31,0.45)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.29,0.385;0.29,0.405;0.31,0.405;0.31,0.385)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.37,0.73;0.37,0.75;0.39,0.75;0.39,0.73)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.505,0.73;0.505,0.75;0.525,0.75;0.525,0.73)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.512,0.273;0.512,0.293;0.532,0.293;0.532,0.273)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.512,0.435;0.512,0.455;0.532,0.455;0.532,0.435)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.642,0.435;0.642,0.455;0.662,0.455;0.662,0.435)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.642,1.353;0.642,1.373;0.662,1.373;0.662,1.353)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.297,1.353;0.297,1.373;0.317,1.373;0.317,1.353)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.297,1.482;0.297,1.502;0.317,1.502;0.317,1.482)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.362,1.482;0.362,1.502;0.382,1.502;0.382,1.482)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.362,1.417;0.362,1.437;0.382,1.437;0.382,1.417)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.708,1.417;0.708,1.437;0.728,1.437;0.728,1.417)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.708,0.37;0.708,0.39;0.728,0.39;0.728,0.37)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.578,0.37;0.578,0.39;0.598,0.39;0.598,0.37)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.578,0.273;0.578,0.293;0.598,0.293;0.598,0.273)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.082,1.482;0.082,1.502;0.102,1.502;0.102,1.482)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.082,1.777;0.082,1.797;0.102,1.797;0.102,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,1.777;-0.01,1.797;0.01,1.797;0.01,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,1.842;-0.01,1.862;0.01,1.862;0.01,1.842)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.892,1.842;0.892,1.862;0.912,1.862;0.912,1.842)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.892,1.777;0.892,1.797;0.912,1.797;0.912,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.748,1.777;0.748,1.797;0.768,1.797;0.768,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.747,1.64;0.747,1.66;0.767,1.66;0.767,1.64)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.747,1.572;0.747,1.592;0.767,1.592;0.767,1.572)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.683,1.572;0.683,1.592;0.703,1.592;0.703,1.572)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.683,1.64;0.683,1.66;0.703,1.66;0.703,1.64)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.682,1.777;0.682,1.797;0.702,1.797;0.702,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.578,1.777;0.578,1.797;0.598,1.797;0.598,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.578,1.482;0.578,1.502;0.598,1.502;0.598,1.482)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.512,1.482;0.512,1.502;0.532,1.502;0.532,1.482)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.512,1.777;0.512,1.797;0.532,1.797;0.532,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.147,1.777;0.147,1.797;0.167,1.797;0.167,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.147,1.482;0.147,1.502;0.167,1.502;0.167,1.482)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,-0.043;-0.01,-0.023;0.01,-0.023;0.01,-0.043)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.023;-0.01,0.043;0.01,0.043;0.01,0.023)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.083,0.137;0.083,0.157;0.103,0.157;0.103,0.137)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.083,0.272;0.083,0.292;0.103,0.292;0.103,0.272)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.147,0.272;0.147,0.292;0.167,0.292;0.167,0.272)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.147,0.023;0.147,0.043;0.167,0.043;0.167,0.023)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.682,0.16;0.682,0.18;0.702,0.18;0.702,0.16)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.683,0.16;0.683,0.18;0.703,0.18;0.703,0.16)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.683,0.228;0.683,0.248;0.703,0.248;0.703,0.228)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.747,0.228;0.747,0.248;0.767,0.248;0.767,0.228)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.747,0.16;0.747,0.18;0.767,0.18;0.767,0.16)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.748,0.16;0.748,0.18;0.768,0.18;0.768,0.16)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.297,1.483;0.297,1.503;0.317,1.503;0.317,1.483)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.297,1.618;0.297,1.638;0.317,1.638;0.317,1.618)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.362,1.618;0.362,1.638;0.382,1.638;0.382,1.618)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_pnand2</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.362,1.483;0.362,1.503;0.382,1.503;0.382,1.483)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_nmos_m1_w0_180_sactive_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.217,0.012;0.217,0.032;0.237,0.032;0.237,0.012)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__pnand2_stage__PNAND2_NW180_PW270_L50_FPDK45__PNAND2_NW180_PW270_L50_FPDK45_nmos_m1_w0_180_sactive_dm1</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.217,0.147;0.217,0.167;0.237,0.167;0.237,0.147)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.062,0.822;0.062,0.842;0.082,0.842;0.082,0.822)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.062,0.887;0.062,0.907;0.082,0.907;0.082,0.887)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.198,0.822;0.198,0.842;0.218,0.842;0.218,0.822)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.297,0.093;0.297,0.113;0.317,0.113;0.317,0.093)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.297,1.618;0.297,1.638;0.317,1.638;0.317,1.618)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.362,1.618;0.362,1.638;0.382,1.638;0.382,1.618)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.362,0.887;0.362,0.907;0.382,0.907;0.382,0.887)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.395,0.887;0.395,0.907;0.415,0.907;0.415,0.887)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.395,0.822;0.395,0.842;0.415,0.842;0.415,0.822)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.362,0.822;0.362,0.842;0.382,0.842;0.382,0.822)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.362,0.093;0.362,0.113;0.382,0.113;0.382,0.093)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.082,1.482;0.082,1.502;0.102,1.502;0.102,1.482)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.082,1.777;0.082,1.797;0.102,1.797;0.102,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,1.777;-0.01,1.797;0.01,1.797;0.01,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,1.842;-0.01,1.862;0.01,1.862;0.01,1.842)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.677,1.842;0.677,1.862;0.697,1.862;0.697,1.842)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.677,1.777;0.677,1.797;0.697,1.797;0.697,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.532,1.777;0.532,1.797;0.552,1.797;0.552,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.532,1.572;0.532,1.592;0.552,1.592;0.552,1.572)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.468,1.572;0.468,1.592;0.488,1.592;0.488,1.572)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.468,1.777;0.468,1.797;0.488,1.797;0.488,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.147,1.777;0.147,1.797;0.167,1.797;0.167,1.777)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.147,1.482;0.147,1.502;0.167,1.502;0.167,1.482)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,-0.043;-0.01,-0.023;0.01,-0.023;0.01,-0.043)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (-0.01,0.023;-0.01,0.043;0.01,0.043;0.01,0.023)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.082,0.023;0.082,0.043;0.102,0.043;0.102,0.023)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.082,0.093;0.082,0.113;0.102,0.113;0.102,0.093)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.083,0.093;0.083,0.113;0.103,0.113;0.103,0.093)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.083,0.228;0.083,0.248;0.103,0.248;0.103,0.228)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.147,0.228;0.147,0.248;0.167,0.248;0.167,0.228)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.468,0.228;0.468,0.248;0.488,0.248;0.488,0.228)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.532,0.228;0.532,0.248;0.552,0.248;0.552,0.228)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.532,0.023;0.532,0.043;0.552,0.043;0.552,0.023)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.677,0.023;0.677,0.043;0.697,0.043;0.697,0.023)</value>
+   </values>
+  </item>
+  <item>
+   <tags/>
+   <category>'GRID: vertexes on layer metal1 not on grid of 0.0025'</category>
+   <cell>TEAMB_CLONE__inv_stage__PINV_NW90_PW270_L50__PINV_NW90_PW270_L50</cell>
+   <visited>false</visited>
+   <multiplicity>1</multiplicity>
+   <comment/>
+   <image/>
+   <values>
+    <value>polygon: (0.677,-0.043;0.677,-0.023;0.697,-0.023;0.697,-0.043)</value>
+   </values>
+  </item>
+ </items>
+</report-database>
