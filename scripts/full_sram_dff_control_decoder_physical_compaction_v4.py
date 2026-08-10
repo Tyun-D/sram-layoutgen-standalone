@@ -595,6 +595,8 @@ quit
         ("CONTROL_SINK_RENDER.svg", "V4 control sink-distributed placement"),
     ]:
         make_render(OUT / name, boxes, title)
+        png = OUT / name.replace(".svg", ".png")
+        subprocess.run(["convert", str(OUT / name), str(png)], cwd=REPO, check=False, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
     # Review package.
     latest = Path("/data1/qujh/full_sram_dff_control_decoder_compaction_v4_review/latest")
@@ -613,6 +615,7 @@ quit
         OUT / "DECODER_CANDIDATE_COMPARISON_V4.csv", OUT / "DECODER_FINAL_ABUTMENT_WITNESS_V4.csv", OUT / "DECODER_TO_WL_DRIVER_ROUTE_METRICS_V4.csv",
         OUT / "FULL_SRAM_SEMANTIC_CONNECTIVITY_GATE_V4.json", OUT / "FULL_SRAM_NEGATIVE_SUITE_V4.json", OUT / "DETERMINISM_V4.json",
         OUT / "TOP_RENDER_CLEAN.svg", OUT / "TOP_RENDER_LABELED.svg", OUT / "DFF_REGION_RENDER.svg", OUT / "DECODER_RENDER.svg", OUT / "DECODER_WL_RENDER.svg", OUT / "CONTROL_SINK_RENDER.svg",
+        OUT / "TOP_RENDER_CLEAN.png", OUT / "TOP_RENDER_LABELED.png", OUT / "DFF_REGION_RENDER.png", OUT / "DECODER_RENDER.png", OUT / "DECODER_WL_RENDER.png", OUT / "CONTROL_SINK_RENDER.png",
         OUT / "bundled_dff_equivalence_smoke.sp", OUT / "bundled_dff_equivalence_smoke.log",
     ]
     for p in include:
