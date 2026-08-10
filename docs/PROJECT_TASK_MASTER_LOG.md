@@ -607,3 +607,13 @@
 - verification: unique top `1`; KLayout/FreePDK45 DRC marker count `0`; semantic row/write/read/control/power/foreign-net gates all `PASS`; negative unexpected pass `0`; determinism `PASS`.
 - top area: V4 `46250.1701 um^2`, below V3 `55164.2249 um^2`; formal timing remains `PENDING`; post-layout PEX is `NOT_CLAIMED`.
 - review package: `/data1/qujh/PROJECT_FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`.
+
+## 2026-08-10T00:00:00Z full_sram_dff_authority_column_alignment_v41
+- V4 correction: `PASS_FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4_TO_HUMAN_REVIEW` is reclassified as `HUMAN_REVIEW_REJECTED_DUE_TO_INVALID_DFF_EQUIVALENCE_EVIDENCE_AND_BANK_INTERFACE_TRANSLATION_REGRESSION`.
+- DFF false positive: V4 bundled-DFF ngspice log contained fatal shorted voltage source, aborted analyses, and failed measures. `BUNDLED_DFF_FUNCTIONALLY_EQUIVALENT_FOR_ADDR_DATA` is revoked.
+- DFF V4.1 decision: ADDR/DATA DFFs are restored to source-bound `DFF_TG4_INV7`; CS/WE remain `DFF_BUF`. `SPICE_RUN_HEALTH_GATE` detects the V4 failure and prevents returncode-only pass.
+- Column interface: final-top bank placement now uses pin-derived translation instead of bbox-left alignment. Solved dx: precharge `+2.345um`, sense `+2.3075um`, write `+2.2425um`.
+- Alignment residuals: precharge max/RMS `0.045/0.045um`; sense max/RMS `0.0025/0.0025um`; write max/RMS `0.0025/0.0025um`.
+- BL/BR: 32/32 pins matched per required bank; array-to-bank BL/BR route witness regenerated after bank move; stale-route gate `PASS`.
+- Verification: unique top `1`; KLayout/FreePDK45 DRC marker count `0`; semantic row/write/read/control/power/foreign-net gates all `PASS`; power `100%`; negative unexpected pass `0`; determinism `PASS`.
+- package: `/data1/qujh/PROJECT_FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`.

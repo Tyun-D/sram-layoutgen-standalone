@@ -1,0 +1,26 @@
+{
+  "ADDR_DFF": {
+    "D": "ADDR[i]",
+    "Q": "decoder.A[i]",
+    "QB_requirement": "fanout_zero",
+    "clock": "clk_buf",
+    "selected_physical_cell": "DFF_TG4_INV7"
+  },
+  "CS_DFF_BUF": {
+    "D": "csb",
+    "Q_QB_requirement": "buffered_control_source_bound",
+    "selected_physical_cell": "DFF_BUF"
+  },
+  "DATA_DFF": {
+    "D": "DIN[i]",
+    "Q": "write_driver.DIN[i]",
+    "QB_requirement": "fanout_zero",
+    "clock": "clk_buf",
+    "selected_physical_cell": "DFF_TG4_INV7"
+  },
+  "WE_DFF_BUF": {
+    "D": "web",
+    "Q_QB_requirement": "buffered_control_source_bound",
+    "selected_physical_cell": "DFF_BUF"
+  }
+}

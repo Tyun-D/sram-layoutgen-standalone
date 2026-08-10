@@ -1,5 +1,5 @@
 {
-  "workflow_state": "PASS_FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4_TO_HUMAN_REVIEW",
+  "workflow_state": "PASS_FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41_TO_HUMAN_REVIEW",
   "timestamp": "2026-08-10T00:00:00Z",
   "git_branch": "project/mainline-inventory-20260726",
   "git_head": "PENDING_COMMIT",
@@ -153,7 +153,7 @@
     "sha256_record_location": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz.sha256",
     "package_build_head": "62c3d663d2dc4011b9c8d06c13d080c25535a327"
   },
-  "next_stage": "Human review of V4 DFF/control/decoder physical compaction package.",
+  "next_stage": "Human review of V4.1 DFF authority and column interface alignment package.",
   "current_git_head": "PENDING_COMMIT",
   "remote_branch_head": "PENDING_COMMIT",
   "latest_complete_top_package": {
@@ -625,5 +625,62 @@
     "formal_timing_authority": "PENDING",
     "post_layout_pex": "NOT_CLAIMED",
     "review_package": "/data1/qujh/PROJECT_FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz"
+  },
+  "v4_human_review_status": "HUMAN_REVIEW_REJECTED_DUE_TO_INVALID_DFF_EQUIVALENCE_EVIDENCE_AND_BANK_INTERFACE_TRANSLATION_REGRESSION",
+  "full_sram_dff_authority_column_alignment_v41": {
+    "status": "PASS_FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41_TO_HUMAN_REVIEW",
+    "top_name": "FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41",
+    "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41/clean_unique_top.gds",
+    "gds_sha256": "5f48d1de1ab31091a7ded24e3721b9c4afbbfd3e8ad75fff6a351a08539fda6f",
+    "drc_marker_count": 0,
+    "dff": {
+      "old_v4_equivalence_evidence": "INVALID",
+      "bundled_dff_final_authority": "REVOKED",
+      "final_selected_ADDR_DATA_cell": "DFF_TG4_INV7",
+      "spice_run_health_gate_detected_v4_failure": true
+    },
+    "column_interface": {
+      "precharge": {
+        "old_origin_x": 70.0,
+        "new_origin_x": 72.345,
+        "solved_dx": 2.345,
+        "max_residual": 0.045,
+        "rms_residual": 0.045
+      },
+      "sense": {
+        "old_origin_x": 70.0,
+        "new_origin_x": 72.3075,
+        "solved_dx": 2.3075,
+        "max_residual": 0.0025,
+        "rms_residual": 0.0025
+      },
+      "write": {
+        "old_origin_x": 70.0,
+        "new_origin_x": 72.2425,
+        "solved_dx": 2.2425,
+        "max_residual": 0.0025,
+        "rms_residual": 0.0025
+      }
+    },
+    "blbr": {
+      "pins_matched_per_bank": "32/32",
+      "actual_routes_regenerated": true,
+      "stale_route_gate": "PASS"
+    },
+    "semantic_connectivity": {
+      "row": "PASS",
+      "data_write": "PASS",
+      "read": "PASS",
+      "control": "PASS",
+      "power": "PASS",
+      "foreign_net": "PASS"
+    },
+    "power": "100%",
+    "foreign_net": "PASS",
+    "negative_unexpected_pass": 0,
+    "determinism": "PASS",
+    "formal_timing_authority": "PENDING",
+    "post_layout_pex": "NOT_CLAIMED",
+    "review_package": "/data1/qujh/PROJECT_FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz"
   }
 }

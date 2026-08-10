@@ -1,0 +1,67 @@
+{
+  "bbox": {
+    "area": 21255.2684,
+    "height": 111.8875,
+    "width": 189.97
+  },
+  "blbr": {
+    "actual_routes_regenerated": true,
+    "pins_matched_per_bank": "32/32",
+    "stale_route_gate": "PASS"
+  },
+  "column_interface": {
+    "precharge": {
+      "max_residual": 0.045,
+      "new_origin_x": 72.345,
+      "old_origin_x": 70.0,
+      "rms_residual": 0.045,
+      "solved_dx": 2.345
+    },
+    "sense": {
+      "max_residual": 0.0025,
+      "new_origin_x": 72.3075,
+      "old_origin_x": 70.0,
+      "rms_residual": 0.0025,
+      "solved_dx": 2.3075
+    },
+    "write": {
+      "max_residual": 0.0025,
+      "new_origin_x": 72.2425,
+      "old_origin_x": 70.0,
+      "rms_residual": 0.0025,
+      "solved_dx": 2.2425
+    }
+  },
+  "determinism": true,
+  "dff": {
+    "bundled_dff_final_authority": "REVOKED",
+    "final_selected_ADDR_DATA_cell": "DFF_TG4_INV7",
+    "old_v4_equivalence_evidence": "INVALID",
+    "simulator_health_gate_detected_v4_failure": true
+  },
+  "drc": {
+    "database": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41/drc/FULL_SRAM_V41_DRC.lyrdb",
+    "log": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41/drc/FULL_SRAM_V41_DRC.log",
+    "marker_count": 0,
+    "passed": true,
+    "returncode": 0
+  },
+  "foreign_net": "PASS",
+  "formal_timing": "PENDING",
+  "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41/clean_unique_top.gds",
+  "gds_sha": "5f48d1de1ab31091a7ded24e3721b9c4afbbfd3e8ad75fff6a351a08539fda6f",
+  "negative_unexpected_pass": 0,
+  "post_layout_pex": "NOT_CLAIMED",
+  "power": "100%",
+  "semantic_connectivity": {
+    "CONTROL_PATH_SEMANTIC_CONNECTIVITY": "PASS",
+    "DATA_WRITE_PATH_SEMANTIC_CONNECTIVITY": "PASS",
+    "FOREIGN_NET": "PASS",
+    "POWER_CONNECTIVITY": "PASS",
+    "READ_PATH_SEMANTIC_CONNECTIVITY": "PASS",
+    "ROW_PATH_SEMANTIC_CONNECTIVITY": "PASS"
+  },
+  "status": "PASS_FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41_TO_HUMAN_REVIEW",
+  "top_name": "FULL_SRAM_DFF_AUTHORITY_AND_COLUMN_INTERFACE_ALIGNMENT_V41",
+  "unique_top_count": 1
+}

@@ -1,0 +1,77 @@
+{
+  "tests": [
+    {
+      "mutated_artifact": "mutation_records/treat_aborted_ngspice_as_pass.json",
+      "mutation": "treat_aborted_ngspice_as_pass",
+      "rejection_code": "TREAT_ABORTED_NGSPICE_AS_PASS",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_authority_column_alignment_v41.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/compare_only_bundled_without_reference.json",
+      "mutation": "compare_only_bundled_without_reference",
+      "rejection_code": "COMPARE_ONLY_BUNDLED_WITHOUT_REFERENCE",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_authority_column_alignment_v41.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/wrong_clock_edge_reference.json",
+      "mutation": "wrong_clock_edge_reference",
+      "rejection_code": "WRONG_CLOCK_EDGE_REFERENCE",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_authority_column_alignment_v41.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/bundled_DFF_with_QB_required_role.json",
+      "mutation": "bundled_DFF_with_QB_required_role",
+      "rejection_code": "BUNDLED_DFF_WITH_QB_REQUIRED_ROLE",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_authority_column_alignment_v41.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/align_bank_bbox_left_edges.json",
+      "mutation": "align_bank_bbox_left_edges",
+      "rejection_code": "ALIGN_BANK_BBOX_LEFT_EDGES",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_authority_column_alignment_v41.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/drop_required_dx_translation.json",
+      "mutation": "drop_required_dx_translation",
+      "rejection_code": "DROP_REQUIRED_DX_TRANSLATION",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_authority_column_alignment_v41.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/swap_bank_bit.json",
+      "mutation": "swap_bank_bit",
+      "rejection_code": "SWAP_BANK_BIT",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_authority_column_alignment_v41.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/apply_precharge_dx_to_sense_bank.json",
+      "mutation": "apply_precharge_dx_to_sense_bank",
+      "rejection_code": "APPLY_PRECHARGE_DX_TO_SENSE_BANK",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_authority_column_alignment_v41.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/reuse_stale_BLBR_route_after_bank_move.json",
+      "mutation": "reuse_stale_BLBR_route_after_bank_move",
+      "rejection_code": "REUSE_STALE_BLBR_ROUTE_AFTER_BANK_MOVE",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_authority_column_alignment_v41.py --validate-mutation"
+    }
+  ],
+  "unexpected_pass": 0
+}
