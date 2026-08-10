@@ -1,0 +1,133 @@
+{
+  "tests": [
+    {
+      "mutated_artifact": "mutation_records/drop_A3.json",
+      "mutation": "drop_A3",
+      "rejection_code": "DROP_A3",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_control_decoder_physical_compaction_v4.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/drop_WL15.json",
+      "mutation": "drop_WL15",
+      "rejection_code": "DROP_WL15",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_control_decoder_physical_compaction_v4.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/swap_WL3_WL12.json",
+      "mutation": "swap_WL3_WL12",
+      "rejection_code": "SWAP_WL3_WL12",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_control_decoder_physical_compaction_v4.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/alias_WL8_to_WL0.json",
+      "mutation": "alias_WL8_to_WL0",
+      "rejection_code": "ALIAS_WL8_TO_WL0",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_control_decoder_physical_compaction_v4.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/replace_full_decoder_with_3to8_child.json",
+      "mutation": "replace_full_decoder_with_3to8_child",
+      "rejection_code": "REPLACE_FULL_DECODER_WITH_3TO8_CHILD",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_control_decoder_physical_compaction_v4.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/disconnect_decoder_WL_driver_15.json",
+      "mutation": "disconnect_decoder_WL_driver_15",
+      "rejection_code": "DISCONNECT_DECODER_WL_DRIVER_15",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_control_decoder_physical_compaction_v4.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/disconnect_ADDR_DFF_Q.json",
+      "mutation": "disconnect_ADDR_DFF_Q",
+      "rejection_code": "DISCONNECT_ADDR_DFF_Q",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_control_decoder_physical_compaction_v4.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/disconnect_DATA_DFF_Q.json",
+      "mutation": "disconnect_DATA_DFF_Q",
+      "rejection_code": "DISCONNECT_DATA_DFF_Q",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_control_decoder_physical_compaction_v4.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/swap_ADDR_DFF_bits.json",
+      "mutation": "swap_ADDR_DFF_bits",
+      "rejection_code": "SWAP_ADDR_DFF_BITS",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_control_decoder_physical_compaction_v4.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/swap_DATA_DFF_bits.json",
+      "mutation": "swap_DATA_DFF_bits",
+      "rejection_code": "SWAP_DATA_DFF_BITS",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_control_decoder_physical_compaction_v4.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/replace_required_DFF_BUF_with_core.json",
+      "mutation": "replace_required_DFF_BUF_with_core",
+      "rejection_code": "REPLACE_REQUIRED_DFF_BUF_WITH_CORE",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_control_decoder_physical_compaction_v4.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/use_wrong_DFF_GDS_SHA.json",
+      "mutation": "use_wrong_DFF_GDS_SHA",
+      "rejection_code": "USE_WRONG_DFF_GDS_SHA",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_control_decoder_physical_compaction_v4.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/restore_50um_control_fixed_step.json",
+      "mutation": "restore_50um_control_fixed_step",
+      "rejection_code": "RESTORE_50UM_CONTROL_FIXED_STEP",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_control_decoder_physical_compaction_v4.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/insert_unjustified_10um_DFF_gap.json",
+      "mutation": "insert_unjustified_10um_DFF_gap",
+      "rejection_code": "INSERT_UNJUSTIFIED_10UM_DFF_GAP",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_control_decoder_physical_compaction_v4.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/break_legal_abutment.json",
+      "mutation": "break_legal_abutment",
+      "rejection_code": "BREAK_LEGAL_ABUTMENT",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_control_decoder_physical_compaction_v4.py --validate-mutation"
+    },
+    {
+      "mutated_artifact": "mutation_records/illegal_orientation_pin_transform.json",
+      "mutation": "illegal_orientation_pin_transform",
+      "rejection_code": "ILLEGAL_ORIENTATION_PIN_TRANSFORM",
+      "return_code": 1,
+      "unexpected_pass": false,
+      "validator_command": "scripts/full_sram_dff_control_decoder_physical_compaction_v4.py --validate-mutation"
+    }
+  ],
+  "unexpected_pass": 0
+}

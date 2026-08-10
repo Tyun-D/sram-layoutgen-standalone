@@ -1,5 +1,5 @@
 {
-  "workflow_state": "PASS_FULL_SRAM_TRUE_4TO16_DECODER_DFF_SEMANTIC_COMPACTION_V3_TO_HUMAN_REVIEW",
+  "workflow_state": "PASS_FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4_TO_HUMAN_REVIEW",
   "timestamp": "2026-08-10T00:00:00Z",
   "git_branch": "project/mainline-inventory-20260726",
   "git_head": "PENDING_COMMIT",
@@ -153,7 +153,7 @@
     "sha256_record_location": "/data1/qujh/PROJECT_DECODER_HIERARCHICAL_FLOORPLAN_FULL_EVIDENCE_PACKAGE_LATEST.tar.gz.sha256",
     "package_build_head": "62c3d663d2dc4011b9c8d06c13d080c25535a327"
   },
-  "next_stage": "Human review of V3 true 4-to-16 decoder and DFF semantic compaction package.",
+  "next_stage": "Human review of V4 DFF/control/decoder physical compaction package.",
   "current_git_head": "PENDING_COMMIT",
   "remote_branch_head": "PENDING_COMMIT",
   "latest_complete_top_package": {
@@ -583,5 +583,47 @@
     "formal_timing": "PENDING",
     "package": "/data1/qujh/PROJECT_FULL_SRAM_TRUE_4TO16_DECODER_DFF_SEMANTIC_COMPACTION_V3_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
     "package_sha256": "FINAL_PACKAGE_SHA_PENDING_AFTER_COMMIT"
+  },
+  "v3_human_review_status": "SEMANTIC_STRUCTURE_RECOVERY_PASS_PHYSICAL_COMPACTION_FAIL",
+  "v3_reclassification": "SEMANTIC_STRUCTURE_RECOVERY_PASS_CONTROL_PLACEMENT_REPLAN_FAIL_DECODER_INTERNAL_2D_REPLAN_FAIL_FINAL_GDS_EVIDENCE_QUALITY_FAIL",
+  "full_sram_dff_control_decoder_physical_compaction_v4": {
+    "status": "PASS_FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4_TO_HUMAN_REVIEW",
+    "top_name": "FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4",
+    "unique_top_count": 1,
+    "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4/clean_unique_top.gds",
+    "gds_sha256": "c52458415eced0c1b1c843bb216fc523fd89a2e795fb7525dcf4ee8e5e5c7cb8",
+    "drc_marker_count": 0,
+    "power_endpoint_coverage": "100%",
+    "foreign_net": "PASS",
+    "semantic_connectivity": {
+      "row": "PASS",
+      "data_write": "PASS",
+      "read": "PASS",
+      "control": "PASS",
+      "power": "PASS",
+      "foreign_net": "PASS"
+    },
+    "bundled_dff_result": "BUNDLED_DFF_FUNCTIONALLY_EQUIVALENT_FOR_ADDR_DATA",
+    "dff_roles": {
+      "ADDR": 4,
+      "DATA": 16,
+      "buffered_control": 2
+    },
+    "control_fixed_step_detector": "PASS_FINAL_GDS_VERIFIED",
+    "decoder": {
+      "source_address_width": 4,
+      "physical_address_input_count": 4,
+      "source_wl_count": 16,
+      "physical_unique_wl_output_count": 16
+    },
+    "top_area_um2": 46250.1701,
+    "v3_top_area_um2": 55164.2249,
+    "area_less_than_v3": true,
+    "final_gds_fact_audit": "PASS",
+    "negative_unexpected_pass": 0,
+    "determinism": "PASS",
+    "formal_timing_authority": "PENDING",
+    "post_layout_pex": "NOT_CLAIMED",
+    "review_package": "/data1/qujh/PROJECT_FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz"
   }
 }

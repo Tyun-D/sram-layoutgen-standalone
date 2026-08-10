@@ -1,0 +1,14 @@
+{
+  "bundled_gds": "technology/freepdk45/gds_lib/dff.gds",
+  "bundled_spice": "technology/freepdk45/sp_lib/dff.sp",
+  "exact_reason": "Bundled dff has D/Q/clk/vdd/gnd pins and ngspice transient smoke completed for D/Q sampling; it is only authorized for ADDR/DATA roles with QB fanout 0.",
+  "functional_equivalence_test": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4/bundled_dff_equivalence_smoke.sp",
+  "ngspice_returncode": 0,
+  "observable_contract": "ADDR/DATA roles require D, CLK, Q only; QB fanout is zero by source role binding.",
+  "result": "BUNDLED_DFF_FUNCTIONALLY_EQUIVALENT_FOR_ADDR_DATA",
+  "selected_for": [
+    "ADDR_DFF",
+    "DATA_DFF"
+  ],
+  "status": "PASS"
+}

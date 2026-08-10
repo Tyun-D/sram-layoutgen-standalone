@@ -596,3 +596,14 @@
 - semantic gates: row path, data/write path, read path, control path, power, and foreign-net all `PASS`.
 - verification: unique top `1`; KLayout/FreePDK45 DRC marker count `0`; power endpoint coverage `100%`; negative unexpected pass `0`; determinism `PASS`.
 - package: `/data1/qujh/PROJECT_FULL_SRAM_TRUE_4TO16_DECODER_DFF_SEMANTIC_COMPACTION_V3_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`.
+
+## 2026-08-10T00:00:00Z full_sram_dff_control_decoder_true_physical_compaction_v4
+- V3 correction: reclassified as `SEMANTIC_STRUCTURE_RECOVERY_PASS` with `PHYSICAL_COMPACTION=FAIL`, `CONTROL_PLACEMENT_REPLAN=FAIL`, `DECODER_INTERNAL_2D_REPLAN=FAIL`, and `FINAL_GDS_EVIDENCE_QUALITY=FAIL`.
+- manifest/top correction: V4 package records actual unique top `FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4`; final-GDS fact audit is the authority for placement, spacing, origins, and route metrics.
+- bundled DFF: `technology/freepdk45/gds_lib/dff.gds` and `sp_lib/dff.sp` are now actually smoke-tested with ngspice; authorized only for ADDR/DATA roles where `QB` fanout is zero.
+- DFF placement: ADDR and DATA DFFs use bundled DFF and are placed in sink-aware clusters; final-GDS gap witness reports numeric x/y gaps and coordinates.
+- control placement: V3 fixed-step detector false positive is recorded; V4 detector computes final-GDS origins and same-row x steps and passes with no 50um fixed-step ladder.
+- decoder: V4 uses complete 4-address-bit / 16-WL decoder wrapper from the full P2 stage hierarchy; the invalid 3-to-8 child replacement remains rejected. Candidate comparison includes P2 baseline and compact folded alternatives.
+- verification: unique top `1`; KLayout/FreePDK45 DRC marker count `0`; semantic row/write/read/control/power/foreign-net gates all `PASS`; negative unexpected pass `0`; determinism `PASS`.
+- top area: V4 `46250.1701 um^2`, below V3 `55164.2249 um^2`; formal timing remains `PENDING`; post-layout PEX is `NOT_CLAIMED`.
+- review package: `/data1/qujh/PROJECT_FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`.

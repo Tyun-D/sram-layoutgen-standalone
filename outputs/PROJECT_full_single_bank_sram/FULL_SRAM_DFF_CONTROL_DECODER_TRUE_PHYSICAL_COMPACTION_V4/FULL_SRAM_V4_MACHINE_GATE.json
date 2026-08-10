@@ -1,0 +1,90 @@
+{
+  "bbox": {
+    "area": 46250.1701,
+    "area_less_than_v3": true,
+    "height": 176.615,
+    "v3_area": 55164.2249,
+    "width": 261.87
+  },
+  "control_fixed_step_detector": {
+    "false_positive_v3_recorded": true,
+    "passed": true
+  },
+  "decoder_4to16_gate": {
+    "address_input_count": 4,
+    "duplicate_wl": 0,
+    "missing_wl": [],
+    "passed": true,
+    "physical_address_inputs": [
+      "A0",
+      "A1",
+      "A2",
+      "A3"
+    ],
+    "physical_unique_wl_output_count": 16,
+    "physical_wl_index_set": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "source_address_width": 4,
+    "source_wl_count": 16
+  },
+  "determinism": true,
+  "dff_gap_distribution": {
+    "x_gap": {
+      "max": 19.54,
+      "mean": 6.3271,
+      "min": 0.34
+    },
+    "y_gap": {
+      "max": 0.43,
+      "mean": 0.43,
+      "min": 0.43
+    }
+  },
+  "dff_roles": {
+    "ADDR": 4,
+    "DATA": 16,
+    "buffered_control": 2
+  },
+  "drc": {
+    "database": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4/drc/FULL_SRAM_V4_DRC.lyrdb",
+    "log": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4/drc/FULL_SRAM_V4_DRC.log",
+    "marker_count": 0,
+    "passed": true,
+    "returncode": 0
+  },
+  "final_gds_fact_audit": true,
+  "foreign_net": "PASS",
+  "formal_timing": "PENDING",
+  "gds": "outputs/PROJECT_full_single_bank_sram/FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4/clean_unique_top.gds",
+  "gds_sha": "c52458415eced0c1b1c843bb216fc523fd89a2e795fb7525dcf4ee8e5e5c7cb8",
+  "negative_unexpected_pass": 0,
+  "post_layout_pex": "NOT_CLAIMED",
+  "power": "100%",
+  "semantic_connectivity": {
+    "CONTROL_PATH_SEMANTIC_CONNECTIVITY": "PASS",
+    "DATA_WRITE_PATH_SEMANTIC_CONNECTIVITY": "PASS",
+    "FOREIGN_NET": "PASS",
+    "POWER_CONNECTIVITY": "PASS",
+    "READ_PATH_SEMANTIC_CONNECTIVITY": "PASS",
+    "ROW_PATH_SEMANTIC_CONNECTIVITY": "PASS"
+  },
+  "status": "PASS_FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4_TO_HUMAN_REVIEW",
+  "top_name": "FULL_SRAM_DFF_CONTROL_DECODER_TRUE_PHYSICAL_COMPACTION_V4",
+  "unique_top_count": 1
+}
