@@ -803,3 +803,27 @@
 - implemented: global diffusion graphs, minimum trail-cover search, P/N gate alignment, continuous shared ACTIVE chain geometry, contact-node utilization, DRC and schematic functional gates.
 - formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
 - package: `/data1/qujh/PROJECT_OPENYIELD_DFF_TOPOLOGY_DRIVEN_SHARED_DIFFUSION_CELL_SYNTHESIS_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `67af4afd97acb7a58c742033aa7edab7597bd473f4890fced8812171dbdb435c`.
+
+## 2026-08-11T17:28:38.877397+00:00 WORK_START_RULE_AUDIT openyield_dff_routing_aware_feol_beol_co_optimization
+
+- GLOBAL_RULES_READ: `True`
+- GLOBAL_RULES_SHA: `e11af7a70fa8d99f0ec5a21a99a88df1f0a8b4b45c64499d3dbc1a42b600404d`
+- CURRENT_STATUS_READ: `True`
+- LATEST_MASTER_LOG_READ: `True`
+- OPENYIELD_DFF_AUTHORITY_READ: `True`
+- OPENYIELD_DFF_SOURCE_SHA: `fa5277f078f79d5b43335c2dcd6e364625aa8ad17b7108d323b85e73dfeaae80`
+- objective: `PASS_OPENYIELD_DFF_ROUTING_AWARE_FEOL_BEOL_CO_OPTIMIZATION`
+
+## 2026-08-11T17:32:15.313166+00:00 openyield_dff_routing_aware_feol_beol_co_optimization
+
+- result: `PASS_OPENYIELD_DFF_ROUTING_AWARE_FEOL_BEOL_CO_OPTIMIZATION`
+- implemented: staged FEOL/contact/routing/compaction/DRC feedback flow, 2P+2N baseline recovery, M1/VIA1/M2 routing trace, shared ACTIVE physical audit, and schematic functional gate.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_OPENYIELD_DFF_ROUTING_AWARE_FEOL_BEOL_CO_OPTIMIZATION_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `0f24e5fd0f0e655359f688424414bd391e2fbd5ce460733e06f256e4deeb9bfb`.
+
+## 2026-08-11T17:34:09.633597+00:00 openyield_dff_routing_aware_feol_beol_co_optimization
+
+- result: `PASS_OPENYIELD_DFF_ROUTING_AWARE_FEOL_BEOL_CO_OPTIMIZATION`
+- implemented: staged FEOL/contact/routing/compaction/DRC feedback flow, 2P+2N baseline recovery, M1/VIA1/M2 routing trace, shared ACTIVE physical audit, and schematic functional gate.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_OPENYIELD_DFF_ROUTING_AWARE_FEOL_BEOL_CO_OPTIMIZATION_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `803b11a4eb386fbf68a1b2e0badb678bd26ec077baf75bfc4991acb6f45b59be`.

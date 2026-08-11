@@ -1,0 +1,300 @@
+{
+  "NMOS": {
+    "connected_components": [
+      [
+        "CLKB",
+        "D_b",
+        "Q",
+        "QB",
+        "VSS",
+        "z1",
+        "z2",
+        "z3",
+        "z4",
+        "z5"
+      ]
+    ],
+    "edges": 11,
+    "edges_detail": [
+      {
+        "drain": "CLKB",
+        "gate": "CLK",
+        "instance": "inv1_clk_MN",
+        "l_nm": 50,
+        "source": "VSS",
+        "u": "VSS",
+        "v": "CLKB",
+        "w_nm": 250
+      },
+      {
+        "drain": "D_b",
+        "gate": "D",
+        "instance": "inv2_D_MN",
+        "l_nm": 50,
+        "source": "VSS",
+        "u": "VSS",
+        "v": "D_b",
+        "w_nm": 250
+      },
+      {
+        "drain": "z2",
+        "gate": "z1",
+        "instance": "inv3_MN",
+        "l_nm": 50,
+        "source": "VSS",
+        "u": "VSS",
+        "v": "z2",
+        "w_nm": 250
+      },
+      {
+        "drain": "z3",
+        "gate": "z2",
+        "instance": "inv4_MN",
+        "l_nm": 50,
+        "source": "VSS",
+        "u": "VSS",
+        "v": "z3",
+        "w_nm": 250
+      },
+      {
+        "drain": "z4",
+        "gate": "z2",
+        "instance": "inv5_MN",
+        "l_nm": 50,
+        "source": "VSS",
+        "u": "VSS",
+        "v": "z4",
+        "w_nm": 250
+      },
+      {
+        "drain": "Q",
+        "gate": "z5",
+        "instance": "inv6_MN",
+        "l_nm": 50,
+        "source": "VSS",
+        "u": "VSS",
+        "v": "Q",
+        "w_nm": 250
+      },
+      {
+        "drain": "QB",
+        "gate": "Q",
+        "instance": "inv7_MN",
+        "l_nm": 50,
+        "source": "VSS",
+        "u": "VSS",
+        "v": "QB",
+        "w_nm": 250
+      },
+      {
+        "drain": "D_b",
+        "gate": "CLKB",
+        "instance": "tg1_MN",
+        "l_nm": 50,
+        "source": "z1",
+        "u": "D_b",
+        "v": "z1",
+        "w_nm": 250
+      },
+      {
+        "drain": "z3",
+        "gate": "CLK",
+        "instance": "tg2_MN",
+        "l_nm": 50,
+        "source": "z1",
+        "u": "z3",
+        "v": "z1",
+        "w_nm": 250
+      },
+      {
+        "drain": "z4",
+        "gate": "CLK",
+        "instance": "tg3_MN",
+        "l_nm": 50,
+        "source": "z5",
+        "u": "z4",
+        "v": "z5",
+        "w_nm": 250
+      },
+      {
+        "drain": "QB",
+        "gate": "CLKB",
+        "instance": "tg4_MN",
+        "l_nm": 50,
+        "source": "z5",
+        "u": "QB",
+        "v": "z5",
+        "w_nm": 250
+      }
+    ],
+    "odd_degree_vertices": [
+      "CLKB",
+      "Q",
+      "VSS",
+      "z2"
+    ],
+    "theoretical_minimum_trail_cover_count": 2,
+    "vertex_degrees": {
+      "CLKB": 1,
+      "D_b": 2,
+      "Q": 1,
+      "QB": 2,
+      "VSS": 7,
+      "z1": 2,
+      "z2": 1,
+      "z3": 2,
+      "z4": 2,
+      "z5": 2
+    },
+    "vertices": 10
+  },
+  "PMOS": {
+    "connected_components": [
+      [
+        "CLKB",
+        "D_b",
+        "Q",
+        "QB",
+        "VDD",
+        "z1",
+        "z2",
+        "z3",
+        "z4",
+        "z5"
+      ]
+    ],
+    "edges": 11,
+    "edges_detail": [
+      {
+        "drain": "CLKB",
+        "gate": "CLK",
+        "instance": "inv1_clk_MP",
+        "l_nm": 50,
+        "source": "VDD",
+        "u": "VDD",
+        "v": "CLKB",
+        "w_nm": 500
+      },
+      {
+        "drain": "D_b",
+        "gate": "D",
+        "instance": "inv2_D_MP",
+        "l_nm": 50,
+        "source": "VDD",
+        "u": "VDD",
+        "v": "D_b",
+        "w_nm": 500
+      },
+      {
+        "drain": "z2",
+        "gate": "z1",
+        "instance": "inv3_MP",
+        "l_nm": 50,
+        "source": "VDD",
+        "u": "VDD",
+        "v": "z2",
+        "w_nm": 500
+      },
+      {
+        "drain": "z3",
+        "gate": "z2",
+        "instance": "inv4_MP",
+        "l_nm": 50,
+        "source": "VDD",
+        "u": "VDD",
+        "v": "z3",
+        "w_nm": 500
+      },
+      {
+        "drain": "z4",
+        "gate": "z2",
+        "instance": "inv5_MP",
+        "l_nm": 50,
+        "source": "VDD",
+        "u": "VDD",
+        "v": "z4",
+        "w_nm": 500
+      },
+      {
+        "drain": "Q",
+        "gate": "z5",
+        "instance": "inv6_MP",
+        "l_nm": 50,
+        "source": "VDD",
+        "u": "VDD",
+        "v": "Q",
+        "w_nm": 500
+      },
+      {
+        "drain": "QB",
+        "gate": "Q",
+        "instance": "inv7_MP",
+        "l_nm": 50,
+        "source": "VDD",
+        "u": "VDD",
+        "v": "QB",
+        "w_nm": 500
+      },
+      {
+        "drain": "z1",
+        "gate": "CLK",
+        "instance": "tg1_MP",
+        "l_nm": 50,
+        "source": "D_b",
+        "u": "D_b",
+        "v": "z1",
+        "w_nm": 500
+      },
+      {
+        "drain": "z1",
+        "gate": "CLKB",
+        "instance": "tg2_MP",
+        "l_nm": 50,
+        "source": "z3",
+        "u": "z3",
+        "v": "z1",
+        "w_nm": 500
+      },
+      {
+        "drain": "z5",
+        "gate": "CLKB",
+        "instance": "tg3_MP",
+        "l_nm": 50,
+        "source": "z4",
+        "u": "z4",
+        "v": "z5",
+        "w_nm": 500
+      },
+      {
+        "drain": "z5",
+        "gate": "CLK",
+        "instance": "tg4_MP",
+        "l_nm": 50,
+        "source": "QB",
+        "u": "QB",
+        "v": "z5",
+        "w_nm": 500
+      }
+    ],
+    "odd_degree_vertices": [
+      "CLKB",
+      "Q",
+      "VDD",
+      "z2"
+    ],
+    "theoretical_minimum_trail_cover_count": 2,
+    "vertex_degrees": {
+      "CLKB": 1,
+      "D_b": 2,
+      "Q": 1,
+      "QB": 2,
+      "VDD": 7,
+      "z1": 2,
+      "z2": 1,
+      "z3": 2,
+      "z4": 2,
+      "z5": 2
+    },
+    "vertices": 10
+  }
+}
