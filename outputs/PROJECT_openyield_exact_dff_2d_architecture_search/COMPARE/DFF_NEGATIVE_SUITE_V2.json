@@ -1,0 +1,36 @@
+{
+  "mutations": [
+    {
+      "mutation": "drop_one_mos",
+      "rejected": true,
+      "rejection_code": "MOS_COUNT_MISMATCH"
+    },
+    {
+      "mutation": "change_transistor_width",
+      "rejected": true,
+      "rejection_code": "WL_MISMATCH"
+    },
+    {
+      "mutation": "swap_D_and_CLK_pin",
+      "rejected": true,
+      "rejection_code": "PIN_CONTRACT_MISMATCH"
+    },
+    {
+      "mutation": "duplicate_candidate_geometry_under_new_name",
+      "rejected": true,
+      "rejection_code": "DUPLICATE_CANDIDATE"
+    },
+    {
+      "mutation": "placeholder_netlist_input",
+      "rejected": true,
+      "rejection_code": "PLACEHOLDER_AUTHORITY_FORBIDDEN"
+    },
+    {
+      "mutation": "treat_returncode_only_as_function_pass",
+      "rejected": true,
+      "rejection_code": "SPICE_RESULT_SEMANTICS_NOT_VALIDATED"
+    }
+  ],
+  "pass": true,
+  "unexpected_pass": 0
+}
