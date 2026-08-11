@@ -720,3 +720,10 @@
 - previous MOS-level cellgen PASS retained only as partial baseline due to missing OpenYield original source proof, duplicate geometry candidates, WL-driver validator false positive, and long-strip DFF architecture.
 - formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
 - package: `/data1/qujh/PROJECT_OPENYIELD_EXACT_DFF_2D_ARCHITECTURE_SEARCH_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `51e78a2dd8586bf3cbb477a7daf37d66bdd9c6d12b6038ef2a7faed20045a938`.
+
+## 2026-08-11T12:58:05.160642+00:00 openyield_exact_dff_2d_architecture_search
+
+- result: `PASS_OPENYIELD_EXACT_DFF_2D_ARCHITECTURE_SEARCH_TO_HUMAN_REVIEW`
+- previous MOS-level cellgen PASS retained only as partial baseline due to missing OpenYield original source proof, duplicate geometry candidates, WL-driver validator false positive, and long-strip DFF architecture.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_OPENYIELD_EXACT_DFF_2D_ARCHITECTURE_SEARCH_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `a060d7aa32623923aef006d07420b573292529f6f5f5a9281ba777f35ab938ec`.

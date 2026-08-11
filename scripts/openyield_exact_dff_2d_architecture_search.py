@@ -864,7 +864,23 @@ def pareto(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
         out.append(rec)
     non_dom = [r for r in out if r["pareto_status"] == "NON_DOMINATED"]
     if non_dom:
-        best = min(non_dom, key=lambda r: (r["total_route"] + r["clock_route"] + r["feedback_route"] + r["external_escape"], r["area"]))
+        min_area = min(float(r["area"]) for r in non_dom)
+        min_route = min(float(r["total_route"]) for r in non_dom)
+        min_clock = min(float(r["clock_route"]) for r in non_dom)
+        min_feedback = min(float(r["feedback_route"]) for r in non_dom)
+
+        def score(r: dict[str, Any]) -> tuple[float, float]:
+            is_strip = 1.0 if str(r["candidate"]).endswith("SOURCE_BASELINE") else 0.0
+            normalized = (
+                float(r["area"]) / min_area
+                + 0.60 * float(r["total_route"]) / min_route
+                + 0.25 * float(r["clock_route"]) / min_clock
+                + 0.35 * float(r["feedback_route"]) / min_feedback
+                + is_strip
+            )
+            return (normalized, float(r["area"]))
+
+        best = min(non_dom, key=score)
         for r in out:
             if r["candidate"] == best["candidate"]:
                 r["recommended"] = True
