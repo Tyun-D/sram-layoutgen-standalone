@@ -1,0 +1,11 @@
+cluster,diffusion_break_count,estimated_width,mos_type,order,sd_orientation,shared_diffusion_count
+clock,0,0.72,NMOS,['inv1_clk_MN'],[],0
+clock,0,0.72,PMOS,['inv1_clk_MP'],[],0
+input_master_entry,0,1.44,NMOS,"['inv2_D_MN', 'tg1_MN']","[{'left': 'inv2_D_MN', 'right': 'tg1_MN', 'shared_net': 'D_b', 'sd_flip': False}]",1
+input_master_entry,0,1.44,PMOS,"['inv2_D_MP', 'tg1_MP']","[{'left': 'inv2_D_MP', 'right': 'tg1_MP', 'shared_net': 'D_b', 'sd_flip': False}]",1
+master_feedback,0,2.16,NMOS,"['inv3_MN', 'inv4_MN', 'tg2_MN']","[{'left': 'inv3_MN', 'right': 'inv4_MN', 'shared_net': 'VSS', 'sd_flip': False}, {'left': 'inv4_MN', 'right': 'tg2_MN', 'shared_net': 'z3', 'sd_flip': False}]",2
+master_feedback,0,2.16,PMOS,"['inv3_MP', 'inv4_MP', 'tg2_MP']","[{'left': 'inv3_MP', 'right': 'inv4_MP', 'shared_net': 'VDD', 'sd_flip': False}, {'left': 'inv4_MP', 'right': 'tg2_MP', 'shared_net': 'z3', 'sd_flip': False}]",2
+slave_entry,0,1.44,NMOS,"['inv5_MN', 'tg3_MN']","[{'left': 'inv5_MN', 'right': 'tg3_MN', 'shared_net': 'z4', 'sd_flip': False}]",1
+slave_entry,0,1.44,PMOS,"['inv5_MP', 'tg3_MP']","[{'left': 'inv5_MP', 'right': 'tg3_MP', 'shared_net': 'z4', 'sd_flip': False}]",1
+slave_feedback_output,0,2.16,NMOS,"['inv6_MN', 'inv7_MN', 'tg4_MN']","[{'left': 'inv6_MN', 'right': 'inv7_MN', 'shared_net': 'VSS', 'sd_flip': False}, {'left': 'inv7_MN', 'right': 'tg4_MN', 'shared_net': 'QB', 'sd_flip': False}]",2
+slave_feedback_output,0,2.16,PMOS,"['inv6_MP', 'inv7_MP', 'tg4_MP']","[{'left': 'inv6_MP', 'right': 'inv7_MP', 'shared_net': 'VDD', 'sd_flip': False}, {'left': 'inv7_MP', 'right': 'tg4_MP', 'shared_net': 'QB', 'sd_flip': False}]",2

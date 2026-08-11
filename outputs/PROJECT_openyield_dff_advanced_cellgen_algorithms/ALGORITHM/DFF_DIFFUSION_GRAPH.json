@@ -1,0 +1,628 @@
+{
+  "net_terminals": {
+    "CLK": [
+      {
+        "instance": "inv1_clk_MP",
+        "net": "CLK",
+        "terminal": "G"
+      },
+      {
+        "instance": "inv1_clk_MN",
+        "net": "CLK",
+        "terminal": "G"
+      },
+      {
+        "instance": "tg1_MP",
+        "net": "CLK",
+        "terminal": "G"
+      },
+      {
+        "instance": "tg2_MN",
+        "net": "CLK",
+        "terminal": "G"
+      },
+      {
+        "instance": "tg3_MN",
+        "net": "CLK",
+        "terminal": "G"
+      },
+      {
+        "instance": "tg4_MP",
+        "net": "CLK",
+        "terminal": "G"
+      }
+    ],
+    "CLKB": [
+      {
+        "instance": "inv1_clk_MP",
+        "net": "CLKB",
+        "terminal": "D"
+      },
+      {
+        "instance": "inv1_clk_MN",
+        "net": "CLKB",
+        "terminal": "D"
+      },
+      {
+        "instance": "tg1_MN",
+        "net": "CLKB",
+        "terminal": "G"
+      },
+      {
+        "instance": "tg2_MP",
+        "net": "CLKB",
+        "terminal": "G"
+      },
+      {
+        "instance": "tg3_MP",
+        "net": "CLKB",
+        "terminal": "G"
+      },
+      {
+        "instance": "tg4_MN",
+        "net": "CLKB",
+        "terminal": "G"
+      }
+    ],
+    "D": [
+      {
+        "instance": "inv2_D_MP",
+        "net": "D",
+        "terminal": "G"
+      },
+      {
+        "instance": "inv2_D_MN",
+        "net": "D",
+        "terminal": "G"
+      }
+    ],
+    "D_b": [
+      {
+        "instance": "inv2_D_MP",
+        "net": "D_b",
+        "terminal": "D"
+      },
+      {
+        "instance": "inv2_D_MN",
+        "net": "D_b",
+        "terminal": "D"
+      },
+      {
+        "instance": "tg1_MP",
+        "net": "D_b",
+        "terminal": "S"
+      },
+      {
+        "instance": "tg1_MN",
+        "net": "D_b",
+        "terminal": "D"
+      }
+    ],
+    "Q": [
+      {
+        "instance": "inv6_MP",
+        "net": "Q",
+        "terminal": "D"
+      },
+      {
+        "instance": "inv6_MN",
+        "net": "Q",
+        "terminal": "D"
+      },
+      {
+        "instance": "inv7_MP",
+        "net": "Q",
+        "terminal": "G"
+      },
+      {
+        "instance": "inv7_MN",
+        "net": "Q",
+        "terminal": "G"
+      }
+    ],
+    "QB": [
+      {
+        "instance": "inv7_MP",
+        "net": "QB",
+        "terminal": "D"
+      },
+      {
+        "instance": "inv7_MN",
+        "net": "QB",
+        "terminal": "D"
+      },
+      {
+        "instance": "tg4_MP",
+        "net": "QB",
+        "terminal": "S"
+      },
+      {
+        "instance": "tg4_MN",
+        "net": "QB",
+        "terminal": "D"
+      }
+    ],
+    "VDD": [
+      {
+        "instance": "inv1_clk_MP",
+        "net": "VDD",
+        "terminal": "S"
+      },
+      {
+        "instance": "inv1_clk_MP",
+        "net": "VDD",
+        "terminal": "B"
+      },
+      {
+        "instance": "inv2_D_MP",
+        "net": "VDD",
+        "terminal": "S"
+      },
+      {
+        "instance": "inv2_D_MP",
+        "net": "VDD",
+        "terminal": "B"
+      },
+      {
+        "instance": "inv3_MP",
+        "net": "VDD",
+        "terminal": "S"
+      },
+      {
+        "instance": "inv3_MP",
+        "net": "VDD",
+        "terminal": "B"
+      },
+      {
+        "instance": "inv4_MP",
+        "net": "VDD",
+        "terminal": "S"
+      },
+      {
+        "instance": "inv4_MP",
+        "net": "VDD",
+        "terminal": "B"
+      },
+      {
+        "instance": "inv5_MP",
+        "net": "VDD",
+        "terminal": "S"
+      },
+      {
+        "instance": "inv5_MP",
+        "net": "VDD",
+        "terminal": "B"
+      },
+      {
+        "instance": "inv6_MP",
+        "net": "VDD",
+        "terminal": "S"
+      },
+      {
+        "instance": "inv6_MP",
+        "net": "VDD",
+        "terminal": "B"
+      },
+      {
+        "instance": "inv7_MP",
+        "net": "VDD",
+        "terminal": "S"
+      },
+      {
+        "instance": "inv7_MP",
+        "net": "VDD",
+        "terminal": "B"
+      },
+      {
+        "instance": "tg1_MP",
+        "net": "VDD",
+        "terminal": "B"
+      },
+      {
+        "instance": "tg2_MP",
+        "net": "VDD",
+        "terminal": "B"
+      },
+      {
+        "instance": "tg3_MP",
+        "net": "VDD",
+        "terminal": "B"
+      },
+      {
+        "instance": "tg4_MP",
+        "net": "VDD",
+        "terminal": "B"
+      }
+    ],
+    "VSS": [
+      {
+        "instance": "inv1_clk_MN",
+        "net": "VSS",
+        "terminal": "S"
+      },
+      {
+        "instance": "inv1_clk_MN",
+        "net": "VSS",
+        "terminal": "B"
+      },
+      {
+        "instance": "inv2_D_MN",
+        "net": "VSS",
+        "terminal": "S"
+      },
+      {
+        "instance": "inv2_D_MN",
+        "net": "VSS",
+        "terminal": "B"
+      },
+      {
+        "instance": "inv3_MN",
+        "net": "VSS",
+        "terminal": "S"
+      },
+      {
+        "instance": "inv3_MN",
+        "net": "VSS",
+        "terminal": "B"
+      },
+      {
+        "instance": "inv4_MN",
+        "net": "VSS",
+        "terminal": "S"
+      },
+      {
+        "instance": "inv4_MN",
+        "net": "VSS",
+        "terminal": "B"
+      },
+      {
+        "instance": "inv5_MN",
+        "net": "VSS",
+        "terminal": "S"
+      },
+      {
+        "instance": "inv5_MN",
+        "net": "VSS",
+        "terminal": "B"
+      },
+      {
+        "instance": "inv6_MN",
+        "net": "VSS",
+        "terminal": "S"
+      },
+      {
+        "instance": "inv6_MN",
+        "net": "VSS",
+        "terminal": "B"
+      },
+      {
+        "instance": "inv7_MN",
+        "net": "VSS",
+        "terminal": "S"
+      },
+      {
+        "instance": "inv7_MN",
+        "net": "VSS",
+        "terminal": "B"
+      },
+      {
+        "instance": "tg1_MN",
+        "net": "VSS",
+        "terminal": "B"
+      },
+      {
+        "instance": "tg2_MN",
+        "net": "VSS",
+        "terminal": "B"
+      },
+      {
+        "instance": "tg3_MN",
+        "net": "VSS",
+        "terminal": "B"
+      },
+      {
+        "instance": "tg4_MN",
+        "net": "VSS",
+        "terminal": "B"
+      }
+    ],
+    "z1": [
+      {
+        "instance": "inv3_MP",
+        "net": "z1",
+        "terminal": "G"
+      },
+      {
+        "instance": "inv3_MN",
+        "net": "z1",
+        "terminal": "G"
+      },
+      {
+        "instance": "tg1_MP",
+        "net": "z1",
+        "terminal": "D"
+      },
+      {
+        "instance": "tg1_MN",
+        "net": "z1",
+        "terminal": "S"
+      },
+      {
+        "instance": "tg2_MP",
+        "net": "z1",
+        "terminal": "D"
+      },
+      {
+        "instance": "tg2_MN",
+        "net": "z1",
+        "terminal": "S"
+      }
+    ],
+    "z2": [
+      {
+        "instance": "inv3_MP",
+        "net": "z2",
+        "terminal": "D"
+      },
+      {
+        "instance": "inv3_MN",
+        "net": "z2",
+        "terminal": "D"
+      },
+      {
+        "instance": "inv4_MP",
+        "net": "z2",
+        "terminal": "G"
+      },
+      {
+        "instance": "inv4_MN",
+        "net": "z2",
+        "terminal": "G"
+      },
+      {
+        "instance": "inv5_MP",
+        "net": "z2",
+        "terminal": "G"
+      },
+      {
+        "instance": "inv5_MN",
+        "net": "z2",
+        "terminal": "G"
+      }
+    ],
+    "z3": [
+      {
+        "instance": "inv4_MP",
+        "net": "z3",
+        "terminal": "D"
+      },
+      {
+        "instance": "inv4_MN",
+        "net": "z3",
+        "terminal": "D"
+      },
+      {
+        "instance": "tg2_MP",
+        "net": "z3",
+        "terminal": "S"
+      },
+      {
+        "instance": "tg2_MN",
+        "net": "z3",
+        "terminal": "D"
+      }
+    ],
+    "z4": [
+      {
+        "instance": "inv5_MP",
+        "net": "z4",
+        "terminal": "D"
+      },
+      {
+        "instance": "inv5_MN",
+        "net": "z4",
+        "terminal": "D"
+      },
+      {
+        "instance": "tg3_MP",
+        "net": "z4",
+        "terminal": "S"
+      },
+      {
+        "instance": "tg3_MN",
+        "net": "z4",
+        "terminal": "D"
+      }
+    ],
+    "z5": [
+      {
+        "instance": "inv6_MP",
+        "net": "z5",
+        "terminal": "G"
+      },
+      {
+        "instance": "inv6_MN",
+        "net": "z5",
+        "terminal": "G"
+      },
+      {
+        "instance": "tg3_MP",
+        "net": "z5",
+        "terminal": "D"
+      },
+      {
+        "instance": "tg3_MN",
+        "net": "z5",
+        "terminal": "S"
+      },
+      {
+        "instance": "tg4_MP",
+        "net": "z5",
+        "terminal": "D"
+      },
+      {
+        "instance": "tg4_MN",
+        "net": "z5",
+        "terminal": "S"
+      }
+    ]
+  },
+  "nmos": [
+    {
+      "device": "inv1_clk_MN",
+      "gate": "CLK",
+      "type": "NMOS",
+      "u": "VSS",
+      "v": "CLKB"
+    },
+    {
+      "device": "inv2_D_MN",
+      "gate": "D",
+      "type": "NMOS",
+      "u": "VSS",
+      "v": "D_b"
+    },
+    {
+      "device": "inv3_MN",
+      "gate": "z1",
+      "type": "NMOS",
+      "u": "VSS",
+      "v": "z2"
+    },
+    {
+      "device": "inv4_MN",
+      "gate": "z2",
+      "type": "NMOS",
+      "u": "VSS",
+      "v": "z3"
+    },
+    {
+      "device": "inv5_MN",
+      "gate": "z2",
+      "type": "NMOS",
+      "u": "VSS",
+      "v": "z4"
+    },
+    {
+      "device": "inv6_MN",
+      "gate": "z5",
+      "type": "NMOS",
+      "u": "VSS",
+      "v": "Q"
+    },
+    {
+      "device": "inv7_MN",
+      "gate": "Q",
+      "type": "NMOS",
+      "u": "VSS",
+      "v": "QB"
+    },
+    {
+      "device": "tg1_MN",
+      "gate": "CLKB",
+      "type": "NMOS",
+      "u": "z1",
+      "v": "D_b"
+    },
+    {
+      "device": "tg2_MN",
+      "gate": "CLK",
+      "type": "NMOS",
+      "u": "z1",
+      "v": "z3"
+    },
+    {
+      "device": "tg3_MN",
+      "gate": "CLK",
+      "type": "NMOS",
+      "u": "z5",
+      "v": "z4"
+    },
+    {
+      "device": "tg4_MN",
+      "gate": "CLKB",
+      "type": "NMOS",
+      "u": "z5",
+      "v": "QB"
+    }
+  ],
+  "pmos": [
+    {
+      "device": "inv1_clk_MP",
+      "gate": "CLK",
+      "type": "PMOS",
+      "u": "VDD",
+      "v": "CLKB"
+    },
+    {
+      "device": "inv2_D_MP",
+      "gate": "D",
+      "type": "PMOS",
+      "u": "VDD",
+      "v": "D_b"
+    },
+    {
+      "device": "inv3_MP",
+      "gate": "z1",
+      "type": "PMOS",
+      "u": "VDD",
+      "v": "z2"
+    },
+    {
+      "device": "inv4_MP",
+      "gate": "z2",
+      "type": "PMOS",
+      "u": "VDD",
+      "v": "z3"
+    },
+    {
+      "device": "inv5_MP",
+      "gate": "z2",
+      "type": "PMOS",
+      "u": "VDD",
+      "v": "z4"
+    },
+    {
+      "device": "inv6_MP",
+      "gate": "z5",
+      "type": "PMOS",
+      "u": "VDD",
+      "v": "Q"
+    },
+    {
+      "device": "inv7_MP",
+      "gate": "Q",
+      "type": "PMOS",
+      "u": "VDD",
+      "v": "QB"
+    },
+    {
+      "device": "tg1_MP",
+      "gate": "CLK",
+      "type": "PMOS",
+      "u": "D_b",
+      "v": "z1"
+    },
+    {
+      "device": "tg2_MP",
+      "gate": "CLKB",
+      "type": "PMOS",
+      "u": "z3",
+      "v": "z1"
+    },
+    {
+      "device": "tg3_MP",
+      "gate": "CLKB",
+      "type": "PMOS",
+      "u": "z4",
+      "v": "z5"
+    },
+    {
+      "device": "tg4_MP",
+      "gate": "CLK",
+      "type": "PMOS",
+      "u": "QB",
+      "v": "z5"
+    }
+  ]
+}

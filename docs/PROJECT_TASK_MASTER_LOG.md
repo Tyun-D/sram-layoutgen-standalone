@@ -727,3 +727,41 @@
 - previous MOS-level cellgen PASS retained only as partial baseline due to missing OpenYield original source proof, duplicate geometry candidates, WL-driver validator false positive, and long-strip DFF architecture.
 - formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
 - package: `/data1/qujh/PROJECT_OPENYIELD_EXACT_DFF_2D_ARCHITECTURE_SEARCH_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `a060d7aa32623923aef006d07420b573292529f6f5f5a9281ba777f35ab938ec`.
+
+## 2026-08-11T13:26:44.242891+00:00 WORK_START_RULE_AUDIT openyield_dff_advanced_cellgen_algorithms
+
+- GLOBAL_RULES_READ: `true`
+- GLOBAL_RULES_SHA: `e11af7a70fa8d99f0ec5a21a99a88df1f0a8b4b45c64499d3dbc1a42b600404d`
+- CURRENT_STATUS_READ: `true`
+- LATEST_MASTER_LOG_READ: `true`
+- OPENYIELD_DFF_AUTHORITY_READ: `true`
+- OPENYIELD_DFF_SOURCE_SHA: `fa5277f078f79d5b43335c2dcd6e364625aa8ad17b7108d323b85e73dfeaae80`
+- previous DFF recommendation reclassified: `HUMAN_REVIEW_REJECTED_PHYSICAL_QUALITY_NOT_CLOSED`.
+
+## 2026-08-11T13:36:14.682349+00:00 openyield_dff_advanced_cellgen_algorithms
+
+- result: `BLOCKED_OPENYIELD_DFF_ADVANCED_CELLGEN_ALGORITHMS_NOT_CLOSED`
+- implemented: diffusion-chain search, BnB/DP search stats, CP-SAT-style placement enumeration, annealing trace, local Steiner/MST routing, and constraint compaction evidence.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_OPENYIELD_DFF_ADVANCED_CELLGEN_ALGORITHMS_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `09ec2fd532b147ae53eee3b703e3d686e01b4363bbac29bb431b42eaccc5fac5`.
+
+## 2026-08-11T13:38:19.482849+00:00 openyield_dff_advanced_cellgen_algorithms
+
+- result: `BLOCKED_OPENYIELD_DFF_ADVANCED_CELLGEN_ALGORITHMS_NOT_CLOSED`
+- implemented: diffusion-chain search, BnB/DP search stats, CP-SAT-style placement enumeration, annealing trace, local Steiner/MST routing, and constraint compaction evidence.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_OPENYIELD_DFF_ADVANCED_CELLGEN_ALGORITHMS_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `4ce1d4b92233d19aeaf24e5c5742d67fbc58d3da75329361b3d617f6e8d7e92f`.
+
+## 2026-08-11T13:40:19.597270+00:00 openyield_dff_advanced_cellgen_algorithms
+
+- result: `PASS_OPENYIELD_DFF_ADVANCED_CELLGEN_ALGORITHMS_TO_HUMAN_REVIEW`
+- implemented: diffusion-chain search, BnB/DP search stats, CP-SAT-style placement enumeration, annealing trace, local Steiner/MST routing, and constraint compaction evidence.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_OPENYIELD_DFF_ADVANCED_CELLGEN_ALGORITHMS_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `ce771bbc216fd7cc4d8abcb9f5127c9bae3c62991608ca59d13102a8da841242`.
+
+## 2026-08-11T13:43:17.505633+00:00 openyield_dff_advanced_cellgen_algorithms
+
+- result: `PASS_OPENYIELD_DFF_ADVANCED_CELLGEN_ALGORITHMS_TO_HUMAN_REVIEW`
+- implemented: diffusion-chain search, BnB/DP search stats, CP-SAT-style placement enumeration, annealing trace, local Steiner/MST routing, and constraint compaction evidence.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_OPENYIELD_DFF_ADVANCED_CELLGEN_ALGORITHMS_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `bac947036c0fe04a6f7de5b4e5c39a3614af5c4d2e34b4c7c95c9bee1b88c13f`.

@@ -1,0 +1,31 @@
+{
+  "mutations": [
+    {
+      "mutation": "duplicate_geometry",
+      "rejected": true,
+      "rejection_code": "DUPLICATE_CANDIDATE"
+    },
+    {
+      "mutation": "global_bus_router_recommended",
+      "rejected": true,
+      "rejection_code": "GLOBAL_LONG_BUS_FOR_INTERNAL_NET_FORBIDDEN"
+    },
+    {
+      "mutation": "change_mos_width",
+      "rejected": true,
+      "rejection_code": "WL_MISMATCH"
+    },
+    {
+      "mutation": "drop_transistor",
+      "rejected": true,
+      "rejection_code": "MOS_COUNT_MISMATCH"
+    },
+    {
+      "mutation": "extend_internal_net_to_boundary",
+      "rejected": true,
+      "rejection_code": "INTERNAL_NET_BOUNDARY_ESCAPE"
+    }
+  ],
+  "pass": true,
+  "unexpected_pass": 0
+}
