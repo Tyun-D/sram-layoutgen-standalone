@@ -665,4 +665,4 @@
 - exact source: generated canonical non-placeholder SPICE under `outputs/PROJECT_openyield_exact_cell_source/` and ngspice parse/function smoke gates.
 - cellgen: generated new same-FreePDK45 MOS-level GDS candidates under `outputs/PROJECT_openyield_mos_level_freepdk45_cellgen/`; DRC-clean candidates exist for INV, PNAND2, WL-driver, and DFF.
 - boundaries: PDK unchanged, no external standard-cell library, logical topology unchanged, transistor W/L unchanged, formal SRAM top not modified.
-- package: `/data1/qujh/PROJECT_OPENYIELD_MOS_LEVEL_FREEPDK45_CELLGEN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `30d81349792ac040a983bf4524aeefee2de1fd1cdc67c81ef3ad1df112ae8923`.
+- package: `/data1/qujh/PROJECT_OPENYIELD_MOS_LEVEL_FREEPDK45_CELLGEN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `cea8de7037541a73f28f560b003fb5ee3c14fb9a5b6cfe8978ef4922e613ec9b`.
