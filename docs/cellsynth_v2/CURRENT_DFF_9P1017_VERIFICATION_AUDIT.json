@@ -1,0 +1,39 @@
+{
+  "CURRENT_LAYOUT_VERIFICATION_AUDIT": "COMPLETE",
+  "DFF_GOLDEN_ELECTRICAL_SPEC_GATE": "PASS",
+  "DRC_STATUS": "DRC_PASS",
+  "LVS_ROOT_CAUSE": "LVS setup reached extraction but failed top-cell schematic correspondence; generated layout top is DFF_TOPO_SHARED_00_7_TRAIL while golden subckt is dff_openyield_original.",
+  "LVS_STATUS": "LVS_FAIL",
+  "PEX_STATUS": "PEX_UNAVAILABLE",
+  "POST_LAYOUT_FUNCTION_STATUS": "NOT_RUN",
+  "candidate": "DFF_TOPO_SHARED_00_7_TRAIL",
+  "drc_database": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_openyield_dff_routing_aware_feol_beol_co_optimization/CANDIDATES/DFF_TOPO_SHARED_00_7_TRAIL/drc/DFF_TOPO_SHARED_00_7_TRAIL.lyrdb",
+  "drc_log": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_openyield_dff_routing_aware_feol_beol_co_optimization/CANDIDATES/DFF_TOPO_SHARED_00_7_TRAIL/drc/DFF_TOPO_SHARED_00_7_TRAIL_drc.log",
+  "extracted_mos_count": 22,
+  "extracted_netlist": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_theory_verification_memory_architecture/04_CURRENT_LAYOUT_VERIFICATION/lvs/DFF_TOPO_SHARED_00_7_TRAIL_abs_extracted.cir",
+  "gds": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_openyield_dff_routing_aware_feol_beol_co_optimization/CANDIDATES/DFF_TOPO_SHARED_00_7_TRAIL/clean.gds",
+  "gds_sha256": "947f731dba2973a568dec435bd0f173b2338eb69e1d62e43f71252e966413cd1",
+  "golden_spice": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_openyield_dff_routing_aware_feol_beol_co_optimization/VERIFY/dff_openyield_original.sp",
+  "golden_spice_sha256": "6594019edb8b8fbe47b7e35c74b3d8e40e476561602f20fe400631b1411d9616",
+  "layer_transition_audit": {
+    "policy": "Every M1/M2 transition requires VIA1 and every M2/M3 transition requires VIA2; current stage records this as mandatory future Level-1 extraction/connectivity work before physical Pareto admission.",
+    "reason": "KLayout extracted netlist exists, but LVS top mapping failed before net-by-net transition equivalence could be accepted.",
+    "status": "NOT_COMPLETE_LEVEL1_REQUIRED"
+  },
+  "pin_connectivity_status": "PRECHECK_ONLY",
+  "shared_diffusion_gate": true,
+  "source_schematic_function_status": "PASS",
+  "topology_preservation_gate": {
+    "all_authoritative_instances_present": true,
+    "g_s_d_b_preserved": true,
+    "logical_topology_preserved": true,
+    "lvs_available": false,
+    "lvs_pass": "NOT_CLAIMED",
+    "mos_count_exact": true,
+    "pass": true,
+    "unique_instance_count": 22,
+    "w_l_preserved": true
+  },
+  "valid_physical_pareto_status": "NOT_ADMITTED_BECAUSE_LVS_NOT_PASS",
+  "via_connectivity_policy": "M1/M2/M3 overlap is not connectivity without VIA1/VIA2; current generated cell requires Level-1 extracted connectivity audit before LVS retry."
+}

@@ -1,0 +1,173 @@
+{
+  "TECHNOLOGY_DB_DESIGN_GATE": "PASS",
+  "audit_time": "2026-08-11T18:48:09.897856+00:00",
+  "duplicated_or_magic_rule_candidates": [
+    {
+      "file": "scripts/openyield_dff_routing_aware_feol_beol.py",
+      "line": 369,
+      "text": "def draw_chain_candidate(lock: TopologyLock, pcover: dict[str, Any], ncover: dict[str, Any], out: Path, top: str, *, gate_pitch: float, break_gap: float, route_tracks: int, m1_pad_"
+    },
+    {
+      "file": "scripts/openyield_dff_routing_aware_feol_beol.py",
+      "line": 375,
+      "text": "node_contact_size = 0.065"
+    },
+    {
+      "file": "scripts/openyield_dff_routing_aware_feol_beol.py",
+      "line": 388,
+      "text": "width = 2 * 0.10 + len(trail) * gate_w + (len(trail) + 1) * sd_span"
+    },
+    {
+      "file": "scripts/openyield_dff_routing_aware_feol_beol.py",
+      "line": 449,
+      "text": "track_pitch = 0.105"
+    },
+    {
+      "file": "scripts/openyield_dff_routing_aware_feol_beol.py",
+      "line": 657,
+      "text": "parts.append(f\"<polygon points='{pts}' fill='{color}' fill-opacity='0.55' stroke='{color}' stroke-width='0.4'/>\")"
+    },
+    {
+      "file": "scripts/openyield_dff_topology_driven_shared_diffusion.py",
+      "line": 375,
+      "text": "node_contact_size = 0.065"
+    },
+    {
+      "file": "scripts/openyield_dff_topology_driven_shared_diffusion.py",
+      "line": 388,
+      "text": "width = 2 * 0.10 + len(trail) * gate_w + (len(trail) + 1) * sd_span"
+    },
+    {
+      "file": "scripts/openyield_dff_topology_driven_shared_diffusion.py",
+      "line": 414,
+      "text": "rect(cell, LAYER[\"m1\"], cx - 0.04, cy - 0.04, cx + node_contact_size + 0.04, cy + node_contact_size + 0.04)"
+    },
+    {
+      "file": "scripts/openyield_dff_topology_driven_shared_diffusion.py",
+      "line": 449,
+      "text": "track_pitch = 0.105"
+    },
+    {
+      "file": "scripts/openyield_dff_topology_driven_shared_diffusion.py",
+      "line": 644,
+      "text": "parts.append(f\"<polygon points='{pts}' fill='{color}' fill-opacity='0.55' stroke='{color}' stroke-width='0.4'/>\")"
+    }
+  ],
+  "formal_external_oracle": {
+    "drc": "technology/freepdk45/tech/freepdk45.lydrc",
+    "lvs": "technology/freepdk45/tech/freepdk45.lylvs"
+  },
+  "policy": "Future CellSynth v2 code must consume TechnologyDB; external DRC/LVS remains oracle.",
+  "rule_sources": [
+    {
+      "exists": true,
+      "path": "technology/freepdk45/layers.map",
+      "sha256": "879df782e505613d50bfce768108389988d20499ca06481f6c1f55bf54dc81e7"
+    },
+    {
+      "exists": true,
+      "path": "technology/freepdk45/tech/freepdk45.lydrc",
+      "sha256": "fa7edcc47d92eee4195693796c5e35b913ca476f8457965029d12372aa187db0"
+    },
+    {
+      "exists": true,
+      "path": "technology/freepdk45/tech/freepdk45.lylvs",
+      "sha256": "69526fecc630c46d02f299c1eaede6bf630a2c67f8b011e641a3438b377d64c1"
+    },
+    {
+      "exists": true,
+      "path": "technology/freepdk45/tech/freepdk45.lyp",
+      "sha256": "60fb1ef97900edb1f5978a437d0b4068caa46d9adbb6b122b70a440ff633b51a"
+    },
+    {
+      "exists": true,
+      "path": "technology/freepdk45/tech/freepdk45.lyt",
+      "sha256": "ce06052906479e3c98a22571a45dc4218d93ea3d15ab56d1795cef63c27912c9"
+    },
+    {
+      "exists": true,
+      "path": "technology/freepdk45/openyield_leaf_physical_library.json",
+      "sha256": "555c93a238beba072c1d1a96792fa3531b48140c370ad4fd9d0ee38ac2643b57"
+    }
+  ],
+  "technology_db_sections": {
+    "contact_rules": {
+      "sources": [
+        "technology/freepdk45/tech/freepdk45.lydrc"
+      ],
+      "status": "SOURCE_BACKED"
+    },
+    "enclosure_rules": {
+      "sources": [
+        "technology/freepdk45/tech/freepdk45.lydrc"
+      ],
+      "status": "SOURCE_BACKED"
+    },
+    "grid": {
+      "issue": "generator constants still duplicate geometry grid choices",
+      "sources": [
+        "technology/freepdk45/tech/freepdk45.lydrc"
+      ],
+      "status": "PARTIALLY_SOURCE_BACKED"
+    },
+    "implant_rules": {
+      "sources": [
+        "technology/freepdk45/tech/freepdk45.lydrc"
+      ],
+      "status": "SOURCE_BACKED"
+    },
+    "layers": {
+      "sources": [
+        "technology/freepdk45/layers.map",
+        "technology/freepdk45/tech/freepdk45.lyp"
+      ],
+      "status": "SOURCE_BACKED"
+    },
+    "pin_access_rules": {
+      "issue": "policy defined, implementation pending",
+      "sources": [
+        "DATE 2024/CPCell concepts",
+        "FreePDK45 geometry rules"
+      ],
+      "status": "DESIGN_REQUIRED"
+    },
+    "routing_directions": {
+      "issue": "must not infer preferred direction without project authority",
+      "sources": [],
+      "status": "UNKNOWN_RULE"
+    },
+    "spacing_rules": {
+      "sources": [
+        "technology/freepdk45/tech/freepdk45.lydrc"
+      ],
+      "status": "SOURCE_BACKED"
+    },
+    "transistor_legality": {
+      "issue": "folding legality still needs explicit derivation",
+      "sources": [
+        "technology/freepdk45/tech/freepdk45.lylvs",
+        "OpenYield DFF source"
+      ],
+      "status": "PARTIALLY_SOURCE_BACKED"
+    },
+    "via_rules": {
+      "sources": [
+        "technology/freepdk45/tech/freepdk45.lydrc"
+      ],
+      "status": "SOURCE_BACKED"
+    },
+    "well_rules": {
+      "sources": [
+        "technology/freepdk45/tech/freepdk45.lydrc",
+        "technology/freepdk45/tech/freepdk45.lylvs"
+      ],
+      "status": "SOURCE_BACKED"
+    },
+    "width_rules": {
+      "sources": [
+        "technology/freepdk45/tech/freepdk45.lydrc"
+      ],
+      "status": "SOURCE_BACKED"
+    }
+  }
+}

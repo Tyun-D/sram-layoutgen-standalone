@@ -1,0 +1,110 @@
+{
+  "authority_policy": "Every numeric value must carry source_file, source_line_or_section, unit, status and confidence. UNKNOWN_RULE cannot produce formal PASS.",
+  "external_oracles": {
+    "drc": "technology/freepdk45/tech/freepdk45.lydrc",
+    "lvs": "technology/freepdk45/tech/freepdk45.lylvs"
+  },
+  "required_sections": {
+    "contact_rules": [
+      "cut_layer",
+      "connects",
+      "cut_size",
+      "cut_spacing",
+      "enclosure_by_layer"
+    ],
+    "enclosure_rules": [
+      "outer_layer",
+      "inner_layer",
+      "min_enclosure",
+      "condition",
+      "source_authority"
+    ],
+    "extension_rules": [
+      "layer",
+      "over_layer",
+      "min_extension",
+      "condition",
+      "source_authority"
+    ],
+    "folding_legality": [
+      "parent_mos_rule",
+      "allowed_nf",
+      "finger_width_constraints",
+      "mos_count_interpretation"
+    ],
+    "grid": [
+      "manufacturing_grid",
+      "snap_policy",
+      "source_authority"
+    ],
+    "implant_rules": [
+      "implant_layer",
+      "device_type",
+      "enclosure",
+      "spacing"
+    ],
+    "layers": [
+      "name",
+      "gds_layer",
+      "gds_datatype",
+      "purpose",
+      "connectivity_role"
+    ],
+    "pin_access": [
+      "pin_layer",
+      "access_layer",
+      "via_stack",
+      "minimum_opening",
+      "keepout"
+    ],
+    "routing": [
+      "layer",
+      "preferred_direction",
+      "min_width",
+      "min_spacing",
+      "capacity_model"
+    ],
+    "spacing_rules": [
+      "layer_a",
+      "layer_b",
+      "min_spacing",
+      "condition",
+      "source_authority"
+    ],
+    "transistor_legality": [
+      "device_type",
+      "active_layer",
+      "gate_layer",
+      "legal_orientations",
+      "sd_flip_allowed"
+    ],
+    "via_rules": [
+      "via_layer",
+      "lower_layer",
+      "upper_layer",
+      "cut_size",
+      "spacing",
+      "enclosure"
+    ],
+    "well_rules": [
+      "well_layer",
+      "device_type",
+      "min_width",
+      "enclosure",
+      "spacing",
+      "tap_policy"
+    ],
+    "width_rules": [
+      "layer",
+      "min_width",
+      "conditional_widths",
+      "source_authority"
+    ]
+  },
+  "schema_name": "CellSynthV2TechnologyDB",
+  "units": {
+    "database_unit": "um",
+    "source_rule_units_must_be_recorded": true
+  },
+  "version": "v1_design"
+}

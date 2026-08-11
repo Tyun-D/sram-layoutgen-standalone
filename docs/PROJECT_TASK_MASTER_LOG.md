@@ -827,3 +827,19 @@
 - implemented: staged FEOL/contact/routing/compaction/DRC feedback flow, 2P+2N baseline recovery, M1/VIA1/M2 routing trace, shared ACTIVE physical audit, and schematic functional gate.
 - formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
 - package: `/data1/qujh/PROJECT_OPENYIELD_DFF_ROUTING_AWARE_FEOL_BEOL_CO_OPTIMIZATION_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `803b11a4eb386fbf68a1b2e0badb678bd26ec077baf75bfc4991acb6f45b59be`.
+
+## 2026-08-11T18:47:18.906121+00:00 cellsynth_v2_theory_verification_memory_architecture
+
+- result: `PASS_OPENYIELD_CELLSYNTH_V2_THEORY_VERIFICATION_MEMORY_ARCHITECTURE`
+- implemented: persistent CellSynth v2 memory, literature ledger, five-level verification policy, Golden DFF spec, current 9.1017um2 verification audit, TechnologyDB design and architecture review package.
+- current 9.1017um2 LVS status: `LVS_FAIL`; physical Pareto admission: `NOT_ADMITTED_BECAUSE_LVS_NOT_PASS`.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_CELLSYNTH_V2_ARCHITECTURE_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `940d177bcbb0a0b898f80e95ace11d5cefe05b5979af71fa88607c7a3fe2d11f`.
+
+## 2026-08-11T18:48:09.926537+00:00 cellsynth_v2_theory_verification_memory_architecture
+
+- result: `PASS_OPENYIELD_CELLSYNTH_V2_THEORY_VERIFICATION_MEMORY_ARCHITECTURE`
+- implemented: persistent CellSynth v2 memory, literature ledger, five-level verification policy, Golden DFF spec, current 9.1017um2 verification audit, TechnologyDB design and architecture review package.
+- current 9.1017um2 LVS status: `LVS_FAIL`; physical Pareto admission: `NOT_ADMITTED_BECAUSE_LVS_NOT_PASS`.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_CELLSYNTH_V2_ARCHITECTURE_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `40937f863b34e4d5d96f5424b80e0cc74643aa9e0fd3ec12b23c01d5a22b2545`.
