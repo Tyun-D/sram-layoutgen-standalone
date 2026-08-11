@@ -1,0 +1,30 @@
+{
+  "failure_categories": [
+    "PIN_MISSING",
+    "PIN_EXTRA",
+    "NET_OPEN",
+    "NET_SHORT",
+    "DEVICE_MISSING",
+    "DEVICE_EXTRA",
+    "DEVICE_TYPE_MISMATCH",
+    "WIDTH_MISMATCH",
+    "LENGTH_MISMATCH",
+    "BULK_MISMATCH",
+    "CONNECTIVITY_MISMATCH",
+    "MODEL_MISMATCH"
+  ],
+  "failure_record": {
+    "affected_net_or_device": "string",
+    "candidate_root_cause": "string",
+    "failure_category": "enum",
+    "golden_object": "string",
+    "layout_object": "string",
+    "repair_subsystem": "pin_planner|router|geometry_compiler|model_mapper|lvs_wrapper"
+  },
+  "statuses": [
+    "LVS_NOT_RUN",
+    "LVS_SETUP_FAIL",
+    "LVS_COMPARE_FAIL",
+    "LVS_PASS"
+  ]
+}

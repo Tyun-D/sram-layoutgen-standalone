@@ -1,0 +1,36 @@
+{
+  "CURRENT_DFF_TRUE_LVS_STATUS": "LVS_COMPARE_FAIL",
+  "LVS_INFRASTRUCTURE_GATE": "PASS",
+  "broken_lvs": {
+    "compare_started": true,
+    "extracted_netlist": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_formal_foundation_lvs_closure/01_LVS/broken_reference/openram_broken_missing_mos_extracted.cir",
+    "log": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_formal_foundation_lvs_closure/01_LVS/broken_reference/openram_broken_missing_mos_lvs.log",
+    "report": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_formal_foundation_lvs_closure/01_LVS/broken_reference/openram_broken_missing_mos.lvsdb",
+    "returncode": 0,
+    "status": "LVS_COMPARE_FAIL"
+  },
+  "broken_reference_lvs_status": "LVS_COMPARE_FAIL",
+  "corrected_previous_status": "LVS_SETUP_FAIL",
+  "current_lvs": {
+    "compare_started": true,
+    "extracted_netlist": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_formal_foundation_lvs_closure/01_LVS/current_wrapper/current_wrapper_extracted.cir",
+    "log": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_formal_foundation_lvs_closure/01_LVS/current_wrapper/current_wrapper_lvs.log",
+    "report": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_formal_foundation_lvs_closure/01_LVS/current_wrapper/current_wrapper.lvsdb",
+    "returncode": 0,
+    "status": "LVS_COMPARE_FAIL"
+  },
+  "diagnosis": "Infrastructure can run compare. Current generated DFF fails compare because pin extraction and/or connectivity mapping are not LVS-closed.",
+  "pin_extraction_status": "FAIL",
+  "previous_ambiguous_status": "LVS_FAIL",
+  "reason": "Previous run failed before compare because layout top had no schematic counterpart.",
+  "reference_lvs": {
+    "compare_started": true,
+    "extracted_netlist": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_formal_foundation_lvs_closure/01_LVS/reference_openram/openram_reference_extracted.cir",
+    "log": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_formal_foundation_lvs_closure/01_LVS/reference_openram/openram_reference_lvs.log",
+    "report": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_formal_foundation_lvs_closure/01_LVS/reference_openram/openram_reference.lvsdb",
+    "returncode": 0,
+    "status": "LVS_PASS"
+  },
+  "reference_openram_lvs_status": "LVS_PASS",
+  "wrapper_lvs_status": "LVS_COMPARE_FAIL"
+}

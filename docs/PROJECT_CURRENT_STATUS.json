@@ -23,6 +23,15 @@
       "docs/cellsynth_v2/CELLSYNTH_V2_ALGORITHM_ARCHITECTURE.md"
     ]
   },
+  "cellsynth_v2_formal_foundation": {
+    "current_dff_true_lvs_status": "LVS_COMPARE_FAIL",
+    "lvs_infrastructure_gate": "PASS",
+    "optimizer_mathematical_formulation_gate": "PASS",
+    "pex_capability_audit": "COMPLETE",
+    "routing_graph_formulation_gate": "PASS",
+    "technology_db_drc_consistency_gate": "PASS",
+    "technology_db_implementation_gate": "PASS"
+  },
   "compactness_constraint": "CLOSED_FOR_FLOORPLAN_REVIEW",
   "control_block_physical_authority": "READY",
   "control_physical_architecture": "IN_CONTEXT_CONTROL_CLUSTERS_ROUTED",
@@ -31,7 +40,7 @@
   "current_proxy_max_arrival_skew_ps": 0.15823,
   "current_proxy_slew_ratio": 1.0099272309,
   "current_rc_evidence": "NORMALIZED_GEOMETRY_RC_PROXY",
-  "current_status": "PASS_OPENYIELD_CELLSYNTH_V2_THEORY_VERIFICATION_MEMORY_ARCHITECTURE",
+  "current_status": "PASS_OPENYIELD_CELLSYNTH_V2_FORMAL_FOUNDATION_AND_LVS_CLOSURE",
   "decoder_hierarchical_floorplan": {
     "candidate_count": 0,
     "child_v3_pareto_path": "docs/DECODER_CHILD_V3_PARETO_SET.json",
@@ -503,7 +512,7 @@
   },
   "industrial_positioning_closed": true,
   "ir_em_signoff": false,
-  "last_update": "2026-08-11T18:48:09.926537+00:00",
+  "last_update": "2026-08-11T19:24:32.800712+00:00",
   "latest_bounded_floorplan_package": "/data1/qujh/PROJECT_BOUNDED_COMPACT_FULL_SINGLE_BANK_SRAM_FLOORPLAN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
   "latest_complete_top_full_evidence_package": {
     "package_build_head": "099911771ad94c26ed6fdc3afc8bcb0bb705b29d",
@@ -732,8 +741,8 @@
   ],
   "remote_branch_head": "PENDING_COMMIT",
   "remote_master_head_last_known": "489f3e04e85197a6501e48168627a7b8a9232550",
-  "review_package": "/data1/qujh/PROJECT_CELLSYNTH_V2_ARCHITECTURE_REVIEW_PACKAGE_LATEST.tar.gz",
-  "review_package_sha256": "40937f863b34e4d5d96f5424b80e0cc74643aa9e0fd3ec12b23c01d5a22b2545",
+  "review_package": "/data1/qujh/PROJECT_CELLSYNTH_V2_FORMAL_FOUNDATION_AND_LVS_CLOSURE_REVIEW_PACKAGE_LATEST.tar.gz",
+  "review_package_sha256": "6b5a50712cb9229718238e2774bcc7953deb9bbc9a6cbb071ac6bf724e732800",
   "row_path_physical_closure": "PASS",
   "row_path_top_level_replanning": "ROW_PATH_DECOMPOSED_DECODER_WL_DRIVER_ARRAY_INSTANTIATED_SEPARATELY",
   "same_freepdk45_real_cell_candidates": {

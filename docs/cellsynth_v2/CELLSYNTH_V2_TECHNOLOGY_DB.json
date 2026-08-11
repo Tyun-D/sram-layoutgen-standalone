@@ -1,0 +1,794 @@
+{
+  "compiled_at": "2026-08-11T19:23:54.321406+00:00",
+  "formal_use_policy": "SOURCE_BACKED rules may be used by formal CellSynth v2 legality; UNKNOWN_RULE entries may not be guessed.",
+  "layers": [
+    {
+      "raw": "active drawing 1 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "pwell drawing 2 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "nwell drawing 3 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "nimplant drawing 4 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "pimplant drawing 5 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "vtg drawing 6 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "vth drawing 7 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "thkox drawing 8 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "poly drawing 9 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "contact drawing 10 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "metal1 drawing 11 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "via1 drawing 12 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "metal2 drawing 13 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "via2 drawing 14 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "metal3 drawing 15 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "via3 drawing 16 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "metal4 drawing 17 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "via4 drawing 18 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "metal5 drawing 19 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "via5 drawing 20 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "metal6 drawing 21 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "via6 drawing 22 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "metal7 drawing 23 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "via7 drawing 24 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "metal8 drawing 25 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "via8 drawing 26 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "metal9 drawing 27 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "via9 drawing 28 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "metal10 drawing 29 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    },
+    {
+      "raw": "text drawing 239 0",
+      "source_file": "technology/freepdk45/layers.map",
+      "status": "SOURCE_BACKED"
+    }
+  ],
+  "oracles": {
+    "drc": "technology/freepdk45/tech/freepdk45.lydrc",
+    "lvs": "technology/freepdk45/tech/freepdk45.lylvs"
+  },
+  "rule_count": 48,
+  "rules": [
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "WELL.3 : Minimum spacing of nwell at same potential : 135nm",
+      "layer_expr": "nwell",
+      "operation": "space",
+      "rule_name": "WELL.3",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 114,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.135
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "WELL.3 : Minimum spacing of pwell at same potential : 135nm",
+      "layer_expr": "pwell",
+      "operation": "space",
+      "rule_name": "WELL.3",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 115,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.135
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "POLY.1 : Minimum width of poly : 50nm",
+      "layer_expr": "poly",
+      "operation": "width",
+      "rule_name": "POLY.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 121,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.05
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "POLY.6 : Minimum spacing of field poly: 75nm",
+      "layer_expr": "poly",
+      "operation": "space",
+      "rule_name": "POLY.6",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 130,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.075
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "ACTIVE.1 : Minimum width of active : 90nm",
+      "layer_expr": "active",
+      "operation": "width",
+      "rule_name": "ACTIVE.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 133,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.09
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "ACTIVE.2 : Minimum spacing of active : 80nm",
+      "layer_expr": "active",
+      "operation": "space",
+      "rule_name": "ACTIVE.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 134,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.08
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "IMPLANT.3 : Minimum width of nimplant/ pimplant  : 45nm",
+      "layer_expr": "implant",
+      "operation": "width",
+      "rule_name": "IMPLANT.3",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 141,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.045
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "IMPLANT.4 : Minimum spacing of nimplant/ pimplant  : 45nm",
+      "layer_expr": "implant",
+      "operation": "space",
+      "rule_name": "IMPLANT.4",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 142,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.045
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "CONTACT.1 : Minimum/Maximum width of contact : 65nm",
+      "layer_expr": "cont",
+      "operation": "without_length",
+      "rule_name": "CONTACT.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 147,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.065
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "CONTACT.2 : Minimum spacing of contact : 75nm",
+      "layer_expr": "cont",
+      "operation": "space",
+      "rule_name": "CONTACT.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 148,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.075
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "METAL1.1 : Minimum width of metal1 : 65nm",
+      "layer_expr": "metal1",
+      "operation": "width",
+      "rule_name": "METAL1.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 155,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.065
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "METAL1.2 : Minimum spacing of metal1 : 65nm",
+      "layer_expr": "metal1",
+      "operation": "space",
+      "rule_name": "METAL1.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 156,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.065
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "VIA1.1 : Minimum/Maximum width of via1 : 65nm",
+      "layer_expr": "via1",
+      "operation": "without_length",
+      "rule_name": "VIA1.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 176,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.065
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "VIA1.2 : Minimum spacing of via1 : 75nm",
+      "layer_expr": "via1",
+      "operation": "space",
+      "rule_name": "VIA1.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 177,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.075
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "METAL2.1 : Minimum width of  intermediate metal2 : 70nm",
+      "layer_expr": "metal2",
+      "operation": "width",
+      "rule_name": "METAL2.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 182,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.07
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "METAL2.2 : Minimum spacing of  intermediate metal2 : 70nm",
+      "layer_expr": "metal2",
+      "operation": "space",
+      "rule_name": "METAL2.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 183,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.07
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "VIA2.1 : Minimum/Maximum width of via2 : 65nm",
+      "layer_expr": "via2",
+      "operation": "without_length",
+      "rule_name": "VIA2.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 204,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.065
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "VIA2.2 : Minimum spacing of via2 : 85nm",
+      "layer_expr": "via2",
+      "operation": "space",
+      "rule_name": "VIA2.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 205,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.085
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "METAL3.1 : Minimum width of  intermediate metal3 : 70nm",
+      "layer_expr": "metal3",
+      "operation": "width",
+      "rule_name": "METAL3.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 210,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.07
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "METAL3.2 : Minimum spacing of  intermediate metal3 : 70nm",
+      "layer_expr": "metal3",
+      "operation": "space",
+      "rule_name": "METAL3.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 211,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.07
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "VIA3.1 : Minimum/Maximum width of via3 : 70nm",
+      "layer_expr": "via3",
+      "operation": "without_length",
+      "rule_name": "VIA3.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 231,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.07
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "VIA3.2 : Minimum spacing of via3 : 85nm",
+      "layer_expr": "via3",
+      "operation": "space",
+      "rule_name": "VIA3.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 232,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.085
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "METAL4.1 : Minimum width of  semi-global metal4 : 140nm",
+      "layer_expr": "metal4",
+      "operation": "width",
+      "rule_name": "METAL4.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 237,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.14
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "METAL4.2 : Minimum spacing of  semi-global metal4 : 140nm",
+      "layer_expr": "metal4",
+      "operation": "space",
+      "rule_name": "METAL4.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 238,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.14
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "VIA4.1 : Minimum/Maximum width of via4 : 140nm",
+      "layer_expr": "via4",
+      "operation": "without_length",
+      "rule_name": "VIA4.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 246,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.14
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "VIA4.2 : Minimum spacing of via4 : 160nm",
+      "layer_expr": "via4",
+      "operation": "space",
+      "rule_name": "VIA4.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 247,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.16
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "METAL5.1 : Minimum width of semi-global metal5 : 140nm",
+      "layer_expr": "metal5",
+      "operation": "width",
+      "rule_name": "METAL5.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 252,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.14
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "METAL5.2 : Minimum spacing of semi-global metal5 : 140nm",
+      "layer_expr": "metal5",
+      "operation": "space",
+      "rule_name": "METAL5.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 253,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.14
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "VIA5.1 : Minimum/Maximum width of via5 : 140nm",
+      "layer_expr": "via5",
+      "operation": "without_length",
+      "rule_name": "VIA5.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 261,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.14
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "VIA5.2 : Minimum spacing of via5 : 160nm",
+      "layer_expr": "via5",
+      "operation": "space",
+      "rule_name": "VIA5.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 262,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.16
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "METAL6.1 : Minimum width of semi-global metal6 : 140nm",
+      "layer_expr": "metal6",
+      "operation": "width",
+      "rule_name": "METAL6.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 267,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.14
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "METAL6.2 : Minimum spacing of semi-global metal6 : 140nm",
+      "layer_expr": "metal6",
+      "operation": "space",
+      "rule_name": "METAL6.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 268,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.14
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "VIA6.1 : Minimum/Maximum width of via6 : 140nm",
+      "layer_expr": "via6",
+      "operation": "without_length",
+      "rule_name": "VIA6.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 276,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.14
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "VIA6.2 : Minimum spacing of via6 : 160nm",
+      "layer_expr": "via6",
+      "operation": "space",
+      "rule_name": "VIA6.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 277,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.16
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "METAL7.1 : Minimum width of thin global metal7 : 400nm",
+      "layer_expr": "metal7",
+      "operation": "width",
+      "rule_name": "METAL7.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 282,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.4
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "METAL7.2 : Minimum spacing of thin global metal7 : 400nm",
+      "layer_expr": "metal7",
+      "operation": "space",
+      "rule_name": "METAL7.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 283,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.4
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "VIA6.1 : Minimum/Maximum width of via7 : 400nm",
+      "layer_expr": "via7",
+      "operation": "without_length",
+      "rule_name": "VIA6.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 291,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.4
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "VIA6.2 : Minimum spacing of via7 : 440nm",
+      "layer_expr": "via7",
+      "operation": "space",
+      "rule_name": "VIA6.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 292,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.44
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "METAL8.1 : Minimum width of thin global metal8 : 400nm",
+      "layer_expr": "metal8",
+      "operation": "width",
+      "rule_name": "METAL8.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 297,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.4
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "METAL8.2 : Minimum spacing of thin global metal8 : 400nm",
+      "layer_expr": "metal8",
+      "operation": "space",
+      "rule_name": "METAL8.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 298,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.4
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "VIA8.1 : Minimum/Maximum width of via8 : 400nm",
+      "layer_expr": "via8",
+      "operation": "without_length",
+      "rule_name": "VIA8.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 306,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.4
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "VIA8.2 : Minimum spacing of via8 : 440nm",
+      "layer_expr": "via8",
+      "operation": "space",
+      "rule_name": "VIA8.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 307,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.44
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "METAL9.1 : Minimum width of global metal9 : 800nm",
+      "layer_expr": "metal9",
+      "operation": "width",
+      "rule_name": "METAL9.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 312,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.8
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "METAL9.2 : Minimum spacing of global metal9 : 800nm",
+      "layer_expr": "metal9",
+      "operation": "space",
+      "rule_name": "METAL9.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 313,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.8
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "VIA9.1 : Minimum/Maximum width of via9 : 800nm",
+      "layer_expr": "via9",
+      "operation": "without_length",
+      "rule_name": "VIA9.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 321,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.8
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "VIA9.2 : Minimum spacing of via9 : 880nm",
+      "layer_expr": "via9",
+      "operation": "space",
+      "rule_name": "VIA9.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 322,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.88
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "METAL10.1 : Minimum width of global metal10 : 800nm",
+      "layer_expr": "metal10",
+      "operation": "width",
+      "rule_name": "METAL10.1",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 327,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.8
+    },
+    {
+      "condition": "as expressed in KLayout DRC deck",
+      "confidence": "HIGH",
+      "description": "METAL10.2 : Minimum spacing of global metal10 : 800nm",
+      "layer_expr": "metal10",
+      "operation": "space",
+      "rule_name": "METAL10.2",
+      "source_file": "technology/freepdk45/tech/freepdk45.lydrc",
+      "source_line_or_section": 328,
+      "status": "SOURCE_BACKED",
+      "unit": "um",
+      "value": 0.8
+    }
+  ],
+  "schema": "CellSynthV2TechnologyDB",
+  "unknown_rules": [
+    "routing preferred direction",
+    "calibrated PEX parasitic coefficients",
+    "pin-access manufacturing keepouts"
+  ],
+  "version": "v1_executable_compiler"
+}
