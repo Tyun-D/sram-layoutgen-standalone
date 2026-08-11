@@ -1,0 +1,54 @@
+{
+  "net_endpoints": {
+    "A": [
+      "NAND_MP_A.G",
+      "NAND_MN_A.G"
+    ],
+    "B": [
+      "NAND_MP_B.G",
+      "NAND_MN_B.G"
+    ],
+    "NAND_Z": [
+      "NAND_MP_A.D",
+      "NAND_MP_B.D",
+      "INV_MP0.G",
+      "INV_MN0.G"
+    ],
+    "NINT": [
+      "NAND_MN_A.D",
+      "NAND_MN_B.S"
+    ],
+    "VDD": [
+      "NAND_MP_A.S",
+      "NAND_MP_A.B",
+      "NAND_MP_B.S",
+      "NAND_MP_B.B",
+      "INV_MP0.S",
+      "INV_MP0.B"
+    ],
+    "VSS": [
+      "NAND_MN_A.B",
+      "NAND_MN_B.D",
+      "NAND_MN_B.B",
+      "INV_MN0.S",
+      "INV_MN0.B"
+    ],
+    "WL": [
+      "INV_MP0.D",
+      "INV_MN0.D"
+    ],
+    "Z": [
+      "NAND_MN_A.S"
+    ]
+  },
+  "physical_connectivity_exact_by_construction": true,
+  "pins": [
+    "VDD",
+    "VSS",
+    "A",
+    "B",
+    "WL"
+  ],
+  "placement_count": 6,
+  "router": "conservative_m1_bus_per_net_v1"
+}

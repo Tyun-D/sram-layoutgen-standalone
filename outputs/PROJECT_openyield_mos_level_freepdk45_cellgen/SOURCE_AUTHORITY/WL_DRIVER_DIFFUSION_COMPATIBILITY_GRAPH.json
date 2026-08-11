@@ -1,0 +1,120 @@
+[
+  {
+    "compatible": false,
+    "left": "NAND_MP_A",
+    "right": "NAND_MP_B",
+    "same_type": true,
+    "shared_diffusion_net": [
+      "NAND_Z",
+      "VDD"
+    ]
+  },
+  {
+    "compatible": false,
+    "left": "NAND_MP_A",
+    "right": "NAND_MN_A",
+    "same_type": false,
+    "shared_diffusion_net": []
+  },
+  {
+    "compatible": false,
+    "left": "NAND_MP_A",
+    "right": "NAND_MN_B",
+    "same_type": false,
+    "shared_diffusion_net": []
+  },
+  {
+    "compatible": false,
+    "left": "NAND_MP_A",
+    "right": "INV_MP0",
+    "same_type": true,
+    "shared_diffusion_net": [
+      "VDD"
+    ]
+  },
+  {
+    "compatible": false,
+    "left": "NAND_MP_A",
+    "right": "INV_MN0",
+    "same_type": false,
+    "shared_diffusion_net": []
+  },
+  {
+    "compatible": false,
+    "left": "NAND_MP_B",
+    "right": "NAND_MN_A",
+    "same_type": false,
+    "shared_diffusion_net": []
+  },
+  {
+    "compatible": false,
+    "left": "NAND_MP_B",
+    "right": "NAND_MN_B",
+    "same_type": false,
+    "shared_diffusion_net": []
+  },
+  {
+    "compatible": false,
+    "left": "NAND_MP_B",
+    "right": "INV_MP0",
+    "same_type": true,
+    "shared_diffusion_net": [
+      "VDD"
+    ]
+  },
+  {
+    "compatible": false,
+    "left": "NAND_MP_B",
+    "right": "INV_MN0",
+    "same_type": false,
+    "shared_diffusion_net": []
+  },
+  {
+    "compatible": true,
+    "left": "NAND_MN_A",
+    "right": "NAND_MN_B",
+    "same_type": true,
+    "shared_diffusion_net": [
+      "NINT"
+    ]
+  },
+  {
+    "compatible": false,
+    "left": "NAND_MN_A",
+    "right": "INV_MP0",
+    "same_type": false,
+    "shared_diffusion_net": []
+  },
+  {
+    "compatible": false,
+    "left": "NAND_MN_A",
+    "right": "INV_MN0",
+    "same_type": true,
+    "shared_diffusion_net": []
+  },
+  {
+    "compatible": false,
+    "left": "NAND_MN_B",
+    "right": "INV_MP0",
+    "same_type": false,
+    "shared_diffusion_net": []
+  },
+  {
+    "compatible": true,
+    "left": "NAND_MN_B",
+    "right": "INV_MN0",
+    "same_type": true,
+    "shared_diffusion_net": [
+      "VSS"
+    ]
+  },
+  {
+    "compatible": false,
+    "left": "INV_MP0",
+    "right": "INV_MN0",
+    "same_type": false,
+    "shared_diffusion_net": [
+      "WL"
+    ]
+  }
+]

@@ -657,3 +657,12 @@
 - LCLayout: isolated venv installed and attempted; adapter remains exploratory until source-exact netlists and all required tech fields are closed.
 - generated: WL-driver gap-sweep GDS/DRC, DFF native candidate GDS/DRC, DFF cluster prototypes, and periphery bank gap-sweep GDS/DRC.
 - package: `/data1/qujh/PROJECT_SAME_FREEPDK45_REAL_CELL_CANDIDATES_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`.
+
+## 2026-08-11T10:04:08.672253+00:00 openyield_mos_level_freepdk45_cellgen
+
+- correction: previous same-PDK real-cell checkpoint is retained as `REAL_GDS_EXPERIMENT_COMPLETED_BUT_OPENYIELD_MOS_LEVEL_GENERATION_NOT_YET_CLOSED` because it did not use OpenYield exact MOS source as the cellgen input.
+- source authority: generated `docs/OPENYIELD_TRANSISTOR_SOURCE_AUTHORITY_V1.*` and MOS topology locks for DFF, PNAND2, INV, and WL-driver.
+- exact source: generated canonical non-placeholder SPICE under `outputs/PROJECT_openyield_exact_cell_source/` and ngspice parse/function smoke gates.
+- cellgen: generated new same-FreePDK45 MOS-level GDS candidates under `outputs/PROJECT_openyield_mos_level_freepdk45_cellgen/`; DRC-clean candidates exist for INV, PNAND2, WL-driver, and DFF.
+- boundaries: PDK unchanged, no external standard-cell library, logical topology unchanged, transistor W/L unchanged, formal SRAM top not modified.
+- package: `/data1/qujh/PROJECT_OPENYIELD_MOS_LEVEL_FREEPDK45_CELLGEN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `30d81349792ac040a983bf4524aeefee2de1fd1cdc67c81ef3ad1df112ae8923`.

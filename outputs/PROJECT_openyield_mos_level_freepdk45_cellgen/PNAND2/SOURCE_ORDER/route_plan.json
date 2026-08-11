@@ -1,0 +1,42 @@
+{
+  "net_endpoints": {
+    "A": [
+      "MP_A.G",
+      "MN_A.G"
+    ],
+    "B": [
+      "MP_B.G",
+      "MN_B.G"
+    ],
+    "NINT": [
+      "MN_A.D",
+      "MN_B.S"
+    ],
+    "VDD": [
+      "MP_A.S",
+      "MP_A.B",
+      "MP_B.S",
+      "MP_B.B"
+    ],
+    "VSS": [
+      "MN_A.B",
+      "MN_B.D",
+      "MN_B.B"
+    ],
+    "Z": [
+      "MP_A.D",
+      "MP_B.D",
+      "MN_A.S"
+    ]
+  },
+  "physical_connectivity_exact_by_construction": true,
+  "pins": [
+    "VDD",
+    "VSS",
+    "A",
+    "B",
+    "Z"
+  ],
+  "placement_count": 4,
+  "router": "conservative_m1_bus_per_net_v1"
+}

@@ -1,0 +1,70 @@
+{
+  "authority_level": "CURRENT_SOURCE_BOUND_WL_DRIVER_LEAF_EXACT",
+  "devices": [
+    {
+      "b": "VDD",
+      "d": "Z",
+      "g": "A",
+      "instance": "MP_A",
+      "l_nm": 50,
+      "model": "PMOS_VTG",
+      "s": "VDD",
+      "source_file": "wordline_driver.py",
+      "source_line": "pnand2_stage",
+      "type": "PMOS",
+      "w_nm": 270
+    },
+    {
+      "b": "VDD",
+      "d": "Z",
+      "g": "B",
+      "instance": "MP_B",
+      "l_nm": 50,
+      "model": "PMOS_VTG",
+      "s": "VDD",
+      "source_file": "wordline_driver.py",
+      "source_line": "pnand2_stage",
+      "type": "PMOS",
+      "w_nm": 270
+    },
+    {
+      "b": "VSS",
+      "d": "NINT",
+      "g": "A",
+      "instance": "MN_A",
+      "l_nm": 50,
+      "model": "NMOS_VTG",
+      "s": "Z",
+      "source_file": "wordline_driver.py",
+      "source_line": "pnand2_stage",
+      "type": "NMOS",
+      "w_nm": 180
+    },
+    {
+      "b": "VSS",
+      "d": "VSS",
+      "g": "B",
+      "instance": "MN_B",
+      "l_nm": 50,
+      "model": "NMOS_VTG",
+      "s": "NINT",
+      "source_file": "wordline_driver.py",
+      "source_line": "pnand2_stage",
+      "type": "NMOS",
+      "w_nm": 180
+    }
+  ],
+  "module": "PNAND2_OPENYIELD_EXACT",
+  "mos_count": 4,
+  "mos_count_exact": true,
+  "net_connectivity_exact": true,
+  "pin_order_exact": true,
+  "pins": [
+    "VDD",
+    "VSS",
+    "A",
+    "B",
+    "Z"
+  ],
+  "wl_exact": true
+}

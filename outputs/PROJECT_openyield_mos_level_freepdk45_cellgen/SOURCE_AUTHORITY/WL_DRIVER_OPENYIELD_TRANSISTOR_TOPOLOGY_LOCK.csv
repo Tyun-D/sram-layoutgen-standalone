@@ -1,0 +1,7 @@
+b,d,g,instance,l_nm,model,s,source_file,source_line,type,w_nm
+VDD,NAND_Z,A,NAND_MP_A,50,PMOS_VTG,VDD,wordline_driver.py,pnand2_stage,PMOS,270
+VDD,NAND_Z,B,NAND_MP_B,50,PMOS_VTG,VDD,wordline_driver.py,pnand2_stage,PMOS,270
+VSS,NINT,A,NAND_MN_A,50,NMOS_VTG,Z,wordline_driver.py,pnand2_stage,NMOS,180
+VSS,VSS,B,NAND_MN_B,50,NMOS_VTG,NINT,wordline_driver.py,pnand2_stage,NMOS,180
+VDD,WL,NAND_Z,INV_MP0,50,PMOS_VTG,VDD,wordline_driver.py,inv_stage,PMOS,270
+VSS,WL,NAND_Z,INV_MN0,50,NMOS_VTG,VSS,wordline_driver.py,inv_stage,NMOS,90

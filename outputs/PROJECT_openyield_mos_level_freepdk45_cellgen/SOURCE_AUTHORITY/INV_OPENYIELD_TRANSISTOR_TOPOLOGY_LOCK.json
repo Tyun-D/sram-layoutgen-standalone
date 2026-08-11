@@ -1,0 +1,43 @@
+{
+  "authority_level": "CURRENT_SOURCE_BOUND_OPENRAM_BACKED_EXACT",
+  "devices": [
+    {
+      "b": "VDD",
+      "d": "Z",
+      "g": "A",
+      "instance": "MP0",
+      "l_nm": 50,
+      "model": "PMOS_VTG",
+      "s": "VDD",
+      "source_file": "openram_pinv_adapter.py",
+      "source_line": "generate_pinv_cell",
+      "type": "PMOS",
+      "w_nm": 500
+    },
+    {
+      "b": "VSS",
+      "d": "Z",
+      "g": "A",
+      "instance": "MN0",
+      "l_nm": 50,
+      "model": "NMOS_VTG",
+      "s": "VSS",
+      "source_file": "openram_pinv_adapter.py",
+      "source_line": "generate_pinv_cell",
+      "type": "NMOS",
+      "w_nm": 250
+    }
+  ],
+  "module": "INV_OPENYIELD_EXACT",
+  "mos_count": 2,
+  "mos_count_exact": true,
+  "net_connectivity_exact": true,
+  "pin_order_exact": true,
+  "pins": [
+    "VDD",
+    "VSS",
+    "A",
+    "Z"
+  ],
+  "wl_exact": true
+}

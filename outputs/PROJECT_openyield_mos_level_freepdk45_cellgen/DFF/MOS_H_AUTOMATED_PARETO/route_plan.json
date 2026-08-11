@@ -1,0 +1,128 @@
+{
+  "net_endpoints": {
+    "CLK": [
+      "inv1_clk_MP.G",
+      "inv1_clk_MN.G",
+      "tg1_MP.G",
+      "tg2_MN.G",
+      "tg3_MN.G",
+      "tg4_MP.G"
+    ],
+    "CLKB": [
+      "inv1_clk_MP.D",
+      "inv1_clk_MN.D",
+      "tg1_MN.G",
+      "tg2_MP.G",
+      "tg3_MP.G",
+      "tg4_MN.G"
+    ],
+    "D": [
+      "inv2_D_MP.G",
+      "inv2_D_MN.G"
+    ],
+    "D_b": [
+      "inv2_D_MP.D",
+      "inv2_D_MN.D",
+      "tg1_MP.S",
+      "tg1_MN.S"
+    ],
+    "Q": [
+      "inv6_MP.D",
+      "inv6_MN.D",
+      "inv7_MP.G",
+      "inv7_MN.G"
+    ],
+    "QB": [
+      "inv7_MP.D",
+      "inv7_MN.D",
+      "tg4_MP.S",
+      "tg4_MN.S"
+    ],
+    "VDD": [
+      "inv1_clk_MP.S",
+      "inv1_clk_MP.B",
+      "inv2_D_MP.S",
+      "inv2_D_MP.B",
+      "tg1_MP.B",
+      "inv3_MP.S",
+      "inv3_MP.B",
+      "inv4_MP.S",
+      "inv4_MP.B",
+      "tg2_MP.B",
+      "inv5_MP.S",
+      "inv5_MP.B",
+      "tg3_MP.B",
+      "inv6_MP.S",
+      "inv6_MP.B",
+      "inv7_MP.S",
+      "inv7_MP.B",
+      "tg4_MP.B"
+    ],
+    "VSS": [
+      "inv1_clk_MN.S",
+      "inv1_clk_MN.B",
+      "inv2_D_MN.S",
+      "inv2_D_MN.B",
+      "tg1_MN.B",
+      "inv3_MN.S",
+      "inv3_MN.B",
+      "inv4_MN.S",
+      "inv4_MN.B",
+      "tg2_MN.B",
+      "inv5_MN.S",
+      "inv5_MN.B",
+      "tg3_MN.B",
+      "inv6_MN.S",
+      "inv6_MN.B",
+      "inv7_MN.S",
+      "inv7_MN.B",
+      "tg4_MN.B"
+    ],
+    "z1": [
+      "tg1_MP.D",
+      "tg1_MN.D",
+      "inv3_MP.G",
+      "inv3_MN.G",
+      "tg2_MP.D",
+      "tg2_MN.D"
+    ],
+    "z2": [
+      "inv3_MP.D",
+      "inv3_MN.D",
+      "inv4_MP.G",
+      "inv4_MN.G",
+      "inv5_MP.G",
+      "inv5_MN.G"
+    ],
+    "z3": [
+      "inv4_MP.D",
+      "inv4_MN.D",
+      "tg2_MP.S",
+      "tg2_MN.S"
+    ],
+    "z4": [
+      "inv5_MP.D",
+      "inv5_MN.D",
+      "tg3_MP.S",
+      "tg3_MN.S"
+    ],
+    "z5": [
+      "tg3_MP.D",
+      "tg3_MN.D",
+      "inv6_MP.G",
+      "inv6_MN.G",
+      "tg4_MP.D",
+      "tg4_MN.D"
+    ]
+  },
+  "physical_connectivity_exact_by_construction": true,
+  "pins": [
+    "VDD",
+    "VSS",
+    "D",
+    "Q",
+    "CLK"
+  ],
+  "placement_count": 22,
+  "router": "conservative_m1_bus_per_net_v1"
+}

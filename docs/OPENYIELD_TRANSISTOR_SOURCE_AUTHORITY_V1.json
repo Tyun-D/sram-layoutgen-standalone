@@ -1,0 +1,43 @@
+{
+  "bundled_dff_status": "UPSTREAM_FREEPDK45_REFERENCE_NOT_CURRENT_OPENYIELD_AUTHORITY",
+  "modules": [
+    {
+      "authority_level": "CURRENT_SOURCE_BOUND_OPENRAM_BACKED_EXACT",
+      "canonical_spice": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_openyield_exact_cell_source/inv/openyield_exact.sp",
+      "function_smoke": true,
+      "module": "inv",
+      "ngspice_parse": true,
+      "pin_order": "VDD|VSS|A|Z",
+      "transistor_count": 2
+    },
+    {
+      "authority_level": "CURRENT_SOURCE_BOUND_WL_DRIVER_LEAF_EXACT",
+      "canonical_spice": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_openyield_exact_cell_source/pnand2/openyield_exact.sp",
+      "function_smoke": true,
+      "module": "pnand2",
+      "ngspice_parse": true,
+      "pin_order": "VDD|VSS|A|B|Z",
+      "transistor_count": 4
+    },
+    {
+      "authority_level": "CURRENT_SOURCE_BOUND_PARENT_EXACT",
+      "canonical_spice": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_openyield_exact_cell_source/wl_driver/openyield_exact.sp",
+      "function_smoke": true,
+      "module": "wl_driver",
+      "ngspice_parse": true,
+      "pin_order": "VDD|VSS|A|B|WL",
+      "transistor_count": 6
+    },
+    {
+      "authority_level": "CURRENT_SOURCE_BOUND_COMPOSITE_EXACT",
+      "canonical_spice": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_openyield_exact_cell_source/dff/openyield_exact.sp",
+      "function_smoke": true,
+      "module": "dff",
+      "ngspice_parse": true,
+      "pin_order": "VDD|VSS|D|Q|CLK",
+      "transistor_count": 22
+    }
+  ],
+  "placeholder_spice_used": false,
+  "status": "RECOVERED_CURRENT_SOURCE_BOUND_MOS_TOPOLOGY"
+}

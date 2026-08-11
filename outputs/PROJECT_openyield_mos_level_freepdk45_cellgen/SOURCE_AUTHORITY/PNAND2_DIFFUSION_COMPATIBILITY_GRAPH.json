@@ -1,0 +1,53 @@
+[
+  {
+    "compatible": false,
+    "left": "MP_A",
+    "right": "MP_B",
+    "same_type": true,
+    "shared_diffusion_net": [
+      "VDD",
+      "Z"
+    ]
+  },
+  {
+    "compatible": false,
+    "left": "MP_A",
+    "right": "MN_A",
+    "same_type": false,
+    "shared_diffusion_net": [
+      "Z"
+    ]
+  },
+  {
+    "compatible": false,
+    "left": "MP_A",
+    "right": "MN_B",
+    "same_type": false,
+    "shared_diffusion_net": []
+  },
+  {
+    "compatible": false,
+    "left": "MP_B",
+    "right": "MN_A",
+    "same_type": false,
+    "shared_diffusion_net": [
+      "Z"
+    ]
+  },
+  {
+    "compatible": false,
+    "left": "MP_B",
+    "right": "MN_B",
+    "same_type": false,
+    "shared_diffusion_net": []
+  },
+  {
+    "compatible": true,
+    "left": "MN_A",
+    "right": "MN_B",
+    "same_type": true,
+    "shared_diffusion_net": [
+      "NINT"
+    ]
+  }
+]

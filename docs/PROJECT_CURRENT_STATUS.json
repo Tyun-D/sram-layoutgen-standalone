@@ -561,6 +561,20 @@
   "next_stage": "Human review of real same-FreePDK45 cell candidates before any full-top reintegration.",
   "old_C2_C5_status": "HUMAN_REJECTED_ARCHITECTURE_BASELINE",
   "old_F3_F4_status": "HUMAN_REJECTED_ARCHITECTURE_BASELINE",
+  "openyield_mos_level_freepdk45_cellgen": {
+    "external_standard_cell_library_used": false,
+    "formal_sram_top_modified": false,
+    "logical_topology_changed": false,
+    "machine_gate": "outputs/PROJECT_openyield_mos_level_freepdk45_cellgen/OPENYIELD_MOS_LEVEL_FREEPDK45_CELLGEN_MACHINE_GATE.json",
+    "package": "/data1/qujh/PROJECT_OPENYIELD_MOS_LEVEL_FREEPDK45_CELLGEN_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "package_sha256": "30d81349792ac040a983bf4524aeefee2de1fd1cdc67c81ef3ad1df112ae8923",
+    "pdk_changed": false,
+    "placeholder_spice_used": false,
+    "status": "PASS_OPENYIELD_MOS_LEVEL_FREEPDK45_CELLGEN_TO_HUMAN_REVIEW",
+    "summary": "outputs/PROJECT_openyield_mos_level_freepdk45_cellgen/OPENYIELD_MOS_LEVEL_FREEPDK45_CELLGEN_SUMMARY.json",
+    "transistor_wl_changed": false,
+    "updated_utc": "2026-08-11T10:04:08.672253+00:00"
+  },
   "physical_top_entry_allowed": true,
   "placement_quality_gate": "CLOSED_FOR_FLOORPLAN_REVIEW",
   "post_layout_extraction_reason": "KLayout FreePDK45 LVS/extraction assets exist, but Magic/Netgen/PEX rule provenance and refreshed project LVS/PEX binding do not.",
@@ -645,6 +659,7 @@
     "package": "/data1/qujh/PROJECT_SAME_FREEPDK45_REAL_CELL_CANDIDATES_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
     "package_sha256": "6b12c8f157b70ea2d6effe123cd845b797971a3f570161fcc4041fb42a3b9f97",
     "pdk_changed": false,
+    "post_review_reclassification": "REAL_GDS_EXPERIMENT_COMPLETED_BUT_OPENYIELD_MOS_LEVEL_GENERATION_NOT_YET_CLOSED",
     "status": "PASS_SAME_FREEPDK45_REAL_CELL_CANDIDATES_TO_HUMAN_REVIEW",
     "summary": "outputs/PROJECT_same_freepdk45_real_cell_experiments/SAME_FREEPDK45_REAL_CELL_EXPERIMENT_SUMMARY.json"
   },
