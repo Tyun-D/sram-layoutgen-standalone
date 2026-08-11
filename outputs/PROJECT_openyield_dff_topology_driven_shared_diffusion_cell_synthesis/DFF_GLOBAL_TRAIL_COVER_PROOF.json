@@ -1,0 +1,684 @@
+{
+  "candidates": {
+    "NMOS": [
+      {
+        "candidate": "NMOS_TRAIL_0",
+        "diffusion_breaks": 2,
+        "pairing": [
+          [
+            "CLKB",
+            "Q"
+          ],
+          [
+            "VSS",
+            "z2"
+          ]
+        ],
+        "theoretical_minimum": 2,
+        "trail_count": 3,
+        "trails": [
+          [
+            {
+              "gate": "Q",
+              "instance": "inv7_MN",
+              "l_nm": 50,
+              "u": "VSS",
+              "v": "QB",
+              "w_nm": 250
+            },
+            {
+              "gate": "CLKB",
+              "instance": "tg4_MN",
+              "l_nm": 50,
+              "u": "QB",
+              "v": "z5",
+              "w_nm": 250
+            },
+            {
+              "gate": "CLK",
+              "instance": "tg3_MN",
+              "l_nm": 50,
+              "u": "z5",
+              "v": "z4",
+              "w_nm": 250
+            },
+            {
+              "gate": "z2",
+              "instance": "inv5_MN",
+              "l_nm": 50,
+              "u": "z4",
+              "v": "VSS",
+              "w_nm": 250
+            }
+          ],
+          [
+            {
+              "gate": "z1",
+              "instance": "inv3_MN",
+              "l_nm": 50,
+              "u": "z2",
+              "v": "VSS",
+              "w_nm": 250
+            },
+            {
+              "gate": "z2",
+              "instance": "inv4_MN",
+              "l_nm": 50,
+              "u": "VSS",
+              "v": "z3",
+              "w_nm": 250
+            },
+            {
+              "gate": "CLK",
+              "instance": "tg2_MN",
+              "l_nm": 50,
+              "u": "z3",
+              "v": "z1",
+              "w_nm": 250
+            },
+            {
+              "gate": "CLKB",
+              "instance": "tg1_MN",
+              "l_nm": 50,
+              "u": "z1",
+              "v": "D_b",
+              "w_nm": 250
+            },
+            {
+              "gate": "D",
+              "instance": "inv2_D_MN",
+              "l_nm": 50,
+              "u": "D_b",
+              "v": "VSS",
+              "w_nm": 250
+            },
+            {
+              "gate": "z5",
+              "instance": "inv6_MN",
+              "l_nm": 50,
+              "u": "VSS",
+              "v": "Q",
+              "w_nm": 250
+            }
+          ],
+          [
+            {
+              "gate": "CLK",
+              "instance": "inv1_clk_MN",
+              "l_nm": 50,
+              "u": "CLKB",
+              "v": "VSS",
+              "w_nm": 250
+            }
+          ]
+        ],
+        "useful_shared_diffusion": 8
+      },
+      {
+        "candidate": "NMOS_TRAIL_1",
+        "diffusion_breaks": 2,
+        "pairing": [
+          [
+            "CLKB",
+            "VSS"
+          ],
+          [
+            "Q",
+            "z2"
+          ]
+        ],
+        "theoretical_minimum": 2,
+        "trail_count": 3,
+        "trails": [
+          [
+            {
+              "gate": "Q",
+              "instance": "inv7_MN",
+              "l_nm": 50,
+              "u": "VSS",
+              "v": "QB",
+              "w_nm": 250
+            },
+            {
+              "gate": "CLKB",
+              "instance": "tg4_MN",
+              "l_nm": 50,
+              "u": "QB",
+              "v": "z5",
+              "w_nm": 250
+            },
+            {
+              "gate": "CLK",
+              "instance": "tg3_MN",
+              "l_nm": 50,
+              "u": "z5",
+              "v": "z4",
+              "w_nm": 250
+            },
+            {
+              "gate": "z2",
+              "instance": "inv5_MN",
+              "l_nm": 50,
+              "u": "z4",
+              "v": "VSS",
+              "w_nm": 250
+            },
+            {
+              "gate": "z5",
+              "instance": "inv6_MN",
+              "l_nm": 50,
+              "u": "VSS",
+              "v": "Q",
+              "w_nm": 250
+            }
+          ],
+          [
+            {
+              "gate": "z1",
+              "instance": "inv3_MN",
+              "l_nm": 50,
+              "u": "z2",
+              "v": "VSS",
+              "w_nm": 250
+            },
+            {
+              "gate": "z2",
+              "instance": "inv4_MN",
+              "l_nm": 50,
+              "u": "VSS",
+              "v": "z3",
+              "w_nm": 250
+            },
+            {
+              "gate": "CLK",
+              "instance": "tg2_MN",
+              "l_nm": 50,
+              "u": "z3",
+              "v": "z1",
+              "w_nm": 250
+            },
+            {
+              "gate": "CLKB",
+              "instance": "tg1_MN",
+              "l_nm": 50,
+              "u": "z1",
+              "v": "D_b",
+              "w_nm": 250
+            },
+            {
+              "gate": "D",
+              "instance": "inv2_D_MN",
+              "l_nm": 50,
+              "u": "D_b",
+              "v": "VSS",
+              "w_nm": 250
+            }
+          ],
+          [
+            {
+              "gate": "CLK",
+              "instance": "inv1_clk_MN",
+              "l_nm": 50,
+              "u": "CLKB",
+              "v": "VSS",
+              "w_nm": 250
+            }
+          ]
+        ],
+        "useful_shared_diffusion": 8
+      },
+      {
+        "candidate": "NMOS_TRAIL_2",
+        "diffusion_breaks": 1,
+        "pairing": [
+          [
+            "CLKB",
+            "z2"
+          ],
+          [
+            "Q",
+            "VSS"
+          ]
+        ],
+        "theoretical_minimum": 2,
+        "trail_count": 2,
+        "trails": [
+          [
+            {
+              "gate": "z5",
+              "instance": "inv6_MN",
+              "l_nm": 50,
+              "u": "Q",
+              "v": "VSS",
+              "w_nm": 250
+            },
+            {
+              "gate": "Q",
+              "instance": "inv7_MN",
+              "l_nm": 50,
+              "u": "VSS",
+              "v": "QB",
+              "w_nm": 250
+            },
+            {
+              "gate": "CLKB",
+              "instance": "tg4_MN",
+              "l_nm": 50,
+              "u": "QB",
+              "v": "z5",
+              "w_nm": 250
+            },
+            {
+              "gate": "CLK",
+              "instance": "tg3_MN",
+              "l_nm": 50,
+              "u": "z5",
+              "v": "z4",
+              "w_nm": 250
+            },
+            {
+              "gate": "z2",
+              "instance": "inv5_MN",
+              "l_nm": 50,
+              "u": "z4",
+              "v": "VSS",
+              "w_nm": 250
+            },
+            {
+              "gate": "z2",
+              "instance": "inv4_MN",
+              "l_nm": 50,
+              "u": "VSS",
+              "v": "z3",
+              "w_nm": 250
+            },
+            {
+              "gate": "CLK",
+              "instance": "tg2_MN",
+              "l_nm": 50,
+              "u": "z3",
+              "v": "z1",
+              "w_nm": 250
+            },
+            {
+              "gate": "CLKB",
+              "instance": "tg1_MN",
+              "l_nm": 50,
+              "u": "z1",
+              "v": "D_b",
+              "w_nm": 250
+            },
+            {
+              "gate": "D",
+              "instance": "inv2_D_MN",
+              "l_nm": 50,
+              "u": "D_b",
+              "v": "VSS",
+              "w_nm": 250
+            },
+            {
+              "gate": "z1",
+              "instance": "inv3_MN",
+              "l_nm": 50,
+              "u": "VSS",
+              "v": "z2",
+              "w_nm": 250
+            }
+          ],
+          [
+            {
+              "gate": "CLK",
+              "instance": "inv1_clk_MN",
+              "l_nm": 50,
+              "u": "CLKB",
+              "v": "VSS",
+              "w_nm": 250
+            }
+          ]
+        ],
+        "useful_shared_diffusion": 9
+      }
+    ],
+    "PMOS": [
+      {
+        "candidate": "PMOS_TRAIL_0",
+        "diffusion_breaks": 2,
+        "pairing": [
+          [
+            "CLKB",
+            "Q"
+          ],
+          [
+            "VDD",
+            "z2"
+          ]
+        ],
+        "theoretical_minimum": 2,
+        "trail_count": 3,
+        "trails": [
+          [
+            {
+              "gate": "Q",
+              "instance": "inv7_MP",
+              "l_nm": 50,
+              "u": "VDD",
+              "v": "QB",
+              "w_nm": 500
+            },
+            {
+              "gate": "CLK",
+              "instance": "tg4_MP",
+              "l_nm": 50,
+              "u": "QB",
+              "v": "z5",
+              "w_nm": 500
+            },
+            {
+              "gate": "CLKB",
+              "instance": "tg3_MP",
+              "l_nm": 50,
+              "u": "z5",
+              "v": "z4",
+              "w_nm": 500
+            },
+            {
+              "gate": "z2",
+              "instance": "inv5_MP",
+              "l_nm": 50,
+              "u": "z4",
+              "v": "VDD",
+              "w_nm": 500
+            }
+          ],
+          [
+            {
+              "gate": "z1",
+              "instance": "inv3_MP",
+              "l_nm": 50,
+              "u": "z2",
+              "v": "VDD",
+              "w_nm": 500
+            },
+            {
+              "gate": "z2",
+              "instance": "inv4_MP",
+              "l_nm": 50,
+              "u": "VDD",
+              "v": "z3",
+              "w_nm": 500
+            },
+            {
+              "gate": "CLKB",
+              "instance": "tg2_MP",
+              "l_nm": 50,
+              "u": "z3",
+              "v": "z1",
+              "w_nm": 500
+            },
+            {
+              "gate": "CLK",
+              "instance": "tg1_MP",
+              "l_nm": 50,
+              "u": "z1",
+              "v": "D_b",
+              "w_nm": 500
+            },
+            {
+              "gate": "D",
+              "instance": "inv2_D_MP",
+              "l_nm": 50,
+              "u": "D_b",
+              "v": "VDD",
+              "w_nm": 500
+            },
+            {
+              "gate": "z5",
+              "instance": "inv6_MP",
+              "l_nm": 50,
+              "u": "VDD",
+              "v": "Q",
+              "w_nm": 500
+            }
+          ],
+          [
+            {
+              "gate": "CLK",
+              "instance": "inv1_clk_MP",
+              "l_nm": 50,
+              "u": "CLKB",
+              "v": "VDD",
+              "w_nm": 500
+            }
+          ]
+        ],
+        "useful_shared_diffusion": 8
+      },
+      {
+        "candidate": "PMOS_TRAIL_1",
+        "diffusion_breaks": 2,
+        "pairing": [
+          [
+            "CLKB",
+            "VDD"
+          ],
+          [
+            "Q",
+            "z2"
+          ]
+        ],
+        "theoretical_minimum": 2,
+        "trail_count": 3,
+        "trails": [
+          [
+            {
+              "gate": "Q",
+              "instance": "inv7_MP",
+              "l_nm": 50,
+              "u": "VDD",
+              "v": "QB",
+              "w_nm": 500
+            },
+            {
+              "gate": "CLK",
+              "instance": "tg4_MP",
+              "l_nm": 50,
+              "u": "QB",
+              "v": "z5",
+              "w_nm": 500
+            },
+            {
+              "gate": "CLKB",
+              "instance": "tg3_MP",
+              "l_nm": 50,
+              "u": "z5",
+              "v": "z4",
+              "w_nm": 500
+            },
+            {
+              "gate": "z2",
+              "instance": "inv5_MP",
+              "l_nm": 50,
+              "u": "z4",
+              "v": "VDD",
+              "w_nm": 500
+            },
+            {
+              "gate": "z5",
+              "instance": "inv6_MP",
+              "l_nm": 50,
+              "u": "VDD",
+              "v": "Q",
+              "w_nm": 500
+            }
+          ],
+          [
+            {
+              "gate": "z1",
+              "instance": "inv3_MP",
+              "l_nm": 50,
+              "u": "z2",
+              "v": "VDD",
+              "w_nm": 500
+            },
+            {
+              "gate": "z2",
+              "instance": "inv4_MP",
+              "l_nm": 50,
+              "u": "VDD",
+              "v": "z3",
+              "w_nm": 500
+            },
+            {
+              "gate": "CLKB",
+              "instance": "tg2_MP",
+              "l_nm": 50,
+              "u": "z3",
+              "v": "z1",
+              "w_nm": 500
+            },
+            {
+              "gate": "CLK",
+              "instance": "tg1_MP",
+              "l_nm": 50,
+              "u": "z1",
+              "v": "D_b",
+              "w_nm": 500
+            },
+            {
+              "gate": "D",
+              "instance": "inv2_D_MP",
+              "l_nm": 50,
+              "u": "D_b",
+              "v": "VDD",
+              "w_nm": 500
+            }
+          ],
+          [
+            {
+              "gate": "CLK",
+              "instance": "inv1_clk_MP",
+              "l_nm": 50,
+              "u": "CLKB",
+              "v": "VDD",
+              "w_nm": 500
+            }
+          ]
+        ],
+        "useful_shared_diffusion": 8
+      },
+      {
+        "candidate": "PMOS_TRAIL_2",
+        "diffusion_breaks": 1,
+        "pairing": [
+          [
+            "CLKB",
+            "z2"
+          ],
+          [
+            "Q",
+            "VDD"
+          ]
+        ],
+        "theoretical_minimum": 2,
+        "trail_count": 2,
+        "trails": [
+          [
+            {
+              "gate": "z5",
+              "instance": "inv6_MP",
+              "l_nm": 50,
+              "u": "Q",
+              "v": "VDD",
+              "w_nm": 500
+            },
+            {
+              "gate": "Q",
+              "instance": "inv7_MP",
+              "l_nm": 50,
+              "u": "VDD",
+              "v": "QB",
+              "w_nm": 500
+            },
+            {
+              "gate": "CLK",
+              "instance": "tg4_MP",
+              "l_nm": 50,
+              "u": "QB",
+              "v": "z5",
+              "w_nm": 500
+            },
+            {
+              "gate": "CLKB",
+              "instance": "tg3_MP",
+              "l_nm": 50,
+              "u": "z5",
+              "v": "z4",
+              "w_nm": 500
+            },
+            {
+              "gate": "z2",
+              "instance": "inv5_MP",
+              "l_nm": 50,
+              "u": "z4",
+              "v": "VDD",
+              "w_nm": 500
+            },
+            {
+              "gate": "z2",
+              "instance": "inv4_MP",
+              "l_nm": 50,
+              "u": "VDD",
+              "v": "z3",
+              "w_nm": 500
+            },
+            {
+              "gate": "CLKB",
+              "instance": "tg2_MP",
+              "l_nm": 50,
+              "u": "z3",
+              "v": "z1",
+              "w_nm": 500
+            },
+            {
+              "gate": "CLK",
+              "instance": "tg1_MP",
+              "l_nm": 50,
+              "u": "z1",
+              "v": "D_b",
+              "w_nm": 500
+            },
+            {
+              "gate": "D",
+              "instance": "inv2_D_MP",
+              "l_nm": 50,
+              "u": "D_b",
+              "v": "VDD",
+              "w_nm": 500
+            },
+            {
+              "gate": "z1",
+              "instance": "inv3_MP",
+              "l_nm": 50,
+              "u": "VDD",
+              "v": "z2",
+              "w_nm": 500
+            }
+          ],
+          [
+            {
+              "gate": "CLK",
+              "instance": "inv1_clk_MP",
+              "l_nm": 50,
+              "u": "CLKB",
+              "v": "VDD",
+              "w_nm": 500
+            }
+          ]
+        ],
+        "useful_shared_diffusion": 9
+      }
+    ]
+  },
+  "method": "pair odd-degree vertices with dummy edges, run Euler circuit, split at dummy edges",
+  "topology_preservation": "each non-dummy graph edge appears exactly once per MOS type trail cover"
+}

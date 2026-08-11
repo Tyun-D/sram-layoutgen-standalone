@@ -1,0 +1,351 @@
+{
+  "attempted_candidates": 27,
+  "drc_clean_candidates": 6,
+  "external_standard_cell_library_used": false,
+  "formal_sram_top_modified": false,
+  "graph_summary": {
+    "NMOS": {
+      "connected_components": [
+        [
+          "CLKB",
+          "D_b",
+          "Q",
+          "QB",
+          "VSS",
+          "z1",
+          "z2",
+          "z3",
+          "z4",
+          "z5"
+        ]
+      ],
+      "edges": 11,
+      "edges_detail": [
+        {
+          "drain": "CLKB",
+          "gate": "CLK",
+          "instance": "inv1_clk_MN",
+          "l_nm": 50,
+          "source": "VSS",
+          "u": "VSS",
+          "v": "CLKB",
+          "w_nm": 250
+        },
+        {
+          "drain": "D_b",
+          "gate": "D",
+          "instance": "inv2_D_MN",
+          "l_nm": 50,
+          "source": "VSS",
+          "u": "VSS",
+          "v": "D_b",
+          "w_nm": 250
+        },
+        {
+          "drain": "z2",
+          "gate": "z1",
+          "instance": "inv3_MN",
+          "l_nm": 50,
+          "source": "VSS",
+          "u": "VSS",
+          "v": "z2",
+          "w_nm": 250
+        },
+        {
+          "drain": "z3",
+          "gate": "z2",
+          "instance": "inv4_MN",
+          "l_nm": 50,
+          "source": "VSS",
+          "u": "VSS",
+          "v": "z3",
+          "w_nm": 250
+        },
+        {
+          "drain": "z4",
+          "gate": "z2",
+          "instance": "inv5_MN",
+          "l_nm": 50,
+          "source": "VSS",
+          "u": "VSS",
+          "v": "z4",
+          "w_nm": 250
+        },
+        {
+          "drain": "Q",
+          "gate": "z5",
+          "instance": "inv6_MN",
+          "l_nm": 50,
+          "source": "VSS",
+          "u": "VSS",
+          "v": "Q",
+          "w_nm": 250
+        },
+        {
+          "drain": "QB",
+          "gate": "Q",
+          "instance": "inv7_MN",
+          "l_nm": 50,
+          "source": "VSS",
+          "u": "VSS",
+          "v": "QB",
+          "w_nm": 250
+        },
+        {
+          "drain": "D_b",
+          "gate": "CLKB",
+          "instance": "tg1_MN",
+          "l_nm": 50,
+          "source": "z1",
+          "u": "D_b",
+          "v": "z1",
+          "w_nm": 250
+        },
+        {
+          "drain": "z3",
+          "gate": "CLK",
+          "instance": "tg2_MN",
+          "l_nm": 50,
+          "source": "z1",
+          "u": "z3",
+          "v": "z1",
+          "w_nm": 250
+        },
+        {
+          "drain": "z4",
+          "gate": "CLK",
+          "instance": "tg3_MN",
+          "l_nm": 50,
+          "source": "z5",
+          "u": "z4",
+          "v": "z5",
+          "w_nm": 250
+        },
+        {
+          "drain": "QB",
+          "gate": "CLKB",
+          "instance": "tg4_MN",
+          "l_nm": 50,
+          "source": "z5",
+          "u": "QB",
+          "v": "z5",
+          "w_nm": 250
+        }
+      ],
+      "odd_degree_vertices": [
+        "CLKB",
+        "Q",
+        "VSS",
+        "z2"
+      ],
+      "theoretical_minimum_trail_cover_count": 2,
+      "vertex_degrees": {
+        "CLKB": 1,
+        "D_b": 2,
+        "Q": 1,
+        "QB": 2,
+        "VSS": 7,
+        "z1": 2,
+        "z2": 1,
+        "z3": 2,
+        "z4": 2,
+        "z5": 2
+      },
+      "vertices": 10
+    },
+    "PMOS": {
+      "connected_components": [
+        [
+          "CLKB",
+          "D_b",
+          "Q",
+          "QB",
+          "VDD",
+          "z1",
+          "z2",
+          "z3",
+          "z4",
+          "z5"
+        ]
+      ],
+      "edges": 11,
+      "edges_detail": [
+        {
+          "drain": "CLKB",
+          "gate": "CLK",
+          "instance": "inv1_clk_MP",
+          "l_nm": 50,
+          "source": "VDD",
+          "u": "VDD",
+          "v": "CLKB",
+          "w_nm": 500
+        },
+        {
+          "drain": "D_b",
+          "gate": "D",
+          "instance": "inv2_D_MP",
+          "l_nm": 50,
+          "source": "VDD",
+          "u": "VDD",
+          "v": "D_b",
+          "w_nm": 500
+        },
+        {
+          "drain": "z2",
+          "gate": "z1",
+          "instance": "inv3_MP",
+          "l_nm": 50,
+          "source": "VDD",
+          "u": "VDD",
+          "v": "z2",
+          "w_nm": 500
+        },
+        {
+          "drain": "z3",
+          "gate": "z2",
+          "instance": "inv4_MP",
+          "l_nm": 50,
+          "source": "VDD",
+          "u": "VDD",
+          "v": "z3",
+          "w_nm": 500
+        },
+        {
+          "drain": "z4",
+          "gate": "z2",
+          "instance": "inv5_MP",
+          "l_nm": 50,
+          "source": "VDD",
+          "u": "VDD",
+          "v": "z4",
+          "w_nm": 500
+        },
+        {
+          "drain": "Q",
+          "gate": "z5",
+          "instance": "inv6_MP",
+          "l_nm": 50,
+          "source": "VDD",
+          "u": "VDD",
+          "v": "Q",
+          "w_nm": 500
+        },
+        {
+          "drain": "QB",
+          "gate": "Q",
+          "instance": "inv7_MP",
+          "l_nm": 50,
+          "source": "VDD",
+          "u": "VDD",
+          "v": "QB",
+          "w_nm": 500
+        },
+        {
+          "drain": "z1",
+          "gate": "CLK",
+          "instance": "tg1_MP",
+          "l_nm": 50,
+          "source": "D_b",
+          "u": "D_b",
+          "v": "z1",
+          "w_nm": 500
+        },
+        {
+          "drain": "z1",
+          "gate": "CLKB",
+          "instance": "tg2_MP",
+          "l_nm": 50,
+          "source": "z3",
+          "u": "z3",
+          "v": "z1",
+          "w_nm": 500
+        },
+        {
+          "drain": "z5",
+          "gate": "CLKB",
+          "instance": "tg3_MP",
+          "l_nm": 50,
+          "source": "z4",
+          "u": "z4",
+          "v": "z5",
+          "w_nm": 500
+        },
+        {
+          "drain": "z5",
+          "gate": "CLK",
+          "instance": "tg4_MP",
+          "l_nm": 50,
+          "source": "QB",
+          "u": "QB",
+          "v": "z5",
+          "w_nm": 500
+        }
+      ],
+      "odd_degree_vertices": [
+        "CLKB",
+        "Q",
+        "VDD",
+        "z2"
+      ],
+      "theoretical_minimum_trail_cover_count": 2,
+      "vertex_degrees": {
+        "CLKB": 1,
+        "D_b": 2,
+        "Q": 1,
+        "QB": 2,
+        "VDD": 7,
+        "z1": 2,
+        "z2": 1,
+        "z3": 2,
+        "z4": 2,
+        "z5": 2
+      },
+      "vertices": 10
+    }
+  },
+  "logical_topology_changed": false,
+  "mos_count": 22,
+  "openram_reference_only": true,
+  "pdk_changed": false,
+  "recommended": {
+    "active_island_count": 5,
+    "area": 10.557,
+    "candidate": "DFF_TOPO_SHARED_06_0_TRAIL",
+    "clock_route": 1.585,
+    "contact_count": 27,
+    "diffusion_break_count": 3,
+    "diffusion_break_gap": 0.1,
+    "drc": "PASS",
+    "drc_marker_count": 0,
+    "feedback_route": 11.485,
+    "gate_alignment_count": 3,
+    "gate_pitch": 0.21,
+    "gds": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_openyield_dff_topology_driven_shared_diffusion_cell_synthesis/CANDIDATES/DFF_TOPO_SHARED_06_0_TRAIL/clean.gds",
+    "gds_sha256": "6c5dad9e146a51cdd99e744cf20d8b0988f24566bb02e3909507920432c8fda7",
+    "hard_gate_pass": true,
+    "height": 2.7,
+    "lvs": "NOT_CLAIMED",
+    "n_candidate": "NMOS_TRAIL_2",
+    "nmos_active_island_count": 2,
+    "p_candidate": "PMOS_TRAIL_1",
+    "pin_access": "PASS",
+    "pmos_active_island_count": 3,
+    "post_layout_function": "NOT_CLAIMED",
+    "score": 12.4772,
+    "shared_diffusion_physical_audit": "PASS",
+    "source_schematic_function": "PASS",
+    "topology": "PASS",
+    "total_route": 14.865,
+    "width": 3.91
+  },
+  "status": "PASS_OPENYIELD_DFF_TOPOLOGY_DRIVEN_SHARED_DIFFUSION_CELL_SYNTHESIS",
+  "structural_success": {
+    "active_island_count": 5,
+    "active_islands_removed_vs_22_isolated": 17,
+    "constraint_compaction": "difference-constraint-style pitch/gap sweep plus DRC legalization trace",
+    "physical_diffusion_sharing_exists": true,
+    "pn_gate_alignment_optimized": true,
+    "two_region_architecture_attempted_first": true
+  },
+  "transistor_wl_changed": false
+}

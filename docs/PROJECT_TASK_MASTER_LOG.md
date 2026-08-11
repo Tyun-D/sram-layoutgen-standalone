@@ -765,3 +765,41 @@
 - implemented: diffusion-chain search, BnB/DP search stats, CP-SAT-style placement enumeration, annealing trace, local Steiner/MST routing, and constraint compaction evidence.
 - formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
 - package: `/data1/qujh/PROJECT_OPENYIELD_DFF_ADVANCED_CELLGEN_ALGORITHMS_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `bac947036c0fe04a6f7de5b4e5c39a3614af5c4d2e34b4c7c95c9bee1b88c13f`.
+
+## 2026-08-11T14:40:47.373094+00:00 WORK_START_RULE_AUDIT openyield_dff_topology_driven_shared_diffusion_cell_synthesis
+
+- GLOBAL_RULES_READ: `True`
+- GLOBAL_RULES_SHA: `e11af7a70fa8d99f0ec5a21a99a88df1f0a8b4b45c64499d3dbc1a42b600404d`
+- CURRENT_STATUS_READ: `True`
+- LATEST_MASTER_LOG_READ: `True`
+- OPENYIELD_DFF_AUTHORITY_READ: `True`
+- OPENYIELD_DFF_SOURCE_SHA: `fa5277f078f79d5b43335c2dcd6e364625aa8ad17b7108d323b85e73dfeaae80`
+- objective: `PASS_OPENYIELD_DFF_TOPOLOGY_DRIVEN_SHARED_DIFFUSION_CELL_SYNTHESIS`
+
+## 2026-08-11T14:47:03.397986+00:00 openyield_dff_topology_driven_shared_diffusion_cell_synthesis
+
+- result: `BLOCKED_OPENYIELD_DFF_TOPOLOGY_DRIVEN_SHARED_DIFFUSION_NO_DRC_CLEAN_CANDIDATE`
+- implemented: global diffusion graphs, minimum trail-cover search, P/N gate alignment, continuous shared ACTIVE chain geometry, contact-node utilization, DRC and schematic functional gates.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_OPENYIELD_DFF_TOPOLOGY_DRIVEN_SHARED_DIFFUSION_CELL_SYNTHESIS_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `c1fa84b786c88290d7b16c4259378e4f708f5c50d4f0d5063c65fda4aa2038a7`.
+
+## 2026-08-11T14:48:36.368227+00:00 openyield_dff_topology_driven_shared_diffusion_cell_synthesis
+
+- result: `BLOCKED_OPENYIELD_DFF_TOPOLOGY_DRIVEN_SHARED_DIFFUSION_NO_DRC_CLEAN_CANDIDATE`
+- implemented: global diffusion graphs, minimum trail-cover search, P/N gate alignment, continuous shared ACTIVE chain geometry, contact-node utilization, DRC and schematic functional gates.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_OPENYIELD_DFF_TOPOLOGY_DRIVEN_SHARED_DIFFUSION_CELL_SYNTHESIS_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `57bdf89dc6e1da101ac80dede531e5fd7782015002db3b4005d4edfd71f7ea3b`.
+
+## 2026-08-11T14:50:10.361120+00:00 openyield_dff_topology_driven_shared_diffusion_cell_synthesis
+
+- result: `PASS_OPENYIELD_DFF_TOPOLOGY_DRIVEN_SHARED_DIFFUSION_CELL_SYNTHESIS`
+- implemented: global diffusion graphs, minimum trail-cover search, P/N gate alignment, continuous shared ACTIVE chain geometry, contact-node utilization, DRC and schematic functional gates.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_OPENYIELD_DFF_TOPOLOGY_DRIVEN_SHARED_DIFFUSION_CELL_SYNTHESIS_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `f399da0683feb9f1bc6d2a2fe4c3537e40a0e4b9af8b6f1a64602f54c2345716`.
+
+## 2026-08-11T14:52:10.264135+00:00 openyield_dff_topology_driven_shared_diffusion_cell_synthesis
+
+- result: `PASS_OPENYIELD_DFF_TOPOLOGY_DRIVEN_SHARED_DIFFUSION_CELL_SYNTHESIS`
+- implemented: global diffusion graphs, minimum trail-cover search, P/N gate alignment, continuous shared ACTIVE chain geometry, contact-node utilization, DRC and schematic functional gates.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_OPENYIELD_DFF_TOPOLOGY_DRIVEN_SHARED_DIFFUSION_CELL_SYNTHESIS_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `67af4afd97acb7a58c742033aa7edab7597bd473f4890fced8812171dbdb435c`.
