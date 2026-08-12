@@ -43,6 +43,26 @@
     "technology_db_drc_consistency_gate": "PASS",
     "technology_db_implementation_gate": "PASS"
   },
+  "cellsynth_v2_local_router_kernel_microbench": {
+    "gates": {
+      "ACCESS_ENUMERATION_GATE": "PASS",
+      "DX14P80_ROUTING_REPAIR_GATE": "FAIL",
+      "INV2_GATE": "PASS",
+      "LATCH_GATE": "PASS",
+      "LOCAL_ROUTER_IMPLEMENTATION_GATE": "PASS",
+      "MULTITERMINAL_CONNECTIVITY_GATE": "PASS",
+      "NAND2_GATE": "PASS",
+      "ORACLE_COUNTEREXAMPLE_RECORDING_GATE": "PASS",
+      "ORACLE_FEEDBACK_EFFECT_GATE": "FAIL_NOT_DEMONSTRATED_ON_DX14P80",
+      "PN_MICROBENCHMARK_GATE": "PASS",
+      "ROUTING_RESOURCE_VARIABILITY_GATE": "PASS",
+      "TECHDB_CONFLICT_GRAPH_GATE": "PASS",
+      "TG_INV_GATE": "PASS"
+    },
+    "package": "/data1/qujh/PROJECT_CELLSYNTH_V2_LOCAL_ROUTER_KERNEL_AND_MICROBENCHMARK_CLOSURE_REVIEW_PACKAGE_LATEST.tar.gz",
+    "package_sha256": "a2b18368f61be304a3b504345c81bd8260951b1e45696851ab981069600e6f33",
+    "status": "BLOCKED_CELLSYNTH_V2_LOCAL_ROUTER_KERNEL_AND_MICROBENCHMARK_CLOSURE"
+  },
   "cellsynth_v2_pn_column_routing_foundation": {
     "gates": {
       "COOPT_V1_GATE_REINTERPRETATION": "PASS",
@@ -76,12 +96,12 @@
   "compactness_constraint": "CLOSED_FOR_FLOORPLAN_REVIEW",
   "control_block_physical_authority": "READY",
   "control_physical_architecture": "IN_CONTEXT_CONTROL_CLUSTERS_ROUTED",
-  "current_git_head": "753313acc920b31ce5424c8a0d9aaddbd3ef7fd6",
+  "current_git_head": "PENDING_COMMIT",
   "current_normalized_rc_max_over_median": 1.4617223037,
   "current_proxy_max_arrival_skew_ps": 0.15823,
   "current_proxy_slew_ratio": 1.0099272309,
   "current_rc_evidence": "NORMALIZED_GEOMETRY_RC_PROXY",
-  "current_status": "BLOCKED_CELLSYNTH_V2_PN_COLUMN_ROUTING_COOPT_FOUNDATION",
+  "current_status": "BLOCKED_CELLSYNTH_V2_LOCAL_ROUTER_KERNEL_AND_MICROBENCHMARK_CLOSURE",
   "decoder_hierarchical_floorplan": {
     "candidate_count": 0,
     "child_v3_pareto_path": "docs/DECODER_CHILD_V3_PARETO_SET.json",

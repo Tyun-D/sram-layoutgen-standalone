@@ -1,0 +1,42 @@
+{
+  "DRC": "DRC_FAIL",
+  "DRC_markers": 4,
+  "LVS": "LVS_COMPARE_FAIL",
+  "Level1": "PASS",
+  "allowed_changes": [
+    "terminal access selection",
+    "M1 geometry",
+    "VIA1",
+    "M2 track/access",
+    "VIA2",
+    "M3 route topology",
+    "external pin route"
+  ],
+  "candidate": "DFF_V2_DX14P80_LOCAL_ROUTER_REBUILD",
+  "conflict_model": {
+    "TECHDB_CONFLICT_GRAPH_GATE": "PASS",
+    "conditional_METAL2_5_modeled": true,
+    "conflict_pairs": []
+  },
+  "experiment": "DX14P80_FIXED_DEVICE_ROUTE_ONLY_REBUILD",
+  "extracted_mos_count": 22,
+  "extracted_pins": [
+    "CLK,D",
+    "Q",
+    "VDD",
+    "VSS"
+  ],
+  "failure_class": "ROUTE_ONLY_REBUILD_DID_NOT_CLOSE_DX14P80",
+  "forbidden_changes": [
+    "PMOS transistor coordinates",
+    "NMOS transistor coordinates",
+    "ACTIVE geometry",
+    "POLY gate coordinates",
+    "nmos_dx"
+  ],
+  "frozen_transistor_coordinates": true,
+  "nmos_dx": 14.8,
+  "pmos_nmos_overlap_x": 0.1999999999999993,
+  "result": "FAIL",
+  "router_conflict_pairs": 0
+}

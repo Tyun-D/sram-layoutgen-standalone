@@ -1,0 +1,13 @@
+{
+  "LOCAL_ROUTER_IMPLEMENTATION_GATE": "PASS",
+  "pipeline": [
+    "access enumeration",
+    "resource graph construction",
+    "track assignment",
+    "connectivity solve",
+    "conflict solve",
+    "external DRC",
+    "external LVS"
+  ],
+  "uses_fixed_global_template": false
+}

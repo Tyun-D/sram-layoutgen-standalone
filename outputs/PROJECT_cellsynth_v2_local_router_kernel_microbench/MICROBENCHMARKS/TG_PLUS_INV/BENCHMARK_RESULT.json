@@ -1,0 +1,1406 @@
+{
+  "DRC": "DRC_PASS",
+  "DRC_markers": 0,
+  "LVS": "LVS_PASS",
+  "Level1": "PASS",
+  "access_candidates": 36,
+  "conflict_pairs": 0,
+  "gate": "PASS",
+  "gds": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_local_router_kernel_microbench/MICROBENCHMARKS/TG_PLUS_INV/TG_PLUS_INV.gds",
+  "gds_sha256": "6119140f312bab6394d2026369d40936283b801d3d6e74fe73ec954eb1751dd1",
+  "name": "TG_PLUS_INV",
+  "paired_column_count": 2,
+  "resource_counts": {
+    "contacts": 14,
+    "m2_length": 35.07000000000001,
+    "m3_length": 22.430000000000003,
+    "via1": 18,
+    "via2": 18
+  },
+  "router": {
+    "access_candidates": [
+      {
+        "TechnologyDB_legality": "SOURCE_BACKED_BY_EXTERNAL_DRC_AFTER_EXPORT",
+        "access_id": "acc_P0_S_primary",
+        "coordinate": [
+          0.77,
+          7.0
+        ],
+        "local_routing_directions": [
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "D",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "ACTIVE_ACCESS",
+        "terminal_id": "P0_S"
+      },
+      {
+        "TechnologyDB_legality": "CANDIDATE_ONLY_NOT_SELECTED_IN_PRIMARY_ROUTE",
+        "access_id": "acc_P0_S_alternate_shifted",
+        "coordinate": [
+          0.97,
+          7.0
+        ],
+        "local_routing_directions": [
+          "short_m1_escape",
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "D",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "ACTIVE_ACCESS",
+        "terminal_id": "P0_S"
+      },
+      {
+        "TechnologyDB_legality": "SOURCE_BACKED_BY_EXTERNAL_DRC_AFTER_EXPORT",
+        "access_id": "acc_P0_D_primary",
+        "coordinate": [
+          1.63,
+          7.0
+        ],
+        "local_routing_directions": [
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "X",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "ACTIVE_ACCESS",
+        "terminal_id": "P0_D"
+      },
+      {
+        "TechnologyDB_legality": "CANDIDATE_ONLY_NOT_SELECTED_IN_PRIMARY_ROUTE",
+        "access_id": "acc_P0_D_alternate_shifted",
+        "coordinate": [
+          1.83,
+          7.0
+        ],
+        "local_routing_directions": [
+          "short_m1_escape",
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "X",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "ACTIVE_ACCESS",
+        "terminal_id": "P0_D"
+      },
+      {
+        "TechnologyDB_legality": "SOURCE_BACKED_BY_EXTERNAL_DRC_AFTER_EXPORT",
+        "access_id": "acc_P0_G_primary",
+        "coordinate": [
+          1.2,
+          6.53
+        ],
+        "local_routing_directions": [
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "CLKB",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "POLY_ACCESS",
+        "terminal_id": "P0_G"
+      },
+      {
+        "TechnologyDB_legality": "CANDIDATE_ONLY_NOT_SELECTED_IN_PRIMARY_ROUTE",
+        "access_id": "acc_P0_G_alternate_shifted",
+        "coordinate": [
+          1.4,
+          6.53
+        ],
+        "local_routing_directions": [
+          "short_m1_escape",
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "CLKB",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "POLY_ACCESS",
+        "terminal_id": "P0_G"
+      },
+      {
+        "TechnologyDB_legality": "SOURCE_BACKED_BY_EXTERNAL_DRC_AFTER_EXPORT",
+        "access_id": "acc_P1_S_primary",
+        "coordinate": [
+          2.27,
+          7.0
+        ],
+        "local_routing_directions": [
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "VDD",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "ACTIVE_ACCESS",
+        "terminal_id": "P1_S"
+      },
+      {
+        "TechnologyDB_legality": "CANDIDATE_ONLY_NOT_SELECTED_IN_PRIMARY_ROUTE",
+        "access_id": "acc_P1_S_alternate_shifted",
+        "coordinate": [
+          2.47,
+          7.0
+        ],
+        "local_routing_directions": [
+          "short_m1_escape",
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "VDD",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "ACTIVE_ACCESS",
+        "terminal_id": "P1_S"
+      },
+      {
+        "TechnologyDB_legality": "SOURCE_BACKED_BY_EXTERNAL_DRC_AFTER_EXPORT",
+        "access_id": "acc_P1_D_primary",
+        "coordinate": [
+          3.1300000000000003,
+          7.0
+        ],
+        "local_routing_directions": [
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "Y",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "ACTIVE_ACCESS",
+        "terminal_id": "P1_D"
+      },
+      {
+        "TechnologyDB_legality": "CANDIDATE_ONLY_NOT_SELECTED_IN_PRIMARY_ROUTE",
+        "access_id": "acc_P1_D_alternate_shifted",
+        "coordinate": [
+          3.33,
+          7.0
+        ],
+        "local_routing_directions": [
+          "short_m1_escape",
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "Y",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "ACTIVE_ACCESS",
+        "terminal_id": "P1_D"
+      },
+      {
+        "TechnologyDB_legality": "SOURCE_BACKED_BY_EXTERNAL_DRC_AFTER_EXPORT",
+        "access_id": "acc_P1_G_primary",
+        "coordinate": [
+          2.7,
+          6.53
+        ],
+        "local_routing_directions": [
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "X",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "POLY_ACCESS",
+        "terminal_id": "P1_G"
+      },
+      {
+        "TechnologyDB_legality": "CANDIDATE_ONLY_NOT_SELECTED_IN_PRIMARY_ROUTE",
+        "access_id": "acc_P1_G_alternate_shifted",
+        "coordinate": [
+          2.9,
+          6.53
+        ],
+        "local_routing_directions": [
+          "short_m1_escape",
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "X",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "POLY_ACCESS",
+        "terminal_id": "P1_G"
+      },
+      {
+        "TechnologyDB_legality": "SOURCE_BACKED_BY_EXTERNAL_DRC_AFTER_EXPORT",
+        "access_id": "acc_N0_S_primary",
+        "coordinate": [
+          0.77,
+          2.0
+        ],
+        "local_routing_directions": [
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "D",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "ACTIVE_ACCESS",
+        "terminal_id": "N0_S"
+      },
+      {
+        "TechnologyDB_legality": "CANDIDATE_ONLY_NOT_SELECTED_IN_PRIMARY_ROUTE",
+        "access_id": "acc_N0_S_alternate_shifted",
+        "coordinate": [
+          0.97,
+          2.0
+        ],
+        "local_routing_directions": [
+          "short_m1_escape",
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "D",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "ACTIVE_ACCESS",
+        "terminal_id": "N0_S"
+      },
+      {
+        "TechnologyDB_legality": "SOURCE_BACKED_BY_EXTERNAL_DRC_AFTER_EXPORT",
+        "access_id": "acc_N0_D_primary",
+        "coordinate": [
+          1.63,
+          2.0
+        ],
+        "local_routing_directions": [
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "X",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "ACTIVE_ACCESS",
+        "terminal_id": "N0_D"
+      },
+      {
+        "TechnologyDB_legality": "CANDIDATE_ONLY_NOT_SELECTED_IN_PRIMARY_ROUTE",
+        "access_id": "acc_N0_D_alternate_shifted",
+        "coordinate": [
+          1.83,
+          2.0
+        ],
+        "local_routing_directions": [
+          "short_m1_escape",
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "X",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "ACTIVE_ACCESS",
+        "terminal_id": "N0_D"
+      },
+      {
+        "TechnologyDB_legality": "SOURCE_BACKED_BY_EXTERNAL_DRC_AFTER_EXPORT",
+        "access_id": "acc_N0_G_primary",
+        "coordinate": [
+          1.2,
+          2.345
+        ],
+        "local_routing_directions": [
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "CLK",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "POLY_ACCESS",
+        "terminal_id": "N0_G"
+      },
+      {
+        "TechnologyDB_legality": "CANDIDATE_ONLY_NOT_SELECTED_IN_PRIMARY_ROUTE",
+        "access_id": "acc_N0_G_alternate_shifted",
+        "coordinate": [
+          1.4,
+          2.345
+        ],
+        "local_routing_directions": [
+          "short_m1_escape",
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "CLK",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "POLY_ACCESS",
+        "terminal_id": "N0_G"
+      },
+      {
+        "TechnologyDB_legality": "SOURCE_BACKED_BY_EXTERNAL_DRC_AFTER_EXPORT",
+        "access_id": "acc_N1_S_primary",
+        "coordinate": [
+          2.27,
+          2.0
+        ],
+        "local_routing_directions": [
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "VSS",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "ACTIVE_ACCESS",
+        "terminal_id": "N1_S"
+      },
+      {
+        "TechnologyDB_legality": "CANDIDATE_ONLY_NOT_SELECTED_IN_PRIMARY_ROUTE",
+        "access_id": "acc_N1_S_alternate_shifted",
+        "coordinate": [
+          2.47,
+          2.0
+        ],
+        "local_routing_directions": [
+          "short_m1_escape",
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "VSS",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "ACTIVE_ACCESS",
+        "terminal_id": "N1_S"
+      },
+      {
+        "TechnologyDB_legality": "SOURCE_BACKED_BY_EXTERNAL_DRC_AFTER_EXPORT",
+        "access_id": "acc_N1_D_primary",
+        "coordinate": [
+          3.1300000000000003,
+          2.0
+        ],
+        "local_routing_directions": [
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "Y",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "ACTIVE_ACCESS",
+        "terminal_id": "N1_D"
+      },
+      {
+        "TechnologyDB_legality": "CANDIDATE_ONLY_NOT_SELECTED_IN_PRIMARY_ROUTE",
+        "access_id": "acc_N1_D_alternate_shifted",
+        "coordinate": [
+          3.33,
+          2.0
+        ],
+        "local_routing_directions": [
+          "short_m1_escape",
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "Y",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "ACTIVE_ACCESS",
+        "terminal_id": "N1_D"
+      },
+      {
+        "TechnologyDB_legality": "SOURCE_BACKED_BY_EXTERNAL_DRC_AFTER_EXPORT",
+        "access_id": "acc_N1_G_primary",
+        "coordinate": [
+          2.7,
+          2.345
+        ],
+        "local_routing_directions": [
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "X",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "POLY_ACCESS",
+        "terminal_id": "N1_G"
+      },
+      {
+        "TechnologyDB_legality": "CANDIDATE_ONLY_NOT_SELECTED_IN_PRIMARY_ROUTE",
+        "access_id": "acc_N1_G_alternate_shifted",
+        "coordinate": [
+          2.9,
+          2.345
+        ],
+        "local_routing_directions": [
+          "short_m1_escape",
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "X",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "POLY_ACCESS",
+        "terminal_id": "N1_G"
+      },
+      {
+        "TechnologyDB_legality": "SOURCE_BACKED_BY_EXTERNAL_DRC_AFTER_EXPORT",
+        "access_id": "acc_body_tie_PMOS_VDD_primary",
+        "coordinate": [
+          0.1,
+          7.0
+        ],
+        "local_routing_directions": [
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "VDD",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "BODY_TIE",
+        "terminal_id": "body_tie_PMOS_VDD"
+      },
+      {
+        "TechnologyDB_legality": "CANDIDATE_ONLY_NOT_SELECTED_IN_PRIMARY_ROUTE",
+        "access_id": "acc_body_tie_PMOS_VDD_alternate_shifted",
+        "coordinate": [
+          0.3,
+          7.0
+        ],
+        "local_routing_directions": [
+          "short_m1_escape",
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "VDD",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "BODY_TIE",
+        "terminal_id": "body_tie_PMOS_VDD"
+      },
+      {
+        "TechnologyDB_legality": "SOURCE_BACKED_BY_EXTERNAL_DRC_AFTER_EXPORT",
+        "access_id": "acc_P0_B_primary",
+        "coordinate": [
+          0.1,
+          7.0
+        ],
+        "local_routing_directions": [
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "VDD",
+        "physical_conductor": "m1",
+        "required_contact": false,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "BODY_ACCESS",
+        "terminal_id": "P0_B"
+      },
+      {
+        "TechnologyDB_legality": "CANDIDATE_ONLY_NOT_SELECTED_IN_PRIMARY_ROUTE",
+        "access_id": "acc_P0_B_alternate_shifted",
+        "coordinate": [
+          0.3,
+          7.0
+        ],
+        "local_routing_directions": [
+          "short_m1_escape",
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "VDD",
+        "physical_conductor": "m1",
+        "required_contact": false,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "BODY_ACCESS",
+        "terminal_id": "P0_B"
+      },
+      {
+        "TechnologyDB_legality": "SOURCE_BACKED_BY_EXTERNAL_DRC_AFTER_EXPORT",
+        "access_id": "acc_P1_B_primary",
+        "coordinate": [
+          0.1,
+          7.0
+        ],
+        "local_routing_directions": [
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "VDD",
+        "physical_conductor": "m1",
+        "required_contact": false,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "BODY_ACCESS",
+        "terminal_id": "P1_B"
+      },
+      {
+        "TechnologyDB_legality": "CANDIDATE_ONLY_NOT_SELECTED_IN_PRIMARY_ROUTE",
+        "access_id": "acc_P1_B_alternate_shifted",
+        "coordinate": [
+          0.3,
+          7.0
+        ],
+        "local_routing_directions": [
+          "short_m1_escape",
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "VDD",
+        "physical_conductor": "m1",
+        "required_contact": false,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "BODY_ACCESS",
+        "terminal_id": "P1_B"
+      },
+      {
+        "TechnologyDB_legality": "SOURCE_BACKED_BY_EXTERNAL_DRC_AFTER_EXPORT",
+        "access_id": "acc_body_tie_NMOS_VSS_primary",
+        "coordinate": [
+          0.1,
+          2.0
+        ],
+        "local_routing_directions": [
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "VSS",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "BODY_TIE",
+        "terminal_id": "body_tie_NMOS_VSS"
+      },
+      {
+        "TechnologyDB_legality": "CANDIDATE_ONLY_NOT_SELECTED_IN_PRIMARY_ROUTE",
+        "access_id": "acc_body_tie_NMOS_VSS_alternate_shifted",
+        "coordinate": [
+          0.3,
+          2.0
+        ],
+        "local_routing_directions": [
+          "short_m1_escape",
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "VSS",
+        "physical_conductor": "m1",
+        "required_contact": true,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "BODY_TIE",
+        "terminal_id": "body_tie_NMOS_VSS"
+      },
+      {
+        "TechnologyDB_legality": "SOURCE_BACKED_BY_EXTERNAL_DRC_AFTER_EXPORT",
+        "access_id": "acc_N0_B_primary",
+        "coordinate": [
+          0.1,
+          2.0
+        ],
+        "local_routing_directions": [
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "VSS",
+        "physical_conductor": "m1",
+        "required_contact": false,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "BODY_ACCESS",
+        "terminal_id": "N0_B"
+      },
+      {
+        "TechnologyDB_legality": "CANDIDATE_ONLY_NOT_SELECTED_IN_PRIMARY_ROUTE",
+        "access_id": "acc_N0_B_alternate_shifted",
+        "coordinate": [
+          0.3,
+          2.0
+        ],
+        "local_routing_directions": [
+          "short_m1_escape",
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "VSS",
+        "physical_conductor": "m1",
+        "required_contact": false,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "BODY_ACCESS",
+        "terminal_id": "N0_B"
+      },
+      {
+        "TechnologyDB_legality": "SOURCE_BACKED_BY_EXTERNAL_DRC_AFTER_EXPORT",
+        "access_id": "acc_N1_B_primary",
+        "coordinate": [
+          0.1,
+          2.0
+        ],
+        "local_routing_directions": [
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "VSS",
+        "physical_conductor": "m1",
+        "required_contact": false,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "BODY_ACCESS",
+        "terminal_id": "N1_B"
+      },
+      {
+        "TechnologyDB_legality": "CANDIDATE_ONLY_NOT_SELECTED_IN_PRIMARY_ROUTE",
+        "access_id": "acc_N1_B_alternate_shifted",
+        "coordinate": [
+          0.3,
+          2.0
+        ],
+        "local_routing_directions": [
+          "short_m1_escape",
+          "vertical_m2_access",
+          "horizontal_m3_trunk"
+        ],
+        "net": "VSS",
+        "physical_conductor": "m1",
+        "required_contact": false,
+        "required_via1": true,
+        "required_via2": true,
+        "terminal_class": "BODY_ACCESS",
+        "terminal_id": "N1_B"
+      }
+    ],
+    "conflict_model": {
+      "TECHDB_CONFLICT_GRAPH_GATE": "PASS",
+      "conditional_METAL2_5_modeled": true,
+      "conflict_pairs": []
+    },
+    "resource_map": [
+      {
+        "geometry": [
+          -0.15,
+          8.6,
+          2.52,
+          8.6
+        ],
+        "net": "VDD",
+        "resource_id": "m3_trunk_VDD",
+        "type": "M3_SEGMENT"
+      },
+      {
+        "geometry": [
+          2.27,
+          7.0,
+          2.27,
+          8.6
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_P1_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          2.27,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_P1_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          2.27,
+          8.6
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_P1_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0,
+          0.1,
+          8.6
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_body_tie_PMOS_VDD",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_body_tie_PMOS_VDD",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.1,
+          8.6
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_body_tie_PMOS_VDD",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0,
+          0.1,
+          8.6
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_P0_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_P0_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.1,
+          8.6
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_P0_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0,
+          0.1,
+          8.6
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_P1_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_P1_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.1,
+          8.6
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_P1_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.52,
+          6.35,
+          1.02,
+          6.35
+        ],
+        "net": "D",
+        "resource_id": "m3_trunk_D",
+        "type": "M3_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.77,
+          7.0,
+          0.77,
+          6.35
+        ],
+        "net": "D",
+        "resource_id": "m2_access_D_P0_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.77,
+          7.0
+        ],
+        "net": "D",
+        "resource_id": "via1_D_P0_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.77,
+          6.35
+        ],
+        "net": "D",
+        "resource_id": "via2_D_P0_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.77,
+          2.0,
+          0.77,
+          6.35
+        ],
+        "net": "D",
+        "resource_id": "m2_access_D_N0_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.77,
+          2.0
+        ],
+        "net": "D",
+        "resource_id": "via1_D_N0_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.77,
+          6.35
+        ],
+        "net": "D",
+        "resource_id": "via2_D_N0_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.95,
+          5.85,
+          1.45,
+          5.85
+        ],
+        "net": "CLK",
+        "resource_id": "m3_trunk_CLK",
+        "type": "M3_SEGMENT"
+      },
+      {
+        "geometry": [
+          1.2,
+          2.345,
+          1.2,
+          5.85
+        ],
+        "net": "CLK",
+        "resource_id": "m2_access_CLK_N0_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          1.2,
+          2.345
+        ],
+        "net": "CLK",
+        "resource_id": "via1_CLK_N0_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          1.2,
+          5.85
+        ],
+        "net": "CLK",
+        "resource_id": "via2_CLK_N0_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          1.67,
+          5.35,
+          2.17,
+          5.35
+        ],
+        "net": "CLKB",
+        "resource_id": "m3_trunk_CLKB",
+        "type": "M3_SEGMENT"
+      },
+      {
+        "geometry": [
+          1.2,
+          6.53,
+          1.92,
+          6.53
+        ],
+        "net": "CLKB",
+        "resource_id": "m1_escape_CLKB_P0_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          1.92,
+          6.53,
+          1.92,
+          5.35
+        ],
+        "net": "CLKB",
+        "resource_id": "m2_access_CLKB_P0_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          1.92,
+          6.53
+        ],
+        "net": "CLKB",
+        "resource_id": "via1_CLKB_P0_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          1.92,
+          5.35
+        ],
+        "net": "CLKB",
+        "resource_id": "via2_CLKB_P0_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          1.38,
+          4.75,
+          2.95,
+          4.75
+        ],
+        "net": "X",
+        "resource_id": "m3_trunk_X",
+        "type": "M3_SEGMENT"
+      },
+      {
+        "geometry": [
+          1.63,
+          7.0,
+          1.63,
+          4.75
+        ],
+        "net": "X",
+        "resource_id": "m2_access_X_P0_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          1.63,
+          7.0
+        ],
+        "net": "X",
+        "resource_id": "via1_X_P0_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          1.63,
+          4.75
+        ],
+        "net": "X",
+        "resource_id": "via2_X_P0_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          2.7,
+          6.53,
+          2.7,
+          4.75
+        ],
+        "net": "X",
+        "resource_id": "m2_access_X_P1_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          2.7,
+          6.53
+        ],
+        "net": "X",
+        "resource_id": "via1_X_P1_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          2.7,
+          4.75
+        ],
+        "net": "X",
+        "resource_id": "via2_X_P1_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          1.63,
+          2.0,
+          1.63,
+          4.75
+        ],
+        "net": "X",
+        "resource_id": "m2_access_X_N0_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          1.63,
+          2.0
+        ],
+        "net": "X",
+        "resource_id": "via1_X_N0_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          1.63,
+          4.75
+        ],
+        "net": "X",
+        "resource_id": "via2_X_N0_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          2.7,
+          2.345,
+          2.7,
+          4.75
+        ],
+        "net": "X",
+        "resource_id": "m2_access_X_N1_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          2.7,
+          2.345
+        ],
+        "net": "X",
+        "resource_id": "via1_X_N1_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          2.7,
+          4.75
+        ],
+        "net": "X",
+        "resource_id": "via2_X_N1_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          2.8800000000000003,
+          4.2,
+          3.3800000000000003,
+          4.2
+        ],
+        "net": "Y",
+        "resource_id": "m3_trunk_Y",
+        "type": "M3_SEGMENT"
+      },
+      {
+        "geometry": [
+          3.1300000000000003,
+          7.0,
+          3.1300000000000003,
+          4.2
+        ],
+        "net": "Y",
+        "resource_id": "m2_access_Y_P1_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          3.1300000000000003,
+          7.0
+        ],
+        "net": "Y",
+        "resource_id": "via1_Y_P1_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          3.1300000000000003,
+          4.2
+        ],
+        "net": "Y",
+        "resource_id": "via2_Y_P1_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          3.1300000000000003,
+          2.0,
+          3.1300000000000003,
+          4.2
+        ],
+        "net": "Y",
+        "resource_id": "m2_access_Y_N1_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          3.1300000000000003,
+          2.0
+        ],
+        "net": "Y",
+        "resource_id": "via1_Y_N1_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          3.1300000000000003,
+          4.2
+        ],
+        "net": "Y",
+        "resource_id": "via2_Y_N1_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          -0.15,
+          0.8,
+          2.52,
+          0.8
+        ],
+        "net": "VSS",
+        "resource_id": "m3_trunk_VSS",
+        "type": "M3_SEGMENT"
+      },
+      {
+        "geometry": [
+          2.27,
+          2.0,
+          2.27,
+          0.8
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_N1_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          2.27,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_N1_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          2.27,
+          0.8
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_N1_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          2.0,
+          0.1,
+          0.8
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_body_tie_NMOS_VSS",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.1,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_body_tie_NMOS_VSS",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.1,
+          0.8
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_body_tie_NMOS_VSS",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          2.0,
+          0.1,
+          0.8
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_N0_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.1,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_N0_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.1,
+          0.8
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_N0_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          2.0,
+          0.1,
+          0.8
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_N1_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.1,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_N1_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.1,
+          0.8
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_N1_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          3.83,
+          8.6
+        ],
+        "net": "VDD",
+        "resource_id": "pin_VDD",
+        "type": "PIN_ACCESS"
+      },
+      {
+        "geometry": [
+          3.83,
+          0.8
+        ],
+        "net": "VSS",
+        "resource_id": "pin_VSS",
+        "type": "PIN_ACCESS"
+      },
+      {
+        "geometry": [
+          3.83,
+          6.35
+        ],
+        "net": "D",
+        "resource_id": "pin_D",
+        "type": "PIN_ACCESS"
+      },
+      {
+        "geometry": [
+          3.83,
+          5.85
+        ],
+        "net": "CLK",
+        "resource_id": "pin_CLK",
+        "type": "PIN_ACCESS"
+      },
+      {
+        "geometry": [
+          3.83,
+          5.35
+        ],
+        "net": "CLKB",
+        "resource_id": "pin_CLKB",
+        "type": "PIN_ACCESS"
+      },
+      {
+        "geometry": [
+          3.83,
+          4.2
+        ],
+        "net": "Y",
+        "resource_id": "pin_Y",
+        "type": "PIN_ACCESS"
+      }
+    ],
+    "tracks": {
+      "CLK": 5.85,
+      "CLKB": 5.35,
+      "D": 6.35,
+      "VDD": 8.6,
+      "VSS": 0.8,
+      "X": 4.75,
+      "Y": 4.2
+    }
+  }
+}

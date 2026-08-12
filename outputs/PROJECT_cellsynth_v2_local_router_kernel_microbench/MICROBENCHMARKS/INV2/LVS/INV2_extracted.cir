@@ -1,0 +1,16 @@
+
+* cell INV2
+* pin Y
+* pin A
+* pin VDD
+* pin VSS
+.SUBCKT INV2 1 2 3 4
+* net 1 Y
+* net 2 A
+* net 3 VDD
+* net 4 VSS
+* device instance $1 r0 *1 1.2,7 PMOS_VTG
+M$1 1 2 3 3 PMOS_VTG L=0.05U W=0.5U AS=0.2875P AD=0.2875P PS=2.15U PD=2.15U
+* device instance $2 r0 *1 1.2,2 NMOS_VTG
+M$2 1 2 4 4 NMOS_VTG L=0.05U W=0.25U AS=0.14375P AD=0.14375P PS=1.65U PD=1.65U
+.ENDS INV2
