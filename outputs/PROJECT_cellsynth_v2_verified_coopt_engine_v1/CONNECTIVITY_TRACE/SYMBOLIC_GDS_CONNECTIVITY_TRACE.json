@@ -1,0 +1,6268 @@
+{
+  "SYMBOLIC_GDS_BIJECTION_GATE": "PASS",
+  "bijective_traceability_policy": "Every generated electrical route/contact/via/pin/device resource is recorded with a symbolic id and GDS layer/datatype. GDS-only well/implant enclosure polygons are derived non-conductive support geometry and are separately audited.",
+  "candidate": "DFF_V2_COOPT_S1_P1p50_DX17p00_B0p42",
+  "gds_polygon_counts_by_layer": {
+    "active": 24,
+    "contact": 68,
+    "m1": 158,
+    "m2": 270,
+    "m3": 108,
+    "poly": 22,
+    "via1": 90,
+    "via2": 90
+  },
+  "physical_connectivity_graph": {
+    "m1_m2_requires_via1": true,
+    "m2_m3_requires_via2": true,
+    "node_resource_classes": [
+      "ACTIVE",
+      "CONTACT",
+      "M1",
+      "M2",
+      "M3",
+      "PIN",
+      "POLY",
+      "VIA1",
+      "VIA2"
+    ]
+  },
+  "resource_count": 337,
+  "resources": [
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD",
+        "CLKB"
+      ],
+      "coordinates": [
+        0.6,
+        6.75,
+        1.7999999999999998,
+        7.25
+      ],
+      "geometry_id": 1,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Minv1_clk_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Minv1_clk_MP:G"
+      ],
+      "coordinates": [
+        1.175,
+        6.47,
+        1.2249999999999999,
+        7.53
+      ],
+      "geometry_id": 2,
+      "layer": "POLY",
+      "net": "CLK",
+      "symbolic_resource_id": "poly_Minv1_clk_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD",
+        "D_b"
+      ],
+      "coordinates": [
+        2.1,
+        6.75,
+        3.3000000000000003,
+        7.25
+      ],
+      "geometry_id": 3,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Minv2_D_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Minv2_D_MP:G"
+      ],
+      "coordinates": [
+        2.6750000000000003,
+        6.47,
+        2.725,
+        7.53
+      ],
+      "geometry_id": 4,
+      "layer": "POLY",
+      "net": "D",
+      "symbolic_resource_id": "poly_Minv2_D_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD",
+        "z2"
+      ],
+      "coordinates": [
+        3.6,
+        6.75,
+        4.8,
+        7.25
+      ],
+      "geometry_id": 5,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Minv3_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Minv3_MP:G"
+      ],
+      "coordinates": [
+        4.175,
+        6.47,
+        4.2250000000000005,
+        7.53
+      ],
+      "geometry_id": 6,
+      "layer": "POLY",
+      "net": "z1",
+      "symbolic_resource_id": "poly_Minv3_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD",
+        "z3"
+      ],
+      "coordinates": [
+        5.1000000000000005,
+        6.75,
+        6.3,
+        7.25
+      ],
+      "geometry_id": 7,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Minv4_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Minv4_MP:G"
+      ],
+      "coordinates": [
+        5.675,
+        6.47,
+        5.7250000000000005,
+        7.53
+      ],
+      "geometry_id": 8,
+      "layer": "POLY",
+      "net": "z2",
+      "symbolic_resource_id": "poly_Minv4_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD",
+        "z4"
+      ],
+      "coordinates": [
+        6.6000000000000005,
+        6.75,
+        7.8,
+        7.25
+      ],
+      "geometry_id": 9,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Minv5_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Minv5_MP:G"
+      ],
+      "coordinates": [
+        7.175,
+        6.47,
+        7.2250000000000005,
+        7.53
+      ],
+      "geometry_id": 10,
+      "layer": "POLY",
+      "net": "z2",
+      "symbolic_resource_id": "poly_Minv5_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD",
+        "Q"
+      ],
+      "coordinates": [
+        8.1,
+        6.75,
+        9.299999999999999,
+        7.25
+      ],
+      "geometry_id": 11,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Minv6_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Minv6_MP:G"
+      ],
+      "coordinates": [
+        8.674999999999999,
+        6.47,
+        8.725,
+        7.53
+      ],
+      "geometry_id": 12,
+      "layer": "POLY",
+      "net": "z5",
+      "symbolic_resource_id": "poly_Minv6_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD",
+        "QB"
+      ],
+      "coordinates": [
+        9.6,
+        6.75,
+        10.799999999999999,
+        7.25
+      ],
+      "geometry_id": 13,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Minv7_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Minv7_MP:G"
+      ],
+      "coordinates": [
+        10.174999999999999,
+        6.47,
+        10.225,
+        7.53
+      ],
+      "geometry_id": 14,
+      "layer": "POLY",
+      "net": "Q",
+      "symbolic_resource_id": "poly_Minv7_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "D_b",
+        "z1"
+      ],
+      "coordinates": [
+        11.1,
+        6.75,
+        12.299999999999999,
+        7.25
+      ],
+      "geometry_id": 15,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Mtg1_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Mtg1_MP:G"
+      ],
+      "coordinates": [
+        11.674999999999999,
+        6.47,
+        11.725,
+        7.53
+      ],
+      "geometry_id": 16,
+      "layer": "POLY",
+      "net": "CLK",
+      "symbolic_resource_id": "poly_Mtg1_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z3",
+        "z1"
+      ],
+      "coordinates": [
+        12.6,
+        6.75,
+        13.799999999999999,
+        7.25
+      ],
+      "geometry_id": 17,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Mtg2_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Mtg2_MP:G"
+      ],
+      "coordinates": [
+        13.174999999999999,
+        6.47,
+        13.225,
+        7.53
+      ],
+      "geometry_id": 18,
+      "layer": "POLY",
+      "net": "CLKB",
+      "symbolic_resource_id": "poly_Mtg2_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z4",
+        "z5"
+      ],
+      "coordinates": [
+        14.1,
+        6.75,
+        15.299999999999999,
+        7.25
+      ],
+      "geometry_id": 19,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Mtg3_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Mtg3_MP:G"
+      ],
+      "coordinates": [
+        14.674999999999999,
+        6.47,
+        14.725,
+        7.53
+      ],
+      "geometry_id": 20,
+      "layer": "POLY",
+      "net": "CLKB",
+      "symbolic_resource_id": "poly_Mtg3_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "QB",
+        "z5"
+      ],
+      "coordinates": [
+        15.6,
+        6.75,
+        16.8,
+        7.25
+      ],
+      "geometry_id": 21,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Mtg4_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Mtg4_MP:G"
+      ],
+      "coordinates": [
+        16.175,
+        6.47,
+        16.224999999999998,
+        7.53
+      ],
+      "geometry_id": 22,
+      "layer": "POLY",
+      "net": "CLK",
+      "symbolic_resource_id": "poly_Mtg4_MP"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS",
+        "CLKB"
+      ],
+      "coordinates": [
+        17.599999999999998,
+        1.875,
+        18.8,
+        2.125
+      ],
+      "geometry_id": 23,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Minv1_clk_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Minv1_clk_MN:G"
+      ],
+      "coordinates": [
+        18.175,
+        1.595,
+        18.224999999999998,
+        2.4050000000000002
+      ],
+      "geometry_id": 24,
+      "layer": "POLY",
+      "net": "CLK",
+      "symbolic_resource_id": "poly_Minv1_clk_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS",
+        "D_b"
+      ],
+      "coordinates": [
+        19.099999999999998,
+        1.875,
+        20.3,
+        2.125
+      ],
+      "geometry_id": 25,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Minv2_D_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Minv2_D_MN:G"
+      ],
+      "coordinates": [
+        19.675,
+        1.595,
+        19.724999999999998,
+        2.4050000000000002
+      ],
+      "geometry_id": 26,
+      "layer": "POLY",
+      "net": "D",
+      "symbolic_resource_id": "poly_Minv2_D_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS",
+        "z2"
+      ],
+      "coordinates": [
+        20.599999999999998,
+        1.875,
+        21.8,
+        2.125
+      ],
+      "geometry_id": 27,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Minv3_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Minv3_MN:G"
+      ],
+      "coordinates": [
+        21.175,
+        1.595,
+        21.224999999999998,
+        2.4050000000000002
+      ],
+      "geometry_id": 28,
+      "layer": "POLY",
+      "net": "z1",
+      "symbolic_resource_id": "poly_Minv3_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS",
+        "z3"
+      ],
+      "coordinates": [
+        22.099999999999998,
+        1.875,
+        23.3,
+        2.125
+      ],
+      "geometry_id": 29,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Minv4_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Minv4_MN:G"
+      ],
+      "coordinates": [
+        22.675,
+        1.595,
+        22.724999999999998,
+        2.4050000000000002
+      ],
+      "geometry_id": 30,
+      "layer": "POLY",
+      "net": "z2",
+      "symbolic_resource_id": "poly_Minv4_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS",
+        "z4"
+      ],
+      "coordinates": [
+        23.599999999999998,
+        1.875,
+        24.8,
+        2.125
+      ],
+      "geometry_id": 31,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Minv5_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Minv5_MN:G"
+      ],
+      "coordinates": [
+        24.175,
+        1.595,
+        24.224999999999998,
+        2.4050000000000002
+      ],
+      "geometry_id": 32,
+      "layer": "POLY",
+      "net": "z2",
+      "symbolic_resource_id": "poly_Minv5_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS",
+        "Q"
+      ],
+      "coordinates": [
+        25.099999999999998,
+        1.875,
+        26.3,
+        2.125
+      ],
+      "geometry_id": 33,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Minv6_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Minv6_MN:G"
+      ],
+      "coordinates": [
+        25.675,
+        1.595,
+        25.724999999999998,
+        2.4050000000000002
+      ],
+      "geometry_id": 34,
+      "layer": "POLY",
+      "net": "z5",
+      "symbolic_resource_id": "poly_Minv6_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS",
+        "QB"
+      ],
+      "coordinates": [
+        26.599999999999998,
+        1.875,
+        27.8,
+        2.125
+      ],
+      "geometry_id": 35,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Minv7_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Minv7_MN:G"
+      ],
+      "coordinates": [
+        27.175,
+        1.595,
+        27.224999999999998,
+        2.4050000000000002
+      ],
+      "geometry_id": 36,
+      "layer": "POLY",
+      "net": "Q",
+      "symbolic_resource_id": "poly_Minv7_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z1",
+        "D_b"
+      ],
+      "coordinates": [
+        28.099999999999998,
+        1.875,
+        29.3,
+        2.125
+      ],
+      "geometry_id": 37,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Mtg1_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Mtg1_MN:G"
+      ],
+      "coordinates": [
+        28.675,
+        1.595,
+        28.724999999999998,
+        2.4050000000000002
+      ],
+      "geometry_id": 38,
+      "layer": "POLY",
+      "net": "CLKB",
+      "symbolic_resource_id": "poly_Mtg1_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z1",
+        "z3"
+      ],
+      "coordinates": [
+        29.599999999999998,
+        1.875,
+        30.8,
+        2.125
+      ],
+      "geometry_id": 39,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Mtg2_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Mtg2_MN:G"
+      ],
+      "coordinates": [
+        30.175,
+        1.595,
+        30.224999999999998,
+        2.4050000000000002
+      ],
+      "geometry_id": 40,
+      "layer": "POLY",
+      "net": "CLK",
+      "symbolic_resource_id": "poly_Mtg2_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z5",
+        "z4"
+      ],
+      "coordinates": [
+        31.099999999999998,
+        1.875,
+        32.3,
+        2.125
+      ],
+      "geometry_id": 41,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Mtg3_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Mtg3_MN:G"
+      ],
+      "coordinates": [
+        31.675,
+        1.595,
+        31.724999999999998,
+        2.4050000000000002
+      ],
+      "geometry_id": 42,
+      "layer": "POLY",
+      "net": "CLK",
+      "symbolic_resource_id": "poly_Mtg3_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        1,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z5",
+        "QB"
+      ],
+      "coordinates": [
+        32.6,
+        1.875,
+        33.800000000000004,
+        2.125
+      ],
+      "geometry_id": 43,
+      "layer": "ACTIVE",
+      "net": "DEVICE_ACTIVE",
+      "symbolic_resource_id": "active_Mtg4_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        9,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Mtg4_MN:G"
+      ],
+      "coordinates": [
+        33.175000000000004,
+        1.595,
+        33.225,
+        2.4050000000000002
+      ],
+      "geometry_id": 44,
+      "layer": "POLY",
+      "net": "CLKB",
+      "symbolic_resource_id": "poly_Mtg4_MN"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        -0.15000000000000013,
+        8.6,
+        10.02,
+        8.6
+      ],
+      "geometry_id": "route_0",
+      "layer": "M3",
+      "net": "VDD",
+      "symbolic_resource_id": "route_0_VDD_m3"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        0.77,
+        7.0,
+        0.77,
+        8.6
+      ],
+      "geometry_id": "route_1",
+      "layer": "M2",
+      "net": "VDD",
+      "symbolic_resource_id": "route_1_VDD_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        2.27,
+        7.0,
+        2.27,
+        8.6
+      ],
+      "geometry_id": "route_2",
+      "layer": "M2",
+      "net": "VDD",
+      "symbolic_resource_id": "route_2_VDD_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        3.77,
+        7.0,
+        3.77,
+        8.6
+      ],
+      "geometry_id": "route_3",
+      "layer": "M2",
+      "net": "VDD",
+      "symbolic_resource_id": "route_3_VDD_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        5.2700000000000005,
+        7.0,
+        5.2700000000000005,
+        8.6
+      ],
+      "geometry_id": "route_4",
+      "layer": "M2",
+      "net": "VDD",
+      "symbolic_resource_id": "route_4_VDD_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        6.7700000000000005,
+        7.0,
+        6.7700000000000005,
+        8.6
+      ],
+      "geometry_id": "route_5",
+      "layer": "M2",
+      "net": "VDD",
+      "symbolic_resource_id": "route_5_VDD_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        8.27,
+        7.0,
+        8.27,
+        8.6
+      ],
+      "geometry_id": "route_6",
+      "layer": "M2",
+      "net": "VDD",
+      "symbolic_resource_id": "route_6_VDD_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        9.77,
+        7.0,
+        9.77,
+        8.6
+      ],
+      "geometry_id": "route_7",
+      "layer": "M2",
+      "net": "VDD",
+      "symbolic_resource_id": "route_7_VDD_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0,
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "route_8",
+      "layer": "M2",
+      "net": "VDD",
+      "symbolic_resource_id": "route_8_VDD_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0,
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "route_9",
+      "layer": "M2",
+      "net": "VDD",
+      "symbolic_resource_id": "route_9_VDD_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0,
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "route_10",
+      "layer": "M2",
+      "net": "VDD",
+      "symbolic_resource_id": "route_10_VDD_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0,
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "route_11",
+      "layer": "M2",
+      "net": "VDD",
+      "symbolic_resource_id": "route_11_VDD_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0,
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "route_12",
+      "layer": "M2",
+      "net": "VDD",
+      "symbolic_resource_id": "route_12_VDD_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0,
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "route_13",
+      "layer": "M2",
+      "net": "VDD",
+      "symbolic_resource_id": "route_13_VDD_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0,
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "route_14",
+      "layer": "M2",
+      "net": "VDD",
+      "symbolic_resource_id": "route_14_VDD_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0,
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "route_15",
+      "layer": "M2",
+      "net": "VDD",
+      "symbolic_resource_id": "route_15_VDD_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0,
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "route_16",
+      "layer": "M2",
+      "net": "VDD",
+      "symbolic_resource_id": "route_16_VDD_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0,
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "route_17",
+      "layer": "M2",
+      "net": "VDD",
+      "symbolic_resource_id": "route_17_VDD_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0,
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "route_18",
+      "layer": "M2",
+      "net": "VDD",
+      "symbolic_resource_id": "route_18_VDD_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0,
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "route_19",
+      "layer": "M2",
+      "net": "VDD",
+      "symbolic_resource_id": "route_19_VDD_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        16.85,
+        9.02,
+        27.02,
+        9.02
+      ],
+      "geometry_id": "route_20",
+      "layer": "M3",
+      "net": "VSS",
+      "symbolic_resource_id": "route_20_VSS_m3"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        17.77,
+        2.0,
+        17.77,
+        9.02
+      ],
+      "geometry_id": "route_21",
+      "layer": "M2",
+      "net": "VSS",
+      "symbolic_resource_id": "route_21_VSS_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        19.27,
+        2.0,
+        19.27,
+        9.02
+      ],
+      "geometry_id": "route_22",
+      "layer": "M2",
+      "net": "VSS",
+      "symbolic_resource_id": "route_22_VSS_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        20.77,
+        2.0,
+        20.77,
+        9.02
+      ],
+      "geometry_id": "route_23",
+      "layer": "M2",
+      "net": "VSS",
+      "symbolic_resource_id": "route_23_VSS_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        22.27,
+        2.0,
+        22.27,
+        9.02
+      ],
+      "geometry_id": "route_24",
+      "layer": "M2",
+      "net": "VSS",
+      "symbolic_resource_id": "route_24_VSS_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        23.77,
+        2.0,
+        23.77,
+        9.02
+      ],
+      "geometry_id": "route_25",
+      "layer": "M2",
+      "net": "VSS",
+      "symbolic_resource_id": "route_25_VSS_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        25.27,
+        2.0,
+        25.27,
+        9.02
+      ],
+      "geometry_id": "route_26",
+      "layer": "M2",
+      "net": "VSS",
+      "symbolic_resource_id": "route_26_VSS_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        26.77,
+        2.0,
+        26.77,
+        9.02
+      ],
+      "geometry_id": "route_27",
+      "layer": "M2",
+      "net": "VSS",
+      "symbolic_resource_id": "route_27_VSS_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        17.1,
+        2.0,
+        17.1,
+        9.02
+      ],
+      "geometry_id": "route_28",
+      "layer": "M2",
+      "net": "VSS",
+      "symbolic_resource_id": "route_28_VSS_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        17.1,
+        2.0,
+        17.1,
+        9.02
+      ],
+      "geometry_id": "route_29",
+      "layer": "M2",
+      "net": "VSS",
+      "symbolic_resource_id": "route_29_VSS_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        17.1,
+        2.0,
+        17.1,
+        9.02
+      ],
+      "geometry_id": "route_30",
+      "layer": "M2",
+      "net": "VSS",
+      "symbolic_resource_id": "route_30_VSS_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        17.1,
+        2.0,
+        17.1,
+        9.02
+      ],
+      "geometry_id": "route_31",
+      "layer": "M2",
+      "net": "VSS",
+      "symbolic_resource_id": "route_31_VSS_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        17.1,
+        2.0,
+        17.1,
+        9.02
+      ],
+      "geometry_id": "route_32",
+      "layer": "M2",
+      "net": "VSS",
+      "symbolic_resource_id": "route_32_VSS_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        17.1,
+        2.0,
+        17.1,
+        9.02
+      ],
+      "geometry_id": "route_33",
+      "layer": "M2",
+      "net": "VSS",
+      "symbolic_resource_id": "route_33_VSS_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        17.1,
+        2.0,
+        17.1,
+        9.02
+      ],
+      "geometry_id": "route_34",
+      "layer": "M2",
+      "net": "VSS",
+      "symbolic_resource_id": "route_34_VSS_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        17.1,
+        2.0,
+        17.1,
+        9.02
+      ],
+      "geometry_id": "route_35",
+      "layer": "M2",
+      "net": "VSS",
+      "symbolic_resource_id": "route_35_VSS_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        17.1,
+        2.0,
+        17.1,
+        9.02
+      ],
+      "geometry_id": "route_36",
+      "layer": "M2",
+      "net": "VSS",
+      "symbolic_resource_id": "route_36_VSS_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        17.1,
+        2.0,
+        17.1,
+        9.02
+      ],
+      "geometry_id": "route_37",
+      "layer": "M2",
+      "net": "VSS",
+      "symbolic_resource_id": "route_37_VSS_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        17.1,
+        2.0,
+        17.1,
+        9.02
+      ],
+      "geometry_id": "route_38",
+      "layer": "M2",
+      "net": "VSS",
+      "symbolic_resource_id": "route_38_VSS_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        17.1,
+        2.0,
+        17.1,
+        9.02
+      ],
+      "geometry_id": "route_39",
+      "layer": "M2",
+      "net": "VSS",
+      "symbolic_resource_id": "route_39_VSS_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "CLK:route"
+      ],
+      "coordinates": [
+        0.95,
+        9.44,
+        31.95,
+        9.44
+      ],
+      "geometry_id": "route_40",
+      "layer": "M3",
+      "net": "CLK",
+      "symbolic_resource_id": "route_40_CLK_m3"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "CLK:route"
+      ],
+      "coordinates": [
+        1.2,
+        6.53,
+        1.2,
+        9.44
+      ],
+      "geometry_id": "route_41",
+      "layer": "M2",
+      "net": "CLK",
+      "symbolic_resource_id": "route_41_CLK_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "CLK:route"
+      ],
+      "coordinates": [
+        11.7,
+        6.53,
+        11.7,
+        9.44
+      ],
+      "geometry_id": "route_42",
+      "layer": "M2",
+      "net": "CLK",
+      "symbolic_resource_id": "route_42_CLK_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "CLK:route"
+      ],
+      "coordinates": [
+        16.2,
+        6.53,
+        16.2,
+        9.44
+      ],
+      "geometry_id": "route_43",
+      "layer": "M2",
+      "net": "CLK",
+      "symbolic_resource_id": "route_43_CLK_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "CLK:route"
+      ],
+      "coordinates": [
+        18.2,
+        2.345,
+        18.2,
+        9.44
+      ],
+      "geometry_id": "route_44",
+      "layer": "M2",
+      "net": "CLK",
+      "symbolic_resource_id": "route_44_CLK_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "CLK:route"
+      ],
+      "coordinates": [
+        30.2,
+        2.345,
+        30.2,
+        9.44
+      ],
+      "geometry_id": "route_45",
+      "layer": "M2",
+      "net": "CLK",
+      "symbolic_resource_id": "route_45_CLK_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "CLK:route"
+      ],
+      "coordinates": [
+        31.7,
+        2.345,
+        31.7,
+        9.44
+      ],
+      "geometry_id": "route_46",
+      "layer": "M2",
+      "net": "CLK",
+      "symbolic_resource_id": "route_46_CLK_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "CLKB:route"
+      ],
+      "coordinates": [
+        1.38,
+        9.86,
+        33.45,
+        9.86
+      ],
+      "geometry_id": "route_47",
+      "layer": "M3",
+      "net": "CLKB",
+      "symbolic_resource_id": "route_47_CLKB_m3"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "CLKB:route"
+      ],
+      "coordinates": [
+        1.63,
+        7.0,
+        1.63,
+        9.86
+      ],
+      "geometry_id": "route_48",
+      "layer": "M2",
+      "net": "CLKB",
+      "symbolic_resource_id": "route_48_CLKB_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "CLKB:route"
+      ],
+      "coordinates": [
+        13.2,
+        6.53,
+        13.2,
+        9.86
+      ],
+      "geometry_id": "route_49",
+      "layer": "M2",
+      "net": "CLKB",
+      "symbolic_resource_id": "route_49_CLKB_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "CLKB:route"
+      ],
+      "coordinates": [
+        14.7,
+        6.53,
+        14.7,
+        9.86
+      ],
+      "geometry_id": "route_50",
+      "layer": "M2",
+      "net": "CLKB",
+      "symbolic_resource_id": "route_50_CLKB_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "CLKB:route"
+      ],
+      "coordinates": [
+        18.63,
+        2.0,
+        18.63,
+        9.86
+      ],
+      "geometry_id": "route_51",
+      "layer": "M2",
+      "net": "CLKB",
+      "symbolic_resource_id": "route_51_CLKB_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "CLKB:route"
+      ],
+      "coordinates": [
+        28.7,
+        2.345,
+        28.7,
+        9.86
+      ],
+      "geometry_id": "route_52",
+      "layer": "M2",
+      "net": "CLKB",
+      "symbolic_resource_id": "route_52_CLKB_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "CLKB:route"
+      ],
+      "coordinates": [
+        33.2,
+        2.345,
+        33.2,
+        9.86
+      ],
+      "geometry_id": "route_53",
+      "layer": "M2",
+      "net": "CLKB",
+      "symbolic_resource_id": "route_53_CLKB_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "D:route"
+      ],
+      "coordinates": [
+        2.45,
+        10.28,
+        19.95,
+        10.28
+      ],
+      "geometry_id": "route_54",
+      "layer": "M3",
+      "net": "D",
+      "symbolic_resource_id": "route_54_D_m3"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "D:route"
+      ],
+      "coordinates": [
+        2.7,
+        6.53,
+        2.7,
+        10.28
+      ],
+      "geometry_id": "route_55",
+      "layer": "M2",
+      "net": "D",
+      "symbolic_resource_id": "route_55_D_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "D:route"
+      ],
+      "coordinates": [
+        19.7,
+        2.345,
+        19.7,
+        10.28
+      ],
+      "geometry_id": "route_56",
+      "layer": "M2",
+      "net": "D",
+      "symbolic_resource_id": "route_56_D_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "D_b:route"
+      ],
+      "coordinates": [
+        2.8800000000000003,
+        10.7,
+        29.38,
+        10.7
+      ],
+      "geometry_id": "route_57",
+      "layer": "M3",
+      "net": "D_b",
+      "symbolic_resource_id": "route_57_D_b_m3"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "D_b:route"
+      ],
+      "coordinates": [
+        3.1300000000000003,
+        7.0,
+        3.1300000000000003,
+        10.7
+      ],
+      "geometry_id": "route_58",
+      "layer": "M2",
+      "net": "D_b",
+      "symbolic_resource_id": "route_58_D_b_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "D_b:route"
+      ],
+      "coordinates": [
+        11.27,
+        7.0,
+        11.27,
+        10.7
+      ],
+      "geometry_id": "route_59",
+      "layer": "M2",
+      "net": "D_b",
+      "symbolic_resource_id": "route_59_D_b_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "D_b:route"
+      ],
+      "coordinates": [
+        20.13,
+        2.0,
+        20.13,
+        10.7
+      ],
+      "geometry_id": "route_60",
+      "layer": "M2",
+      "net": "D_b",
+      "symbolic_resource_id": "route_60_D_b_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "D_b:route"
+      ],
+      "coordinates": [
+        29.13,
+        2.0,
+        29.13,
+        10.7
+      ],
+      "geometry_id": "route_61",
+      "layer": "M2",
+      "net": "D_b",
+      "symbolic_resource_id": "route_61_D_b_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Q:route"
+      ],
+      "coordinates": [
+        8.879999999999999,
+        11.12,
+        27.45,
+        11.12
+      ],
+      "geometry_id": "route_62",
+      "layer": "M3",
+      "net": "Q",
+      "symbolic_resource_id": "route_62_Q_m3"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Q:route"
+      ],
+      "coordinates": [
+        9.129999999999999,
+        7.0,
+        9.129999999999999,
+        11.12
+      ],
+      "geometry_id": "route_63",
+      "layer": "M2",
+      "net": "Q",
+      "symbolic_resource_id": "route_63_Q_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Q:route"
+      ],
+      "coordinates": [
+        10.2,
+        6.53,
+        10.2,
+        11.12
+      ],
+      "geometry_id": "route_64",
+      "layer": "M2",
+      "net": "Q",
+      "symbolic_resource_id": "route_64_Q_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Q:route"
+      ],
+      "coordinates": [
+        26.13,
+        2.0,
+        26.13,
+        11.12
+      ],
+      "geometry_id": "route_65",
+      "layer": "M2",
+      "net": "Q",
+      "symbolic_resource_id": "route_65_Q_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Q:route"
+      ],
+      "coordinates": [
+        27.2,
+        2.345,
+        27.2,
+        11.12
+      ],
+      "geometry_id": "route_66",
+      "layer": "M2",
+      "net": "Q",
+      "symbolic_resource_id": "route_66_Q_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "QB:route"
+      ],
+      "coordinates": [
+        10.379999999999999,
+        11.54,
+        33.88,
+        11.54
+      ],
+      "geometry_id": "route_67",
+      "layer": "M3",
+      "net": "QB",
+      "symbolic_resource_id": "route_67_QB_m3"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "QB:route"
+      ],
+      "coordinates": [
+        10.629999999999999,
+        7.0,
+        10.629999999999999,
+        11.54
+      ],
+      "geometry_id": "route_68",
+      "layer": "M2",
+      "net": "QB",
+      "symbolic_resource_id": "route_68_QB_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "QB:route"
+      ],
+      "coordinates": [
+        15.77,
+        7.0,
+        15.77,
+        11.54
+      ],
+      "geometry_id": "route_69",
+      "layer": "M2",
+      "net": "QB",
+      "symbolic_resource_id": "route_69_QB_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "QB:route"
+      ],
+      "coordinates": [
+        27.63,
+        2.0,
+        27.63,
+        11.54
+      ],
+      "geometry_id": "route_70",
+      "layer": "M2",
+      "net": "QB",
+      "symbolic_resource_id": "route_70_QB_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "QB:route"
+      ],
+      "coordinates": [
+        33.63,
+        2.0,
+        33.63,
+        11.54
+      ],
+      "geometry_id": "route_71",
+      "layer": "M2",
+      "net": "QB",
+      "symbolic_resource_id": "route_71_QB_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z1:route"
+      ],
+      "coordinates": [
+        3.95,
+        11.959999999999999,
+        30.02,
+        11.959999999999999
+      ],
+      "geometry_id": "route_72",
+      "layer": "M3",
+      "net": "z1",
+      "symbolic_resource_id": "route_72_z1_m3"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z1:route"
+      ],
+      "coordinates": [
+        4.2,
+        6.53,
+        4.2,
+        11.959999999999999
+      ],
+      "geometry_id": "route_73",
+      "layer": "M2",
+      "net": "z1",
+      "symbolic_resource_id": "route_73_z1_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z1:route"
+      ],
+      "coordinates": [
+        12.129999999999999,
+        7.0,
+        12.129999999999999,
+        11.959999999999999
+      ],
+      "geometry_id": "route_74",
+      "layer": "M2",
+      "net": "z1",
+      "symbolic_resource_id": "route_74_z1_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z1:route"
+      ],
+      "coordinates": [
+        13.629999999999999,
+        7.0,
+        13.629999999999999,
+        11.959999999999999
+      ],
+      "geometry_id": "route_75",
+      "layer": "M2",
+      "net": "z1",
+      "symbolic_resource_id": "route_75_z1_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z1:route"
+      ],
+      "coordinates": [
+        21.2,
+        2.345,
+        21.2,
+        11.959999999999999
+      ],
+      "geometry_id": "route_76",
+      "layer": "M2",
+      "net": "z1",
+      "symbolic_resource_id": "route_76_z1_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z1:route"
+      ],
+      "coordinates": [
+        28.27,
+        2.0,
+        28.27,
+        11.959999999999999
+      ],
+      "geometry_id": "route_77",
+      "layer": "M2",
+      "net": "z1",
+      "symbolic_resource_id": "route_77_z1_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z1:route"
+      ],
+      "coordinates": [
+        29.77,
+        2.0,
+        29.77,
+        11.959999999999999
+      ],
+      "geometry_id": "route_78",
+      "layer": "M2",
+      "net": "z1",
+      "symbolic_resource_id": "route_78_z1_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z2:route"
+      ],
+      "coordinates": [
+        4.38,
+        12.379999999999999,
+        24.45,
+        12.379999999999999
+      ],
+      "geometry_id": "route_79",
+      "layer": "M3",
+      "net": "z2",
+      "symbolic_resource_id": "route_79_z2_m3"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z2:route"
+      ],
+      "coordinates": [
+        4.63,
+        7.0,
+        4.63,
+        12.379999999999999
+      ],
+      "geometry_id": "route_80",
+      "layer": "M2",
+      "net": "z2",
+      "symbolic_resource_id": "route_80_z2_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z2:route"
+      ],
+      "coordinates": [
+        5.7,
+        6.53,
+        5.7,
+        12.379999999999999
+      ],
+      "geometry_id": "route_81",
+      "layer": "M2",
+      "net": "z2",
+      "symbolic_resource_id": "route_81_z2_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z2:route"
+      ],
+      "coordinates": [
+        7.2,
+        6.53,
+        7.2,
+        12.379999999999999
+      ],
+      "geometry_id": "route_82",
+      "layer": "M2",
+      "net": "z2",
+      "symbolic_resource_id": "route_82_z2_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z2:route"
+      ],
+      "coordinates": [
+        21.63,
+        2.0,
+        21.63,
+        12.379999999999999
+      ],
+      "geometry_id": "route_83",
+      "layer": "M2",
+      "net": "z2",
+      "symbolic_resource_id": "route_83_z2_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z2:route"
+      ],
+      "coordinates": [
+        22.7,
+        2.345,
+        22.7,
+        12.379999999999999
+      ],
+      "geometry_id": "route_84",
+      "layer": "M2",
+      "net": "z2",
+      "symbolic_resource_id": "route_84_z2_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z2:route"
+      ],
+      "coordinates": [
+        24.2,
+        2.345,
+        24.2,
+        12.379999999999999
+      ],
+      "geometry_id": "route_85",
+      "layer": "M2",
+      "net": "z2",
+      "symbolic_resource_id": "route_85_z2_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z3:route"
+      ],
+      "coordinates": [
+        5.88,
+        12.8,
+        30.88,
+        12.8
+      ],
+      "geometry_id": "route_86",
+      "layer": "M3",
+      "net": "z3",
+      "symbolic_resource_id": "route_86_z3_m3"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z3:route"
+      ],
+      "coordinates": [
+        6.13,
+        7.0,
+        6.13,
+        12.8
+      ],
+      "geometry_id": "route_87",
+      "layer": "M2",
+      "net": "z3",
+      "symbolic_resource_id": "route_87_z3_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z3:route"
+      ],
+      "coordinates": [
+        12.77,
+        7.0,
+        12.77,
+        12.8
+      ],
+      "geometry_id": "route_88",
+      "layer": "M2",
+      "net": "z3",
+      "symbolic_resource_id": "route_88_z3_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z3:route"
+      ],
+      "coordinates": [
+        23.13,
+        2.0,
+        23.13,
+        12.8
+      ],
+      "geometry_id": "route_89",
+      "layer": "M2",
+      "net": "z3",
+      "symbolic_resource_id": "route_89_z3_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z3:route"
+      ],
+      "coordinates": [
+        30.63,
+        2.0,
+        30.63,
+        12.8
+      ],
+      "geometry_id": "route_90",
+      "layer": "M2",
+      "net": "z3",
+      "symbolic_resource_id": "route_90_z3_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z4:route"
+      ],
+      "coordinates": [
+        7.38,
+        13.219999999999999,
+        32.379999999999995,
+        13.219999999999999
+      ],
+      "geometry_id": "route_91",
+      "layer": "M3",
+      "net": "z4",
+      "symbolic_resource_id": "route_91_z4_m3"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z4:route"
+      ],
+      "coordinates": [
+        7.63,
+        7.0,
+        7.63,
+        13.219999999999999
+      ],
+      "geometry_id": "route_92",
+      "layer": "M2",
+      "net": "z4",
+      "symbolic_resource_id": "route_92_z4_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z4:route"
+      ],
+      "coordinates": [
+        14.27,
+        7.0,
+        14.27,
+        13.219999999999999
+      ],
+      "geometry_id": "route_93",
+      "layer": "M2",
+      "net": "z4",
+      "symbolic_resource_id": "route_93_z4_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z4:route"
+      ],
+      "coordinates": [
+        24.63,
+        2.0,
+        24.63,
+        13.219999999999999
+      ],
+      "geometry_id": "route_94",
+      "layer": "M2",
+      "net": "z4",
+      "symbolic_resource_id": "route_94_z4_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z4:route"
+      ],
+      "coordinates": [
+        32.129999999999995,
+        2.0,
+        32.129999999999995,
+        13.219999999999999
+      ],
+      "geometry_id": "route_95",
+      "layer": "M2",
+      "net": "z4",
+      "symbolic_resource_id": "route_95_z4_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z5:route"
+      ],
+      "coordinates": [
+        8.45,
+        13.64,
+        33.02,
+        13.64
+      ],
+      "geometry_id": "route_96",
+      "layer": "M3",
+      "net": "z5",
+      "symbolic_resource_id": "route_96_z5_m3"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z5:route"
+      ],
+      "coordinates": [
+        8.7,
+        6.53,
+        8.7,
+        13.64
+      ],
+      "geometry_id": "route_97",
+      "layer": "M2",
+      "net": "z5",
+      "symbolic_resource_id": "route_97_z5_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z5:route"
+      ],
+      "coordinates": [
+        15.129999999999999,
+        7.0,
+        15.129999999999999,
+        13.64
+      ],
+      "geometry_id": "route_98",
+      "layer": "M2",
+      "net": "z5",
+      "symbolic_resource_id": "route_98_z5_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z5:route"
+      ],
+      "coordinates": [
+        16.63,
+        7.0,
+        16.63,
+        13.64
+      ],
+      "geometry_id": "route_99",
+      "layer": "M2",
+      "net": "z5",
+      "symbolic_resource_id": "route_99_z5_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z5:route"
+      ],
+      "coordinates": [
+        25.7,
+        2.345,
+        25.7,
+        13.64
+      ],
+      "geometry_id": "route_100",
+      "layer": "M2",
+      "net": "z5",
+      "symbolic_resource_id": "route_100_z5_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z5:route"
+      ],
+      "coordinates": [
+        31.27,
+        2.0,
+        31.27,
+        13.64
+      ],
+      "geometry_id": "route_101",
+      "layer": "M2",
+      "net": "z5",
+      "symbolic_resource_id": "route_101_z5_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        13,
+        0
+      ],
+      "connectivity_endpoints": [
+        "z5:route"
+      ],
+      "coordinates": [
+        32.77,
+        2.0,
+        32.77,
+        13.64
+      ],
+      "geometry_id": "route_102",
+      "layer": "M2",
+      "net": "z5",
+      "symbolic_resource_id": "route_102_z5_m2"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD:route"
+      ],
+      "coordinates": [
+        10.02,
+        8.6,
+        34.480000000000004,
+        8.6
+      ],
+      "geometry_id": "route_103",
+      "layer": "M3",
+      "net": "VDD",
+      "symbolic_resource_id": "route_103_VDD_m3"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS:route"
+      ],
+      "coordinates": [
+        27.02,
+        9.02,
+        34.480000000000004,
+        9.02
+      ],
+      "geometry_id": "route_104",
+      "layer": "M3",
+      "net": "VSS",
+      "symbolic_resource_id": "route_104_VSS_m3"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "D:route"
+      ],
+      "coordinates": [
+        19.95,
+        10.28,
+        34.480000000000004,
+        10.28
+      ],
+      "geometry_id": "route_105",
+      "layer": "M3",
+      "net": "D",
+      "symbolic_resource_id": "route_105_D_m3"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Q:route"
+      ],
+      "coordinates": [
+        27.45,
+        11.12,
+        34.480000000000004,
+        11.12
+      ],
+      "geometry_id": "route_106",
+      "layer": "M3",
+      "net": "Q",
+      "symbolic_resource_id": "route_106_Q_m3"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "CLK:route"
+      ],
+      "coordinates": [
+        31.95,
+        9.44,
+        34.480000000000004,
+        9.44
+      ],
+      "geometry_id": "route_107",
+      "layer": "M3",
+      "net": "CLK",
+      "symbolic_resource_id": "route_107_CLK_m3"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        0.77,
+        7.0
+      ],
+      "geometry_id": "via1_0",
+      "layer": "VIA1",
+      "net": "VDD",
+      "symbolic_resource_id": "via1_0_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        2.27,
+        7.0
+      ],
+      "geometry_id": "via1_1",
+      "layer": "VIA1",
+      "net": "VDD",
+      "symbolic_resource_id": "via1_1_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        3.77,
+        7.0
+      ],
+      "geometry_id": "via1_2",
+      "layer": "VIA1",
+      "net": "VDD",
+      "symbolic_resource_id": "via1_2_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        5.2700000000000005,
+        7.0
+      ],
+      "geometry_id": "via1_3",
+      "layer": "VIA1",
+      "net": "VDD",
+      "symbolic_resource_id": "via1_3_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        6.7700000000000005,
+        7.0
+      ],
+      "geometry_id": "via1_4",
+      "layer": "VIA1",
+      "net": "VDD",
+      "symbolic_resource_id": "via1_4_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        8.27,
+        7.0
+      ],
+      "geometry_id": "via1_5",
+      "layer": "VIA1",
+      "net": "VDD",
+      "symbolic_resource_id": "via1_5_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        9.77,
+        7.0
+      ],
+      "geometry_id": "via1_6",
+      "layer": "VIA1",
+      "net": "VDD",
+      "symbolic_resource_id": "via1_6_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0
+      ],
+      "geometry_id": "via1_7",
+      "layer": "VIA1",
+      "net": "VDD",
+      "symbolic_resource_id": "via1_7_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0
+      ],
+      "geometry_id": "via1_8",
+      "layer": "VIA1",
+      "net": "VDD",
+      "symbolic_resource_id": "via1_8_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0
+      ],
+      "geometry_id": "via1_9",
+      "layer": "VIA1",
+      "net": "VDD",
+      "symbolic_resource_id": "via1_9_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0
+      ],
+      "geometry_id": "via1_10",
+      "layer": "VIA1",
+      "net": "VDD",
+      "symbolic_resource_id": "via1_10_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0
+      ],
+      "geometry_id": "via1_11",
+      "layer": "VIA1",
+      "net": "VDD",
+      "symbolic_resource_id": "via1_11_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0
+      ],
+      "geometry_id": "via1_12",
+      "layer": "VIA1",
+      "net": "VDD",
+      "symbolic_resource_id": "via1_12_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0
+      ],
+      "geometry_id": "via1_13",
+      "layer": "VIA1",
+      "net": "VDD",
+      "symbolic_resource_id": "via1_13_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0
+      ],
+      "geometry_id": "via1_14",
+      "layer": "VIA1",
+      "net": "VDD",
+      "symbolic_resource_id": "via1_14_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0
+      ],
+      "geometry_id": "via1_15",
+      "layer": "VIA1",
+      "net": "VDD",
+      "symbolic_resource_id": "via1_15_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0
+      ],
+      "geometry_id": "via1_16",
+      "layer": "VIA1",
+      "net": "VDD",
+      "symbolic_resource_id": "via1_16_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0
+      ],
+      "geometry_id": "via1_17",
+      "layer": "VIA1",
+      "net": "VDD",
+      "symbolic_resource_id": "via1_17_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        7.0
+      ],
+      "geometry_id": "via1_18",
+      "layer": "VIA1",
+      "net": "VDD",
+      "symbolic_resource_id": "via1_18_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        17.77,
+        2.0
+      ],
+      "geometry_id": "via1_19",
+      "layer": "VIA1",
+      "net": "VSS",
+      "symbolic_resource_id": "via1_19_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        19.27,
+        2.0
+      ],
+      "geometry_id": "via1_20",
+      "layer": "VIA1",
+      "net": "VSS",
+      "symbolic_resource_id": "via1_20_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        20.77,
+        2.0
+      ],
+      "geometry_id": "via1_21",
+      "layer": "VIA1",
+      "net": "VSS",
+      "symbolic_resource_id": "via1_21_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        22.27,
+        2.0
+      ],
+      "geometry_id": "via1_22",
+      "layer": "VIA1",
+      "net": "VSS",
+      "symbolic_resource_id": "via1_22_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        23.77,
+        2.0
+      ],
+      "geometry_id": "via1_23",
+      "layer": "VIA1",
+      "net": "VSS",
+      "symbolic_resource_id": "via1_23_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        25.27,
+        2.0
+      ],
+      "geometry_id": "via1_24",
+      "layer": "VIA1",
+      "net": "VSS",
+      "symbolic_resource_id": "via1_24_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        26.77,
+        2.0
+      ],
+      "geometry_id": "via1_25",
+      "layer": "VIA1",
+      "net": "VSS",
+      "symbolic_resource_id": "via1_25_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        17.1,
+        2.0
+      ],
+      "geometry_id": "via1_26",
+      "layer": "VIA1",
+      "net": "VSS",
+      "symbolic_resource_id": "via1_26_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        17.1,
+        2.0
+      ],
+      "geometry_id": "via1_27",
+      "layer": "VIA1",
+      "net": "VSS",
+      "symbolic_resource_id": "via1_27_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        17.1,
+        2.0
+      ],
+      "geometry_id": "via1_28",
+      "layer": "VIA1",
+      "net": "VSS",
+      "symbolic_resource_id": "via1_28_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        17.1,
+        2.0
+      ],
+      "geometry_id": "via1_29",
+      "layer": "VIA1",
+      "net": "VSS",
+      "symbolic_resource_id": "via1_29_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        17.1,
+        2.0
+      ],
+      "geometry_id": "via1_30",
+      "layer": "VIA1",
+      "net": "VSS",
+      "symbolic_resource_id": "via1_30_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        17.1,
+        2.0
+      ],
+      "geometry_id": "via1_31",
+      "layer": "VIA1",
+      "net": "VSS",
+      "symbolic_resource_id": "via1_31_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        17.1,
+        2.0
+      ],
+      "geometry_id": "via1_32",
+      "layer": "VIA1",
+      "net": "VSS",
+      "symbolic_resource_id": "via1_32_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        17.1,
+        2.0
+      ],
+      "geometry_id": "via1_33",
+      "layer": "VIA1",
+      "net": "VSS",
+      "symbolic_resource_id": "via1_33_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        17.1,
+        2.0
+      ],
+      "geometry_id": "via1_34",
+      "layer": "VIA1",
+      "net": "VSS",
+      "symbolic_resource_id": "via1_34_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        17.1,
+        2.0
+      ],
+      "geometry_id": "via1_35",
+      "layer": "VIA1",
+      "net": "VSS",
+      "symbolic_resource_id": "via1_35_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        17.1,
+        2.0
+      ],
+      "geometry_id": "via1_36",
+      "layer": "VIA1",
+      "net": "VSS",
+      "symbolic_resource_id": "via1_36_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        17.1,
+        2.0
+      ],
+      "geometry_id": "via1_37",
+      "layer": "VIA1",
+      "net": "VSS",
+      "symbolic_resource_id": "via1_37_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        1.2,
+        6.53
+      ],
+      "geometry_id": "via1_38",
+      "layer": "VIA1",
+      "net": "CLK",
+      "symbolic_resource_id": "via1_38_CLK"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        11.7,
+        6.53
+      ],
+      "geometry_id": "via1_39",
+      "layer": "VIA1",
+      "net": "CLK",
+      "symbolic_resource_id": "via1_39_CLK"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        16.2,
+        6.53
+      ],
+      "geometry_id": "via1_40",
+      "layer": "VIA1",
+      "net": "CLK",
+      "symbolic_resource_id": "via1_40_CLK"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        18.2,
+        2.345
+      ],
+      "geometry_id": "via1_41",
+      "layer": "VIA1",
+      "net": "CLK",
+      "symbolic_resource_id": "via1_41_CLK"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        30.2,
+        2.345
+      ],
+      "geometry_id": "via1_42",
+      "layer": "VIA1",
+      "net": "CLK",
+      "symbolic_resource_id": "via1_42_CLK"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        31.7,
+        2.345
+      ],
+      "geometry_id": "via1_43",
+      "layer": "VIA1",
+      "net": "CLK",
+      "symbolic_resource_id": "via1_43_CLK"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        1.63,
+        7.0
+      ],
+      "geometry_id": "via1_44",
+      "layer": "VIA1",
+      "net": "CLKB",
+      "symbolic_resource_id": "via1_44_CLKB"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        13.2,
+        6.53
+      ],
+      "geometry_id": "via1_45",
+      "layer": "VIA1",
+      "net": "CLKB",
+      "symbolic_resource_id": "via1_45_CLKB"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        14.7,
+        6.53
+      ],
+      "geometry_id": "via1_46",
+      "layer": "VIA1",
+      "net": "CLKB",
+      "symbolic_resource_id": "via1_46_CLKB"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        18.63,
+        2.0
+      ],
+      "geometry_id": "via1_47",
+      "layer": "VIA1",
+      "net": "CLKB",
+      "symbolic_resource_id": "via1_47_CLKB"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        28.7,
+        2.345
+      ],
+      "geometry_id": "via1_48",
+      "layer": "VIA1",
+      "net": "CLKB",
+      "symbolic_resource_id": "via1_48_CLKB"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        33.2,
+        2.345
+      ],
+      "geometry_id": "via1_49",
+      "layer": "VIA1",
+      "net": "CLKB",
+      "symbolic_resource_id": "via1_49_CLKB"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        2.7,
+        6.53
+      ],
+      "geometry_id": "via1_50",
+      "layer": "VIA1",
+      "net": "D",
+      "symbolic_resource_id": "via1_50_D"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        19.7,
+        2.345
+      ],
+      "geometry_id": "via1_51",
+      "layer": "VIA1",
+      "net": "D",
+      "symbolic_resource_id": "via1_51_D"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        3.1300000000000003,
+        7.0
+      ],
+      "geometry_id": "via1_52",
+      "layer": "VIA1",
+      "net": "D_b",
+      "symbolic_resource_id": "via1_52_D_b"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        11.27,
+        7.0
+      ],
+      "geometry_id": "via1_53",
+      "layer": "VIA1",
+      "net": "D_b",
+      "symbolic_resource_id": "via1_53_D_b"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        20.13,
+        2.0
+      ],
+      "geometry_id": "via1_54",
+      "layer": "VIA1",
+      "net": "D_b",
+      "symbolic_resource_id": "via1_54_D_b"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        29.13,
+        2.0
+      ],
+      "geometry_id": "via1_55",
+      "layer": "VIA1",
+      "net": "D_b",
+      "symbolic_resource_id": "via1_55_D_b"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        9.129999999999999,
+        7.0
+      ],
+      "geometry_id": "via1_56",
+      "layer": "VIA1",
+      "net": "Q",
+      "symbolic_resource_id": "via1_56_Q"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        10.2,
+        6.53
+      ],
+      "geometry_id": "via1_57",
+      "layer": "VIA1",
+      "net": "Q",
+      "symbolic_resource_id": "via1_57_Q"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        26.13,
+        2.0
+      ],
+      "geometry_id": "via1_58",
+      "layer": "VIA1",
+      "net": "Q",
+      "symbolic_resource_id": "via1_58_Q"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        27.2,
+        2.345
+      ],
+      "geometry_id": "via1_59",
+      "layer": "VIA1",
+      "net": "Q",
+      "symbolic_resource_id": "via1_59_Q"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        10.629999999999999,
+        7.0
+      ],
+      "geometry_id": "via1_60",
+      "layer": "VIA1",
+      "net": "QB",
+      "symbolic_resource_id": "via1_60_QB"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        15.77,
+        7.0
+      ],
+      "geometry_id": "via1_61",
+      "layer": "VIA1",
+      "net": "QB",
+      "symbolic_resource_id": "via1_61_QB"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        27.63,
+        2.0
+      ],
+      "geometry_id": "via1_62",
+      "layer": "VIA1",
+      "net": "QB",
+      "symbolic_resource_id": "via1_62_QB"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        33.63,
+        2.0
+      ],
+      "geometry_id": "via1_63",
+      "layer": "VIA1",
+      "net": "QB",
+      "symbolic_resource_id": "via1_63_QB"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        4.2,
+        6.53
+      ],
+      "geometry_id": "via1_64",
+      "layer": "VIA1",
+      "net": "z1",
+      "symbolic_resource_id": "via1_64_z1"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        12.129999999999999,
+        7.0
+      ],
+      "geometry_id": "via1_65",
+      "layer": "VIA1",
+      "net": "z1",
+      "symbolic_resource_id": "via1_65_z1"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        13.629999999999999,
+        7.0
+      ],
+      "geometry_id": "via1_66",
+      "layer": "VIA1",
+      "net": "z1",
+      "symbolic_resource_id": "via1_66_z1"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        21.2,
+        2.345
+      ],
+      "geometry_id": "via1_67",
+      "layer": "VIA1",
+      "net": "z1",
+      "symbolic_resource_id": "via1_67_z1"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        28.27,
+        2.0
+      ],
+      "geometry_id": "via1_68",
+      "layer": "VIA1",
+      "net": "z1",
+      "symbolic_resource_id": "via1_68_z1"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        29.77,
+        2.0
+      ],
+      "geometry_id": "via1_69",
+      "layer": "VIA1",
+      "net": "z1",
+      "symbolic_resource_id": "via1_69_z1"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        4.63,
+        7.0
+      ],
+      "geometry_id": "via1_70",
+      "layer": "VIA1",
+      "net": "z2",
+      "symbolic_resource_id": "via1_70_z2"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        5.7,
+        6.53
+      ],
+      "geometry_id": "via1_71",
+      "layer": "VIA1",
+      "net": "z2",
+      "symbolic_resource_id": "via1_71_z2"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        7.2,
+        6.53
+      ],
+      "geometry_id": "via1_72",
+      "layer": "VIA1",
+      "net": "z2",
+      "symbolic_resource_id": "via1_72_z2"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        21.63,
+        2.0
+      ],
+      "geometry_id": "via1_73",
+      "layer": "VIA1",
+      "net": "z2",
+      "symbolic_resource_id": "via1_73_z2"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        22.7,
+        2.345
+      ],
+      "geometry_id": "via1_74",
+      "layer": "VIA1",
+      "net": "z2",
+      "symbolic_resource_id": "via1_74_z2"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        24.2,
+        2.345
+      ],
+      "geometry_id": "via1_75",
+      "layer": "VIA1",
+      "net": "z2",
+      "symbolic_resource_id": "via1_75_z2"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        6.13,
+        7.0
+      ],
+      "geometry_id": "via1_76",
+      "layer": "VIA1",
+      "net": "z3",
+      "symbolic_resource_id": "via1_76_z3"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        12.77,
+        7.0
+      ],
+      "geometry_id": "via1_77",
+      "layer": "VIA1",
+      "net": "z3",
+      "symbolic_resource_id": "via1_77_z3"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        23.13,
+        2.0
+      ],
+      "geometry_id": "via1_78",
+      "layer": "VIA1",
+      "net": "z3",
+      "symbolic_resource_id": "via1_78_z3"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        30.63,
+        2.0
+      ],
+      "geometry_id": "via1_79",
+      "layer": "VIA1",
+      "net": "z3",
+      "symbolic_resource_id": "via1_79_z3"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        7.63,
+        7.0
+      ],
+      "geometry_id": "via1_80",
+      "layer": "VIA1",
+      "net": "z4",
+      "symbolic_resource_id": "via1_80_z4"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        14.27,
+        7.0
+      ],
+      "geometry_id": "via1_81",
+      "layer": "VIA1",
+      "net": "z4",
+      "symbolic_resource_id": "via1_81_z4"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        24.63,
+        2.0
+      ],
+      "geometry_id": "via1_82",
+      "layer": "VIA1",
+      "net": "z4",
+      "symbolic_resource_id": "via1_82_z4"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        32.129999999999995,
+        2.0
+      ],
+      "geometry_id": "via1_83",
+      "layer": "VIA1",
+      "net": "z4",
+      "symbolic_resource_id": "via1_83_z4"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        8.7,
+        6.53
+      ],
+      "geometry_id": "via1_84",
+      "layer": "VIA1",
+      "net": "z5",
+      "symbolic_resource_id": "via1_84_z5"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        15.129999999999999,
+        7.0
+      ],
+      "geometry_id": "via1_85",
+      "layer": "VIA1",
+      "net": "z5",
+      "symbolic_resource_id": "via1_85_z5"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        16.63,
+        7.0
+      ],
+      "geometry_id": "via1_86",
+      "layer": "VIA1",
+      "net": "z5",
+      "symbolic_resource_id": "via1_86_z5"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        25.7,
+        2.345
+      ],
+      "geometry_id": "via1_87",
+      "layer": "VIA1",
+      "net": "z5",
+      "symbolic_resource_id": "via1_87_z5"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        31.27,
+        2.0
+      ],
+      "geometry_id": "via1_88",
+      "layer": "VIA1",
+      "net": "z5",
+      "symbolic_resource_id": "via1_88_z5"
+    },
+    {
+      "GDS_layer_datatype": [
+        12,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M1",
+        "M2"
+      ],
+      "coordinates": [
+        32.77,
+        2.0
+      ],
+      "geometry_id": "via1_89",
+      "layer": "VIA1",
+      "net": "z5",
+      "symbolic_resource_id": "via1_89_z5"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        0.77,
+        8.6
+      ],
+      "geometry_id": "via2_0",
+      "layer": "VIA2",
+      "net": "VDD",
+      "symbolic_resource_id": "via2_0_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        2.27,
+        8.6
+      ],
+      "geometry_id": "via2_1",
+      "layer": "VIA2",
+      "net": "VDD",
+      "symbolic_resource_id": "via2_1_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        3.77,
+        8.6
+      ],
+      "geometry_id": "via2_2",
+      "layer": "VIA2",
+      "net": "VDD",
+      "symbolic_resource_id": "via2_2_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        5.2700000000000005,
+        8.6
+      ],
+      "geometry_id": "via2_3",
+      "layer": "VIA2",
+      "net": "VDD",
+      "symbolic_resource_id": "via2_3_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        6.7700000000000005,
+        8.6
+      ],
+      "geometry_id": "via2_4",
+      "layer": "VIA2",
+      "net": "VDD",
+      "symbolic_resource_id": "via2_4_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        8.27,
+        8.6
+      ],
+      "geometry_id": "via2_5",
+      "layer": "VIA2",
+      "net": "VDD",
+      "symbolic_resource_id": "via2_5_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        9.77,
+        8.6
+      ],
+      "geometry_id": "via2_6",
+      "layer": "VIA2",
+      "net": "VDD",
+      "symbolic_resource_id": "via2_6_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "via2_7",
+      "layer": "VIA2",
+      "net": "VDD",
+      "symbolic_resource_id": "via2_7_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "via2_8",
+      "layer": "VIA2",
+      "net": "VDD",
+      "symbolic_resource_id": "via2_8_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "via2_9",
+      "layer": "VIA2",
+      "net": "VDD",
+      "symbolic_resource_id": "via2_9_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "via2_10",
+      "layer": "VIA2",
+      "net": "VDD",
+      "symbolic_resource_id": "via2_10_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "via2_11",
+      "layer": "VIA2",
+      "net": "VDD",
+      "symbolic_resource_id": "via2_11_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "via2_12",
+      "layer": "VIA2",
+      "net": "VDD",
+      "symbolic_resource_id": "via2_12_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "via2_13",
+      "layer": "VIA2",
+      "net": "VDD",
+      "symbolic_resource_id": "via2_13_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "via2_14",
+      "layer": "VIA2",
+      "net": "VDD",
+      "symbolic_resource_id": "via2_14_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "via2_15",
+      "layer": "VIA2",
+      "net": "VDD",
+      "symbolic_resource_id": "via2_15_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "via2_16",
+      "layer": "VIA2",
+      "net": "VDD",
+      "symbolic_resource_id": "via2_16_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "via2_17",
+      "layer": "VIA2",
+      "net": "VDD",
+      "symbolic_resource_id": "via2_17_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        0.09999999999999987,
+        8.6
+      ],
+      "geometry_id": "via2_18",
+      "layer": "VIA2",
+      "net": "VDD",
+      "symbolic_resource_id": "via2_18_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        17.77,
+        9.02
+      ],
+      "geometry_id": "via2_19",
+      "layer": "VIA2",
+      "net": "VSS",
+      "symbolic_resource_id": "via2_19_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        19.27,
+        9.02
+      ],
+      "geometry_id": "via2_20",
+      "layer": "VIA2",
+      "net": "VSS",
+      "symbolic_resource_id": "via2_20_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        20.77,
+        9.02
+      ],
+      "geometry_id": "via2_21",
+      "layer": "VIA2",
+      "net": "VSS",
+      "symbolic_resource_id": "via2_21_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        22.27,
+        9.02
+      ],
+      "geometry_id": "via2_22",
+      "layer": "VIA2",
+      "net": "VSS",
+      "symbolic_resource_id": "via2_22_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        23.77,
+        9.02
+      ],
+      "geometry_id": "via2_23",
+      "layer": "VIA2",
+      "net": "VSS",
+      "symbolic_resource_id": "via2_23_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        25.27,
+        9.02
+      ],
+      "geometry_id": "via2_24",
+      "layer": "VIA2",
+      "net": "VSS",
+      "symbolic_resource_id": "via2_24_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        26.77,
+        9.02
+      ],
+      "geometry_id": "via2_25",
+      "layer": "VIA2",
+      "net": "VSS",
+      "symbolic_resource_id": "via2_25_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        17.1,
+        9.02
+      ],
+      "geometry_id": "via2_26",
+      "layer": "VIA2",
+      "net": "VSS",
+      "symbolic_resource_id": "via2_26_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        17.1,
+        9.02
+      ],
+      "geometry_id": "via2_27",
+      "layer": "VIA2",
+      "net": "VSS",
+      "symbolic_resource_id": "via2_27_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        17.1,
+        9.02
+      ],
+      "geometry_id": "via2_28",
+      "layer": "VIA2",
+      "net": "VSS",
+      "symbolic_resource_id": "via2_28_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        17.1,
+        9.02
+      ],
+      "geometry_id": "via2_29",
+      "layer": "VIA2",
+      "net": "VSS",
+      "symbolic_resource_id": "via2_29_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        17.1,
+        9.02
+      ],
+      "geometry_id": "via2_30",
+      "layer": "VIA2",
+      "net": "VSS",
+      "symbolic_resource_id": "via2_30_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        17.1,
+        9.02
+      ],
+      "geometry_id": "via2_31",
+      "layer": "VIA2",
+      "net": "VSS",
+      "symbolic_resource_id": "via2_31_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        17.1,
+        9.02
+      ],
+      "geometry_id": "via2_32",
+      "layer": "VIA2",
+      "net": "VSS",
+      "symbolic_resource_id": "via2_32_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        17.1,
+        9.02
+      ],
+      "geometry_id": "via2_33",
+      "layer": "VIA2",
+      "net": "VSS",
+      "symbolic_resource_id": "via2_33_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        17.1,
+        9.02
+      ],
+      "geometry_id": "via2_34",
+      "layer": "VIA2",
+      "net": "VSS",
+      "symbolic_resource_id": "via2_34_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        17.1,
+        9.02
+      ],
+      "geometry_id": "via2_35",
+      "layer": "VIA2",
+      "net": "VSS",
+      "symbolic_resource_id": "via2_35_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        17.1,
+        9.02
+      ],
+      "geometry_id": "via2_36",
+      "layer": "VIA2",
+      "net": "VSS",
+      "symbolic_resource_id": "via2_36_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        17.1,
+        9.02
+      ],
+      "geometry_id": "via2_37",
+      "layer": "VIA2",
+      "net": "VSS",
+      "symbolic_resource_id": "via2_37_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        1.2,
+        9.44
+      ],
+      "geometry_id": "via2_38",
+      "layer": "VIA2",
+      "net": "CLK",
+      "symbolic_resource_id": "via2_38_CLK"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        11.7,
+        9.44
+      ],
+      "geometry_id": "via2_39",
+      "layer": "VIA2",
+      "net": "CLK",
+      "symbolic_resource_id": "via2_39_CLK"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        16.2,
+        9.44
+      ],
+      "geometry_id": "via2_40",
+      "layer": "VIA2",
+      "net": "CLK",
+      "symbolic_resource_id": "via2_40_CLK"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        18.2,
+        9.44
+      ],
+      "geometry_id": "via2_41",
+      "layer": "VIA2",
+      "net": "CLK",
+      "symbolic_resource_id": "via2_41_CLK"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        30.2,
+        9.44
+      ],
+      "geometry_id": "via2_42",
+      "layer": "VIA2",
+      "net": "CLK",
+      "symbolic_resource_id": "via2_42_CLK"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        31.7,
+        9.44
+      ],
+      "geometry_id": "via2_43",
+      "layer": "VIA2",
+      "net": "CLK",
+      "symbolic_resource_id": "via2_43_CLK"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        1.63,
+        9.86
+      ],
+      "geometry_id": "via2_44",
+      "layer": "VIA2",
+      "net": "CLKB",
+      "symbolic_resource_id": "via2_44_CLKB"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        13.2,
+        9.86
+      ],
+      "geometry_id": "via2_45",
+      "layer": "VIA2",
+      "net": "CLKB",
+      "symbolic_resource_id": "via2_45_CLKB"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        14.7,
+        9.86
+      ],
+      "geometry_id": "via2_46",
+      "layer": "VIA2",
+      "net": "CLKB",
+      "symbolic_resource_id": "via2_46_CLKB"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        18.63,
+        9.86
+      ],
+      "geometry_id": "via2_47",
+      "layer": "VIA2",
+      "net": "CLKB",
+      "symbolic_resource_id": "via2_47_CLKB"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        28.7,
+        9.86
+      ],
+      "geometry_id": "via2_48",
+      "layer": "VIA2",
+      "net": "CLKB",
+      "symbolic_resource_id": "via2_48_CLKB"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        33.2,
+        9.86
+      ],
+      "geometry_id": "via2_49",
+      "layer": "VIA2",
+      "net": "CLKB",
+      "symbolic_resource_id": "via2_49_CLKB"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        2.7,
+        10.28
+      ],
+      "geometry_id": "via2_50",
+      "layer": "VIA2",
+      "net": "D",
+      "symbolic_resource_id": "via2_50_D"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        19.7,
+        10.28
+      ],
+      "geometry_id": "via2_51",
+      "layer": "VIA2",
+      "net": "D",
+      "symbolic_resource_id": "via2_51_D"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        3.1300000000000003,
+        10.7
+      ],
+      "geometry_id": "via2_52",
+      "layer": "VIA2",
+      "net": "D_b",
+      "symbolic_resource_id": "via2_52_D_b"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        11.27,
+        10.7
+      ],
+      "geometry_id": "via2_53",
+      "layer": "VIA2",
+      "net": "D_b",
+      "symbolic_resource_id": "via2_53_D_b"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        20.13,
+        10.7
+      ],
+      "geometry_id": "via2_54",
+      "layer": "VIA2",
+      "net": "D_b",
+      "symbolic_resource_id": "via2_54_D_b"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        29.13,
+        10.7
+      ],
+      "geometry_id": "via2_55",
+      "layer": "VIA2",
+      "net": "D_b",
+      "symbolic_resource_id": "via2_55_D_b"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        9.129999999999999,
+        11.12
+      ],
+      "geometry_id": "via2_56",
+      "layer": "VIA2",
+      "net": "Q",
+      "symbolic_resource_id": "via2_56_Q"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        10.2,
+        11.12
+      ],
+      "geometry_id": "via2_57",
+      "layer": "VIA2",
+      "net": "Q",
+      "symbolic_resource_id": "via2_57_Q"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        26.13,
+        11.12
+      ],
+      "geometry_id": "via2_58",
+      "layer": "VIA2",
+      "net": "Q",
+      "symbolic_resource_id": "via2_58_Q"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        27.2,
+        11.12
+      ],
+      "geometry_id": "via2_59",
+      "layer": "VIA2",
+      "net": "Q",
+      "symbolic_resource_id": "via2_59_Q"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        10.629999999999999,
+        11.54
+      ],
+      "geometry_id": "via2_60",
+      "layer": "VIA2",
+      "net": "QB",
+      "symbolic_resource_id": "via2_60_QB"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        15.77,
+        11.54
+      ],
+      "geometry_id": "via2_61",
+      "layer": "VIA2",
+      "net": "QB",
+      "symbolic_resource_id": "via2_61_QB"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        27.63,
+        11.54
+      ],
+      "geometry_id": "via2_62",
+      "layer": "VIA2",
+      "net": "QB",
+      "symbolic_resource_id": "via2_62_QB"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        33.63,
+        11.54
+      ],
+      "geometry_id": "via2_63",
+      "layer": "VIA2",
+      "net": "QB",
+      "symbolic_resource_id": "via2_63_QB"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        4.2,
+        11.959999999999999
+      ],
+      "geometry_id": "via2_64",
+      "layer": "VIA2",
+      "net": "z1",
+      "symbolic_resource_id": "via2_64_z1"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        12.129999999999999,
+        11.959999999999999
+      ],
+      "geometry_id": "via2_65",
+      "layer": "VIA2",
+      "net": "z1",
+      "symbolic_resource_id": "via2_65_z1"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        13.629999999999999,
+        11.959999999999999
+      ],
+      "geometry_id": "via2_66",
+      "layer": "VIA2",
+      "net": "z1",
+      "symbolic_resource_id": "via2_66_z1"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        21.2,
+        11.959999999999999
+      ],
+      "geometry_id": "via2_67",
+      "layer": "VIA2",
+      "net": "z1",
+      "symbolic_resource_id": "via2_67_z1"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        28.27,
+        11.959999999999999
+      ],
+      "geometry_id": "via2_68",
+      "layer": "VIA2",
+      "net": "z1",
+      "symbolic_resource_id": "via2_68_z1"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        29.77,
+        11.959999999999999
+      ],
+      "geometry_id": "via2_69",
+      "layer": "VIA2",
+      "net": "z1",
+      "symbolic_resource_id": "via2_69_z1"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        4.63,
+        12.379999999999999
+      ],
+      "geometry_id": "via2_70",
+      "layer": "VIA2",
+      "net": "z2",
+      "symbolic_resource_id": "via2_70_z2"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        5.7,
+        12.379999999999999
+      ],
+      "geometry_id": "via2_71",
+      "layer": "VIA2",
+      "net": "z2",
+      "symbolic_resource_id": "via2_71_z2"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        7.2,
+        12.379999999999999
+      ],
+      "geometry_id": "via2_72",
+      "layer": "VIA2",
+      "net": "z2",
+      "symbolic_resource_id": "via2_72_z2"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        21.63,
+        12.379999999999999
+      ],
+      "geometry_id": "via2_73",
+      "layer": "VIA2",
+      "net": "z2",
+      "symbolic_resource_id": "via2_73_z2"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        22.7,
+        12.379999999999999
+      ],
+      "geometry_id": "via2_74",
+      "layer": "VIA2",
+      "net": "z2",
+      "symbolic_resource_id": "via2_74_z2"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        24.2,
+        12.379999999999999
+      ],
+      "geometry_id": "via2_75",
+      "layer": "VIA2",
+      "net": "z2",
+      "symbolic_resource_id": "via2_75_z2"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        6.13,
+        12.8
+      ],
+      "geometry_id": "via2_76",
+      "layer": "VIA2",
+      "net": "z3",
+      "symbolic_resource_id": "via2_76_z3"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        12.77,
+        12.8
+      ],
+      "geometry_id": "via2_77",
+      "layer": "VIA2",
+      "net": "z3",
+      "symbolic_resource_id": "via2_77_z3"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        23.13,
+        12.8
+      ],
+      "geometry_id": "via2_78",
+      "layer": "VIA2",
+      "net": "z3",
+      "symbolic_resource_id": "via2_78_z3"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        30.63,
+        12.8
+      ],
+      "geometry_id": "via2_79",
+      "layer": "VIA2",
+      "net": "z3",
+      "symbolic_resource_id": "via2_79_z3"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        7.63,
+        13.219999999999999
+      ],
+      "geometry_id": "via2_80",
+      "layer": "VIA2",
+      "net": "z4",
+      "symbolic_resource_id": "via2_80_z4"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        14.27,
+        13.219999999999999
+      ],
+      "geometry_id": "via2_81",
+      "layer": "VIA2",
+      "net": "z4",
+      "symbolic_resource_id": "via2_81_z4"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        24.63,
+        13.219999999999999
+      ],
+      "geometry_id": "via2_82",
+      "layer": "VIA2",
+      "net": "z4",
+      "symbolic_resource_id": "via2_82_z4"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        32.129999999999995,
+        13.219999999999999
+      ],
+      "geometry_id": "via2_83",
+      "layer": "VIA2",
+      "net": "z4",
+      "symbolic_resource_id": "via2_83_z4"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        8.7,
+        13.64
+      ],
+      "geometry_id": "via2_84",
+      "layer": "VIA2",
+      "net": "z5",
+      "symbolic_resource_id": "via2_84_z5"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        15.129999999999999,
+        13.64
+      ],
+      "geometry_id": "via2_85",
+      "layer": "VIA2",
+      "net": "z5",
+      "symbolic_resource_id": "via2_85_z5"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        16.63,
+        13.64
+      ],
+      "geometry_id": "via2_86",
+      "layer": "VIA2",
+      "net": "z5",
+      "symbolic_resource_id": "via2_86_z5"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        25.7,
+        13.64
+      ],
+      "geometry_id": "via2_87",
+      "layer": "VIA2",
+      "net": "z5",
+      "symbolic_resource_id": "via2_87_z5"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        31.27,
+        13.64
+      ],
+      "geometry_id": "via2_88",
+      "layer": "VIA2",
+      "net": "z5",
+      "symbolic_resource_id": "via2_88_z5"
+    },
+    {
+      "GDS_layer_datatype": [
+        14,
+        0
+      ],
+      "connectivity_endpoints": [
+        "M2",
+        "M3"
+      ],
+      "coordinates": [
+        32.77,
+        13.64
+      ],
+      "geometry_id": "via2_89",
+      "layer": "VIA2",
+      "net": "z5",
+      "symbolic_resource_id": "via2_89_z5"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VDD"
+      ],
+      "coordinates": [
+        33.88,
+        8.6
+      ],
+      "geometry_id": "pin_VDD",
+      "layer": "PIN",
+      "net": "VDD",
+      "symbolic_resource_id": "pin_VDD"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "VSS"
+      ],
+      "coordinates": [
+        33.88,
+        9.02
+      ],
+      "geometry_id": "pin_VSS",
+      "layer": "PIN",
+      "net": "VSS",
+      "symbolic_resource_id": "pin_VSS"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "D"
+      ],
+      "coordinates": [
+        33.88,
+        10.28
+      ],
+      "geometry_id": "pin_D",
+      "layer": "PIN",
+      "net": "D",
+      "symbolic_resource_id": "pin_D"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "Q"
+      ],
+      "coordinates": [
+        33.88,
+        11.12
+      ],
+      "geometry_id": "pin_Q",
+      "layer": "PIN",
+      "net": "Q",
+      "symbolic_resource_id": "pin_Q"
+    },
+    {
+      "GDS_layer_datatype": [
+        15,
+        0
+      ],
+      "connectivity_endpoints": [
+        "CLK"
+      ],
+      "coordinates": [
+        33.88,
+        9.44
+      ],
+      "geometry_id": "pin_CLK",
+      "layer": "PIN",
+      "net": "CLK",
+      "symbolic_resource_id": "pin_CLK"
+    }
+  ]
+}

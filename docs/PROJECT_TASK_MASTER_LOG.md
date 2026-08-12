@@ -923,3 +923,19 @@
 - first valid cell gate: `PASS`; DRC `PASS`; LVS `PASS`.
 - formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
 - package: `/data1/qujh/PROJECT_CELLSYNTH_V2_CONNECTIVITY_FIRST_ENGINE_MVP_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `136abc0afc8fa870e2263037bfd35964b3b4591a9621527ad689553ab76076ac`.
+
+## 2026-08-12T13:32:02.718835+00:00 cellsynth_v2_verified_coopt_engine_v1
+
+- result: `BLOCKED_CELLSYNTH_V2_VERIFIED_COOPT_ENGINE_V1`
+- implemented: baseline structural audit, symbolic/GDS bijection trace, simultaneous P/N placement search, routing subproblem admission, DRC/LVS verified optimized candidate.
+- optimized candidate: `DFF_V2_COOPT_S1_P1p50_DX17p00_B0p45`; area `551.104`; DRC `DRC_PASS`; LVS `LVS_PASS`.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_CELLSYNTH_V2_VERIFIED_COOPT_ENGINE_V1_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `e853e5dafcdc5046a0350219940a7c12d78bb0b3d3df3608544f7153d7d6c181`.
+
+## 2026-08-12T13:35:49.975533+00:00 cellsynth_v2_verified_coopt_engine_v1
+
+- result: `BLOCKED_CELLSYNTH_V2_VERIFIED_COOPT_ENGINE_V1`
+- implemented: baseline structural audit, symbolic/GDS bijection trace, simultaneous P/N placement search, routing subproblem admission, DRC/LVS verified optimized candidate.
+- optimized candidate: `DFF_V2_COOPT_S1_P1p50_DX17p00_B0p42`; area `510.64320000000004`; DRC `DRC_PASS`; LVS `LVS_PASS`.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_CELLSYNTH_V2_VERIFIED_COOPT_ENGINE_V1_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `05f459bcb4cd5632f364bd85fbed916fc0b682fb7d9225e7d77ade2e6b865bee`.

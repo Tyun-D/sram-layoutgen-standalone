@@ -1,0 +1,344 @@
+{
+  "accepted": false,
+  "area": 475.50719999999995,
+  "candidate": "DFF_V2_COOPT_S1_P1p50_DX14p60_B0p42",
+  "contact_count": 68,
+  "drc": "DRC_PASS",
+  "drc_markers": 0,
+  "drc_report": {
+    "log": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_verified_coopt_engine_v1/CANDIDATES/DFF_V2_COOPT_S1_P1p50_DX14p60_B0p42/DRC/DFF_V2_COOPT_S1_P1p50_DX14p60_B0p42_drc.log",
+    "lyrdb": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_verified_coopt_engine_v1/CANDIDATES/DFF_V2_COOPT_S1_P1p50_DX14p60_B0p42/DRC/DFF_V2_COOPT_S1_P1p50_DX14p60_B0p42.lyrdb",
+    "marker_count": 0,
+    "returncode": 0,
+    "status": "DRC_PASS"
+  },
+  "extracted_netlist_audit": {
+    "bulk_nets": [
+      "10",
+      "9"
+    ],
+    "extracted_net_count": 10,
+    "gate_nets": [
+      "1",
+      "10",
+      "2",
+      "3",
+      "7",
+      "8"
+    ],
+    "mos": [
+      {
+        "B": "9",
+        "D": "8",
+        "G": "10",
+        "L_um": 0.05,
+        "S": "10",
+        "W_um": 0.5,
+        "model": "PMOS_VTG",
+        "raw": "M$1 8 10 10 9 PMOS_VTG L=0.05U W=0.5U AS=0.2875P AD=0.2875P PS=2.15U PD=2.15U"
+      },
+      {
+        "B": "9",
+        "D": "8",
+        "G": "10",
+        "L_um": 0.05,
+        "S": "5",
+        "W_um": 0.5,
+        "model": "PMOS_VTG",
+        "raw": "M$2 8 10 5 9 PMOS_VTG L=0.05U W=0.5U AS=0.2875P AD=0.2875P PS=2.15U PD=2.15U"
+      },
+      {
+        "B": "9",
+        "D": "2",
+        "G": "10",
+        "L_um": 0.05,
+        "S": "4",
+        "W_um": 0.5,
+        "model": "PMOS_VTG",
+        "raw": "M$3 2 10 4 9 PMOS_VTG L=0.05U W=0.5U AS=0.2875P AD=0.2875P PS=2.15U PD=2.15U"
+      },
+      {
+        "B": "9",
+        "D": "2",
+        "G": "10",
+        "L_um": 0.05,
+        "S": "6",
+        "W_um": 0.5,
+        "model": "PMOS_VTG",
+        "raw": "M$4 2 10 6 9 PMOS_VTG L=0.05U W=0.5U AS=0.2875P AD=0.2875P PS=2.15U PD=2.15U"
+      },
+      {
+        "B": "9",
+        "D": "10",
+        "G": "7",
+        "L_um": 0.05,
+        "S": "9",
+        "W_um": 0.5,
+        "model": "PMOS_VTG",
+        "raw": "M$5 10 7 9 9 PMOS_VTG L=0.05U W=0.5U AS=0.2875P AD=0.2875P PS=2.15U PD=2.15U"
+      },
+      {
+        "B": "9",
+        "D": "6",
+        "G": "1",
+        "L_um": 0.05,
+        "S": "9",
+        "W_um": 0.5,
+        "model": "PMOS_VTG",
+        "raw": "M$6 6 1 9 9 PMOS_VTG L=0.05U W=0.5U AS=0.2875P AD=0.2875P PS=2.15U PD=2.15U"
+      },
+      {
+        "B": "9",
+        "D": "10",
+        "G": "10",
+        "L_um": 0.05,
+        "S": "9",
+        "W_um": 0.5,
+        "model": "PMOS_VTG",
+        "raw": "M$7 10 10 9 9 PMOS_VTG L=0.05U W=0.5U AS=0.2875P AD=0.2875P PS=2.15U PD=2.15U"
+      },
+      {
+        "B": "9",
+        "D": "7",
+        "G": "8",
+        "L_um": 0.05,
+        "S": "9",
+        "W_um": 0.5,
+        "model": "PMOS_VTG",
+        "raw": "M$8 7 8 9 9 PMOS_VTG L=0.05U W=0.5U AS=0.2875P AD=0.2875P PS=2.15U PD=2.15U"
+      },
+      {
+        "B": "9",
+        "D": "3",
+        "G": "2",
+        "L_um": 0.05,
+        "S": "9",
+        "W_um": 0.5,
+        "model": "PMOS_VTG",
+        "raw": "M$9 3 2 9 9 PMOS_VTG L=0.05U W=0.5U AS=0.2875P AD=0.2875P PS=2.15U PD=2.15U"
+      },
+      {
+        "B": "9",
+        "D": "5",
+        "G": "3",
+        "L_um": 0.05,
+        "S": "9",
+        "W_um": 0.5,
+        "model": "PMOS_VTG",
+        "raw": "M$10 5 3 9 9 PMOS_VTG L=0.05U W=0.5U AS=0.2875P AD=0.2875P PS=2.15U PD=2.15U"
+      },
+      {
+        "B": "9",
+        "D": "4",
+        "G": "3",
+        "L_um": 0.05,
+        "S": "9",
+        "W_um": 0.5,
+        "model": "PMOS_VTG",
+        "raw": "M$11 4 3 9 9 PMOS_VTG L=0.05U W=0.5U AS=0.2875P AD=0.2875P PS=2.15U PD=2.15U"
+      },
+      {
+        "B": "10",
+        "D": "10",
+        "G": "10",
+        "L_um": 0.05,
+        "S": "8",
+        "W_um": 0.25,
+        "model": "NMOS_VTG",
+        "raw": "M$12 10 10 8 10 NMOS_VTG L=0.05U W=0.25U AS=0.14375P AD=0.14375P PS=1.65U PD=1.65U"
+      },
+      {
+        "B": "10",
+        "D": "5",
+        "G": "10",
+        "L_um": 0.05,
+        "S": "8",
+        "W_um": 0.25,
+        "model": "NMOS_VTG",
+        "raw": "M$13 5 10 8 10 NMOS_VTG L=0.05U W=0.25U AS=0.14375P AD=0.14375P PS=1.65U PD=1.65U"
+      },
+      {
+        "B": "10",
+        "D": "4",
+        "G": "10",
+        "L_um": 0.05,
+        "S": "2",
+        "W_um": 0.25,
+        "model": "NMOS_VTG",
+        "raw": "M$14 4 10 2 10 NMOS_VTG L=0.05U W=0.25U AS=0.14375P AD=0.14375P PS=1.65U PD=1.65U"
+      },
+      {
+        "B": "10",
+        "D": "10",
+        "G": "7",
+        "L_um": 0.05,
+        "S": "10",
+        "W_um": 0.25,
+        "model": "NMOS_VTG",
+        "raw": "M$15 10 7 10 10 NMOS_VTG L=0.05U W=0.25U AS=0.14375P AD=0.14375P PS=1.65U PD=1.65U"
+      },
+      {
+        "B": "10",
+        "D": "10",
+        "G": "10",
+        "L_um": 0.05,
+        "S": "10",
+        "W_um": 0.25,
+        "model": "NMOS_VTG",
+        "raw": "M$16 10 10 10 10 NMOS_VTG L=0.05U W=0.25U AS=0.14375P AD=0.14375P PS=1.65U PD=1.65U"
+      },
+      {
+        "B": "10",
+        "D": "5",
+        "G": "3",
+        "L_um": 0.05,
+        "S": "10",
+        "W_um": 0.25,
+        "model": "NMOS_VTG",
+        "raw": "M$17 5 3 10 10 NMOS_VTG L=0.05U W=0.25U AS=0.14375P AD=0.14375P PS=1.65U PD=1.65U"
+      },
+      {
+        "B": "10",
+        "D": "6",
+        "G": "1",
+        "L_um": 0.05,
+        "S": "10",
+        "W_um": 0.25,
+        "model": "NMOS_VTG",
+        "raw": "M$18 6 1 10 10 NMOS_VTG L=0.05U W=0.25U AS=0.14375P AD=0.14375P PS=1.65U PD=1.65U"
+      },
+      {
+        "B": "10",
+        "D": "3",
+        "G": "2",
+        "L_um": 0.05,
+        "S": "10",
+        "W_um": 0.25,
+        "model": "NMOS_VTG",
+        "raw": "M$19 3 2 10 10 NMOS_VTG L=0.05U W=0.25U AS=0.14375P AD=0.14375P PS=1.65U PD=1.65U"
+      },
+      {
+        "B": "10",
+        "D": "4",
+        "G": "3",
+        "L_um": 0.05,
+        "S": "10",
+        "W_um": 0.25,
+        "model": "NMOS_VTG",
+        "raw": "M$20 4 3 10 10 NMOS_VTG L=0.05U W=0.25U AS=0.14375P AD=0.14375P PS=1.65U PD=1.65U"
+      },
+      {
+        "B": "10",
+        "D": "7",
+        "G": "8",
+        "L_um": 0.05,
+        "S": "10",
+        "W_um": 0.25,
+        "model": "NMOS_VTG",
+        "raw": "M$21 7 8 10 10 NMOS_VTG L=0.05U W=0.25U AS=0.14375P AD=0.14375P PS=1.65U PD=1.65U"
+      },
+      {
+        "B": "10",
+        "D": "6",
+        "G": "10",
+        "L_um": 0.05,
+        "S": "2",
+        "W_um": 0.25,
+        "model": "NMOS_VTG",
+        "raw": "M$22 6 10 2 10 NMOS_VTG L=0.05U W=0.25U AS=0.14375P AD=0.14375P PS=1.65U PD=1.65U"
+      }
+    ],
+    "mos_count": 22,
+    "nmos_count": 11,
+    "pins": [
+      "D",
+      "Q",
+      "VDD",
+      "CLK,VSS"
+    ],
+    "pmos_count": 11,
+    "subckt_ports": {
+      "DFF_V2_COOPT_S1_P1p50_DX14p60_B0p42": [
+        "1",
+        "7",
+        "9",
+        "10"
+      ]
+    }
+  },
+  "gds": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_verified_coopt_engine_v1/CANDIDATES/DFF_V2_COOPT_S1_P1p50_DX14p60_B0p42/DFF_V2_COOPT_S1_P1p50_DX14p60_B0p42.gds",
+  "gds_sha256": "5324bceebb910c82ad2b8b9d811b791c365b89736fa3c40592fa5795dcd612be",
+  "height": 14.64,
+  "level1": "PASS",
+  "lvs": "LVS_COMPARE_FAIL",
+  "lvs_report": {
+    "extracted_netlist": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_verified_coopt_engine_v1/CANDIDATES/DFF_V2_COOPT_S1_P1p50_DX14p60_B0p42/LVS/DFF_V2_COOPT_S1_P1p50_DX14p60_B0p42_extracted.cir",
+    "log": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_verified_coopt_engine_v1/CANDIDATES/DFF_V2_COOPT_S1_P1p50_DX14p60_B0p42/LVS/DFF_V2_COOPT_S1_P1p50_DX14p60_B0p42_lvs.log",
+    "report": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_verified_coopt_engine_v1/CANDIDATES/DFF_V2_COOPT_S1_P1p50_DX14p60_B0p42/LVS/DFF_V2_COOPT_S1_P1p50_DX14p60_B0p42.lvsdb",
+    "returncode": 0,
+    "status": "LVS_COMPARE_FAIL"
+  },
+  "params": {
+    "bus_pitch": 0.42,
+    "bus_start": 8.6,
+    "nmos_dx": 14.6,
+    "pitch_x": 1.5
+  },
+  "pmos_nmos_overlap_x": 0.40000000000000036,
+  "signature": "cacb01c2bd75588db65f251e2215ce08905d29a2675d37efbbcf1528d6fc1616",
+  "structural_audit": {
+    "REPORT_VS_FINAL_GDS_MATCH": true,
+    "active_area": 9.99680000000001,
+    "active_island_count": 24,
+    "bbox": {
+      "area": 475.50719999999995,
+      "height": 14.64,
+      "width": 32.48
+    },
+    "candidate": "DFF_V2_COOPT_S1_P1p50_DX14p60_B0p42",
+    "cell_whitespace_area": 323.4519000000002,
+    "contact_count": 68,
+    "implant_area": 14.579599999999997,
+    "m1_segment_count": 158,
+    "m2_segment_count": 270,
+    "m3_segment_count": 108,
+    "nmos_placement_span": [
+      15.799999999999999,
+      30.799999999999997
+    ],
+    "pmos_nmos_overlap_ratio": 0.02666666666666669,
+    "pmos_nmos_overlap_x": 0.40000000000000036,
+    "pmos_placement_span": [
+      1.2,
+      16.2
+    ],
+    "route_length_per_net": {
+      "CLK": 61.14499999999999,
+      "CLKB": 62.08,
+      "D": 41.315,
+      "D_b": 48.89999999999999,
+      "Q": 49.805,
+      "QB": 49.26,
+      "VDD": 62.630000000000024,
+      "VSS": 151.01,
+      "z1": 68.55499999999999,
+      "z2": 65.19999999999999,
+      "z3": 55.8,
+      "z4": 57.47999999999999,
+      "z5": 77.135
+    },
+    "routing_area": 142.05849999999975,
+    "total_routed_length": 850.3149999999998,
+    "total_routed_length_per_layer": {
+      "m2": 532.9150000000002,
+      "m3": 317.39999999999986
+    },
+    "via1_count": 90,
+    "via2_count": 90,
+    "well_area": 472.71320000000003
+  },
+  "total_routed_length": 850.3149999999998,
+  "via1_count": 90,
+  "via2_count": 90,
+  "width": 32.48
+}

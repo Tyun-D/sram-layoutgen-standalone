@@ -1,0 +1,19 @@
+{
+  "NEGATIVE_REGRESSION_GATE": "PASS",
+  "tests": [
+    {
+      "actual": "LVS_COMPARE_FAIL",
+      "artifact": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_openyield_dff_routing_aware_feol_beol_co_optimization/CANDIDATES/DFF_TOPO_SHARED_00_7_TRAIL/clean.gds",
+      "expected": "LVS_COMPARE_FAIL",
+      "name": "old_9p1017_generated_layout",
+      "passed": true
+    },
+    {
+      "actual": "FAIL",
+      "artifact": "symbolic_mutation",
+      "expected": "LEVEL1_FAIL",
+      "name": "remove_via1_from_optimized_clk_route",
+      "passed": true
+    }
+  ]
+}

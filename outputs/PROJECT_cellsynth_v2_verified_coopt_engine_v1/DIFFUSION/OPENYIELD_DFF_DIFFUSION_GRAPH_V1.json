@@ -1,0 +1,254 @@
+{
+  "DIFFUSION_CHAIN_ENGINE_GATE": "PASS",
+  "expected_2p2n_programmatically_derived": true,
+  "types": {
+    "NMOS": {
+      "edge_count": 11,
+      "edges": [
+        {
+          "D": "CLKB",
+          "G": "CLK",
+          "L_um": 0.05,
+          "S": "VSS",
+          "W_um": 0.25,
+          "instance": "Minv1_clk_MN"
+        },
+        {
+          "D": "D_b",
+          "G": "D",
+          "L_um": 0.05,
+          "S": "VSS",
+          "W_um": 0.25,
+          "instance": "Minv2_D_MN"
+        },
+        {
+          "D": "z2",
+          "G": "z1",
+          "L_um": 0.05,
+          "S": "VSS",
+          "W_um": 0.25,
+          "instance": "Minv3_MN"
+        },
+        {
+          "D": "z3",
+          "G": "z2",
+          "L_um": 0.05,
+          "S": "VSS",
+          "W_um": 0.25,
+          "instance": "Minv4_MN"
+        },
+        {
+          "D": "z4",
+          "G": "z2",
+          "L_um": 0.05,
+          "S": "VSS",
+          "W_um": 0.25,
+          "instance": "Minv5_MN"
+        },
+        {
+          "D": "Q",
+          "G": "z5",
+          "L_um": 0.05,
+          "S": "VSS",
+          "W_um": 0.25,
+          "instance": "Minv6_MN"
+        },
+        {
+          "D": "QB",
+          "G": "Q",
+          "L_um": 0.05,
+          "S": "VSS",
+          "W_um": 0.25,
+          "instance": "Minv7_MN"
+        },
+        {
+          "D": "D_b",
+          "G": "CLKB",
+          "L_um": 0.05,
+          "S": "z1",
+          "W_um": 0.25,
+          "instance": "Mtg1_MN"
+        },
+        {
+          "D": "z3",
+          "G": "CLK",
+          "L_um": 0.05,
+          "S": "z1",
+          "W_um": 0.25,
+          "instance": "Mtg2_MN"
+        },
+        {
+          "D": "z4",
+          "G": "CLK",
+          "L_um": 0.05,
+          "S": "z5",
+          "W_um": 0.25,
+          "instance": "Mtg3_MN"
+        },
+        {
+          "D": "QB",
+          "G": "CLKB",
+          "L_um": 0.05,
+          "S": "z5",
+          "W_um": 0.25,
+          "instance": "Mtg4_MN"
+        }
+      ],
+      "odd_vertices": [
+        "CLKB",
+        "Q",
+        "VSS",
+        "z2"
+      ],
+      "theoretical_minimum_trails": 2,
+      "vertex_degrees": {
+        "CLKB": 1,
+        "D_b": 2,
+        "Q": 1,
+        "QB": 2,
+        "VSS": 7,
+        "z1": 2,
+        "z2": 1,
+        "z3": 2,
+        "z4": 2,
+        "z5": 2
+      },
+      "vertices": [
+        "CLKB",
+        "D_b",
+        "Q",
+        "QB",
+        "VSS",
+        "z1",
+        "z2",
+        "z3",
+        "z4",
+        "z5"
+      ]
+    },
+    "PMOS": {
+      "edge_count": 11,
+      "edges": [
+        {
+          "D": "CLKB",
+          "G": "CLK",
+          "L_um": 0.05,
+          "S": "VDD",
+          "W_um": 0.5,
+          "instance": "Minv1_clk_MP"
+        },
+        {
+          "D": "D_b",
+          "G": "D",
+          "L_um": 0.05,
+          "S": "VDD",
+          "W_um": 0.5,
+          "instance": "Minv2_D_MP"
+        },
+        {
+          "D": "z2",
+          "G": "z1",
+          "L_um": 0.05,
+          "S": "VDD",
+          "W_um": 0.5,
+          "instance": "Minv3_MP"
+        },
+        {
+          "D": "z3",
+          "G": "z2",
+          "L_um": 0.05,
+          "S": "VDD",
+          "W_um": 0.5,
+          "instance": "Minv4_MP"
+        },
+        {
+          "D": "z4",
+          "G": "z2",
+          "L_um": 0.05,
+          "S": "VDD",
+          "W_um": 0.5,
+          "instance": "Minv5_MP"
+        },
+        {
+          "D": "Q",
+          "G": "z5",
+          "L_um": 0.05,
+          "S": "VDD",
+          "W_um": 0.5,
+          "instance": "Minv6_MP"
+        },
+        {
+          "D": "QB",
+          "G": "Q",
+          "L_um": 0.05,
+          "S": "VDD",
+          "W_um": 0.5,
+          "instance": "Minv7_MP"
+        },
+        {
+          "D": "z1",
+          "G": "CLK",
+          "L_um": 0.05,
+          "S": "D_b",
+          "W_um": 0.5,
+          "instance": "Mtg1_MP"
+        },
+        {
+          "D": "z1",
+          "G": "CLKB",
+          "L_um": 0.05,
+          "S": "z3",
+          "W_um": 0.5,
+          "instance": "Mtg2_MP"
+        },
+        {
+          "D": "z5",
+          "G": "CLKB",
+          "L_um": 0.05,
+          "S": "z4",
+          "W_um": 0.5,
+          "instance": "Mtg3_MP"
+        },
+        {
+          "D": "z5",
+          "G": "CLK",
+          "L_um": 0.05,
+          "S": "QB",
+          "W_um": 0.5,
+          "instance": "Mtg4_MP"
+        }
+      ],
+      "odd_vertices": [
+        "CLKB",
+        "Q",
+        "VDD",
+        "z2"
+      ],
+      "theoretical_minimum_trails": 2,
+      "vertex_degrees": {
+        "CLKB": 1,
+        "D_b": 2,
+        "Q": 1,
+        "QB": 2,
+        "VDD": 7,
+        "z1": 2,
+        "z2": 1,
+        "z3": 2,
+        "z4": 2,
+        "z5": 2
+      },
+      "vertices": [
+        "CLKB",
+        "D_b",
+        "Q",
+        "QB",
+        "VDD",
+        "z1",
+        "z2",
+        "z3",
+        "z4",
+        "z5"
+      ]
+    }
+  }
+}

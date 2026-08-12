@@ -24,3 +24,22 @@ This is the persistent CellSynth v2 project-memory entry point. Future CellSynth
 
 ## Current Stage Decision
 The 9.1017 um^2 DFF remains a compact DRC-clean candidate, but it is not yet a valid electrical cell because LVS is not closed. Area optimization is paused until CellSynth v2 architecture, TechnologyDB, GoldenSpec, LVS, and feedback policies are established.
+
+## Connectivity-First Correctness Baseline
+
+`DFF_V2_CONNECTIVITY_BASELINE` is the first automatically generated OpenYield
+22-MOS DFF cell that passed both DRC and LVS.
+
+- DRC: `DRC_PASS`
+- LVS: `LVS_PASS`
+- bbox: `35.88 x 15.8 um`
+- area: `566.904 um^2`
+- extracted MOS: `22` (`11 PMOS`, `11 NMOS`)
+- golden nets connected: `13/13`
+- external pins: `CLK D Q VDD VSS`
+- PEX: `UNAVAILABLE`
+
+This cell is a correctness baseline, not an optimized standard cell. Future
+optimization must preserve DRC/LVS correctness and may only admit candidates to
+the physical Pareto frontier after `Level1Connectivity = PASS`, `DRC = PASS`,
+and `LVS = PASS`.
