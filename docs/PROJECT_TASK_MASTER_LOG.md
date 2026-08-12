@@ -939,3 +939,9 @@
 - optimized candidate: `DFF_V2_COOPT_S1_P1p50_DX17p00_B0p42`; area `510.64320000000004`; DRC `DRC_PASS`; LVS `LVS_PASS`.
 - formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
 - package: `/data1/qujh/PROJECT_CELLSYNTH_V2_VERIFIED_COOPT_ENGINE_V1_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `05f459bcb4cd5632f364bd85fbed916fc0b682fb7d9225e7d77ade2e6b865bee`.
+
+## 2026-08-12T16:59:19.766591+00:00 cellsynth_v2_pn_column_routing_foundation
+
+- result: `BLOCKED_CELLSYNTH_V2_PN_COLUMN_ROUTING_COOPT_FOUNDATION`
+- root cause: `DX14.80` LVS passes but DRC fails on METAL2.2/METAL2.5; global nmos_dx is not a P/N column model.
+- package: `/data1/qujh/PROJECT_CELLSYNTH_V2_PN_COLUMN_ROUTING_COOPT_FOUNDATION_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `d1e4b9787e119260278dd1e24530d39af543c40d26e602c62b480ae2d2da3722`.

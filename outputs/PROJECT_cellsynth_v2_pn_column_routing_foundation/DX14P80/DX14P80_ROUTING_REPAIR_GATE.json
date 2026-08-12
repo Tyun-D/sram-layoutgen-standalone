@@ -1,0 +1,19 @@
+{
+  "DX14P80_ROUTING_REPAIR_GATE": "FAIL",
+  "Level1Connectivity": "PASS_FROM_PREVIOUS_SYMBOLIC_CHECK",
+  "blocking_categories": [
+    "METAL2.2",
+    "METAL2.5"
+  ],
+  "candidate": "DFF_V2_COOPT_S1_P1p50_DX14p80_B0p42",
+  "external_DRC": "DRC_FAIL",
+  "external_LVS": "LVS_PASS",
+  "next_required_repair": "true conflict-aware per-terminal access and track assignment, not global nmos_dx movement",
+  "pmos_nmos_overlap_x": 0.1999999999999993,
+  "repair_attempts": [
+    "increased bus pitch: LVS remained PASS, METAL2 markers remained 21",
+    "local M1 access doglegs: increased DRC conflicts and LVS failed",
+    "M2/M3 layer-role swap: LVS PASS but DRC still failed"
+  ],
+  "transistor_placement_preserved": true
+}

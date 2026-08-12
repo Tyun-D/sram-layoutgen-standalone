@@ -10,3 +10,8 @@
 - Reserving a fixed central channel by default.
 - Assigning one contact to every MOS terminal without node-level access reasoning.
 - Running expensive SPICE on every partial search state.
+- Global NMOS-row translation is not simultaneous P/N placement.
+- Positive PMOS/NMOS bounding-box overlap is not proof of paired-column placement.
+- Fixed terminal-to-M2 vertical-access templates are incompatible with general simultaneous P/N placement.
+- A routing-subproblem gate must not PASS merely because external DRC/LVS failures were ignored.
+- Constant contact/via/routing-resource counts across all search states do not demonstrate contact/routing co-optimization.

@@ -43,3 +43,21 @@ This cell is a correctness baseline, not an optimized standard cell. Future
 optimization must preserve DRC/LVS correctness and may only admit candidates to
 the physical Pareto frontier after `Level1Connectivity = PASS`, `DRC = PASS`,
 and `LVS = PASS`.
+
+## PN Column Routing Foundation Lesson
+
+`BLOCKED_CELLSYNTH_V2_VERIFIED_COOPT_ENGINE_V1` is retained as diagnostic
+evidence, not as a failed experiment to erase.  It demonstrated that reducing
+the conservative routing envelope can preserve DRC/LVS, but it did not
+demonstrate true simultaneous P/N placement.
+
+Established lessons:
+
+- A single global `nmos_dx` variable is not a column-placement model.
+- PMOS/NMOS bounding-box overlap is only a metric, not proof of paired columns.
+- True P/N placement requires a common symbolic column set with explicit
+  `P(c)`, `N(c)` and `paired_column(c)` assignments.
+- The fixed terminal-to-M2 vertical-access template cannot support general
+  overlapped P/N device spans.
+- `DX14.80` is now the frozen routing regression fixture: transistor placement,
+  ACTIVE and POLY stay fixed; only access/routing resources may change.

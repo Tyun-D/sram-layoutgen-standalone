@@ -1,0 +1,26 @@
+{
+  "PN_COLUMN_MODEL_GATE": "SCAFFOLD_COMPLETE_TESTS_NOT_CLOSED",
+  "definition": {
+    "N(c)": "NMOS/finger or EMPTY",
+    "P(c)": "PMOS/finger or EMPTY",
+    "paired_column(c)": "P(c) != EMPTY AND N(c) != EMPTY"
+  },
+  "dff_variables": [
+    "Pplace[p,c]",
+    "Nplace[n,c]",
+    "pair[p,n,c]",
+    "access_select[t,a]",
+    "track_select[n,t]",
+    "route[n,e]",
+    "via1[n,p]",
+    "via2[n,p]"
+  ],
+  "gate_requires": [
+    "common symbolic columns",
+    "paired_column_count > 0",
+    "GDS coordinates match columns",
+    "Level1 PASS",
+    "DRC PASS",
+    "LVS PASS"
+  ]
+}
