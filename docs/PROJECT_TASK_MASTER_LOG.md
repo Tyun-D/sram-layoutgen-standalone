@@ -867,3 +867,59 @@
 - current 9.1017um2 true LVS status: `LVS_COMPARE_FAIL`; previous ambiguous status corrected to `LVS_SETUP_FAIL`.
 - formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
 - package: `/data1/qujh/PROJECT_CELLSYNTH_V2_FORMAL_FOUNDATION_AND_LVS_CLOSURE_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `6b5a50712cb9229718238e2774bcc7953deb9bbc9a6cbb071ac6bf724e732800`.
+
+## 2026-08-12T11:18:39.861581+00:00 cellsynth_v2_connectivity_first_engine_mvp
+
+- result: `BLOCKED_CELLSYNTH_V2_CONNECTIVITY_FIRST_ENGINE_MVP`
+- implemented: GoldenCircuitGraph, SymbolicCell, OD/body/contact/pin synthesis, layered routing resources, Level1 connectivity checker, DRC/LVS closure loop and negative regressions.
+- first valid cell gate: `FAIL`; DRC `FAIL`; LVS `FAIL`.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_CELLSYNTH_V2_CONNECTIVITY_FIRST_ENGINE_MVP_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `b7e32cdd04d2b08dcbab635a519a37e0cc02e395eda96a06af5aa9a8cf11d048`.
+
+## 2026-08-12T11:20:14.180048+00:00 cellsynth_v2_connectivity_first_engine_mvp
+
+- result: `BLOCKED_CELLSYNTH_V2_CONNECTIVITY_FIRST_ENGINE_MVP`
+- implemented: GoldenCircuitGraph, SymbolicCell, OD/body/contact/pin synthesis, layered routing resources, Level1 connectivity checker, DRC/LVS closure loop and negative regressions.
+- first valid cell gate: `FAIL`; DRC `FAIL`; LVS `FAIL`.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_CELLSYNTH_V2_CONNECTIVITY_FIRST_ENGINE_MVP_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `9a0542819e0e9e1bf2c890f01d620543e3cc0f65e08799c8f728c02007a0b5a8`.
+
+## 2026-08-12T11:22:33.930252+00:00 cellsynth_v2_connectivity_first_engine_mvp
+
+- result: `BLOCKED_CELLSYNTH_V2_CONNECTIVITY_FIRST_ENGINE_MVP`
+- implemented: GoldenCircuitGraph, SymbolicCell, OD/body/contact/pin synthesis, layered routing resources, Level1 connectivity checker, DRC/LVS closure loop and negative regressions.
+- first valid cell gate: `FAIL`; DRC `FAIL`; LVS `FAIL`.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_CELLSYNTH_V2_CONNECTIVITY_FIRST_ENGINE_MVP_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `d25767dab1f6fdee2bdd46343e09936436a9ecbc4182d367180f7727434661d0`.
+
+## 2026-08-12T11:24:38.651718+00:00 cellsynth_v2_connectivity_first_engine_mvp
+
+- result: `BLOCKED_CELLSYNTH_V2_CONNECTIVITY_FIRST_ENGINE_MVP`
+- implemented: GoldenCircuitGraph, SymbolicCell, OD/body/contact/pin synthesis, layered routing resources, Level1 connectivity checker, DRC/LVS closure loop and negative regressions.
+- first valid cell gate: `FAIL`; DRC `FAIL`; LVS `PASS`.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_CELLSYNTH_V2_CONNECTIVITY_FIRST_ENGINE_MVP_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `f61335eb8f9b16656bb024eef2b48fc97de503ed304c66db889160da878afd3a`.
+
+## 2026-08-12T11:25:46.270551+00:00 cellsynth_v2_connectivity_first_engine_mvp
+
+- result: `BLOCKED_CELLSYNTH_V2_CONNECTIVITY_FIRST_ENGINE_MVP`
+- implemented: GoldenCircuitGraph, SymbolicCell, OD/body/contact/pin synthesis, layered routing resources, Level1 connectivity checker, DRC/LVS closure loop and negative regressions.
+- first valid cell gate: `PASS`; DRC `PASS`; LVS `PASS`.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_CELLSYNTH_V2_CONNECTIVITY_FIRST_ENGINE_MVP_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `416443879c781ecd055f038e2c893a21cb813aa63e43a6e79aa120fd1ba31950`.
+
+## 2026-08-12T11:26:23.299884+00:00 cellsynth_v2_connectivity_first_engine_mvp
+
+- result: `PASS_OPENYIELD_CELLSYNTH_V2_CONNECTIVITY_FIRST_ENGINE_MVP`
+- implemented: GoldenCircuitGraph, SymbolicCell, OD/body/contact/pin synthesis, layered routing resources, Level1 connectivity checker, DRC/LVS closure loop and negative regressions.
+- first valid cell gate: `PASS`; DRC `PASS`; LVS `PASS`.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_CELLSYNTH_V2_CONNECTIVITY_FIRST_ENGINE_MVP_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `2040bc50f0aa2128150096691b6a6413e5b01c73fdc68732c5a3b6ebab97e45a`.
+
+## 2026-08-12T11:27:25.900866+00:00 cellsynth_v2_connectivity_first_engine_mvp
+
+- result: `PASS_OPENYIELD_CELLSYNTH_V2_CONNECTIVITY_FIRST_ENGINE_MVP`
+- implemented: GoldenCircuitGraph, SymbolicCell, OD/body/contact/pin synthesis, layered routing resources, Level1 connectivity checker, DRC/LVS closure loop and negative regressions.
+- first valid cell gate: `PASS`; DRC `PASS`; LVS `PASS`.
+- formal SRAM top modified: `false`; PDK changed: `false`; external standard-cell library used: `false`.
+- package: `/data1/qujh/PROJECT_CELLSYNTH_V2_CONNECTIVITY_FIRST_ENGINE_MVP_REVIEW_PACKAGE_LATEST.tar.gz`, SHA256 `136abc0afc8fa870e2263037bfd35964b3b4591a9621527ad689553ab76076ac`.

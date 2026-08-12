@@ -1,0 +1,469 @@
+{
+  "OD_CONTOUR_ENGINE_GATE": "PASS",
+  "device_active_records": [
+    {
+      "B": "VDD",
+      "D": "CLKB",
+      "G": "CLK",
+      "L_um": 0.05,
+      "S": "VDD",
+      "W_um": 0.5,
+      "active_bbox": [
+        0.6,
+        6.75,
+        1.7999999999999998,
+        7.25
+      ],
+      "gate_x": 1.2,
+      "logical_instance": "inv1_clk_MP",
+      "model": "PMOS_VTG",
+      "parent": "Minv1_clk_MP",
+      "type": "PMOS",
+      "x": 1.2,
+      "y": 7.0
+    },
+    {
+      "B": "VDD",
+      "D": "D_b",
+      "G": "D",
+      "L_um": 0.05,
+      "S": "VDD",
+      "W_um": 0.5,
+      "active_bbox": [
+        2.1,
+        6.75,
+        3.3000000000000003,
+        7.25
+      ],
+      "gate_x": 2.7,
+      "logical_instance": "inv2_D_MP",
+      "model": "PMOS_VTG",
+      "parent": "Minv2_D_MP",
+      "type": "PMOS",
+      "x": 2.7,
+      "y": 7.0
+    },
+    {
+      "B": "VDD",
+      "D": "z2",
+      "G": "z1",
+      "L_um": 0.05,
+      "S": "VDD",
+      "W_um": 0.5,
+      "active_bbox": [
+        3.6,
+        6.75,
+        4.8,
+        7.25
+      ],
+      "gate_x": 4.2,
+      "logical_instance": "inv3_MP",
+      "model": "PMOS_VTG",
+      "parent": "Minv3_MP",
+      "type": "PMOS",
+      "x": 4.2,
+      "y": 7.0
+    },
+    {
+      "B": "VDD",
+      "D": "z3",
+      "G": "z2",
+      "L_um": 0.05,
+      "S": "VDD",
+      "W_um": 0.5,
+      "active_bbox": [
+        5.1000000000000005,
+        6.75,
+        6.3,
+        7.25
+      ],
+      "gate_x": 5.7,
+      "logical_instance": "inv4_MP",
+      "model": "PMOS_VTG",
+      "parent": "Minv4_MP",
+      "type": "PMOS",
+      "x": 5.7,
+      "y": 7.0
+    },
+    {
+      "B": "VDD",
+      "D": "z4",
+      "G": "z2",
+      "L_um": 0.05,
+      "S": "VDD",
+      "W_um": 0.5,
+      "active_bbox": [
+        6.6000000000000005,
+        6.75,
+        7.8,
+        7.25
+      ],
+      "gate_x": 7.2,
+      "logical_instance": "inv5_MP",
+      "model": "PMOS_VTG",
+      "parent": "Minv5_MP",
+      "type": "PMOS",
+      "x": 7.2,
+      "y": 7.0
+    },
+    {
+      "B": "VDD",
+      "D": "Q",
+      "G": "z5",
+      "L_um": 0.05,
+      "S": "VDD",
+      "W_um": 0.5,
+      "active_bbox": [
+        8.1,
+        6.75,
+        9.299999999999999,
+        7.25
+      ],
+      "gate_x": 8.7,
+      "logical_instance": "inv6_MP",
+      "model": "PMOS_VTG",
+      "parent": "Minv6_MP",
+      "type": "PMOS",
+      "x": 8.7,
+      "y": 7.0
+    },
+    {
+      "B": "VDD",
+      "D": "QB",
+      "G": "Q",
+      "L_um": 0.05,
+      "S": "VDD",
+      "W_um": 0.5,
+      "active_bbox": [
+        9.6,
+        6.75,
+        10.799999999999999,
+        7.25
+      ],
+      "gate_x": 10.2,
+      "logical_instance": "inv7_MP",
+      "model": "PMOS_VTG",
+      "parent": "Minv7_MP",
+      "type": "PMOS",
+      "x": 10.2,
+      "y": 7.0
+    },
+    {
+      "B": "VDD",
+      "D": "z1",
+      "G": "CLK",
+      "L_um": 0.05,
+      "S": "D_b",
+      "W_um": 0.5,
+      "active_bbox": [
+        11.1,
+        6.75,
+        12.299999999999999,
+        7.25
+      ],
+      "gate_x": 11.7,
+      "logical_instance": "tg1_MP",
+      "model": "PMOS_VTG",
+      "parent": "Mtg1_MP",
+      "type": "PMOS",
+      "x": 11.7,
+      "y": 7.0
+    },
+    {
+      "B": "VDD",
+      "D": "z1",
+      "G": "CLKB",
+      "L_um": 0.05,
+      "S": "z3",
+      "W_um": 0.5,
+      "active_bbox": [
+        12.6,
+        6.75,
+        13.799999999999999,
+        7.25
+      ],
+      "gate_x": 13.2,
+      "logical_instance": "tg2_MP",
+      "model": "PMOS_VTG",
+      "parent": "Mtg2_MP",
+      "type": "PMOS",
+      "x": 13.2,
+      "y": 7.0
+    },
+    {
+      "B": "VDD",
+      "D": "z5",
+      "G": "CLKB",
+      "L_um": 0.05,
+      "S": "z4",
+      "W_um": 0.5,
+      "active_bbox": [
+        14.1,
+        6.75,
+        15.299999999999999,
+        7.25
+      ],
+      "gate_x": 14.7,
+      "logical_instance": "tg3_MP",
+      "model": "PMOS_VTG",
+      "parent": "Mtg3_MP",
+      "type": "PMOS",
+      "x": 14.7,
+      "y": 7.0
+    },
+    {
+      "B": "VDD",
+      "D": "z5",
+      "G": "CLK",
+      "L_um": 0.05,
+      "S": "QB",
+      "W_um": 0.5,
+      "active_bbox": [
+        15.6,
+        6.75,
+        16.8,
+        7.25
+      ],
+      "gate_x": 16.2,
+      "logical_instance": "tg4_MP",
+      "model": "PMOS_VTG",
+      "parent": "Mtg4_MP",
+      "type": "PMOS",
+      "x": 16.2,
+      "y": 7.0
+    },
+    {
+      "B": "VSS",
+      "D": "CLKB",
+      "G": "CLK",
+      "L_um": 0.05,
+      "S": "VSS",
+      "W_um": 0.25,
+      "active_bbox": [
+        18.599999999999998,
+        1.875,
+        19.8,
+        2.125
+      ],
+      "gate_x": 19.2,
+      "logical_instance": "inv1_clk_MN",
+      "model": "NMOS_VTG",
+      "parent": "Minv1_clk_MN",
+      "type": "NMOS",
+      "x": 19.2,
+      "y": 2.0
+    },
+    {
+      "B": "VSS",
+      "D": "D_b",
+      "G": "D",
+      "L_um": 0.05,
+      "S": "VSS",
+      "W_um": 0.25,
+      "active_bbox": [
+        20.099999999999998,
+        1.875,
+        21.3,
+        2.125
+      ],
+      "gate_x": 20.7,
+      "logical_instance": "inv2_D_MN",
+      "model": "NMOS_VTG",
+      "parent": "Minv2_D_MN",
+      "type": "NMOS",
+      "x": 20.7,
+      "y": 2.0
+    },
+    {
+      "B": "VSS",
+      "D": "z2",
+      "G": "z1",
+      "L_um": 0.05,
+      "S": "VSS",
+      "W_um": 0.25,
+      "active_bbox": [
+        21.599999999999998,
+        1.875,
+        22.8,
+        2.125
+      ],
+      "gate_x": 22.2,
+      "logical_instance": "inv3_MN",
+      "model": "NMOS_VTG",
+      "parent": "Minv3_MN",
+      "type": "NMOS",
+      "x": 22.2,
+      "y": 2.0
+    },
+    {
+      "B": "VSS",
+      "D": "z3",
+      "G": "z2",
+      "L_um": 0.05,
+      "S": "VSS",
+      "W_um": 0.25,
+      "active_bbox": [
+        23.099999999999998,
+        1.875,
+        24.3,
+        2.125
+      ],
+      "gate_x": 23.7,
+      "logical_instance": "inv4_MN",
+      "model": "NMOS_VTG",
+      "parent": "Minv4_MN",
+      "type": "NMOS",
+      "x": 23.7,
+      "y": 2.0
+    },
+    {
+      "B": "VSS",
+      "D": "z4",
+      "G": "z2",
+      "L_um": 0.05,
+      "S": "VSS",
+      "W_um": 0.25,
+      "active_bbox": [
+        24.599999999999998,
+        1.875,
+        25.8,
+        2.125
+      ],
+      "gate_x": 25.2,
+      "logical_instance": "inv5_MN",
+      "model": "NMOS_VTG",
+      "parent": "Minv5_MN",
+      "type": "NMOS",
+      "x": 25.2,
+      "y": 2.0
+    },
+    {
+      "B": "VSS",
+      "D": "Q",
+      "G": "z5",
+      "L_um": 0.05,
+      "S": "VSS",
+      "W_um": 0.25,
+      "active_bbox": [
+        26.099999999999998,
+        1.875,
+        27.3,
+        2.125
+      ],
+      "gate_x": 26.7,
+      "logical_instance": "inv6_MN",
+      "model": "NMOS_VTG",
+      "parent": "Minv6_MN",
+      "type": "NMOS",
+      "x": 26.7,
+      "y": 2.0
+    },
+    {
+      "B": "VSS",
+      "D": "QB",
+      "G": "Q",
+      "L_um": 0.05,
+      "S": "VSS",
+      "W_um": 0.25,
+      "active_bbox": [
+        27.599999999999998,
+        1.875,
+        28.8,
+        2.125
+      ],
+      "gate_x": 28.2,
+      "logical_instance": "inv7_MN",
+      "model": "NMOS_VTG",
+      "parent": "Minv7_MN",
+      "type": "NMOS",
+      "x": 28.2,
+      "y": 2.0
+    },
+    {
+      "B": "VSS",
+      "D": "D_b",
+      "G": "CLKB",
+      "L_um": 0.05,
+      "S": "z1",
+      "W_um": 0.25,
+      "active_bbox": [
+        29.099999999999998,
+        1.875,
+        30.3,
+        2.125
+      ],
+      "gate_x": 29.7,
+      "logical_instance": "tg1_MN",
+      "model": "NMOS_VTG",
+      "parent": "Mtg1_MN",
+      "type": "NMOS",
+      "x": 29.7,
+      "y": 2.0
+    },
+    {
+      "B": "VSS",
+      "D": "z3",
+      "G": "CLK",
+      "L_um": 0.05,
+      "S": "z1",
+      "W_um": 0.25,
+      "active_bbox": [
+        30.599999999999998,
+        1.875,
+        31.8,
+        2.125
+      ],
+      "gate_x": 31.2,
+      "logical_instance": "tg2_MN",
+      "model": "NMOS_VTG",
+      "parent": "Mtg2_MN",
+      "type": "NMOS",
+      "x": 31.2,
+      "y": 2.0
+    },
+    {
+      "B": "VSS",
+      "D": "z4",
+      "G": "CLK",
+      "L_um": 0.05,
+      "S": "z5",
+      "W_um": 0.25,
+      "active_bbox": [
+        32.1,
+        1.875,
+        33.300000000000004,
+        2.125
+      ],
+      "gate_x": 32.7,
+      "logical_instance": "tg3_MN",
+      "model": "NMOS_VTG",
+      "parent": "Mtg3_MN",
+      "type": "NMOS",
+      "x": 32.7,
+      "y": 2.0
+    },
+    {
+      "B": "VSS",
+      "D": "QB",
+      "G": "CLKB",
+      "L_um": 0.05,
+      "S": "z5",
+      "W_um": 0.25,
+      "active_bbox": [
+        33.6,
+        1.875,
+        34.800000000000004,
+        2.125
+      ],
+      "gate_x": 34.2,
+      "logical_instance": "tg4_MN",
+      "model": "NMOS_VTG",
+      "parent": "Mtg4_MN",
+      "type": "NMOS",
+      "x": 34.2,
+      "y": 2.0
+    }
+  ],
+  "not_template": "No previous DFF GDS geometry used as input.",
+  "policy": "MVP uses rectangular local OD islands generated from source MOS width/L and supports future non-rectangular contours in SymbolicCell data model."
+}

@@ -1,0 +1,57 @@
+{
+  "NEGATIVE_REGRESSION_GATE": "PASS",
+  "tests": [
+    {
+      "actual": "LVS_PASS",
+      "artifact": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/technology/freepdk45/gds_lib/dff.gds",
+      "expected": "LVS_PASS",
+      "lvs_log": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_connectivity_first_engine_mvp/13_NEGATIVE_REGRESSION_TESTS/openram_reference_positive/openram_reference_positive_lvs.log",
+      "name": "openram_read_only_reference_positive",
+      "passed": true,
+      "rejected": false
+    },
+    {
+      "actual": "LVS_COMPARE_FAIL",
+      "artifact": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/technology/freepdk45/gds_lib/dff.gds",
+      "expected": "LVS_COMPARE_FAIL",
+      "lvs_log": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_connectivity_first_engine_mvp/13_NEGATIVE_REGRESSION_TESTS/openram_reference_broken/openram_reference_broken_lvs.log",
+      "name": "openram_read_only_reference_broken",
+      "passed": true,
+      "rejected": true
+    },
+    {
+      "actual": "FAIL",
+      "artifact": "symbolic_mutation",
+      "expected": "LEVEL1_FAIL",
+      "name": "remove_via1_from_m1_m2_route",
+      "passed": true,
+      "rejected": true
+    },
+    {
+      "actual": "LVS_COMPARE_FAIL",
+      "artifact": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_connectivity_first_engine_mvp/13_NEGATIVE_REGRESSION_TESTS/remove_one_gate_connection/remove_one_gate_connection.gds",
+      "expected": "LVS_COMPARE_FAIL",
+      "lvs_log": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_connectivity_first_engine_mvp/13_NEGATIVE_REGRESSION_TESTS/remove_one_gate_connection/remove_one_gate_connection_lvs.log",
+      "name": "remove_one_gate_connection",
+      "passed": true,
+      "rejected": true
+    },
+    {
+      "actual": "LVS_COMPARE_FAIL",
+      "artifact": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_connectivity_first_engine_mvp/13_NEGATIVE_REGRESSION_TESTS/remove_one_body_tie/remove_one_body_tie.gds",
+      "expected": "LVS_COMPARE_FAIL",
+      "lvs_log": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_connectivity_first_engine_mvp/13_NEGATIVE_REGRESSION_TESTS/remove_one_body_tie/remove_one_body_tie_lvs.log",
+      "name": "remove_one_body_tie",
+      "passed": true,
+      "rejected": true
+    },
+    {
+      "actual": "LVS_COMPARE_FAIL",
+      "artifact": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_openyield_dff_routing_aware_feol_beol_co_optimization/CANDIDATES/DFF_TOPO_SHARED_00_7_TRAIL/clean.gds",
+      "expected": "LVS_COMPARE_FAIL",
+      "name": "old_9p1017_generated_layout",
+      "passed": true,
+      "rejected": true
+    }
+  ]
+}
