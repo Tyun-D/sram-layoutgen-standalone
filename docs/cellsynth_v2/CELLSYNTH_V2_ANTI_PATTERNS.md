@@ -37,3 +37,8 @@ Internal verification failures are iterative feedback, not task-level blockers. 
 - ANTI-PATTERN: treating a DRC/LVS-correct macro-like routed DFF as a layout-quality baseline.
 - ANTI-PATTERN: routing every internal terminal to a high global M3 trunk by default.
 - ANTI-PATTERN: exposing internal DFF nets at the cell boundary or using boundary-like long lines for local feedback.
+
+
+## QoR Baseline Anti-Patterns
+- ANTI-PATTERN: keeping a DRC/LVS-correct but M2/M3-trunk-dominated 139 um^2 DFF as the quality baseline after a 58.45 um^2 DRC/LVS-clean project-native baseline is available.
+- ANTI-PATTERN: treating every internal transistor terminal as a global routing port.

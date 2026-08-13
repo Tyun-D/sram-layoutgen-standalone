@@ -37,9 +37,30 @@ def _flatten_endpoint_rows(endpoints_by_net: dict[str, list[dict[str, Any]]]) ->
                 "bbox": endpoint["bbox"],
                 "access_mode": endpoint.get("access_mode", "directional_escape"),
                 "allowed_obstacle_hierarchical_nets": endpoint.get("allowed_obstacle_hierarchical_nets", []),
+                "intended_hierarchical_net": _intended_hierarchical_net(endpoint, net_name),
             }
             rows.append(row)
     return rows
+
+
+def _intended_hierarchical_net(endpoint: dict[str, Any], net_name: str) -> str:
+    """Return a stable intent name for route/back-annotation metadata.
+
+    Older DFF binding matrices predate explicit `intended_hierarchical_net`
+    fields.  They still carry the electrical net in the enclosing
+    `endpoints_by_net` map, so derive the same intent generically instead of
+    requiring candidate-specific endpoint data.
+    """
+
+    if endpoint.get("intended_hierarchical_net"):
+        return endpoint["intended_hierarchical_net"]
+    endpoint_name = endpoint.get("endpoint_name", "")
+    if endpoint_name.startswith("TOP."):
+        return f"TOP::{net_name}"
+    if "." in endpoint_name:
+        instance, _pin = endpoint_name.split(".", 1)
+        return f"{instance}::{net_name}"
+    return f"TOP::{net_name}"
 
 
 def _build_endpoint_obstacles(endpoint_rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -205,9 +226,15 @@ def generate_dff_signal_routes(
         xs = []
         pending_columns: list[dict[str, Any]] = []
         for endpoint in endpoints:
+            intended_net = _intended_hierarchical_net(endpoint, net_name)
             selected = column_by_endpoint[endpoint["endpoint_name"]]
             direction = selected["selected_candidate"]
-            if "selected_via_center" in selected and "m1_landing_bbox" in selected and "escape_segment_bbox" in selected:
+            if (
+                selected.get("access_mode") == "direct_via1_to_m2_escape"
+                and "selected_via_center" in selected
+                and "m1_landing_bbox" in selected
+                and "escape_segment_bbox" in selected
+            ):
                 m1_landing, m2_landing, escape_bbox, via_center = _row_geometry_from_planner(selected)
             else:
                 m1_landing, escape_bbox, via_center = _escape_geometry_from_column(
@@ -225,7 +252,7 @@ def generate_dff_signal_routes(
                 {
                     "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:m1_landing",
                     "net_name": net_name,
-                    "intended_hierarchical_net": endpoint["intended_hierarchical_net"],
+                    "intended_hierarchical_net": intended_net,
                     "layer": "m1",
                     "bbox": bbox_to_list(m1_landing),
                     "role": "pin_access_landing",
@@ -240,7 +267,7 @@ def generate_dff_signal_routes(
                     {
                         "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:m1_escape",
                         "net_name": net_name,
-                        "intended_hierarchical_net": endpoint["intended_hierarchical_net"],
+                        "intended_hierarchical_net": intended_net,
                         "layer": "m1",
                         "bbox": bbox_to_list(escape_bbox),
                         "role": "pin_access_escape",
@@ -332,7 +359,7 @@ def generate_dff_signal_routes(
                 {
                     "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:via_pin",
                     "net_name": net_name,
-                    "intended_hierarchical_net": endpoint["intended_hierarchical_net"],
+                    "intended_hierarchical_net": _intended_hierarchical_net(endpoint, net_name),
                     "layer": "via1",
                     "bbox": bbox_to_list(pending["via_bbox"]),
                     "role": "pin_access_via",
@@ -344,7 +371,7 @@ def generate_dff_signal_routes(
                 {
                     "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:m2_landing",
                     "net_name": net_name,
-                    "intended_hierarchical_net": endpoint["intended_hierarchical_net"],
+                    "intended_hierarchical_net": _intended_hierarchical_net(endpoint, net_name),
                     "layer": "m2",
                     "bbox": bbox_to_list(pending["m2_landing"]),
                     "role": "pin_access_m2_landing",
@@ -362,7 +389,7 @@ def generate_dff_signal_routes(
                 {
                     "route_object_id": f"{net_name}:{endpoint['endpoint_name']}:m2_escape",
                     "net_name": net_name,
-                    "intended_hierarchical_net": endpoint["intended_hierarchical_net"],
+                    "intended_hierarchical_net": _intended_hierarchical_net(endpoint, net_name),
                     "layer": "m2",
                     "bbox": bbox_to_list(vertical_bbox),
                     "role": "vertical_escape",

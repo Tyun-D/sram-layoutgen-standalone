@@ -1,0 +1,62 @@
+{
+  "word_size": 16,
+  "num_words": 16,
+  "words_per_row": 1,
+  "rows": 16,
+  "cols": 16,
+  "tech": "FreePDK45",
+  "mux": 1,
+  "power": "VDD/VSS",
+  "generator": "M12C4AC_DFF_CONNECTIVITY_REPAIR",
+  "output": "DFF_TG4_INV7_FPDK45_e6da842830d7",
+  "reference_configs": [
+    {
+      "rows": 16,
+      "cols": 16,
+      "operation": "read&write"
+    },
+    {
+      "rows": 64,
+      "cols": 8,
+      "operation": "read&write"
+    }
+  ],
+  "configuration_independent_for_current_v1": true,
+  "logical_module": "DFF",
+  "physical_cell_name": "DFF_TG4_INV7_FPDK45_e6da842830d7",
+  "source_topology_hash": "e6da842830d7",
+  "child_instance_count": 11,
+  "pinv_instance_count": 7,
+  "transmission_gate_instance_count": 4,
+  "source_pin_net_connection_count": 52,
+  "approved_child_cells": [
+    "PINV_NW250_PW500_L50",
+    "TRANSMISSION_GATE_NW250_PW500_L50"
+  ],
+  "approved_child_geometry_fingerprints": {
+    "PINV_NW250_PW500_L50": "995439c9ef80de9824777943",
+    "TRANSMISSION_GATE_NW250_PW500_L50": "b68406e28a47772360c61bc5"
+  },
+  "placement_architecture": "SINGLE_ROW_SOURCE_ORDER",
+  "routing_contract_version": "M12C4AC_V1",
+  "top_pin_order": [
+    "VDD",
+    "VSS",
+    "D",
+    "Q",
+    "CLK"
+  ],
+  "internal_net_names": [
+    "CLKB",
+    "D_b",
+    "z1",
+    "z2",
+    "z3",
+    "z4",
+    "z5",
+    "QB"
+  ],
+  "geometry_fingerprint": "8668df83d4b7e5d14ee35a01",
+  "qualification_status": "QUALIFICATION_CANDIDATE",
+  "lvs_proven": false
+}

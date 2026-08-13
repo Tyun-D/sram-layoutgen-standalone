@@ -1,0 +1,14 @@
+net_name,expected_endpoint_set,actual_endpoint_set,missing_endpoints,unexpected_endpoints,component_id,net_match_status
+VDD,"['TOP.VDD', 'inv1_clk.VDD', 'inv2_D.VDD', 'inv3.VDD', 'inv4.VDD', 'inv5.VDD', 'inv6.VDD', 'inv7.VDD', 'tg1.VDD', 'tg2.VDD', 'tg3.VDD', 'tg4.VDD']","['TOP.VDD', 'inv1_clk.VDD', 'inv2_D.VDD', 'inv3.VDD', 'inv4.VDD', 'inv5.VDD', 'inv6.VDD', 'inv7.VDD', 'tg1.VDD', 'tg2.VDD', 'tg3.VDD', 'tg4.VDD']",[],[],contact_1174,MATCH
+VSS,"['TOP.VSS', 'inv1_clk.VSS', 'inv2_D.VSS', 'inv3.VSS', 'inv4.VSS', 'inv5.VSS', 'inv6.VSS', 'inv7.VSS', 'tg1.VSS', 'tg2.VSS', 'tg3.VSS', 'tg4.VSS']","['TOP.VSS', 'inv1_clk.VSS', 'inv2_D.VSS', 'inv3.VSS', 'inv4.VSS', 'inv5.VSS', 'inv6.VSS', 'inv7.VSS', 'tg1.VSS', 'tg2.VSS', 'tg3.VSS', 'tg4.VSS']",[],[],contact_1180,MATCH
+D,"['TOP.D', 'inv2_D.A']","['TOP.D', 'inv2_D.A']",[],[],via1_111,MATCH
+Q,"['TOP.Q', 'inv6.Z', 'inv7.A']","['TOP.Q', 'inv6.Z', 'inv7.A']",[],[],via1_255,MATCH
+CLK,"['TOP.CLK', 'inv1_clk.A', 'tg1.CTR_P', 'tg2.CTR_N', 'tg3.CTR_N', 'tg4.CTR_P']","['TOP.CLK', 'inv1_clk.A', 'tg1.CTR_P', 'tg2.CTR_N', 'tg3.CTR_N', 'tg4.CTR_P']",[],[],via1_60,MATCH
+CLKB,"['inv1_clk.Z', 'tg1.CTR_N', 'tg2.CTR_P', 'tg3.CTR_P', 'tg4.CTR_N']","['inv1_clk.Z', 'tg1.CTR_N', 'tg2.CTR_P', 'tg3.CTR_P', 'tg4.CTR_N']",[],[],via1_101,MATCH
+D_b,"['inv2_D.Z', 'tg1.IN']","['inv2_D.Z', 'tg1.IN']",[],[],via1_128,MATCH
+z1,"['inv3.A', 'tg1.OUT', 'tg2.OUT']","['inv3.A', 'tg1.OUT', 'tg2.OUT']",[],[],via1_153,MATCH
+z2,"['inv3.Z', 'inv4.A', 'inv5.A']","['inv3.Z', 'inv4.A', 'inv5.A']",[],[],via1_178,MATCH
+z3,"['inv4.Z', 'tg2.IN']","['inv4.Z', 'tg2.IN']",[],[],via1_195,MATCH
+z4,"['inv5.Z', 'tg3.IN']","['inv5.Z', 'tg3.IN']",[],[],via1_212,MATCH
+z5,"['inv6.A', 'tg3.OUT', 'tg4.OUT']","['inv6.A', 'tg3.OUT', 'tg4.OUT']",[],[],via1_237,MATCH
+QB,"['inv7.Z', 'tg4.IN']","['inv7.Z', 'tg4.IN']",[],[],via1_272,MATCH

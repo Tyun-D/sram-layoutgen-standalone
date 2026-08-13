@@ -1,0 +1,141 @@
+{
+  "clock_locality": "CLK/CLKB use local M2 tracks near clocked TG control pins; no high global M3 clock bus",
+  "cluster_order": [
+    "inv1_clk",
+    "inv2_D",
+    "tg1",
+    "inv3",
+    "inv4",
+    "tg2",
+    "inv5",
+    "tg3",
+    "inv6",
+    "inv7",
+    "tg4"
+  ],
+  "feedback_locality": "master and slave feedback nets remain within neighboring primitive clusters whenever possible",
+  "mos_cluster_bindings": [
+    {
+      "logical_instance_name": "inv1_clk",
+      "physical_child_cell": "PINV_NW250_PW500_L50",
+      "source_child_module": "PINV",
+      "source_parent_net_connections": "[\"VDD\", \"VSS\", \"CLK\", \"CLKB\"]"
+    },
+    {
+      "logical_instance_name": "inv2_D",
+      "physical_child_cell": "PINV_NW250_PW500_L50",
+      "source_child_module": "PINV",
+      "source_parent_net_connections": "[\"VDD\", \"VSS\", \"D\", \"D_b\"]"
+    },
+    {
+      "logical_instance_name": "tg1",
+      "physical_child_cell": "TRANSMISSION_GATE_NW250_PW500_L50",
+      "source_child_module": "TRANSMISSION_GATE",
+      "source_parent_net_connections": "[\"VDD\", \"VSS\", \"D_b\", \"z1\", \"CLK\", \"CLKB\"]"
+    },
+    {
+      "logical_instance_name": "inv3",
+      "physical_child_cell": "PINV_NW250_PW500_L50",
+      "source_child_module": "PINV",
+      "source_parent_net_connections": "[\"VDD\", \"VSS\", \"z1\", \"z2\"]"
+    },
+    {
+      "logical_instance_name": "inv4",
+      "physical_child_cell": "PINV_NW250_PW500_L50",
+      "source_child_module": "PINV",
+      "source_parent_net_connections": "[\"VDD\", \"VSS\", \"z2\", \"z3\"]"
+    },
+    {
+      "logical_instance_name": "tg2",
+      "physical_child_cell": "TRANSMISSION_GATE_NW250_PW500_L50",
+      "source_child_module": "TRANSMISSION_GATE",
+      "source_parent_net_connections": "[\"VDD\", \"VSS\", \"z3\", \"z1\", \"CLKB\", \"CLK\"]"
+    },
+    {
+      "logical_instance_name": "inv5",
+      "physical_child_cell": "PINV_NW250_PW500_L50",
+      "source_child_module": "PINV",
+      "source_parent_net_connections": "[\"VDD\", \"VSS\", \"z2\", \"z4\"]"
+    },
+    {
+      "logical_instance_name": "tg3",
+      "physical_child_cell": "TRANSMISSION_GATE_NW250_PW500_L50",
+      "source_child_module": "TRANSMISSION_GATE",
+      "source_parent_net_connections": "[\"VDD\", \"VSS\", \"z4\", \"z5\", \"CLKB\", \"CLK\"]"
+    },
+    {
+      "logical_instance_name": "inv6",
+      "physical_child_cell": "PINV_NW250_PW500_L50",
+      "source_child_module": "PINV",
+      "source_parent_net_connections": "[\"VDD\", \"VSS\", \"z5\", \"Q\"]"
+    },
+    {
+      "logical_instance_name": "inv7",
+      "physical_child_cell": "PINV_NW250_PW500_L50",
+      "source_child_module": "PINV",
+      "source_parent_net_connections": "[\"VDD\", \"VSS\", \"Q\", \"QB\"]"
+    },
+    {
+      "logical_instance_name": "tg4",
+      "physical_child_cell": "TRANSMISSION_GATE_NW250_PW500_L50",
+      "source_child_module": "TRANSMISSION_GATE",
+      "source_parent_net_connections": "[\"VDD\", \"VSS\", \"QB\", \"z5\", \"CLK\", \"CLKB\"]"
+    }
+  ],
+  "pin_policy": {
+    "CLK": "interior_top_access",
+    "D": "left",
+    "Q": "right",
+    "VDD": "horizontal_rail",
+    "VSS": "horizontal_rail"
+  },
+  "placement_style": {
+    "child_order": [
+      "inv1_clk",
+      "inv2_D",
+      "tg1",
+      "inv3",
+      "inv4",
+      "tg2",
+      "inv5",
+      "tg3",
+      "inv6",
+      "inv7",
+      "tg4"
+    ],
+    "orientation_policy": "R0 project-native primitives for nf=1 stage",
+    "row_count": 1,
+    "x_pitch_policy": "abut compact primitive cells in OpenYield source order with no global P/N row split"
+  },
+  "prohibited_use": "do not copy polygons; use ordering/access/routing policy only",
+  "rail_policy": "continuous horizontal M1 VDD/VSS rails inherited through primitive rail abutment",
+  "recipe_type": "RELATIONAL_TOPOLOGICAL_STYLE_RECIPE_NOT_POLYGON_COPY",
+  "routing_policy": {
+    "boundary_pins": [
+      "D",
+      "Q",
+      "CLK",
+      "VDD",
+      "VSS"
+    ],
+    "forbidden_template": "terminal -> contact -> VIA1 -> VIA2 -> M3 for every terminal",
+    "internal_nets_local_only": [
+      "CLKB",
+      "D_b",
+      "QB",
+      "z1",
+      "z2",
+      "z3",
+      "z4",
+      "z5"
+    ],
+    "priority": [
+      "child-local FEOL/M1",
+      "local M1 pin landing",
+      "short M2 bridge/drop",
+      "M3 only if proven necessary"
+    ],
+    "selected_architecture": "M1_HORIZONTAL_TRACK_M2_VERTICAL_DROP"
+  },
+  "source_reference": "DFF_TG4_INV7 verified final GDS plus generation artifacts"
+}

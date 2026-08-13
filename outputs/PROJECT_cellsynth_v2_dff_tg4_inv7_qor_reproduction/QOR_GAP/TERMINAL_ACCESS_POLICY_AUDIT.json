@@ -1,0 +1,645 @@
+{
+  "evidence": "DFF_V2_COMPACT_FEOL_BEOL records contacts/VIA1/VIA2 fixed at 50/50/50 with M3 segments for all verified routing-aware candidates.",
+  "fixed_stack_found_in_current_139_generator": true,
+  "fixed_stack_removed_from_promoted_qor_path": true,
+  "generic_code_scan": [
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 244,
+      "pattern": "via2",
+      "snippet": "        self.via2s: list[mvp.Terminal] = []"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 339,
+      "pattern": "via2",
+      "snippet": "                self.via2s.append(mvp.Terminal(f\"via2_{net}_{t.terminal_id}\", net, \"VIA2\", ax, ybus, \"via2\"))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 339,
+      "pattern": "via2",
+      "snippet": "                self.via2s.append(mvp.Terminal(f\"via2_{net}_{t.terminal_id}\", net, \"VIA2\", ax, ybus, \"via2\"))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 339,
+      "pattern": "via2",
+      "snippet": "                self.via2s.append(mvp.Terminal(f\"via2_{net}_{t.terminal_id}\", net, \"VIA2\", ax, ybus, \"via2\"))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 339,
+      "pattern": "via2",
+      "snippet": "                self.via2s.append(mvp.Terminal(f\"via2_{net}_{t.terminal_id}\", net, \"VIA2\", ax, ybus, \"via2\"))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 405,
+      "pattern": "via2",
+      "snippet": "    for via in cell_data.via2s:"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 408,
+      "pattern": "via2",
+      "snippet": "        rect(cell, \"via2\", *mvp.cut_rect(via.x, via.y))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 450,
+      "pattern": "via2",
+      "snippet": "        \"VIA2\": len(cell.via2s),"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 450,
+      "pattern": "via2",
+      "snippet": "        \"VIA2\": len(cell.via2s),"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 737,
+      "pattern": "via2",
+      "snippet": "- VIA1/VIA2: `{best_balanced['VIA1']}` / `{best_balanced['VIA2']}`"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 737,
+      "pattern": "via2",
+      "snippet": "- VIA1/VIA2: `{best_balanced['VIA1']}` / `{best_balanced['VIA2']}`"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 342,
+      "pattern": "m3",
+      "snippet": "            self.routes.append(mvp.Route(net, \"m3\", min(xs) - 0.25, ybus, max(xs) + 0.25, ybus, \"net_trunk\"))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 344,
+      "pattern": "m3",
+      "snippet": "                self.routes.append(mvp.Route(net, \"m3\", max(xs) + 0.25, ybus, pin_x + 0.6, ybus, \"external_pin_shape\"))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 345,
+      "pattern": "m3",
+      "snippet": "                self.pin_records.append({\"pin\": net, \"net\": net, \"x\": pin_x, \"y\": ybus, \"layer\": \"m3\", \"m2_label_x\": xs[0], \"m2_label_y\": ybus})"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 346,
+      "pattern": "m3",
+      "snippet": "                self.terminals.append(mvp.Terminal(f\"pin_{net}\", net, \"PIN_ACCESS\", pin_x, ybus, \"m3\", pin=net))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 386,
+      "pattern": "m3",
+      "snippet": "        if mutate == \"NEG_OPEN_Q\" and r.net == \"Q\" and r.layer == \"m3\":"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 389,
+      "pattern": "m3",
+      "snippet": "        if mutate == \"NEG_CLK_D_SHORT\" and r.net == \"CLK\" and r.layer == \"m3\" and r.kind == \"net_trunk\":"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 391,
+      "pattern": "m3",
+      "snippet": "            rect(cell, \"m3\", r.x1 - 0.09, min(r.y1, d_y), r.x1 + 0.09, max(r.y1, d_y))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 410,
+      "pattern": "m3",
+      "snippet": "        rect(cell, \"m3\", *mvp.metal_rect(\"m3\", via.x, via.y, 0.15, 0.15))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 410,
+      "pattern": "m3",
+      "snippet": "        rect(cell, \"m3\", *mvp.metal_rect(\"m3\", via.x, via.y, 0.15, 0.15))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 453,
+      "pattern": "m3",
+      "snippet": "        \"M3_length\": round(lengths[\"m3\"], 4),"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 453,
+      "pattern": "m3",
+      "snippet": "        \"M3_length\": round(lengths[\"m3\"], 4),"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 455,
+      "pattern": "m3",
+      "snippet": "        \"high_layer_routed_length\": round(lengths[\"m2\"] + lengths[\"m3\"], 4),"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 458,
+      "pattern": "m3",
+      "snippet": "        \"M3_segments\": segs[\"m3\"],"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 458,
+      "pattern": "m3",
+      "snippet": "        \"M3_segments\": segs[\"m3\"],"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 598,
+      "pattern": "m3",
+      "snippet": "        \"CELLSYNTH_V2_OPTIMIZATION_OBJECTIVES.md\": \"\\n\\n## Verified QoR Frontier Policy\\nCandidates enter QoR Pareto only after Level1, external DRC, and external LVS pass. Track a"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 269,
+      "pattern": "route_unique_accesses",
+      "snippet": "        self._route_unique_accesses()"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 294,
+      "pattern": "route_unique_accesses",
+      "snippet": "    def _route_unique_accesses(self) -> None:"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 243,
+      "pattern": "terminal",
+      "snippet": "        self.vias: list[mvp.Terminal] = []"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 244,
+      "pattern": "terminal",
+      "snippet": "        self.via2s: list[mvp.Terminal] = []"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 246,
+      "pattern": "terminal",
+      "snippet": "        self.terminals: list[mvp.Terminal] = []"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 246,
+      "pattern": "terminal",
+      "snippet": "        self.terminals: list[mvp.Terminal] = []"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 285,
+      "pattern": "terminal",
+      "snippet": "            self.terminals.append(mvp.Terminal(f\"{d.instance}_G\", d.gate, \"POLY_ACCESS\", gx, gcy, \"m1\", d.instance, \"G\"))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 285,
+      "pattern": "terminal",
+      "snippet": "            self.terminals.append(mvp.Terminal(f\"{d.instance}_G\", d.gate, \"POLY_ACCESS\", gx, gcy, \"m1\", d.instance, \"G\"))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 288,
+      "pattern": "terminal",
+      "snippet": "            self.terminals.append(mvp.Terminal(f\"{typ}_T{tidx}_NODE{i}_{net}\", net, \"ACTIVE_ACCESS\", node_xs[i], y, \"m1\"))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 288,
+      "pattern": "terminal",
+      "snippet": "            self.terminals.append(mvp.Terminal(f\"{typ}_T{tidx}_NODE{i}_{net}\", net, \"ACTIVE_ACCESS\", node_xs[i], y, \"m1\"))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 292,
+      "pattern": "terminal",
+      "snippet": "        self.terminals.append(mvp.Terminal(f\"body_tie_{typ}_{net}\", net, \"BODY_TIE\", x, y, \"m1\"))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 292,
+      "pattern": "terminal",
+      "snippet": "        self.terminals.append(mvp.Terminal(f\"body_tie_{typ}_{net}\", net, \"BODY_TIE\", x, y, \"m1\"))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 296,
+      "pattern": "terminal",
+      "snippet": "        # nodes naturally have one contact terminal already.  Then resolve"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 299,
+      "pattern": "terminal",
+      "snippet": "        pin_x = max(t.x for t in self.terminals) + 1.0"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 301,
+      "pattern": "terminal",
+      "snippet": "        route_terms = [t for t in self.terminals if t.kind != \"PIN_ACCESS\"]"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 303,
+      "pattern": "terminal",
+      "snippet": "            access_xy[t.terminal_id] = (t.x, t.y)"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 311,
+      "pattern": "terminal",
+      "snippet": "                ax, ay = access_xy[t.terminal_id]"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 322,
+      "pattern": "terminal",
+      "snippet": "                        ox, oy = access_xy[target.terminal_id]"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 323,
+      "pattern": "terminal",
+      "snippet": "                        access_xy[target.terminal_id] = (round(ox + 0.24, 4), oy)"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 329,
+      "pattern": "terminal",
+      "snippet": "            terms = [t for t in self.terminals if t.net == net]"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 334,
+      "pattern": "terminal",
+      "snippet": "                ax, _ay = access_xy[t.terminal_id]"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 338,
+      "pattern": "terminal",
+      "snippet": "                self.vias.append(mvp.Terminal(f\"via1_{net}_{t.terminal_id}\", net, \"VIA1\", ax, t.y, \"via1\"))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 338,
+      "pattern": "terminal",
+      "snippet": "                self.vias.append(mvp.Terminal(f\"via1_{net}_{t.terminal_id}\", net, \"VIA1\", ax, t.y, \"via1\"))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 339,
+      "pattern": "terminal",
+      "snippet": "                self.via2s.append(mvp.Terminal(f\"via2_{net}_{t.terminal_id}\", net, \"VIA2\", ax, ybus, \"via2\"))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 339,
+      "pattern": "terminal",
+      "snippet": "                self.via2s.append(mvp.Terminal(f\"via2_{net}_{t.terminal_id}\", net, \"VIA2\", ax, ybus, \"via2\"))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 346,
+      "pattern": "terminal",
+      "snippet": "                self.terminals.append(mvp.Terminal(f\"pin_{net}\", net, \"PIN_ACCESS\", pin_x, ybus, \"m3\", pin=net))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 346,
+      "pattern": "terminal",
+      "snippet": "                self.terminals.append(mvp.Terminal(f\"pin_{net}\", net, \"PIN_ACCESS\", pin_x, ybus, \"m3\", pin=net))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 373,
+      "pattern": "terminal",
+      "snippet": "    for t in cell_data.terminals:"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 419,
+      "pattern": "terminal",
+      "snippet": "    present = {t.net for t in cell.terminals}"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 448,
+      "pattern": "terminal",
+      "snippet": "        \"contacts\": sum(1 for t in cell.terminals if t.kind in {\"ACTIVE_ACCESS\", \"POLY_ACCESS\", \"BODY_TIE\"}),"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 301,
+      "pattern": "pin_access",
+      "snippet": "        route_terms = [t for t in self.terminals if t.kind != \"PIN_ACCESS\"]"
+    },
+    {
+      "file": "scripts/cellsynth_v2_shared_diffusion_od_routing_coopt.py",
+      "line": 346,
+      "pattern": "pin_access",
+      "snippet": "                self.terminals.append(mvp.Terminal(f\"pin_{net}\", net, \"PIN_ACCESS\", pin_x, ybus, \"m3\", pin=net))"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 300,
+      "pattern": "via2",
+      "snippet": "        \"VIA2\": \"old_evidence\","
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 316,
+      "pattern": "via2",
+      "snippet": "            \"VIA2\": rejected.get(\"VIA2\"),"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 316,
+      "pattern": "via2",
+      "snippet": "            \"VIA2\": rejected.get(\"VIA2\"),"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 332,
+      "pattern": "via2",
+      "snippet": "            \"VIA2\": c[\"VIA2\"],"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 332,
+      "pattern": "via2",
+      "snippet": "            \"VIA2\": c[\"VIA2\"],"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 383,
+      "pattern": "via2",
+      "snippet": "<text x=\"40\" y=\"230\" font-size=\"20\">ACTIVE islands: {rec.get('active_islands')}, contacts: {rec.get('contacts')}, VIA1/VIA2: {rec.get('VIA1')}/{rec.get('VIA2')}</text>"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 383,
+      "pattern": "via2",
+      "snippet": "<text x=\"40\" y=\"230\" font-size=\"20\">ACTIVE islands: {rec.get('active_islands')}, contacts: {rec.get('contacts')}, VIA1/VIA2: {rec.get('VIA1')}/{rec.get('VIA2')}</text>"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 403,
+      "pattern": "via2",
+      "snippet": "        \"via2\": \"#a50f15\","
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 494,
+      "pattern": "via2",
+      "snippet": "- VIA1/VIA2: `{best['VIA1']}` / `{best['VIA2']}`"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 494,
+      "pattern": "via2",
+      "snippet": "- VIA1/VIA2: `{best['VIA1']}` / `{best['VIA2']}`"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 618,
+      "pattern": "via2",
+      "snippet": "- VIA1/VIA2: `{best_balanced['VIA1']}` / `{best_balanced['VIA2']}`"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 618,
+      "pattern": "via2",
+      "snippet": "- VIA1/VIA2: `{best_balanced['VIA1']}` / `{best_balanced['VIA2']}`"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 303,
+      "pattern": "m3",
+      "snippet": "        \"M3_length\": \"reverse_recalc_pending\","
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 319,
+      "pattern": "m3",
+      "snippet": "            \"M3_length\": rejected.get(\"M3_length\"),"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 319,
+      "pattern": "m3",
+      "snippet": "            \"M3_length\": rejected.get(\"M3_length\"),"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 335,
+      "pattern": "m3",
+      "snippet": "            \"M3_length\": c[\"M3_length\"],"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 335,
+      "pattern": "m3",
+      "snippet": "            \"M3_length\": c[\"M3_length\"],"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 384,
+      "pattern": "m3",
+      "snippet": "<text x=\"40\" y=\"270\" font-size=\"20\">M1/M2/M3 length: {rec.get('M1_length')}/{rec.get('M2_length')}/{rec.get('M3_length')}</text>"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 384,
+      "pattern": "m3",
+      "snippet": "<text x=\"40\" y=\"270\" font-size=\"20\">M1/M2/M3 length: {rec.get('M1_length')}/{rec.get('M2_length')}/{rec.get('M3_length')}</text>"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 404,
+      "pattern": "m3",
+      "snippet": "        \"m3\": \"#756bb1\","
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 444,
+      "pattern": "m3",
+      "snippet": "        \"CELLSYNTH_V2_ANTI_PATTERNS.md\": \"\\n\\n## Routing-Aware Style Anti-Patterns\\n- ANTI-PATTERN: treating a DRC/LVS-correct macro-like routed DFF as a layout-quality baseline.\\n"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 619,
+      "pattern": "m3",
+      "snippet": "- M1/M2/M3 length: `{best_balanced['M1_length']}` / `{best_balanced['M2_length']}` / `{best_balanced['M3_length']}`"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 619,
+      "pattern": "m3",
+      "snippet": "- M1/M2/M3 length: `{best_balanced['M1_length']}` / `{best_balanced['M2_length']}` / `{best_balanced['M3_length']}`"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 155,
+      "pattern": "route_unique_accesses",
+      "snippet": "        self._route_unique_accesses()"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 444,
+      "pattern": "terminal",
+      "snippet": "        \"CELLSYNTH_V2_ANTI_PATTERNS.md\": \"\\n\\n## Routing-Aware Style Anti-Patterns\\n- ANTI-PATTERN: treating a DRC/LVS-correct macro-like routed DFF as a layout-quality baseline.\\n"
+    },
+    {
+      "file": "scripts/cellsynth_v2_routing_aware_style_restoration.py",
+      "line": 593,
+      "pattern": "terminal",
+      "snippet": "        \"reason\": \"high-layer macro-like routing and excessive terminal access obscure compact standard-cell organization\","
+    },
+    {
+      "file": "sram_layoutgen/openyield_adapter/dff_route_planner.py",
+      "line": 10,
+      "pattern": "pin_access",
+      "snippet": "from sram_layoutgen.openyield_adapter.composite_pin_access_planner import plan_pin_access"
+    },
+    {
+      "file": "sram_layoutgen/openyield_adapter/dff_route_planner.py",
+      "line": 10,
+      "pattern": "pin_access",
+      "snippet": "from sram_layoutgen.openyield_adapter.composite_pin_access_planner import plan_pin_access"
+    },
+    {
+      "file": "sram_layoutgen/openyield_adapter/dff_route_planner.py",
+      "line": 191,
+      "pattern": "pin_access",
+      "snippet": "    pin_access = plan_pin_access("
+    },
+    {
+      "file": "sram_layoutgen/openyield_adapter/dff_route_planner.py",
+      "line": 191,
+      "pattern": "pin_access",
+      "snippet": "    pin_access = plan_pin_access("
+    },
+    {
+      "file": "sram_layoutgen/openyield_adapter/dff_route_planner.py",
+      "line": 200,
+      "pattern": "pin_access",
+      "snippet": "        pin_access_rows=pin_access[\"decision_rows\"],"
+    },
+    {
+      "file": "sram_layoutgen/openyield_adapter/dff_route_planner.py",
+      "line": 200,
+      "pattern": "pin_access",
+      "snippet": "        pin_access_rows=pin_access[\"decision_rows\"],"
+    },
+    {
+      "file": "sram_layoutgen/openyield_adapter/dff_route_planner.py",
+      "line": 258,
+      "pattern": "pin_access",
+      "snippet": "                    \"role\": \"pin_access_landing\","
+    },
+    {
+      "file": "sram_layoutgen/openyield_adapter/dff_route_planner.py",
+      "line": 273,
+      "pattern": "pin_access",
+      "snippet": "                        \"role\": \"pin_access_escape\","
+    },
+    {
+      "file": "sram_layoutgen/openyield_adapter/dff_route_planner.py",
+      "line": 357,
+      "pattern": "pin_access",
+      "snippet": "            vias.append(_via_dict(net_name, via_center[0], via_center[1], via_rule.size, landing, order, \"pin_access\"))"
+    },
+    {
+      "file": "sram_layoutgen/openyield_adapter/dff_route_planner.py",
+      "line": 365,
+      "pattern": "pin_access",
+      "snippet": "                    \"role\": \"pin_access_via\","
+    },
+    {
+      "file": "sram_layoutgen/openyield_adapter/dff_route_planner.py",
+      "line": 377,
+      "pattern": "pin_access",
+      "snippet": "                    \"role\": \"pin_access_m2_landing\","
+    },
+    {
+      "file": "sram_layoutgen/openyield_adapter/dff_route_planner.py",
+      "line": 472,
+      "pattern": "pin_access",
+      "snippet": "        \"pin_access\": pin_access,"
+    },
+    {
+      "file": "sram_layoutgen/openyield_adapter/dff_route_planner.py",
+      "line": 472,
+      "pattern": "pin_access",
+      "snippet": "        \"pin_access\": pin_access,"
+    },
+    {
+      "file": "sram_layoutgen/openyield_adapter/dff_route_planner.py",
+      "line": 477,
+      "pattern": "pin_access",
+      "snippet": "        \"pin_access_planning_passed\": pin_access[\"pin_access_planning_passed\"],"
+    },
+    {
+      "file": "sram_layoutgen/openyield_adapter/dff_route_planner.py",
+      "line": 477,
+      "pattern": "pin_access",
+      "snippet": "        \"pin_access_planning_passed\": pin_access[\"pin_access_planning_passed\"],"
+    },
+    {
+      "file": "sram_layoutgen/openyield_adapter/dff_route_planner.py",
+      "line": 477,
+      "pattern": "pin_access",
+      "snippet": "        \"pin_access_planning_passed\": pin_access[\"pin_access_planning_passed\"],"
+    },
+    {
+      "file": "sram_layoutgen/openyield_adapter/dff_route_planner.py",
+      "line": 488,
+      "pattern": "pin_access",
+      "snippet": "        \"selected_pin_access_directions\": _pin_direction_counts(pin_access[\"decision_rows\"]),"
+    },
+    {
+      "file": "sram_layoutgen/openyield_adapter/dff_route_planner.py",
+      "line": 488,
+      "pattern": "pin_access",
+      "snippet": "        \"selected_pin_access_directions\": _pin_direction_counts(pin_access[\"decision_rows\"]),"
+    }
+  ],
+  "local_interconnect_first_router": {
+    "M3_default": false,
+    "priority": [
+      "continuous ACTIVE",
+      "shared diffusion",
+      "direct local contact + M1",
+      "M1-over-device local route",
+      "short M2 bridge",
+      "M3 only when lower layers formally infeasible"
+    ]
+  },
+  "policy": {
+    "BOUNDARY_SIGNAL_PIN": "only CLK/D/Q get boundary signal pins",
+    "CLUSTER_INTERFACE": "allow selected M1/M2 bridge within locality window",
+    "INTERNAL_DIFFUSION_LOCAL": "do not promote to global routing unless cluster connection requires it",
+    "INTERNAL_GATE_LOCAL": "use primitive/local gate access and short M1/M2 only",
+    "POWER_RAIL": "use rail continuity and body-tie-compatible contacts"
+  },
+  "promoted_qor_path": "M12C4AC local M1/M2 route planner; zero VIA2/M3 in route plan",
+  "terminal_classes": [
+    "INTERNAL_DIFFUSION_LOCAL",
+    "INTERNAL_GATE_LOCAL",
+    "CLUSTER_INTERFACE",
+    "BOUNDARY_SIGNAL_PIN",
+    "POWER_RAIL"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "canonical_unique_states": 3,
+  "generated_structural_states": 3,
+  "note": "This stage reuses the verified M12C4AC TG4 relational recipe and records failed two-row/three-zone trial states; it does not claim broad CellSynth v2 search closure.",
+  "routing_variants": 2,
+  "source_trial_report": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/M12C4AC_dff_connectivity_repair/current_supported_config/M12C4AC_floorplan_route_trial_report.json",
+  "trial_rows": [
+    {
+      "architecture": "SINGLE_ROW_SOURCE_ORDER",
+      "bbox_area": 58.142306,
+      "child_overlap": 0,
+      "connectivity_passed": true,
+      "drc_marker_count": 0,
+      "drc_passed": true,
+      "estimated_wire_length": 154.565,
+      "floating_required_pin_count": 0,
+      "m2_route_count": 30,
+      "missing_expected_endpoint_count": 0,
+      "route_segment_count": 41,
+      "selected_routing_architecture": "M1_HORIZONTAL_TRACK_M2_VERTICAL_DROP",
+      "unexpected_net_merge_count": 0,
+      "via1_count": 60
+    },
+    {
+      "architecture": "TWO_ROW_MASTER_SLAVE_MICRO_FLOORPLAN",
+      "bbox_area": 60.25655,
+      "child_overlap": 0,
+      "connectivity_passed": false,
+      "drc_marker_count": 1,
+      "drc_passed": false,
+      "estimated_wire_length": 158.5275,
+      "floating_required_pin_count": 0,
+      "m2_route_count": 30,
+      "missing_expected_endpoint_count": 12,
+      "route_segment_count": 41,
+      "selected_routing_architecture": "M1_HORIZONTAL_TRACK_M2_VERTICAL_DROP",
+      "unexpected_net_merge_count": 2,
+      "via1_count": 60
+    },
+    {
+      "architecture": "THREE_ZONE_CLOCK_MASTER_SLAVE",
+      "bbox_area": 95.601075,
+      "child_overlap": 0,
+      "connectivity_passed": false,
+      "drc_marker_count": 2,
+      "drc_passed": false,
+      "estimated_wire_length": 240.97,
+      "floating_required_pin_count": 0,
+      "m2_route_count": 30,
+      "missing_expected_endpoint_count": 12,
+      "route_segment_count": 41,
+      "selected_routing_architecture": "M1_HORIZONTAL_TRACK_M2_VERTICAL_DROP",
+      "unexpected_net_merge_count": 1,
+      "via1_count": 60
+    }
+  ],
+  "verified_DRC_LVS_states": 1
+}

@@ -90,3 +90,10 @@ Internal verification failures are iterative feedback, not task-level blockers. 
 - `DFF_V2_SHARED_DIFF_P1p45` at 233.24 um^2 is retained as DRC/LVS correctness evidence but reclassified as `HUMAN_REJECTED` / `QoR style rejected` because routing is macro-like and high-layer dominated.
 - The recovered `PROJECT_OPENYIELD_DFF_ROUTING_AWARE_FEOL_BEOL_CO_OPTIMIZATION` package is the priority style reference, not a source of formal topology or copied polygons.
 - Best regenerated compact FEOL/BEOL candidate: `DFF_V2_COMPACT_FEOL_BEOL_DP1p45_S7p15_RP0p3`, area `139.825` um^2, DRC/LVS PASS, OpenYield exact 22T source preserved.
+
+
+## 2026-08-13 DFF_TG4_INV7 QoR Reproduction
+- `DFF_TG4_INV7` is now `VERIFIED_QOR_BASELINE` after current external DRC+LVS revalidation against the OpenYield original 22T golden specification.
+- Baseline bbox/area: `13.745 x 4.2525 um`, `58.450613 um^2`; pins `D Q CLK VDD VSS`; extracted MOS `22`.
+- The 139.825 um^2 compact FEOL/BEOL candidate remains DRC/LVS-correct but is not a QoR baseline because contacts/VIA1/VIA2 remain fixed at `50/50/50` and routing is M2/M3 dominated.
+- The promoted compact path is local-interconnect-first: child-local FEOL/M1, selected M1 landings, short M2 bridge/drop, M3 only when lower layers are infeasible.

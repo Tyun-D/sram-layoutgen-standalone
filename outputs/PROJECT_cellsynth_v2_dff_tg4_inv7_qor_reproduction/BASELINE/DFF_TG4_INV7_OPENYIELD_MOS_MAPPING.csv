@@ -1,0 +1,24 @@
+B,D,G,L,OpenYield MOS,S,S/D flip,W,cluster,orientation,physical MOS,physical x/y,type
+VSS,z5,CLK,0.05,tg3_MN,z4,YES,0.25,tg3,r0,M$1,"12.7625,0.3275",NMOS
+VSS,z5,CLKB,0.05,tg4_MN,QB,YES,0.25,tg4,r0,M$2,"2.7825,0.3275",NMOS
+VSS,z1,CLKB,0.05,tg1_MN,D_b,YES,0.25,tg1,r0,M$3,"6.525,0.3275",NMOS
+VSS,z1,CLK,0.05,tg2_MN,z3,YES,0.25,tg2,r0,M$4,"9.02,1.4325",NMOS
+VDD,z5,CLKB,0.05,tg3_MP,z4,NO,0.5,tg3,r0,M$5,"12.7625,1.4325",PMOS
+VDD,z5,CLK,0.05,tg4_MP,QB,NO,0.5,tg4,r0,M$6,"2.7825,1.4325",PMOS
+VDD,z1,CLK,0.05,tg1_MP,D_b,NO,0.5,tg1,r0,M$7,"6.525,1.4325",PMOS
+VDD,z1,CLKB,0.05,tg2_MP,z3,NO,0.5,tg2,r0,M$8,"0.2875,0.2825",PMOS
+VSS,CLKB,CLK,0.05,inv1_clk_MN,VSS,NO,0.25,inv1_clk,r0,M$9,"1.535,0.2825",NMOS
+VSS,D_b,D,0.05,inv2_D_MN,VSS,NO,0.25,inv2_D,r0,M$10,"4.03,0.2825",NMOS
+VSS,z2,z1,0.05,inv3_MN,VSS,NO,0.25,inv3,r0,M$11,"7.7725,0.2825",NMOS
+VSS,z4,z2,0.05,inv5_MN,VSS,NO,0.25,inv5,r0,M$12,"5.2775,0.2825",NMOS
+VSS,z3,z2,0.05,inv4_MN,VSS,NO,0.25,inv4,r0,M$13,"10.2675,0.2825",NMOS
+VSS,Q,z5,0.05,inv6_MN,VSS,NO,0.25,inv6,r0,M$14,"11.515,0.2825",NMOS
+VSS,QB,Q,0.05,inv7_MN,VSS,NO,0.25,inv7,r0,M$15,"0.2875,1.4775",NMOS
+VDD,CLKB,CLK,0.05,inv1_clk_MP,VDD,NO,0.5,inv1_clk,r0,M$16,"1.535,1.4775",PMOS
+VDD,D_b,D,0.05,inv2_D_MP,VDD,NO,0.5,inv2_D,r0,M$17,"4.03,1.4775",PMOS
+VDD,z2,z1,0.05,inv3_MP,VDD,NO,0.5,inv3,r0,M$18,"7.7725,1.4775",PMOS
+VDD,z4,z2,0.05,inv5_MP,VDD,NO,0.5,inv5,r0,M$19,"5.2775,1.4775",PMOS
+VDD,z3,z2,0.05,inv4_MP,VDD,NO,0.5,inv4,r0,M$20,"10.2675,1.4775",PMOS
+VDD,Q,z5,0.05,inv6_MP,VDD,NO,0.5,inv6,r0,M$21,"11.515,1.4775",PMOS
+VDD,QB,Q,0.05,inv7_MP,VDD,NO,0.5,inv7,r0,M$22,"None,None",PMOS
+,,,,NET_NORMALIZATION,,SOLVED,,canonical_internal_net_mapping,,"{""1"": ""CLKB"", ""10"": ""QB"", ""3"": ""D_b"", ""4"": ""z1"", ""5"": ""z2"", ""6"": ""z3"", ""7"": ""z4"", ""8"": ""z5"", ""CLK"": ""CLK"", ""D"": ""D"", ""Q"": ""Q"", ""VDD"": ""VDD"", ""VSS"": ""VSS""}",,INFO

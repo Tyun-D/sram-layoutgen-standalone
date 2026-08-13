@@ -10,7 +10,7 @@
   "array_integration_level": "REAL_BITCELL_ARRAY_GDS",
   "authoritative_array_status": "AUTHORITATIVE_ARRAY_ASSET_REGENERATED",
   "authoritative_bitcell_array": "LOCKED",
-  "best_area": 388.206,
+  "best_area": 58.450613,
   "best_drc": "DRC_PASS",
   "best_lvs": "LVS_PASS",
   "best_true_pn_column_dff": "DFF_V2_PN_COLUMN_GATE_SORTED_P1p8",
@@ -57,6 +57,51 @@
     "package_sha256": "136abc0afc8fa870e2263037bfd35964b3b4591a9621527ad689553ab76076ac",
     "status": "PASS_OPENYIELD_CELLSYNTH_V2_CONNECTIVITY_FIRST_ENGINE_MVP",
     "top": "DFF_V2_CONNECTIVITY_BASELINE"
+  },
+  "cellsynth_v2_dff_tg4_inv7_qor_reproduction": {
+    "best": {
+      "ACTIVE_islands": 44,
+      "DRC": "DRC_PASS",
+      "LVS": "LVS_PASS",
+      "M1": 95.085,
+      "M2": 59.48,
+      "M3": 0.0,
+      "VIA1": 60,
+      "VIA2": 0,
+      "area": 58.450613,
+      "area_over_verified_qor_baseline": 1.0,
+      "bbox": "13.745 x 4.2525 um",
+      "candidate": "DFF_V2_TG4_INV7_QOR_REPRODUCED",
+      "clock_route": 39.0075,
+      "contacts": 81,
+      "extracted_MOS": 22,
+      "extracted_NMOS": 11,
+      "extracted_PMOS": 11,
+      "feedback_route": 76.29249999999999,
+      "gds": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_dff_tg4_inv7_qor_reproduction/NEW_REPRODUCTION/DFF_V2_TG4_INV7_QOR_REPRODUCED/DFF_V2_TG4_INV7_QOR_REPRODUCED.gds",
+      "gds_sha256": "da1ef49bf69415afb11e896fa1c44ec0a8dd1fadde6679934771fe3b9e65b630",
+      "height": 4.2525,
+      "high_layer_ratio": 0.384822,
+      "high_layer_route": 59.48,
+      "layout_source": "regenerated project-native TG4 structural recipe; no polygon copy from external standard-cell library",
+      "pins": [
+        "CLK",
+        "D",
+        "Q",
+        "VDD",
+        "VSS"
+      ],
+      "shared_diffusion": "primitive-local extracted 22 MOS; not copied from baseline polygons",
+      "top": "DFF_TG4_INV7_FPDK45_e6da842830d7",
+      "total_route": 154.565,
+      "valid": true,
+      "visual_style": "COMPACT_STANDARD_CELL_PASS",
+      "whitespace": "compact height; no macro-like dedicated M3 trunk channel",
+      "width": 13.745
+    },
+    "package": "/data1/qujh/PROJECT_CELLSYNTH_V2_DFF_TG4_INV7_QOR_REPRODUCTION_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz",
+    "package_sha256": "a05099eab97a32d26a8ea584c3a2b515037b8574cc945253b65ae9a635fa24ac",
+    "status": "PASS_OPENYIELD_CELLSYNTH_V2_DFF_TG4_INV7_QOR_REPRODUCTION_TO_HUMAN_REVIEW"
   },
   "cellsynth_v2_formal_foundation": {
     "current_dff_true_lvs_status": "LVS_COMPARE_FAIL",
@@ -224,7 +269,7 @@
   "current_proxy_max_arrival_skew_ps": 0.15823,
   "current_proxy_slew_ratio": 1.0099272309,
   "current_rc_evidence": "NORMALIZED_GEOMETRY_RC_PROXY",
-  "current_status": "PASS_OPENYIELD_CELLSYNTH_V2_AUTONOMOUS_DX14P80_ROUTER_CLOSURE",
+  "current_status": "PASS_OPENYIELD_CELLSYNTH_V2_DFF_TG4_INV7_QOR_REPRODUCTION_TO_HUMAN_REVIEW",
   "decoder_hierarchical_floorplan": {
     "candidate_count": 0,
     "child_v3_pareto_path": "docs/DECODER_CHILD_V3_PARETO_SET.json",
@@ -295,6 +340,12 @@
     "working_tree_clean_at_checkpoint_commit": true
   },
   "detailed_routing": "NOT_STARTED",
+  "dff_tg4_inv7_verified_qor_baseline": {
+    "area": 58.450613,
+    "drc": "DRC_PASS",
+    "lvs": "LVS_PASS",
+    "status": "VERIFIED_QOR_BASELINE"
+  },
   "drc_waiver_status": {
     "approved_waiver_count": 0,
     "waiver_policy_closed": true
