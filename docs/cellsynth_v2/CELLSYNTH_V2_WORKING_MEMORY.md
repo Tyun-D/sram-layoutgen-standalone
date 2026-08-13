@@ -103,3 +103,7 @@ Internal verification failures are iterative feedback, not task-level blockers. 
 - `DFF_TOPO_SHARED_00_7_TRAIL` remains the compact architecture/style seed, not a formal replacement until repaired candidates pass current DRC/LVS.
 - `DFF_9P1_REPAIR_ITER012` is the current compact verified best-area candidate: area `29.199063` um^2, DRC/LVS PASS, OpenYield 22T nf=1 preserved.
 - The repair methodology is minimal-disturbance counterexample closure: fix pins, gate-net merges, body ties and S/D ownership bridges without reverting to macro-like routing.
+
+## 2026-08-13T17:17:19.391396+00:00 DFF 9.1 Local Interconnect Compaction
+- `DFF_9P1_LOCAL_IC_TP215` is the current Phase-1 local-interconnect compact candidate: area `27.359312` um^2, DRC/LVS PASS.
+- FEOL/transistor/shared-diffusion topology remained frozen; optimization removed redundant same-net row VIA2/M3 handoffs and compacted local trunk pitch.

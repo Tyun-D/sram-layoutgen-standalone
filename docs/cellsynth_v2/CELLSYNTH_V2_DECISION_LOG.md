@@ -50,3 +50,7 @@ Internal verification failures are iterative feedback, not task-level blockers. 
 ## 2026-08-13T16:18:56.364979+00:00 DFF 9.1 Compact LVS Closure
 - Repaired the historical `DFF_TOPO_SHARED_00_7_TRAIL` compact topology with minimal local pin/gate/body/S-D connectivity additions.
 - Best area valid candidate `DFF_9P1_REPAIR_ITER012` is DRC/LVS PASS at `29.199063` um^2; formal SRAM top remains unchanged.
+
+## 2026-08-13T17:17:19.391396+00:00 DFF 9.1 Local Interconnect Compaction
+- Accepted local-interconnect repair: same-net same-row M3/VIA2 handoff de-duplication plus trunk-pitch compaction.
+- Rejected global M2-only trunk replacement because it created LVS shorts among boundary signals under frozen FEOL.
