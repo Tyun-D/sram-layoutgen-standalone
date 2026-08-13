@@ -1,0 +1,39 @@
+{
+  "CELLSYNTH_LVS_NEGATIVE_REGRESSION_V2": "PASS",
+  "negative_regression_gate": "PASS",
+  "previous_negative_source": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_routing_aware_style_restoration/VERIFY/NEGATIVE/CELLSYNTH_LVS_NEGATIVE_REGRESSION_V2.json",
+  "tests": [
+    {
+      "actual_LVS": "LVS_COMPARE_FAIL",
+      "expected": "LVS_NOT_PASS",
+      "mutation": "NEG_CLK_D_SHORT",
+      "passed": true
+    },
+    {
+      "actual_LVS": "LVS_COMPARE_FAIL",
+      "expected": "LVS_NOT_PASS",
+      "mutation": "NEG_OPEN_Q",
+      "passed": true
+    },
+    {
+      "actual_LVS": "LVS_COMPARE_FAIL",
+      "expected": "LVS_NOT_PASS",
+      "mutation": "NEG_WRONG_SD_NET",
+      "passed": true
+    },
+    {
+      "actual_LVS": "LVS_COMPARE_FAIL",
+      "expected": "LVS_NOT_PASS",
+      "mutation": "NEG_BODY_TIE",
+      "passed": true
+    },
+    {
+      "actual_LVS": "LVS_COMPARE_FAIL",
+      "expected": "LVS_NOT_PASS",
+      "mutation": "NEG_GATE_NET_SPLIT",
+      "passed": true,
+      "source": "historical 9.1 current-LVS counterexample"
+    }
+  ],
+  "this_stage_counterexample": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_openyield_dff_9p1_compact_lvs_closure/HISTORICAL_9P1/DFF_9P1_LVS_COUNTEREXAMPLE_DECOMPOSITION.json"
+}

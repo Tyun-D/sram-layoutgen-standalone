@@ -1,0 +1,14 @@
+{
+  "cuts": [
+    {
+      "class": "METAL2.2",
+      "effect": "DFF_4I_LOCAL_Z2_SHIFT",
+      "expression": "avoid split-feedback z2=1.25 with CLKB=2.25 under current row tracks"
+    },
+    {
+      "class": "LVS_SHORT",
+      "effect": "retain per-net M3 vertical trunk",
+      "expression": "reject same-layer M2-only trunk intersections for CLK/D/Q"
+    }
+  ]
+}

@@ -107,3 +107,8 @@ Internal verification failures are iterative feedback, not task-level blockers. 
 ## 2026-08-13T17:17:19.391396+00:00 DFF 9.1 Local Interconnect Compaction
 - `DFF_9P1_LOCAL_IC_TP215` is the current Phase-1 local-interconnect compact candidate: area `27.359312` um^2, DRC/LVS PASS.
 - FEOL/transistor/shared-diffusion topology remained frozen; optimization removed redundant same-net row VIA2/M3 handoffs and compacted local trunk pitch.
+
+
+## 2026-08-13T17:47:22.328722+00:00 4-Island FEOL/BEOL Co-Optimization
+- RULE: Do not freeze FEOL placement if final-GDS net-route audit shows the dominant BEOL cost is caused by terminal distribution.
+- Best verified co-optimized candidate `DFF_4I_LOCAL_WIDE_D` moves trunks into local device/cluster regions; area `18.78775` um^2, DRC/LVS PASS.

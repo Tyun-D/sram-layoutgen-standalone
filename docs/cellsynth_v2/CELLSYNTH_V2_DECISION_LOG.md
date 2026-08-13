@@ -54,3 +54,8 @@ Internal verification failures are iterative feedback, not task-level blockers. 
 ## 2026-08-13T17:17:19.391396+00:00 DFF 9.1 Local Interconnect Compaction
 - Accepted local-interconnect repair: same-net same-row M3/VIA2 handoff de-duplication plus trunk-pitch compaction.
 - Rejected global M2-only trunk replacement because it created LVS shorts among boundary signals under frozen FEOL.
+
+
+## 2026-08-13T17:47:22.328722+00:00 4-Island FEOL/BEOL Co-Optimization
+- FEOL relational placement was re-opened because TP215 route audit showed terminal distribution caused the dominant BEOL cost.
+- Accepted localized trunk family; rejected pure M2-only trunk removal due LVS shorts/M2 conflicts.
