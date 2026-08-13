@@ -70,3 +70,9 @@ Full-DFF P/N placement optimization is paused until the local pin-access and det
 ## CELLSYNTH_V2_AUTONOMOUS_CLOSURE_POLICY
 
 Internal verification failures are iterative feedback, not task-level blockers. CellSynth router work must iterate through generation, verification, diagnosis, model repair and regeneration until the stage objective closes or a genuine external blocker/formal infeasibility proof exists.
+
+
+## 2026-08-13 True P/N Common-Column Closure
+- `DFF_V2_DX14P80_LOCAL_ROUTER_REPAIRED` proved positive P/N overlap is routable but remains a routing regression fixture, not the final placement architecture.
+- CellSynth v2 now uses a common symbolic column set with `Pplace[p,c]` and `Nplace[n,c]`; `nmos_dx` is not a master placement variable.
+- Best verified paired-column DFF: `DFF_V2_PN_COLUMN_GATE_SORTED_P1p8`, area `388.206` um^2, paired columns `11`, DRC/LVS PASS.

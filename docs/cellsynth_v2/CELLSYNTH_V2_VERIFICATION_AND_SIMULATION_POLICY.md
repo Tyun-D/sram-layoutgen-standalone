@@ -24,3 +24,9 @@ DRC failures strengthen geometry/routing constraints. LVS disconnects repair con
 ## CELLSYNTH_V2_AUTONOMOUS_CLOSURE_POLICY
 
 Internal verification failures are iterative feedback, not task-level blockers. CellSynth router work must iterate through generation, verification, diagnosis, model repair and regeneration until the stage objective closes or a genuine external blocker/formal infeasibility proof exists.
+
+
+## Regression Fixture Terminology
+- `HISTORICAL_COUNTEREXAMPLE` records a previously observed failure mode that may not be deterministic in a packaged variant.
+- `REPRODUCIBLE_REGRESSION_FIXTURE` is an intentional deterministic mutation that must trigger the intended internal/external failure before repair.
+- True P/N column candidates require Level1 PASS, external DRC PASS and external LVS PASS before entering the verified frontier.

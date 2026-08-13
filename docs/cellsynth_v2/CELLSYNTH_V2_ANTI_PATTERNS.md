@@ -19,3 +19,9 @@
 ## CELLSYNTH_V2_AUTONOMOUS_CLOSURE_POLICY
 
 Internal verification failures are iterative feedback, not task-level blockers. CellSynth router work must iterate through generation, verification, diagnosis, model repair and regeneration until the stage objective closes or a genuine external blocker/formal infeasibility proof exists.
+
+
+## Additional Anti-Patterns From True P/N Column Closure
+- ANTI-PATTERN: treating `pmos_nmos_overlap_x > 0` as sufficient proof of simultaneous P/N placement.
+- ANTI-PATTERN: accepting a column candidate without symbolic/GDS column-coordinate correspondence.
+- ANTI-PATTERN: using a repaired regression fixture as a placement architecture template.

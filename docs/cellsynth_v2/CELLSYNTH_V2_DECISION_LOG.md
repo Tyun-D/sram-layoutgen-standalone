@@ -23,3 +23,9 @@ Internal verification failures are iterative feedback, not task-level blockers. 
 - Learned DRC conflicts from METAL2/VIA2 markers and LVS `CLK,D` short counterexample.
 - Final repair uses route-only access shifts plus a shared same-net CLK VIA2 bridge.
 - Microbenchmarks remain continuous regressions before future P/N column optimizer integration.
+
+
+## 2026-08-13 True P/N Common-Column Optimizer
+- Closed `PN_SIMULTANEOUS_PLACEMENT_GATE` with solver-generated common-column assignments for the full OpenYield 22-MOS DFF.
+- Historical CLK-D short evidence is now separated from deterministic regression fixtures.
+- Generic router reuse audit found no illegal DX14.80-specific hardcoding in the column optimizer path.

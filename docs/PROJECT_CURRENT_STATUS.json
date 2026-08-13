@@ -1,4 +1,5 @@
 {
+  "PDK_changed": false,
   "abstract_bounded_floorplan_reclassification": {
     "abstract_bounded_floorplan_model": "PASS",
     "detailed_routing": "NOT_STARTED",
@@ -9,6 +10,10 @@
   "array_integration_level": "REAL_BITCELL_ARRAY_GDS",
   "authoritative_array_status": "AUTHORITATIVE_ARRAY_ASSET_REGENERATED",
   "authoritative_bitcell_array": "LOCKED",
+  "best_area": 388.206,
+  "best_drc": "DRC_PASS",
+  "best_lvs": "LVS_PASS",
+  "best_true_pn_column_dff": "DFF_V2_PN_COLUMN_GATE_SORTED_P1p8",
   "bounded_floorplan_alternative": "SRAM_BOUNDED_V2_S0_CLASSIC_COMPACT",
   "bounded_floorplan_recommended": "SRAM_BOUNDED_V2_S5_AUTOMATED_PARETO",
   "cellsynth_v2": {
@@ -197,6 +202,7 @@
   },
   "external_standard_cell_library_used": false,
   "final_sram_physical_architecture": "NOT_APPROVED",
+  "formal_SRAM_top_modified": false,
   "formal_config_count": 10,
   "formal_functional_timing_closure": false,
   "formal_sram_top_modified": false,
@@ -584,6 +590,7 @@
   "functional_oracle": "FUNCTIONAL_ORACLE_PENDING_OWNER_REVIEW",
   "git_branch": "project/mainline-inventory-20260726",
   "git_head": "ebbd99f348e530ea3a17a71168f7ffb9de1bf99b",
+  "global_rules_sha": "e11af7a70fa8d99f0ec5a21a99a88df1f0a8b4b45c64499d3dbc1a42b600404d",
   "global_work_rules": {
     "authoritative": true,
     "path": "docs/PROJECT_GLOBAL_WORK_RULES.md",
@@ -669,6 +676,7 @@
     "timestamp": "2026-08-09T05:02:51Z"
   },
   "logic_simulation_status": "BLOCKED_BY_MISSING_TRUSTED_VERILOG_ASSETS",
+  "logical_topology_changed": false,
   "next_stage": "Human review of real same-FreePDK45 cell candidates before any full-top reintegration.",
   "old_C2_C5_status": "HUMAN_REJECTED_ARCHITECTURE_BASELINE",
   "old_F3_F4_status": "HUMAN_REJECTED_ARCHITECTURE_BASELINE",
@@ -744,6 +752,8 @@
     "transistor_wl_changed": false,
     "updated_utc": "2026-08-11T10:04:08.672253+00:00"
   },
+  "package": "/data1/qujh/PROJECT_CELLSYNTH_V2_TRUE_PN_COLUMN_COOPT_AUTONOMOUS_CLOSURE_REVIEW_PACKAGE_LATEST.tar.gz",
+  "package_sha256": "d17478fd5973e56744196ec2c118d5be00254fd55c7c9dc6eaee023a83b2284d",
   "pdk_changed": false,
   "physical_top_entry_allowed": true,
   "placement_quality_gate": "CLOSED_FOR_FLOORPLAN_REVIEW",
@@ -869,10 +879,12 @@
   ],
   "sram_functional_tb_status": "BLOCKED_BY_EXACT_TIMING_ORACLE_GAPS",
   "standalone_array_machine_gate": "PASS_AUTHORITATIVE_ARRAY_MACHINE_GATE",
+  "status": "PASS_OPENYIELD_CELLSYNTH_V2_TRUE_PN_COLUMN_COOPT_AUTONOMOUS_CLOSURE",
   "team_b_state": "TEAM_B_OWNER_HUMAN_REVIEWED_MERGED_TO_MAINLINE",
-  "timestamp": "2026-08-10T00:00:00Z",
+  "timestamp": "2026-08-13T11:54:00.562572+00:00",
   "top_intermodule_routing": "PHYSICALLY_ROUTED_AND_DRC_CLEAN",
   "top_physical_architecture": "REAL_TOP_PHYSICAL_INTEGRATION_CLOSED",
+  "transistor_WL_changed": false,
   "trusted_master_head": "c1fbd98",
   "v2_human_review_status": "HUMAN_REVIEW_REJECTED_STRUCTURAL_DECODER_MISMATCH",
   "v2_rejection_reason": "REJECT_V2_DUE_TO_DECODER_STRUCTURAL_MISMATCH_AND_DFF_SEMANTIC_PLACEMENT_GAPS",

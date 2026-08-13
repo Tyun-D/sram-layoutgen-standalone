@@ -1,0 +1,167 @@
+{
+  "DRC": "DRC_FAIL",
+  "DRC_categories": {
+    "METAL2.2": 10,
+    "METAL2.5": 2
+  },
+  "DRC_markers": 12,
+  "LVS": "LVS_PASS",
+  "Level1": "PASS",
+  "bbox": {
+    "area": 442.806,
+    "height": 18.2,
+    "width": 24.33
+  },
+  "candidate": "DFF_V2_PN_COLUMN_NMOS_REVERSED_P2p1",
+  "columns": [
+    {
+      "N": "Mtg4_MN",
+      "NMOS_gate": "CLKB",
+      "P": "Minv1_clk_MP",
+      "PMOS_gate": "CLK",
+      "column": 0,
+      "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+      "paired_column": true,
+      "x": 1.2
+    },
+    {
+      "N": "Mtg3_MN",
+      "NMOS_gate": "CLK",
+      "P": "Minv2_D_MP",
+      "PMOS_gate": "D",
+      "column": 1,
+      "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+      "paired_column": true,
+      "x": 3.3
+    },
+    {
+      "N": "Mtg2_MN",
+      "NMOS_gate": "CLK",
+      "P": "Minv3_MP",
+      "PMOS_gate": "z1",
+      "column": 2,
+      "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+      "paired_column": true,
+      "x": 5.4
+    },
+    {
+      "N": "Mtg1_MN",
+      "NMOS_gate": "CLKB",
+      "P": "Minv4_MP",
+      "PMOS_gate": "z2",
+      "column": 3,
+      "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+      "paired_column": true,
+      "x": 7.5
+    },
+    {
+      "N": "Minv7_MN",
+      "NMOS_gate": "Q",
+      "P": "Minv5_MP",
+      "PMOS_gate": "z2",
+      "column": 4,
+      "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+      "paired_column": true,
+      "x": 9.6
+    },
+    {
+      "N": "Minv6_MN",
+      "NMOS_gate": "z5",
+      "P": "Minv6_MP",
+      "PMOS_gate": "z5",
+      "column": 5,
+      "gate_pair_class": "SAME_NET_COMMON_GATE",
+      "paired_column": true,
+      "x": 11.7
+    },
+    {
+      "N": "Minv5_MN",
+      "NMOS_gate": "z2",
+      "P": "Minv7_MP",
+      "PMOS_gate": "Q",
+      "column": 6,
+      "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+      "paired_column": true,
+      "x": 13.8
+    },
+    {
+      "N": "Minv4_MN",
+      "NMOS_gate": "z2",
+      "P": "Mtg1_MP",
+      "PMOS_gate": "CLK",
+      "column": 7,
+      "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+      "paired_column": true,
+      "x": 15.9
+    },
+    {
+      "N": "Minv3_MN",
+      "NMOS_gate": "z1",
+      "P": "Mtg2_MP",
+      "PMOS_gate": "CLKB",
+      "column": 8,
+      "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+      "paired_column": true,
+      "x": 18.0
+    },
+    {
+      "N": "Minv2_D_MN",
+      "NMOS_gate": "D",
+      "P": "Mtg3_MP",
+      "PMOS_gate": "CLKB",
+      "column": 9,
+      "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+      "paired_column": true,
+      "x": 20.1
+    },
+    {
+      "N": "Minv1_clk_MN",
+      "NMOS_gate": "CLK",
+      "P": "Mtg4_MP",
+      "PMOS_gate": "CLK",
+      "column": 10,
+      "gate_pair_class": "SAME_NET_COMMON_GATE",
+      "paired_column": true,
+      "x": 22.2
+    }
+  ],
+  "common_column_model": true,
+  "extracted_mos": 22,
+  "extracted_nmos": 11,
+  "extracted_pins": [
+    "Q",
+    "CLK",
+    "D",
+    "VDD",
+    "VSS"
+  ],
+  "extracted_pmos": 11,
+  "family": "nmos_reversed",
+  "gds": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_true_pn_column_coopt_autonomous_closure/CANDIDATES/DFF_V2_PN_COLUMN_NMOS_REVERSED_P2p1/DFF_V2_PN_COLUMN_NMOS_REVERSED_P2p1.gds",
+  "gds_sha256": "d48401737146a9e99c5285df3567ee33165bdaa514050e80191631cfb3015d50",
+  "nf_all": 1,
+  "paired_column_count": 11,
+  "pmos_nmos_overlap_x": 21.93,
+  "resource_metrics": {
+    "contacts": 68,
+    "m1_length": 28.8,
+    "m1_segments": 55,
+    "m2_length": 693.925,
+    "m2_segments": 90,
+    "m3_length": 240.97,
+    "m3_segments": 18,
+    "total_wire_length": 963.695,
+    "via1": 90,
+    "via2": 90
+  },
+  "router": {
+    "access_candidates": 180,
+    "conflict_pairs": 0,
+    "resource_map_count": 343
+  },
+  "same_net_common_gate_count": 2,
+  "split_gate_count": 9,
+  "state_id": "PNCOL_2_nmos_reversed",
+  "uses_nmos_dx": false,
+  "valid": false
+}

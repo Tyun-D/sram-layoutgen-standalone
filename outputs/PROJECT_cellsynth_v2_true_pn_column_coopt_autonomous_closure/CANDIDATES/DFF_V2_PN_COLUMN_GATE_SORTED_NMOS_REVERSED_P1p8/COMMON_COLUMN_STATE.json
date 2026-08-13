@@ -1,0 +1,3603 @@
+{
+  "Nplace": {
+    "Minv1_clk_MN": 10,
+    "Minv2_D_MN": 5,
+    "Minv3_MN": 3,
+    "Minv4_MN": 2,
+    "Minv5_MN": 1,
+    "Minv6_MN": 0,
+    "Minv7_MN": 4,
+    "Mtg1_MN": 7,
+    "Mtg2_MN": 9,
+    "Mtg3_MN": 8,
+    "Mtg4_MN": 6
+  },
+  "Pplace": {
+    "Minv1_clk_MP": 0,
+    "Minv2_D_MP": 5,
+    "Minv3_MP": 7,
+    "Minv4_MP": 8,
+    "Minv5_MP": 9,
+    "Minv6_MP": 10,
+    "Minv7_MP": 6,
+    "Mtg1_MP": 1,
+    "Mtg2_MP": 3,
+    "Mtg3_MP": 4,
+    "Mtg4_MP": 2
+  },
+  "canonical_duplicate": false,
+  "canonical_hash": "b69630daec0aece3e6b99014db8cdd0bc8060bd5ccc20d0927ee3d556d4bd752",
+  "column_meta": {
+    "columns": [
+      {
+        "N": "Minv6_MN",
+        "NMOS_gate": "z5",
+        "P": "Minv1_clk_MP",
+        "PMOS_gate": "CLK",
+        "column": 0,
+        "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+        "paired_column": true,
+        "x": 1.2
+      },
+      {
+        "N": "Minv5_MN",
+        "NMOS_gate": "z2",
+        "P": "Mtg1_MP",
+        "PMOS_gate": "CLK",
+        "column": 1,
+        "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+        "paired_column": true,
+        "x": 3.0
+      },
+      {
+        "N": "Minv4_MN",
+        "NMOS_gate": "z2",
+        "P": "Mtg4_MP",
+        "PMOS_gate": "CLK",
+        "column": 2,
+        "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+        "paired_column": true,
+        "x": 4.8
+      },
+      {
+        "N": "Minv3_MN",
+        "NMOS_gate": "z1",
+        "P": "Mtg2_MP",
+        "PMOS_gate": "CLKB",
+        "column": 3,
+        "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+        "paired_column": true,
+        "x": 6.6
+      },
+      {
+        "N": "Minv7_MN",
+        "NMOS_gate": "Q",
+        "P": "Mtg3_MP",
+        "PMOS_gate": "CLKB",
+        "column": 4,
+        "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+        "paired_column": true,
+        "x": 8.4
+      },
+      {
+        "N": "Minv2_D_MN",
+        "NMOS_gate": "D",
+        "P": "Minv2_D_MP",
+        "PMOS_gate": "D",
+        "column": 5,
+        "gate_pair_class": "SAME_NET_COMMON_GATE",
+        "paired_column": true,
+        "x": 10.2
+      },
+      {
+        "N": "Mtg4_MN",
+        "NMOS_gate": "CLKB",
+        "P": "Minv7_MP",
+        "PMOS_gate": "Q",
+        "column": 6,
+        "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+        "paired_column": true,
+        "x": 12.0
+      },
+      {
+        "N": "Mtg1_MN",
+        "NMOS_gate": "CLKB",
+        "P": "Minv3_MP",
+        "PMOS_gate": "z1",
+        "column": 7,
+        "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+        "paired_column": true,
+        "x": 13.8
+      },
+      {
+        "N": "Mtg3_MN",
+        "NMOS_gate": "CLK",
+        "P": "Minv4_MP",
+        "PMOS_gate": "z2",
+        "column": 8,
+        "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+        "paired_column": true,
+        "x": 15.6
+      },
+      {
+        "N": "Mtg2_MN",
+        "NMOS_gate": "CLK",
+        "P": "Minv5_MP",
+        "PMOS_gate": "z2",
+        "column": 9,
+        "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+        "paired_column": true,
+        "x": 17.4
+      },
+      {
+        "N": "Minv1_clk_MN",
+        "NMOS_gate": "CLK",
+        "P": "Minv6_MP",
+        "PMOS_gate": "z5",
+        "column": 10,
+        "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+        "paired_column": true,
+        "x": 19.2
+      }
+    ],
+    "common_column_model": true,
+    "paired_column_count": 11,
+    "pitch": 1.8,
+    "router_access_candidates": 180,
+    "router_conflict_model": {
+      "TECHDB_CONFLICT_GRAPH_GATE": "PASS",
+      "conditional_METAL2_5_modeled": true,
+      "conflict_pairs": []
+    },
+    "router_conflict_pairs": 0,
+    "router_resource_map": [
+      {
+        "geometry": [
+          -0.15,
+          9.4,
+          19.02,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "m3_trunk_VDD",
+        "type": "M3_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.77,
+          7.0,
+          0.77,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_Minv1_clk_MP_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.77,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_Minv1_clk_MP_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.77,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_Minv1_clk_MP_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          9.77,
+          7.0,
+          9.77,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_Minv2_D_MP_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          9.77,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_Minv2_D_MP_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          9.77,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_Minv2_D_MP_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          11.57,
+          7.0,
+          11.57,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_Minv7_MP_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          11.57,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_Minv7_MP_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          11.57,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_Minv7_MP_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          13.37,
+          7.0,
+          13.37,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_Minv3_MP_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          13.37,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_Minv3_MP_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          13.37,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_Minv3_MP_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          15.17,
+          7.0,
+          15.17,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_Minv4_MP_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          15.17,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_Minv4_MP_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          15.17,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_Minv4_MP_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          16.97,
+          7.0,
+          16.97,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_Minv5_MP_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          16.97,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_Minv5_MP_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          16.97,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_Minv5_MP_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          18.77,
+          7.0,
+          18.77,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_Minv6_MP_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          18.77,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_Minv6_MP_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          18.77,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_Minv6_MP_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0,
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_body_tie_PMOS_VDD",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_body_tie_PMOS_VDD",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_body_tie_PMOS_VDD",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0,
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_Minv1_clk_MP_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_Minv1_clk_MP_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_Minv1_clk_MP_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0,
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_Minv2_D_MP_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_Minv2_D_MP_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_Minv2_D_MP_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0,
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_Minv3_MP_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_Minv3_MP_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_Minv3_MP_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0,
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_Minv4_MP_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_Minv4_MP_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_Minv4_MP_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0,
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_Minv5_MP_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_Minv5_MP_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_Minv5_MP_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0,
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_Minv6_MP_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_Minv6_MP_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_Minv6_MP_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0,
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_Minv7_MP_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_Minv7_MP_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_Minv7_MP_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0,
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_Mtg1_MP_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_Mtg1_MP_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_Mtg1_MP_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0,
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_Mtg2_MP_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_Mtg2_MP_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_Mtg2_MP_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0,
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_Mtg3_MP_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_Mtg3_MP_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_Mtg3_MP_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0,
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "m2_access_VDD_Mtg4_MP_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.1,
+          7.0
+        ],
+        "net": "VDD",
+        "resource_id": "via1_VDD_Mtg4_MP_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.1,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "via2_VDD_Mtg4_MP_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.09000000000000002,
+          10.05,
+          19.26,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "m3_trunk_VSS",
+        "type": "M3_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.77,
+          2.0,
+          1.01,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "m1_escape_VSS_Minv6_MN_S",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          1.01,
+          2.0,
+          1.01,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_Minv6_MN_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          1.01,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_Minv6_MN_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          1.01,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_Minv6_MN_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          2.57,
+          2.0,
+          2.57,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_Minv5_MN_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          2.57,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_Minv5_MN_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          2.57,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_Minv5_MN_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          4.37,
+          2.0,
+          4.37,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_Minv4_MN_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          4.37,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_Minv4_MN_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          4.37,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_Minv4_MN_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          6.170000000000001,
+          2.0,
+          6.170000000000001,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_Minv3_MN_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          6.170000000000001,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_Minv3_MN_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          6.170000000000001,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_Minv3_MN_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          7.970000000000001,
+          2.0,
+          7.970000000000001,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_Minv7_MN_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          7.970000000000001,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_Minv7_MN_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          7.970000000000001,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_Minv7_MN_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          9.77,
+          2.0,
+          10.01,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "m1_escape_VSS_Minv2_D_MN_S",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          10.01,
+          2.0,
+          10.01,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_Minv2_D_MN_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          10.01,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_Minv2_D_MN_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          10.01,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_Minv2_D_MN_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          18.77,
+          2.0,
+          19.01,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "m1_escape_VSS_Minv1_clk_MN_S",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          19.01,
+          2.0,
+          19.01,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_Minv1_clk_MN_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          19.01,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_Minv1_clk_MN_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          19.01,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_Minv1_clk_MN_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          2.0,
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "m1_escape_VSS_body_tie_NMOS_VSS",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0,
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_body_tie_NMOS_VSS",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_body_tie_NMOS_VSS",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_body_tie_NMOS_VSS",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          2.0,
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "m1_escape_VSS_Minv1_clk_MN_B",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0,
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_Minv1_clk_MN_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_Minv1_clk_MN_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_Minv1_clk_MN_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          2.0,
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "m1_escape_VSS_Minv2_D_MN_B",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0,
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_Minv2_D_MN_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_Minv2_D_MN_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_Minv2_D_MN_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          2.0,
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "m1_escape_VSS_Minv3_MN_B",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0,
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_Minv3_MN_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_Minv3_MN_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_Minv3_MN_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          2.0,
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "m1_escape_VSS_Minv4_MN_B",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0,
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_Minv4_MN_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_Minv4_MN_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_Minv4_MN_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          2.0,
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "m1_escape_VSS_Minv5_MN_B",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0,
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_Minv5_MN_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_Minv5_MN_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_Minv5_MN_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          2.0,
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "m1_escape_VSS_Minv6_MN_B",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0,
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_Minv6_MN_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_Minv6_MN_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_Minv6_MN_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          2.0,
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "m1_escape_VSS_Minv7_MN_B",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0,
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_Minv7_MN_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_Minv7_MN_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_Minv7_MN_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          2.0,
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "m1_escape_VSS_Mtg1_MN_B",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0,
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_Mtg1_MN_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_Mtg1_MN_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_Mtg1_MN_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          2.0,
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "m1_escape_VSS_Mtg2_MN_B",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0,
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_Mtg2_MN_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_Mtg2_MN_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_Mtg2_MN_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          2.0,
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "m1_escape_VSS_Mtg3_MN_B",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0,
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_Mtg3_MN_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_Mtg3_MN_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_Mtg3_MN_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          0.1,
+          2.0,
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "m1_escape_VSS_Mtg4_MN_B",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0,
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "m2_access_VSS_Mtg4_MN_B",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          0.34,
+          2.0
+        ],
+        "net": "VSS",
+        "resource_id": "via1_VSS_Mtg4_MN_B",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          0.34,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "via2_VSS_Mtg4_MN_B",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          1.9100000000000001,
+          10.700000000000001,
+          20.41,
+          10.700000000000001
+        ],
+        "net": "CLK",
+        "resource_id": "m3_trunk_CLK",
+        "type": "M3_SEGMENT"
+      },
+      {
+        "geometry": [
+          1.2,
+          6.53,
+          2.16,
+          6.53
+        ],
+        "net": "CLK",
+        "resource_id": "m1_escape_CLK_Minv1_clk_MP_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          2.16,
+          6.53,
+          2.16,
+          10.700000000000001
+        ],
+        "net": "CLK",
+        "resource_id": "m2_access_CLK_Minv1_clk_MP_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          2.16,
+          6.53
+        ],
+        "net": "CLK",
+        "resource_id": "via1_CLK_Minv1_clk_MP_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          2.16,
+          10.700000000000001
+        ],
+        "net": "CLK",
+        "resource_id": "via2_CLK_Minv1_clk_MP_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          3.0,
+          6.53,
+          3.96,
+          6.53
+        ],
+        "net": "CLK",
+        "resource_id": "m1_escape_CLK_Mtg1_MP_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          3.96,
+          6.53,
+          3.96,
+          10.700000000000001
+        ],
+        "net": "CLK",
+        "resource_id": "m2_access_CLK_Mtg1_MP_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          3.96,
+          6.53
+        ],
+        "net": "CLK",
+        "resource_id": "via1_CLK_Mtg1_MP_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          3.96,
+          10.700000000000001
+        ],
+        "net": "CLK",
+        "resource_id": "via2_CLK_Mtg1_MP_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          4.8,
+          6.53,
+          5.76,
+          6.53
+        ],
+        "net": "CLK",
+        "resource_id": "m1_escape_CLK_Mtg4_MP_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          5.76,
+          6.53,
+          5.76,
+          10.700000000000001
+        ],
+        "net": "CLK",
+        "resource_id": "m2_access_CLK_Mtg4_MP_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          5.76,
+          6.53
+        ],
+        "net": "CLK",
+        "resource_id": "via1_CLK_Mtg4_MP_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          5.76,
+          10.700000000000001
+        ],
+        "net": "CLK",
+        "resource_id": "via2_CLK_Mtg4_MP_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          15.6,
+          2.345,
+          16.56,
+          2.345
+        ],
+        "net": "CLK",
+        "resource_id": "m1_escape_CLK_Mtg3_MN_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          16.56,
+          2.345,
+          16.56,
+          10.700000000000001
+        ],
+        "net": "CLK",
+        "resource_id": "m2_access_CLK_Mtg3_MN_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          16.56,
+          2.345
+        ],
+        "net": "CLK",
+        "resource_id": "via1_CLK_Mtg3_MN_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          16.56,
+          10.700000000000001
+        ],
+        "net": "CLK",
+        "resource_id": "via2_CLK_Mtg3_MN_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          17.4,
+          2.345,
+          18.36,
+          2.345
+        ],
+        "net": "CLK",
+        "resource_id": "m1_escape_CLK_Mtg2_MN_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          18.36,
+          2.345,
+          18.36,
+          10.700000000000001
+        ],
+        "net": "CLK",
+        "resource_id": "m2_access_CLK_Mtg2_MN_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          18.36,
+          2.345
+        ],
+        "net": "CLK",
+        "resource_id": "via1_CLK_Mtg2_MN_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          18.36,
+          10.700000000000001
+        ],
+        "net": "CLK",
+        "resource_id": "via2_CLK_Mtg2_MN_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          19.2,
+          2.345,
+          20.16,
+          2.345
+        ],
+        "net": "CLK",
+        "resource_id": "m1_escape_CLK_Minv1_clk_MN_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          20.16,
+          2.345,
+          20.16,
+          10.700000000000001
+        ],
+        "net": "CLK",
+        "resource_id": "m2_access_CLK_Minv1_clk_MN_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          20.16,
+          2.345
+        ],
+        "net": "CLK",
+        "resource_id": "via1_CLK_Minv1_clk_MN_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          20.16,
+          10.700000000000001
+        ],
+        "net": "CLK",
+        "resource_id": "via2_CLK_Minv1_clk_MN_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          1.38,
+          11.350000000000001,
+          19.88,
+          11.350000000000001
+        ],
+        "net": "CLKB",
+        "resource_id": "m3_trunk_CLKB",
+        "type": "M3_SEGMENT"
+      },
+      {
+        "geometry": [
+          1.63,
+          7.0,
+          1.63,
+          11.350000000000001
+        ],
+        "net": "CLKB",
+        "resource_id": "m2_access_CLKB_Minv1_clk_MP_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          1.63,
+          7.0
+        ],
+        "net": "CLKB",
+        "resource_id": "via1_CLKB_Minv1_clk_MP_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          1.63,
+          11.350000000000001
+        ],
+        "net": "CLKB",
+        "resource_id": "via2_CLKB_Minv1_clk_MP_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          6.6000000000000005,
+          6.53,
+          7.56,
+          6.53
+        ],
+        "net": "CLKB",
+        "resource_id": "m1_escape_CLKB_Mtg2_MP_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          7.56,
+          6.53,
+          7.56,
+          11.350000000000001
+        ],
+        "net": "CLKB",
+        "resource_id": "m2_access_CLKB_Mtg2_MP_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          7.56,
+          6.53
+        ],
+        "net": "CLKB",
+        "resource_id": "via1_CLKB_Mtg2_MP_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          7.56,
+          11.350000000000001
+        ],
+        "net": "CLKB",
+        "resource_id": "via2_CLKB_Mtg2_MP_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          8.4,
+          6.53,
+          9.36,
+          6.53
+        ],
+        "net": "CLKB",
+        "resource_id": "m1_escape_CLKB_Mtg3_MP_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          9.36,
+          6.53,
+          9.36,
+          11.350000000000001
+        ],
+        "net": "CLKB",
+        "resource_id": "m2_access_CLKB_Mtg3_MP_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          9.36,
+          6.53
+        ],
+        "net": "CLKB",
+        "resource_id": "via1_CLKB_Mtg3_MP_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          9.36,
+          11.350000000000001
+        ],
+        "net": "CLKB",
+        "resource_id": "via2_CLKB_Mtg3_MP_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          12.0,
+          2.345,
+          12.72,
+          2.345
+        ],
+        "net": "CLKB",
+        "resource_id": "m1_escape_CLKB_Mtg4_MN_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          12.72,
+          2.345,
+          12.72,
+          11.350000000000001
+        ],
+        "net": "CLKB",
+        "resource_id": "m2_access_CLKB_Mtg4_MN_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          12.72,
+          2.345
+        ],
+        "net": "CLKB",
+        "resource_id": "via1_CLKB_Mtg4_MN_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          12.72,
+          11.350000000000001
+        ],
+        "net": "CLKB",
+        "resource_id": "via2_CLKB_Mtg4_MN_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          13.799999999999999,
+          2.345,
+          14.76,
+          2.345
+        ],
+        "net": "CLKB",
+        "resource_id": "m1_escape_CLKB_Mtg1_MN_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          14.76,
+          2.345,
+          14.76,
+          11.350000000000001
+        ],
+        "net": "CLKB",
+        "resource_id": "m2_access_CLKB_Mtg1_MN_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          14.76,
+          2.345
+        ],
+        "net": "CLKB",
+        "resource_id": "via1_CLKB_Mtg1_MN_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          14.76,
+          11.350000000000001
+        ],
+        "net": "CLKB",
+        "resource_id": "via2_CLKB_Mtg1_MN_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          19.63,
+          2.0,
+          19.63,
+          11.350000000000001
+        ],
+        "net": "CLKB",
+        "resource_id": "m2_access_CLKB_Minv1_clk_MN_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          19.63,
+          2.0
+        ],
+        "net": "CLKB",
+        "resource_id": "via1_CLKB_Minv1_clk_MN_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          19.63,
+          11.350000000000001
+        ],
+        "net": "CLKB",
+        "resource_id": "via2_CLKB_Minv1_clk_MN_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          10.67,
+          12.0,
+          11.17,
+          12.0
+        ],
+        "net": "D",
+        "resource_id": "m3_trunk_D",
+        "type": "M3_SEGMENT"
+      },
+      {
+        "geometry": [
+          10.2,
+          6.53,
+          10.92,
+          6.53
+        ],
+        "net": "D",
+        "resource_id": "m1_escape_D_Minv2_D_MP_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          10.92,
+          6.53,
+          10.92,
+          12.0
+        ],
+        "net": "D",
+        "resource_id": "m2_access_D_Minv2_D_MP_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          10.92,
+          6.53
+        ],
+        "net": "D",
+        "resource_id": "via1_D_Minv2_D_MP_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          10.92,
+          12.0
+        ],
+        "net": "D",
+        "resource_id": "via2_D_Minv2_D_MP_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          10.2,
+          2.345,
+          10.92,
+          2.345
+        ],
+        "net": "D",
+        "resource_id": "m1_escape_D_Minv2_D_MN_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          10.92,
+          2.345,
+          10.92,
+          12.0
+        ],
+        "net": "D",
+        "resource_id": "m2_access_D_Minv2_D_MN_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          10.92,
+          2.345
+        ],
+        "net": "D",
+        "resource_id": "via1_D_Minv2_D_MN_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          10.92,
+          12.0
+        ],
+        "net": "D",
+        "resource_id": "via2_D_Minv2_D_MN_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          2.56,
+          12.65,
+          14.479999999999999,
+          12.65
+        ],
+        "net": "D_b",
+        "resource_id": "m3_trunk_D_b",
+        "type": "M3_SEGMENT"
+      },
+      {
+        "geometry": [
+          2.57,
+          7.0,
+          2.81,
+          7.0
+        ],
+        "net": "D_b",
+        "resource_id": "m1_escape_D_b_Mtg1_MP_S",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          2.81,
+          7.0,
+          2.81,
+          12.65
+        ],
+        "net": "D_b",
+        "resource_id": "m2_access_D_b_Mtg1_MP_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          2.81,
+          7.0
+        ],
+        "net": "D_b",
+        "resource_id": "via1_D_b_Mtg1_MP_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          2.81,
+          12.65
+        ],
+        "net": "D_b",
+        "resource_id": "via2_D_b_Mtg1_MP_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          10.629999999999999,
+          7.0,
+          10.629999999999999,
+          12.65
+        ],
+        "net": "D_b",
+        "resource_id": "m2_access_D_b_Minv2_D_MP_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          10.629999999999999,
+          7.0
+        ],
+        "net": "D_b",
+        "resource_id": "via1_D_b_Minv2_D_MP_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          10.629999999999999,
+          12.65
+        ],
+        "net": "D_b",
+        "resource_id": "via2_D_b_Minv2_D_MP_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          10.629999999999999,
+          2.0,
+          10.629999999999999,
+          12.65
+        ],
+        "net": "D_b",
+        "resource_id": "m2_access_D_b_Minv2_D_MN_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          10.629999999999999,
+          2.0
+        ],
+        "net": "D_b",
+        "resource_id": "via1_D_b_Minv2_D_MN_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          10.629999999999999,
+          12.65
+        ],
+        "net": "D_b",
+        "resource_id": "via2_D_b_Minv2_D_MN_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          14.229999999999999,
+          2.0,
+          14.229999999999999,
+          12.65
+        ],
+        "net": "D_b",
+        "resource_id": "m2_access_D_b_Mtg1_MN_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          14.229999999999999,
+          2.0
+        ],
+        "net": "D_b",
+        "resource_id": "via1_D_b_Mtg1_MN_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          14.229999999999999,
+          12.65
+        ],
+        "net": "D_b",
+        "resource_id": "via2_D_b_Mtg1_MN_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          1.62,
+          13.3,
+          20.12,
+          13.3
+        ],
+        "net": "Q",
+        "resource_id": "m3_trunk_Q",
+        "type": "M3_SEGMENT"
+      },
+      {
+        "geometry": [
+          12.0,
+          6.53,
+          12.96,
+          6.53
+        ],
+        "net": "Q",
+        "resource_id": "m1_escape_Q_Minv7_MP_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          12.96,
+          6.53,
+          12.96,
+          13.3
+        ],
+        "net": "Q",
+        "resource_id": "m2_access_Q_Minv7_MP_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          12.96,
+          6.53
+        ],
+        "net": "Q",
+        "resource_id": "via1_Q_Minv7_MP_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          12.96,
+          13.3
+        ],
+        "net": "Q",
+        "resource_id": "via2_Q_Minv7_MP_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          19.63,
+          7.0,
+          19.87,
+          7.0
+        ],
+        "net": "Q",
+        "resource_id": "m1_escape_Q_Minv6_MP_D",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          19.87,
+          7.0,
+          19.87,
+          13.3
+        ],
+        "net": "Q",
+        "resource_id": "m2_access_Q_Minv6_MP_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          19.87,
+          7.0
+        ],
+        "net": "Q",
+        "resource_id": "via1_Q_Minv6_MP_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          19.87,
+          13.3
+        ],
+        "net": "Q",
+        "resource_id": "via2_Q_Minv6_MP_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          1.63,
+          2.0,
+          1.87,
+          2.0
+        ],
+        "net": "Q",
+        "resource_id": "m1_escape_Q_Minv6_MN_D",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          1.87,
+          2.0,
+          1.87,
+          13.3
+        ],
+        "net": "Q",
+        "resource_id": "m2_access_Q_Minv6_MN_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          1.87,
+          2.0
+        ],
+        "net": "Q",
+        "resource_id": "via1_Q_Minv6_MN_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          1.87,
+          13.3
+        ],
+        "net": "Q",
+        "resource_id": "via2_Q_Minv6_MN_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          8.4,
+          2.345,
+          10.32,
+          2.345
+        ],
+        "net": "Q",
+        "resource_id": "m1_escape_Q_Minv7_MN_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          10.32,
+          2.345,
+          10.32,
+          13.3
+        ],
+        "net": "Q",
+        "resource_id": "m2_access_Q_Minv7_MN_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          10.32,
+          2.345
+        ],
+        "net": "Q",
+        "resource_id": "via1_Q_Minv7_MN_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          10.32,
+          13.3
+        ],
+        "net": "Q",
+        "resource_id": "via2_Q_Minv7_MN_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          4.36,
+          13.95,
+          12.68,
+          13.95
+        ],
+        "net": "QB",
+        "resource_id": "m3_trunk_QB",
+        "type": "M3_SEGMENT"
+      },
+      {
+        "geometry": [
+          4.37,
+          7.0,
+          4.61,
+          7.0
+        ],
+        "net": "QB",
+        "resource_id": "m1_escape_QB_Mtg4_MP_S",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          4.61,
+          7.0,
+          4.61,
+          13.95
+        ],
+        "net": "QB",
+        "resource_id": "m2_access_QB_Mtg4_MP_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          4.61,
+          7.0
+        ],
+        "net": "QB",
+        "resource_id": "via1_QB_Mtg4_MP_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          4.61,
+          13.95
+        ],
+        "net": "QB",
+        "resource_id": "via2_QB_Mtg4_MP_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          12.43,
+          7.0,
+          12.43,
+          13.95
+        ],
+        "net": "QB",
+        "resource_id": "m2_access_QB_Minv7_MP_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          12.43,
+          7.0
+        ],
+        "net": "QB",
+        "resource_id": "via1_QB_Minv7_MP_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          12.43,
+          13.95
+        ],
+        "net": "QB",
+        "resource_id": "via2_QB_Minv7_MP_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          8.83,
+          2.0,
+          8.83,
+          13.95
+        ],
+        "net": "QB",
+        "resource_id": "m2_access_QB_Minv7_MN_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          8.83,
+          2.0
+        ],
+        "net": "QB",
+        "resource_id": "via1_QB_Minv7_MN_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          8.83,
+          13.95
+        ],
+        "net": "QB",
+        "resource_id": "via2_QB_Minv7_MN_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          12.43,
+          2.0,
+          12.43,
+          13.95
+        ],
+        "net": "QB",
+        "resource_id": "m2_access_QB_Mtg4_MN_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          12.43,
+          2.0
+        ],
+        "net": "QB",
+        "resource_id": "via1_QB_Mtg4_MN_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          12.43,
+          13.95
+        ],
+        "net": "QB",
+        "resource_id": "via2_QB_Mtg4_MN_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          3.18,
+          14.600000000000001,
+          17.46,
+          14.600000000000001
+        ],
+        "net": "z1",
+        "resource_id": "m3_trunk_z1",
+        "type": "M3_SEGMENT"
+      },
+      {
+        "geometry": [
+          3.43,
+          7.0,
+          3.43,
+          14.600000000000001
+        ],
+        "net": "z1",
+        "resource_id": "m2_access_z1_Mtg1_MP_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          3.43,
+          7.0
+        ],
+        "net": "z1",
+        "resource_id": "via1_z1_Mtg1_MP_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          3.43,
+          14.600000000000001
+        ],
+        "net": "z1",
+        "resource_id": "via2_z1_Mtg1_MP_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          7.03,
+          7.0,
+          7.03,
+          14.600000000000001
+        ],
+        "net": "z1",
+        "resource_id": "m2_access_z1_Mtg2_MP_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          7.03,
+          7.0
+        ],
+        "net": "z1",
+        "resource_id": "via1_z1_Mtg2_MP_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          7.03,
+          14.600000000000001
+        ],
+        "net": "z1",
+        "resource_id": "via2_z1_Mtg2_MP_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          13.799999999999999,
+          6.53,
+          15.72,
+          6.53
+        ],
+        "net": "z1",
+        "resource_id": "m1_escape_z1_Minv3_MP_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          15.72,
+          6.53,
+          15.72,
+          14.600000000000001
+        ],
+        "net": "z1",
+        "resource_id": "m2_access_z1_Minv3_MP_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          15.72,
+          6.53
+        ],
+        "net": "z1",
+        "resource_id": "via1_z1_Minv3_MP_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          15.72,
+          14.600000000000001
+        ],
+        "net": "z1",
+        "resource_id": "via2_z1_Minv3_MP_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          6.6000000000000005,
+          2.345,
+          6.84,
+          2.345
+        ],
+        "net": "z1",
+        "resource_id": "m1_escape_z1_Minv3_MN_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          6.84,
+          2.345,
+          6.84,
+          14.600000000000001
+        ],
+        "net": "z1",
+        "resource_id": "m2_access_z1_Minv3_MN_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          6.84,
+          2.345
+        ],
+        "net": "z1",
+        "resource_id": "via1_z1_Minv3_MN_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          6.84,
+          14.600000000000001
+        ],
+        "net": "z1",
+        "resource_id": "via2_z1_Minv3_MN_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          13.37,
+          2.0,
+          13.61,
+          2.0
+        ],
+        "net": "z1",
+        "resource_id": "m1_escape_z1_Mtg1_MN_S",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          13.61,
+          2.0,
+          13.61,
+          14.600000000000001
+        ],
+        "net": "z1",
+        "resource_id": "m2_access_z1_Mtg1_MN_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          13.61,
+          2.0
+        ],
+        "net": "z1",
+        "resource_id": "via1_z1_Mtg1_MN_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          13.61,
+          14.600000000000001
+        ],
+        "net": "z1",
+        "resource_id": "via2_z1_Mtg1_MN_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          16.97,
+          2.0,
+          17.21,
+          2.0
+        ],
+        "net": "z1",
+        "resource_id": "m1_escape_z1_Mtg2_MN_S",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          17.21,
+          2.0,
+          17.21,
+          14.600000000000001
+        ],
+        "net": "z1",
+        "resource_id": "m2_access_z1_Mtg2_MN_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          17.21,
+          2.0
+        ],
+        "net": "z1",
+        "resource_id": "via1_z1_Mtg2_MN_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          17.21,
+          14.600000000000001
+        ],
+        "net": "z1",
+        "resource_id": "via2_z1_Mtg2_MN_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          4.67,
+          15.25,
+          19.57,
+          15.25
+        ],
+        "net": "z2",
+        "resource_id": "m3_trunk_z2",
+        "type": "M3_SEGMENT"
+      },
+      {
+        "geometry": [
+          14.229999999999999,
+          7.0,
+          14.47,
+          7.0
+        ],
+        "net": "z2",
+        "resource_id": "m1_escape_z2_Minv3_MP_D",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          14.47,
+          7.0,
+          14.47,
+          15.25
+        ],
+        "net": "z2",
+        "resource_id": "m2_access_z2_Minv3_MP_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          14.47,
+          7.0
+        ],
+        "net": "z2",
+        "resource_id": "via1_z2_Minv3_MP_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          14.47,
+          15.25
+        ],
+        "net": "z2",
+        "resource_id": "via2_z2_Minv3_MP_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          15.6,
+          6.53,
+          17.52,
+          6.53
+        ],
+        "net": "z2",
+        "resource_id": "m1_escape_z2_Minv4_MP_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          17.52,
+          6.53,
+          17.52,
+          15.25
+        ],
+        "net": "z2",
+        "resource_id": "m2_access_z2_Minv4_MP_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          17.52,
+          6.53
+        ],
+        "net": "z2",
+        "resource_id": "via1_z2_Minv4_MP_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          17.52,
+          15.25
+        ],
+        "net": "z2",
+        "resource_id": "via2_z2_Minv4_MP_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          17.4,
+          6.53,
+          19.32,
+          6.53
+        ],
+        "net": "z2",
+        "resource_id": "m1_escape_z2_Minv5_MP_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          19.32,
+          6.53,
+          19.32,
+          15.25
+        ],
+        "net": "z2",
+        "resource_id": "m2_access_z2_Minv5_MP_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          19.32,
+          6.53
+        ],
+        "net": "z2",
+        "resource_id": "via1_z2_Minv5_MP_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          19.32,
+          15.25
+        ],
+        "net": "z2",
+        "resource_id": "via2_z2_Minv5_MP_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          3.0,
+          2.345,
+          4.92,
+          2.345
+        ],
+        "net": "z2",
+        "resource_id": "m1_escape_z2_Minv5_MN_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          4.92,
+          2.345,
+          4.92,
+          15.25
+        ],
+        "net": "z2",
+        "resource_id": "m2_access_z2_Minv5_MN_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          4.92,
+          2.345
+        ],
+        "net": "z2",
+        "resource_id": "via1_z2_Minv5_MN_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          4.92,
+          15.25
+        ],
+        "net": "z2",
+        "resource_id": "via2_z2_Minv5_MN_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          4.8,
+          2.345,
+          11.28,
+          2.345
+        ],
+        "net": "z2",
+        "resource_id": "m1_escape_z2_Minv4_MN_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          11.28,
+          2.345,
+          11.28,
+          15.25
+        ],
+        "net": "z2",
+        "resource_id": "m2_access_z2_Minv4_MN_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          11.28,
+          2.345
+        ],
+        "net": "z2",
+        "resource_id": "via1_z2_Minv4_MN_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          11.28,
+          15.25
+        ],
+        "net": "z2",
+        "resource_id": "via2_z2_Minv4_MN_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          7.03,
+          2.0,
+          7.27,
+          2.0
+        ],
+        "net": "z2",
+        "resource_id": "m1_escape_z2_Minv3_MN_D",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          7.27,
+          2.0,
+          7.27,
+          15.25
+        ],
+        "net": "z2",
+        "resource_id": "m2_access_z2_Minv3_MN_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          7.27,
+          2.0
+        ],
+        "net": "z2",
+        "resource_id": "via1_z2_Minv3_MN_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          7.27,
+          15.25
+        ],
+        "net": "z2",
+        "resource_id": "via2_z2_Minv3_MN_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          4.9799999999999995,
+          15.9,
+          18.08,
+          15.9
+        ],
+        "net": "z3",
+        "resource_id": "m3_trunk_z3",
+        "type": "M3_SEGMENT"
+      },
+      {
+        "geometry": [
+          6.170000000000001,
+          7.0,
+          6.41,
+          7.0
+        ],
+        "net": "z3",
+        "resource_id": "m1_escape_z3_Mtg2_MP_S",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          6.41,
+          7.0,
+          6.41,
+          15.9
+        ],
+        "net": "z3",
+        "resource_id": "m2_access_z3_Mtg2_MP_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          6.41,
+          7.0
+        ],
+        "net": "z3",
+        "resource_id": "via1_z3_Mtg2_MP_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          6.41,
+          15.9
+        ],
+        "net": "z3",
+        "resource_id": "via2_z3_Mtg2_MP_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          16.029999999999998,
+          7.0,
+          16.029999999999998,
+          15.9
+        ],
+        "net": "z3",
+        "resource_id": "m2_access_z3_Minv4_MP_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          16.029999999999998,
+          7.0
+        ],
+        "net": "z3",
+        "resource_id": "via1_z3_Minv4_MP_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          16.029999999999998,
+          15.9
+        ],
+        "net": "z3",
+        "resource_id": "via2_z3_Minv4_MP_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          5.2299999999999995,
+          2.0,
+          5.2299999999999995,
+          15.9
+        ],
+        "net": "z3",
+        "resource_id": "m2_access_z3_Minv4_MN_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          5.2299999999999995,
+          2.0
+        ],
+        "net": "z3",
+        "resource_id": "via1_z3_Minv4_MN_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          5.2299999999999995,
+          15.9
+        ],
+        "net": "z3",
+        "resource_id": "via2_z3_Minv4_MN_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          17.83,
+          2.0,
+          17.83,
+          15.9
+        ],
+        "net": "z3",
+        "resource_id": "m2_access_z3_Mtg2_MN_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          17.83,
+          2.0
+        ],
+        "net": "z3",
+        "resource_id": "via1_z3_Mtg2_MN_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          17.83,
+          15.9
+        ],
+        "net": "z3",
+        "resource_id": "via2_z3_Mtg2_MN_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          3.42,
+          16.55,
+          18.32,
+          16.55
+        ],
+        "net": "z4",
+        "resource_id": "m3_trunk_z4",
+        "type": "M3_SEGMENT"
+      },
+      {
+        "geometry": [
+          7.970000000000001,
+          7.0,
+          8.21,
+          7.0
+        ],
+        "net": "z4",
+        "resource_id": "m1_escape_z4_Mtg3_MP_S",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          8.21,
+          7.0,
+          8.21,
+          16.55
+        ],
+        "net": "z4",
+        "resource_id": "m2_access_z4_Mtg3_MP_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          8.21,
+          7.0
+        ],
+        "net": "z4",
+        "resource_id": "via1_z4_Mtg3_MP_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          8.21,
+          16.55
+        ],
+        "net": "z4",
+        "resource_id": "via2_z4_Mtg3_MP_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          17.83,
+          7.0,
+          18.07,
+          7.0
+        ],
+        "net": "z4",
+        "resource_id": "m1_escape_z4_Minv5_MP_D",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          18.07,
+          7.0,
+          18.07,
+          16.55
+        ],
+        "net": "z4",
+        "resource_id": "m2_access_z4_Minv5_MP_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          18.07,
+          7.0
+        ],
+        "net": "z4",
+        "resource_id": "via1_z4_Minv5_MP_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          18.07,
+          16.55
+        ],
+        "net": "z4",
+        "resource_id": "via2_z4_Minv5_MP_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          3.43,
+          2.0,
+          3.67,
+          2.0
+        ],
+        "net": "z4",
+        "resource_id": "m1_escape_z4_Minv5_MN_D",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          3.67,
+          2.0,
+          3.67,
+          16.55
+        ],
+        "net": "z4",
+        "resource_id": "m2_access_z4_Minv5_MN_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          3.67,
+          2.0
+        ],
+        "net": "z4",
+        "resource_id": "via1_z4_Minv5_MN_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          3.67,
+          16.55
+        ],
+        "net": "z4",
+        "resource_id": "via2_z4_Minv5_MN_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          16.029999999999998,
+          2.0,
+          16.27,
+          2.0
+        ],
+        "net": "z4",
+        "resource_id": "m1_escape_z4_Mtg3_MN_D",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          16.27,
+          2.0,
+          16.27,
+          16.55
+        ],
+        "net": "z4",
+        "resource_id": "m2_access_z4_Mtg3_MN_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          16.27,
+          2.0
+        ],
+        "net": "z4",
+        "resource_id": "via1_z4_Mtg3_MN_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          16.27,
+          16.55
+        ],
+        "net": "z4",
+        "resource_id": "via2_z4_Mtg3_MN_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          2.87,
+          17.200000000000003,
+          20.65,
+          17.200000000000003
+        ],
+        "net": "z5",
+        "resource_id": "m3_trunk_z5",
+        "type": "M3_SEGMENT"
+      },
+      {
+        "geometry": [
+          5.2299999999999995,
+          7.0,
+          5.47,
+          7.0
+        ],
+        "net": "z5",
+        "resource_id": "m1_escape_z5_Mtg4_MP_D",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          5.47,
+          7.0,
+          5.47,
+          17.200000000000003
+        ],
+        "net": "z5",
+        "resource_id": "m2_access_z5_Mtg4_MP_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          5.47,
+          7.0
+        ],
+        "net": "z5",
+        "resource_id": "via1_z5_Mtg4_MP_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          5.47,
+          17.200000000000003
+        ],
+        "net": "z5",
+        "resource_id": "via2_z5_Mtg4_MP_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          8.83,
+          7.0,
+          9.07,
+          7.0
+        ],
+        "net": "z5",
+        "resource_id": "m1_escape_z5_Mtg3_MP_D",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          9.07,
+          7.0,
+          9.07,
+          17.200000000000003
+        ],
+        "net": "z5",
+        "resource_id": "m2_access_z5_Mtg3_MP_D",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          9.07,
+          7.0
+        ],
+        "net": "z5",
+        "resource_id": "via1_z5_Mtg3_MP_D",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          9.07,
+          17.200000000000003
+        ],
+        "net": "z5",
+        "resource_id": "via2_z5_Mtg3_MP_D",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          19.2,
+          6.53,
+          20.4,
+          6.53
+        ],
+        "net": "z5",
+        "resource_id": "m1_escape_z5_Minv6_MP_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          20.4,
+          6.53,
+          20.4,
+          17.200000000000003
+        ],
+        "net": "z5",
+        "resource_id": "m2_access_z5_Minv6_MP_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          20.4,
+          6.53
+        ],
+        "net": "z5",
+        "resource_id": "via1_z5_Minv6_MP_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          20.4,
+          17.200000000000003
+        ],
+        "net": "z5",
+        "resource_id": "via2_z5_Minv6_MP_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          1.2,
+          2.345,
+          3.12,
+          2.345
+        ],
+        "net": "z5",
+        "resource_id": "m1_escape_z5_Minv6_MN_G",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          3.12,
+          2.345,
+          3.12,
+          17.200000000000003
+        ],
+        "net": "z5",
+        "resource_id": "m2_access_z5_Minv6_MN_G",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          3.12,
+          2.345
+        ],
+        "net": "z5",
+        "resource_id": "via1_z5_Minv6_MN_G",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          3.12,
+          17.200000000000003
+        ],
+        "net": "z5",
+        "resource_id": "via2_z5_Minv6_MN_G",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          11.57,
+          2.0,
+          11.81,
+          2.0
+        ],
+        "net": "z5",
+        "resource_id": "m1_escape_z5_Mtg4_MN_S",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          11.81,
+          2.0,
+          11.81,
+          17.200000000000003
+        ],
+        "net": "z5",
+        "resource_id": "m2_access_z5_Mtg4_MN_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          11.81,
+          2.0
+        ],
+        "net": "z5",
+        "resource_id": "via1_z5_Mtg4_MN_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          11.81,
+          17.200000000000003
+        ],
+        "net": "z5",
+        "resource_id": "via2_z5_Mtg4_MN_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          15.17,
+          2.0,
+          15.41,
+          2.0
+        ],
+        "net": "z5",
+        "resource_id": "m1_escape_z5_Mtg3_MN_S",
+        "type": "M1_SEGMENT"
+      },
+      {
+        "geometry": [
+          15.41,
+          2.0,
+          15.41,
+          17.200000000000003
+        ],
+        "net": "z5",
+        "resource_id": "m2_access_z5_Mtg3_MN_S",
+        "type": "M2_SEGMENT"
+      },
+      {
+        "geometry": [
+          15.41,
+          2.0
+        ],
+        "net": "z5",
+        "resource_id": "via1_z5_Mtg3_MN_S",
+        "type": "VIA1"
+      },
+      {
+        "geometry": [
+          15.41,
+          17.200000000000003
+        ],
+        "net": "z5",
+        "resource_id": "via2_z5_Mtg3_MN_S",
+        "type": "VIA2"
+      },
+      {
+        "geometry": [
+          20.33,
+          9.4
+        ],
+        "net": "VDD",
+        "resource_id": "pin_VDD",
+        "type": "PIN_ACCESS"
+      },
+      {
+        "geometry": [
+          20.33,
+          10.05
+        ],
+        "net": "VSS",
+        "resource_id": "pin_VSS",
+        "type": "PIN_ACCESS"
+      },
+      {
+        "geometry": [
+          20.33,
+          12.0
+        ],
+        "net": "D",
+        "resource_id": "pin_D",
+        "type": "PIN_ACCESS"
+      },
+      {
+        "geometry": [
+          20.33,
+          13.3
+        ],
+        "net": "Q",
+        "resource_id": "pin_Q",
+        "type": "PIN_ACCESS"
+      },
+      {
+        "geometry": [
+          20.33,
+          10.700000000000001
+        ],
+        "net": "CLK",
+        "resource_id": "pin_CLK",
+        "type": "PIN_ACCESS"
+      }
+    ],
+    "same_net_common_gate_count": 1,
+    "split_gate_count": 10,
+    "track_pitch": 0.65
+  },
+  "family": "gate_sorted_nmos_reversed",
+  "nf": {
+    "Minv1_clk_MN": 1,
+    "Minv1_clk_MP": 1,
+    "Minv2_D_MN": 1,
+    "Minv2_D_MP": 1,
+    "Minv3_MN": 1,
+    "Minv3_MP": 1,
+    "Minv4_MN": 1,
+    "Minv4_MP": 1,
+    "Minv5_MN": 1,
+    "Minv5_MP": 1,
+    "Minv6_MN": 1,
+    "Minv6_MP": 1,
+    "Minv7_MN": 1,
+    "Minv7_MP": 1,
+    "Mtg1_MN": 1,
+    "Mtg1_MP": 1,
+    "Mtg2_MN": 1,
+    "Mtg2_MP": 1,
+    "Mtg3_MN": 1,
+    "Mtg3_MP": 1,
+    "Mtg4_MN": 1,
+    "Mtg4_MP": 1
+  },
+  "nmos_order": [
+    "Minv6_MN",
+    "Minv5_MN",
+    "Minv4_MN",
+    "Minv3_MN",
+    "Minv7_MN",
+    "Minv2_D_MN",
+    "Mtg4_MN",
+    "Mtg1_MN",
+    "Mtg3_MN",
+    "Mtg2_MN",
+    "Minv1_clk_MN"
+  ],
+  "pmos_order": [
+    "Minv1_clk_MP",
+    "Mtg1_MP",
+    "Mtg4_MP",
+    "Mtg2_MP",
+    "Mtg3_MP",
+    "Minv2_D_MP",
+    "Minv7_MP",
+    "Minv3_MP",
+    "Minv4_MP",
+    "Minv5_MP",
+    "Minv6_MP"
+  ],
+  "state_id": "PNCOL_5_gate_sorted_nmos_reversed"
+}

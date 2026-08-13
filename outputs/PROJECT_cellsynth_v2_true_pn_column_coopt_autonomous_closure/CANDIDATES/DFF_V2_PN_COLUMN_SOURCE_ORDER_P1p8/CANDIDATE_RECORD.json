@@ -1,0 +1,164 @@
+{
+  "DRC": "DRC_PASS",
+  "DRC_categories": {},
+  "DRC_markers": 0,
+  "LVS": "LVS_COMPARE_FAIL",
+  "Level1": "FAIL_NET_SHORT",
+  "bbox": {
+    "area": 388.206,
+    "height": 18.2,
+    "width": 21.33
+  },
+  "candidate": "DFF_V2_PN_COLUMN_SOURCE_ORDER_P1p8",
+  "columns": [
+    {
+      "N": "Minv1_clk_MN",
+      "NMOS_gate": "CLK",
+      "P": "Minv1_clk_MP",
+      "PMOS_gate": "CLK",
+      "column": 0,
+      "gate_pair_class": "SAME_NET_COMMON_GATE",
+      "paired_column": true,
+      "x": 1.2
+    },
+    {
+      "N": "Minv2_D_MN",
+      "NMOS_gate": "D",
+      "P": "Minv2_D_MP",
+      "PMOS_gate": "D",
+      "column": 1,
+      "gate_pair_class": "SAME_NET_COMMON_GATE",
+      "paired_column": true,
+      "x": 3.0
+    },
+    {
+      "N": "Minv3_MN",
+      "NMOS_gate": "z1",
+      "P": "Minv3_MP",
+      "PMOS_gate": "z1",
+      "column": 2,
+      "gate_pair_class": "SAME_NET_COMMON_GATE",
+      "paired_column": true,
+      "x": 4.8
+    },
+    {
+      "N": "Minv4_MN",
+      "NMOS_gate": "z2",
+      "P": "Minv4_MP",
+      "PMOS_gate": "z2",
+      "column": 3,
+      "gate_pair_class": "SAME_NET_COMMON_GATE",
+      "paired_column": true,
+      "x": 6.6
+    },
+    {
+      "N": "Minv5_MN",
+      "NMOS_gate": "z2",
+      "P": "Minv5_MP",
+      "PMOS_gate": "z2",
+      "column": 4,
+      "gate_pair_class": "SAME_NET_COMMON_GATE",
+      "paired_column": true,
+      "x": 8.4
+    },
+    {
+      "N": "Minv6_MN",
+      "NMOS_gate": "z5",
+      "P": "Minv6_MP",
+      "PMOS_gate": "z5",
+      "column": 5,
+      "gate_pair_class": "SAME_NET_COMMON_GATE",
+      "paired_column": true,
+      "x": 10.2
+    },
+    {
+      "N": "Minv7_MN",
+      "NMOS_gate": "Q",
+      "P": "Minv7_MP",
+      "PMOS_gate": "Q",
+      "column": 6,
+      "gate_pair_class": "SAME_NET_COMMON_GATE",
+      "paired_column": true,
+      "x": 12.0
+    },
+    {
+      "N": "Mtg1_MN",
+      "NMOS_gate": "CLKB",
+      "P": "Mtg1_MP",
+      "PMOS_gate": "CLK",
+      "column": 7,
+      "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+      "paired_column": true,
+      "x": 13.8
+    },
+    {
+      "N": "Mtg2_MN",
+      "NMOS_gate": "CLK",
+      "P": "Mtg2_MP",
+      "PMOS_gate": "CLKB",
+      "column": 8,
+      "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+      "paired_column": true,
+      "x": 15.6
+    },
+    {
+      "N": "Mtg3_MN",
+      "NMOS_gate": "CLK",
+      "P": "Mtg3_MP",
+      "PMOS_gate": "CLKB",
+      "column": 9,
+      "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+      "paired_column": true,
+      "x": 17.4
+    },
+    {
+      "N": "Mtg4_MN",
+      "NMOS_gate": "CLKB",
+      "P": "Mtg4_MP",
+      "PMOS_gate": "CLK",
+      "column": 10,
+      "gate_pair_class": "DIFFERENT_NET_SPLIT_GATE",
+      "paired_column": true,
+      "x": 19.2
+    }
+  ],
+  "common_column_model": true,
+  "extracted_mos": 22,
+  "extracted_nmos": 11,
+  "extracted_pins": [
+    "Q",
+    "D",
+    "CLK",
+    "VDD",
+    "VSS"
+  ],
+  "extracted_pmos": 11,
+  "family": "source_order",
+  "gds": "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_cellsynth_v2_true_pn_column_coopt_autonomous_closure/CANDIDATES/DFF_V2_PN_COLUMN_SOURCE_ORDER_P1p8/DFF_V2_PN_COLUMN_SOURCE_ORDER_P1p8.gds",
+  "gds_sha256": "b386e2c01f18b06a1c73aea38b7a84d9c983e8d68f1bbe09192cced7e258f643",
+  "nf_all": 1,
+  "paired_column_count": 11,
+  "pmos_nmos_overlap_x": 18.93,
+  "resource_metrics": {
+    "contacts": 68,
+    "m1_length": 33.84,
+    "m1_segments": 49,
+    "m2_length": 693.925,
+    "m2_segments": 90,
+    "m3_length": 171.55,
+    "m3_segments": 18,
+    "total_wire_length": 899.315,
+    "via1": 90,
+    "via2": 90
+  },
+  "router": {
+    "access_candidates": 180,
+    "conflict_pairs": 0,
+    "resource_map_count": 337
+  },
+  "same_net_common_gate_count": 7,
+  "split_gate_count": 4,
+  "state_id": "PNCOL_0_source_order",
+  "uses_nmos_dx": false,
+  "valid": false
+}
