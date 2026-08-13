@@ -1,0 +1,23 @@
+{
+  "access_IDs": [
+    "pin_CLK",
+    "pin_D"
+  ],
+  "conductive_component": [
+    "CLK",
+    "D",
+    "Q",
+    "VDD",
+    "VSS"
+  ],
+  "coordinates": "see BROKEN_ROUTE_REBUILD extracted netlist and DRC logs",
+  "first_illegal_merge_resource": "legacy local-router all-route rebuild M3/M2 access selection",
+  "golden_net_A": "CLK",
+  "golden_net_B": "D",
+  "layer": "M2/M3",
+  "merged_extracted_net": "NOT_PRESENT_IN_THIS_BROKEN_VARIANT",
+  "root_cause": "Level1 symbolic checker did not model physical cross-net GDS merges; extracted LVS netlist is the oracle counterexample.",
+  "route_IDs": [
+    "legacy_rebuild_route_set"
+  ]
+}

@@ -66,3 +66,7 @@ Established lessons:
 ## Local Router Kernel Decision
 
 Full-DFF P/N placement optimization is paused until the local pin-access and detailed-routing kernel is independently verified. The router must close microbenchmarks and the frozen DX14.80 regression before the P/N column master optimizer resumes.
+
+## CELLSYNTH_V2_AUTONOMOUS_CLOSURE_POLICY
+
+Internal verification failures are iterative feedback, not task-level blockers. CellSynth router work must iterate through generation, verification, diagnosis, model repair and regeneration until the stage objective closes or a genuine external blocker/formal infeasibility proof exists.

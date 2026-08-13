@@ -1,0 +1,78 @@
+{
+  "candidate_repairs": [
+    "move local access",
+    "share same-net VIA2 through M2 bridge",
+    "suppress redundant VIA2",
+    "avoid M1 escape near source/drain pads"
+  ],
+  "markers": [
+    {
+      "category": "METAL2.2",
+      "index": 0,
+      "raw": [
+        "'METAL2.2'",
+        "DFF_V2_DX14P80_LOCAL_ROUTER_REBUILD_BROKEN",
+        "false",
+        "1",
+        "edge-pair: (14.39,6.8715;14.39,7.1285)|(14.345,7.075;14.345,6.925)"
+      ]
+    },
+    {
+      "category": "METAL2.2",
+      "index": 1,
+      "raw": [
+        "'METAL2.2'",
+        "DFF_V2_DX14P80_LOCAL_ROUTER_REBUILD_BROKEN",
+        "false",
+        "1",
+        "edge-pair: (14.39,7.026;14.39,9.785)|(14.34,9.834;14.34,7.075)"
+      ]
+    },
+    {
+      "category": "METAL2.2",
+      "index": 2,
+      "raw": [
+        "'METAL2.2'",
+        "DFF_V2_DX14P80_LOCAL_ROUTER_REBUILD_BROKEN",
+        "false",
+        "1",
+        "edge-pair: (14.385,9.785;14.385,9.935)|(14.34,9.9885;14.34,9.7315)"
+      ]
+    },
+    {
+      "category": "METAL2.5",
+      "index": 3,
+      "raw": [
+        "'METAL2.5'",
+        "DFF_V2_DX14P80_LOCAL_ROUTER_REBUILD_BROKEN",
+        "false",
+        "1",
+        "edge-pair: (14.3895,7;14.3895,9.7845)/(14.3405,9.86;14.3405,7.0755)"
+      ]
+    },
+    {
+      "category": "METAL2.5",
+      "index": 4,
+      "raw": [
+        "'METAL2.5'",
+        "DFF_V2_DX14P80_LOCAL_ROUTER_REBUILD_BROKEN",
+        "false",
+        "1",
+        "edge-pair: (16.9995,7.062;16.9995,8.9445)/(16.9105,8.958;16.9105,7.0755)"
+      ]
+    },
+    {
+      "category": "VIA2.2",
+      "index": 5,
+      "raw": [
+        "'VIA2.2'",
+        "DFF_V2_DX14P80_LOCAL_ROUTER_REBUILD_BROKEN",
+        "false",
+        "1",
+        "edge-pair: (16.22,9.41;16.22,9.475)|(16.185,9.475;16.185,9.41)"
+      ]
+    }
+  ],
+  "root_cause_summary": "Route-only rebuild used shifted M2 accesses but retained redundant close VIA2 cuts and local M1 escapes; external DRC exposed METAL1/VIA2 spacing counterexamples.",
+  "source_candidate": "DFF_V2_DX14P80_LOCAL_ROUTER_REBUILD_BROKEN"
+}

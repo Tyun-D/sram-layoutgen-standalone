@@ -15,3 +15,7 @@
 - Fixed terminal-to-M2 vertical-access templates are incompatible with general simultaneous P/N placement.
 - A routing-subproblem gate must not PASS merely because external DRC/LVS failures were ignored.
 - Constant contact/via/routing-resource counts across all search states do not demonstrate contact/routing co-optimization.
+
+## CELLSYNTH_V2_AUTONOMOUS_CLOSURE_POLICY
+
+Internal verification failures are iterative feedback, not task-level blockers. CellSynth router work must iterate through generation, verification, diagnosis, model repair and regeneration until the stage objective closes or a genuine external blocker/formal infeasibility proof exists.

@@ -20,3 +20,7 @@ All partial states get cheap analytical bounds. Completed symbolic candidates ge
 
 ## Feedback Policy
 DRC failures strengthen geometry/routing constraints. LVS disconnects repair connectivity/via/contact/router models. LVS wrong-device failures repair geometry compiler/folding semantics. PEX high CLK capacitance increases clock-access/parasitic cost. High feedback RC increases feedback locality cost. Poor timing updates critical-path weights.
+
+## CELLSYNTH_V2_AUTONOMOUS_CLOSURE_POLICY
+
+Internal verification failures are iterative feedback, not task-level blockers. CellSynth router work must iterate through generation, verification, diagnosis, model repair and regeneration until the stage objective closes or a genuine external blocker/formal infeasibility proof exists.
