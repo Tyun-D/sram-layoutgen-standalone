@@ -408,7 +408,8 @@ def main() -> int:
 
     results = []
     for v in variants:
-        cdir = OUT / "VERIFIED_FRONTIER" / v["subdir"]
+        cbase = OUT / "REPAIR" if "COUNTEREXAMPLE" in v["subdir"] else OUT / "VERIFIED_FRONTIER"
+        cdir = cbase / v["subdir"]
         name = v["name"]
         gds = cdir / f"{name}.gds"
         generate_repair(name, gds, **v["params"])
