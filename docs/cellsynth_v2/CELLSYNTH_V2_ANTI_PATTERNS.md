@@ -31,3 +31,9 @@ Internal verification failures are iterative feedback, not task-level blockers. 
 - ANTI-PATTERN: calling two metal-connected isolated ACTIVE rectangles shared diffusion.
 - ANTI-PATTERN: treating `paired_column_count` as a QoR objective.
 - ANTI-PATTERN: allowing correctness milestones to overwrite compact QoR baselines.
+
+
+## Routing-Aware Style Anti-Patterns
+- ANTI-PATTERN: treating a DRC/LVS-correct macro-like routed DFF as a layout-quality baseline.
+- ANTI-PATTERN: routing every internal terminal to a high global M3 trunk by default.
+- ANTI-PATTERN: exposing internal DFF nets at the cell boundary or using boundary-like long lines for local feedback.

@@ -34,3 +34,9 @@ Internal verification failures are iterative feedback, not task-level blockers. 
 ## 2026-08-13 Shared Diffusion OD/Routing Co-Optimization
 - Reclassified `DFF_V2_PN_COLUMN_GATE_SORTED_P1p8` as `TRUE_PN_COLUMN_CORRECTNESS_MILESTONE`, not QoR baseline.
 - First shared-diffusion DRC/LVS-valid candidate: `DFF_V2_SHARED_DIFF_P1p45`, area `233.24` um^2, active islands `4`, contacts `50`.
+
+
+## 2026-08-13 Routing-Aware FEOL/BEOL Style Restoration
+- Recovered the user-specified historical routing-aware package and classified it as `HISTORICAL_LAYOUT_STYLE_REFERENCE` pending current LVS revalidation.
+- Rejected the 233.24 um^2 shared-diffusion output as a QoR/style baseline while preserving it as a correctness milestone.
+- Generated `DFF_V2_COMPACT_FEOL_BEOL_DP1p45_S7p15_RP0p3` with compact in-cell routing tracks; DRC/LVS PASS and high-layer length reduced versus the 233.24 um^2 rejected baseline.

@@ -1,0 +1,25 @@
+# PASS_OPENYIELD_CELLSYNTH_V2_ROUTING_AWARE_STYLE_RESTORATION_TO_HUMAN_REVIEW
+
+- Global rules SHA: `e11af7a70fa8d99f0ec5a21a99a88df1f0a8b4b45c64499d3dbc1a42b600404d`
+- OpenYield source: `/data1/qujh/work/external/OpenYield/sram_compiler/subcircuits/time_generate.py`, commit `1c34428d8b913963c4971d093b1a7c2df97a2509`, SHA `fa5277f078f79d5b43335c2dcd6e364625aa8ad17b7108d323b85e73dfeaae80`
+- Historical package: `/data1/qujh/PROJECT_OPENYIELD_DFF_ROUTING_AWARE_FEOL_BEOL_CO_OPTIMIZATION_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`, SHA `803b11a4eb386fbf68a1b2e0badb678bd26ec077baf75bfc4991acb6f45b59be`
+- Historical best GDS: `/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_openyield_dff_routing_aware_feol_beol_co_optimization/CANDIDATES/DFF_TOPO_SHARED_00_7_TRAIL/clean.gds`, SHA `947f731dba2973a568dec435bd0f173b2338eb69e1d62e43f71252e966413cd1`
+- Best regenerated compact candidate: `DFF_V2_COMPACT_FEOL_BEOL_DP1p45_S7p15_RP0p3`
+- bbox: `11.9 x 11.75 um`
+- area: `139.825` um^2
+- ACTIVE islands: `4`
+- shared diffusion count: `18`
+- contacts: `50`
+- VIA1/VIA2: `50` / `50`
+- M1/M2/M3 length: `7.68` / `216.175` / `70.555`
+- high-layer routed length: `286.73`
+- DRC: `DRC_PASS`
+- LVS: `LVS_PASS`
+- PDK changed: `false`
+- external standard-cell library used: `false`
+- logical topology changed: `false`
+- W/L changed: `false`
+- formal SRAM top modified: `false`
+- PEX claimed: `false`
+- package: `/data1/qujh/PROJECT_CELLSYNTH_V2_ROUTING_AWARE_STYLE_RESTORATION_HUMAN_REVIEW_PACKAGE_LATEST.tar.gz`
+- package SHA256: `30901cbde95491ac58268e49f2f2a9e624b706340f48fe20c8e89954cd9b42bf`

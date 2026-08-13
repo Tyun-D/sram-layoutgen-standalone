@@ -84,3 +84,9 @@ Internal verification failures are iterative feedback, not task-level blockers. 
 - MEMORY-C: DRC/LVS correctness baselines such as 566/442/388 um^2 prove engine correctness, not layout quality.
 - MEMORY-D: Verification failure remains an optimizer oracle: model, solve, generate, verify, counterexample, cut/model repair, re-solve.
 - Folding policy: future folding preserves 22 logical parent MOS, but extracted physical MOS count may exceed 22 after parallel-finger normalization.
+
+
+## 2026-08-13 Routing-Aware Style Restoration
+- `DFF_V2_SHARED_DIFF_P1p45` at 233.24 um^2 is retained as DRC/LVS correctness evidence but reclassified as `HUMAN_REJECTED` / `QoR style rejected` because routing is macro-like and high-layer dominated.
+- The recovered `PROJECT_OPENYIELD_DFF_ROUTING_AWARE_FEOL_BEOL_CO_OPTIMIZATION` package is the priority style reference, not a source of formal topology or copied polygons.
+- Best regenerated compact FEOL/BEOL candidate: `DFF_V2_COMPACT_FEOL_BEOL_DP1p45_S7p15_RP0p3`, area `139.825` um^2, DRC/LVS PASS, OpenYield exact 22T source preserved.
