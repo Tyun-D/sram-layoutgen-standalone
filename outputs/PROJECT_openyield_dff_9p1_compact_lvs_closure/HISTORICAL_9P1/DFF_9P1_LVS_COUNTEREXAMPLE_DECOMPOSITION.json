@@ -1,0 +1,15 @@
+{
+  "body_tie_failure": "NWELL/PWELL were not tied to VDD/VSS through local taps.",
+  "candidate": "DFF_TOPO_SHARED_00_7_TRAIL",
+  "current_DRC": "DRC_PASS",
+  "current_LVS": "LVS_COMPARE_FAIL",
+  "decorative_route_failure": "Historical M2/M3 polygons had no VIA1/VIA2 and did not contribute electrical connectivity.",
+  "extracted_MOS_count": 22,
+  "extracted_pins": [
+    "NWELL",
+    "PWELL"
+  ],
+  "gate_net_failure": "22 physical gate terminals extracted as 22 separate gate nets because old GDS had no poly-contact/M1 gate merge.",
+  "pin_failure": "Only NWELL/PWELL were extracted as pins because old labels were on non-extraction text layer and formal metal pins were absent.",
+  "sd_failure": "Same logical nets appearing as both diffusion and gate nets were not physically bridged."
+}

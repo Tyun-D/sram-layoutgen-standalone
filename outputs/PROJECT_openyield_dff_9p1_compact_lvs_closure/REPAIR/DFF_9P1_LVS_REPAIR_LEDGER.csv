@@ -1,0 +1,5 @@
+DRC_result,LVS_counterexample,LVS_result,issue_id,minimum_repair_action,repair_status,root_cause
+DRC_PASS,extracted pins NWELL/PWELL only,LVS_PASS,PIN_EXTRACTION,add formal metal labels for CLK/D/Q/VDD/VSS,ACCEPTED,labels on non-extraction text layer and no metal pin ownership
+DRC_PASS,22 gate nets instead of golden gate equivalence classes,LVS_PASS,GATE_NET_SPLIT,"local poly-contact, M2 gate tracks and M3 short trunks",ACCEPTED,no poly contacts or gate merge routing
+DRC_PASS,floating/separate NWELL/PWELL pins,LVS_PASS,BODY_TIE,add local ntie->VDD and ptie->VSS contacts,ACCEPTED,missing nwell/pwell taps to rails
+DRC_PASS,CLKB/Q/z5/z2/z1 diffusion nets not connected to same-named gate nets,LVS_PASS,SD_GATE_OWNERSHIP,add local M1->M2->M3 bridge into gate trunk,ACCEPTED,old decorative routes lacked vias and ownership bridges

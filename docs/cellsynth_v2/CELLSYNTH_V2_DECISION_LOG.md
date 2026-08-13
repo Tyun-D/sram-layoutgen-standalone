@@ -46,3 +46,7 @@ Internal verification failures are iterative feedback, not task-level blockers. 
 - Revalidated `DFF_TG4_INV7` as `VERIFIED_QOR_BASELINE` using current OpenYield golden LVS wrapper and FreePDK45 DRC/LVS.
 - Reproduced the TG4-style project-native generator path as `DFF_V2_TG4_INV7_QOR_REPRODUCED`; DRC/LVS PASS, area `58.450613` um^2, area ratio `1.0`.
 - Terminal access policy was corrected for future CellSynth v2 work: internal terminals are local route endpoints, not mandatory global/high-layer ports.
+
+## 2026-08-13T16:18:56.364979+00:00 DFF 9.1 Compact LVS Closure
+- Repaired the historical `DFF_TOPO_SHARED_00_7_TRAIL` compact topology with minimal local pin/gate/body/S-D connectivity additions.
+- Best area valid candidate `DFF_9P1_REPAIR_ITER012` is DRC/LVS PASS at `29.199063` um^2; formal SRAM top remains unchanged.

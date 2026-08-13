@@ -1,0 +1,5 @@
+.include "/tmp/qujh_delay_chain_scratch/storage_relief_20260725/worktrees/project_mainline_inventory_20260726/outputs/PROJECT_openyield_dff_routing_aware_feol_beol_co_optimization/VERIFY/dff_openyield_original.sp"
+.subckt DFF_9P1_REPAIR_ITER006 VDD VSS D Q CLK
+Xdut VDD VSS D Q CLK dff_openyield_original
+.ends DFF_9P1_REPAIR_ITER006
+.end

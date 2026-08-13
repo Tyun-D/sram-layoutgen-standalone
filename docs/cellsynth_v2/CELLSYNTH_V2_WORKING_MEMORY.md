@@ -97,3 +97,9 @@ Internal verification failures are iterative feedback, not task-level blockers. 
 - Baseline bbox/area: `13.745 x 4.2525 um`, `58.450613 um^2`; pins `D Q CLK VDD VSS`; extracted MOS `22`.
 - The 139.825 um^2 compact FEOL/BEOL candidate remains DRC/LVS-correct but is not a QoR baseline because contacts/VIA1/VIA2 remain fixed at `50/50/50` and routing is M2/M3 dominated.
 - The promoted compact path is local-interconnect-first: child-local FEOL/M1, selected M1 landings, short M2 bridge/drop, M3 only when lower layers are infeasible.
+
+## 2026-08-13T16:18:56.364979+00:00 DFF 9.1 Compact LVS Closure
+- Phase 1 is `DFF_COMPACT_LVS_CLOSURE`.
+- `DFF_TOPO_SHARED_00_7_TRAIL` remains the compact architecture/style seed, not a formal replacement until repaired candidates pass current DRC/LVS.
+- `DFF_9P1_REPAIR_ITER012` is the current compact verified best-area candidate: area `29.199063` um^2, DRC/LVS PASS, OpenYield 22T nf=1 preserved.
+- The repair methodology is minimal-disturbance counterexample closure: fix pins, gate-net merges, body ties and S/D ownership bridges without reverting to macro-like routing.
