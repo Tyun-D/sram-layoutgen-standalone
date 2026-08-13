@@ -1,0 +1,29 @@
+{
+  "CELLSYNTH_LVS_NEGATIVE_REGRESSION_V2": "PASS",
+  "tests": [
+    {
+      "actual_LVS": "LVS_COMPARE_FAIL",
+      "expected": "LVS_NOT_PASS",
+      "mutation": "NEG_CLK_D_SHORT",
+      "passed": true
+    },
+    {
+      "actual_LVS": "LVS_COMPARE_FAIL",
+      "expected": "LVS_NOT_PASS",
+      "mutation": "NEG_OPEN_Q",
+      "passed": true
+    },
+    {
+      "actual_LVS": "LVS_COMPARE_FAIL",
+      "expected": "LVS_NOT_PASS",
+      "mutation": "NEG_WRONG_SD_NET",
+      "passed": true
+    },
+    {
+      "actual_LVS": "LVS_COMPARE_FAIL",
+      "expected": "LVS_NOT_PASS",
+      "mutation": "NEG_BODY_TIE",
+      "passed": true
+    }
+  ]
+}

@@ -76,3 +76,11 @@ Internal verification failures are iterative feedback, not task-level blockers. 
 - `DFF_V2_DX14P80_LOCAL_ROUTER_REPAIRED` proved positive P/N overlap is routable but remains a routing regression fixture, not the final placement architecture.
 - CellSynth v2 now uses a common symbolic column set with `Pplace[p,c]` and `Nplace[n,c]`; `nmos_dx` is not a master placement variable.
 - Best verified paired-column DFF: `DFF_V2_PN_COLUMN_GATE_SORTED_P1p8`, area `388.206` um^2, paired columns `11`, DRC/LVS PASS.
+
+
+## Shared Diffusion QoR Reset
+- MEMORY-A: Common-column is a representation/search variable, not an optimization target. Do not maximize paired columns as the primary objective.
+- MEMORY-B: P/N common column does not force common gate; model `SAME_NET_COMMON_GATE`, `DIFFERENT_NET_SPLIT_GATE`, and `ILLEGAL_PAIR` explicitly.
+- MEMORY-C: DRC/LVS correctness baselines such as 566/442/388 um^2 prove engine correctness, not layout quality.
+- MEMORY-D: Verification failure remains an optimizer oracle: model, solve, generate, verify, counterexample, cut/model repair, re-solve.
+- Folding policy: future folding preserves 22 logical parent MOS, but extracted physical MOS count may exceed 22 after parallel-finger normalization.

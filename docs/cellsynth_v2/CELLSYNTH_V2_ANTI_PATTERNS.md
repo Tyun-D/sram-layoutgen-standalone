@@ -25,3 +25,9 @@ Internal verification failures are iterative feedback, not task-level blockers. 
 - ANTI-PATTERN: treating `pmos_nmos_overlap_x > 0` as sufficient proof of simultaneous P/N placement.
 - ANTI-PATTERN: accepting a column candidate without symbolic/GDS column-coordinate correspondence.
 - ANTI-PATTERN: using a repaired regression fixture as a placement architecture template.
+
+
+## Shared Diffusion Anti-Patterns
+- ANTI-PATTERN: calling two metal-connected isolated ACTIVE rectangles shared diffusion.
+- ANTI-PATTERN: treating `paired_column_count` as a QoR objective.
+- ANTI-PATTERN: allowing correctness milestones to overwrite compact QoR baselines.

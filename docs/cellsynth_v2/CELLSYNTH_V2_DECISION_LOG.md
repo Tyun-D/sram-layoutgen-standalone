@@ -29,3 +29,8 @@ Internal verification failures are iterative feedback, not task-level blockers. 
 - Closed `PN_SIMULTANEOUS_PLACEMENT_GATE` with solver-generated common-column assignments for the full OpenYield 22-MOS DFF.
 - Historical CLK-D short evidence is now separated from deterministic regression fixtures.
 - Generic router reuse audit found no illegal DX14.80-specific hardcoding in the column optimizer path.
+
+
+## 2026-08-13 Shared Diffusion OD/Routing Co-Optimization
+- Reclassified `DFF_V2_PN_COLUMN_GATE_SORTED_P1p8` as `TRUE_PN_COLUMN_CORRECTNESS_MILESTONE`, not QoR baseline.
+- First shared-diffusion DRC/LVS-valid candidate: `DFF_V2_SHARED_DIFF_P1p45`, area `233.24` um^2, active islands `4`, contacts `50`.
