@@ -42,3 +42,9 @@ Internal verification failures are iterative feedback, not task-level blockers. 
 ## QoR Baseline Anti-Patterns
 - ANTI-PATTERN: keeping a DRC/LVS-correct but M2/M3-trunk-dominated 139 um^2 DFF as the quality baseline after a 58.45 um^2 DRC/LVS-clean project-native baseline is available.
 - ANTI-PATTERN: treating every internal transistor terminal as a global routing port.
+
+## Rectangular Envelope Anti-Patterns
+- ANTI-PATTERN: generating a compact device core and letting internal routes extend outward until final GDS bbox grows around them.
+- ANTI-PATTERN: treating post-hoc geometry extents as a standard-cell boundary.
+- ANTI-PATTERN: allowing internal nets to touch the cell boundary when only formal pins should be boundary interfaces.
+- ANTI-PATTERN: wrapping a routing forest in a larger rectangle and calling it a hierarchical standard cell.

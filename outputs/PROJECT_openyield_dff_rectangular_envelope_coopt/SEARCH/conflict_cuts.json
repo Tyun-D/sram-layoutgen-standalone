@@ -1,0 +1,20 @@
+{
+  "cuts": [
+    {
+      "class": "ENVELOPE_OVERFLOW",
+      "effect": "manufacturing geometry outside predeclared rectangle rejects state before promotion"
+    },
+    {
+      "class": "METAL2.2",
+      "evidence": "DFF_RECT_GP180_COUNTEREXAMPLE compresses gate tracks and triggers M2 spacing markers"
+    },
+    {
+      "class": "LVS_SHORT",
+      "evidence": "central unified track-band experiments shorted CLK/D/Q and were rejected before this frontier"
+    },
+    {
+      "class": "M1_TRUNK_REPLACEMENT",
+      "evidence": "M1-only vertical trunk experiments removed M3 but caused METAL1/VIA1 DRC and LVS mismatches"
+    }
+  ]
+}

@@ -190,3 +190,16 @@ These are not success endpoints:
 
 PASS requires actual generation, verification, failure analysis, repair where needed, and re-verification.
 
+## RULE-J: Rectangular Cell Envelope
+
+Cell synthesis results must be hierarchical rectangular physical cells.
+
+Requirements:
+
+- Every promoted cell candidate must declare a rectangular `CELL_BOUNDARY` before placement/routing is solved.
+- All internal geometry, including ACTIVE, POLY, CONTACT, M1, VIA1, M2, VIA2, M3, wells, implants and body ties, must be contained inside the predeclared rectangle.
+- Internal routing must not automatically expand the cell boundary; overflow is a placement/routing failure, not a reason to recompute a larger post-hoc bbox.
+- Only source-authorized boundary pins may touch or approach the cell boundary. For the OpenYield DFF these pins are `CLK`, `D`, `Q`, `VDD`, and `VSS`.
+- Internal nets must not touch the cell boundary unless a source contract explicitly authorizes that behavior.
+- The cell boundary is a hard placement/routing constraint and must be audited against final GDS.
+- Hierarchical SRAM floorplanning must depend only on the child cell rectangle, pins, power access and blockages, not on internal transistor details.

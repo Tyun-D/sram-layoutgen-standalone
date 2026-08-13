@@ -59,3 +59,13 @@ Internal verification failures are iterative feedback, not task-level blockers. 
 ## 2026-08-13T17:47:22.328722+00:00 4-Island FEOL/BEOL Co-Optimization
 - FEOL relational placement was re-opened because TP215 route audit showed terminal distribution caused the dominant BEOL cost.
 - Accepted localized trunk family; rejected pure M2-only trunk removal due LVS shorts/M2 conflicts.
+
+## Rectangular Cell Envelope Decision
+- Human review rejected `DFF_4I_LOCAL_WIDE_D` as Phase-1 final because internal trunks still extend beyond the device body and define the final bbox.
+- CellSynth v2 now treats the rectangular cell envelope as a solve-time hard constraint, not a post-process bbox.
+- Internal route overflow must generate placement/routing/envelope feedback; only formal pins may occupy boundary corridors.
+
+
+## 2026-08-13T18:23:53.331759+00:00 Rectangular Envelope Co-Optimization
+- Added solve-time rectangular envelope audits and rejected post-hoc bbox as a promotion criterion.
+- Central unified track-band counterexamples failed DRC/LVS; retained localized topology inside predeclared envelopes for human review.

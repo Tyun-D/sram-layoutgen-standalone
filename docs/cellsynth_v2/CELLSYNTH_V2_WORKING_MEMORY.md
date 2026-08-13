@@ -112,3 +112,16 @@ Internal verification failures are iterative feedback, not task-level blockers. 
 ## 2026-08-13T17:47:22.328722+00:00 4-Island FEOL/BEOL Co-Optimization
 - RULE: Do not freeze FEOL placement if final-GDS net-route audit shows the dominant BEOL cost is caused by terminal distribution.
 - Best verified co-optimized candidate `DFF_4I_LOCAL_WIDE_D` moves trunks into local device/cluster regions; area `18.78775` um^2, DRC/LVS PASS.
+
+## RULE_RECTANGULAR_CELL_ENVELOPE
+- CellSynth outputs are hierarchical rectangular physical cells, not device cores with internal routes extending outward.
+- Every promoted candidate must predeclare `CELL_BOUNDARY = {xmin, ymin, xmax, ymax}` before placement and routing.
+- ACTIVE, POLY, CONTACT, M1, VIA1, M2, VIA2, M3, wells, implants, body ties and internal routes must be contained inside that boundary.
+- Internal routing may not expand the final cell bbox; overflow must feed back to placement/routing/envelope selection.
+- Only source-authorized pins may touch boundary corridors. For the OpenYield DFF these are `CLK`, `D`, `Q`, `VDD`, and `VSS`.
+- Future SRAM integration consumes only rectangle, pins, power and blockages from generated cells.
+
+
+## 2026-08-13T18:23:53.331759+00:00 Rectangular Envelope Co-Optimization
+- `RULE_RECTANGULAR_CELL_ENVELOPE` has been enforced in generated DFF candidates.
+- Best balanced rectangular candidate `DFF_RECT_LOCAL_Z2_ENV080` has predeclared envelope `3.53 x 5.735 um`, DRC/LVS PASS, internal boundary escape `0`.

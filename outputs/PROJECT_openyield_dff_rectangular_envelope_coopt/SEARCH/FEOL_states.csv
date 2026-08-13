@@ -1,0 +1,7 @@
+BOUNDARY_PIN_CONTRACT_GATE,CELL_GEOMETRY_CONTAINMENT_GATE,DRC,LVS,PREDECLARED_ENVELOPE_VS_FINAL_GDS,ROUTING_FOREST_GATE,candidate,envelope_area,envelope_height,envelope_width,gate_pitch,state_description,state_id,x_margin,y_margin
+PASS,PASS,DRC_PASS,LVS_PASS,PASS,REVIEW_REQUIRED,DFF_RECT_RIGHT_FOREST_REFERENCE,29.234163,5.735,5.0975,0.205,reference right-side routing forest,0,0.08,0.08
+PASS,PASS,DRC_PASS,LVS_PASS,PASS,PASS,DFF_RECT_LOCAL_Z2_ENV080,20.24455,5.735,3.53,0.205,small declared envelope around localized routing,1,0.08,0.08
+PASS,PASS,DRC_PASS,LVS_PASS,PASS,PASS,DFF_RECT_BAND_SHIFT_TS045_TP038,19.57385,5.545,3.53,0.205,access-band shifted inward; verified DRC/LVS pass from targeted counterexample search,2,0.08,0.08
+PASS,PASS,DRC_PASS,LVS_PASS,PASS,PASS,DFF_RECT_BAND_SHIFT_P266,19.96875,5.625,3.55,0.205,slightly taller shifted-band height class,3,0.09,0.09
+PASS,PASS,DRC_PASS,LVS_PASS,PASS,PASS,DFF_RECT_BAND_SHIFT_WIDE,21.611638,5.545,3.8975,0.205,wider shifted-band trunk spacing variant,4,0.08,0.08
+PASS,PASS,DRC_FAIL,LVS_PASS,PASS,PASS,DFF_RECT_GP180_COUNTEREXAMPLE,19.71505,5.585,3.53,0.18,height-class counterexample: tighter tracks violate M2 spacing,5,0.08,0.08
